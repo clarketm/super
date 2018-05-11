@@ -21,7 +21,7 @@ export class SuperSet extends Set {
    *
    * @param {Iterable} iterable
    */
-  constructor(iterable: Iterable<T>) {
+  constructor(iterable: Iterable) {
     super(iterable);
   }
 
