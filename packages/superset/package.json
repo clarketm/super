@@ -13,15 +13,6 @@
     "prettier": "prettier --write ./src/**/*.js ./test/**/*.js",
     "test": "mocha ./test/*"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write", "git add"],
-    "*.js": ["eslint --fix", "git add"]
-  },
   "keywords": ["javascript", "super", "superpowers", "Set", "polyfill"],
   "author": {
     "name": "Travis Clarke",
@@ -30,20 +21,5 @@
   },
   "license": "MIT",
   "homepage":
-    "https://github.com/clarketm/super/tree/master/packages/superset#readme",
-  "devDependencies": {
-    "@clarketm/babel-preset-super": "^1.0.1",
-    "@clarketm/eslint-config-super": "^1.0.1",
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.2.3",
-    "babel-minify": "^0.4.1",
-    "chai": "^4.1.2",
-    "eslint": "^4.19.1",
-    "husky": "^1.0.0-rc.4",
-    "lint-staged": "^7.1.0",
-    "mocha": "^5.1.1",
-    "prettier": "^1.12.1",
-    "shx": "^0.2.2",
-    "sinon": "^5.0.7"
-  }
+    "https://github.com/clarketm/super/tree/master/packages/superset#readme"
 }
