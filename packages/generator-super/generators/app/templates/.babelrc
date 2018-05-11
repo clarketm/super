@@ -1,0 +1,6 @@
+{
+  "presets": [
+    "@clarketm/babel-preset-super",
+    "minify"
+  ]
+}

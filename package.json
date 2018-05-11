@@ -1,0 +1,33 @@
+{
+  "name": "@clarketm/supertypes",
+  "version": "1.0.0",
+  "description": "JavaScript types with superpowers! 💪",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clarketm/super.git"
+  },
+  "keywords": [
+    "javascript",
+    "types",
+    "super",
+    "superpowers",
+    "map",
+    "set",
+    "object",
+    "string"
+  ],
+  "author": {
+    "name": "Travis Clarke",
+    "email": "travis.m.clarke@gmail.com",
+    "url": "https://www.travismclarke.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clarketm/super/issues"
+  },
+  "homepage": "https://github.com/clarketm/super#readme"
+}

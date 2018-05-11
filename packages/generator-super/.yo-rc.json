@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Travis Clarke",
+      "authorEmail": "travis.m.clarke@gmail.com",
+      "authorUrl": "https://www.travismclarke.com/"
+    }
+  }
+}
