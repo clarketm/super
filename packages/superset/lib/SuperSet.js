@@ -48,13 +48,13 @@ function _extendableBuiltin(a) {
     b
   );
 }
-var SuperSet = (function(a) {
-  function b() {
+var SuperSet = (exports.SuperSet = (function(a) {
+  function b(a) {
     return (
       _classCallCheck(this, b),
       _possibleConstructorReturn(
         this,
-        (b.__proto__ || Object.getPrototypeOf(b)).apply(this, arguments)
+        (b.__proto__ || Object.getPrototypeOf(b)).call(this, a)
       )
     );
   }
@@ -114,5 +114,4 @@ var SuperSet = (function(a) {
     ]),
     b
   );
-})(_extendableBuiltin(Set));
-exports.Set = SuperSet;
+})(_extendableBuiltin(Set)));

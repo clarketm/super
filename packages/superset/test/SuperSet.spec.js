@@ -1,17 +1,17 @@
 const { assert } = require("chai");
-const { Set } = require("../lib/Set");
+const { SuperSet } = require("../lib/SuperSet");
 
-describe("Set", () => {
+describe("SuperSet", () => {
   let setA, setB, expected, actual;
 
   beforeEach(() => {
-    setA = new Set([1, 2, 3]);
-    setB = new Set([2, 3, 4]);
+    setA = new SuperSet([1, 2, 3]);
+    setB = new SuperSet([2, 3, 4]);
   });
 
   describe("#union", () => {
     it("should perform a set union between two sets", () => {
-      expected = new Set([1, 2, 3, 4]);
+      expected = new SuperSet([1, 2, 3, 4]);
       actual = setA.union(setB);
 
       assert.deepEqual(actual, expected);
@@ -20,7 +20,7 @@ describe("Set", () => {
 
   describe("#intersection", () => {
     it("should perform a set `intersection` between two sets", () => {
-      expected = new Set([2, 3]);
+      expected = new SuperSet([2, 3]);
       actual = setA.intersection(setB);
 
       assert.deepEqual(actual, expected);
@@ -29,7 +29,7 @@ describe("Set", () => {
 
   describe("#difference", () => {
     it("should perform a set `difference` between two sets", () => {
-      expected = new Set([1]);
+      expected = new SuperSet([1]);
       actual = setA.difference(setB);
 
       assert.deepEqual(actual, expected);
@@ -38,7 +38,7 @@ describe("Set", () => {
 
   describe("#symmetricDifference", () => {
     it("should perform a set `symmetricDifference` between two sets", () => {
-      expected = new Set([1, 4]);
+      expected = new SuperSet([1, 4]);
       actual = setA.symmetricDifference(setB);
 
       assert.deepEqual(actual, expected);

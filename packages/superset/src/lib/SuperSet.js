@@ -1,5 +1,8 @@
+// @flow
+
 /**
  * @module superset
+ *
  */
 
 /**
@@ -10,59 +13,66 @@
  *
  * @extends {Set}
  */
-class SuperSet extends Set {
+export class SuperSet extends Set {
   /**
-   *
-   * Union of two sets
-   *
    * @public
    *
-   * @param {Set} set
+   * @desc Construct a Set
+   *
+   * @param {Iterable} iterable
+   */
+  constructor(iterable: Iterable<T>) {
+    super(iterable);
+  }
+
+  /**
+   * @public
+   *
+   * @desc Union of two sets
+   *
+   * @param {Set} set SetB
    * @returns {Set} Set union
    */
-  union(set) {
+  union(set: Set): Set {
     let union = new Set(this);
     set.forEach(v => union.add(v));
     return union;
   }
 
   /**
-   *
-   * Intersection of two sets
-   *
    * @public
    *
-   * @param {Set} set
+   * @desc Intersection of two sets
+   *
+   * @param {Set} set SetB
    * @returns {Set} Set intersection
    */
-  intersection(set) {
+  intersection(set: Set): Set {
     let intersection = new Set();
     set.forEach(v => this.has(v) && intersection.add(v));
     return intersection;
   }
 
   /**
-   *
-   * Difference of two sets
-   *
    * @public
    *
-   * @param {Set} set
+   * @desc Difference of two sets
+   *
+   * @param {Set} set SetB
    * @returns {Set} Set difference
    */
-  difference(set) {
+  difference(set: Set): Set {
     let difference = new Set(this);
     set.forEach(v => difference.delete(v));
     return difference;
   }
 
   /**
-   *
-   * Symmetric Difference of two sets
-   *
    * @public
    *
-   * @param {Set} set
+   * @desc Symmetric Difference of two sets
+   *
+   * @param {Set} set SetB
    * @returns {Set} Set symmetricDifference
    */
   symmetricDifference(set) {
@@ -74,4 +84,4 @@ class SuperSet extends Set {
   }
 }
 
-export { SuperSet as Set };
+// export { SuperSet as Set };
