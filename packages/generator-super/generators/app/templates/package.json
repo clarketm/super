@@ -1,0 +1,43 @@
+{
+  "name": "@clarketm/<%= name %>",
+  "version": "<%= version %>",
+  "description": "JavaScript <%= type %> with superpowers! 💪",
+  "main": "./lib/<%= type %>.js",
+  "directories": {
+    "lib": "./lib"
+  },
+  "scripts": {
+    "build": "shx rm -rf ./bin ./lib ; babel ./src --out-dir ./",
+    "lint": "eslint --fix ./src ./test",
+    "prep": "yarn prettier && yarn lint && yarn build",
+    "prettier": "prettier --write ./src/**/*.js ./test/**/*.js",
+    "test": "mocha ./test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clarketm/<%= name %>.git"
+  },
+  "keywords": ["javascript", "super", "superpowers", "<%= type %>", "polyfill"],
+  "author": {
+    "name": "Travis Clarke",
+    "email": "travis.m.clarke@gmail.com",
+    "url": "https://www.travismclarke.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clarketm/<%= name %>/issues"
+  },
+  "homepage": "https://github.com/clarketm/<%= name %>#readme",
+  "devDependencies": {
+    "@clarketm/babel-preset-super": "^1.0.1",
+    "@clarketm/eslint-config-super": "^1.0.1",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "mocha": "^5.1.1",
+    "prettier": "^1.12.1",
+    "shx": "^0.2.2",
+    "sinon": "^5.0.7"
+  }
+}

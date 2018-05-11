@@ -1,0 +1,27 @@
+{
+  "name": "@clarketm/eslint-config-super",
+  "version": "1.0.1",
+  "description": "ESLint config with superpowers! 💪",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clarketm/eslint-config-super.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "super"
+  ],
+  "author": "Travis Clarke <travis.m.clarke@gmail.com> (https://www.travismclarke.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clarketm/eslint-config-super/issues"
+  },
+  "homepage": "https://github.com/clarketm/eslint-config-super#readme",
+  "peerDependencies": {
+    "eslint": ">= 3"
+  }
+}
