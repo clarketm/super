@@ -1,0 +1,27 @@
+{
+  "name": "@clarketm/super",
+  "version": "1.0.0",
+  "description": "JavaScript with superpowers!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clarketm/super.git"
+  },
+  "keywords": [
+    "javascript",
+    "super",
+    "map",
+    "set",
+    "object",
+    "string"
+  ],
+  "author": "Travis Clarke <travis.m.clarke@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clarketm/super/issues"
+  },
+  "homepage": "https://github.com/clarketm/super#readme"
+}
