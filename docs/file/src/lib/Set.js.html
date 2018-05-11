@@ -48,7 +48,6 @@
  * @extends {Set}
  */
 class SuperSet extends Set {
-
   /**
    *
    * Union of two sets
@@ -58,11 +57,11 @@ class SuperSet extends Set {
    * @param {Set} set
    * @returns {Set} Set union
    */
-  union (set) {
+  union(set) {
     let union = new Set(this);
     set.forEach(v =&gt; union.add(v));
     return union;
-  };
+  }
 
   /**
    *
@@ -73,11 +72,11 @@ class SuperSet extends Set {
    * @param {Set} set
    * @returns {Set} Set intersection
    */
-  intersection (set) {
+  intersection(set) {
     let intersection = new Set();
     set.forEach(v =&gt; this.has(v) &amp;&amp; intersection.add(v));
     return intersection;
-  };
+  }
 
   /**
    *
@@ -88,11 +87,11 @@ class SuperSet extends Set {
    * @param {Set} set
    * @returns {Set} Set difference
    */
-  difference (set) {
+  difference(set) {
     let difference = new Set(this);
     set.forEach(v =&gt; difference.delete(v));
     return difference;
-  };
+  }
 
   /**
    *
@@ -103,14 +102,13 @@ class SuperSet extends Set {
    * @param {Set} set
    * @returns {Set} Set symmetricDifference
    */
-  symmetricDifference (set) {
+  symmetricDifference(set) {
     let sDifference = new Set(this);
     set.forEach(
       v =&gt; (this.has(v) &amp;&amp; sDifference.delete(v)) || sDifference.add(v)
     );
     return sDifference;
-  };
-
+  }
 }
 
 export { SuperSet as Set };

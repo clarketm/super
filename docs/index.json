@@ -615,7 +615,7 @@
     "kind": "file",
     "name": "src/lib/Set.js",
     "content":
-      "/**\n * @module superset\n */\n\n/**\n *\n * Set with superpowers! 💪\n *\n * @public\n *\n * @extends {Set}\n */\nclass SuperSet extends Set {\n\n  /**\n   *\n   * Union of two sets\n   *\n   * @public\n   *\n   * @param {Set} set\n   * @returns {Set} Set union\n   */\n  union (set) {\n    let union = new Set(this);\n    set.forEach(v => union.add(v));\n    return union;\n  };\n\n  /**\n   *\n   * Intersection of two sets\n   *\n   * @public\n   *\n   * @param {Set} set\n   * @returns {Set} Set intersection\n   */\n  intersection (set) {\n    let intersection = new Set();\n    set.forEach(v => this.has(v) && intersection.add(v));\n    return intersection;\n  };\n\n  /**\n   *\n   * Difference of two sets\n   *\n   * @public\n   *\n   * @param {Set} set\n   * @returns {Set} Set difference\n   */\n  difference (set) {\n    let difference = new Set(this);\n    set.forEach(v => difference.delete(v));\n    return difference;\n  };\n\n  /**\n   *\n   * Symmetric Difference of two sets\n   *\n   * @public\n   *\n   * @param {Set} set\n   * @returns {Set} Set symmetricDifference\n   */\n  symmetricDifference (set) {\n    let sDifference = new Set(this);\n    set.forEach(\n      v => (this.has(v) && sDifference.delete(v)) || sDifference.add(v)\n    );\n    return sDifference;\n  };\n\n}\n\nexport { SuperSet as Set };\n",
+      "/**\n * @module superset\n */\n\n/**\n *\n * Set with superpowers! 💪\n *\n * @public\n *\n * @extends {Set}\n */\nclass SuperSet extends Set {\n  /**\n   *\n   * Union of two sets\n   *\n   * @public\n   *\n   * @param {Set} set\n   * @returns {Set} Set union\n   */\n  union(set) {\n    let union = new Set(this);\n    set.forEach(v => union.add(v));\n    return union;\n  }\n\n  /**\n   *\n   * Intersection of two sets\n   *\n   * @public\n   *\n   * @param {Set} set\n   * @returns {Set} Set intersection\n   */\n  intersection(set) {\n    let intersection = new Set();\n    set.forEach(v => this.has(v) && intersection.add(v));\n    return intersection;\n  }\n\n  /**\n   *\n   * Difference of two sets\n   *\n   * @public\n   *\n   * @param {Set} set\n   * @returns {Set} Set difference\n   */\n  difference(set) {\n    let difference = new Set(this);\n    set.forEach(v => difference.delete(v));\n    return difference;\n  }\n\n  /**\n   *\n   * Symmetric Difference of two sets\n   *\n   * @public\n   *\n   * @param {Set} set\n   * @returns {Set} Set symmetricDifference\n   */\n  symmetricDifference(set) {\n    let sDifference = new Set(this);\n    set.forEach(\n      v => (this.has(v) && sDifference.delete(v)) || sDifference.add(v)\n    );\n    return sDifference;\n  }\n}\n\nexport { SuperSet as Set };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/superset/src/lib/Set.js",
     "access": "public",
@@ -649,7 +649,7 @@
     "longname": "src/lib/Set.js~SuperSet#union",
     "access": "public",
     "description": "\nUnion of two sets",
-    "lineNumber": 24,
+    "lineNumber": 23,
     "unknown": [
       {
         "tagName": "@returns",
@@ -684,7 +684,7 @@
     "longname": "src/lib/Set.js~SuperSet#intersection",
     "access": "public",
     "description": "\nIntersection of two sets",
-    "lineNumber": 39,
+    "lineNumber": 38,
     "unknown": [
       {
         "tagName": "@returns",
@@ -719,7 +719,7 @@
     "longname": "src/lib/Set.js~SuperSet#difference",
     "access": "public",
     "description": "\nDifference of two sets",
-    "lineNumber": 54,
+    "lineNumber": 53,
     "unknown": [
       {
         "tagName": "@returns",
@@ -754,7 +754,7 @@
     "longname": "src/lib/Set.js~SuperSet#symmetricDifference",
     "access": "public",
     "description": "\nSymmetric Difference of two sets",
-    "lineNumber": 69,
+    "lineNumber": 68,
     "unknown": [
       {
         "tagName": "@returns",
@@ -781,7 +781,7 @@
   {
     "kind": "index",
     "content":
-      "# Super\n\nJavaScript types with superpowers! 💪\n\n## Packages\n\n1.  [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme) – Babel preset with superpowers! 💪\n2.  [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme) – ESLint config with superpowers! 💪\n3.  [generator-super](https://github.com/clarketm/super/tree/master/packages/generator-super#readme) – Yeoman generator with superpowers! 💪\n",
+      "# Super\n\nJavaScript types with superpowers! 💪\n\n## Types\n\n1.  [Set](https://github.com/clarketm/super/tree/master/packages/superset#readme) – JavaScript Set with superpowers! 💪\n\n## Packages\n\n1.  [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme) – Babel preset with superpowers! 💪\n2.  [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme) – ESLint config with superpowers! 💪\n3.  [generator-super](https://github.com/clarketm/super/tree/master/packages/generator-super#readme) – Yeoman generator with superpowers! 💪\n",
     "longname": "/Users/clarketm/js/super/README.md",
     "name": "./README.md",
     "static": true,
@@ -790,7 +790,7 @@
   {
     "kind": "packageJSON",
     "content":
-      "{\n  \"name\": \"@clarketm/supertypes\",\n  \"version\": \"1.0.0\",\n  \"description\": \"JavaScript types with superpowers! 💪\",\n  \"main\": \"index.js\",\n  \"scripts\": {\n    \"docs\": \"shx rm -rf ./docs ; esdoc\",\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n  },\n  \"husky\": {\n    \"hooks\": {\n      \"pre-commit\": \"lint-staged\"\n    }\n  },\n  \"lint-staged\": {\n    \"*.{js,json,css,md}\": [\n      \"prettier --write\",\n      \"git add\"\n    ]\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/clarketm/super.git\"\n  },\n  \"keywords\": [\n    \"javascript\",\n    \"types\",\n    \"super\",\n    \"superpowers\",\n    \"map\",\n    \"set\",\n    \"object\",\n    \"string\"\n  ],\n  \"author\": {\n    \"name\": \"Travis Clarke\",\n    \"email\": \"travis.m.clarke@gmail.com\",\n    \"url\": \"https://www.travismclarke.com/\"\n  },\n  \"license\": \"MIT\",\n  \"bugs\": {\n    \"url\": \"https://github.com/clarketm/super/issues\"\n  },\n  \"homepage\": \"https://github.com/clarketm/super#readme\",\n  \"devDependencies\": {\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"husky\": \"^1.0.0-rc.4\",\n    \"lint-staged\": \"^7.1.0\",\n    \"prettier\": \"^1.12.1\",\n    \"shx\": \"^0.2.2\"\n  }\n}\n",
+      "{\n  \"name\": \"@clarketm/supertypes\",\n  \"version\": \"1.0.0\",\n  \"description\": \"JavaScript types with superpowers! 💪\",\n  \"main\": \"index.js\",\n  \"scripts\": {\n    \"docs\": \"shx rm -rf ./docs ; esdoc\",\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n  },\n  \"husky\": {\n    \"hooks\": {\n      \"pre-commit\": \"lint-staged\"\n    }\n  },\n  \"lint-staged\": {\n    \"*.{js,json,css,md}\": [\n      \"prettier --write\",\n      \"git add\"\n    ]\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/clarketm/super.git\"\n  },\n  \"keywords\": [\n    \"javascript\",\n    \"types\",\n    \"super\",\n    \"superpowers\",\n    \"map\",\n    \"set\",\n    \"object\",\n    \"string\"\n  ],\n  \"author\": {\n    \"name\": \"Travis Clarke\",\n    \"email\": \"travis.m.clarke@gmail.com\",\n    \"url\": \"https://www.travismclarke.com/\"\n  },\n  \"license\": \"MIT\",\n  \"bugs\": {\n    \"url\": \"https://github.com/clarketm/super/issues\"\n  },\n  \"homepage\": \"https://github.com/clarketm/super#readme\",\n  \"devDependencies\": {\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-publish-markdown-plugin\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"husky\": \"^1.0.0-rc.4\",\n    \"lint-staged\": \"^7.1.0\",\n    \"prettier\": \"^1.12.1\",\n    \"shx\": \"^0.2.2\"\n  }\n}\n",
     "longname": "/Users/clarketm/js/super/package.json",
     "name": "package.json",
     "static": true,
