@@ -4,7 +4,7 @@ JavaScript types with superpowers! 💪
 
 ## Types
 
-1.  [Set](https://github.com/clarketm/super/tree/master/packages/superset#readme) – JavaScript Set with superpowers! 💪
+1.  [SuperSet](https://github.com/clarketm/super/tree/master/packages/superset#readme) – JavaScript Set with superpowers! 💪
 
 ## Packages
 
