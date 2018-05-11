@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superset",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "JavaScript Set with superpowers! 💪",
   "main": "./lib/Set.js",
   "directories": {
@@ -10,6 +10,7 @@
     "build": "shx rm -rf ./bin ./lib ; babel ./src --out-dir ./",
     "lint": "eslint --fix ./src ./test",
     "prep": "yarn prettier && yarn lint && yarn build",
+    "prepublish": "yarn prep",
     "prettier": "prettier --write ./src/**/*.js ./test/**/*.js",
     "test": "mocha ./test/*"
   },
@@ -27,10 +28,9 @@
     "@clarketm/eslint-config-super": "^1.0.1",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.3",
-    "babel-minify": "^0.4.1",
-    "babel-plugin-transform-builtin-extend": "^1.1.2",
     "chai": "^4.1.2",
     "eslint": "^4.19.1",
+    "eslint-plugin-flowtype": "^2.46.3",
     "mocha": "^5.1.1",
     "prettier": "^1.12.1",
     "shx": "^0.2.2"
