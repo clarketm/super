@@ -9,6 +9,12 @@
           "enable": true
         }
       }
+    },
+    {
+      "name": "esdoc-publish-markdown-plugin",
+      "option": {
+        "filename": "README.md"
+      }
     }
   ]
 }
