@@ -1,0 +1,12 @@
+{
+  "coverage": "100%",
+  "expectCount": 5,
+  "actualCount": 5,
+  "files": {
+    "src/lib/Set.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    }
+  }
+}

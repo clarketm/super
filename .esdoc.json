@@ -1,0 +1,14 @@
+{
+  "source": "./packages/superset/src",
+  "destination": "./docs",
+  "plugins": [
+    {
+      "name": "esdoc-standard-plugin",
+      "option": {
+        "unexportedIdentifier": {
+          "enable": true
+        }
+      }
+    }
+  ]
+}
