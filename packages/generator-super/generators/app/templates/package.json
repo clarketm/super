@@ -13,10 +13,6 @@
     "prettier": "prettier --write ./src/**/*.js ./test/**/*.js",
     "test": "mocha ./test/*"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/clarketm/<%= name %>.git"
-  },
   "keywords": ["javascript", "super", "superpowers", "<%= type %>", "polyfill"],
   "author": {
     "name": "Travis Clarke",
@@ -24,10 +20,7 @@
     "url": "https://www.travismclarke.com/"
   },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/clarketm/<%= name %>/issues"
-  },
-  "homepage": "https://github.com/clarketm/<%= name %>#readme",
+  "homepage": "https://github.com/clarketm/super/tree/master/packages/<%= name %>#readme",
   "devDependencies": {
     "@clarketm/babel-preset-super": "^1.0.1",
     "@clarketm/eslint-config-super": "^1.0.1",
