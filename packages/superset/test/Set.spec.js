@@ -1,5 +1,5 @@
 const { assert } = require("chai");
-const Set = require("../lib/Set");
+const { Set } = require("../lib/Set");
 
 describe("Set", () => {
   let setA, setB, expected, actual;

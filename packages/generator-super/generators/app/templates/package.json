@@ -22,7 +22,7 @@
   "license": "MIT",
   "homepage":
     "https://github.com/clarketm/super/tree/master/packages/<%= name %>#readme",
-  "dependencies": {
+  "devDependencies": {
     "@clarketm/babel-preset-super": "^1.0.1",
     "@clarketm/eslint-config-super": "^1.0.1",
     "babel-cli": "^6.26.0",

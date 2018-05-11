@@ -2,5 +2,10 @@
   "presets": [
     "@clarketm/babel-preset-super",
     "minify"
+  ],
+  "plugins": [
+    ["babel-plugin-transform-builtin-extend", {
+      "globals": ["Set"]
+    }]
   ]
 }

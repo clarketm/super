@@ -22,12 +22,13 @@
   "license": "MIT",
   "homepage":
     "https://github.com/clarketm/super/tree/master/packages/superset#readme",
-  "dependencies": {
+  "devDependencies": {
     "@clarketm/babel-preset-super": "^1.0.1",
     "@clarketm/eslint-config-super": "^1.0.1",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.3",
     "babel-minify": "^0.4.1",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
     "chai": "^4.1.2",
     "eslint": "^4.19.1",
     "mocha": "^5.1.1",
