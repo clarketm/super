@@ -18,7 +18,11 @@
     "object",
     "string"
   ],
-  "author": "Travis Clarke <travis.m.clarke@gmail.com>",
+  "author": {
+    "name": "Travis Clarke",
+    "email": "travis.m.clarke@gmail.com",
+    "url": "https://www.travismclarke.com/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/clarketm/super/issues"
