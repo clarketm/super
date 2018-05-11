@@ -1,8 +1,8 @@
 {
   "name": "@clarketm/generator-super",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Yeoman generator with superpowers! 💪",
-  "homepage": "",
+  "homepage": "https://github.com/clarketm/super/tree/master/packages/generator-super#readme",
   "author": {
     "name": "Travis Clarke",
     "email": "travis.m.clarke@gmail.com",
@@ -63,6 +63,5 @@
     },
     "plugins": ["prettier"]
   },
-  "repository": "clarketm/generator-super",
   "license": "MIT"
 }
