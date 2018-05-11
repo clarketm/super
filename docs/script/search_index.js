@@ -1,8 +1,8 @@
 window.esdocSearchIndex = [
   [
-    "@clarketm/supertypes/src/lib/set.js~superset",
-    "class/src/lib/Set.js~SuperSet.html",
-    '<span>SuperSet</span> <span class="search-result-import-path">@clarketm/supertypes/src/lib/Set.js</span>',
+    "@clarketm/supertypes/src/lib/superset.js~superset",
+    "class/src/lib/SuperSet.js~SuperSet.html",
+    '<span>SuperSet</span> <span class="search-result-import-path">@clarketm/supertypes/src/lib/SuperSet.js</span>',
     "class"
   ],
   [
@@ -287,29 +287,40 @@ window.esdocSearchIndex = [
     "src/.external-ecmascript.js~undefined",
     "external"
   ],
-  ["src/lib/set.js", "file/src/lib/Set.js.html", "src/lib/Set.js", "file"],
   [
-    "src/lib/set.js~superset#difference",
-    "class/src/lib/Set.js~SuperSet.html#instance-method-difference",
-    "src/lib/Set.js~SuperSet#difference",
+    "src/lib/superset.js",
+    "file/src/lib/SuperSet.js.html",
+    "src/lib/SuperSet.js",
+    "file"
+  ],
+  [
+    "src/lib/superset.js~superset#constructor",
+    "class/src/lib/SuperSet.js~SuperSet.html#instance-constructor-constructor",
+    "src/lib/SuperSet.js~SuperSet#constructor",
     "method"
   ],
   [
-    "src/lib/set.js~superset#intersection",
-    "class/src/lib/Set.js~SuperSet.html#instance-method-intersection",
-    "src/lib/Set.js~SuperSet#intersection",
+    "src/lib/superset.js~superset#difference",
+    "class/src/lib/SuperSet.js~SuperSet.html#instance-method-difference",
+    "src/lib/SuperSet.js~SuperSet#difference",
     "method"
   ],
   [
-    "src/lib/set.js~superset#symmetricdifference",
-    "class/src/lib/Set.js~SuperSet.html#instance-method-symmetricDifference",
-    "src/lib/Set.js~SuperSet#symmetricDifference",
+    "src/lib/superset.js~superset#intersection",
+    "class/src/lib/SuperSet.js~SuperSet.html#instance-method-intersection",
+    "src/lib/SuperSet.js~SuperSet#intersection",
     "method"
   ],
   [
-    "src/lib/set.js~superset#union",
-    "class/src/lib/Set.js~SuperSet.html#instance-method-union",
-    "src/lib/Set.js~SuperSet#union",
+    "src/lib/superset.js~superset#symmetricdifference",
+    "class/src/lib/SuperSet.js~SuperSet.html#instance-method-symmetricDifference",
+    "src/lib/SuperSet.js~SuperSet#symmetricDifference",
+    "method"
+  ],
+  [
+    "src/lib/superset.js~superset#union",
+    "class/src/lib/SuperSet.js~SuperSet.html#instance-method-union",
+    "src/lib/SuperSet.js~SuperSet#union",
     "method"
   ]
 ];

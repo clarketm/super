@@ -41,8 +41,10 @@
   "homepage": "https://github.com/clarketm/super#readme",
   "devDependencies": {
     "esdoc": "^1.1.0",
+    "esdoc-flow-plugin": "^1.0.0",
     "esdoc-publish-markdown-plugin": "^1.1.0",
     "esdoc-standard-plugin": "^1.0.0",
+    "flow-bin": "^0.72.0",
     "husky": "^1.0.0-rc.4",
     "lint-staged": "^7.1.0",
     "prettier": "^1.12.1",

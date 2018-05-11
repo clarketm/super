@@ -15,6 +15,9 @@
       "option": {
         "filename": "README.md"
       }
+    },
+    {
+      "name": "esdoc-flow-plugin"
     }
   ]
 }

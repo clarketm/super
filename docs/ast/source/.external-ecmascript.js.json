@@ -1,29 +1,29 @@
 {
   "type": "File",
   "start": 0,
-  "end": 6058,
+  "end": 6057,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 193,
-      "column": 0
+      "line": 192,
+      "column": 3
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 6058,
+    "end": 6057,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 193,
-        "column": 0
+        "line": 192,
+        "column": 3
       }
     },
     "sourceType": "module",
@@ -2929,16 +2929,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 6058,
-      "end": 6058,
+      "start": 6057,
+      "end": 6057,
       "loc": {
         "start": {
-          "line": 193,
-          "column": 0
+          "line": 192,
+          "column": 3
         },
         "end": {
-          "line": 193,
-          "column": 0
+          "line": 192,
+          "column": 3
         }
       }
     }
