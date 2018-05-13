@@ -1,11 +1,11 @@
 # Super
 
-JavaScript types with superpowers! 💪
+Types with superpowers! 💪
 
 ## Types
 
-1.  [SuperSet](https://github.com/clarketm/super/tree/master/packages/superset#readme) – JavaScript Set with superpowers! 💪
-1.  [SuperMap](https://github.com/clarketm/super/tree/master/packages/supermap#readme) – JavaScript Map with superpowers! 💪
+1.  [SuperSet](https://github.com/clarketm/super/tree/master/packages/superset#readme) – Set with superpowers! 💪
+1.  [SuperMap](https://github.com/clarketm/super/tree/master/packages/supermap#readme) – Map with superpowers! 💪
 
 ## Packages
 

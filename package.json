@@ -1,7 +1,7 @@
 {
   "name": "@clarketm/supertypes",
   "version": "1.0.0",
-  "description": "JavaScript types with superpowers! 💪",
+  "description": "types with superpowers! 💪",
   "main": "index.js",
   "scripts": {
     "docs": "shx rm -rf ./docs ; esdoc",
