@@ -4,6 +4,38 @@ const { SuperSet } = require("../src/lib/SuperSet");
 describe("SuperSet", () => {
   let setA, setB, expected, actual;
 
+  describe("#some", () => {
+    it("should return true if the callback function returns a truthy value for any set element", () => {
+      expected = true;
+      actual = new SuperSet([1, 2, 3, 4]).some(value => value === 3);
+
+      assert.equal(actual, expected);
+    });
+
+    it("should return true if the callback function does not returns a truthy value for any set element", () => {
+      expected = false;
+      actual = new SuperSet([1, 2, 3, 4]).some(value => value > 6);
+
+      assert.equal(actual, expected);
+    });
+  });
+
+  describe("#every", () => {
+    it("should return true if the callback function returns a truthy value for every set element", () => {
+      expected = true;
+      actual = new SuperSet([1, 2, 3, 4]).every(value => value > 0);
+
+      assert.equal(actual, expected);
+    });
+
+    it("should return true if the callback function does not returns a truthy value for every set element", () => {
+      expected = false;
+      actual = new SuperSet([1, 2, 3, 4]).every(value => value === 9);
+
+      assert.equal(actual, expected);
+    });
+  });
+
   describe("membership", () => {
     describe("#isSubset", () => {
       it("should be a subset of setB", () => {

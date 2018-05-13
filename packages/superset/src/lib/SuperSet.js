@@ -6,6 +6,11 @@
  */
 
 /**
+ * @typedef {Function} Callback
+ */
+type Callback = (value1: any, value2: any, set: Set) => boolean;
+
+/**
  *
  * Set with superpowers! 💪
  *
@@ -23,6 +28,44 @@ export class SuperSet extends Set {
    */
   constructor(iterable: Iterable) {
     super(iterable);
+  }
+
+  /**
+   * @public
+   *
+   * @desc Tests whether at least one element in the set passes the test implemented by the provided function
+   *
+   * @param {Callback} callback - callback function
+   * @returns {boolean} true if the callback function returns a truthy value for any set element; otherwise, false
+   */
+  some(callback: (value1: any, value2: any, set: Set) => boolean): boolean {
+    let result;
+
+    for (let [value1, value2] of this.entries()) {
+      result = callback(value1, value2, this);
+      if (result) return true;
+    }
+
+    return false;
+  }
+
+  /**
+   * @public
+   *
+   * @desc Test whether all elements in the set pass the test implemented by the provided function
+   *
+   * @param {Callback} callback - callback function
+   * @returns {boolean} true if the callback function returns a truthy value for every set element; otherwise, false
+   */
+  every(callback: (value1: any, value2: any, set: Set) => boolean): boolean {
+    let result;
+
+    for (let [value1, value2] of this.entries()) {
+      result = callback(value1, value2, this);
+      if (!result) return false;
+    }
+
+    return true;
   }
 
   /**

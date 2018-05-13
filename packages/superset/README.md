@@ -6,6 +6,22 @@ Set with superpowers! 💪
 
 Construct a Set
 
+### `some(callback: Callback): boolean`
+
+Tests whether at least one element in the set passes the test implemented by the provided function
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| callback | Callback |  | callback function |
+
+### `every(callback: Callback): boolean`
+
+Test whether all elements in the set pass the test implemented by the provided function
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| callback | Callback |  | callback function |
+
 ### `isSubset(setB: Set): boolean`
 
 Subset of a set
