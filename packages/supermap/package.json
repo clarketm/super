@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/supermap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JavaScript Map with superpowers! 💪",
   "main": "./lib/Map.js",
   "directories": {
