@@ -1,11 +1,11 @@
 {
   "coverage": "100%",
-  "expectCount": 16,
-  "actualCount": 16,
+  "expectCount": 18,
+  "actualCount": 18,
   "files": {
     "packages/supermap/src/lib/SuperMap.js": {
-      "expectCount": 3,
-      "actualCount": 3,
+      "expectCount": 5,
+      "actualCount": 5,
       "undocumentLines": []
     },
     "packages/superobject/src/lib/SuperObject.js": {

@@ -24,9 +24,27 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "packages/supermap/src/lib/supermap.js~callback",
+    "typedef/index.html#static-typedef-Callback",
+    "packages/supermap/src/lib/SuperMap.js~Callback",
+    "typedef"
+  ],
+  [
     "packages/supermap/src/lib/supermap.js~supermap#constructor",
     "class/packages/supermap/src/lib/SuperMap.js~SuperMap.html#instance-constructor-constructor",
     "packages/supermap/src/lib/SuperMap.js~SuperMap#constructor",
+    "method"
+  ],
+  [
+    "packages/supermap/src/lib/supermap.js~supermap#every",
+    "class/packages/supermap/src/lib/SuperMap.js~SuperMap.html#instance-method-every",
+    "packages/supermap/src/lib/SuperMap.js~SuperMap#every",
+    "method"
+  ],
+  [
+    "packages/supermap/src/lib/supermap.js~supermap#some",
+    "class/packages/supermap/src/lib/SuperMap.js~SuperMap.html#instance-method-some",
+    "packages/supermap/src/lib/SuperMap.js~SuperMap#some",
     "method"
   ],
   [
