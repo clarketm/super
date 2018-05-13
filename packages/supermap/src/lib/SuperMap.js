@@ -10,7 +10,7 @@ import { PrimitiveType } from "../../../shared/src/constants";
 /**
  * @typedef {Function} Callback
  */
-type Callback = (value: any, key: any, map: Map) => boolean
+type Callback = (value: any, key: any, map: Map) => boolean;
 
 /**
  *
