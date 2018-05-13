@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "scripts": {
+    "lint": "eslint --fix ./src ./test",
+    "prettier": "prettier --write ./src/**/*.js ./test/**/*.js"
+  },
+  "keywords": ["utilities", "super"],
+  "author": {
+    "name": "Travis Clarke",
+    "email": "travis.m.clarke@gmail.com",
+    "url": "https://www.travismclarke.com/"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/clarketm/super/tree/master/packages/superset#readme",
+  "devDependencies": {
+    "@clarketm/babel-preset-super": "^1.0.1",
+    "@clarketm/eslint-config-super": "^1.0.1",
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-plugin-flowtype": "^2.46.3",
+    "prettier": "^1.12.1"
+  }
+}
