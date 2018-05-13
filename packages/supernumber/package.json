@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/supernumber",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Number with superpowers! 💪",
   "main": "./lib/Number.js",
   "directories": {
