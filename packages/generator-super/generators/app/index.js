@@ -84,7 +84,12 @@ module.exports = class extends Generator {
 
         this.fs.move(
           this.destinationPath(`${this.name}`, 'Type.js'),
-          this.destinationPath(`${this.name}`, `src/lib/${this.type}.js`)
+          this.destinationPath(`${this.name}`, `src/lib/Super${this.type}.js`)
+        );
+
+        this.fs.move(
+          this.destinationPath(`${this.name}`, 'Type.spec.js'),
+          this.destinationPath(`${this.name}`, `test/Super${this.type}.spec.js`)
         );
       }
     };
