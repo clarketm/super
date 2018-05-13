@@ -1,9 +1,14 @@
 {
   "coverage": "100%",
-  "expectCount": 8,
-  "actualCount": 8,
+  "expectCount": 11,
+  "actualCount": 11,
   "files": {
-    "src/lib/SuperSet.js": {
+    "packages/supermap/src/lib/SuperMap.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    },
+    "packages/superset/src/lib/SuperSet.js": {
       "expectCount": 8,
       "actualCount": 8,
       "undocumentLines": []

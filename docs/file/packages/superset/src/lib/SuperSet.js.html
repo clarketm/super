@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/lib/SuperSet.js | @clarketm/supertypes</title>
+  <base data-ice="baseUrl" href="../../../../../">
+  <title data-ice="title">packages/superset/src/lib/SuperSet.js | @clarketm/supertypes</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -29,12 +29,13 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lib">lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/lib/SuperSet.js~SuperSet.html">SuperSet</a></span></span></li>
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#supermap-src-lib">supermap/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/supermap/src/lib/SuperMap.js~SuperMap.html">SuperMap</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#superset-src-lib">superset/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/superset/src/lib/SuperSet.js~SuperSet.html">SuperSet</a></span></span></li>
 </ul>
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/lib/SuperSet.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">packages/superset/src/lib/SuperSet.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
 
 /**
@@ -58,7 +59,7 @@ export class SuperSet extends Set {
    *
    * @param {Iterable} iterable
    */
-  constructor (iterable: Iterable) {
+  constructor(iterable: Iterable) {
     super(iterable);
   }
 
@@ -70,7 +71,7 @@ export class SuperSet extends Set {
    * @param {Set} setB - SetB
    * @returns {boolean} setA is subset of setB
    */
-  isSubset (setB: Set): boolean {
+  isSubset(setB: Set): boolean {
     let setA = this;
 
     for (let v of setA) {
@@ -87,7 +88,7 @@ export class SuperSet extends Set {
    * @param {Set} setB - SetB
    * @returns {boolean} setA is superset of setB
    */
-  isSuperset (setB: Set): boolean {
+  isSuperset(setB: Set): boolean {
     let setA = this;
 
     for (let v of setB) {
@@ -104,7 +105,7 @@ export class SuperSet extends Set {
    * @param {Set} setB - SetB
    * @returns {Set} setC - union between setA and setB
    */
-  union (setB: Set): Set {
+  union(setB: Set): Set {
     let setA = this;
     let setC = new Set(setA);
 
@@ -123,7 +124,7 @@ export class SuperSet extends Set {
    * @param {Set} setB - SetB
    * @returns {Set} setC - intersection between setA and setB
    */
-  intersection (setB: Set): Set {
+  intersection(setB: Set): Set {
     let setA = this;
     let setC = new Set();
 
@@ -142,7 +143,7 @@ export class SuperSet extends Set {
    * @param {Set} setB - SetB
    * @returns {Set} setC - difference between setA and setB
    */
-  difference (setB: Set): Set {
+  difference(setB: Set): Set {
     let setA = this;
     let setC = new Set(setA);
 
@@ -161,7 +162,7 @@ export class SuperSet extends Set {
    * @param {Set} setB - SetB
    * @returns {Set} setC - difference difference between setA and setB
    */
-  symmetricDifference (setB: Set): Set {
+  symmetricDifference(setB: Set): Set {
     let setA = this;
     let setC = new Set(setA);
 
