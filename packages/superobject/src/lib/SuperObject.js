@@ -1,6 +1,7 @@
 // @flow
 
 import { InstanceType, PrimitiveType } from "../../../shared/src/constants";
+import type { Item } from "../../../shared/src/types";
 
 /**
  * @module superobject
@@ -15,22 +16,6 @@ import { InstanceType, PrimitiveType } from "../../../shared/src/constants";
 type Config = {
   includeNonEnumerable: ?boolean
 };
-
-/**
- * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
- */
-
-type Item =
-  | null
-  | undefined
-  | boolean
-  | number
-  | string
-  | Symbol
-  | Function
-  | Array
-  | Date
-  | Object;
 
 /**
  *
