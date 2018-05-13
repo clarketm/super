@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superset",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Set with superpowers! 💪",
   "main": "./lib/Set.js",
   "directories": {
