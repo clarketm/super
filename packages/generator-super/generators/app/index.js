@@ -56,7 +56,8 @@ module.exports = class extends Generator {
           'README.md',
           'package.json',
           'tgitignore',
-          'Type.js'
+          'Type.js',
+          'Type.spec.js',
         ];
 
         this.fs.copy(src, dest);
