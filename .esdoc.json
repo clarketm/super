@@ -1,5 +1,6 @@
 {
-  "source": "./packages/superset/src",
+  "source": "./packages/",
+  "includes": ["^super.*/src/lib/Super.*\\.js$"],
   "destination": "./docs",
   "plugins": [
     {
