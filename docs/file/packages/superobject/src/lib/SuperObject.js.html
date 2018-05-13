@@ -100,6 +100,15 @@ export class SuperObject extends Object {
    *
    * @param {Config} [config={}] Configuration object
    * @returns {object} Deep cloned Object
+   *
+   * @example
+   *
+   * const obj = new SuperObject({ key1: [&quot;1&quot;, 1, true, (a, b) =&gt; a+b], [Symbol(&quot;key2&quot;)]: {s: &quot;s&quot;} });
+   * const clone = obj.clone();
+   *
+   * console.log(clone);
+   * // { key1: [&quot;1&quot;, 1, true, (a, b) =&gt; a+b], Symbol(&quot;key2&quot;): {s: &quot;s&quot;} }
+   *
    */
   clone(config: Config = {}): Object {
     const { includeNonEnumerable = false } = config;

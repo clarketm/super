@@ -236,7 +236,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/superobject/src/lib/SuperObject.js.html#lineNumber45">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/superobject/src/lib/SuperObject.js.html#lineNumber54">source</a></span></span>
     </span>
   </h3>
 
@@ -292,7 +292,19 @@
 
   
 
-  
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">
+const obj = new SuperObject({ key1: [&quot;1&quot;, 1, true, (a, b) =&gt; a+b], [Symbol(&quot;key2&quot;)]: {s: &quot;s&quot;} });
+const clone = obj.clone();
+
+console.log(clone);
+// { key1: [&quot;1&quot;, 1, true, (a, b) =&gt; a+b], Symbol(&quot;key2&quot;): {s: &quot;s&quot;} }</code></pre>
+    </div>
+</div>
 
   
 
