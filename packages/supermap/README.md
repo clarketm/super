@@ -22,6 +22,15 @@ Test whether all elements in the map pass the test implemented by the provided f
 | --- | --- | --- | --- |
 | callback | Callback |  | callback function |
 
+### `setDefault(key: Item, defaultValue: Item): Item`
+
+Similar to get(), but will set key to defaultValue if key is not already in Map.
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| key | Item |  | Map key |
+| defaultValue | Item |  | the default value to set in Map if the key is not defined |
+
 ### `toObject(): object`
 
 Convert Map to an Object
