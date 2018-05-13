@@ -4,6 +4,70 @@ const { SuperObject } = require("../src/lib/SuperObject");
 describe("SuperObject", () => {
   let object, expected, actual;
 
+  describe("#hasNested", () => {
+    it("should return true if nested key exists", () => {
+      object = new SuperObject({
+        a: {
+          b: {
+            c: "value"
+          }
+        }
+      });
+
+      expected = true;
+      actual = object.hasNested("a.b.c");
+
+      assert.equal(actual, expected);
+    });
+
+    it("should return false if nested key does not exists", () => {
+      object = new SuperObject({
+        a: {
+          b: {
+            c: "value"
+          }
+        }
+      });
+
+      expected = false;
+      actual = object.hasNested("a.b.z");
+
+      assert.equal(actual, expected);
+    });
+  });
+
+  describe("#getNested", () => {
+    it("should retrieve property value if nested key exists", () => {
+      object = new SuperObject({
+        a: {
+          b: {
+            c: "value"
+          }
+        }
+      });
+
+      expected = "value";
+      actual = object.getNested("a.b.c");
+
+      assert.equal(actual, expected);
+    });
+
+    it("should return undefined if nested key does not exist", () => {
+      object = new SuperObject({
+        a: {
+          b: {
+            c: "value"
+          }
+        }
+      });
+
+      expected = undefined;
+      actual = object.getNested("a.b.z");
+
+      assert.equal(actual, expected);
+    });
+  });
+
   describe("#toObject", () => {
     it("should clone object with `null` value", () => {
       object = new SuperObject({ key: null });

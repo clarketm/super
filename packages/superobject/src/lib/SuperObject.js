@@ -55,6 +55,46 @@ export class SuperObject extends Object {
   /**
    * @public
    *
+   * @desc Check for nested value from string key
+   *
+   * @param {string} path
+   * @return {boolean} property value exists
+   */
+  hasNested(path: string) {
+    let item = this;
+    path = path.replace(/\[(\w+)\]/, ".$1").replace(/^\./, "");
+
+    const keys = path.split(".");
+    for (let key of keys) {
+      if (typeof item === PrimitiveType.OBJECT && key in item) item = item[key];
+      else return false;
+    }
+    return true;
+  }
+
+  /**
+   * @public
+   *
+   * @desc  Get nested JavaScript object value from string key
+   *
+   * @param {string} path
+   * @return {Item} property value
+   */
+  getNested = function(path) {
+    let item = this;
+    path = path.replace(/\[(\w+)\]/, ".$1").replace(/^\./, "");
+
+    const keys = path.split(".");
+    for (let key of keys) {
+      if (typeof item === PrimitiveType.OBJECT && key in item) item = item[key];
+      else return;
+    }
+    return item;
+  };
+
+  /**
+   * @public
+   *
    * @desc Deep clone an Object
    *
    * @param {Config} [config={}] Configuration object
