@@ -174,12 +174,6 @@ window.esdocSearchIndex = [
     "typedef"
   ],
   [
-    "packages/superobject/src/lib/superobject.js~item",
-    "typedef/index.html#static-typedef-Item",
-    "packages/superobject/src/lib/SuperObject.js~Item",
-    "typedef"
-  ],
-  [
     "packages/superobject/src/lib/superobject.js~superobject#clone",
     "class/packages/superobject/src/lib/SuperObject.js~SuperObject.html#instance-method-clone",
     "packages/superobject/src/lib/SuperObject.js~SuperObject#clone",

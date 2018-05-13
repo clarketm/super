@@ -40,7 +40,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RomanNumeralToIntegerMap">RomanNumeralToIntegerMap</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#superobject-src-lib">superobject/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/superobject/src/lib/SuperObject.js~SuperObject.html">SuperObject</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Config">Config</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Item">Item</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#superset-src-lib">superset/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/superset/src/lib/SuperSet.js~SuperSet.html">SuperSet</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#superstring-src-lib">superstring/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/superstring/src/lib/SuperString.js~SuperString.html">SuperString</a></span></span></li>
@@ -52,6 +51,7 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
 
 import { InstanceType, PrimitiveType } from &quot;../../../shared/src/constants&quot;;
+import type { Item } from &apos;../../../shared/src/types&apos;;
 
 /**
  * @module superobject
@@ -66,22 +66,6 @@ import { InstanceType, PrimitiveType } from &quot;../../../shared/src/constants&
 type Config = {
   includeNonEnumerable: ?boolean
 };
-
-/**
- * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
- */
-
-type Item =
-  | null
-  | undefined
-  | boolean
-  | number
-  | string
-  | Symbol
-  | Function
-  | Array
-  | Date
-  | Object;
 
 /**
  *
