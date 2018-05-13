@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">packages/supermath/src/lib/SuperMath.js | @clarketm/supertypes</title>
+  <title data-ice="title">packages/superstring/src/lib/SuperString.js | @clarketm/supertypes</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -45,37 +45,49 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">packages/supermath/src/lib/SuperMath.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">packages/superstring/src/lib/SuperString.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
 
 /**
- * @module supermath
+ * @module superstring
  *
  */
 
 /**
  *
- * Math with superpowers! &#x1F4AA;
+ * String with superpowers! &#x1F4AA;
  *
  * @public
  *
- * @alias Math
+ * @extends {String}
  */
-export const SuperMath = Object.create(Math);
+export class SuperString extends String {
+  /**
+   * @public
+   *
+   * @desc Construct a String
+   *
+   * @param {string} string
+   */
+  constructor(string: String) {
+    super(string);
+  }
 
-/**
- * @public
- *
- * @desc Factorial
- *
- * @param {number} num - integral number
- * @returns {number} factorial of num
- */
-SuperMath.factorial = function(num: number): Math {
-  if (num &lt; 0) throw new Error(&quot;Factorial not defined for negative values&quot;);
-  if (num === 0) return 1;
-  return num * SuperMath.factorial(num - 1);
-};
+  /**
+   * @public
+   *
+   * @desc Convert a string to title case
+   *
+   * @returns {string} Title cased string representation
+   */
+  toTitleCase(): String {
+    return this.split(&quot; &quot;)
+      .map(v =&gt; v &amp;&amp; v.charAt(0).toUpperCase() + v.substr(1).toLowerCase())
+      .join(&quot; &quot;);
+  }
+}
+
+// export { SuperString as String };
 </code></pre>
 
 </div>

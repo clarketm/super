@@ -1008,8 +1008,90 @@
     }
   },
   {
+    "__docId__": 36,
+    "kind": "file",
+    "name": "packages/superstring/src/lib/SuperString.js",
+    "content": "// @flow\n\n/**\n * @module superstring\n *\n */\n\n/**\n *\n * String with superpowers! 💪\n *\n * @public\n *\n * @extends {String}\n */\nexport class SuperString extends String {\n  /**\n   * @public\n   *\n   * @desc Construct a String\n   *\n   * @param {string} string\n   */\n  constructor(string: String) {\n    super(string);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert a string to title case\n   *\n   * @returns {string} Title cased string representation\n   */\n  toTitleCase(): String {\n    return this.split(\" \")\n      .map(v => v && v.charAt(0).toUpperCase() + v.substr(1).toLowerCase())\n      .join(\" \");\n  }\n}\n\n// export { SuperString as String };\n",
+    "static": true,
+    "longname": "/Users/clarketm/js/super/packages/superstring/src/lib/SuperString.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 37,
+    "kind": "class",
+    "name": "SuperString",
+    "memberof": "packages/superstring/src/lib/SuperString.js",
+    "static": true,
+    "longname": "packages/superstring/src/lib/SuperString.js~SuperString",
+    "access": "public",
+    "export": true,
+    "importPath": "@clarketm/supertypes/packages/superstring/src/lib/SuperString.js",
+    "importStyle": "{SuperString}",
+    "description": "\nString with superpowers! 💪",
+    "lineNumber": 16,
+    "interface": false,
+    "extends": [
+      "String"
+    ]
+  },
+  {
+    "__docId__": 38,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "packages/superstring/src/lib/SuperString.js~SuperString",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/superstring/src/lib/SuperString.js~SuperString#constructor",
+    "access": "public",
+    "description": "Construct a String",
+    "lineNumber": 24,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "string",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 39,
+    "kind": "method",
+    "name": "toTitleCase",
+    "memberof": "packages/superstring/src/lib/SuperString.js~SuperString",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/superstring/src/lib/SuperString.js~SuperString#toTitleCase",
+    "access": "public",
+    "description": "Convert a string to title case",
+    "lineNumber": 35,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{string} Title cased string representation"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "Title cased string representation"
+    },
+    "params": []
+  },
+  {
     "kind": "index",
-    "content": "# Super\n\n**Types** with superpowers! 💪\n\n## Types\n\n*  [SuperArray](https://github.com/clarketm/super/tree/master/packages/superarray#readme) – **Array** with superpowers! 💪\n*  [SuperObject](https://github.com/clarketm/super/tree/master/packages/superobject#readme) – **Object** with superpowers! 💪\n*  [SuperMap](https://github.com/clarketm/super/tree/master/packages/supermap#readme) – **Map** with superpowers! 💪\n*  [SuperSet](https://github.com/clarketm/super/tree/master/packages/superset#readme) – **Set** with superpowers! 💪\n\n## Packages\n\n*  [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme) – **Babel preset** with superpowers! 💪\n*  [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme) – **ESLint config** with superpowers! 💪\n*  [generator-super](https://github.com/clarketm/super/tree/master/packages/generator-super#readme) – **Yeoman generator** with superpowers! 💪\n",
+    "content": "# Super\n\n**Types** with superpowers! 💪\n\n## Types\n\n*  [SuperArray](https://github.com/clarketm/super/tree/master/packages/superarray#readme) – **Array** with superpowers! 💪\n*  [SuperObject](https://github.com/clarketm/super/tree/master/packages/superobject#readme) – **Object** with superpowers! 💪\n*  [SuperMap](https://github.com/clarketm/super/tree/master/packages/supermap#readme) – **Map** with superpowers! 💪\n*  [SuperMath](https://github.com/clarketm/super/tree/master/packages/supermath#readme) – **Math** with superpowers! 💪\n*  [SuperSet](https://github.com/clarketm/super/tree/master/packages/superset#readme) – **Set** with superpowers! 💪\n\n## Packages\n\n*  [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme) – **Babel preset** with superpowers! 💪\n*  [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme) – **ESLint config** with superpowers! 💪\n*  [generator-super](https://github.com/clarketm/super/tree/master/packages/generator-super#readme) – **Yeoman generator** with superpowers! 💪\n",
     "longname": "/Users/clarketm/js/super/README.md",
     "name": "./README.md",
     "static": true,

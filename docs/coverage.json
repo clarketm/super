@@ -1,7 +1,7 @@
 {
   "coverage": "100%",
-  "expectCount": 26,
-  "actualCount": 26,
+  "expectCount": 29,
+  "actualCount": 29,
   "files": {
     "packages/superarray/src/lib/SuperArray.js": {
       "expectCount": 4,
@@ -26,6 +26,11 @@
     "packages/superset/src/lib/SuperSet.js": {
       "expectCount": 10,
       "actualCount": 10,
+      "undocumentLines": []
+    },
+    "packages/superstring/src/lib/SuperString.js": {
+      "expectCount": 3,
+      "actualCount": 3,
       "undocumentLines": []
     }
   }

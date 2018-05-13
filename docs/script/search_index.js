@@ -30,6 +30,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@clarketm/supertypes/packages/superstring/src/lib/superstring.js~superstring",
+    "class/packages/superstring/src/lib/SuperString.js~SuperString.html",
+    "<span>SuperString</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/superstring/src/lib/SuperString.js</span>",
+    "class"
+  ],
+  [
     "@clarketm/supertypes/packages/supermath/src/lib/supermath.js~factorial",
     "function/index.html#static-function-factorial",
     "<span>factorial</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/supermath/src/lib/SuperMath.js</span>",
@@ -213,6 +219,24 @@ window.esdocSearchIndex = [
     "packages/superset/src/lib/superset.js~superset#union",
     "class/packages/superset/src/lib/SuperSet.js~SuperSet.html#instance-method-union",
     "packages/superset/src/lib/SuperSet.js~SuperSet#union",
+    "method"
+  ],
+  [
+    "packages/superstring/src/lib/superstring.js",
+    "file/packages/superstring/src/lib/SuperString.js.html",
+    "packages/superstring/src/lib/SuperString.js",
+    "file"
+  ],
+  [
+    "packages/superstring/src/lib/superstring.js~superstring#constructor",
+    "class/packages/superstring/src/lib/SuperString.js~SuperString.html#instance-constructor-constructor",
+    "packages/superstring/src/lib/SuperString.js~SuperString#constructor",
+    "method"
+  ],
+  [
+    "packages/superstring/src/lib/superstring.js~superstring#totitlecase",
+    "class/packages/superstring/src/lib/SuperString.js~SuperString.html#instance-method-toTitleCase",
+    "packages/superstring/src/lib/SuperString.js~SuperString#toTitleCase",
     "method"
   ]
 ]
