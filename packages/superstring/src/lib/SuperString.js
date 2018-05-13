@@ -28,6 +28,34 @@ export class SuperString extends String {
   /**
    * @public
    *
+   * @desc Transposes the ordering of all characters in the string
+   *
+   * @returns {string} String reversed
+   */
+  reverse(): String {
+    return this.split("")
+      .filter(s => s)
+      .reverse()
+      .join("");
+  }
+
+  /**
+   * @public
+   *
+   * @desc Transposes the ordering of the words in the string
+   *
+   * @returns {string} String with words reversed
+   */
+  reverseWords(): String {
+    return this.split(" ")
+      .filter(s => s)
+      .reverse()
+      .join(" ");
+  }
+
+  /**
+   * @public
+   *
    * @desc Convert a string to title case
    *
    * @returns {string} Title cased string representation
