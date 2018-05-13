@@ -1,8 +1,18 @@
+// @flow
+
 /**
  * @module <%= name %>
  *
  */
 
-// <%= type %>.prototype.superFunction = function () { };
+/**
+ *
+ * <%= type %> with superpowers! 💪
+ *
+ * @public
+ *
+ * @extends {<%= type %>}
+ */
+// export class Super<%= type %> extends <%= type %> {}
 
-// export default <%= type %>;
+// export { Super<%= type %> as <%= type %> };
