@@ -102,6 +102,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "packages/superset/src/lib/superset.js~callback",
+    "typedef/index.html#static-typedef-Callback",
+    "packages/superset/src/lib/SuperSet.js~Callback",
+    "typedef"
+  ],
+  [
     "packages/superset/src/lib/superset.js~superset#constructor",
     "class/packages/superset/src/lib/SuperSet.js~SuperSet.html#instance-constructor-constructor",
     "packages/superset/src/lib/SuperSet.js~SuperSet#constructor",
@@ -111,6 +117,12 @@ window.esdocSearchIndex = [
     "packages/superset/src/lib/superset.js~superset#difference",
     "class/packages/superset/src/lib/SuperSet.js~SuperSet.html#instance-method-difference",
     "packages/superset/src/lib/SuperSet.js~SuperSet#difference",
+    "method"
+  ],
+  [
+    "packages/superset/src/lib/superset.js~superset#every",
+    "class/packages/superset/src/lib/SuperSet.js~SuperSet.html#instance-method-every",
+    "packages/superset/src/lib/SuperSet.js~SuperSet#every",
     "method"
   ],
   [
@@ -129,6 +141,12 @@ window.esdocSearchIndex = [
     "packages/superset/src/lib/superset.js~superset#issuperset",
     "class/packages/superset/src/lib/SuperSet.js~SuperSet.html#instance-method-isSuperset",
     "packages/superset/src/lib/SuperSet.js~SuperSet#isSuperset",
+    "method"
+  ],
+  [
+    "packages/superset/src/lib/superset.js~superset#some",
+    "class/packages/superset/src/lib/SuperSet.js~SuperSet.html#instance-method-some",
+    "packages/superset/src/lib/SuperSet.js~SuperSet#some",
     "method"
   ],
   [

@@ -3,7 +3,7 @@
     "__docId__": 0,
     "kind": "file",
     "name": "packages/supermap/src/lib/SuperMap.js",
-    "content": "// @flow\n\nimport { PrimitiveType } from \"../../../shared/src/constants\";\n\n/**\n * @module supermap\n *\n */\n\n/**\n * @typedef {Function} Callback\n */\ntype Callback = (value: any, key: any, map: Map) => boolean\n\n/**\n *\n * Map with superpowers! 💪\n *\n * @public\n *\n * @extends {Map}\n */\nexport class SuperMap extends Map {\n  /**\n   * @public\n   *\n   * @desc Construct a Map\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable) {\n    super(iterable);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Tests whether at least one element in the map passes the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for any map element; otherwise, false\n   */\n  some(callback: (value: any, key: any, map: Map) => boolean): boolean {\n    let result;\n\n    for (let [key, value] of this.entries()) {\n      result = callback(value, key, this);\n      if (result) return true;\n    }\n\n    return false;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Test whether all elements in the map pass the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for every map element; otherwise, false\n   */\n  every(callback: (value: any, key: any, map: Map) => boolean): boolean {\n    let result;\n\n    for (let [key, value] of this.entries()) {\n      result = callback(value, key, this);\n      if (!result) return false;\n    }\n\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert Map to an Object\n   *\n   * @returns {object} Object representation of Map\n   */\n  toObject() {\n    return Array.from(this).reduce((obj, [key, value]) => {\n      if (typeof key !== PrimitiveType.OBJECT) {\n        obj[key] = value;\n      }\n      return obj;\n    }, {});\n  }\n}\n\n// export { SuperMap as Map };\n",
+    "content": "// @flow\n\nimport { PrimitiveType } from \"../../../shared/src/constants\";\n\n/**\n * @module supermap\n *\n */\n\n/**\n * @typedef {Function} Callback\n */\ntype Callback = (value: any, key: any, map: Map) => boolean;\n\n/**\n *\n * Map with superpowers! 💪\n *\n * @public\n *\n * @extends {Map}\n */\nexport class SuperMap extends Map {\n  /**\n   * @public\n   *\n   * @desc Construct a Map\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable) {\n    super(iterable);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Tests whether at least one element in the map passes the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for any map element; otherwise, false\n   */\n  some(callback: (value: any, key: any, map: Map) => boolean): boolean {\n    let result;\n\n    for (let [key, value] of this.entries()) {\n      result = callback(value, key, this);\n      if (result) return true;\n    }\n\n    return false;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Test whether all elements in the map pass the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for every map element; otherwise, false\n   */\n  every(callback: (value: any, key: any, map: Map) => boolean): boolean {\n    let result;\n\n    for (let [key, value] of this.entries()) {\n      result = callback(value, key, this);\n      if (!result) return false;\n    }\n\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert Map to an Object\n   *\n   * @returns {object} Object representation of Map\n   */\n  toObject() {\n    return Array.from(this).reduce((obj, [key, value]) => {\n      if (typeof key !== PrimitiveType.OBJECT) {\n        obj[key] = value;\n      }\n      return obj;\n    }, {});\n  }\n}\n\n// export { SuperMap as Map };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/supermap/src/lib/SuperMap.js",
     "access": "public",
@@ -401,7 +401,7 @@
     "__docId__": 15,
     "kind": "file",
     "name": "packages/superset/src/lib/SuperSet.js",
-    "content": "// @flow\n\n/**\n * @module superset\n *\n */\n\n/**\n *\n * Set with superpowers! 💪\n *\n * @public\n *\n * @extends {Set}\n */\nexport class SuperSet extends Set {\n  /**\n   * @public\n   *\n   * @desc Construct a Set\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable) {\n    super(iterable);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Subset of a set\n   *\n   * @param {Set} setB - SetB\n   * @returns {boolean} setA is subset of setB\n   */\n  isSubset(setB: Set): boolean {\n    let setA = this;\n\n    for (let v of setA) {\n      if (!setB.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Superset of a set\n   *\n   * @param {Set} setB - SetB\n   * @returns {boolean} setA is superset of setB\n   */\n  isSuperset(setB: Set): boolean {\n    let setA = this;\n\n    for (let v of setB) {\n      if (!setA.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Union of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - union between setA and setB\n   */\n  union(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Intersection of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - intersection between setA and setB\n   */\n  intersection(setB: Set): Set {\n    let setA = this;\n    let setC = new Set();\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Difference of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - difference between setA and setB\n   */\n  difference(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.delete(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Symmetric difference of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - difference difference between setA and setB\n   */\n  symmetricDifference(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.delete(v);\n      else setC.add(v);\n    }\n\n    return setC;\n  }\n}\n\n// export { SuperSet as Set };\n",
+    "content": "// @flow\n\n/**\n * @module superset\n *\n */\n\n/**\n * @typedef {Function} Callback\n */\ntype Callback = (value1: any, value2: any, set: Set) => boolean;\n\n/**\n *\n * Set with superpowers! 💪\n *\n * @public\n *\n * @extends {Set}\n */\nexport class SuperSet extends Set {\n  /**\n   * @public\n   *\n   * @desc Construct a Set\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable) {\n    super(iterable);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Tests whether at least one element in the set passes the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for any set element; otherwise, false\n   */\n  some(callback: (value1: any, value2: any, set: Set) => boolean): boolean {\n    let result;\n\n    for (let [value1, value2] of this.entries()) {\n      result = callback(value1, value2, this);\n      if (result) return true;\n    }\n\n    return false;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Test whether all elements in the set pass the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for every set element; otherwise, false\n   */\n  every(callback: (value1: any, value2: any, set: Set) => boolean): boolean {\n    let result;\n\n    for (let [value1, value2] of this.entries()) {\n      result = callback(value1, value2, this);\n      if (!result) return false;\n    }\n\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Subset of a set\n   *\n   * @param {Set} setB - SetB\n   * @returns {boolean} setA is subset of setB\n   */\n  isSubset(setB: Set): boolean {\n    let setA = this;\n\n    for (let v of setA) {\n      if (!setB.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Superset of a set\n   *\n   * @param {Set} setB - SetB\n   * @returns {boolean} setA is superset of setB\n   */\n  isSuperset(setB: Set): boolean {\n    let setA = this;\n\n    for (let v of setB) {\n      if (!setA.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Union of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - union between setA and setB\n   */\n  union(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Intersection of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - intersection between setA and setB\n   */\n  intersection(setB: Set): Set {\n    let setA = this;\n    let setC = new Set();\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Difference of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - difference between setA and setB\n   */\n  difference(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.delete(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Symmetric difference of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - difference difference between setA and setB\n   */\n  symmetricDifference(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.delete(v);\n      else setC.add(v);\n    }\n\n    return setC;\n  }\n}\n\n// export { SuperSet as Set };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/superset/src/lib/SuperSet.js",
     "access": "public",
@@ -420,7 +420,7 @@
     "importPath": "@clarketm/supertypes/packages/superset/src/lib/SuperSet.js",
     "importStyle": "{SuperSet}",
     "description": "\nSet with superpowers! 💪",
-    "lineNumber": 16,
+    "lineNumber": 11,
     "interface": false,
     "extends": [
       "Set"
@@ -428,6 +428,23 @@
   },
   {
     "__docId__": 17,
+    "kind": "typedef",
+    "name": "Callback",
+    "memberof": "packages/superset/src/lib/SuperSet.js",
+    "static": true,
+    "longname": "packages/superset/src/lib/SuperSet.js~Callback",
+    "access": "public",
+    "description": "",
+    "type": {
+      "types": [
+        "Function"
+      ],
+      "optional": false,
+      "name": "Callback"
+    }
+  },
+  {
+    "__docId__": 18,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -437,7 +454,7 @@
     "longname": "packages/superset/src/lib/SuperSet.js~SuperSet#constructor",
     "access": "public",
     "description": "Construct a Set",
-    "lineNumber": 24,
+    "lineNumber": 19,
     "params": [
       {
         "nullable": null,
@@ -452,7 +469,85 @@
     ]
   },
   {
-    "__docId__": 18,
+    "__docId__": 19,
+    "kind": "method",
+    "name": "some",
+    "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/superset/src/lib/SuperSet.js~SuperSet#some",
+    "access": "public",
+    "description": "Tests whether at least one element in the set passes the test implemented by the provided function",
+    "lineNumber": 31,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} true if the callback function returns a truthy value for any set element; otherwise, false"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Callback"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "callback function"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "true if the callback function returns a truthy value for any set element; otherwise, false"
+    }
+  },
+  {
+    "__docId__": 20,
+    "kind": "method",
+    "name": "every",
+    "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/superset/src/lib/SuperSet.js~SuperSet#every",
+    "access": "public",
+    "description": "Test whether all elements in the set pass the test implemented by the provided function",
+    "lineNumber": 50,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} true if the callback function returns a truthy value for every set element; otherwise, false"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Callback"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "callback function"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "true if the callback function returns a truthy value for every set element; otherwise, false"
+    }
+  },
+  {
+    "__docId__": 21,
     "kind": "method",
     "name": "isSubset",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -462,7 +557,7 @@
     "longname": "packages/superset/src/lib/SuperSet.js~SuperSet#isSubset",
     "access": "public",
     "description": "Subset of a set",
-    "lineNumber": 36,
+    "lineNumber": 69,
     "unknown": [
       {
         "tagName": "@returns",
@@ -491,7 +586,7 @@
     }
   },
   {
-    "__docId__": 19,
+    "__docId__": 22,
     "kind": "method",
     "name": "isSuperset",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -501,7 +596,7 @@
     "longname": "packages/superset/src/lib/SuperSet.js~SuperSet#isSuperset",
     "access": "public",
     "description": "Superset of a set",
-    "lineNumber": 53,
+    "lineNumber": 86,
     "unknown": [
       {
         "tagName": "@returns",
@@ -530,7 +625,7 @@
     }
   },
   {
-    "__docId__": 20,
+    "__docId__": 23,
     "kind": "method",
     "name": "union",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -540,7 +635,7 @@
     "longname": "packages/superset/src/lib/SuperSet.js~SuperSet#union",
     "access": "public",
     "description": "Union of setA and setB",
-    "lineNumber": 70,
+    "lineNumber": 103,
     "unknown": [
       {
         "tagName": "@returns",
@@ -569,7 +664,7 @@
     }
   },
   {
-    "__docId__": 21,
+    "__docId__": 24,
     "kind": "method",
     "name": "intersection",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -579,7 +674,7 @@
     "longname": "packages/superset/src/lib/SuperSet.js~SuperSet#intersection",
     "access": "public",
     "description": "Intersection of setA and setB",
-    "lineNumber": 89,
+    "lineNumber": 122,
     "unknown": [
       {
         "tagName": "@returns",
@@ -608,7 +703,7 @@
     }
   },
   {
-    "__docId__": 22,
+    "__docId__": 25,
     "kind": "method",
     "name": "difference",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -618,7 +713,7 @@
     "longname": "packages/superset/src/lib/SuperSet.js~SuperSet#difference",
     "access": "public",
     "description": "Difference of setA and setB",
-    "lineNumber": 108,
+    "lineNumber": 141,
     "unknown": [
       {
         "tagName": "@returns",
@@ -647,7 +742,7 @@
     }
   },
   {
-    "__docId__": 23,
+    "__docId__": 26,
     "kind": "method",
     "name": "symmetricDifference",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -657,7 +752,7 @@
     "longname": "packages/superset/src/lib/SuperSet.js~SuperSet#symmetricDifference",
     "access": "public",
     "description": "Symmetric difference of setA and setB",
-    "lineNumber": 127,
+    "lineNumber": 160,
     "unknown": [
       {
         "tagName": "@returns",
