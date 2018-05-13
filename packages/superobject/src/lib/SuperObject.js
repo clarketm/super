@@ -1,0 +1,125 @@
+// @flow
+
+import { InstanceType, PrimitiveType } from "../../../shared/src/constants";
+
+/**
+ * @module superobject
+ *
+ */
+
+/**
+ * @typedef {object} Config
+ * @property {boolean} [includeNonEnumerable=false]
+ */
+
+type Config = {
+  includeNonEnumerable: ?boolean
+};
+
+/**
+ * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
+ */
+
+type Item =
+  | null
+  | undefined
+  | boolean
+  | number
+  | string
+  | Symbol
+  | Function
+  | Array
+  | Date
+  | Object;
+
+/**
+ *
+ * Object with superpowers! 💪
+ *
+ * @public
+ *
+ * @extends {Object}
+ */
+export class SuperObject extends Object {
+  /**
+   * @public
+   *
+   * @desc Construct an Object
+   *
+   * @param {Object} object
+   */
+  constructor(object: Object) {
+    super(object);
+  }
+
+  /**
+   * @public
+   *
+   * @desc Deep clone an Object
+   *
+   * @param {Config} [config={}] Configuration object
+   * @returns {object} Deep cloned Object
+   *
+   * @example
+   *
+   * const obj = new SuperObject({ key1: ["1", 1, true, (a, b) => a+b], [Symbol("key2")]: {s: "s"} });
+   * const clone = obj.clone();
+   *
+   * console.log(clone);
+   * // { key1: ["1", 1, true, (a, b) => a+b], Symbol("key2"): {s: "s"} }
+   *
+   */
+  clone(config: Config = {}): Object {
+    const { includeNonEnumerable = false } = config;
+
+    /**
+     * @private
+     *
+     * @desc Deep clone helper
+     *
+     * @param {Item} item
+     * @returns {any} cloned item
+     */
+    function _clone(item: Item): Item {
+      if (item === null || typeof item !== PrimitiveType.OBJECT) {
+        return item;
+      }
+
+      if (item instanceof InstanceType.DATE) {
+        return new Date(item.valueOf());
+      }
+
+      if (item instanceof InstanceType.ARRAY) {
+        let copy = [];
+
+        item.forEach((_, i) => (copy[i] = _clone(item[i])));
+
+        return copy;
+      }
+
+      if (item instanceof InstanceType.OBJECT) {
+        let copy = {};
+
+        Object.getOwnPropertySymbols(item).forEach(
+          s => (copy[s] = _clone(item[s]))
+        );
+
+        if (includeNonEnumerable) {
+          Object.getOwnPropertyNames(item).forEach(
+            k => (copy[k] = _clone(item[k]))
+          );
+        } else {
+          Object.keys(item).forEach(k => (copy[k] = _clone(item[k])));
+        }
+
+        return copy;
+      }
+
+      throw new Error(`Unable to copy object: ${item}`);
+    }
+
+    return _clone(this, config);
+  }
+}
+
+// export { SuperObject as Object };
