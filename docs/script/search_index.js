@@ -114,6 +114,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "packages/supermap/src/lib/supermap.js~supermap#setdefault",
+    "class/packages/supermap/src/lib/SuperMap.js~SuperMap.html#instance-method-setDefault",
+    "packages/supermap/src/lib/SuperMap.js~SuperMap#setDefault",
+    "method"
+  ],
+  [
     "packages/supermap/src/lib/supermap.js~supermap#some",
     "class/packages/supermap/src/lib/SuperMap.js~SuperMap.html#instance-method-some",
     "packages/supermap/src/lib/SuperMap.js~SuperMap#some",

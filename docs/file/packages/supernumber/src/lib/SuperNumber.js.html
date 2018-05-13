@@ -118,6 +118,7 @@ export class SuperNumber extends Number {
    */
   static fromRomanNumeral(str: string): Number {
     function _romanToInteger(num, result = 0) {
+      // TODO: reduce iterations
       for (let [roman, int] of RomanNumeralToIntegerMap) {
         if (num.slice(0, roman.length) === roman) {
           return _romanToInteger(num.slice(roman.length), result + int);
@@ -137,6 +138,7 @@ export class SuperNumber extends Number {
    */
   toRomanNumeral(): String {
     function _integerToRoman(num, result = &quot;&quot;) {
+      // TODO: reduce iterations
       for (let [int, roman] of IntegerToRomanNumeralMap) {
         if (num &gt;= int) return _integerToRoman(num - int, result + roman);
       }

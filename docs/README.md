@@ -48,6 +48,15 @@ Test whether all elements in the map pass the test implemented by the provided f
 | --- | --- | --- | --- |
 | callback | Callback |  | callback function |
 
+### `setDefault(key: *, defaultValue: undefined): any`
+
+Similar to get(), but will set key to defaultValue if key is not already in Map.
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| key | * | nullable: undefined |
+| defaultValue | undefined | nullable: undefined, optional: true, default: undefined |
+
 ### `toObject(): object`
 
 Convert Map to an Object
