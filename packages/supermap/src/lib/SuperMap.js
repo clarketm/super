@@ -1,6 +1,7 @@
 // @flow
 
 import { PrimitiveType } from "../../../shared/src/constants";
+import type { Item } from "../../../shared/src/types";
 
 /**
  * @module supermap
@@ -75,9 +76,11 @@ export class SuperMap extends Map {
    *
    * @desc Similar to get(), but will set key to defaultValue if key is not already in Map.
    *
-   * @returns {any} The value if the key is defined in Map; otherwise, the default value
+   * @param {Item} key - Map key
+   * @param {Item} defaultValue - the default value to set in Map if the key is not defined
+   * @returns {Item} The value if the key is defined in Map; otherwise, the default value
    */
-  setDefault(key: any, defaultValue: any = null): any {
+  setDefault(key: Item, defaultValue: Item): Item {
     if (this.has(key)) {
       return this.get(key);
     } else {
