@@ -234,6 +234,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "packages/superstring/src/lib/superstring.js~superstring#reverse",
+    "class/packages/superstring/src/lib/SuperString.js~SuperString.html#instance-method-reverse",
+    "packages/superstring/src/lib/SuperString.js~SuperString#reverse",
+    "method"
+  ],
+  [
+    "packages/superstring/src/lib/superstring.js~superstring#reversewords",
+    "class/packages/superstring/src/lib/SuperString.js~SuperString.html#instance-method-reverseWords",
+    "packages/superstring/src/lib/SuperString.js~SuperString#reverseWords",
+    "method"
+  ],
+  [
     "packages/superstring/src/lib/superstring.js~superstring#totitlecase",
     "class/packages/superstring/src/lib/SuperString.js~SuperString.html#instance-method-toTitleCase",
     "packages/superstring/src/lib/SuperString.js~SuperString#toTitleCase",

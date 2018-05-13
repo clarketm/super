@@ -167,6 +167,20 @@ String with superpowers! 💪
 
 Construct a String
 
+### `reverse(): string`
+
+Transposes the ordering of all characters in the string
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `reverseWords(): string`
+
+Transposes the ordering of the words in the string
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
 ### `toTitleCase(): string`
 
 Convert a string to title case
