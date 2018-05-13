@@ -60,8 +60,9 @@ export class SuperObject extends Object {
    * @param {string} path
    * @return {boolean} property value exists
    */
-  hasNested(path: string) {
+  hasNested(path: string): boolean {
     let item = this;
+    // TODO: throw error on invalid path
     path = path.replace(/\[(\w+)\]/, ".$1").replace(/^\./, "");
 
     const keys = path.split(".");
@@ -80,8 +81,9 @@ export class SuperObject extends Object {
    * @param {string} path
    * @return {Item} property value
    */
-  getNested = function(path) {
+  getNested(path: string): Item {
     let item = this;
+    // TODO: throw error on invalid path
     path = path.replace(/\[(\w+)\]/, ".$1").replace(/^\./, "");
 
     const keys = path.split(".");
@@ -90,7 +92,7 @@ export class SuperObject extends Object {
       else return;
     }
     return item;
-  };
+  }
 
   /**
    * @public
