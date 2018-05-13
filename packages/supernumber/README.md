@@ -1,0 +1,3 @@
+# SuperNumber
+
+Number with superpowers! 💪
