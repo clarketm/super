@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">SuperObject | @clarketm/supertypes</title>
+  <title data-ice="title">SuperArray | @clarketm/supertypes</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -43,23 +43,23 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {SuperObject} from &apos;<span><a href="file/packages/superobject/src/lib/SuperObject.js.html#lineNumber25">@clarketm/supertypes/packages/superobject/src/lib/SuperObject.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {SuperArray} from &apos;<span><a href="file/packages/superarray/src/lib/SuperArray.js.html#lineNumber11">@clarketm/supertypes/packages/superarray/src/lib/SuperArray.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/packages/superobject/src/lib/SuperObject.js.html#lineNumber25">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/packages/superarray/src/lib/SuperArray.js.html#lineNumber11">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">SuperObject</h1>
+  <h1 data-ice="name">SuperArray</h1>
 
   
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>Object</span> &#x2192; SuperObject</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>Array</span> &#x2192; SuperArray</div></div>
   
   
   
@@ -69,7 +69,7 @@
 
   
   
-  <div class="description" data-ice="description"><p>Object with superpowers! &#x1F4AA;</p>
+  <div class="description" data-ice="description"><p>Array with superpowers! &#x1F4AA;</p>
 </div>
   
 
@@ -102,13 +102,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/superobject/src/lib/SuperObject.js~SuperObject.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(object: <span>Object</span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/packages/superarray/src/lib/SuperArray.js~SuperArray.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(iterable: <span>Iterable</span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Construct an Object</p>
+        <div data-ice="description"><p>Construct a Array</p>
 </div>
       </div>
     </td>
@@ -139,13 +139,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/superobject/src/lib/SuperObject.js~SuperObject.html#instance-method-clone">clone</a></span></span><span class="code" data-ice="signature">(config: <span><a href="typedef/index.html#static-typedef-Config">Config</a></span>): <span>object</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/superarray/src/lib/SuperArray.js~SuperArray.html#instance-method-flatMap">flatMap</a></span></span><span class="code" data-ice="signature">(callback: <span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span>): <span>Array</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Deep clone an Object</p>
+        <div data-ice="description"><p>Maps each element using a mapping function, then flattens the result into a new array</p>
 </div>
       </div>
     </td>
@@ -168,42 +168,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/superobject/src/lib/SuperObject.js~SuperObject.html#instance-method-getNested">getNested</a></span></span><span class="code" data-ice="signature">(path: <span>string</span>): <span><a href="typedef/index.html#static-typedef-Item">Item</a></span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/superarray/src/lib/SuperArray.js~SuperArray.html#instance-method-flatten">flatten</a></span></span><span class="code" data-ice="signature">(depth: <span>number</span>): <span>Array</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p> Get nested JavaScript object value from string key</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/superobject/src/lib/SuperObject.js~SuperObject.html#instance-method-hasNested">hasNested</a></span></span><span class="code" data-ice="signature">(path: <span>string</span>): <span>boolean</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Check for nested value from string key</p>
+        <div data-ice="description"><p>Creates a new array with all sub-array elements concatted into it recursively up to the specified depth</p>
 </div>
       </div>
     </td>
@@ -230,18 +201,18 @@
     
     
     
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(object: <span>Object</span>)</span>
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(iterable: <span>Iterable</span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/superobject/src/lib/SuperObject.js.html#lineNumber33">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/superarray/src/lib/SuperArray.js.html#lineNumber19">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Construct an Object</p>
+  <div data-ice="description"><p>Construct a Array</p>
 </div>
 
   
@@ -255,8 +226,8 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">object</td>
-      <td data-ice="type" class="code"><span>Object</span></td>
+      <td data-ice="name" class="code" data-depth="0">iterable</td>
+      <td data-ice="type" class="code"><span>Iterable</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
     </tr>
@@ -287,25 +258,25 @@
 <div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-clone">
+  <h3 data-ice="anchor" id="instance-method-flatMap">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">clone</span><span class="code" data-ice="signature">(config: <span><a href="typedef/index.html#static-typedef-Config">Config</a></span>): <span>object</span></span>
+    <span class="code" data-ice="name">flatMap</span><span class="code" data-ice="signature">(callback: <span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span>): <span>Array</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/superobject/src/lib/SuperObject.js.html#lineNumber94">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/superarray/src/lib/SuperArray.js.html#lineNumber32">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Deep clone an Object</p>
+  <div data-ice="description"><p>Maps each element using a mapping function, then flattens the result into a new array</p>
 </div>
 
   
@@ -319,97 +290,11 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">config</td>
-      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-Config">Config</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: {}</li></ul></td>
-      <td data-ice="description"><p>Configuration object</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>object</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>Deep cloned Object</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  <div data-ice="example">
-    <h4>Example:</h4>
-    
-  <div class="example-doc" data-ice="exampleDoc">
-      
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">
-const obj = new SuperObject({ key1: [&quot;1&quot;, 1, true, (a, b) =&gt; a+b], [Symbol(&quot;key2&quot;)]: {s: &quot;s&quot;} });
-const clone = obj.clone();
-
-console.log(clone);
-// { key1: [&quot;1&quot;, 1, true, (a, b) =&gt; a+b], Symbol(&quot;key2&quot;): {s: &quot;s&quot;} }</code></pre>
-    </div>
-</div>
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-getNested">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">getNested</span><span class="code" data-ice="signature">(path: <span>string</span>): <span><a href="typedef/index.html#static-typedef-Item">Item</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/superobject/src/lib/SuperObject.js.html#lineNumber65">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p> Get nested JavaScript object value from string key</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">path</td>
-      <td data-ice="type" class="code"><span>string</span></td>
+      <td data-ice="name" class="code" data-depth="0">callback</td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>callback function</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -421,8 +306,8 @@ console.log(clone);
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="typedef/index.html#static-typedef-Item">Item</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>property value</p>
+          <td class="return-type code" data-ice="returnType"><span>Array</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>A new array with each element being the result of the callback function and flattened to a depth of 1</p>
 </td>
         </tr>
       </tbody>
@@ -447,25 +332,25 @@ console.log(clone);
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-hasNested">
+  <h3 data-ice="anchor" id="instance-method-flatten">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">hasNested</span><span class="code" data-ice="signature">(path: <span>string</span>): <span>boolean</span></span>
+    <span class="code" data-ice="name">flatten</span><span class="code" data-ice="signature">(depth: <span>number</span>): <span>Array</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/superobject/src/lib/SuperObject.js.html#lineNumber45">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/superarray/src/lib/SuperArray.js.html#lineNumber44">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Check for nested value from string key</p>
+  <div data-ice="description"><p>Creates a new array with all sub-array elements concatted into it recursively up to the specified depth</p>
 </div>
 
   
@@ -479,10 +364,11 @@ console.log(clone);
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">path</td>
-      <td data-ice="type" class="code"><span>string</span></td>
+      <td data-ice="name" class="code" data-depth="0">depth</td>
+      <td data-ice="type" class="code"><span>number</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>flatten depth</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -494,8 +380,8 @@ console.log(clone);
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>boolean</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>property value exists</p>
+          <td class="return-type code" data-ice="returnType"><span>Array</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>new array with the sub-array elements concatted into it.</p>
 </td>
         </tr>
       </tbody>

@@ -1,5 +1,11 @@
 window.esdocSearchIndex = [
   [
+    "@clarketm/supertypes/packages/superarray/src/lib/superarray.js~superarray",
+    "class/packages/superarray/src/lib/SuperArray.js~SuperArray.html",
+    "<span>SuperArray</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/superarray/src/lib/SuperArray.js</span>",
+    "class"
+  ],
+  [
     "@clarketm/supertypes/packages/supermap/src/lib/supermap.js~supermap",
     "class/packages/supermap/src/lib/SuperMap.js~SuperMap.html",
     "<span>SuperMap</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/supermap/src/lib/SuperMap.js</span>",
@@ -16,6 +22,36 @@ window.esdocSearchIndex = [
     "class/packages/superset/src/lib/SuperSet.js~SuperSet.html",
     "<span>SuperSet</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/superset/src/lib/SuperSet.js</span>",
     "class"
+  ],
+  [
+    "packages/superarray/src/lib/superarray.js",
+    "file/packages/superarray/src/lib/SuperArray.js.html",
+    "packages/superarray/src/lib/SuperArray.js",
+    "file"
+  ],
+  [
+    "packages/superarray/src/lib/superarray.js~callback",
+    "typedef/index.html#static-typedef-Callback",
+    "packages/superarray/src/lib/SuperArray.js~Callback",
+    "typedef"
+  ],
+  [
+    "packages/superarray/src/lib/superarray.js~superarray#constructor",
+    "class/packages/superarray/src/lib/SuperArray.js~SuperArray.html#instance-constructor-constructor",
+    "packages/superarray/src/lib/SuperArray.js~SuperArray#constructor",
+    "method"
+  ],
+  [
+    "packages/superarray/src/lib/superarray.js~superarray#flatmap",
+    "class/packages/superarray/src/lib/SuperArray.js~SuperArray.html#instance-method-flatMap",
+    "packages/superarray/src/lib/SuperArray.js~SuperArray#flatMap",
+    "method"
+  ],
+  [
+    "packages/superarray/src/lib/superarray.js~superarray#flatten",
+    "class/packages/superarray/src/lib/SuperArray.js~SuperArray.html#instance-method-flatten",
+    "packages/superarray/src/lib/SuperArray.js~SuperArray#flatten",
+    "method"
   ],
   [
     "packages/supermap/src/lib/supermap.js",
