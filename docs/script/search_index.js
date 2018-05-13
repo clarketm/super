@@ -6,6 +6,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@clarketm/supertypes/packages/superobject/src/lib/superobject.js~superobject",
+    "class/packages/superobject/src/lib/SuperObject.js~SuperObject.html",
+    "<span>SuperObject</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/superobject/src/lib/SuperObject.js</span>",
+    "class"
+  ],
+  [
     "@clarketm/supertypes/packages/superset/src/lib/superset.js~superset",
     "class/packages/superset/src/lib/SuperSet.js~SuperSet.html",
     "<span>SuperSet</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/superset/src/lib/SuperSet.js</span>",
@@ -27,6 +33,36 @@ window.esdocSearchIndex = [
     "packages/supermap/src/lib/supermap.js~supermap#toobject",
     "class/packages/supermap/src/lib/SuperMap.js~SuperMap.html#instance-method-toObject",
     "packages/supermap/src/lib/SuperMap.js~SuperMap#toObject",
+    "method"
+  ],
+  [
+    "packages/superobject/src/lib/superobject.js",
+    "file/packages/superobject/src/lib/SuperObject.js.html",
+    "packages/superobject/src/lib/SuperObject.js",
+    "file"
+  ],
+  [
+    "packages/superobject/src/lib/superobject.js~config",
+    "typedef/index.html#static-typedef-Config",
+    "packages/superobject/src/lib/SuperObject.js~Config",
+    "typedef"
+  ],
+  [
+    "packages/superobject/src/lib/superobject.js~item",
+    "typedef/index.html#static-typedef-Item",
+    "packages/superobject/src/lib/SuperObject.js~Item",
+    "typedef"
+  ],
+  [
+    "packages/superobject/src/lib/superobject.js~superobject#clone",
+    "class/packages/superobject/src/lib/SuperObject.js~SuperObject.html#instance-method-clone",
+    "packages/superobject/src/lib/SuperObject.js~SuperObject#clone",
+    "method"
+  ],
+  [
+    "packages/superobject/src/lib/superobject.js~superobject#constructor",
+    "class/packages/superobject/src/lib/SuperObject.js~SuperObject.html#instance-constructor-constructor",
+    "packages/superobject/src/lib/SuperObject.js~SuperObject#constructor",
     "method"
   ],
   [

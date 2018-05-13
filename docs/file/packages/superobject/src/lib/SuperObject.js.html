@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">packages/supermap/src/lib/SuperMap.js | @clarketm/supertypes</title>
+  <title data-ice="title">packages/superobject/src/lib/SuperObject.js | @clarketm/supertypes</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -38,54 +38,123 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">packages/supermap/src/lib/SuperMap.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">packages/superobject/src/lib/SuperObject.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
 
-import { PrimitiveType } from &quot;../../../shared/src/constants&quot;;
+import { InstanceType, PrimitiveType } from &quot;../../../shared/src/constants&quot;;
 
 /**
- * @module supermap
+ * @module superobject
  *
  */
 
 /**
+ * @typedef {object} Config
+ * @property {boolean} [includeNonEnumerable=false]
+ */
+
+type Config = {
+  includeNonEnumerable: ?boolean
+};
+
+/**
+ * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
+ */
+
+type Item =
+  | null
+  | undefined
+  | boolean
+  | number
+  | string
+  | Symbol
+  | Function
+  | Array
+  | Date
+  | Object;
+
+/**
  *
- * Map with superpowers! &#x1F4AA;
+ * Object with superpowers! &#x1F4AA;
  *
  * @public
  *
- * @extends {Map}
+ * @extends {Object}
  */
-export class SuperMap extends Map {
+export class SuperObject extends Object {
   /**
    * @public
    *
-   * @desc Construct a Map
+   * @desc Construct an Object
    *
-   * @param {Iterable} iterable
+   * @param {Object} object
    */
-  constructor(iterable: Iterable) {
-    super(iterable);
+  constructor(object: Object) {
+    super(object);
   }
 
   /**
    * @public
    *
-   * @desc Convert Map to an Object
+   * @desc Deep clone an Object
    *
-   * @returns {object} Object representation of Map
+   * @param {Config} [config={}] Configuration object
+   * @returns {object} Deep cloned Object
    */
-  toObject() {
-    return Array.from(this).reduce((obj, [key, value]) =&gt; {
-      if (typeof key !== PrimitiveType.OBJECT) {
-        obj[key] = value;
+  clone(config: Config = {}): Object {
+    const { includeNonEnumerable = false } = config;
+
+    /**
+     * @private
+     *
+     * @desc Deep clone helper
+     *
+     * @param {Item} item
+     * @returns {any} cloned item
+     */
+    function _clone(item: Item): Item {
+      if (item === null || typeof item !== PrimitiveType.OBJECT) {
+        return item;
       }
-      return obj;
-    }, {});
+
+      if (item instanceof InstanceType.DATE) {
+        return new Date(item.valueOf());
+      }
+
+      if (item instanceof InstanceType.ARRAY) {
+        let copy = [];
+
+        item.forEach((_, i) =&gt; (copy[i] = _clone(item[i])));
+
+        return copy;
+      }
+
+      if (item instanceof InstanceType.OBJECT) {
+        let copy = {};
+
+        Object.getOwnPropertySymbols(item).forEach(
+          s =&gt; (copy[s] = _clone(item[s]))
+        );
+
+        if (includeNonEnumerable) {
+          Object.getOwnPropertyNames(item).forEach(
+            k =&gt; (copy[k] = _clone(item[k]))
+          );
+        } else {
+          Object.keys(item).forEach(k =&gt; (copy[k] = _clone(item[k])));
+        }
+
+        return copy;
+      }
+
+      throw new Error(`Unable to copy object: ${item}`);
+    }
+
+    return _clone(this, config);
   }
 }
 
-// export { SuperMap as Map };
+// export { SuperObject as Object };
 </code></pre>
 
 </div>
