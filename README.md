@@ -9,6 +9,7 @@
 *  [SuperMap](https://github.com/clarketm/super/tree/master/packages/supermap#readme) – **Map** with superpowers! 💪
 *  [SuperMath](https://github.com/clarketm/super/tree/master/packages/supermath#readme) – **Math** with superpowers! 💪
 *  [SuperSet](https://github.com/clarketm/super/tree/master/packages/superset#readme) – **Set** with superpowers! 💪
+*  [SuperString](https://github.com/clarketm/super/tree/master/packages/superstring#readme) – **String** with superpowers! 💪
 
 ## Packages
 
