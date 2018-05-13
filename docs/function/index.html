@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">packages/superset/src/lib/SuperSet.js | @clarketm/supertypes</title>
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Function | @clarketm/supertypes</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -44,192 +44,120 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">packages/superset/src/lib/SuperSet.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
+<div class="content" data-ice="content"><h1 data-ice="title">Function</h1>
+<div data-ice="summaries"><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Static Public Summary</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-factorial">factorial</a></span></span><span class="code" data-ice="signature">(num: <span>number</span>): <span>number</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Factorial</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div data-ice="details"><h2 data-ice="title">Static Public </h2>
 
-/**
- * @module superset
- *
- */
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-factorial">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">factorial</span><span class="code" data-ice="signature">(num: <span>number</span>): <span>number</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/supermath/src/lib/SuperMath.js.html#lineNumber26">source</a></span></span>
+    </span>
+  </h3>
 
-/**
- * @typedef {Function} Callback
- */
-type Callback = (value1: any, value2: any, set: Set) =&gt; boolean;
+  
+  
+  
+  <div data-ice="description"><p>Factorial</p>
+</div>
 
-/**
- *
- * Set with superpowers! &#x1F4AA;
- *
- * @public
- *
- * @extends {Set}
- */
-export class SuperSet extends Set {
-  /**
-   * @public
-   *
-   * @desc Construct a Set
-   *
-   * @param {Iterable} iterable
-   */
-  constructor(iterable: Iterable) {
-    super(iterable);
-  }
+  
 
-  /**
-   * @public
-   *
-   * @desc Tests whether at least one element in the set passes the test implemented by the provided function
-   *
-   * @param {Callback} callback - callback function
-   * @returns {boolean} true if the callback function returns a truthy value for any set element; otherwise, false
-   */
-  some(callback: (value1: any, value2: any, set: Set) =&gt; boolean): boolean {
-    let result;
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">num</td>
+      <td data-ice="type" class="code"><span>number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>integral number</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
 
-    for (let [value1, value2] of this.entries()) {
-      result = callback(value1, value2, this);
-      if (result) return true;
-    }
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>number</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>factorial of num</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
-    return false;
-  }
+  
 
-  /**
-   * @public
-   *
-   * @desc Test whether all elements in the set pass the test implemented by the provided function
-   *
-   * @param {Callback} callback - callback function
-   * @returns {boolean} true if the callback function returns a truthy value for every set element; otherwise, false
-   */
-  every(callback: (value1: any, value2: any, set: Set) =&gt; boolean): boolean {
-    let result;
+  
 
-    for (let [value1, value2] of this.entries()) {
-      result = callback(value1, value2, this);
-      if (!result) return false;
-    }
+  
 
-    return true;
-  }
+  
 
-  /**
-   * @public
-   *
-   * @desc Subset of a set
-   *
-   * @param {Set} setB - SetB
-   * @returns {boolean} setA is subset of setB
-   */
-  isSubset(setB: Set): boolean {
-    let setA = this;
+  
 
-    for (let v of setA) {
-      if (!setB.has(v)) return false;
-    }
-    return true;
-  }
+  
 
-  /**
-   * @public
-   *
-   * @desc Superset of a set
-   *
-   * @param {Set} setB - SetB
-   * @returns {boolean} setA is superset of setB
-   */
-  isSuperset(setB: Set): boolean {
-    let setA = this;
-
-    for (let v of setB) {
-      if (!setA.has(v)) return false;
-    }
-    return true;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Union of setA and setB
-   *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - union between setA and setB
-   */
-  union(setB: Set): Set {
-    let setA = this;
-    let setC = new Set(setA);
-
-    for (let v of setB) {
-      setC.add(v);
-    }
-
-    return setC;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Intersection of setA and setB
-   *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - intersection between setA and setB
-   */
-  intersection(setB: Set): Set {
-    let setA = this;
-    let setC = new Set();
-
-    for (let v of setB) {
-      if (setA.has(v)) setC.add(v);
-    }
-
-    return setC;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Difference of setA and setB
-   *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - difference between setA and setB
-   */
-  difference(setB: Set): Set {
-    let setA = this;
-    let setC = new Set(setA);
-
-    for (let v of setB) {
-      setC.delete(v);
-    }
-
-    return setC;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Symmetric difference of setA and setB
-   *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - difference difference between setA and setB
-   */
-  symmetricDifference(setB: Set): Set {
-    let setA = this;
-    let setC = new Set(setA);
-
-    for (let v of setB) {
-      if (setA.has(v)) setC.delete(v);
-      else setC.add(v);
-    }
-
-    return setC;
-  }
-}
-
-// export { SuperSet as Set };
-</code></pre>
-
+  
+  
+</div>
+</div>
 </div>
 
 <footer class="footer">

@@ -12,6 +12,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@clarketm/supertypes/packages/supermath/src/lib/supermath.js~supermath",
+    "variable/index.html#static-variable-SuperMath",
+    "<span>SuperMath</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/supermath/src/lib/SuperMath.js</span>",
+    "variable"
+  ],
+  [
     "@clarketm/supertypes/packages/superobject/src/lib/superobject.js~superobject",
     "class/packages/superobject/src/lib/SuperObject.js~SuperObject.html",
     "<span>SuperObject</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/superobject/src/lib/SuperObject.js</span>",
@@ -22,6 +28,12 @@ window.esdocSearchIndex = [
     "class/packages/superset/src/lib/SuperSet.js~SuperSet.html",
     "<span>SuperSet</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/superset/src/lib/SuperSet.js</span>",
     "class"
+  ],
+  [
+    "@clarketm/supertypes/packages/supermath/src/lib/supermath.js~factorial",
+    "function/index.html#static-function-factorial",
+    "<span>factorial</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/supermath/src/lib/SuperMath.js</span>",
+    "function"
   ],
   [
     "packages/superarray/src/lib/superarray.js",
@@ -88,6 +100,12 @@ window.esdocSearchIndex = [
     "class/packages/supermap/src/lib/SuperMap.js~SuperMap.html#instance-method-toObject",
     "packages/supermap/src/lib/SuperMap.js~SuperMap#toObject",
     "method"
+  ],
+  [
+    "packages/supermath/src/lib/supermath.js",
+    "file/packages/supermath/src/lib/SuperMath.js.html",
+    "packages/supermath/src/lib/SuperMath.js",
+    "file"
   ],
   [
     "packages/superobject/src/lib/superobject.js",

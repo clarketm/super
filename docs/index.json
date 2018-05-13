@@ -328,6 +328,84 @@
   {
     "__docId__": 13,
     "kind": "file",
+    "name": "packages/supermath/src/lib/SuperMath.js",
+    "content": "// @flow\n\n/**\n * @module supermath\n *\n */\n\n/**\n *\n * Math with superpowers! 💪\n *\n * @public\n *\n * @alias Math\n */\nexport const SuperMath = Object.create(Math);\n\n/**\n * @public\n *\n * @desc Factorial\n *\n * @param {number} num - integral number\n * @returns {number} factorial of num\n */\nSuperMath.factorial = function(num: number): Math {\n  if (num < 0) throw new Error(\"Factorial not defined for negative values\");\n  if (num === 0) return 1;\n  return num * SuperMath.factorial(num - 1);\n};\n",
+    "static": true,
+    "longname": "/Users/clarketm/js/super/packages/supermath/src/lib/SuperMath.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 14,
+    "kind": "variable",
+    "name": "SuperMath",
+    "memberof": "packages/supermath/src/lib/SuperMath.js",
+    "static": true,
+    "longname": "packages/supermath/src/lib/SuperMath.js~SuperMath",
+    "access": "public",
+    "export": true,
+    "importPath": "@clarketm/supertypes/packages/supermath/src/lib/SuperMath.js",
+    "importStyle": "{SuperMath}",
+    "description": "\nMath with superpowers! 💪",
+    "lineNumber": 16,
+    "unknown": [
+      {
+        "tagName": "@alias",
+        "tagValue": "Math"
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 15,
+    "kind": "function",
+    "name": "factorial",
+    "memberof": "packages/supermath/src/lib/SuperMath.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "packages/supermath/src/lib/SuperMath.js~factorial",
+    "access": "public",
+    "export": false,
+    "importPath": "@clarketm/supertypes/packages/supermath/src/lib/SuperMath.js",
+    "importStyle": null,
+    "description": "Factorial",
+    "lineNumber": 26,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} factorial of num"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "num",
+        "description": "integral number"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "factorial of num"
+    }
+  },
+  {
+    "__docId__": 16,
+    "kind": "file",
     "name": "packages/superobject/src/lib/SuperObject.js",
     "content": "// @flow\n\nimport { InstanceType, PrimitiveType } from \"../../../shared/src/constants\";\n\n/**\n * @module superobject\n *\n */\n\n/**\n * @typedef {object} Config\n * @property {boolean} [includeNonEnumerable=false]\n */\n\ntype Config = {\n  includeNonEnumerable: ?boolean\n};\n\n/**\n * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item\n */\n\ntype Item =\n  | null\n  | undefined\n  | boolean\n  | number\n  | string\n  | Symbol\n  | Function\n  | Array\n  | Date\n  | Object;\n\n/**\n *\n * Object with superpowers! 💪\n *\n * @public\n *\n * @extends {Object}\n */\nexport class SuperObject extends Object {\n  /**\n   * @public\n   *\n   * @desc Construct an Object\n   *\n   * @param {Object} object\n   */\n  constructor(object: Object) {\n    super(object);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check for nested value from string key\n   *\n   * @param {string} path\n   * @return {boolean} property value exists\n   */\n  hasNested(path: string): boolean {\n    let item = this;\n    // TODO: throw error on invalid path\n    path = path.replace(/\\[(\\w+)\\]/, \".$1\").replace(/^\\./, \"\");\n\n    const keys = path.split(\".\");\n    for (let key of keys) {\n      if (typeof item === PrimitiveType.OBJECT && key in item) item = item[key];\n      else return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc  Get nested JavaScript object value from string key\n   *\n   * @param {string} path\n   * @return {Item} property value\n   */\n  getNested(path: string): Item {\n    let item = this;\n    // TODO: throw error on invalid path\n    path = path.replace(/\\[(\\w+)\\]/, \".$1\").replace(/^\\./, \"\");\n\n    const keys = path.split(\".\");\n    for (let key of keys) {\n      if (typeof item === PrimitiveType.OBJECT && key in item) item = item[key];\n      else return;\n    }\n    return item;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Deep clone an Object\n   *\n   * @param {Config} [config={}] Configuration object\n   * @returns {object} Deep cloned Object\n   *\n   * @example\n   *\n   * const obj = new SuperObject({ key1: [\"1\", 1, true, (a, b) => a+b], [Symbol(\"key2\")]: {s: \"s\"} });\n   * const clone = obj.clone();\n   *\n   * console.log(clone);\n   * // { key1: [\"1\", 1, true, (a, b) => a+b], Symbol(\"key2\"): {s: \"s\"} }\n   *\n   */\n  clone(config: Config = {}): Object {\n    const { includeNonEnumerable = false } = config;\n\n    /**\n     * @private\n     *\n     * @desc Deep clone helper\n     *\n     * @param {Item} item\n     * @returns {any} cloned item\n     */\n    function _clone(item: Item): Item {\n      if (item === null || typeof item !== PrimitiveType.OBJECT) {\n        return item;\n      }\n\n      if (item instanceof InstanceType.DATE) {\n        return new Date(item.valueOf());\n      }\n\n      if (item instanceof InstanceType.ARRAY) {\n        let copy = [];\n\n        item.forEach((_, i) => (copy[i] = _clone(item[i])));\n\n        return copy;\n      }\n\n      if (item instanceof InstanceType.OBJECT) {\n        let copy = {};\n\n        Object.getOwnPropertySymbols(item).forEach(\n          s => (copy[s] = _clone(item[s]))\n        );\n\n        if (includeNonEnumerable) {\n          Object.getOwnPropertyNames(item).forEach(\n            k => (copy[k] = _clone(item[k]))\n          );\n        } else {\n          Object.keys(item).forEach(k => (copy[k] = _clone(item[k])));\n        }\n\n        return copy;\n      }\n\n      throw new Error(`Unable to copy object: ${item}`);\n    }\n\n    return _clone(this, config);\n  }\n}\n\n// export { SuperObject as Object };\n",
     "static": true,
@@ -337,7 +415,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 14,
+    "__docId__": 17,
     "kind": "typedef",
     "name": "Config",
     "memberof": "packages/superobject/src/lib/SuperObject.js",
@@ -368,7 +446,7 @@
     }
   },
   {
-    "__docId__": 15,
+    "__docId__": 18,
     "kind": "typedef",
     "name": "Item",
     "memberof": "packages/superobject/src/lib/SuperObject.js",
@@ -394,7 +472,7 @@
     }
   },
   {
-    "__docId__": 16,
+    "__docId__": 19,
     "kind": "class",
     "name": "SuperObject",
     "memberof": "packages/superobject/src/lib/SuperObject.js",
@@ -412,7 +490,7 @@
     ]
   },
   {
-    "__docId__": 17,
+    "__docId__": 20,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/superobject/src/lib/SuperObject.js~SuperObject",
@@ -437,7 +515,7 @@
     ]
   },
   {
-    "__docId__": 18,
+    "__docId__": 21,
     "kind": "method",
     "name": "hasNested",
     "memberof": "packages/superobject/src/lib/SuperObject.js~SuperObject",
@@ -470,7 +548,7 @@
     }
   },
   {
-    "__docId__": 19,
+    "__docId__": 22,
     "kind": "method",
     "name": "getNested",
     "memberof": "packages/superobject/src/lib/SuperObject.js~SuperObject",
@@ -503,7 +581,7 @@
     }
   },
   {
-    "__docId__": 20,
+    "__docId__": 23,
     "kind": "method",
     "name": "clone",
     "memberof": "packages/superobject/src/lib/SuperObject.js~SuperObject",
@@ -547,7 +625,7 @@
     }
   },
   {
-    "__docId__": 21,
+    "__docId__": 24,
     "kind": "file",
     "name": "packages/superset/src/lib/SuperSet.js",
     "content": "// @flow\n\n/**\n * @module superset\n *\n */\n\n/**\n * @typedef {Function} Callback\n */\ntype Callback = (value1: any, value2: any, set: Set) => boolean;\n\n/**\n *\n * Set with superpowers! 💪\n *\n * @public\n *\n * @extends {Set}\n */\nexport class SuperSet extends Set {\n  /**\n   * @public\n   *\n   * @desc Construct a Set\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable) {\n    super(iterable);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Tests whether at least one element in the set passes the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for any set element; otherwise, false\n   */\n  some(callback: (value1: any, value2: any, set: Set) => boolean): boolean {\n    let result;\n\n    for (let [value1, value2] of this.entries()) {\n      result = callback(value1, value2, this);\n      if (result) return true;\n    }\n\n    return false;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Test whether all elements in the set pass the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for every set element; otherwise, false\n   */\n  every(callback: (value1: any, value2: any, set: Set) => boolean): boolean {\n    let result;\n\n    for (let [value1, value2] of this.entries()) {\n      result = callback(value1, value2, this);\n      if (!result) return false;\n    }\n\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Subset of a set\n   *\n   * @param {Set} setB - SetB\n   * @returns {boolean} setA is subset of setB\n   */\n  isSubset(setB: Set): boolean {\n    let setA = this;\n\n    for (let v of setA) {\n      if (!setB.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Superset of a set\n   *\n   * @param {Set} setB - SetB\n   * @returns {boolean} setA is superset of setB\n   */\n  isSuperset(setB: Set): boolean {\n    let setA = this;\n\n    for (let v of setB) {\n      if (!setA.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Union of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - union between setA and setB\n   */\n  union(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Intersection of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - intersection between setA and setB\n   */\n  intersection(setB: Set): Set {\n    let setA = this;\n    let setC = new Set();\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Difference of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - difference between setA and setB\n   */\n  difference(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.delete(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Symmetric difference of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - difference difference between setA and setB\n   */\n  symmetricDifference(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.delete(v);\n      else setC.add(v);\n    }\n\n    return setC;\n  }\n}\n\n// export { SuperSet as Set };\n",
@@ -558,7 +636,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 22,
+    "__docId__": 25,
     "kind": "class",
     "name": "SuperSet",
     "memberof": "packages/superset/src/lib/SuperSet.js",
@@ -576,7 +654,7 @@
     ]
   },
   {
-    "__docId__": 23,
+    "__docId__": 26,
     "kind": "typedef",
     "name": "Callback",
     "memberof": "packages/superset/src/lib/SuperSet.js",
@@ -593,7 +671,7 @@
     }
   },
   {
-    "__docId__": 24,
+    "__docId__": 27,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -618,7 +696,7 @@
     ]
   },
   {
-    "__docId__": 25,
+    "__docId__": 28,
     "kind": "method",
     "name": "some",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -657,7 +735,7 @@
     }
   },
   {
-    "__docId__": 26,
+    "__docId__": 29,
     "kind": "method",
     "name": "every",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -696,7 +774,7 @@
     }
   },
   {
-    "__docId__": 27,
+    "__docId__": 30,
     "kind": "method",
     "name": "isSubset",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -735,7 +813,7 @@
     }
   },
   {
-    "__docId__": 28,
+    "__docId__": 31,
     "kind": "method",
     "name": "isSuperset",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -774,7 +852,7 @@
     }
   },
   {
-    "__docId__": 29,
+    "__docId__": 32,
     "kind": "method",
     "name": "union",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -813,7 +891,7 @@
     }
   },
   {
-    "__docId__": 30,
+    "__docId__": 33,
     "kind": "method",
     "name": "intersection",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -852,7 +930,7 @@
     }
   },
   {
-    "__docId__": 31,
+    "__docId__": 34,
     "kind": "method",
     "name": "difference",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -891,7 +969,7 @@
     }
   },
   {
-    "__docId__": 32,
+    "__docId__": 35,
     "kind": "method",
     "name": "symmetricDifference",
     "memberof": "packages/superset/src/lib/SuperSet.js~SuperSet",
@@ -931,7 +1009,7 @@
   },
   {
     "kind": "index",
-    "content": "# Super\n\n**Types** with superpowers! 💪\n\n## Types\n\n*  [SuperObject](https://github.com/clarketm/super/tree/master/packages/superobject#readme) – **Object** with superpowers! 💪\n*  [SuperMap](https://github.com/clarketm/super/tree/master/packages/supermap#readme) – **Map** with superpowers! 💪\n*  [SuperSet](https://github.com/clarketm/super/tree/master/packages/superset#readme) – **Set** with superpowers! 💪\n\n## Packages\n\n*  [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme) – **Babel preset** with superpowers! 💪\n*  [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme) – **ESLint config** with superpowers! 💪\n*  [generator-super](https://github.com/clarketm/super/tree/master/packages/generator-super#readme) – **Yeoman generator** with superpowers! 💪\n",
+    "content": "# Super\n\n**Types** with superpowers! 💪\n\n## Types\n\n*  [SuperArray](https://github.com/clarketm/super/tree/master/packages/superarray#readme) – **Array** with superpowers! 💪\n*  [SuperObject](https://github.com/clarketm/super/tree/master/packages/superobject#readme) – **Object** with superpowers! 💪\n*  [SuperMap](https://github.com/clarketm/super/tree/master/packages/supermap#readme) – **Map** with superpowers! 💪\n*  [SuperSet](https://github.com/clarketm/super/tree/master/packages/superset#readme) – **Set** with superpowers! 💪\n\n## Packages\n\n*  [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme) – **Babel preset** with superpowers! 💪\n*  [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme) – **ESLint config** with superpowers! 💪\n*  [generator-super](https://github.com/clarketm/super/tree/master/packages/generator-super#readme) – **Yeoman generator** with superpowers! 💪\n",
     "longname": "/Users/clarketm/js/super/README.md",
     "name": "./README.md",
     "static": true,

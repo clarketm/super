@@ -160,3 +160,11 @@ Symmetric difference of setA and setB
 | setB | Set |  | SetB |
 
 # Function
+
+## `factorial(num: number): number`
+
+Factorial
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| num | number |  | integral number |

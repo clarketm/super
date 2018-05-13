@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">packages/superset/src/lib/SuperSet.js | @clarketm/supertypes</title>
+  <title data-ice="title">packages/supermath/src/lib/SuperMath.js | @clarketm/supertypes</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -44,190 +44,37 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">packages/superset/src/lib/SuperSet.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">packages/supermath/src/lib/SuperMath.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
 
 /**
- * @module superset
+ * @module supermath
  *
  */
 
 /**
- * @typedef {Function} Callback
- */
-type Callback = (value1: any, value2: any, set: Set) =&gt; boolean;
-
-/**
  *
- * Set with superpowers! &#x1F4AA;
+ * Math with superpowers! &#x1F4AA;
  *
  * @public
  *
- * @extends {Set}
+ * @alias Math
  */
-export class SuperSet extends Set {
-  /**
-   * @public
-   *
-   * @desc Construct a Set
-   *
-   * @param {Iterable} iterable
-   */
-  constructor(iterable: Iterable) {
-    super(iterable);
-  }
+export const SuperMath = Object.create(Math);
 
-  /**
-   * @public
-   *
-   * @desc Tests whether at least one element in the set passes the test implemented by the provided function
-   *
-   * @param {Callback} callback - callback function
-   * @returns {boolean} true if the callback function returns a truthy value for any set element; otherwise, false
-   */
-  some(callback: (value1: any, value2: any, set: Set) =&gt; boolean): boolean {
-    let result;
-
-    for (let [value1, value2] of this.entries()) {
-      result = callback(value1, value2, this);
-      if (result) return true;
-    }
-
-    return false;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Test whether all elements in the set pass the test implemented by the provided function
-   *
-   * @param {Callback} callback - callback function
-   * @returns {boolean} true if the callback function returns a truthy value for every set element; otherwise, false
-   */
-  every(callback: (value1: any, value2: any, set: Set) =&gt; boolean): boolean {
-    let result;
-
-    for (let [value1, value2] of this.entries()) {
-      result = callback(value1, value2, this);
-      if (!result) return false;
-    }
-
-    return true;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Subset of a set
-   *
-   * @param {Set} setB - SetB
-   * @returns {boolean} setA is subset of setB
-   */
-  isSubset(setB: Set): boolean {
-    let setA = this;
-
-    for (let v of setA) {
-      if (!setB.has(v)) return false;
-    }
-    return true;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Superset of a set
-   *
-   * @param {Set} setB - SetB
-   * @returns {boolean} setA is superset of setB
-   */
-  isSuperset(setB: Set): boolean {
-    let setA = this;
-
-    for (let v of setB) {
-      if (!setA.has(v)) return false;
-    }
-    return true;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Union of setA and setB
-   *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - union between setA and setB
-   */
-  union(setB: Set): Set {
-    let setA = this;
-    let setC = new Set(setA);
-
-    for (let v of setB) {
-      setC.add(v);
-    }
-
-    return setC;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Intersection of setA and setB
-   *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - intersection between setA and setB
-   */
-  intersection(setB: Set): Set {
-    let setA = this;
-    let setC = new Set();
-
-    for (let v of setB) {
-      if (setA.has(v)) setC.add(v);
-    }
-
-    return setC;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Difference of setA and setB
-   *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - difference between setA and setB
-   */
-  difference(setB: Set): Set {
-    let setA = this;
-    let setC = new Set(setA);
-
-    for (let v of setB) {
-      setC.delete(v);
-    }
-
-    return setC;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Symmetric difference of setA and setB
-   *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - difference difference between setA and setB
-   */
-  symmetricDifference(setB: Set): Set {
-    let setA = this;
-    let setC = new Set(setA);
-
-    for (let v of setB) {
-      if (setA.has(v)) setC.delete(v);
-      else setC.add(v);
-    }
-
-    return setC;
-  }
-}
-
-// export { SuperSet as Set };
+/**
+ * @public
+ *
+ * @desc Factorial
+ *
+ * @param {number} num - integral number
+ * @returns {number} factorial of num
+ */
+SuperMath.factorial = function(num: number): Math {
+  if (num &lt; 0) throw new Error(&quot;Factorial not defined for negative values&quot;);
+  if (num === 0) return 1;
+  return num * SuperMath.factorial(num - 1);
+};
 </code></pre>
 
 </div>
