@@ -79,8 +79,8 @@
     to-fast-properties "^2.0.0"
 
 "@clarketm/babel-preset-super@^1.0.1":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@clarketm/babel-preset-super/-/babel-preset-super-1.0.4.tgz#014e39b077cd6f58155a81552dd3177949f1cb31"
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@clarketm/babel-preset-super/-/babel-preset-super-1.0.5.tgz#488fbdc107912a03831cf9c0411c0a3e2e6e1de0"
   dependencies:
     babel-plugin-transform-builtin-extend "^1.1.2"
     babel-preset-env "^1.7.0"
@@ -2178,8 +2178,8 @@ rechoir@^0.6.2:
     resolve "^1.1.6"
 
 regenerate@^1.2.1:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/regenerate/-/regenerate-1.3.3.tgz#0c336d3980553d755c39b586ae3b20aa49c82b7f"
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/regenerate/-/regenerate-1.4.0.tgz#4a856ec4b56e4077c557589cae85e7a4c8869a11"
 
 regenerator-runtime@^0.10.5:
   version "0.10.5"
