@@ -66,6 +66,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "packages/superobject/src/lib/superobject.js~superobject#getnested",
+    "class/packages/superobject/src/lib/SuperObject.js~SuperObject.html#instance-method-getNested",
+    "packages/superobject/src/lib/SuperObject.js~SuperObject#getNested",
+    "method"
+  ],
+  [
+    "packages/superobject/src/lib/superobject.js~superobject#hasnested",
+    "class/packages/superobject/src/lib/SuperObject.js~SuperObject.html#instance-method-hasNested",
+    "packages/superobject/src/lib/SuperObject.js~SuperObject#hasNested",
+    "method"
+  ],
+  [
     "packages/superset/src/lib/superset.js",
     "file/packages/superset/src/lib/SuperSet.js.html",
     "packages/superset/src/lib/SuperSet.js",
