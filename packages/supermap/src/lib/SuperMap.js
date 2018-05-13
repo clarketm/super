@@ -8,6 +8,11 @@ import { PrimitiveType } from "../../../shared/src/constants";
  */
 
 /**
+ * @typedef {Function} Callback
+ */
+type Callback = (value: any, key: any, map: Map) => boolean
+
+/**
  *
  * Map with superpowers! 💪
  *
@@ -25,6 +30,44 @@ export class SuperMap extends Map {
    */
   constructor(iterable: Iterable) {
     super(iterable);
+  }
+
+  /**
+   * @public
+   *
+   * @desc Tests whether at least one element in the map passes the test implemented by the provided function
+   *
+   * @param {Callback} callback - callback function
+   * @returns {boolean} true if the callback function returns a truthy value for any map element; otherwise, false
+   */
+  some(callback: (value: any, key: any, map: Map) => boolean): boolean {
+    let result;
+
+    for (let [key, value] of this.entries()) {
+      result = callback(value, key, this);
+      if (result) return true;
+    }
+
+    return false;
+  }
+
+  /**
+   * @public
+   *
+   * @desc Test whether all elements in the map pass the test implemented by the provided function
+   *
+   * @param {Callback} callback - callback function
+   * @returns {boolean} true if the callback function returns a truthy value for every map element; otherwise, false
+   */
+  every(callback: (value: any, key: any, map: Map) => boolean): boolean {
+    let result;
+
+    for (let [key, value] of this.entries()) {
+      result = callback(value, key, this);
+      if (!result) return false;
+    }
+
+    return true;
   }
 
   /**
