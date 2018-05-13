@@ -44,6 +44,39 @@ describe("SuperMap", () => {
     });
   });
 
+  describe("#setDefault", () => {
+    let map;
+
+    it("should return defaultValue if key is not defined in the Map", () => {
+      map = new SuperMap([["key", 123]]);
+
+      expected = 3;
+      actual = map.setDefault("fakeKey", 3);
+
+      assert.equal(actual, expected);
+    });
+
+    it("should set key to defaultValue if key is not defined in the Map", () => {
+      map = new SuperMap([["key", 123]]);
+
+      map.setDefault("fakeKey", 5);
+
+      expected = 5;
+      actual = map.get("fakeKey");
+
+      assert.equal(actual, expected);
+    });
+
+    it("should retrieve the value for key if already defined in the Map", () => {
+      map = new SuperMap([["key", 123]]);
+
+      expected = 123;
+      actual = map.setDefault("key", 345);
+
+      assert.equal(actual, expected);
+    });
+  });
+
   describe("#toObject", () => {
     it("should convert map with `string` key to `object`", () => {
       expected = { ["a"]: "value" };

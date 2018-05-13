@@ -73,6 +73,22 @@ export class SuperMap extends Map {
   /**
    * @public
    *
+   * @desc Similar to get(), but will set key to defaultValue if key is not already in Map.
+   *
+   * @returns {any} The value if the key is defined in Map; otherwise, the default value
+   */
+  setDefault(key: any, defaultValue: any = null): any {
+    if (this.has(key)) {
+      return this.get(key);
+    } else {
+      this.set(key, defaultValue);
+      return defaultValue;
+    }
+  }
+
+  /**
+   * @public
+   *
    * @desc Convert Map to an Object
    *
    * @returns {object} Object representation of Map
