@@ -1,5 +1,17 @@
 window.esdocSearchIndex = [
   [
+    "@clarketm/supertypes/packages/supernumber/src/lib/supernumber.js~integertoromannumeralmap",
+    "variable/index.html#static-variable-IntegerToRomanNumeralMap",
+    "<span>IntegerToRomanNumeralMap</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/supernumber/src/lib/SuperNumber.js</span>",
+    "variable"
+  ],
+  [
+    "@clarketm/supertypes/packages/supernumber/src/lib/supernumber.js~romannumeraltointegermap",
+    "variable/index.html#static-variable-RomanNumeralToIntegerMap",
+    "<span>RomanNumeralToIntegerMap</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/supernumber/src/lib/SuperNumber.js</span>",
+    "variable"
+  ],
+  [
     "@clarketm/supertypes/packages/superarray/src/lib/superarray.js~superarray",
     "class/packages/superarray/src/lib/SuperArray.js~SuperArray.html",
     "<span>SuperArray</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/superarray/src/lib/SuperArray.js</span>",
@@ -16,6 +28,12 @@ window.esdocSearchIndex = [
     "variable/index.html#static-variable-SuperMath",
     "<span>SuperMath</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/supermath/src/lib/SuperMath.js</span>",
     "variable"
+  ],
+  [
+    "@clarketm/supertypes/packages/supernumber/src/lib/supernumber.js~supernumber",
+    "class/packages/supernumber/src/lib/SuperNumber.js~SuperNumber.html",
+    "<span>SuperNumber</span> <span class=\"search-result-import-path\">@clarketm/supertypes/packages/supernumber/src/lib/SuperNumber.js</span>",
+    "class"
   ],
   [
     "@clarketm/supertypes/packages/superobject/src/lib/superobject.js~superobject",
@@ -112,6 +130,30 @@ window.esdocSearchIndex = [
     "file/packages/supermath/src/lib/SuperMath.js.html",
     "packages/supermath/src/lib/SuperMath.js",
     "file"
+  ],
+  [
+    "packages/supernumber/src/lib/supernumber.js",
+    "file/packages/supernumber/src/lib/SuperNumber.js.html",
+    "packages/supernumber/src/lib/SuperNumber.js",
+    "file"
+  ],
+  [
+    "packages/supernumber/src/lib/supernumber.js~supernumber#constructor",
+    "class/packages/supernumber/src/lib/SuperNumber.js~SuperNumber.html#instance-constructor-constructor",
+    "packages/supernumber/src/lib/SuperNumber.js~SuperNumber#constructor",
+    "method"
+  ],
+  [
+    "packages/supernumber/src/lib/supernumber.js~supernumber#toromannumeral",
+    "class/packages/supernumber/src/lib/SuperNumber.js~SuperNumber.html#instance-method-toRomanNumeral",
+    "packages/supernumber/src/lib/SuperNumber.js~SuperNumber#toRomanNumeral",
+    "method"
+  ],
+  [
+    "packages/supernumber/src/lib/supernumber.js~supernumber.fromromannumeral",
+    "class/packages/supernumber/src/lib/SuperNumber.js~SuperNumber.html#static-method-fromRomanNumeral",
+    "packages/supernumber/src/lib/SuperNumber.js~SuperNumber.fromRomanNumeral",
+    "method"
   ],
   [
     "packages/superobject/src/lib/superobject.js",

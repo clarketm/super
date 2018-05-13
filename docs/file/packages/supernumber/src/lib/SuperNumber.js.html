@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">packages/superobject/src/lib/SuperObject.js | @clarketm/supertypes</title>
+  <title data-ice="title">packages/supernumber/src/lib/SuperNumber.js | @clarketm/supertypes</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -48,174 +48,105 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">packages/superobject/src/lib/SuperObject.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">packages/supernumber/src/lib/SuperNumber.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
 
-import { InstanceType, PrimitiveType } from &quot;../../../shared/src/constants&quot;;
-
 /**
- * @module superobject
+ * @module supernumber
  *
  */
 
-/**
- * @typedef {object} Config
- * @property {boolean} [includeNonEnumerable=false]
- */
+const RomanNumeralToIntegerMap = new Map([
+  [&quot;M&quot;, 1000],
+  [&quot;CM&quot;, 900],
+  [&quot;D&quot;, 500],
+  [&quot;CD&quot;, 400],
+  [&quot;C&quot;, 100],
+  [&quot;XC&quot;, 90],
+  [&quot;L&quot;, 50],
+  [&quot;XL&quot;, 40],
+  [&quot;X&quot;, 10],
+  [&quot;IX&quot;, 9],
+  [&quot;V&quot;, 5],
+  [&quot;IV&quot;, 4],
+  [&quot;I&quot;, 1]
+]);
 
-type Config = {
-  includeNonEnumerable: ?boolean
-};
-
-/**
- * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
- */
-
-type Item =
-  | null
-  | undefined
-  | boolean
-  | number
-  | string
-  | Symbol
-  | Function
-  | Array
-  | Date
-  | Object;
+const IntegerToRomanNumeralMap = new Map([
+  [1000, &quot;M&quot;],
+  [900, &quot;CM&quot;],
+  [500, &quot;D&quot;],
+  [400, &quot;CD&quot;],
+  [100, &quot;C&quot;],
+  [90, &quot;XC&quot;],
+  [50, &quot;L&quot;],
+  [40, &quot;XL&quot;],
+  [10, &quot;X&quot;],
+  [9, &quot;IX&quot;],
+  [5, &quot;V&quot;],
+  [4, &quot;IV&quot;],
+  [1, &quot;I&quot;]
+]);
 
 /**
  *
- * Object with superpowers! &#x1F4AA;
+ * Number with superpowers! &#x1F4AA;
  *
  * @public
  *
- * @extends {Object}
+ * @extends {Number}
  */
-export class SuperObject extends Object {
+export class SuperNumber extends Number {
   /**
    * @public
    *
-   * @desc Construct an Object
+   * @desc Construct a Number
    *
-   * @param {Object} object
+   * @param {number} number
    */
-  constructor(object: Object) {
-    super(object);
+  constructor(number: Number) {
+    super(number);
   }
 
   /**
    * @public
    *
-   * @desc Check for nested value from string key
+   * @desc Convert a roman numeral to number
    *
-   * @param {string} path
-   * @return {boolean} property value exists
+   * @param {string} str - Roman numeral
+   * @returns {number} Number representation of a roman numeral
    */
-  hasNested(path: string): boolean {
-    let item = this;
-    // TODO: throw error on invalid path
-    path = path.replace(/\[(\w+)\]/, &quot;.$1&quot;).replace(/^\./, &quot;&quot;);
-
-    const keys = path.split(&quot;.&quot;);
-    for (let key of keys) {
-      if (typeof item === PrimitiveType.OBJECT &amp;&amp; key in item) item = item[key];
-      else return false;
-    }
-    return true;
-  }
-
-  /**
-   * @public
-   *
-   * @desc  Get nested JavaScript object value from string key
-   *
-   * @param {string} path
-   * @return {Item} property value
-   */
-  getNested(path: string): Item {
-    let item = this;
-    // TODO: throw error on invalid path
-    path = path.replace(/\[(\w+)\]/, &quot;.$1&quot;).replace(/^\./, &quot;&quot;);
-
-    const keys = path.split(&quot;.&quot;);
-    for (let key of keys) {
-      if (typeof item === PrimitiveType.OBJECT &amp;&amp; key in item) item = item[key];
-      else return;
-    }
-    return item;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Deep clone an Object
-   *
-   * @param {Config} [config={}] Configuration object
-   * @returns {object} Deep cloned Object
-   *
-   * @example
-   *
-   * const obj = new SuperObject({ key1: [&quot;1&quot;, 1, true, (a, b) =&gt; a+b], [Symbol(&quot;key2&quot;)]: {s: &quot;s&quot;} });
-   * const clone = obj.clone();
-   *
-   * console.log(clone);
-   * // { key1: [&quot;1&quot;, 1, true, (a, b) =&gt; a+b], Symbol(&quot;key2&quot;): {s: &quot;s&quot;} }
-   *
-   */
-  clone(config: Config = {}): Object {
-    const { includeNonEnumerable = false } = config;
-
-    /**
-     * @private
-     *
-     * @desc Deep clone helper
-     *
-     * @param {Item} item
-     * @returns {any} cloned item
-     */
-    function _clone(item: Item): Item {
-      if (item === null || typeof item !== PrimitiveType.OBJECT) {
-        return item;
-      }
-
-      if (item instanceof InstanceType.DATE) {
-        return new Date(item.valueOf());
-      }
-
-      if (item instanceof InstanceType.ARRAY) {
-        let copy = [];
-
-        item.forEach((_, i) =&gt; (copy[i] = _clone(item[i])));
-
-        return copy;
-      }
-
-      if (item instanceof InstanceType.OBJECT) {
-        let copy = {};
-
-        Object.getOwnPropertySymbols(item).forEach(
-          s =&gt; (copy[s] = _clone(item[s]))
-        );
-
-        if (includeNonEnumerable) {
-          Object.getOwnPropertyNames(item).forEach(
-            k =&gt; (copy[k] = _clone(item[k]))
-          );
-        } else {
-          Object.keys(item).forEach(k =&gt; (copy[k] = _clone(item[k])));
+  static fromRomanNumeral(str: string): Number {
+    function _romanToInteger(num, result = 0) {
+      for (let [roman, int] of RomanNumeralToIntegerMap) {
+        if (num.slice(0, roman.length) === roman) {
+          return _romanToInteger(num.slice(roman.length), result + int);
         }
-
-        return copy;
       }
-
-      throw new Error(`Unable to copy object: ${item}`);
+      return result;
     }
+    return _romanToInteger(str);
+  }
 
-    return _clone(this, config);
+  /**
+   * @public
+   *
+   * @desc Convert a number to roman numeral
+   *
+   * @returns {string} Roman numeral representation of number
+   */
+  toRomanNumeral(): String {
+    function _integerToRoman(num, result = &quot;&quot;) {
+      for (let [int, roman] of IntegerToRomanNumeralMap) {
+        if (num &gt;= int) return _integerToRoman(num - int, result + roman);
+      }
+      return result;
+    }
+    return _integerToRoman(this);
   }
 }
 
-// export { SuperObject as Object };
+// export { SuperNumber as Number };
 </code></pre>
 
 </div>
