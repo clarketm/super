@@ -26,6 +26,10 @@ describe("SuperMath", () => {
       assert.equal(actual, expected);
     });
 
-  });
+    it("should throw error for negative number", () => {
+      actual = () => SuperMath.factorial(-1);
 
+      assert.throws(actual, Error, "Factorial not defined for negative values");
+    });
+  });
 });
