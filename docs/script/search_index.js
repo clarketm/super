@@ -2,7 +2,7 @@ window.esdocSearchIndex = [
   [
     "@clarketm/supertypes/src/lib/superset.js~superset",
     "class/src/lib/SuperSet.js~SuperSet.html",
-    '<span>SuperSet</span> <span class="search-result-import-path">@clarketm/supertypes/src/lib/SuperSet.js</span>',
+    "<span>SuperSet</span> <span class=\"search-result-import-path\">@clarketm/supertypes/src/lib/SuperSet.js</span>",
     "class"
   ],
   [
@@ -312,6 +312,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/lib/superset.js~superset#issubset",
+    "class/src/lib/SuperSet.js~SuperSet.html#instance-method-isSubset",
+    "src/lib/SuperSet.js~SuperSet#isSubset",
+    "method"
+  ],
+  [
+    "src/lib/superset.js~superset#issuperset",
+    "class/src/lib/SuperSet.js~SuperSet.html#instance-method-isSuperset",
+    "src/lib/SuperSet.js~SuperSet#isSuperset",
+    "method"
+  ],
+  [
     "src/lib/superset.js~superset#symmetricdifference",
     "class/src/lib/SuperSet.js~SuperSet.html#instance-method-symmetricDifference",
     "src/lib/SuperSet.js~SuperSet#symmetricDifference",
@@ -323,4 +335,4 @@ window.esdocSearchIndex = [
     "src/lib/SuperSet.js~SuperSet#union",
     "method"
   ]
-];
+]

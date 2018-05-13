@@ -8,36 +8,52 @@ Set with superpowers! 💪
 
 Construct a Set
 
-### `union(set: Set): Set`
+### `isSubset(setB: Set): boolean`
 
-Union of two sets
-
-| Name | Type | Attribute | Description |
-| ---- | ---- | --------- | ----------- |
-| set  | Set  |           | SetB        |
-
-### `intersection(set: Set): Set`
-
-Intersection of two sets
+Subset of a set
 
 | Name | Type | Attribute | Description |
-| ---- | ---- | --------- | ----------- |
-| set  | Set  |           | SetB        |
+| --- | --- | --- | --- |
+| setB | Set |  | SetB |
 
-### `difference(set: Set): Set`
+### `isSuperset(setB: Set): boolean`
 
-Difference of two sets
-
-| Name | Type | Attribute | Description |
-| ---- | ---- | --------- | ----------- |
-| set  | Set  |           | SetB        |
-
-### `symmetricDifference(set: Set): Set`
-
-Symmetric Difference of two sets
+Superset of a set
 
 | Name | Type | Attribute | Description |
-| ---- | ---- | --------- | ----------- |
-| set  | Set  |           | SetB        |
+| --- | --- | --- | --- |
+| setB | Set |  | SetB |
+
+### `union(setB: Set): Set`
+
+Union of setA and setB
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| setB | Set |  | SetB |
+
+### `intersection(setB: Set): Set`
+
+Intersection of setA and setB
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| setB | Set |  | SetB |
+
+### `difference(setB: Set): Set`
+
+Difference of setA and setB
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| setB | Set |  | SetB |
+
+### `symmetricDifference(setB: Set): Set`
+
+Symmetric difference of setA and setB
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| setB | Set |  | SetB |
 
 # Function

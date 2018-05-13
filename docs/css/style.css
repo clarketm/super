@@ -13,8 +13,9 @@
   text-decoration: none;
 }
 
-html {
-  font-family: "Source Sans Pro", "Roboto", sans-serif;
+html
+{
+  font-family: 'Source Sans Pro', 'Roboto', sans-serif;
   overflow: auto;
   /*font-size: 14px;*/
   /*color: #4d4e53;*/
@@ -26,15 +27,14 @@ html {
 a {
   /*color: #0095dd;*/
   /*color:rgb(37, 138, 175);*/
-  color: #039be5;
+  color: #039BE5;
 }
 
 code a:hover {
   text-decoration: underline;
 }
 
-ul,
-ol {
+ul, ol {
   padding-left: 20px;
 }
 
@@ -84,16 +84,14 @@ p {
 }
 
 code {
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
-    monospace;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 pre > code {
   display: block;
 }
 
-pre.prettyprint,
-pre > code {
+pre.prettyprint, pre > code {
   padding: 4px;
   margin: 1em 0;
   background-color: #f5f5f5;
@@ -109,13 +107,12 @@ li > code {
   padding: 0.2em 0.5em;
   margin: 0;
   font-size: 85%;
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0,0,0,0.04);
   border-radius: 3px;
 }
 
 .code {
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
-    monospace;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 13px;
 }
 
@@ -148,7 +145,7 @@ li > code {
   top: 0;
   border-bottom: solid 1px #ddd;
 }
-.layout-container > header > a {
+.layout-container > header > a{
   margin: 0 5px;
   color: #444;
 }
@@ -173,7 +170,7 @@ li > code {
   padding-top: 40px;
   padding-left: 15px;
   padding-bottom: 2em;
-  margin-top: 1em;
+  margin-top:1em;
   overflow-x: scroll;
   box-shadow: rgba(255, 255, 255, 1) -1px 0 0 inset;
   border-right: 1px solid #ddd;
@@ -384,8 +381,7 @@ table.summary td p {
   content: "▼";
 }
 
-.member,
-.method {
+.member, .method {
   margin-bottom: 24px;
 }
 
@@ -467,9 +463,7 @@ table.params td p {
   margin: 0;
 }
 
-.deprecated,
-.experimental,
-.instance-docs {
+.deprecated, .experimental, .instance-docs {
   border-left: solid 5px orange;
   padding-left: 4px;
   margin: 4px 0;
@@ -477,12 +471,11 @@ table.params td p {
 
 tr.listen p,
 tr.throw p,
-tr.emit p {
+tr.emit p{
   margin-bottom: 10px;
 }
 
-.version,
-.since {
+.version, .since {
   color: #aaa;
 }
 
@@ -493,7 +486,7 @@ h3 .right-info {
 }
 
 .version + .since:before {
-  content: "| ";
+  content: '| ';
 }
 
 .see {
@@ -526,8 +519,7 @@ h3 .right-info {
   border-top-left-radius: 0;
 }
 
-footer,
-.file-footer {
+footer, .file-footer {
   text-align: right;
   font-style: italic;
   font-weight: 100;
@@ -563,10 +555,10 @@ pre.raw-source-code > code {
 }
 
 pre.raw-source-code > code > ol {
-  counter-reset: number;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  counter-reset:number;
+  list-style:none;
+  margin:0;
+  padding:0;
   overflow: hidden;
 }
 
@@ -606,7 +598,7 @@ pre.source-code.line-number li.error-line {
 
 .inner-link-active {
   /*background: rgb(255, 255, 150) !important;*/
-  background: #039be5 !important;
+  background: #039BE5 !important;
   color: #fff !important;
   padding-left: 0.1em !important;
 }

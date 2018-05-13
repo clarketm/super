@@ -58,66 +58,119 @@ export class SuperSet extends Set {
    *
    * @param {Iterable} iterable
    */
-  constructor(iterable: Iterable&lt;T&gt;) {
+  constructor (iterable: Iterable) {
     super(iterable);
   }
 
   /**
    * @public
    *
-   * @desc Union of two sets
+   * @desc Subset of a set
    *
-   * @param {Set} set SetB
-   * @returns {Set} Set union
+   * @param {Set} setB - SetB
+   * @returns {boolean} setA is subset of setB
    */
-  union(set: Set): Set {
-    let union = new Set(this);
-    set.forEach(v =&gt; union.add(v));
-    return union;
+  isSubset (setB: Set): boolean {
+    let setA = this;
+
+    for (let v of setA) {
+      if (!setB.has(v)) return false;
+    }
+    return true;
   }
 
   /**
    * @public
    *
-   * @desc Intersection of two sets
+   * @desc Superset of a set
    *
-   * @param {Set} set SetB
-   * @returns {Set} Set intersection
+   * @param {Set} setB - SetB
+   * @returns {boolean} setA is superset of setB
    */
-  intersection(set: Set): Set {
-    let intersection = new Set();
-    set.forEach(v =&gt; this.has(v) &amp;&amp; intersection.add(v));
-    return intersection;
+  isSuperset (setB: Set): boolean {
+    let setA = this;
+
+    for (let v of setB) {
+      if (!setA.has(v)) return false;
+    }
+    return true;
   }
 
   /**
    * @public
    *
-   * @desc Difference of two sets
+   * @desc Union of setA and setB
    *
-   * @param {Set} set SetB
-   * @returns {Set} Set difference
+   * @param {Set} setB - SetB
+   * @returns {Set} setC - union between setA and setB
    */
-  difference(set: Set): Set {
-    let difference = new Set(this);
-    set.forEach(v =&gt; difference.delete(v));
-    return difference;
+  union (setB: Set): Set {
+    let setA = this;
+    let setC = new Set(setA);
+
+    for (let v of setB) {
+      setC.add(v);
+    }
+
+    return setC;
   }
 
   /**
    * @public
    *
-   * @desc Symmetric Difference of two sets
+   * @desc Intersection of setA and setB
    *
-   * @param {Set} set SetB
-   * @returns {Set} Set symmetricDifference
+   * @param {Set} setB - SetB
+   * @returns {Set} setC - intersection between setA and setB
    */
-  symmetricDifference(set) {
-    let sDifference = new Set(this);
-    set.forEach(
-      v =&gt; (this.has(v) &amp;&amp; sDifference.delete(v)) || sDifference.add(v)
-    );
-    return sDifference;
+  intersection (setB: Set): Set {
+    let setA = this;
+    let setC = new Set();
+
+    for (let v of setB) {
+      if (setA.has(v)) setC.add(v);
+    }
+
+    return setC;
+  }
+
+  /**
+   * @public
+   *
+   * @desc Difference of setA and setB
+   *
+   * @param {Set} setB - SetB
+   * @returns {Set} setC - difference between setA and setB
+   */
+  difference (setB: Set): Set {
+    let setA = this;
+    let setC = new Set(setA);
+
+    for (let v of setB) {
+      setC.delete(v);
+    }
+
+    return setC;
+  }
+
+  /**
+   * @public
+   *
+   * @desc Symmetric difference of setA and setB
+   *
+   * @param {Set} setB - SetB
+   * @returns {Set} setC - difference difference between setA and setB
+   */
+  symmetricDifference (setB: Set): Set {
+    let setA = this;
+    let setC = new Set(setA);
+
+    for (let v of setB) {
+      if (setA.has(v)) setC.delete(v);
+      else setC.add(v);
+    }
+
+    return setC;
   }
 }
 

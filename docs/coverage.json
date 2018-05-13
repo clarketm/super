@@ -1,11 +1,11 @@
 {
   "coverage": "100%",
-  "expectCount": 6,
-  "actualCount": 6,
+  "expectCount": 8,
+  "actualCount": 8,
   "files": {
     "src/lib/SuperSet.js": {
-      "expectCount": 6,
-      "actualCount": 6,
+      "expectCount": 8,
+      "actualCount": 8,
       "undocumentLines": []
     }
   }

@@ -3,8 +3,7 @@
     "__docId__": 1,
     "kind": "external",
     "name": "Infinity",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Infinity",
@@ -16,8 +15,7 @@
     "__docId__": 2,
     "kind": "external",
     "name": "NaN",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~NaN",
@@ -29,8 +27,7 @@
     "__docId__": 3,
     "kind": "external",
     "name": "undefined",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~undefined",
@@ -42,8 +39,7 @@
     "__docId__": 4,
     "kind": "external",
     "name": "null",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~null",
@@ -55,8 +51,7 @@
     "__docId__": 5,
     "kind": "external",
     "name": "Object",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Object",
@@ -68,8 +63,7 @@
     "__docId__": 6,
     "kind": "external",
     "name": "object",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~object",
@@ -81,8 +75,7 @@
     "__docId__": 7,
     "kind": "external",
     "name": "Function",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Function",
@@ -94,8 +87,7 @@
     "__docId__": 8,
     "kind": "external",
     "name": "function",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~function",
@@ -107,8 +99,7 @@
     "__docId__": 9,
     "kind": "external",
     "name": "Boolean",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Boolean",
@@ -120,8 +111,7 @@
     "__docId__": 10,
     "kind": "external",
     "name": "boolean",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~boolean",
@@ -133,8 +123,7 @@
     "__docId__": 11,
     "kind": "external",
     "name": "Symbol",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Symbol",
@@ -146,8 +135,7 @@
     "__docId__": 12,
     "kind": "external",
     "name": "Error",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Error",
@@ -159,8 +147,7 @@
     "__docId__": 13,
     "kind": "external",
     "name": "EvalError",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~EvalError",
@@ -172,8 +159,7 @@
     "__docId__": 14,
     "kind": "external",
     "name": "InternalError",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~InternalError",
@@ -185,8 +171,7 @@
     "__docId__": 15,
     "kind": "external",
     "name": "RangeError",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~RangeError",
@@ -198,8 +183,7 @@
     "__docId__": 16,
     "kind": "external",
     "name": "ReferenceError",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~ReferenceError",
@@ -211,8 +195,7 @@
     "__docId__": 17,
     "kind": "external",
     "name": "SyntaxError",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~SyntaxError",
@@ -224,8 +207,7 @@
     "__docId__": 18,
     "kind": "external",
     "name": "TypeError",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~TypeError",
@@ -237,8 +219,7 @@
     "__docId__": 19,
     "kind": "external",
     "name": "URIError",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~URIError",
@@ -250,8 +231,7 @@
     "__docId__": 20,
     "kind": "external",
     "name": "Number",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Number",
@@ -263,8 +243,7 @@
     "__docId__": 21,
     "kind": "external",
     "name": "number",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~number",
@@ -276,8 +255,7 @@
     "__docId__": 22,
     "kind": "external",
     "name": "Date",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Date",
@@ -289,8 +267,7 @@
     "__docId__": 23,
     "kind": "external",
     "name": "String",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~String",
@@ -302,8 +279,7 @@
     "__docId__": 24,
     "kind": "external",
     "name": "string",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~string",
@@ -315,8 +291,7 @@
     "__docId__": 25,
     "kind": "external",
     "name": "RegExp",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~RegExp",
@@ -328,8 +303,7 @@
     "__docId__": 26,
     "kind": "external",
     "name": "Array",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Array",
@@ -341,8 +315,7 @@
     "__docId__": 27,
     "kind": "external",
     "name": "Int8Array",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Int8Array",
@@ -354,8 +327,7 @@
     "__docId__": 28,
     "kind": "external",
     "name": "Uint8Array",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Uint8Array",
@@ -367,8 +339,7 @@
     "__docId__": 29,
     "kind": "external",
     "name": "Uint8ClampedArray",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
@@ -380,8 +351,7 @@
     "__docId__": 30,
     "kind": "external",
     "name": "Int16Array",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Int16Array",
@@ -393,8 +363,7 @@
     "__docId__": 31,
     "kind": "external",
     "name": "Uint16Array",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Uint16Array",
@@ -406,8 +375,7 @@
     "__docId__": 32,
     "kind": "external",
     "name": "Int32Array",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Int32Array",
@@ -419,8 +387,7 @@
     "__docId__": 33,
     "kind": "external",
     "name": "Uint32Array",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Uint32Array",
@@ -432,8 +399,7 @@
     "__docId__": 34,
     "kind": "external",
     "name": "Float32Array",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Float32Array",
@@ -445,8 +411,7 @@
     "__docId__": 35,
     "kind": "external",
     "name": "Float64Array",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Float64Array",
@@ -458,8 +423,7 @@
     "__docId__": 36,
     "kind": "external",
     "name": "Map",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Map",
@@ -471,8 +435,7 @@
     "__docId__": 37,
     "kind": "external",
     "name": "Set",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Set",
@@ -484,8 +447,7 @@
     "__docId__": 38,
     "kind": "external",
     "name": "WeakMap",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~WeakMap",
@@ -497,8 +459,7 @@
     "__docId__": 39,
     "kind": "external",
     "name": "WeakSet",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~WeakSet",
@@ -510,8 +471,7 @@
     "__docId__": 40,
     "kind": "external",
     "name": "ArrayBuffer",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~ArrayBuffer",
@@ -523,8 +483,7 @@
     "__docId__": 41,
     "kind": "external",
     "name": "DataView",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~DataView",
@@ -536,8 +495,7 @@
     "__docId__": 42,
     "kind": "external",
     "name": "JSON",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~JSON",
@@ -549,8 +507,7 @@
     "__docId__": 43,
     "kind": "external",
     "name": "Promise",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Promise",
@@ -562,8 +519,7 @@
     "__docId__": 44,
     "kind": "external",
     "name": "Generator",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Generator",
@@ -575,8 +531,7 @@
     "__docId__": 45,
     "kind": "external",
     "name": "GeneratorFunction",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~GeneratorFunction",
@@ -588,8 +543,7 @@
     "__docId__": 46,
     "kind": "external",
     "name": "Reflect",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Reflect",
@@ -601,8 +555,7 @@
     "__docId__": 47,
     "kind": "external",
     "name": "Proxy",
-    "externalLink":
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
     "memberof": "src/.external-ecmascript.js",
     "static": true,
     "longname": "src/.external-ecmascript.js~Proxy",
@@ -614,11 +567,9 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/lib/SuperSet.js",
-    "content":
-      "// @flow\n\n/**\n * @module superset\n *\n */\n\n/**\n *\n * Set with superpowers! 💪\n *\n * @public\n *\n * @extends {Set}\n */\nexport class SuperSet extends Set {\n  /**\n   * @public\n   *\n   * @desc Construct a Set\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable<T>) {\n    super(iterable);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Union of two sets\n   *\n   * @param {Set} set SetB\n   * @returns {Set} Set union\n   */\n  union(set: Set): Set {\n    let union = new Set(this);\n    set.forEach(v => union.add(v));\n    return union;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Intersection of two sets\n   *\n   * @param {Set} set SetB\n   * @returns {Set} Set intersection\n   */\n  intersection(set: Set): Set {\n    let intersection = new Set();\n    set.forEach(v => this.has(v) && intersection.add(v));\n    return intersection;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Difference of two sets\n   *\n   * @param {Set} set SetB\n   * @returns {Set} Set difference\n   */\n  difference(set: Set): Set {\n    let difference = new Set(this);\n    set.forEach(v => difference.delete(v));\n    return difference;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Symmetric Difference of two sets\n   *\n   * @param {Set} set SetB\n   * @returns {Set} Set symmetricDifference\n   */\n  symmetricDifference(set) {\n    let sDifference = new Set(this);\n    set.forEach(\n      v => (this.has(v) && sDifference.delete(v)) || sDifference.add(v)\n    );\n    return sDifference;\n  }\n}\n\n// export { SuperSet as Set };\n",
+    "content": "// @flow\n\n/**\n * @module superset\n *\n */\n\n/**\n *\n * Set with superpowers! 💪\n *\n * @public\n *\n * @extends {Set}\n */\nexport class SuperSet extends Set {\n  /**\n   * @public\n   *\n   * @desc Construct a Set\n   *\n   * @param {Iterable} iterable\n   */\n  constructor (iterable: Iterable) {\n    super(iterable);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Subset of a set\n   *\n   * @param {Set} setB - SetB\n   * @returns {boolean} setA is subset of setB\n   */\n  isSubset (setB: Set): boolean {\n    let setA = this;\n\n    for (let v of setA) {\n      if (!setB.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Superset of a set\n   *\n   * @param {Set} setB - SetB\n   * @returns {boolean} setA is superset of setB\n   */\n  isSuperset (setB: Set): boolean {\n    let setA = this;\n\n    for (let v of setB) {\n      if (!setA.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Union of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - union between setA and setB\n   */\n  union (setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Intersection of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - intersection between setA and setB\n   */\n  intersection (setB: Set): Set {\n    let setA = this;\n    let setC = new Set();\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Difference of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - difference between setA and setB\n   */\n  difference (setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.delete(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Symmetric difference of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - difference difference between setA and setB\n   */\n  symmetricDifference (setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.delete(v);\n      else setC.add(v);\n    }\n\n    return setC;\n  }\n}\n\n// export { SuperSet as Set };\n",
     "static": true,
-    "longname":
-      "/Users/clarketm/js/super/packages/superset/src/lib/SuperSet.js",
+    "longname": "/Users/clarketm/js/super/packages/superset/src/lib/SuperSet.js",
     "access": "public",
     "description": null,
     "lineNumber": 1
@@ -637,7 +588,9 @@
     "description": "\nSet with superpowers! 💪",
     "lineNumber": 16,
     "interface": false,
-    "extends": ["Set"]
+    "extends": [
+      "Set"
+    ]
   },
   {
     "__docId__": 50,
@@ -654,7 +607,9 @@
     "params": [
       {
         "nullable": null,
-        "types": ["Iterable"],
+        "types": [
+          "Iterable"
+        ],
         "spread": false,
         "optional": false,
         "name": "iterable",
@@ -665,6 +620,84 @@
   {
     "__docId__": 51,
     "kind": "method",
+    "name": "isSubset",
+    "memberof": "src/lib/SuperSet.js~SuperSet",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lib/SuperSet.js~SuperSet#isSubset",
+    "access": "public",
+    "description": "Subset of a set",
+    "lineNumber": 36,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} setA is subset of setB"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Set"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "setB",
+        "description": "SetB"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "setA is subset of setB"
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "method",
+    "name": "isSuperset",
+    "memberof": "src/lib/SuperSet.js~SuperSet",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/lib/SuperSet.js~SuperSet#isSuperset",
+    "access": "public",
+    "description": "Superset of a set",
+    "lineNumber": 53,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} setA is superset of setB"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Set"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "setB",
+        "description": "SetB"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "setA is superset of setB"
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "method",
     "name": "union",
     "memberof": "src/lib/SuperSet.js~SuperSet",
     "generator": false,
@@ -672,33 +705,37 @@
     "static": false,
     "longname": "src/lib/SuperSet.js~SuperSet#union",
     "access": "public",
-    "description": "Union of two sets",
-    "lineNumber": 36,
+    "description": "Union of setA and setB",
+    "lineNumber": 70,
     "unknown": [
       {
         "tagName": "@returns",
-        "tagValue": "{Set} Set union"
+        "tagValue": "{Set} setC - union between setA and setB"
       }
     ],
     "params": [
       {
         "nullable": null,
-        "types": ["Set"],
+        "types": [
+          "Set"
+        ],
         "spread": false,
         "optional": false,
-        "name": "set",
+        "name": "setB",
         "description": "SetB"
       }
     ],
     "return": {
       "nullable": null,
-      "types": ["Set"],
+      "types": [
+        "Set"
+      ],
       "spread": false,
-      "description": "Set union"
+      "description": "setC - union between setA and setB"
     }
   },
   {
-    "__docId__": 52,
+    "__docId__": 54,
     "kind": "method",
     "name": "intersection",
     "memberof": "src/lib/SuperSet.js~SuperSet",
@@ -707,33 +744,37 @@
     "static": false,
     "longname": "src/lib/SuperSet.js~SuperSet#intersection",
     "access": "public",
-    "description": "Intersection of two sets",
-    "lineNumber": 50,
+    "description": "Intersection of setA and setB",
+    "lineNumber": 89,
     "unknown": [
       {
         "tagName": "@returns",
-        "tagValue": "{Set} Set intersection"
+        "tagValue": "{Set} setC - intersection between setA and setB"
       }
     ],
     "params": [
       {
         "nullable": null,
-        "types": ["Set"],
+        "types": [
+          "Set"
+        ],
         "spread": false,
         "optional": false,
-        "name": "set",
+        "name": "setB",
         "description": "SetB"
       }
     ],
     "return": {
       "nullable": null,
-      "types": ["Set"],
+      "types": [
+        "Set"
+      ],
       "spread": false,
-      "description": "Set intersection"
+      "description": "setC - intersection between setA and setB"
     }
   },
   {
-    "__docId__": 53,
+    "__docId__": 55,
     "kind": "method",
     "name": "difference",
     "memberof": "src/lib/SuperSet.js~SuperSet",
@@ -742,33 +783,37 @@
     "static": false,
     "longname": "src/lib/SuperSet.js~SuperSet#difference",
     "access": "public",
-    "description": "Difference of two sets",
-    "lineNumber": 64,
+    "description": "Difference of setA and setB",
+    "lineNumber": 108,
     "unknown": [
       {
         "tagName": "@returns",
-        "tagValue": "{Set} Set difference"
+        "tagValue": "{Set} setC - difference between setA and setB"
       }
     ],
     "params": [
       {
         "nullable": null,
-        "types": ["Set"],
+        "types": [
+          "Set"
+        ],
         "spread": false,
         "optional": false,
-        "name": "set",
+        "name": "setB",
         "description": "SetB"
       }
     ],
     "return": {
       "nullable": null,
-      "types": ["Set"],
+      "types": [
+        "Set"
+      ],
       "spread": false,
-      "description": "Set difference"
+      "description": "setC - difference between setA and setB"
     }
   },
   {
-    "__docId__": 54,
+    "__docId__": 56,
     "kind": "method",
     "name": "symmetricDifference",
     "memberof": "src/lib/SuperSet.js~SuperSet",
@@ -777,35 +822,38 @@
     "static": false,
     "longname": "src/lib/SuperSet.js~SuperSet#symmetricDifference",
     "access": "public",
-    "description": "Symmetric Difference of two sets",
-    "lineNumber": 78,
+    "description": "Symmetric difference of setA and setB",
+    "lineNumber": 127,
     "unknown": [
       {
         "tagName": "@returns",
-        "tagValue": "{Set} Set symmetricDifference"
+        "tagValue": "{Set} setC - difference difference between setA and setB"
       }
     ],
     "params": [
       {
         "nullable": null,
-        "types": ["Set"],
+        "types": [
+          "Set"
+        ],
         "spread": false,
         "optional": false,
-        "name": "set",
+        "name": "setB",
         "description": "SetB"
       }
     ],
     "return": {
       "nullable": null,
-      "types": ["Set"],
+      "types": [
+        "Set"
+      ],
       "spread": false,
-      "description": "Set symmetricDifference"
+      "description": "setC - difference difference between setA and setB"
     }
   },
   {
     "kind": "index",
-    "content":
-      "# Super\n\nJavaScript types with superpowers! 💪\n\n## Types\n\n1.  [SuperSet](https://github.com/clarketm/super/tree/master/packages/superset#readme) – JavaScript Set with superpowers! 💪\n\n## Packages\n\n1.  [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme) – Babel preset with superpowers! 💪\n2.  [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme) – ESLint config with superpowers! 💪\n3.  [generator-super](https://github.com/clarketm/super/tree/master/packages/generator-super#readme) – Yeoman generator with superpowers! 💪\n",
+    "content": "# Super\n\nJavaScript types with superpowers! 💪\n\n## Types\n\n1.  [SuperSet](https://github.com/clarketm/super/tree/master/packages/superset#readme) – JavaScript Set with superpowers! 💪\n\n## Packages\n\n1.  [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme) – Babel preset with superpowers! 💪\n2.  [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme) – ESLint config with superpowers! 💪\n3.  [generator-super](https://github.com/clarketm/super/tree/master/packages/generator-super#readme) – Yeoman generator with superpowers! 💪\n",
     "longname": "/Users/clarketm/js/super/README.md",
     "name": "./README.md",
     "static": true,
@@ -813,8 +861,7 @@
   },
   {
     "kind": "packageJSON",
-    "content":
-      "{\n  \"name\": \"@clarketm/supertypes\",\n  \"version\": \"1.0.0\",\n  \"description\": \"JavaScript types with superpowers! 💪\",\n  \"main\": \"index.js\",\n  \"scripts\": {\n    \"docs\": \"shx rm -rf ./docs ; esdoc\",\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n  },\n  \"husky\": {\n    \"hooks\": {\n      \"pre-commit\": \"lint-staged\"\n    }\n  },\n  \"lint-staged\": {\n    \"*.{js,json,css,md}\": [\n      \"prettier --write\",\n      \"git add\"\n    ]\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/clarketm/super.git\"\n  },\n  \"keywords\": [\n    \"javascript\",\n    \"types\",\n    \"super\",\n    \"superpowers\",\n    \"map\",\n    \"set\",\n    \"object\",\n    \"string\"\n  ],\n  \"author\": {\n    \"name\": \"Travis Clarke\",\n    \"email\": \"travis.m.clarke@gmail.com\",\n    \"url\": \"https://www.travismclarke.com/\"\n  },\n  \"license\": \"MIT\",\n  \"bugs\": {\n    \"url\": \"https://github.com/clarketm/super/issues\"\n  },\n  \"homepage\": \"https://github.com/clarketm/super#readme\",\n  \"devDependencies\": {\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-flow-plugin\": \"^1.0.0\",\n    \"esdoc-publish-markdown-plugin\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"flow-bin\": \"^0.72.0\",\n    \"husky\": \"^1.0.0-rc.4\",\n    \"lint-staged\": \"^7.1.0\",\n    \"prettier\": \"^1.12.1\",\n    \"shx\": \"^0.2.2\"\n  }\n}\n",
+    "content": "{\n  \"name\": \"@clarketm/supertypes\",\n  \"version\": \"1.0.0\",\n  \"description\": \"JavaScript types with superpowers! 💪\",\n  \"main\": \"index.js\",\n  \"scripts\": {\n    \"docs\": \"shx rm -rf ./docs ; esdoc\",\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n  },\n  \"husky\": {\n    \"hooks\": {\n      \"pre-commit\": \"lint-staged\"\n    }\n  },\n  \"lint-staged\": {\n    \"*.{js,json,css,md}, !packages/*/lib\": [\"prettier --write\", \"git add\"]\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/clarketm/super.git\"\n  },\n  \"keywords\": [\n    \"javascript\",\n    \"types\",\n    \"super\",\n    \"superpowers\",\n    \"map\",\n    \"set\",\n    \"object\",\n    \"string\"\n  ],\n  \"author\": {\n    \"name\": \"Travis Clarke\",\n    \"email\": \"travis.m.clarke@gmail.com\",\n    \"url\": \"https://www.travismclarke.com/\"\n  },\n  \"license\": \"MIT\",\n  \"bugs\": {\n    \"url\": \"https://github.com/clarketm/super/issues\"\n  },\n  \"homepage\": \"https://github.com/clarketm/super#readme\",\n  \"devDependencies\": {\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-flow-plugin\": \"^1.0.0\",\n    \"esdoc-publish-markdown-plugin\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"flow-bin\": \"^0.72.0\",\n    \"husky\": \"^1.0.0-rc.4\",\n    \"lint-staged\": \"^7.1.0\",\n    \"prettier\": \"^1.12.1\",\n    \"shx\": \"^0.2.2\"\n  }\n}\n",
     "longname": "/Users/clarketm/js/super/package.json",
     "name": "package.json",
     "static": true,
