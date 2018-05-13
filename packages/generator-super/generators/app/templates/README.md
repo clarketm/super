@@ -1,3 +1,3 @@
 # Super<%= type %>
 
-JavaScript <%= type %> with superpowers! 💪
+<%= type %> with superpowers! 💪

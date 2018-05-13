@@ -1,7 +1,7 @@
 {
   "name": "@clarketm/<%= name %>",
   "version": "<%= version %>",
-  "description": "JavaScript <%= type %> with superpowers! 💪",
+  "description": "<%= type %> with superpowers! 💪",
   "main": "./lib/<%= type %>.js",
   "directories": {
     "lib": "./lib"
