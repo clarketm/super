@@ -781,7 +781,7 @@ var Super = {
   Number: _Number,
   Object: _Object,
   Set: _Set,
-  String: _String,
+  String: _String
 };
 
 export default Super;

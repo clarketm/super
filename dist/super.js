@@ -787,7 +787,7 @@
     Number: _Number,
     Object: _Object,
     Set: _Set,
-    String: _String,
+    String: _String
   };
 
   exports.default = Super;
