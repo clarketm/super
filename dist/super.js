@@ -11,11 +11,6 @@
   (factory((global.Super = {})));
 }(this, (function (exports) { 'use strict';
 
-  /**
-   * @module super/map
-   *
-   */
-
   var PrimitiveType = {
     BOOLEAN: "boolean",
     FUNCTION: "function",
@@ -26,9 +21,12 @@
     UNDEFINED: "undefined"
   };
 
-  /**
-   * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
-   */
+  var InstanceType = {
+    OBJECT: Object,
+    ARRAY: Array,
+    REGEXP: RegExp,
+    DATE: Date
+  };
 
   /**
    * @typedef {Function} Callback
@@ -135,11 +133,6 @@
   }(Map));
 
   /**
-   * @module super/array
-   *
-   */
-
-  /**
    * @typedef {Function} Callback
    */
 
@@ -199,11 +192,6 @@
   }(Array));
 
   /**
-   * @module super/math
-   *
-   */
-
-  /**
    *
    * Math with superpowers! 💪
    *
@@ -226,11 +214,6 @@
     if (num === 0) { return 1; }
     return num * _Math.factorial(num - 1);
   };
-
-  /**
-   * @module super/number
-   *
-   */
 
   var RomanNumeralToIntegerMap = new Map([
     ["M", 1000],
@@ -333,32 +316,6 @@
   }(Number));
 
   /**
-   * @module super/object
-   *
-   */
-
-  var PrimitiveType$1 = {
-    BOOLEAN: "boolean",
-    FUNCTION: "function",
-    NUMBER: "number",
-    OBJECT: "object",
-    STRING: "string",
-    SYMBOL: "symbol",
-    UNDEFINED: "undefined"
-  };
-
-  var InstanceType$1 = {
-    OBJECT: Object,
-    ARRAY: Array,
-    REGEXP: RegExp,
-    DATE: Date
-  };
-
-  /**
-   * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
-   */
-
-  /**
    * @typedef {object} Config
    * @property {boolean} [includeNonEnumerable=false]
    */
@@ -397,7 +354,7 @@
       for (var i = 0, list = keys; i < list.length; i += 1) {
         var key = list[i];
 
-        if (typeof item === PrimitiveType$1.OBJECT && key in item) { item = item[key]; }
+        if (typeof item === PrimitiveType.OBJECT && key in item) { item = item[key]; }
         else { return false; }
       }
       return true;
@@ -420,7 +377,7 @@
       for (var i = 0, list = keys; i < list.length; i += 1) {
         var key = list[i];
 
-        if (typeof item === PrimitiveType$1.OBJECT && key in item) { item = item[key]; }
+        if (typeof item === PrimitiveType.OBJECT && key in item) { item = item[key]; }
         else { return; }
       }
       return item;
@@ -457,15 +414,15 @@
        * @returns {any} cloned item
        */
       function _clone(item) {
-        if (item === null || typeof item !== PrimitiveType$1.OBJECT) {
+        if (item === null || typeof item !== PrimitiveType.OBJECT) {
           return item;
         }
 
-        if (item instanceof InstanceType$1.DATE) {
+        if (item instanceof InstanceType.DATE) {
           return new Date(item.valueOf());
         }
 
-        if (item instanceof InstanceType$1.ARRAY) {
+        if (item instanceof InstanceType.ARRAY) {
           var copy = [];
 
           item.forEach(function (_, i) { return (copy[i] = _clone(item[i])); });
@@ -473,7 +430,7 @@
           return copy;
         }
 
-        if (item instanceof InstanceType$1.OBJECT) {
+        if (item instanceof InstanceType.OBJECT) {
           var copy$1 = {};
 
           Object.getOwnPropertySymbols(item).forEach(function (s) { return (copy$1[s] = _clone(item[s])); });
@@ -497,15 +454,6 @@
   }(Object));
 
   /**
-   * @module super/queue
-   *
-   */
-
-  /**
-   * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
-   */
-
-  /**
    *
    * Queue with superpowers! 💪
    *
@@ -523,9 +471,9 @@
   /**
    * @public
    *
-   * @desc Get the current length of the queue
+   * @desc Get the current size of the queue
    *
-   * @returns {number} length of the queue
+   * @returns {number} size of the queue
    */
   prototypeAccessors.size.get = function () {
     return this._queue.length;
@@ -610,11 +558,6 @@
   };
 
   Object.defineProperties( Queue.prototype, prototypeAccessors );
-
-  /**
-   * @module super/set
-   *
-   */
 
   /**
    * @typedef {Function} Callback
@@ -811,11 +754,6 @@
 
     return _Set;
   }(Set));
-
-  /**
-   * @module super/string
-   *
-   */
 
   /**
    *

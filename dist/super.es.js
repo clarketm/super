@@ -5,11 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/**
- * @module super/map
- *
- */
-
 var PrimitiveType = {
   BOOLEAN: "boolean",
   FUNCTION: "function",
@@ -20,9 +15,12 @@ var PrimitiveType = {
   UNDEFINED: "undefined"
 };
 
-/**
- * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
- */
+var InstanceType = {
+  OBJECT: Object,
+  ARRAY: Array,
+  REGEXP: RegExp,
+  DATE: Date
+};
 
 /**
  * @typedef {Function} Callback
@@ -129,11 +127,6 @@ var _Map = (function (Map) {
 }(Map));
 
 /**
- * @module super/array
- *
- */
-
-/**
  * @typedef {Function} Callback
  */
 
@@ -193,11 +186,6 @@ var _Array = (function (Array) {
 }(Array));
 
 /**
- * @module super/math
- *
- */
-
-/**
  *
  * Math with superpowers! 💪
  *
@@ -220,11 +208,6 @@ _Math.factorial = function(num) {
   if (num === 0) { return 1; }
   return num * _Math.factorial(num - 1);
 };
-
-/**
- * @module super/number
- *
- */
 
 var RomanNumeralToIntegerMap = new Map([
   ["M", 1000],
@@ -327,32 +310,6 @@ var _Number = (function (Number) {
 }(Number));
 
 /**
- * @module super/object
- *
- */
-
-var PrimitiveType$1 = {
-  BOOLEAN: "boolean",
-  FUNCTION: "function",
-  NUMBER: "number",
-  OBJECT: "object",
-  STRING: "string",
-  SYMBOL: "symbol",
-  UNDEFINED: "undefined"
-};
-
-var InstanceType$1 = {
-  OBJECT: Object,
-  ARRAY: Array,
-  REGEXP: RegExp,
-  DATE: Date
-};
-
-/**
- * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
- */
-
-/**
  * @typedef {object} Config
  * @property {boolean} [includeNonEnumerable=false]
  */
@@ -391,7 +348,7 @@ var _Object = (function (Object) {
     for (var i = 0, list = keys; i < list.length; i += 1) {
       var key = list[i];
 
-      if (typeof item === PrimitiveType$1.OBJECT && key in item) { item = item[key]; }
+      if (typeof item === PrimitiveType.OBJECT && key in item) { item = item[key]; }
       else { return false; }
     }
     return true;
@@ -414,7 +371,7 @@ var _Object = (function (Object) {
     for (var i = 0, list = keys; i < list.length; i += 1) {
       var key = list[i];
 
-      if (typeof item === PrimitiveType$1.OBJECT && key in item) { item = item[key]; }
+      if (typeof item === PrimitiveType.OBJECT && key in item) { item = item[key]; }
       else { return; }
     }
     return item;
@@ -451,15 +408,15 @@ var _Object = (function (Object) {
      * @returns {any} cloned item
      */
     function _clone(item) {
-      if (item === null || typeof item !== PrimitiveType$1.OBJECT) {
+      if (item === null || typeof item !== PrimitiveType.OBJECT) {
         return item;
       }
 
-      if (item instanceof InstanceType$1.DATE) {
+      if (item instanceof InstanceType.DATE) {
         return new Date(item.valueOf());
       }
 
-      if (item instanceof InstanceType$1.ARRAY) {
+      if (item instanceof InstanceType.ARRAY) {
         var copy = [];
 
         item.forEach(function (_, i) { return (copy[i] = _clone(item[i])); });
@@ -467,7 +424,7 @@ var _Object = (function (Object) {
         return copy;
       }
 
-      if (item instanceof InstanceType$1.OBJECT) {
+      if (item instanceof InstanceType.OBJECT) {
         var copy$1 = {};
 
         Object.getOwnPropertySymbols(item).forEach(function (s) { return (copy$1[s] = _clone(item[s])); });
@@ -491,15 +448,6 @@ var _Object = (function (Object) {
 }(Object));
 
 /**
- * @module super/queue
- *
- */
-
-/**
- * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
- */
-
-/**
  *
  * Queue with superpowers! 💪
  *
@@ -517,9 +465,9 @@ var prototypeAccessors = { size: { configurable: true } };
 /**
  * @public
  *
- * @desc Get the current length of the queue
+ * @desc Get the current size of the queue
  *
- * @returns {number} length of the queue
+ * @returns {number} size of the queue
  */
 prototypeAccessors.size.get = function () {
   return this._queue.length;
@@ -604,11 +552,6 @@ Queue.prototype.toArray = function toArray () {
 };
 
 Object.defineProperties( Queue.prototype, prototypeAccessors );
-
-/**
- * @module super/set
- *
- */
 
 /**
  * @typedef {Function} Callback
@@ -805,11 +748,6 @@ var _Set = (function (Set) {
 
   return _Set;
 }(Set));
-
-/**
- * @module super/string
- *
- */
 
 /**
  *
