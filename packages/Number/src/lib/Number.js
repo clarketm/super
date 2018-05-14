@@ -1,8 +1,6 @@
-// @flow
-
 /**
+ * @flow
  * @module super/number
- *
  */
 
 const RomanNumeralToIntegerMap = new Map([
