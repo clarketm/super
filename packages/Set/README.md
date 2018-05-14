@@ -2,6 +2,8 @@
 
 Set with superpowers! 💪
 
+> This data structure inherit **all** methods and properties for the [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) built-in.
+
 ### `constructor(iterable: Iterable)`
 
 Construct a Set

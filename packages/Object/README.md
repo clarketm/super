@@ -2,6 +2,8 @@
 
 Object with superpowers! 💪
 
+> This data structure inherit **all** methods and properties for the [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) built-in.
+
 ### `constructor(object: Object)`
 
 Construct an Object

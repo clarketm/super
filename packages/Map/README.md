@@ -2,6 +2,8 @@
 
 Map with superpowers! 💪
 
+> This data structure inherit **all** methods and properties for the [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) built-in.
+
 ### `constructor(iterable: Iterable)`
 
 Construct a Map
