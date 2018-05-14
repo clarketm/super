@@ -11,11 +11,9 @@
   (factory((global.Math = {})));
 }(this, (function (exports) { 'use strict';
 
-  // 
-
   /**
+   * 
    * @module super/math
-   *
    */
 
   /**
