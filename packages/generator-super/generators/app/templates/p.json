@@ -9,7 +9,7 @@
     "LICENSE.md"
   ],
   "scripts": {
-    "build": "shx rm -rf ./bin ./lib ; babel ./src --out-dir ./",
+    "build": "shx rm -rf ./bin ./lib ; rollup -c ../shared/rollup-config.js",
     "lint": "eslint --fix ./src ./test",
     "prep": "yarn lint && yarn prettier && yarn build && yarn test",
     "prepublishOnly": "yarn prep",
@@ -36,7 +36,6 @@
   "devDependencies": {
     "@clarketm/babel-preset-super": "^1.2.1",
     "@clarketm/eslint-config-super": "^1.2.2",
-    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
     "chai": "^4.1.2",
@@ -44,6 +43,7 @@
     "eslint-plugin-flowtype": "^2.46.3",
     "mocha": "^5.1.1",
     "prettier": "^1.12.1",
+    "rollup": "^0.58.2",
     "shx": "^0.2.2"
   }
 }
