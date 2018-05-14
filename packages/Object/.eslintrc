@@ -1,0 +1,3 @@
+{
+  "extends": "@clarketm/eslint-config-super"
+}
