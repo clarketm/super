@@ -1,0 +1,14 @@
+{
+  "name": "shared",
+  "version": "0.0.1",
+  "description": "Shared utilities",
+  "private": true,
+  "scripts": {
+    "prettier": "prettier --write './{src,test}/**/*.js' './*.{js,css,md}'"
+  },
+  "author": "Travis Clarke <travis.m.clarke@gmail.com> (https://www.travismclarke.com/)",
+  "devDependencies": {
+    "@clarketm/babel-preset-super": "^1.2.4",
+    "prettier": "^1.12.1"
+  }
+}

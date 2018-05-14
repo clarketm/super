@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import flow from "rollup-plugin-flow";
-import buble from "rollup-plugin-buble";
+import babel from "rollup-plugin-babel";
 import { minify } from "uglify-js";
 import saveLicense from "uglify-save-license";
 
@@ -21,7 +21,10 @@ export default {
   },
   plugins: [
     flow({ pretty: true }),
-    buble({ transforms: { dangerousForOf: true } }),
+    babel({
+      presets: [["env", { modules: false }], "@clarketm/babel-preset-super"],
+      babelrc: false
+    }),
     {
       name: "uglify",
       transformBundle(code) {
