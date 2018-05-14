@@ -36,14 +36,13 @@
    * @param {number} num - integral number
    * @returns {number} factorial of num
    */
-  _Math.factorial = function(num) {
-    if (num < 0) { throw new Error("Factorial not defined for negative values"); }
-    if (num === 0) { return 1; }
+  _Math.factorial = function (num) {
+    if (num < 0) throw new Error("Factorial not defined for negative values");
+    if (num === 0) return 1;
     return num * _Math.factorial(num - 1);
   };
 
   exports._Math = _Math;
-  exports.default = _Math;
   exports.Math = _Math;
 
   Object.defineProperty(exports, '__esModule', { value: true });
