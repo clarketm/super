@@ -23,6 +23,9 @@
   "license": "MIT",
   "homepage":
     "https://github.com/clarketm/super/tree/master/packages/superarray#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@clarketm/babel-preset-super": "^1.0.1",
     "@clarketm/eslint-config-super": "^1.0.1",
