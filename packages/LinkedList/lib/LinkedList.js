@@ -28,6 +28,13 @@
    *
    */
   var ListNode = function () {
+    /**
+     * @public
+     *
+     * @desc Construct a ListNode
+     *
+     * @param {Item} item - node value
+     */
     function ListNode(item) {
       _classCallCheck(this, ListNode);
 
