@@ -1,0 +1,10 @@
+[
+  {
+    "kind": "index",
+    "content": "# Super\n\n**Types** with superpowers! 💪\n\n## Types\n\n*  [SuperArray](https://github.com/clarketm/super/tree/master/packages/superarray#readme) – **Array** with superpowers! 💪\n*  [SuperObject](https://github.com/clarketm/super/tree/master/packages/superobject#readme) – **Object** with superpowers! 💪\n*  [SuperMap](https://github.com/clarketm/super/tree/master/packages/supermap#readme) – **Map** with superpowers! 💪\n*  [SuperMath](https://github.com/clarketm/super/tree/master/packages/supermath#readme) – **Math** with superpowers! 💪\n*  [SuperNumber](https://github.com/clarketm/super/tree/master/packages/supernumber#readme) – **Number** with superpowers! 💪\n*  [SuperSet](https://github.com/clarketm/super/tree/master/packages/superset#readme) – **Set** with superpowers! 💪\n*  [SuperString](https://github.com/clarketm/super/tree/master/packages/superstring#readme) – **String** with superpowers! 💪\n\n## Packages\n\n*  [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme) – **Babel preset** with superpowers! 💪\n*  [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme) – **ESLint config** with superpowers! 💪\n*  [generator-super](https://github.com/clarketm/super/tree/master/packages/generator-super#readme) – **Yeoman generator** with superpowers! 💪\n",
+    "longname": "/Users/clarketm/js/super/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  }
+]
