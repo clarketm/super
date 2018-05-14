@@ -5,34 +5,34 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { SuperMap } from './supermap/src/lib/SuperMap';
-import { SuperArray } from './superarray/src/lib/SuperArray';
-import { SuperMath } from './supermath/src/lib/SuperMath';
-import { SuperNumber } from './supernumber/src/lib/SuperNumber';
-import { SuperObject } from './superobject/src/lib/SuperObject';
-import { SuperSet } from './superset/src/lib/SuperSet';
-import { SuperString } from './superstring/src/lib/SuperString';
+import { Map } from './map/src/lib/Map';
+import { Array } from './Array/src/lib/Array';
+import { Math } from './Math/src/lib/Math';
+import { Number } from './Number/src/lib/Number';
+import { Object } from './Object/src/lib/Object';
+import { Set } from './Set/src/lib/Set';
+import { String } from './String/src/lib/String';
 
 import { version } from '../package.json';
 
 export default {
   version,
-  SuperArray,
-  SuperMap,
-  SuperMath,
-  SuperNumber,
-  SuperObject,
-  SuperSet,
-  SuperString,
+  Array,
+  Map,
+  Math,
+  Number,
+  Object,
+  Set,
+  String,
 };
 
 export {
   version,
-  SuperArray,
-  SuperMap,
-  SuperMath,
-  SuperNumber,
-  SuperObject,
-  SuperSet,
-  SuperString,
+  Array,
+  Map,
+  Math,
+  Number,
+  Object,
+  Set,
+  String,
 };
