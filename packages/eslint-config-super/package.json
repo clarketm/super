@@ -12,6 +12,9 @@
   "license": "MIT",
   "homepage":
     "https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "babel-eslint": ">=8",
     "eslint": ">= 3",
