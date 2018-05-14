@@ -3,7 +3,7 @@
     "__docId__": 0,
     "kind": "file",
     "name": "packages/Array/src/lib/Array.js",
-    "content": "// @flow\n\n/**\n * @module super/array\n *\n */\n\n/**\n * @typedef {Function} Callback\n */\ntype Callback = (value: any, index: number, array: Array) => Array;\n\n/**\n *\n * Array with superpowers! 💪\n *\n * @public\n *\n */\nclass _Array extends Array {\n  /**\n   * @public\n   *\n   * @desc Construct an Array\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable = []) {\n    super();\n    this.push(...iterable);\n  }\n  /**\n   * @public\n   *\n   * @desc Maps each element using a mapping function, then flattens the result into a new array\n   *\n   * @param {Callback} callback - callback function\n   * @returns {Array} A new array with each element being the result of the callback function and flattened to a depth of 1\n   */\n  flatMap(callback: (value: any, index: number, array: Array) => boolean): Array {\n    return this.map(callback).flatten();\n  }\n  /**\n   * @public\n   *\n   * @desc Creates a new array with all sub-array elements concatted into it recursively up to the specified depth\n   *\n   * @param {number} depth - flatten depth\n   * @returns {Array}  new array with the sub-array elements concatted into it.\n   */\n  flatten(depth: number = 1): Array {\n    function _flatten(depth, arr) {\n      if (depth <= 0) return arr;\n\n      return arr.reduce((acc, val) => {\n        if (Array.isArray(val)) return acc.concat(_flatten(depth - 1, val));\n        else return acc.concat(val);\n      }, []);\n    }\n    return _flatten(depth, this);\n  }\n}\nexport { _Array as Array };\n",
+    "content": "/**\n * @flow\n * @module super/array\n */\n\n/**\n * @typedef {Function} Callback\n */\ntype Callback = (value: any, index: number, array: Array) => Array;\n\n/**\n *\n * Array with superpowers! 💪\n *\n * @public\n *\n */\nclass _Array extends Array {\n  /**\n   * @public\n   *\n   * @desc Construct an Array\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable = []) {\n    super();\n    this.push(...iterable);\n  }\n  /**\n   * @public\n   *\n   * @desc Maps each element using a mapping function, then flattens the result into a new array\n   *\n   * @param {Callback} callback - callback function\n   * @returns {Array} A new array with each element being the result of the callback function and flattened to a depth of 1\n   */\n  flatMap(callback: (value: any, index: number, array: Array) => boolean): Array {\n    return this.map(callback).flatten();\n  }\n  /**\n   * @public\n   *\n   * @desc Creates a new array with all sub-array elements concatted into it recursively up to the specified depth\n   *\n   * @param {number} depth - flatten depth\n   * @returns {Array}  new array with the sub-array elements concatted into it.\n   */\n  flatten(depth: number = 1): Array {\n    function _flatten(depth, arr) {\n      if (depth <= 0) return arr;\n\n      return arr.reduce((acc, val) => {\n        if (Array.isArray(val)) return acc.concat(_flatten(depth - 1, val));\n        else return acc.concat(val);\n      }, []);\n    }\n    return _flatten(depth, this);\n  }\n}\nexport { _Array as Array };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/Array/src/lib/Array.js",
     "access": "public",
@@ -135,7 +135,7 @@
     "__docId__": 5,
     "kind": "file",
     "name": "packages/LinkedList/src/lib/LinkedList.js",
-    "content": "// @flow\n\n// import type { Item } from './types';\nimport { ListNode } from \"./ListNode\";\n\n/**\n * @module super/linkedlist\n *\n */\n\n/**\n *\n * LinkedList with superpowers! 💪\n *\n * @public\n *\n */\nclass LinkedList {\n  /**\n   * @public\n   *\n   * @desc Construct a LinkedList\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable = []) {\n    let head = new ListNode(0); // dummy head\n    let curr = head;\n    let size = 0;\n\n    for (let item of iterable) {\n      curr.next = new ListNode(item);\n      curr = curr.next;\n      size++;\n    }\n\n    this._size = size;\n    this._head = head.next;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the head of the list\n   *\n   * @returns {ListNode} head node\n   */\n  get head(): ListNode {\n    return this._head;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the size of the list\n   *\n   * @returns {number} number of nodes in the list\n   */\n  get size(): number {\n    return this._size;\n  }\n\n  // TODO:\n  // add (item: Item)\n  // searchNodeAt (position: number)\n  // remove (position: number)\n\n  /**\n   * @public\n   *\n   * @desc Convert the node and next nodes (recursively) to an array\n   *\n   * @returns {Array} array representation of the list\n   */\n  toArray(): Array {\n    let array = [];\n    let node = this;\n\n    while (node !== null) {\n      array.push(node.value);\n      node = node.next;\n    }\n\n    return array;\n  }\n}\n\nexport { LinkedList };\n",
+    "content": "/**\n * @flow\n * @module super/linkedlist\n */\n\nimport { ListNode } from \"./ListNode\";\n\n/**\n *\n * LinkedList with superpowers! 💪\n *\n * @public\n *\n */\nclass LinkedList {\n  /**\n   * @public\n   *\n   * @desc Construct a LinkedList\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable = []) {\n    let head = new ListNode(0); // dummy head\n    let curr = head;\n    let size = 0;\n\n    for (let item of iterable) {\n      curr.next = new ListNode(item);\n      curr = curr.next;\n      size++;\n    }\n\n    this._size = size;\n    this._head = head.next;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the head of the list\n   *\n   * @returns {ListNode} head node\n   */\n  get head(): ListNode {\n    return this._head;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the size of the list\n   *\n   * @returns {number} number of nodes in the list\n   */\n  get size(): number {\n    return this._size;\n  }\n\n  // TODO:\n  // add (item: Item)\n  // searchNodeAt (position: number)\n  // remove (position: number)\n\n  /**\n   * @public\n   *\n   * @desc Convert the node and next nodes (recursively) to an array\n   *\n   * @returns {Array} array representation of the list\n   */\n  toArray(): Array {\n    let array = [];\n    let node = this;\n\n    while (node !== null) {\n      array.push(node.value);\n      node = node.next;\n    }\n\n    return array;\n  }\n}\n\nexport { LinkedList };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/LinkedList/src/lib/LinkedList.js",
     "access": "public",
@@ -154,7 +154,7 @@
     "importPath": "@clarketm/super/packages/LinkedList/src/lib/LinkedList.js",
     "importStyle": "{LinkedList}",
     "description": "\nLinkedList with superpowers! 💪",
-    "lineNumber": 18,
+    "lineNumber": 15,
     "interface": false
   },
   {
@@ -168,7 +168,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#constructor",
     "access": "public",
     "description": "Construct a LinkedList",
-    "lineNumber": 26,
+    "lineNumber": 23,
     "params": [
       {
         "nullable": null,
@@ -191,7 +191,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#_size",
     "access": "private",
     "description": null,
-    "lineNumber": 37,
+    "lineNumber": 34,
     "undocument": true,
     "type": {
       "types": [
@@ -208,7 +208,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#_head",
     "access": "private",
     "description": null,
-    "lineNumber": 38,
+    "lineNumber": 35,
     "undocument": true,
     "type": {
       "types": [
@@ -227,7 +227,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#head",
     "access": "public",
     "description": "Get the head of the list",
-    "lineNumber": 48,
+    "lineNumber": 45,
     "unknown": [
       {
         "tagName": "@returns",
@@ -259,7 +259,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#size",
     "access": "public",
     "description": "Get the size of the list",
-    "lineNumber": 59,
+    "lineNumber": 56,
     "unknown": [
       {
         "tagName": "@returns",
@@ -291,7 +291,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#toArray",
     "access": "public",
     "description": "Convert the node and next nodes (recursively) to an array",
-    "lineNumber": 75,
+    "lineNumber": 72,
     "unknown": [
       {
         "tagName": "@returns",
@@ -312,7 +312,7 @@
     "__docId__": 13,
     "kind": "file",
     "name": "packages/LinkedList/src/lib/ListNode.js",
-    "content": "// @flow\n\nimport type { Item } from \"./types\";\n\n/**\n * @module super/linkedlist\n *\n */\n\n/**\n *\n * ListNode\n *\n * @public\n *\n */\nclass ListNode {\n  constructor(item: Item) {\n    this.value = item;\n    this.prev = null;\n    this.next = null;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the value of the node\n   *\n   * @returns {Item} node value\n   */\n  get value(): Item {\n    return this._value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the value of the node\n   *\n   */\n  set value(value: Item) {\n    this._value = value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the next node in list\n   *\n   * @returns {ListNode} next node\n   */\n  get next(): ListNode {\n    return this._next;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the next node in list\n   *\n   */\n  set next(next: ListNode) {\n    this._next = next;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the previous node in list\n   *\n   * @returns {ListNode} previous node\n   */\n  get prev(): ListNode {\n    return this._prev;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the next node in list\n   *\n   */\n  set prev(prev: ListNode) {\n    this._prev = prev;\n  }\n}\n\nexport { ListNode };\n",
+    "content": "/**\n * @flow\n * @module super/linkedlist\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * ListNode\n *\n * @public\n *\n */\nclass ListNode {\n  constructor(item: Item) {\n    this.value = item;\n    this.prev = null;\n    this.next = null;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the value of the node\n   *\n   * @returns {Item} node value\n   */\n  get value(): Item {\n    return this._value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the value of the node\n   *\n   */\n  set value(value: Item) {\n    this._value = value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the next node in list\n   *\n   * @returns {ListNode} next node\n   */\n  get next(): ListNode {\n    return this._next;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the next node in list\n   *\n   */\n  set next(next: ListNode) {\n    this._next = next;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the previous node in list\n   *\n   * @returns {ListNode} previous node\n   */\n  get prev(): ListNode {\n    return this._prev;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the next node in list\n   *\n   */\n  set prev(prev: ListNode) {\n    this._prev = prev;\n  }\n}\n\nexport { ListNode };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/LinkedList/src/lib/ListNode.js",
     "access": "public",
@@ -331,7 +331,7 @@
     "importPath": "@clarketm/super/packages/LinkedList/src/lib/ListNode.js",
     "importStyle": "{ListNode}",
     "description": "\nListNode",
-    "lineNumber": 15,
+    "lineNumber": 10,
     "interface": false
   },
   {
@@ -345,7 +345,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#constructor",
     "access": "public",
     "description": null,
-    "lineNumber": 16,
+    "lineNumber": 11,
     "undocument": true
   },
   {
@@ -359,7 +359,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "access": "public",
     "description": "Get the value of the node",
-    "lineNumber": 29,
+    "lineNumber": 24,
     "unknown": [
       {
         "tagName": "@returns",
@@ -391,7 +391,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "access": "public",
     "description": "Set the value of the node",
-    "lineNumber": 39
+    "lineNumber": 34
   },
   {
     "__docId__": 21,
@@ -402,7 +402,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#_value",
     "access": "private",
     "description": null,
-    "lineNumber": 40,
+    "lineNumber": 35,
     "undocument": true,
     "type": {
       "types": [
@@ -421,7 +421,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "access": "public",
     "description": "Get the next node in list",
-    "lineNumber": 50,
+    "lineNumber": 45,
     "unknown": [
       {
         "tagName": "@returns",
@@ -453,7 +453,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "access": "public",
     "description": "Set the next node in list",
-    "lineNumber": 60
+    "lineNumber": 55
   },
   {
     "__docId__": 24,
@@ -464,7 +464,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#_next",
     "access": "private",
     "description": null,
-    "lineNumber": 61,
+    "lineNumber": 56,
     "undocument": true,
     "type": {
       "types": [
@@ -483,7 +483,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
     "access": "public",
     "description": "Get the previous node in list",
-    "lineNumber": 71,
+    "lineNumber": 66,
     "unknown": [
       {
         "tagName": "@returns",
@@ -515,7 +515,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
     "access": "public",
     "description": "Set the next node in list",
-    "lineNumber": 81
+    "lineNumber": 76
   },
   {
     "__docId__": 27,
@@ -526,7 +526,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#_prev",
     "access": "private",
     "description": null,
-    "lineNumber": 82,
+    "lineNumber": 77,
     "undocument": true,
     "type": {
       "types": [
@@ -537,19 +537,8 @@
   {
     "__docId__": 28,
     "kind": "file",
-    "name": "packages/LinkedList/src/lib/types.js",
-    "content": "/**\n * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item\n */\n\nexport type Item =\n  | null\n  | undefined\n  | boolean\n  | number\n  | string\n  | Symbol\n  | Function\n  | Array\n  | Date\n  | Object;\n",
-    "static": true,
-    "longname": "/Users/clarketm/js/super/packages/LinkedList/src/lib/types.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 29,
-    "kind": "file",
     "name": "packages/Map/src/lib/Map.js",
-    "content": "// @flow\n\n/**\n * @module super/map\n *\n */\n\nconst PrimitiveType = {\n  BOOLEAN: \"boolean\",\n  FUNCTION: \"function\",\n  NUMBER: \"number\",\n  OBJECT: \"object\",\n  STRING: \"string\",\n  SYMBOL: \"symbol\",\n  UNDEFINED: \"undefined\"\n};\n\nconst InstanceType = {\n  OBJECT: Object,\n  ARRAY: Array,\n  REGEXP: RegExp,\n  DATE: Date\n};\n\n/**\n * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item\n */\nexport type Item =\n  | null\n  | undefined\n  | boolean\n  | number\n  | string\n  | Symbol\n  | Function\n  | Array\n  | Date\n  | Object;\n\n/**\n * @typedef {Function} Callback\n */\ntype Callback = (value: any, key: any, map: Map) => boolean;\n\n/**\n *\n * Map with superpowers! 💪\n *\n * @public\n *\n */\nclass _Map extends Map {\n  /**\n   * @public\n   *\n   * @desc Construct a Map\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable) {\n    super(iterable);\n  }\n  /**\n   * @public\n   *\n   * @desc Tests whether at least one element in the map passes the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for any map element; otherwise, false\n   */\n  some(callback: (value: any, key: any, map: Map) => boolean): boolean {\n    let result;\n\n    for (let [key, value] of this.entries()) {\n      result = callback(value, key, this);\n      if (result) return true;\n    }\n    return false;\n  }\n  /**\n   * @public\n   *\n   * @desc Test whether all elements in the map pass the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for every map element; otherwise, false\n   */\n  every(callback: (value: any, key: any, map: Map) => boolean): boolean {\n    let result;\n\n    for (let [key, value] of this.entries()) {\n      result = callback(value, key, this);\n      if (!result) return false;\n    }\n    return true;\n  }\n  /**\n   * @public\n   *\n   * @desc Similar to get(), but will set key to defaultValue if key is not already in Map.\n   *\n   * @param {Item} key - Map key\n   * @param {Item} defaultValue - the default value to set in Map if the key is not defined\n   * @returns {Item} The value if the key is defined in Map; otherwise, the default value\n   */\n  setDefault(key: Item, defaultValue: Item): Item {\n    if (this.has(key)) {\n      return this.get(key);\n    } else {\n      this.set(key, defaultValue);\n      return defaultValue;\n    }\n  }\n  /**\n   * @public\n   *\n   * @desc Convert Map to an Object\n   *\n   * @returns {object} Object representation of Map\n   */\n  toObject() {\n    return Array.from(this).reduce((obj, [key, value]) => {\n      if (typeof key !== PrimitiveType.OBJECT) {\n        obj[key] = value;\n      }\n      return obj;\n    }, {});\n  }\n}\nexport default _Map;\nexport { _Map as Map };\n",
+    "content": "/**\n * @flow\n * @module super/map\n */\n\nimport type { Item } from \"../../../shared/src/types\";\nimport { PrimitiveType } from \"../../../shared/src/constants\";\n\n/**\n * @typedef {Function} Callback\n */\ntype Callback = (value: any, key: any, map: Map) => boolean;\n\n/**\n *\n * Map with superpowers! 💪\n *\n * @public\n *\n */\nclass _Map extends Map {\n  /**\n   * @public\n   *\n   * @desc Construct a Map\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable) {\n    super(iterable);\n  }\n  /**\n   * @public\n   *\n   * @desc Tests whether at least one element in the map passes the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for any map element; otherwise, false\n   */\n  some(callback: (value: any, key: any, map: Map) => boolean): boolean {\n    let result;\n\n    for (let [key, value] of this.entries()) {\n      result = callback(value, key, this);\n      if (result) return true;\n    }\n    return false;\n  }\n  /**\n   * @public\n   *\n   * @desc Test whether all elements in the map pass the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for every map element; otherwise, false\n   */\n  every(callback: (value: any, key: any, map: Map) => boolean): boolean {\n    let result;\n\n    for (let [key, value] of this.entries()) {\n      result = callback(value, key, this);\n      if (!result) return false;\n    }\n    return true;\n  }\n  /**\n   * @public\n   *\n   * @desc Similar to get(), but will set key to defaultValue if key is not already in Map.\n   *\n   * @param {Item} key - Map key\n   * @param {Item} defaultValue - the default value to set in Map if the key is not defined\n   * @returns {Item} The value if the key is defined in Map; otherwise, the default value\n   */\n  setDefault(key: Item, defaultValue: Item): Item {\n    if (this.has(key)) {\n      return this.get(key);\n    } else {\n      this.set(key, defaultValue);\n      return defaultValue;\n    }\n  }\n  /**\n   * @public\n   *\n   * @desc Convert Map to an Object\n   *\n   * @returns {object} Object representation of Map\n   */\n  toObject() {\n    return Array.from(this).reduce((obj, [key, value]) => {\n      if (typeof key !== PrimitiveType.OBJECT) {\n        obj[key] = value;\n      }\n      return obj;\n    }, {});\n  }\n}\nexport { _Map as Map };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/Map/src/lib/Map.js",
     "access": "public",
@@ -557,78 +546,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 30,
-    "kind": "variable",
-    "name": "PrimitiveType",
-    "memberof": "packages/Map/src/lib/Map.js",
-    "static": true,
-    "longname": "packages/Map/src/lib/Map.js~PrimitiveType",
-    "access": "public",
-    "export": false,
-    "importPath": "@clarketm/super/packages/Map/src/lib/Map.js",
-    "importStyle": null,
-    "description": "",
-    "lineNumber": 8,
-    "unknown": [
-      {
-        "tagName": "@module",
-        "tagValue": "super/map"
-      }
-    ],
-    "type": {
-      "types": [
-        "{\"BOOLEAN\": string, \"FUNCTION\": string, \"NUMBER\": string, \"OBJECT\": string, \"STRING\": string, \"SYMBOL\": string, \"UNDEFINED\": string}"
-      ]
-    }
-  },
-  {
-    "__docId__": 31,
-    "kind": "variable",
-    "name": "InstanceType",
-    "memberof": "packages/Map/src/lib/Map.js",
-    "static": true,
-    "longname": "packages/Map/src/lib/Map.js~InstanceType",
-    "access": "public",
-    "export": false,
-    "importPath": "@clarketm/super/packages/Map/src/lib/Map.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 18,
-    "undocument": true,
-    "type": {
-      "types": [
-        "{\"OBJECT\": *, \"ARRAY\": *, \"REGEXP\": *, \"DATE\": *}"
-      ]
-    }
-  },
-  {
-    "__docId__": 32,
-    "kind": "typedef",
-    "name": "Item",
-    "memberof": "packages/Map/src/lib/Map.js",
-    "static": true,
-    "longname": "packages/Map/src/lib/Map.js~Item",
-    "access": "public",
-    "description": "",
-    "type": {
-      "types": [
-        "null",
-        "undefined",
-        "boolean",
-        "number",
-        "string",
-        "Symbol",
-        "Function",
-        "Array",
-        "Date",
-        "Object"
-      ],
-      "optional": false,
-      "name": "Item"
-    }
-  },
-  {
-    "__docId__": 33,
+    "__docId__": 29,
     "kind": "typedef",
     "name": "Callback",
     "memberof": "packages/Map/src/lib/Map.js",
@@ -645,25 +563,25 @@
     }
   },
   {
-    "__docId__": 34,
+    "__docId__": 30,
     "kind": "class",
     "name": "_Map",
     "memberof": "packages/Map/src/lib/Map.js",
     "static": true,
     "longname": "packages/Map/src/lib/Map.js~_Map",
     "access": "public",
-    "export": true,
+    "export": false,
     "importPath": "@clarketm/super/packages/Map/src/lib/Map.js",
-    "importStyle": "_Map",
+    "importStyle": null,
     "description": "\nMap with superpowers! 💪",
-    "lineNumber": 42,
+    "lineNumber": 19,
     "interface": false,
     "extends": [
       "Map"
     ]
   },
   {
-    "__docId__": 35,
+    "__docId__": 31,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Map/src/lib/Map.js~_Map",
@@ -673,7 +591,7 @@
     "longname": "packages/Map/src/lib/Map.js~_Map#constructor",
     "access": "public",
     "description": "Construct a Map",
-    "lineNumber": 50,
+    "lineNumber": 27,
     "params": [
       {
         "nullable": null,
@@ -688,7 +606,7 @@
     ]
   },
   {
-    "__docId__": 36,
+    "__docId__": 32,
     "kind": "method",
     "name": "some",
     "memberof": "packages/Map/src/lib/Map.js~_Map",
@@ -698,7 +616,7 @@
     "longname": "packages/Map/src/lib/Map.js~_Map#some",
     "access": "public",
     "description": "Tests whether at least one element in the map passes the test implemented by the provided function",
-    "lineNumber": 61,
+    "lineNumber": 38,
     "unknown": [
       {
         "tagName": "@returns",
@@ -727,7 +645,7 @@
     }
   },
   {
-    "__docId__": 37,
+    "__docId__": 33,
     "kind": "method",
     "name": "every",
     "memberof": "packages/Map/src/lib/Map.js~_Map",
@@ -737,7 +655,7 @@
     "longname": "packages/Map/src/lib/Map.js~_Map#every",
     "access": "public",
     "description": "Test whether all elements in the map pass the test implemented by the provided function",
-    "lineNumber": 78,
+    "lineNumber": 55,
     "unknown": [
       {
         "tagName": "@returns",
@@ -766,7 +684,7 @@
     }
   },
   {
-    "__docId__": 38,
+    "__docId__": 34,
     "kind": "method",
     "name": "setDefault",
     "memberof": "packages/Map/src/lib/Map.js~_Map",
@@ -776,7 +694,7 @@
     "longname": "packages/Map/src/lib/Map.js~_Map#setDefault",
     "access": "public",
     "description": "Similar to get(), but will set key to defaultValue if key is not already in Map.",
-    "lineNumber": 96,
+    "lineNumber": 73,
     "unknown": [
       {
         "tagName": "@returns",
@@ -815,7 +733,7 @@
     }
   },
   {
-    "__docId__": 39,
+    "__docId__": 35,
     "kind": "method",
     "name": "toObject",
     "memberof": "packages/Map/src/lib/Map.js~_Map",
@@ -825,7 +743,7 @@
     "longname": "packages/Map/src/lib/Map.js~_Map#toObject",
     "access": "public",
     "description": "Convert Map to an Object",
-    "lineNumber": 111,
+    "lineNumber": 88,
     "unknown": [
       {
         "tagName": "@returns",
@@ -843,10 +761,10 @@
     "params": []
   },
   {
-    "__docId__": 40,
+    "__docId__": 36,
     "kind": "file",
     "name": "packages/Math/src/lib/Math.js",
-    "content": "// @flow\n\n/**\n * @module super/math\n *\n */\n\n/**\n *\n * Math with superpowers! 💪\n *\n * @public\n *\n * @alias Math\n */\nexport const _Math = Object.create(Math);\n\n/**\n * @public\n *\n * @desc Factorial\n *\n * @param {number} num - integral number\n * @returns {number} factorial of num\n */\n_Math.factorial = function(num: number): Math {\n  if (num < 0) throw new Error(\"Factorial not defined for negative values\");\n  if (num === 0) return 1;\n  return num * _Math.factorial(num - 1);\n};\n\nexport { _Math as Math };\n",
+    "content": "/**\n * @flow\n * @module super/math\n */\n\n/**\n *\n * Math with superpowers! 💪\n *\n * @public\n *\n * @alias Math\n */\nexport const _Math = Object.create(Math);\n\n/**\n * @public\n *\n * @desc Factorial\n *\n * @param {number} num - integral number\n * @returns {number} factorial of num\n */\n_Math.factorial = function(num: number): Math {\n  if (num < 0) throw new Error(\"Factorial not defined for negative values\");\n  if (num === 0) return 1;\n  return num * _Math.factorial(num - 1);\n};\n\nexport { _Math as Math };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/Math/src/lib/Math.js",
     "access": "public",
@@ -854,7 +772,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 41,
+    "__docId__": 37,
     "kind": "variable",
     "name": "_Math",
     "memberof": "packages/Math/src/lib/Math.js",
@@ -865,7 +783,7 @@
     "importPath": "@clarketm/super/packages/Math/src/lib/Math.js",
     "importStyle": "{_Math}",
     "description": "\nMath with superpowers! 💪",
-    "lineNumber": 16,
+    "lineNumber": 14,
     "unknown": [
       {
         "tagName": "@alias",
@@ -879,7 +797,7 @@
     }
   },
   {
-    "__docId__": 42,
+    "__docId__": 38,
     "kind": "function",
     "name": "factorial",
     "memberof": "packages/Math/src/lib/Math.js",
@@ -892,7 +810,7 @@
     "importPath": "@clarketm/super/packages/Math/src/lib/Math.js",
     "importStyle": null,
     "description": "Factorial",
-    "lineNumber": 26,
+    "lineNumber": 24,
     "unknown": [
       {
         "tagName": "@returns",
@@ -921,10 +839,10 @@
     }
   },
   {
-    "__docId__": 43,
+    "__docId__": 39,
     "kind": "file",
     "name": "packages/Number/src/lib/Number.js",
-    "content": "// @flow\n\n/**\n * @module super/number\n *\n */\n\nconst RomanNumeralToIntegerMap = new Map([\n  [\"M\", 1000],\n  [\"CM\", 900],\n  [\"D\", 500],\n  [\"CD\", 400],\n  [\"C\", 100],\n  [\"XC\", 90],\n  [\"L\", 50],\n  [\"XL\", 40],\n  [\"X\", 10],\n  [\"IX\", 9],\n  [\"V\", 5],\n  [\"IV\", 4],\n  [\"I\", 1]\n]);\n\nconst IntegerToRomanNumeralMap = new Map([\n  [1000, \"M\"],\n  [900, \"CM\"],\n  [500, \"D\"],\n  [400, \"CD\"],\n  [100, \"C\"],\n  [90, \"XC\"],\n  [50, \"L\"],\n  [40, \"XL\"],\n  [10, \"X\"],\n  [9, \"IX\"],\n  [5, \"V\"],\n  [4, \"IV\"],\n  [1, \"I\"]\n]);\n\n/**\n *\n * Number with superpowers! 💪\n *\n * @public\n *\n */\nclass _Number extends Number {\n  /**\n   * @public\n   *\n   * @desc Construct a Number\n   *\n   * @param {number} number\n   */\n  constructor(number: Number) {\n    super(number);\n  }\n  /**\n   * @public\n   *\n   * @desc Convert a roman numeral to number\n   *\n   * @param {string} str - Roman numeral\n   * @returns {number} Number representation of a roman numeral\n   */\n  static fromRomanNumeral(str: string): Number {\n    function _romanToInteger(num, result = 0) {\n      // TODO: reduce iterations\n      for (let [roman, int] of RomanNumeralToIntegerMap) {\n        if (num.slice(0, roman.length) === roman) {\n          return _romanToInteger(num.slice(roman.length), result + int);\n        }\n      }\n      return result;\n    }\n    return _romanToInteger(str);\n  }\n  /**\n   * @public\n   *\n   * @desc Convert a number to roman numeral\n   *\n   * @returns {string} Roman numeral representation of number\n   */\n  toRomanNumeral(): String {\n    function _integerToRoman(num, result = \"\") {\n      // TODO: reduce iterations\n      for (let [int, roman] of IntegerToRomanNumeralMap) {\n        if (num >= int) return _integerToRoman(num - int, result + roman);\n      }\n      return result;\n    }\n    return _integerToRoman(this);\n  }\n}\nexport { _Number as Number };\n",
+    "content": "/**\n * @flow\n * @module super/number\n */\n\nconst RomanNumeralToIntegerMap = new Map([\n  [\"M\", 1000],\n  [\"CM\", 900],\n  [\"D\", 500],\n  [\"CD\", 400],\n  [\"C\", 100],\n  [\"XC\", 90],\n  [\"L\", 50],\n  [\"XL\", 40],\n  [\"X\", 10],\n  [\"IX\", 9],\n  [\"V\", 5],\n  [\"IV\", 4],\n  [\"I\", 1]\n]);\n\nconst IntegerToRomanNumeralMap = new Map([\n  [1000, \"M\"],\n  [900, \"CM\"],\n  [500, \"D\"],\n  [400, \"CD\"],\n  [100, \"C\"],\n  [90, \"XC\"],\n  [50, \"L\"],\n  [40, \"XL\"],\n  [10, \"X\"],\n  [9, \"IX\"],\n  [5, \"V\"],\n  [4, \"IV\"],\n  [1, \"I\"]\n]);\n\n/**\n *\n * Number with superpowers! 💪\n *\n * @public\n *\n */\nclass _Number extends Number {\n  /**\n   * @public\n   *\n   * @desc Construct a Number\n   *\n   * @param {number} number\n   */\n  constructor(number: Number) {\n    super(number);\n  }\n  /**\n   * @public\n   *\n   * @desc Convert a roman numeral to number\n   *\n   * @param {string} str - Roman numeral\n   * @returns {number} Number representation of a roman numeral\n   */\n  static fromRomanNumeral(str: string): Number {\n    function _romanToInteger(num, result = 0) {\n      // TODO: reduce iterations\n      for (let [roman, int] of RomanNumeralToIntegerMap) {\n        if (num.slice(0, roman.length) === roman) {\n          return _romanToInteger(num.slice(roman.length), result + int);\n        }\n      }\n      return result;\n    }\n    return _romanToInteger(str);\n  }\n  /**\n   * @public\n   *\n   * @desc Convert a number to roman numeral\n   *\n   * @returns {string} Roman numeral representation of number\n   */\n  toRomanNumeral(): String {\n    function _integerToRoman(num, result = \"\") {\n      // TODO: reduce iterations\n      for (let [int, roman] of IntegerToRomanNumeralMap) {\n        if (num >= int) return _integerToRoman(num - int, result + roman);\n      }\n      return result;\n    }\n    return _integerToRoman(this);\n  }\n}\nexport { _Number as Number };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/Number/src/lib/Number.js",
     "access": "public",
@@ -932,7 +850,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 44,
+    "__docId__": 40,
     "kind": "variable",
     "name": "RomanNumeralToIntegerMap",
     "memberof": "packages/Number/src/lib/Number.js",
@@ -943,7 +861,7 @@
     "importPath": "@clarketm/super/packages/Number/src/lib/Number.js",
     "importStyle": null,
     "description": "",
-    "lineNumber": 8,
+    "lineNumber": 6,
     "unknown": [
       {
         "tagName": "@module",
@@ -957,7 +875,7 @@
     }
   },
   {
-    "__docId__": 45,
+    "__docId__": 41,
     "kind": "variable",
     "name": "IntegerToRomanNumeralMap",
     "memberof": "packages/Number/src/lib/Number.js",
@@ -968,7 +886,7 @@
     "importPath": "@clarketm/super/packages/Number/src/lib/Number.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 10,
+    "lineNumber": 8,
     "undocument": true,
     "type": {
       "types": [
@@ -977,7 +895,7 @@
     }
   },
   {
-    "__docId__": 46,
+    "__docId__": 42,
     "kind": "class",
     "name": "_Number",
     "memberof": "packages/Number/src/lib/Number.js",
@@ -988,14 +906,14 @@
     "importPath": "@clarketm/super/packages/Number/src/lib/Number.js",
     "importStyle": null,
     "description": "\nNumber with superpowers! 💪",
-    "lineNumber": 19,
+    "lineNumber": 17,
     "interface": false,
     "extends": [
       "Number"
     ]
   },
   {
-    "__docId__": 47,
+    "__docId__": 43,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Number/src/lib/Number.js~_Number",
@@ -1005,7 +923,7 @@
     "longname": "packages/Number/src/lib/Number.js~_Number#constructor",
     "access": "public",
     "description": "Construct a Number",
-    "lineNumber": 27,
+    "lineNumber": 25,
     "params": [
       {
         "nullable": null,
@@ -1020,7 +938,7 @@
     ]
   },
   {
-    "__docId__": 48,
+    "__docId__": 44,
     "kind": "method",
     "name": "fromRomanNumeral",
     "memberof": "packages/Number/src/lib/Number.js~_Number",
@@ -1030,7 +948,7 @@
     "longname": "packages/Number/src/lib/Number.js~_Number.fromRomanNumeral",
     "access": "public",
     "description": "Convert a roman numeral to number",
-    "lineNumber": 38,
+    "lineNumber": 36,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1059,7 +977,7 @@
     }
   },
   {
-    "__docId__": 49,
+    "__docId__": 45,
     "kind": "method",
     "name": "toRomanNumeral",
     "memberof": "packages/Number/src/lib/Number.js~_Number",
@@ -1069,7 +987,7 @@
     "longname": "packages/Number/src/lib/Number.js~_Number#toRomanNumeral",
     "access": "public",
     "description": "Convert a number to roman numeral",
-    "lineNumber": 57,
+    "lineNumber": 55,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1087,10 +1005,10 @@
     "params": []
   },
   {
-    "__docId__": 50,
+    "__docId__": 46,
     "kind": "file",
     "name": "packages/Object/src/lib/Object.js",
-    "content": "// @flow\n\n/**\n * @module super/object\n *\n */\n\nconst PrimitiveType = {\n  BOOLEAN: \"boolean\",\n  FUNCTION: \"function\",\n  NUMBER: \"number\",\n  OBJECT: \"object\",\n  STRING: \"string\",\n  SYMBOL: \"symbol\",\n  UNDEFINED: \"undefined\"\n};\n\nconst InstanceType = {\n  OBJECT: Object,\n  ARRAY: Array,\n  REGEXP: RegExp,\n  DATE: Date\n};\n\n/**\n * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item\n */\nexport type Item =\n  | null\n  | undefined\n  | boolean\n  | number\n  | string\n  | Symbol\n  | Function\n  | Array\n  | Date\n  | Object;\n\n/**\n * @typedef {object} Config\n * @property {boolean} [includeNonEnumerable=false]\n */\n\ntype Config = {\n  includeNonEnumerable: ?boolean\n};\n\n/**\n *\n * Object with superpowers! 💪\n *\n * @public\n *\n */\nclass _Object extends Object {\n  /**\n   * @public\n   *\n   * @desc Construct an Object\n   *\n   * @param {Object} object\n   */\n  constructor(object: Object) {\n    super(object);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check for nested value from string key\n   *\n   * @param {string} path\n   * @return {boolean} property value exists\n   */\n  hasNested(path: string): boolean {\n    let item = this;\n    // TODO: throw error on invalid path\n    path = path.replace(/\\[(\\w+)\\]/, \".$1\").replace(/^\\./, \"\");\n\n    const keys = path.split(\".\");\n    for (let key of keys) {\n      if (typeof item === PrimitiveType.OBJECT && key in item) item = item[key];\n      else return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc  Get nested JavaScript object value from string key\n   *\n   * @param {string} path\n   * @return {Item} property value\n   */\n  getNested(path: string): Item {\n    let item = this;\n    // TODO: throw error on invalid path\n    path = path.replace(/\\[(\\w+)\\]/, \".$1\").replace(/^\\./, \"\");\n\n    const keys = path.split(\".\");\n    for (let key of keys) {\n      if (typeof item === PrimitiveType.OBJECT && key in item) item = item[key];\n      else return;\n    }\n    return item;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Deep clone an Object\n   *\n   * @param {Config} [config={}] Configuration object\n   * @returns {object} Deep cloned Object\n   *\n   * @example\n   *\n   * const obj = new SuperObject({ key1: [\"1\", 1, true, (a, b) => a+b], [Symbol(\"key2\")]: {s: \"s\"} });\n   * const clone = obj.clone();\n   *\n   * console.log(clone);\n   * // { key1: [\"1\", 1, true, (a, b) => a+b], Symbol(\"key2\"): {s: \"s\"} }\n   *\n   */\n  clone(config: Config = {}): Object {\n    const { includeNonEnumerable = false } = config;\n\n    /**\n     * @private\n     *\n     * @desc Deep clone helper\n     *\n     * @param {Item} item\n     * @returns {any} cloned item\n     */\n    function _clone(item: Item): Item {\n      if (item === null || typeof item !== PrimitiveType.OBJECT) {\n        return item;\n      }\n\n      if (item instanceof InstanceType.DATE) {\n        return new Date(item.valueOf());\n      }\n\n      if (item instanceof InstanceType.ARRAY) {\n        let copy = [];\n\n        item.forEach((_, i) => (copy[i] = _clone(item[i])));\n\n        return copy;\n      }\n\n      if (item instanceof InstanceType.OBJECT) {\n        let copy = {};\n\n        Object.getOwnPropertySymbols(item).forEach(s => (copy[s] = _clone(item[s])));\n\n        if (includeNonEnumerable) {\n          Object.getOwnPropertyNames(item).forEach(k => (copy[k] = _clone(item[k])));\n        } else {\n          Object.keys(item).forEach(k => (copy[k] = _clone(item[k])));\n        }\n\n        return copy;\n      }\n\n      throw new Error(`Unable to copy object: ${item}`);\n    }\n\n    return _clone(this, config);\n  }\n}\n\nexport { _Object as Object };\n",
+    "content": "/**\n * @flow\n * @module super/object\n */\n\nimport { InstanceType, PrimitiveType } from \"../../../shared/src/constants\";\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n * @typedef {object} Config\n * @property {boolean} [includeNonEnumerable=false]\n */\n\ntype Config = {\n  includeNonEnumerable: ?boolean\n};\n\n/**\n *\n * Object with superpowers! 💪\n *\n * @public\n *\n */\nclass _Object extends Object {\n  /**\n   * @public\n   *\n   * @desc Construct an Object\n   *\n   * @param {Object} object\n   */\n  constructor(object: Object) {\n    super(object);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check for nested value from string key\n   *\n   * @param {string} path\n   * @return {boolean} property value exists\n   */\n  hasNested(path: string): boolean {\n    let item = this;\n    // TODO: throw error on invalid path\n    path = path.replace(/\\[(\\w+)\\]/, \".$1\").replace(/^\\./, \"\");\n\n    const keys = path.split(\".\");\n    for (let key of keys) {\n      if (typeof item === PrimitiveType.OBJECT && key in item) item = item[key];\n      else return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc  Get nested JavaScript object value from string key\n   *\n   * @param {string} path\n   * @return {Item} property value\n   */\n  getNested(path: string): Item {\n    let item = this;\n    // TODO: throw error on invalid path\n    path = path.replace(/\\[(\\w+)\\]/, \".$1\").replace(/^\\./, \"\");\n\n    const keys = path.split(\".\");\n    for (let key of keys) {\n      if (typeof item === PrimitiveType.OBJECT && key in item) item = item[key];\n      else return;\n    }\n    return item;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Deep clone an Object\n   *\n   * @param {Config} [config={}] Configuration object\n   * @returns {object} Deep cloned Object\n   *\n   * @example\n   *\n   * const obj = new SuperObject({ key1: [\"1\", 1, true, (a, b) => a+b], [Symbol(\"key2\")]: {s: \"s\"} });\n   * const clone = obj.clone();\n   *\n   * console.log(clone);\n   * // { key1: [\"1\", 1, true, (a, b) => a+b], Symbol(\"key2\"): {s: \"s\"} }\n   *\n   */\n  clone(config: Config = {}): Object {\n    const { includeNonEnumerable = false } = config;\n\n    /**\n     * @private\n     *\n     * @desc Deep clone helper\n     *\n     * @param {Item} item\n     * @returns {any} cloned item\n     */\n    function _clone(item: Item): Item {\n      if (item === null || typeof item !== PrimitiveType.OBJECT) {\n        return item;\n      }\n\n      if (item instanceof InstanceType.DATE) {\n        return new Date(item.valueOf());\n      }\n\n      if (item instanceof InstanceType.ARRAY) {\n        let copy = [];\n\n        item.forEach((_, i) => (copy[i] = _clone(item[i])));\n\n        return copy;\n      }\n\n      if (item instanceof InstanceType.OBJECT) {\n        let copy = {};\n\n        Object.getOwnPropertySymbols(item).forEach(s => (copy[s] = _clone(item[s])));\n\n        if (includeNonEnumerable) {\n          Object.getOwnPropertyNames(item).forEach(k => (copy[k] = _clone(item[k])));\n        } else {\n          Object.keys(item).forEach(k => (copy[k] = _clone(item[k])));\n        }\n\n        return copy;\n      }\n\n      throw new Error(`Unable to copy object: ${item}`);\n    }\n\n    return _clone(this, config);\n  }\n}\n\nexport { _Object as Object };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/Object/src/lib/Object.js",
     "access": "public",
@@ -1098,78 +1016,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 51,
-    "kind": "variable",
-    "name": "PrimitiveType",
-    "memberof": "packages/Object/src/lib/Object.js",
-    "static": true,
-    "longname": "packages/Object/src/lib/Object.js~PrimitiveType",
-    "access": "public",
-    "export": false,
-    "importPath": "@clarketm/super/packages/Object/src/lib/Object.js",
-    "importStyle": null,
-    "description": "",
-    "lineNumber": 8,
-    "unknown": [
-      {
-        "tagName": "@module",
-        "tagValue": "super/object"
-      }
-    ],
-    "type": {
-      "types": [
-        "{\"BOOLEAN\": string, \"FUNCTION\": string, \"NUMBER\": string, \"OBJECT\": string, \"STRING\": string, \"SYMBOL\": string, \"UNDEFINED\": string}"
-      ]
-    }
-  },
-  {
-    "__docId__": 52,
-    "kind": "variable",
-    "name": "InstanceType",
-    "memberof": "packages/Object/src/lib/Object.js",
-    "static": true,
-    "longname": "packages/Object/src/lib/Object.js~InstanceType",
-    "access": "public",
-    "export": false,
-    "importPath": "@clarketm/super/packages/Object/src/lib/Object.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 18,
-    "undocument": true,
-    "type": {
-      "types": [
-        "{\"OBJECT\": *, \"ARRAY\": *, \"REGEXP\": *, \"DATE\": *}"
-      ]
-    }
-  },
-  {
-    "__docId__": 53,
-    "kind": "typedef",
-    "name": "Item",
-    "memberof": "packages/Object/src/lib/Object.js",
-    "static": true,
-    "longname": "packages/Object/src/lib/Object.js~Item",
-    "access": "public",
-    "description": "",
-    "type": {
-      "types": [
-        "null",
-        "undefined",
-        "boolean",
-        "number",
-        "string",
-        "Symbol",
-        "Function",
-        "Array",
-        "Date",
-        "Object"
-      ],
-      "optional": false,
-      "name": "Item"
-    }
-  },
-  {
-    "__docId__": 54,
+    "__docId__": 47,
     "kind": "typedef",
     "name": "Config",
     "memberof": "packages/Object/src/lib/Object.js",
@@ -1200,7 +1047,7 @@
     }
   },
   {
-    "__docId__": 55,
+    "__docId__": 48,
     "kind": "class",
     "name": "_Object",
     "memberof": "packages/Object/src/lib/Object.js",
@@ -1211,14 +1058,14 @@
     "importPath": "@clarketm/super/packages/Object/src/lib/Object.js",
     "importStyle": null,
     "description": "\nObject with superpowers! 💪",
-    "lineNumber": 42,
+    "lineNumber": 20,
     "interface": false,
     "extends": [
       "Object"
     ]
   },
   {
-    "__docId__": 56,
+    "__docId__": 49,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Object/src/lib/Object.js~_Object",
@@ -1228,7 +1075,7 @@
     "longname": "packages/Object/src/lib/Object.js~_Object#constructor",
     "access": "public",
     "description": "Construct an Object",
-    "lineNumber": 50,
+    "lineNumber": 28,
     "params": [
       {
         "nullable": null,
@@ -1243,7 +1090,7 @@
     ]
   },
   {
-    "__docId__": 57,
+    "__docId__": 50,
     "kind": "method",
     "name": "hasNested",
     "memberof": "packages/Object/src/lib/Object.js~_Object",
@@ -1253,7 +1100,7 @@
     "longname": "packages/Object/src/lib/Object.js~_Object#hasNested",
     "access": "public",
     "description": "Check for nested value from string key",
-    "lineNumber": 62,
+    "lineNumber": 40,
     "params": [
       {
         "nullable": null,
@@ -1276,7 +1123,7 @@
     }
   },
   {
-    "__docId__": 58,
+    "__docId__": 51,
     "kind": "method",
     "name": "getNested",
     "memberof": "packages/Object/src/lib/Object.js~_Object",
@@ -1286,7 +1133,7 @@
     "longname": "packages/Object/src/lib/Object.js~_Object#getNested",
     "access": "public",
     "description": " Get nested JavaScript object value from string key",
-    "lineNumber": 82,
+    "lineNumber": 60,
     "params": [
       {
         "nullable": null,
@@ -1309,7 +1156,7 @@
     }
   },
   {
-    "__docId__": 59,
+    "__docId__": 52,
     "kind": "method",
     "name": "clone",
     "memberof": "packages/Object/src/lib/Object.js~_Object",
@@ -1322,7 +1169,7 @@
     "examples": [
       "\nconst obj = new SuperObject({ key1: [\"1\", 1, true, (a, b) => a+b], [Symbol(\"key2\")]: {s: \"s\"} });\nconst clone = obj.clone();\n\nconsole.log(clone);\n// { key1: [\"1\", 1, true, (a, b) => a+b], Symbol(\"key2\"): {s: \"s\"} }"
     ],
-    "lineNumber": 111,
+    "lineNumber": 89,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1353,10 +1200,10 @@
     }
   },
   {
-    "__docId__": 60,
+    "__docId__": 53,
     "kind": "file",
     "name": "packages/Queue/src/lib/Queue.js",
-    "content": "// @flow\n\n/**\n * @module super/queue\n *\n */\n\n/**\n * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item\n */\nexport type Item =\n  | null\n  | undefined\n  | boolean\n  | number\n  | string\n  | Symbol\n  | Function\n  | Array\n  | Date\n  | Object;\n\n/**\n *\n * Queue with superpowers! 💪\n *\n * @public\n *\n */\nclass Queue {\n  /**\n   * @public\n   *\n   * @desc Construct a Queue\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable = []) {\n    this._queue = [...iterable];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the current size of the queue\n   *\n   * @returns {number} size of the queue\n   */\n  get size(): number {\n    return this._queue.length;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if queue is empty\n   *\n   * @returns {boolean} is queue empty\n   */\n  isEmpty(): boolean {\n    return this._queue.length === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Clear the items from the queue\n   *\n   * @returns {void}\n   */\n  clear() {\n    this._queue.length = 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Enqueue an item into the queue\n   *\n   * @param {Item} item - item to enqueue\n   * @returns {number} length after enqueue\n   */\n  enqueue(item: Item): number {\n    return this._queue.push(item);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Dequeue an item from the queue\n   *\n   * @returns {Item} dequeued item\n   */\n  dequeue(): Item {\n    return this._queue.shift();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the front item in the queue\n   *\n   * @returns {Item} front item\n   */\n  front(): Item {\n    return this._queue[0];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the rear item in the queue\n   *\n   * @returns {Item} rear item\n   */\n  rear(): Item {\n    return this._queue[this._queue.length - 1];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the queue to an array\n   *\n   * @returns {Array} array representation of the queue\n   */\n  toArray(): Array {\n    return this._queue.slice(0);\n  }\n}\n\nexport { Queue };\n",
+    "content": "/**\n * @flow\n * @module super/queue\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * Queue with superpowers! 💪\n *\n * @public\n *\n */\nclass Queue {\n  /**\n   * @public\n   *\n   * @desc Construct a Queue\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable = []) {\n    this._queue = [...iterable];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the current size of the queue\n   *\n   * @returns {number} size of the queue\n   */\n  get size(): number {\n    return this._queue.length;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if queue is empty\n   *\n   * @returns {boolean} is queue empty\n   */\n  isEmpty(): boolean {\n    return this._queue.length === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Clear the items from the queue\n   *\n   * @returns {void}\n   */\n  clear() {\n    this._queue.length = 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Enqueue an item into the queue\n   *\n   * @param {Item} item - item to enqueue\n   * @returns {number} length after enqueue\n   */\n  enqueue(item: Item): number {\n    return this._queue.push(item);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Dequeue an item from the queue\n   *\n   * @returns {Item} dequeued item\n   */\n  dequeue(): Item {\n    return this._queue.shift();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the front item in the queue\n   *\n   * @returns {Item} front item\n   */\n  front(): Item {\n    return this._queue[0];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the rear item in the queue\n   *\n   * @returns {Item} rear item\n   */\n  rear(): Item {\n    return this._queue[this._queue.length - 1];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the queue to an array\n   *\n   * @returns {Array} array representation of the queue\n   */\n  toArray(): Array {\n    return this._queue.slice(0);\n  }\n}\n\nexport { Queue };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/Queue/src/lib/Queue.js",
     "access": "public",
@@ -1364,7 +1211,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 61,
+    "__docId__": 54,
     "kind": "class",
     "name": "Queue",
     "memberof": "packages/Queue/src/lib/Queue.js",
@@ -1379,33 +1226,7 @@
     "interface": false
   },
   {
-    "__docId__": 62,
-    "kind": "typedef",
-    "name": "Item",
-    "memberof": "packages/Queue/src/lib/Queue.js",
-    "static": true,
-    "longname": "packages/Queue/src/lib/Queue.js~Item",
-    "access": "public",
-    "description": "",
-    "type": {
-      "types": [
-        "null",
-        "undefined",
-        "boolean",
-        "number",
-        "string",
-        "Symbol",
-        "Function",
-        "Array",
-        "Date",
-        "Object"
-      ],
-      "optional": false,
-      "name": "Item"
-    }
-  },
-  {
-    "__docId__": 63,
+    "__docId__": 55,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1430,7 +1251,7 @@
     ]
   },
   {
-    "__docId__": 64,
+    "__docId__": 56,
     "kind": "member",
     "name": "_queue",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1447,7 +1268,7 @@
     }
   },
   {
-    "__docId__": 65,
+    "__docId__": 57,
     "kind": "get",
     "name": "size",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1479,7 +1300,7 @@
     }
   },
   {
-    "__docId__": 66,
+    "__docId__": 58,
     "kind": "method",
     "name": "isEmpty",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1507,7 +1328,7 @@
     "params": []
   },
   {
-    "__docId__": 67,
+    "__docId__": 59,
     "kind": "method",
     "name": "clear",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1535,7 +1356,7 @@
     "params": []
   },
   {
-    "__docId__": 68,
+    "__docId__": 60,
     "kind": "method",
     "name": "enqueue",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1574,7 +1395,7 @@
     }
   },
   {
-    "__docId__": 69,
+    "__docId__": 61,
     "kind": "method",
     "name": "dequeue",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1602,7 +1423,7 @@
     "params": []
   },
   {
-    "__docId__": 70,
+    "__docId__": 62,
     "kind": "method",
     "name": "front",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1630,7 +1451,7 @@
     "params": []
   },
   {
-    "__docId__": 71,
+    "__docId__": 63,
     "kind": "method",
     "name": "rear",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1658,7 +1479,7 @@
     "params": []
   },
   {
-    "__docId__": 72,
+    "__docId__": 64,
     "kind": "method",
     "name": "toArray",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1686,10 +1507,10 @@
     "params": []
   },
   {
-    "__docId__": 73,
+    "__docId__": 65,
     "kind": "file",
     "name": "packages/Set/src/lib/Set.js",
-    "content": "// @flow\n\n/**\n * @module super/set\n *\n */\n\n/**\n * @typedef {Function} Callback\n */\ntype Callback = (value1: any, value2: any, set: Set) => boolean;\n\n/**\n *\n * Set with superpowers! 💪\n *\n * @public\n *\n */\nclass _Set extends Set {\n  /**\n   * @public\n   *\n   * @desc Construct a Set\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable) {\n    super(iterable);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Tests whether at least one element in the set passes the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for any set element; otherwise, false\n   */\n  some(callback: (value1: any, value2: any, set: Set) => boolean): boolean {\n    let result;\n\n    for (let [value1, value2] of this.entries()) {\n      result = callback(value1, value2, this);\n      if (result) return true;\n    }\n\n    return false;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Test whether all elements in the set pass the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for every set element; otherwise, false\n   */\n  every(callback: (value1: any, value2: any, set: Set) => boolean): boolean {\n    let result;\n\n    for (let [value1, value2] of this.entries()) {\n      result = callback(value1, value2, this);\n      if (!result) return false;\n    }\n\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Subset of a set\n   *\n   * @param {Set} setB - SetB\n   * @returns {boolean} setA is subset of setB\n   */\n  isSubset(setB: Set): boolean {\n    let setA = this;\n\n    for (let v of setA) {\n      if (!setB.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Superset of a set\n   *\n   * @param {Set} setB - SetB\n   * @returns {boolean} setA is superset of setB\n   */\n  isSuperset(setB: Set): boolean {\n    let setA = this;\n\n    for (let v of setB) {\n      if (!setA.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Union of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - union between setA and setB\n   */\n  union(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Intersection of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - intersection between setA and setB\n   */\n  intersection(setB: Set): Set {\n    let setA = this;\n    let setC = new Set();\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Difference of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - difference between setA and setB\n   */\n  difference(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.delete(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Symmetric difference of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - difference difference between setA and setB\n   */\n  symmetricDifference(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.delete(v);\n      else setC.add(v);\n    }\n\n    return setC;\n  }\n}\n\nexport { _Set as Set };\n",
+    "content": "/**\n * @flow\n * @module super/set\n */\n\n/**\n * @typedef {Function} Callback\n */\ntype Callback = (value1: any, value2: any, set: Set) => boolean;\n\n/**\n *\n * Set with superpowers! 💪\n *\n * @public\n *\n */\nclass _Set extends Set {\n  /**\n   * @public\n   *\n   * @desc Construct a Set\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable) {\n    super(iterable);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Tests whether at least one element in the set passes the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for any set element; otherwise, false\n   */\n  some(callback: (value1: any, value2: any, set: Set) => boolean): boolean {\n    let result;\n\n    for (let [value1, value2] of this.entries()) {\n      result = callback(value1, value2, this);\n      if (result) return true;\n    }\n\n    return false;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Test whether all elements in the set pass the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for every set element; otherwise, false\n   */\n  every(callback: (value1: any, value2: any, set: Set) => boolean): boolean {\n    let result;\n\n    for (let [value1, value2] of this.entries()) {\n      result = callback(value1, value2, this);\n      if (!result) return false;\n    }\n\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Subset of a set\n   *\n   * @param {Set} setB - SetB\n   * @returns {boolean} setA is subset of setB\n   */\n  isSubset(setB: Set): boolean {\n    let setA = this;\n\n    for (let v of setA) {\n      if (!setB.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Superset of a set\n   *\n   * @param {Set} setB - SetB\n   * @returns {boolean} setA is superset of setB\n   */\n  isSuperset(setB: Set): boolean {\n    let setA = this;\n\n    for (let v of setB) {\n      if (!setA.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Union of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - union between setA and setB\n   */\n  union(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Intersection of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - intersection between setA and setB\n   */\n  intersection(setB: Set): Set {\n    let setA = this;\n    let setC = new Set();\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Difference of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - difference between setA and setB\n   */\n  difference(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.delete(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Symmetric difference of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - difference difference between setA and setB\n   */\n  symmetricDifference(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.delete(v);\n      else setC.add(v);\n    }\n\n    return setC;\n  }\n}\n\nexport { _Set as Set };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/Set/src/lib/Set.js",
     "access": "public",
@@ -1697,7 +1518,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 74,
+    "__docId__": 66,
     "kind": "class",
     "name": "_Set",
     "memberof": "packages/Set/src/lib/Set.js",
@@ -1715,7 +1536,7 @@
     ]
   },
   {
-    "__docId__": 75,
+    "__docId__": 67,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -1740,7 +1561,7 @@
     ]
   },
   {
-    "__docId__": 76,
+    "__docId__": 68,
     "kind": "method",
     "name": "some",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -1779,7 +1600,7 @@
     }
   },
   {
-    "__docId__": 77,
+    "__docId__": 69,
     "kind": "method",
     "name": "every",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -1818,7 +1639,7 @@
     }
   },
   {
-    "__docId__": 78,
+    "__docId__": 70,
     "kind": "method",
     "name": "isSubset",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -1857,7 +1678,7 @@
     }
   },
   {
-    "__docId__": 79,
+    "__docId__": 71,
     "kind": "method",
     "name": "isSuperset",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -1896,7 +1717,7 @@
     }
   },
   {
-    "__docId__": 80,
+    "__docId__": 72,
     "kind": "method",
     "name": "union",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -1935,7 +1756,7 @@
     }
   },
   {
-    "__docId__": 81,
+    "__docId__": 73,
     "kind": "method",
     "name": "intersection",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -1974,7 +1795,7 @@
     }
   },
   {
-    "__docId__": 82,
+    "__docId__": 74,
     "kind": "method",
     "name": "difference",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -2013,7 +1834,7 @@
     }
   },
   {
-    "__docId__": 83,
+    "__docId__": 75,
     "kind": "method",
     "name": "symmetricDifference",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -2052,10 +1873,10 @@
     }
   },
   {
-    "__docId__": 84,
+    "__docId__": 76,
     "kind": "file",
     "name": "packages/String/src/lib/String.js",
-    "content": "// @flow\n\n/**\n * @module super/string\n *\n */\n\n/**\n *\n * String with superpowers! 💪\n *\n * @public\n *\n */\nclass _String extends String {\n  /**\n   * @public\n   *\n   * @desc Construct a String\n   *\n   * @param {string} string\n   */\n  constructor(string: String) {\n    super(string);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Transposes the ordering of all characters in the string\n   *\n   * @returns {string} String reversed\n   */\n  reverse(): String {\n    return this.split(\"\")\n      .filter(s => s)\n      .reverse()\n      .join(\"\");\n  }\n\n  /**\n   * @public\n   *\n   * @desc Transposes the ordering of the words in the string\n   *\n   * @returns {string} String with words reversed\n   */\n  reverseWords(): String {\n    return this.split(\" \")\n      .filter(s => s)\n      .reverse()\n      .join(\" \");\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert a string to title case\n   *\n   * @returns {string} Title cased string representation\n   */\n  toTitleCase(): String {\n    return this.split(\" \")\n      .map(v => v && v.charAt(0).toUpperCase() + v.substr(1).toLowerCase())\n      .join(\" \");\n  }\n}\n\nexport { _String as String };\n",
+    "content": "/**\n * @flow\n * @module super/string\n */\n\n/**\n *\n * String with superpowers! 💪\n *\n * @public\n *\n */\nclass _String extends String {\n  /**\n   * @public\n   *\n   * @desc Construct a String\n   *\n   * @param {string} string\n   */\n  constructor(string: String) {\n    super(string);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Transposes the ordering of all characters in the string\n   *\n   * @returns {string} String reversed\n   */\n  reverse(): String {\n    return this.split(\"\")\n      .filter(s => s)\n      .reverse()\n      .join(\"\");\n  }\n\n  /**\n   * @public\n   *\n   * @desc Transposes the ordering of the words in the string\n   *\n   * @returns {string} String with words reversed\n   */\n  reverseWords(): String {\n    return this.split(\" \")\n      .filter(s => s)\n      .reverse()\n      .join(\" \");\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert a string to title case\n   *\n   * @returns {string} Title cased string representation\n   */\n  toTitleCase(): String {\n    return this.split(\" \")\n      .map(v => v && v.charAt(0).toUpperCase() + v.substr(1).toLowerCase())\n      .join(\" \");\n  }\n}\n\nexport { _String as String };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/String/src/lib/String.js",
     "access": "public",
@@ -2063,7 +1884,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 85,
+    "__docId__": 77,
     "kind": "class",
     "name": "_String",
     "memberof": "packages/String/src/lib/String.js",
@@ -2074,14 +1895,14 @@
     "importPath": "@clarketm/super/packages/String/src/lib/String.js",
     "importStyle": null,
     "description": "\nString with superpowers! 💪",
-    "lineNumber": 15,
+    "lineNumber": 13,
     "interface": false,
     "extends": [
       "String"
     ]
   },
   {
-    "__docId__": 86,
+    "__docId__": 78,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -2091,7 +1912,7 @@
     "longname": "packages/String/src/lib/String.js~_String#constructor",
     "access": "public",
     "description": "Construct a String",
-    "lineNumber": 23,
+    "lineNumber": 21,
     "params": [
       {
         "nullable": null,
@@ -2106,7 +1927,7 @@
     ]
   },
   {
-    "__docId__": 87,
+    "__docId__": 79,
     "kind": "method",
     "name": "reverse",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -2116,7 +1937,7 @@
     "longname": "packages/String/src/lib/String.js~_String#reverse",
     "access": "public",
     "description": "Transposes the ordering of all characters in the string",
-    "lineNumber": 34,
+    "lineNumber": 32,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2134,7 +1955,7 @@
     "params": []
   },
   {
-    "__docId__": 88,
+    "__docId__": 80,
     "kind": "method",
     "name": "reverseWords",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -2144,7 +1965,7 @@
     "longname": "packages/String/src/lib/String.js~_String#reverseWords",
     "access": "public",
     "description": "Transposes the ordering of the words in the string",
-    "lineNumber": 45,
+    "lineNumber": 43,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2162,7 +1983,7 @@
     "params": []
   },
   {
-    "__docId__": 89,
+    "__docId__": 81,
     "kind": "method",
     "name": "toTitleCase",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -2172,7 +1993,7 @@
     "longname": "packages/String/src/lib/String.js~_String#toTitleCase",
     "access": "public",
     "description": "Convert a string to title case",
-    "lineNumber": 56,
+    "lineNumber": 54,
     "unknown": [
       {
         "tagName": "@returns",

@@ -1,17 +1,5 @@
 window.esdocSearchIndex = [
   [
-    "@clarketm/super/packages/map/src/lib/map.js~instancetype",
-    "variable/index.html#static-variable-InstanceType",
-    "<span>InstanceType</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Map/src/lib/Map.js</span>",
-    "variable"
-  ],
-  [
-    "@clarketm/super/packages/object/src/lib/object.js~instancetype",
-    "variable/index.html#static-variable-InstanceType",
-    "<span>InstanceType</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Object/src/lib/Object.js</span>",
-    "variable"
-  ],
-  [
     "@clarketm/super/packages/number/src/lib/number.js~integertoromannumeralmap",
     "variable/index.html#static-variable-IntegerToRomanNumeralMap",
     "<span>IntegerToRomanNumeralMap</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Number/src/lib/Number.js</span>",
@@ -28,18 +16,6 @@ window.esdocSearchIndex = [
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html",
     "<span>ListNode</span> <span class=\"search-result-import-path\">@clarketm/super/packages/LinkedList/src/lib/ListNode.js</span>",
     "class"
-  ],
-  [
-    "@clarketm/super/packages/map/src/lib/map.js~primitivetype",
-    "variable/index.html#static-variable-PrimitiveType",
-    "<span>PrimitiveType</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Map/src/lib/Map.js</span>",
-    "variable"
-  ],
-  [
-    "@clarketm/super/packages/object/src/lib/object.js~primitivetype",
-    "variable/index.html#static-variable-PrimitiveType",
-    "<span>PrimitiveType</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Object/src/lib/Object.js</span>",
-    "variable"
   ],
   [
     "@clarketm/super/packages/queue/src/lib/queue.js~queue",
@@ -234,12 +210,6 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "packages/linkedlist/src/lib/types.js",
-    "file/packages/LinkedList/src/lib/types.js.html",
-    "packages/LinkedList/src/lib/types.js",
-    "file"
-  ],
-  [
     "packages/map/src/lib/map.js",
     "file/packages/Map/src/lib/Map.js.html",
     "packages/Map/src/lib/Map.js",
@@ -249,12 +219,6 @@ window.esdocSearchIndex = [
     "packages/map/src/lib/map.js~callback",
     "typedef/index.html#static-typedef-Callback",
     "packages/Map/src/lib/Map.js~Callback",
-    "typedef"
-  ],
-  [
-    "packages/map/src/lib/map.js~item",
-    "typedef/index.html#static-typedef-Item",
-    "packages/Map/src/lib/Map.js~Item",
     "typedef"
   ],
   [
@@ -330,12 +294,6 @@ window.esdocSearchIndex = [
     "typedef"
   ],
   [
-    "packages/object/src/lib/object.js~item",
-    "typedef/index.html#static-typedef-Item",
-    "packages/Object/src/lib/Object.js~Item",
-    "typedef"
-  ],
-  [
     "packages/object/src/lib/object.js~_object#clone",
     "class/packages/Object/src/lib/Object.js~_Object.html#instance-method-clone",
     "packages/Object/src/lib/Object.js~_Object#clone",
@@ -364,12 +322,6 @@ window.esdocSearchIndex = [
     "file/packages/Queue/src/lib/Queue.js.html",
     "packages/Queue/src/lib/Queue.js",
     "file"
-  ],
-  [
-    "packages/queue/src/lib/queue.js~item",
-    "typedef/index.html#static-typedef-Item",
-    "packages/Queue/src/lib/Queue.js~Item",
-    "typedef"
   ],
   [
     "packages/queue/src/lib/queue.js~queue#_queue",

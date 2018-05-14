@@ -1,7 +1,7 @@
 {
-  "coverage": "85.91%",
-  "expectCount": 71,
-  "actualCount": 61,
+  "coverage": "88.05%",
+  "expectCount": 67,
+  "actualCount": 59,
   "files": {
     "packages/Array/src/lib/Array.js": {
       "expectCount": 4,
@@ -12,26 +12,24 @@
       "expectCount": 7,
       "actualCount": 5,
       "undocumentLines": [
-        37,
-        38
+        34,
+        35
       ]
     },
     "packages/LinkedList/src/lib/ListNode.js": {
       "expectCount": 11,
       "actualCount": 7,
       "undocumentLines": [
-        16,
-        40,
-        61,
-        82
+        11,
+        35,
+        56,
+        77
       ]
     },
     "packages/Map/src/lib/Map.js": {
-      "expectCount": 8,
-      "actualCount": 7,
-      "undocumentLines": [
-        18
-      ]
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
     },
     "packages/Math/src/lib/Math.js": {
       "expectCount": 2,
@@ -42,15 +40,13 @@
       "expectCount": 6,
       "actualCount": 5,
       "undocumentLines": [
-        10
+        8
       ]
     },
     "packages/Object/src/lib/Object.js": {
-      "expectCount": 7,
-      "actualCount": 6,
-      "undocumentLines": [
-        18
-      ]
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
     },
     "packages/Queue/src/lib/Queue.js": {
       "expectCount": 11,
