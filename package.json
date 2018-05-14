@@ -7,8 +7,7 @@
   "files": ["dist", "README.md", "LICENSE.md"],
   "scripts": {
     "build": "yarn build:dist",
-    "build:dist":
-      "shx rm -rf ./dist ; yarn bundle:dist ; yarn bundle:es ; yarn stats:dist",
+    "build:dist": "shx rm -rf ./dist ; yarn bundle:dist ; yarn bundle:es ; yarn stats:dist",
     "stats:dist": "node ./resources/dist-stats.js",
     "bundle:dist": "rollup -c ./resources/rollup-config.js",
     "bundle:es": "rollup -c ./resources/rollup-config-es.js",
