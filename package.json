@@ -1,5 +1,5 @@
 {
-  "name": "@clarketm/supertypes",
+  "name": "@clarketm/super",
   "version": "1.0.0",
   "description": "types with superpowers! 💪",
   "main": "dist/super.js",
@@ -15,9 +15,12 @@
     "stats:dist": "node ./resources/dist-stats.js",
     "bundle:dist": "rollup -c ./resources/rollup-config.js",
     "bundle:es": "rollup -c ./resources/rollup-config-es.js",
+    "lint": "eslint --fix ./packages/**/src/lib/*.js",
     "docs": "shx rm -rf ./docs ; esdoc",
     "prettier": "prettier --write ./resources/**/*.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prep": "yarn lint && yarn prettier && yarn build && yarn test",
+    "prepublish": "yarn prep"
   },
   "husky": {
     "hooks": {
@@ -58,11 +61,15 @@
   },
   "homepage": "https://github.com/clarketm/super#readme",
   "devDependencies": {
+    "@clarketm/eslint-config-super": "^0.0.1",
+    "babel-eslint": "^8.2.3",
     "colors": "^1.2.5",
     "esdoc": "^1.1.0",
     "esdoc-flow-plugin": "^1.0.0",
     "esdoc-publish-markdown-plugin": "^1.1.0",
     "esdoc-standard-plugin": "^1.0.0",
+    "eslint": "^4.19.1",
+    "eslint-plugin-flowtype": "^2.46.3",
     "flow-bin": "^0.72.0",
     "husky": "^1.0.0-rc.4",
     "lint-staged": "^7.1.0",
