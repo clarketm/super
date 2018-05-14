@@ -34,7 +34,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@clarketm/babel-preset-super": "^1.2.1",
+    "@clarketm/babel-preset-super": "^1.2.3",
     "@clarketm/eslint-config-super": "^1.2.2",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
