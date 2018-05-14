@@ -3,16 +3,26 @@
   "version": "1.2.2",
   "description": "JavaScript Array with superpowers! 💪",
   "main": "./lib/Array.js",
-  "files": ["lib", "README.md", "LICENSE.md"],
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE.md"
+  ],
   "scripts": {
     "build": "shx rm -rf ./bin ./lib ; babel ./src --out-dir ./",
     "lint": "eslint --fix ./src ./test",
     "prep": "yarn lint && yarn prettier && yarn build && yarn test",
     "prepublishOnly": "yarn prep",
-    "prettier": "prettier --write './{src,test}/**/*.js' './*.{js,json,css,md}'",
+    "prettier": "prettier --write './{src,test}/**/*.js' './*.{js,css,md}'",
     "test": "mocha --require babel-core/register ./test/*"
   },
-  "keywords": ["javascript", "super", "superpowers", "Array", "polyfill"],
+  "keywords": [
+    "javascript",
+    "super",
+    "superpowers",
+    "Array",
+    "polyfill"
+  ],
   "author": {
     "name": "Travis Clarke",
     "email": "travis.m.clarke@gmail.com",

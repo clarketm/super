@@ -4,5 +4,4 @@
 docs
 dist
 node_modules
-
 packages/*/lib

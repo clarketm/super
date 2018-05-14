@@ -4,7 +4,11 @@
   "description": "Data Structures with superpowers! 💪",
   "main": "dist/super.js",
   "module": "dist/super.es.js",
-  "files": ["dist", "README.md", "LICENSE.md"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md"
+  ],
   "scripts": {
     "build": "yarn build:dist",
     "build:dist": "shx rm -rf ./dist ; yarn bundle:dist ; yarn bundle:es ; yarn stats:dist",
@@ -12,7 +16,7 @@
     "bundle:dist": "rollup -c ./resources/rollup-config.js",
     "bundle:es": "rollup -c ./resources/rollup-config-es.js",
     "lint": "lerna run lint",
-    "prettier": "prettier --write './*.{js,json,css,md}' ; lerna run prettier",
+    "prettier": "prettier --write './*.{js,css,md}' ; lerna run prettier",
     "docs": "shx rm -rf ./docs ; esdoc",
     "test": "lerna run test",
     "prep": "yarn lint && yarn prettier && yarn docs && yarn build && yarn test",
@@ -24,7 +28,10 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write", "git add"]
+    "*.{js,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
