@@ -5,6 +5,7 @@
 ## Data Structures
 
 * [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)
+* [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)
 * [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)
 * [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)
 * [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)
