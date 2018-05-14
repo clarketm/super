@@ -2,9 +2,19 @@
   "name": "@clarketm/supertypes",
   "version": "1.0.0",
   "description": "types with superpowers! 💪",
-  "main": "index.js",
+  "main": "dist/super.js",
+  "module": "dist/super.es.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.md"
+  ],
   "scripts": {
-    "bundle": "rollup -c ./resources/rollup-config.js",
+    "build": "yarn build:dist",
+    "build:dist": "shx rm -rf ./dist ; yarn bundle:dist ; yarn bundle:es ; yarn stats:dist",
+    "stats:dist": "node ./resources/dist-stats.js",
+    "bundle:dist": "rollup -c ./resources/rollup-config.js",
+    "bundle:es": "rollup -c ./resources/rollup-config-es.js",
     "docs": "shx rm -rf ./docs ; esdoc",
     "prettier": "prettier --write ./resources/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -29,9 +39,12 @@
     "types",
     "super",
     "superpowers",
+    "array",
     "map",
-    "set",
+    "math",
+    "number",
     "object",
+    "set",
     "string"
   ],
   "author": {
@@ -45,6 +58,7 @@
   },
   "homepage": "https://github.com/clarketm/super#readme",
   "devDependencies": {
+    "colors": "^1.2.5",
     "esdoc": "^1.1.0",
     "esdoc-flow-plugin": "^1.0.0",
     "esdoc-publish-markdown-plugin": "^1.1.0",
