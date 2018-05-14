@@ -1,5 +1,5 @@
 const { assert } = require("chai");
-const { Map } = require("../src/lib/Map");
+const { Map } = require("../lib/Map");
 
 describe("Map", () => {
   let expected, actual;
