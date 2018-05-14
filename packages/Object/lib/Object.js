@@ -1,1 +1,185 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(a){return typeof a}:function(a){return a&&"function"==typeof Symbol&&a.constructor===Symbol&&a!==Symbol.prototype?"symbol":typeof a},_createClass=function(){function a(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}return function(b,c,d){return c&&a(b.prototype,c),d&&a(b,d),b}}();function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _possibleConstructorReturn(a,b){if(!a)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return b&&("object"==typeof b||"function"==typeof b)?b:a}function _inherits(a,b){if("function"!=typeof b&&null!==b)throw new TypeError("Super expression must either be null or a function, not "+typeof b);a.prototype=Object.create(b&&b.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}}),b&&(Object.setPrototypeOf?Object.setPrototypeOf(a,b):a.__proto__=b)}function _extendableBuiltin(a){function b(){var b=Reflect.construct(a,Array.from(arguments));return Object.setPrototypeOf(b,Object.getPrototypeOf(this)),b}return b.prototype=Object.create(a.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}}),Object.setPrototypeOf?Object.setPrototypeOf(b,a):b.__proto__=a,b}var PrimitiveType={BOOLEAN:"boolean",FUNCTION:"function",NUMBER:"number",OBJECT:"object",STRING:"string",SYMBOL:"symbol",UNDEFINED:"undefined"},InstanceType={OBJECT:Object,ARRAY:Array,REGEXP:RegExp,DATE:Date},_Object=function(a){function b(a){return _classCallCheck(this,b),_possibleConstructorReturn(this,(b.__proto__||Object.getPrototypeOf(b)).call(this,a))}return _inherits(b,a),_createClass(b,[{key:"hasNested",value:function hasNested(a){var b=this;a=a.replace(/\[(\w+)\]/,".$1").replace(/^\./,"");var c=a.split("."),d=!0,e=!1,f=void 0;try{for(var g,h,i=c[Symbol.iterator]();!(d=(g=i.next()).done);d=!0)if(h=g.value,("undefined"==typeof b?"undefined":_typeof(b))===PrimitiveType.OBJECT&&h in b)b=b[h];else return!1}catch(a){e=!0,f=a}finally{try{!d&&i.return&&i.return()}finally{if(e)throw f}}return!0}},{key:"getNested",value:function getNested(a){var b=this;a=a.replace(/\[(\w+)\]/,".$1").replace(/^\./,"");var c=a.split("."),d=!0,e=!1,f=void 0;try{for(var g,h,i=c[Symbol.iterator]();!(d=(g=i.next()).done);d=!0)if(h=g.value,("undefined"==typeof b?"undefined":_typeof(b))===PrimitiveType.OBJECT&&h in b)b=b[h];else return}catch(a){e=!0,f=a}finally{try{!d&&i.return&&i.return()}finally{if(e)throw f}}return b}},{key:"clone",value:function clone(){function a(b){if(null===b||("undefined"==typeof b?"undefined":_typeof(b))!==PrimitiveType.OBJECT)return b;if(b instanceof InstanceType.DATE)return new Date(b.valueOf());if(b instanceof InstanceType.ARRAY){var c=[];return b.forEach(function(d,e){return c[e]=a(b[e])}),c}if(b instanceof InstanceType.OBJECT){var e={};return Object.getOwnPropertySymbols(b).forEach(function(c){return e[c]=a(b[c])}),d?Object.getOwnPropertyNames(b).forEach(function(c){return e[c]=a(b[c])}):Object.keys(b).forEach(function(c){return e[c]=a(b[c])}),e}throw new Error("Unable to copy object: "+b)}var b=0<arguments.length&&void 0!==arguments[0]?arguments[0]:{},c=b.includeNonEnumerable,d=void 0!==c&&c;return a(this,b)}}]),b}(_extendableBuiltin(Object));exports.default=_Object,exports.Object=_Object;
+/**
+ * Copyright (c) 2018, Travis Clarke
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (factory((global.Object = {})));
+}(this, (function (exports) { 'use strict';
+
+  // 
+
+  /**
+   * @module super/object
+   *
+   */
+
+  var PrimitiveType = {
+    BOOLEAN: "boolean",
+    FUNCTION: "function",
+    NUMBER: "number",
+    OBJECT: "object",
+    STRING: "string",
+    SYMBOL: "symbol",
+    UNDEFINED: "undefined"
+  };
+
+  var InstanceType = {
+    OBJECT: Object,
+    ARRAY: Array,
+    REGEXP: RegExp,
+    DATE: Date
+  };
+
+  /**
+   * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
+   */
+
+  /**
+   * @typedef {object} Config
+   * @property {boolean} [includeNonEnumerable=false]
+   */
+
+
+  /**
+   *
+   * Object with superpowers! 💪
+   *
+   * @public
+   *
+   */
+  var _Object = (function (Object) {
+    function _Object(object) {
+      Object.call(this, object);
+    }
+
+    if ( Object ) _Object.__proto__ = Object;
+    _Object.prototype = Object.create( Object && Object.prototype );
+    _Object.prototype.constructor = _Object;
+
+    /**
+     * @public
+     *
+     * @desc Check for nested value from string key
+     *
+     * @param {string} path
+     * @return {boolean} property value exists
+     */
+    _Object.prototype.hasNested = function hasNested (path) {
+      var item = this;
+      // TODO: throw error on invalid path
+      path = path.replace(/\[(\w+)\]/, ".$1").replace(/^\./, "");
+
+      var keys = path.split(".");
+      for (var i = 0, list = keys; i < list.length; i += 1) {
+        var key = list[i];
+
+        if (typeof item === PrimitiveType.OBJECT && key in item) { item = item[key]; }
+        else { return false; }
+      }
+      return true;
+    };
+
+    /**
+     * @public
+     *
+     * @desc  Get nested JavaScript object value from string key
+     *
+     * @param {string} path
+     * @return {Item} property value
+     */
+    _Object.prototype.getNested = function getNested (path) {
+      var item = this;
+      // TODO: throw error on invalid path
+      path = path.replace(/\[(\w+)\]/, ".$1").replace(/^\./, "");
+
+      var keys = path.split(".");
+      for (var i = 0, list = keys; i < list.length; i += 1) {
+        var key = list[i];
+
+        if (typeof item === PrimitiveType.OBJECT && key in item) { item = item[key]; }
+        else { return; }
+      }
+      return item;
+    };
+
+    /**
+     * @public
+     *
+     * @desc Deep clone an Object
+     *
+     * @param {Config} [config={}] Configuration object
+     * @returns {object} Deep cloned Object
+     *
+     * @example
+     *
+     * const obj = new SuperObject({ key1: ["1", 1, true, (a, b) => a+b], [Symbol("key2")]: {s: "s"} });
+     * const clone = obj.clone();
+     *
+     * console.log(clone);
+     * // { key1: ["1", 1, true, (a, b) => a+b], Symbol("key2"): {s: "s"} }
+     *
+     */
+    _Object.prototype.clone = function clone (config) {
+      if ( config === void 0 ) config = {};
+
+      var includeNonEnumerable = config.includeNonEnumerable; if ( includeNonEnumerable === void 0 ) includeNonEnumerable = false;
+
+      /**
+       * @private
+       *
+       * @desc Deep clone helper
+       *
+       * @param {Item} item
+       * @returns {any} cloned item
+       */
+      function _clone(item) {
+        if (item === null || typeof item !== PrimitiveType.OBJECT) {
+          return item;
+        }
+
+        if (item instanceof InstanceType.DATE) {
+          return new Date(item.valueOf());
+        }
+
+        if (item instanceof InstanceType.ARRAY) {
+          var copy = [];
+
+          item.forEach(function (_, i) { return (copy[i] = _clone(item[i])); });
+
+          return copy;
+        }
+
+        if (item instanceof InstanceType.OBJECT) {
+          var copy$1 = {};
+
+          Object.getOwnPropertySymbols(item).forEach(function (s) { return (copy$1[s] = _clone(item[s])); });
+
+          if (includeNonEnumerable) {
+            Object.getOwnPropertyNames(item).forEach(function (k) { return (copy$1[k] = _clone(item[k])); });
+          } else {
+            Object.keys(item).forEach(function (k) { return (copy$1[k] = _clone(item[k])); });
+          }
+
+          return copy$1;
+        }
+
+        throw new Error(("Unable to copy object: " + item));
+      }
+
+      return _clone(this, config);
+    };
+
+    return _Object;
+  }(Object));
+
+  exports.default = _Object;
+  exports.Object = _Object;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
