@@ -4,16 +4,17 @@
 
 ## Packages
 
-* [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme) – **Array** with superpowers! 💪
-* [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme) – **Object** with superpowers! 💪
-* [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme) – **Map** with superpowers! 💪
-* [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme) – **Math** with superpowers! 💪
-* [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme) – **Number** with superpowers! 💪
-* [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme) – **Set** with superpowers! 💪
-* [String](https://github.com/clarketm/super/tree/master/packages/String#readme) – **String** with superpowers! 💪
+* [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)
+* [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)
+* [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)
+* [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)
+* [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)
+* [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)
+* [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)
+* [String](https://github.com/clarketm/super/tree/master/packages/String#readme)
 
 ## Misc.
 
-* [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme) – **Babel preset** with superpowers! 💪
-* [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme) – **ESLint config** with superpowers! 💪
-* [generator-super](https://github.com/clarketm/super/tree/master/packages/generator-super#readme) – **Yeoman generator** with superpowers! 💪
+* [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme)
+* [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme)
+* [generator-super](https://github.com/clarketm/super/tree/master/packages/generator-super#readme)
