@@ -2,7 +2,7 @@
 
 Number with superpowers! 💪
 
-> This data structure inherit **all** methods and properties for the [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) built-in.
+> This data structure inherit **all** methods and properties from the [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) built-in.
 
 ### `constructor(number: number)`
 

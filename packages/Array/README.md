@@ -2,7 +2,7 @@
 
 Array with superpowers! 💪
 
-> This data structure inherit **all** methods and properties for the [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) built-in.
+> This data structure inherit **all** methods and properties from the [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) built-in.
 
 ### `constructor(iterable: Iterable)`
 
