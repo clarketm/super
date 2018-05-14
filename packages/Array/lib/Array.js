@@ -21,11 +21,34 @@
 
   function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-  // 
+  function _extendableBuiltin(cls) {
+    function ExtendableBuiltin() {
+      var instance = Reflect.construct(cls, Array.from(arguments));
+      Object.setPrototypeOf(instance, Object.getPrototypeOf(this));
+      return instance;
+    }
+
+    ExtendableBuiltin.prototype = Object.create(cls.prototype, {
+      constructor: {
+        value: cls,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(ExtendableBuiltin, cls);
+    } else {
+      ExtendableBuiltin.__proto__ = cls;
+    }
+
+    return ExtendableBuiltin;
+  }
 
   /**
+   * 
    * @module super/array
-   *
    */
 
   /**
@@ -39,8 +62,8 @@
    * @public
    *
    */
-  var _Array = function (_Array2) {
-    _inherits(_Array, _Array2);
+  var _Array = function (_extendableBuiltin2) {
+    _inherits(_Array, _extendableBuiltin2);
 
     /**
      * @public
@@ -100,7 +123,7 @@
     }]);
 
     return _Array;
-  }(Array);
+  }(_extendableBuiltin(Array));
 
   exports.Array = _Array;
 
