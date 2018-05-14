@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superarray",
-  "version": "0.0.1",
+  "version": "1.2.0",
   "description": "JavaScript Array with superpowers! 💪",
   "main": "./lib/Array.js",
   "files": ["lib", "README.md", "LICENSE.md"],
@@ -24,8 +24,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "@clarketm/babel-preset-super": "^0.0.1",
-    "@clarketm/eslint-config-super": "^0.0.1",
+    "@clarketm/babel-preset-super": "^1.2.0",
+    "@clarketm/eslint-config-super": "^1.2.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",

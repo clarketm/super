@@ -1,17 +1,22 @@
 {
   "name": "@clarketm/generator-super",
-  "version": "0.0.1",
+  "version": "1.2.0",
   "description": "Yeoman generator with superpowers! 💪",
-  "homepage":
-    "https://github.com/clarketm/super/tree/master/packages/generator-super#readme",
+  "homepage": "https://github.com/clarketm/super/tree/master/packages/generator-super#readme",
   "author": {
     "name": "Travis Clarke",
     "email": "travis.m.clarke@gmail.com",
     "url": "https://www.travismclarke.com/"
   },
-  "files": ["generators"],
+  "files": [
+    "generators"
+  ],
   "main": "generators/index.js",
-  "keywords": ["super", "javascript", "yeoman-generator"],
+  "keywords": [
+    "super",
+    "javascript",
+    "yeoman-generator"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -47,11 +52,20 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "git add"],
-    "*.json": ["prettier --write", "git add"]
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "eslintConfig": {
-    "extends": ["xo", "prettier"],
+    "extends": [
+      "xo",
+      "prettier"
+    ],
     "env": {
       "jest": true,
       "node": true
@@ -65,7 +79,9 @@
         }
       ]
     },
-    "plugins": ["prettier"]
+    "plugins": [
+      "prettier"
+    ]
   },
   "license": "MIT"
 }
