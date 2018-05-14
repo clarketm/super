@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superset",
-  "version": "1.1.5",
+  "version": "0.0.1",
   "description": "Set with superpowers! 💪",
   "main": "./lib/Set.js",
   "directories": {
@@ -32,8 +32,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "@clarketm/babel-preset-super": "^1.0.1",
-    "@clarketm/eslint-config-super": "^1.0.1",
+    "@clarketm/babel-preset-super": "^0.0.1",
+    "@clarketm/eslint-config-super": "^0.0.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",

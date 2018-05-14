@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/supernumber",
-  "version": "1.1.0",
+  "version": "0.0.1",
   "description": "Number with superpowers! 💪",
   "main": "./lib/Number.js",
   "directories": {
@@ -14,21 +14,26 @@
     "prettier": "prettier --write ./src/**/*.js ./test/**/*.js",
     "test": "mocha --require babel-core/register ./test/*"
   },
-  "keywords": ["javascript", "super", "superpowers", "Number", "polyfill"],
+  "keywords": [
+    "javascript",
+    "super",
+    "superpowers",
+    "Number",
+    "polyfill"
+  ],
   "author": {
     "name": "Travis Clarke",
     "email": "travis.m.clarke@gmail.com",
     "url": "https://www.travismclarke.com/"
   },
   "license": "MIT",
-  "homepage":
-    "https://github.com/clarketm/super/tree/master/packages/supernumber#readme",
+  "homepage": "https://github.com/clarketm/super/tree/master/packages/supernumber#readme",
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
-    "@clarketm/babel-preset-super": "^1.0.1",
-    "@clarketm/eslint-config-super": "^1.0.1",
+    "@clarketm/babel-preset-super": "^0.0.1",
+    "@clarketm/eslint-config-super": "^0.0.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
