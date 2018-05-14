@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var SuperMath=exports.SuperMath=Object.create(Math);SuperMath.factorial=function(a){if(0>a)throw new Error("Factorial not defined for negative values");return 0===a?1:a*SuperMath.factorial(a-1)};
