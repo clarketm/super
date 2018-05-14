@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/supermath",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Math with superpowers! 💪",
   "main": "./lib/Math.js",
   "files": [
@@ -34,8 +34,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "@clarketm/babel-preset-super": "^1.2.0",
-    "@clarketm/eslint-config-super": "^1.2.0",
+    "@clarketm/babel-preset-super": "^1.2.1",
+    "@clarketm/eslint-config-super": "^1.2.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
