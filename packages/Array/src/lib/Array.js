@@ -60,5 +60,4 @@ class _Array extends Array {
     return _flatten(depth, this);
   }
 }
-export default _Array;
 export { _Array as Array };

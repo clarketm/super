@@ -1,1 +1,84 @@
-"use strict";var _createClass=function(){function a(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}return function(b,c,d){return c&&a(b.prototype,c),d&&a(b,d),b}}();Object.defineProperty(exports,"__esModule",{value:!0});function _toConsumableArray(a){if(Array.isArray(a)){for(var b=0,c=Array(a.length);b<a.length;b++)c[b]=a[b];return c}return Array.from(a)}function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _possibleConstructorReturn(a,b){if(!a)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return b&&("object"==typeof b||"function"==typeof b)?b:a}function _inherits(a,b){if("function"!=typeof b&&null!==b)throw new TypeError("Super expression must either be null or a function, not "+typeof b);a.prototype=Object.create(b&&b.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}}),b&&(Object.setPrototypeOf?Object.setPrototypeOf(a,b):a.__proto__=b)}function _extendableBuiltin(a){function b(){var b=Reflect.construct(a,Array.from(arguments));return Object.setPrototypeOf(b,Object.getPrototypeOf(this)),b}return b.prototype=Object.create(a.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}}),Object.setPrototypeOf?Object.setPrototypeOf(b,a):b.__proto__=a,b}var _Array=function(a){function b(){var a=0<arguments.length&&void 0!==arguments[0]?arguments[0]:[];_classCallCheck(this,b);var c=_possibleConstructorReturn(this,(b.__proto__||Object.getPrototypeOf(b)).call(this));return c.push.apply(c,_toConsumableArray(a)),c}return _inherits(b,a),_createClass(b,[{key:"flatMap",value:function flatMap(a){return this.map(a).flatten()}},{key:"flatten",value:function flatten(){function a(b,c){return 0>=b?c:c.reduce(function(c,d){return Array.isArray(d)?c.concat(a(b-1,d)):c.concat(d)},[])}var b=0<arguments.length&&void 0!==arguments[0]?arguments[0]:1;return a(b,this)}}]),b}(_extendableBuiltin(Array));exports.default=_Array,exports.Array=_Array;
+/**
+ * Copyright (c) 2018, Travis Clarke
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (factory((global.Array = {})));
+}(this, (function (exports) { 'use strict';
+
+  // 
+
+  /**
+   * @module super/array
+   *
+   */
+
+  /**
+   * @typedef {Function} Callback
+   */
+
+  /**
+   *
+   * Array with superpowers! 💪
+   *
+   * @public
+   *
+   */
+  var _Array = (function (Array) {
+    function _Array(iterable) {
+      var ref;
+
+      if ( iterable === void 0 ) iterable = [];
+      Array.call(this);
+      (ref = this).push.apply(ref, iterable);
+    }
+
+    if ( Array ) _Array.__proto__ = Array;
+    _Array.prototype = Object.create( Array && Array.prototype );
+    _Array.prototype.constructor = _Array;
+    /**
+     * @public
+     *
+     * @desc Maps each element using a mapping function, then flattens the result into a new array
+     *
+     * @param {Callback} callback - callback function
+     * @returns {Array} A new array with each element being the result of the callback function and flattened to a depth of 1
+     */
+    _Array.prototype.flatMap = function flatMap (callback) {
+      return this.map(callback).flatten();
+    };
+    /**
+     * @public
+     *
+     * @desc Creates a new array with all sub-array elements concatted into it recursively up to the specified depth
+     *
+     * @param {number} depth - flatten depth
+     * @returns {Array}  new array with the sub-array elements concatted into it.
+     */
+    _Array.prototype.flatten = function flatten (depth) {
+      if ( depth === void 0 ) depth = 1;
+
+      function _flatten(depth, arr) {
+        if (depth <= 0) { return arr; }
+
+        return arr.reduce(function (acc, val) {
+          if (Array.isArray(val)) { return acc.concat(_flatten(depth - 1, val)); }
+          else { return acc.concat(val); }
+        }, []);
+      }
+      return _flatten(depth, this);
+    };
+
+    return _Array;
+  }(Array));
+
+  exports.Array = _Array;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
