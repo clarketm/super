@@ -56,7 +56,7 @@ module.exports = class extends Generator {
           ".nvmrc",
           "README.md",
           "LICENSE.md",
-          "package.json",
+          "p.json",
           "tgitignore",
           "Type.js",
           "Type.s.js"
@@ -75,6 +75,11 @@ module.exports = class extends Generator {
         files.forEach(f => {
           this.fs.copyTpl(this.templatePath(f), this.destinationPath(`${this.dir}/${f}`), opts);
         });
+
+        this.fs.move(
+          this.destinationPath(`${this.dir}`, "p.json"),
+          this.destinationPath(`${this.dir}`, "package.json")
+        );
 
         this.fs.move(
           this.destinationPath(`${this.dir}`, "tgitignore"),
