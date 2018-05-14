@@ -32,8 +32,9 @@ module.exports = class extends Generator {
 
     return this.prompt(prompts).then(answer => {
       this.type = this.toTitleCase(this.options.type || answer.type);
+      this.dir = this.type;
       this.name = `super${this.type.toLowerCase()}`;
-      this.description = `JavaScript ${this.type} with superpowers! 💪`;
+      this.description = `${this.type} with superpowers! 💪`;
       this.version = '0.0.0';
     });
   }
@@ -46,7 +47,7 @@ module.exports = class extends Generator {
     return {
       appStaticFiles() {
         const src = this.sourceRoot();
-        const dest = this.destinationPath(this.name);
+        const dest = this.destinationPath(this.dir);
 
         const files = [
           '.babelrc',
@@ -73,24 +74,24 @@ module.exports = class extends Generator {
         files.forEach(f => {
           this.fs.copyTpl(
             this.templatePath(f),
-            this.destinationPath(`${this.name}/${f}`),
+            this.destinationPath(`${this.dir}/${f}`),
             opts
           );
         });
 
         this.fs.move(
-          this.destinationPath(`${this.name}`, 'tgitignore'),
-          this.destinationPath(`${this.name}`, '.gitignore')
+          this.destinationPath(`${this.dir}`, 'tgitignore'),
+          this.destinationPath(`${this.dir}`, '.gitignore')
         );
 
         this.fs.move(
-          this.destinationPath(`${this.name}`, 'Type.js'),
-          this.destinationPath(`${this.name}`, `src/lib/${this.type}.js`)
+          this.destinationPath(`${this.dir}`, 'Type.js'),
+          this.destinationPath(`${this.dir}`, `src/lib/${this.type}.js`)
         );
 
         this.fs.move(
-          this.destinationPath(`${this.name}`, 'Type.spec.js'),
-          this.destinationPath(`${this.name}`, `test/${this.type}.spec.js`)
+          this.destinationPath(`${this.dir}`, 'Type.spec.js'),
+          this.destinationPath(`${this.dir}`, `test/${this.type}.spec.js`)
         );
       }
     };
@@ -99,7 +100,7 @@ module.exports = class extends Generator {
   conflicts() {}
 
   install() {
-    const appDir = path.join(process.cwd(), this.name);
+    const appDir = path.join(process.cwd(), this.dir);
     process.chdir(appDir);
     this.yarnInstall();
   }
