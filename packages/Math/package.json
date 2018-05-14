@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/supermath",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Math with superpowers! 💪",
   "main": "./lib/Math.js",
   "directories": {
