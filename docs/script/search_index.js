@@ -199,25 +199,25 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#next",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
-    "member"
-  ],
-  [
-    "packages/linkedlist/src/lib/listnode.js~listnode#next",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
-    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-prev",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
+    "packages/linkedlist/src/lib/listnode.js~listnode#next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#prev",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-prev",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-prev",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
     "member"
   ],
@@ -436,12 +436,6 @@ window.esdocSearchIndex = [
     "file/packages/Set/src/lib/Set.js.html",
     "packages/Set/src/lib/Set.js",
     "file"
-  ],
-  [
-    "packages/set/src/lib/set.js~callback",
-    "typedef/index.html#static-typedef-Callback",
-    "packages/Set/src/lib/Set.js~Callback",
-    "typedef"
   ],
   [
     "packages/set/src/lib/set.js~_set#constructor",
