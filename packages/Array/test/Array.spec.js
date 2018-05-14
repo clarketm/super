@@ -1,5 +1,5 @@
 const { assert } = require("chai");
-const { Array } = require("../../../dist/super");
+const { Array } = require("../src/lib/Array");
 
 describe("Array", () => {
   let expected, actual;
