@@ -6,12 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["babel", "babel-preset", "super"],
-  "author":
-    "Travis Clarke <travis.m.clarke@gmail.com> (https://www.travismclarke.com/)",
+  "keywords": [
+    "babel",
+    "babel-preset",
+    "super"
+  ],
+  "author": "Travis Clarke <travis.m.clarke@gmail.com> (https://www.travismclarke.com/)",
   "license": "MIT",
-  "homepage":
-    "https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme",
+  "homepage": "https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme",
   "publishConfig": {
     "access": "public"
   },
