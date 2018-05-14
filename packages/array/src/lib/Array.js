@@ -18,7 +18,7 @@ type Callback = (value: any, index: number, array: Array) => Array;
  *
  * @extends {Array}
  */
-export class SuperArray extends Array {
+class _Array extends Array {
   /**
    * @public
    *
@@ -67,4 +67,5 @@ export class SuperArray extends Array {
   }
 }
 
-// export { SuperArray as Array };
+export default _Array;
+export { _Array as Array };
