@@ -1,1 +1,86 @@
-"use strict";var _createClass=function(){function a(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}return function(b,c,d){return c&&a(b.prototype,c),d&&a(b,d),b}}();Object.defineProperty(exports,"__esModule",{value:!0});function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _possibleConstructorReturn(a,b){if(!a)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return b&&("object"==typeof b||"function"==typeof b)?b:a}function _inherits(a,b){if("function"!=typeof b&&null!==b)throw new TypeError("Super expression must either be null or a function, not "+typeof b);a.prototype=Object.create(b&&b.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}}),b&&(Object.setPrototypeOf?Object.setPrototypeOf(a,b):a.__proto__=b)}function _extendableBuiltin(a){function b(){var b=Reflect.construct(a,Array.from(arguments));return Object.setPrototypeOf(b,Object.getPrototypeOf(this)),b}return b.prototype=Object.create(a.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}}),Object.setPrototypeOf?Object.setPrototypeOf(b,a):b.__proto__=a,b}var _String=function(a){function b(a){return _classCallCheck(this,b),_possibleConstructorReturn(this,(b.__proto__||Object.getPrototypeOf(b)).call(this,a))}return _inherits(b,a),_createClass(b,[{key:"reverse",value:function reverse(){return this.split("").filter(function(a){return a}).reverse().join("")}},{key:"reverseWords",value:function reverseWords(){return this.split(" ").filter(function(a){return a}).reverse().join(" ")}},{key:"toTitleCase",value:function toTitleCase(){return this.split(" ").map(function(a){return a&&a.charAt(0).toUpperCase()+a.substr(1).toLowerCase()}).join(" ")}}]),b}(_extendableBuiltin(String));exports.default=_String,exports.String=_String;
+/**
+ * Copyright (c) 2018, Travis Clarke
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (factory((global.String = {})));
+}(this, (function (exports) { 'use strict';
+
+  // 
+
+  /**
+   * @module super/string
+   *
+   */
+
+  /**
+   *
+   * String with superpowers! 💪
+   *
+   * @public
+   *
+   */
+  var _String = (function (String) {
+    function _String(string) {
+      String.call(this, string);
+    }
+
+    if ( String ) _String.__proto__ = String;
+    _String.prototype = Object.create( String && String.prototype );
+    _String.prototype.constructor = _String;
+
+    /**
+     * @public
+     *
+     * @desc Transposes the ordering of all characters in the string
+     *
+     * @returns {string} String reversed
+     */
+    _String.prototype.reverse = function reverse () {
+      return this.split("")
+        .filter(function (s) { return s; })
+        .reverse()
+        .join("");
+    };
+
+    /**
+     * @public
+     *
+     * @desc Transposes the ordering of the words in the string
+     *
+     * @returns {string} String with words reversed
+     */
+    _String.prototype.reverseWords = function reverseWords () {
+      return this.split(" ")
+        .filter(function (s) { return s; })
+        .reverse()
+        .join(" ");
+    };
+
+    /**
+     * @public
+     *
+     * @desc Convert a string to title case
+     *
+     * @returns {string} Title cased string representation
+     */
+    _String.prototype.toTitleCase = function toTitleCase () {
+      return this.split(" ")
+        .map(function (v) { return v && v.charAt(0).toUpperCase() + v.substr(1).toLowerCase(); })
+        .join(" ");
+    };
+
+    return _String;
+  }(String));
+
+  exports.default = _String;
+  exports.String = _String;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
