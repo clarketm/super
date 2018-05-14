@@ -1,4 +1,4 @@
-# SuperArray
+# Array
 
 Array with superpowers! 💪
 
