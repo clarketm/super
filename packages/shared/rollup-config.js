@@ -23,6 +23,7 @@ export default {
     flow({ pretty: true }),
     babel({
       presets: [["env", { modules: false }], "@clarketm/babel-preset-super"],
+      plugins: ["external-helpers"],
       babelrc: false
     }),
     {

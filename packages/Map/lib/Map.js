@@ -21,17 +21,97 @@
     UNDEFINED: "undefined"
   };
 
-  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  };
 
-  var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+  var classCallCheck = function (instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  };
 
-  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+  var createClass = function () {
+    function defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
 
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+    return function (Constructor, protoProps, staticProps) {
+      if (protoProps) defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) defineProperties(Constructor, staticProps);
+      return Constructor;
+    };
+  }();
 
-  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+  var inherits = function (subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+      throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    }
 
-  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+      constructor: {
+        value: subClass,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+    if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+  };
+
+  var possibleConstructorReturn = function (self, call) {
+    if (!self) {
+      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }
+
+    return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  };
+
+  var slicedToArray = function () {
+    function sliceIterator(arr, i) {
+      var _arr = [];
+      var _n = true;
+      var _d = false;
+      var _e = undefined;
+
+      try {
+        for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+          _arr.push(_s.value);
+
+          if (i && _arr.length === i) break;
+        }
+      } catch (err) {
+        _d = true;
+        _e = err;
+      } finally {
+        try {
+          if (!_n && _i["return"]) _i["return"]();
+        } finally {
+          if (_d) throw _e;
+        }
+      }
+
+      return _arr;
+    }
+
+    return function (arr, i) {
+      if (Array.isArray(arr)) {
+        return arr;
+      } else if (Symbol.iterator in Object(arr)) {
+        return sliceIterator(arr, i);
+      } else {
+        throw new TypeError("Invalid attempt to destructure non-iterable instance");
+      }
+    };
+  }();
 
   function _extendableBuiltin(cls) {
     function ExtendableBuiltin() {
@@ -71,7 +151,7 @@
    */
 
   var _Map = function (_extendableBuiltin2) {
-    _inherits(_Map, _extendableBuiltin2);
+    inherits(_Map, _extendableBuiltin2);
 
     /**
      * @public
@@ -81,9 +161,8 @@
      * @param {Iterable} iterable
      */
     function _Map(iterable) {
-      _classCallCheck(this, _Map);
-
-      return _possibleConstructorReturn(this, (_Map.__proto__ || Object.getPrototypeOf(_Map)).call(this, iterable));
+      classCallCheck(this, _Map);
+      return possibleConstructorReturn(this, (_Map.__proto__ || Object.getPrototypeOf(_Map)).call(this, iterable));
     }
     /**
      * @public
@@ -95,7 +174,7 @@
      */
 
 
-    _createClass(_Map, [{
+    createClass(_Map, [{
       key: "some",
       value: function some(callback) {
         var result = void 0;
@@ -108,7 +187,7 @@
           for (var _iterator = this.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
             var _ref = _step.value;
 
-            var _ref2 = _slicedToArray(_ref, 2);
+            var _ref2 = slicedToArray(_ref, 2);
 
             var key = _ref2[0];
             var value = _ref2[1];
@@ -155,7 +234,7 @@
           for (var _iterator2 = this.entries()[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
             var _ref3 = _step2.value;
 
-            var _ref4 = _slicedToArray(_ref3, 2);
+            var _ref4 = slicedToArray(_ref3, 2);
 
             var key = _ref4[0];
             var value = _ref4[1];
@@ -212,7 +291,7 @@
       key: "toObject",
       value: function toObject() {
         return Array.from(this).reduce(function (obj, _ref5) {
-          var _ref6 = _slicedToArray(_ref5, 2),
+          var _ref6 = slicedToArray(_ref5, 2),
               key = _ref6[0],
               value = _ref6[1];
 
@@ -223,7 +302,6 @@
         }, {});
       }
     }]);
-
     return _Map;
   }(_extendableBuiltin(Map));
 

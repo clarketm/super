@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import buble from "rollup-plugin-buble";
+import babel from "rollup-plugin-babel";
 import commonjs from "rollup-plugin-commonjs";
 import json from "rollup-plugin-json";
 import stripBanner from "rollup-plugin-strip-banner";
@@ -24,6 +24,10 @@ export default {
     commonjs(),
     json(),
     stripBanner(),
-    buble({ transforms: { dangerousForOf: true } })
+    babel({
+      presets: [["env", { modules: false }], "@clarketm/babel-preset-super"],
+      plugins: ["external-helpers"],
+      babelrc: false
+    })
   ]
 };

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Map } from "./map/src/lib/Map";
+import { Map } from "./Map/src/lib/Map";
 import { Array } from "./Array/src/lib/Array";
 import { Math } from "./Math/src/lib/Math";
 import { Number } from "./Number/src/lib/Number";
@@ -17,15 +17,15 @@ import { String } from "./String/src/lib/String";
 import { version } from "../package.json";
 
 export default {
-  version,
-  Array,
-  Map,
-  Math,
-  Number,
-  Object,
-  Queue,
-  Set,
-  String
+  version: version,
+  Array: Array,
+  Map: Map,
+  Math: Math,
+  Number: Number,
+  Object: Object,
+  Queue: Queue,
+  Set: Set,
+  String: String
 };
 
 export { version, Array, Map, Math, Number, Object, Queue, Set, String };

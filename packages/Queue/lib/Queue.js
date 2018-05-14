@@ -11,11 +11,39 @@
   (factory((global.Queue = {})));
 }(this, (function (exports) { 'use strict';
 
-  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+  var classCallCheck = function (instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  };
 
-  function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+  var createClass = function () {
+    function defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
 
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+    return function (Constructor, protoProps, staticProps) {
+      if (protoProps) defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) defineProperties(Constructor, staticProps);
+      return Constructor;
+    };
+  }();
+
+  var toConsumableArray = function (arr) {
+    if (Array.isArray(arr)) {
+      for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+      return arr2;
+    } else {
+      return Array.from(arr);
+    }
+  };
 
   /**
    * 
@@ -39,10 +67,9 @@
      */
     function Queue() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      classCallCheck(this, Queue);
 
-      _classCallCheck(this, Queue);
-
-      this._queue = [].concat(_toConsumableArray(iterable));
+      this._queue = [].concat(toConsumableArray(iterable));
     }
 
     /**
@@ -54,7 +81,7 @@
      */
 
 
-    _createClass(Queue, [{
+    createClass(Queue, [{
       key: "isEmpty",
 
 
@@ -150,16 +177,15 @@
 
     }, {
       key: "toArray",
-      value: function toArray() {
+      value: function toArray$$1() {
         return this._queue.slice(0);
       }
     }, {
       key: "size",
-      get: function get() {
+      get: function get$$1() {
         return this._queue.length;
       }
     }]);
-
     return Queue;
   }();
 

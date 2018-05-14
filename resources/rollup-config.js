@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { minify } from "uglify-js";
-import buble from "rollup-plugin-buble";
+import babel from "rollup-plugin-babel";
 import commonjs from "rollup-plugin-commonjs";
 import json from "rollup-plugin-json";
 import saveLicense from "uglify-save-license";
@@ -27,7 +27,11 @@ export default {
     commonjs(),
     json(),
     stripBanner(),
-    buble({ transforms: { dangerousForOf: true } }),
+    babel({
+      presets: [["env", { modules: false }], "@clarketm/babel-preset-super"],
+      plugins: ["external-helpers"],
+      babelrc: false
+    }),
     {
       name: "uglify",
       transformBundle(code) {
@@ -42,11 +46,7 @@ export default {
           fs.mkdirSync(DIST_DIR);
         }
 
-        fs.writeFileSync(
-          path.join(DIST_DIR, "super.min.js"),
-          result.code,
-          "utf8"
-        );
+        fs.writeFileSync(path.join(DIST_DIR, "super.min.js"), result.code, "utf8");
       }
     }
   ]

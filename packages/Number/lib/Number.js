@@ -11,15 +11,91 @@
   (factory((global.Number = {})));
 }(this, (function (exports) { 'use strict';
 
-  var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+  var classCallCheck = function (instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  };
 
-  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+  var createClass = function () {
+    function defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
 
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+    return function (Constructor, protoProps, staticProps) {
+      if (protoProps) defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) defineProperties(Constructor, staticProps);
+      return Constructor;
+    };
+  }();
 
-  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+  var inherits = function (subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+      throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    }
 
-  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+      constructor: {
+        value: subClass,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+    if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+  };
+
+  var possibleConstructorReturn = function (self, call) {
+    if (!self) {
+      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }
+
+    return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  };
+
+  var slicedToArray = function () {
+    function sliceIterator(arr, i) {
+      var _arr = [];
+      var _n = true;
+      var _d = false;
+      var _e = undefined;
+
+      try {
+        for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+          _arr.push(_s.value);
+
+          if (i && _arr.length === i) break;
+        }
+      } catch (err) {
+        _d = true;
+        _e = err;
+      } finally {
+        try {
+          if (!_n && _i["return"]) _i["return"]();
+        } finally {
+          if (_d) throw _e;
+        }
+      }
+
+      return _arr;
+    }
+
+    return function (arr, i) {
+      if (Array.isArray(arr)) {
+        return arr;
+      } else if (Symbol.iterator in Object(arr)) {
+        return sliceIterator(arr, i);
+      } else {
+        throw new TypeError("Invalid attempt to destructure non-iterable instance");
+      }
+    };
+  }();
 
   function _extendableBuiltin(cls) {
     function ExtendableBuiltin() {
@@ -64,7 +140,7 @@
    */
 
   var _Number = function (_extendableBuiltin2) {
-    _inherits(_Number, _extendableBuiltin2);
+    inherits(_Number, _extendableBuiltin2);
 
     /**
      * @public
@@ -74,9 +150,8 @@
      * @param {number} number
      */
     function _Number(number) {
-      _classCallCheck(this, _Number);
-
-      return _possibleConstructorReturn(this, (_Number.__proto__ || Object.getPrototypeOf(_Number)).call(this, number));
+      classCallCheck(this, _Number);
+      return possibleConstructorReturn(this, (_Number.__proto__ || Object.getPrototypeOf(_Number)).call(this, number));
     }
     /**
      * @public
@@ -88,7 +163,7 @@
      */
 
 
-    _createClass(_Number, [{
+    createClass(_Number, [{
       key: "toRomanNumeral",
 
       /**
@@ -111,7 +186,7 @@
             for (var _iterator = IntegerToRomanNumeralMap[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
               var _ref = _step.value;
 
-              var _ref2 = _slicedToArray(_ref, 2);
+              var _ref2 = slicedToArray(_ref, 2);
 
               var int = _ref2[0];
               var roman = _ref2[1];
@@ -152,7 +227,7 @@
             for (var _iterator2 = RomanNumeralToIntegerMap[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
               var _ref3 = _step2.value;
 
-              var _ref4 = _slicedToArray(_ref3, 2);
+              var _ref4 = slicedToArray(_ref3, 2);
 
               var roman = _ref4[0];
               var int = _ref4[1];
@@ -181,7 +256,6 @@
         return _romanToInteger(str);
       }
     }]);
-
     return _Number;
   }(_extendableBuiltin(Number));
 

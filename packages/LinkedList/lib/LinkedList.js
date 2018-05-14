@@ -11,9 +11,29 @@
   (factory((global.LinkedList = {})));
 }(this, (function (exports) { 'use strict';
 
-  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+  var classCallCheck = function (instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  };
 
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+  var createClass = function () {
+    function defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+
+    return function (Constructor, protoProps, staticProps) {
+      if (protoProps) defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) defineProperties(Constructor, staticProps);
+      return Constructor;
+    };
+  }();
 
   /**
    * 
@@ -36,7 +56,7 @@
      * @param {Item} item - node value
      */
     function ListNode(item) {
-      _classCallCheck(this, ListNode);
+      classCallCheck(this, ListNode);
 
       this.value = item;
       this.prev = null;
@@ -52,9 +72,9 @@
      */
 
 
-    _createClass(ListNode, [{
+    createClass(ListNode, [{
       key: "value",
-      get: function get() {
+      get: function get$$1() {
         return this._value;
       }
 
@@ -65,7 +85,7 @@
        *
        */
       ,
-      set: function set(value) {
+      set: function set$$1(value) {
         this._value = value;
       }
 
@@ -79,7 +99,7 @@
 
     }, {
       key: "next",
-      get: function get() {
+      get: function get$$1() {
         return this._next;
       }
 
@@ -90,7 +110,7 @@
        *
        */
       ,
-      set: function set(next) {
+      set: function set$$1(next) {
         this._next = next;
       }
 
@@ -104,7 +124,7 @@
 
     }, {
       key: "prev",
-      get: function get() {
+      get: function get$$1() {
         return this._prev;
       }
 
@@ -115,17 +135,17 @@
        *
        */
       ,
-      set: function set(prev) {
+      set: function set$$1(prev) {
         this._prev = prev;
       }
     }]);
-
     return ListNode;
   }();
 
-  var _createClass$1 = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-  function _classCallCheck$1(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+  /**
+   * 
+   * @module super/linkedlist
+   */
 
   /**
    *
@@ -145,8 +165,7 @@
      */
     function LinkedList() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-
-      _classCallCheck$1(this, LinkedList);
+      classCallCheck(this, LinkedList);
 
       var head = new ListNode(0);
       var prev = null;
@@ -197,7 +216,7 @@
      */
 
 
-    _createClass$1(LinkedList, [{
+    createClass(LinkedList, [{
       key: "toArray",
 
 
@@ -213,7 +232,7 @@
        *
        * @returns {Array} array representation of the list
        */
-      value: function toArray() {
+      value: function toArray$$1() {
         var array = [];
         var node = this.head;
 
@@ -226,7 +245,7 @@
       }
     }, {
       key: "head",
-      get: function get() {
+      get: function get$$1() {
         return this._head;
       }
 
@@ -240,11 +259,10 @@
 
     }, {
       key: "size",
-      get: function get() {
+      get: function get$$1() {
         return this._size;
       }
     }]);
-
     return LinkedList;
   }();
 
