@@ -1,6 +1,6 @@
 # Super
 
-**Types** with superpowers! 💪
+**Data Structures** with superpowers! 💪
 
 ## Packages
 

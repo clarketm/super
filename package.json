@@ -1,7 +1,7 @@
 {
   "name": "@clarketm/super",
   "version": "1.0.0",
-  "description": "types with superpowers! 💪",
+  "description": "Data Structures with superpowers! 💪",
   "main": "dist/super.js",
   "module": "dist/super.es.js",
   "files": ["dist", "README.md", "LICENSE.md"],
@@ -24,7 +24,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,css,md}, !packages/*/lib": ["prettier --write", "git add"]
+    "*.{js,json,css,md}": ["prettier --write", "git add"]
   },
   "repository": {
     "type": "git",
