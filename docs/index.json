@@ -135,7 +135,7 @@
     "__docId__": 5,
     "kind": "file",
     "name": "packages/LinkedList/src/lib/LinkedList.js",
-    "content": "/**\n * @flow\n * @module super/linkedlist\n */\n\nimport { ListNode } from \"./ListNode\";\n\n/**\n *\n * LinkedList with superpowers! 💪\n *\n * @public\n *\n */\nclass LinkedList {\n  /**\n   * @public\n   *\n   * @desc Construct a LinkedList\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable = []) {\n    let head = new ListNode(0); // dummy head\n    let curr = head;\n    let size = 0;\n\n    for (let item of iterable) {\n      curr.next = new ListNode(item);\n      curr = curr.next;\n      size++;\n    }\n\n    this._size = size;\n    this._head = head.next;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the head of the list\n   *\n   * @returns {ListNode} head node\n   */\n  get head(): ListNode {\n    return this._head;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the size of the list\n   *\n   * @returns {number} number of nodes in the list\n   */\n  get size(): number {\n    return this._size;\n  }\n\n  // TODO:\n  // add (item: Item)\n  // searchNodeAt (position: number)\n  // remove (position: number)\n\n  /**\n   * @public\n   *\n   * @desc Convert the node and next nodes (recursively) to an array\n   *\n   * @returns {Array} array representation of the list\n   */\n  toArray(): Array {\n    let array = [];\n    let node = this;\n\n    while (node !== null) {\n      array.push(node.value);\n      node = node.next;\n    }\n\n    return array;\n  }\n}\n\nexport { LinkedList };\n",
+    "content": "/**\n * @flow\n * @module super/linkedlist\n */\n\nimport { ListNode } from \"./ListNode\";\n\n/**\n *\n * LinkedList with superpowers! 💪\n *\n * @public\n *\n */\nclass LinkedList {\n  /**\n   * @public\n   *\n   * @desc Construct a LinkedList\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable = []) {\n    let head = new ListNode(0);\n    let prev = null;\n    let curr = head;\n    let size = 0;\n\n    for (let item of iterable) {\n      curr.next = new ListNode(item);\n      curr = curr.next;\n\n      curr.prev = prev;\n      prev = curr;\n\n      size++;\n    }\n\n    this._size = size;\n    this._head = head.next;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the head of the list\n   *\n   * @returns {ListNode} head node\n   */\n  get head(): ListNode {\n    return this._head;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the size of the list\n   *\n   * @returns {number} number of nodes in the list\n   */\n  get size(): number {\n    return this._size;\n  }\n\n  // TODO:\n  // add (item: Item)\n  // searchNodeAt (position: number)\n  // remove (position: number)\n\n  /**\n   * @public\n   *\n   * @desc Convert the node and next nodes (recursively) to an array\n   *\n   * @returns {Array} array representation of the list\n   */\n  toArray(): Array {\n    let array = [];\n    let node = this.head;\n\n    while (node !== null) {\n      array.push(node.value);\n      node = node.next;\n    }\n\n    return array;\n  }\n}\n\nexport { LinkedList };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/LinkedList/src/lib/LinkedList.js",
     "access": "public",
@@ -191,7 +191,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#_size",
     "access": "private",
     "description": null,
-    "lineNumber": 34,
+    "lineNumber": 39,
     "undocument": true,
     "type": {
       "types": [
@@ -208,7 +208,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#_head",
     "access": "private",
     "description": null,
-    "lineNumber": 35,
+    "lineNumber": 40,
     "undocument": true,
     "type": {
       "types": [
@@ -227,7 +227,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#head",
     "access": "public",
     "description": "Get the head of the list",
-    "lineNumber": 45,
+    "lineNumber": 50,
     "unknown": [
       {
         "tagName": "@returns",
@@ -259,7 +259,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#size",
     "access": "public",
     "description": "Get the size of the list",
-    "lineNumber": 56,
+    "lineNumber": 61,
     "unknown": [
       {
         "tagName": "@returns",
@@ -291,7 +291,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#toArray",
     "access": "public",
     "description": "Convert the node and next nodes (recursively) to an array",
-    "lineNumber": 72,
+    "lineNumber": 77,
     "unknown": [
       {
         "tagName": "@returns",

@@ -72,13 +72,18 @@ class LinkedList {
    * @param {Iterable} iterable
    */
   constructor(iterable: Iterable = []) {
-    let head = new ListNode(0); // dummy head
+    let head = new ListNode(0);
+    let prev = null;
     let curr = head;
     let size = 0;
 
     for (let item of iterable) {
       curr.next = new ListNode(item);
       curr = curr.next;
+
+      curr.prev = prev;
+      prev = curr;
+
       size++;
     }
 
@@ -122,7 +127,7 @@ class LinkedList {
    */
   toArray(): Array {
     let array = [];
-    let node = this;
+    let node = this.head;
 
     while (node !== null) {
       array.push(node.value);

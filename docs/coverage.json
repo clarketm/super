@@ -12,8 +12,8 @@
       "expectCount": 7,
       "actualCount": 5,
       "undocumentLines": [
-        34,
-        35
+        39,
+        40
       ]
     },
     "packages/LinkedList/src/lib/ListNode.js": {
