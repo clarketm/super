@@ -2,7 +2,7 @@
 
 **Data Structures** with superpowers! 💪
 
-## Packages
+## Data Structures
 
 * [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)
 * [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)
@@ -13,7 +13,7 @@
 * [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)
 * [String](https://github.com/clarketm/super/tree/master/packages/String#readme)
 
-## Misc.
+### Misc.
 
 * [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme)
 * [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme)
