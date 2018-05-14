@@ -78,9 +78,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@clarketm/babel-preset-super@^1.0.1":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@clarketm/babel-preset-super/-/babel-preset-super-1.0.5.tgz#488fbdc107912a03831cf9c0411c0a3e2e6e1de0"
+"@clarketm/babel-preset-super@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@clarketm/babel-preset-super/-/babel-preset-super-0.0.1.tgz#c4221bbfa6d19e3feac6104b26a0eeaf0a12f418"
   dependencies:
     babel-plugin-transform-builtin-extend "^1.1.2"
     babel-preset-env "^1.7.0"
@@ -88,9 +88,9 @@
     babel-preset-minify "^0.4.1"
     babel-preset-stage-0 "^6.24.1"
 
-"@clarketm/eslint-config-super@^1.0.1":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@clarketm/eslint-config-super/-/eslint-config-super-1.0.3.tgz#059f32f13b7948f2ec196cf540729b12a06cd65c"
+"@clarketm/eslint-config-super@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@clarketm/eslint-config-super/-/eslint-config-super-0.0.1.tgz#5a80c5c4f25061dee9be2476b445caf2806cb296"
 
 abbrev@1:
   version "1.1.1"
