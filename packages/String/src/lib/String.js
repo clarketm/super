@@ -66,5 +66,4 @@ class _String extends String {
   }
 }
 
-export default _String;
 export { _String as String };

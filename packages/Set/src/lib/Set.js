@@ -179,5 +179,4 @@ class _Set extends Set {
   }
 }
 
-export default _Set;
 export { _Set as Set };

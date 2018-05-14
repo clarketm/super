@@ -29,5 +29,4 @@ _Math.factorial = function(num: number): Math {
   return num * _Math.factorial(num - 1);
 };
 
-export default _Math;
 export { _Math as Math };

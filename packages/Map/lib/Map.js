@@ -13,6 +13,7 @@
 
   // 
 
+
   /**
    * @module super/map
    *
@@ -27,10 +28,6 @@
     SYMBOL: "symbol",
     UNDEFINED: "undefined"
   };
-
-  /**
-   * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
-   */
 
   /**
    * @typedef {Function} Callback

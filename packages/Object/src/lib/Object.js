@@ -173,5 +173,4 @@ class _Object extends Object {
   }
 }
 
-export default _Object;
 export { _Object as Object };

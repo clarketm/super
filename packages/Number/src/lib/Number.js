@@ -93,5 +93,4 @@ class _Number extends Number {
     return _integerToRoman(this);
   }
 }
-export default _Number;
 export { _Number as Number };
