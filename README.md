@@ -4,13 +4,13 @@
 
 ## Packages
 
-*  [Array](https://github.com/clarketm/super/tree/master/packages/array#readme) – **Array** with superpowers! 💪
-*  [Object](https://github.com/clarketm/super/tree/master/packages/object#readme) – **Object** with superpowers! 💪
-*  [Map](https://github.com/clarketm/super/tree/master/packages/map#readme) – **Map** with superpowers! 💪
-*  [Math](https://github.com/clarketm/super/tree/master/packages/math#readme) – **Math** with superpowers! 💪
-*  [Number](https://github.com/clarketm/super/tree/master/packages/number#readme) – **Number** with superpowers! 💪
-*  [Set](https://github.com/clarketm/super/tree/master/packages/set#readme) – **Set** with superpowers! 💪
-*  [String](https://github.com/clarketm/super/tree/master/packages/string#readme) – **String** with superpowers! 💪
+*  [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme) – **Array** with superpowers! 💪
+*  [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme) – **Object** with superpowers! 💪
+*  [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme) – **Map** with superpowers! 💪
+*  [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme) – **Math** with superpowers! 💪
+*  [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme) – **Number** with superpowers! 💪
+*  [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme) – **Set** with superpowers! 💪
+*  [String](https://github.com/clarketm/super/tree/master/packages/String#readme) – **String** with superpowers! 💪
 
 ## Misc.
 
