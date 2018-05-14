@@ -1,7 +1,7 @@
-const path = require('path');
-const { exec } = require('child_process');
+const path = require("path");
+const { exec } = require("child_process");
 
-require('colors');
+require("colors");
 
 const execp = cmd =>
   new Promise((resolve, reject) =>
@@ -9,25 +9,25 @@ const execp = cmd =>
   );
 
 const space = (n, s) =>
-  new Array(Math.max(0, 10 + n - (s || '').length)).join(' ') + (s || '');
+  new Array(Math.max(0, 10 + n - (s || "").length)).join(" ") + (s || "");
 
 const bytes = b =>
-  `${b.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} bytes`;
+  `${b.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} bytes`;
 
 const diff = (n, o) => {
   const d = n - o;
-  return d === 0 ? '' : d < 0 ? ` ${bytes(d)}`.green : ` +${bytes(d)}`.red;
+  return d === 0 ? "" : d < 0 ? ` ${bytes(d)}`.green : ` +${bytes(d)}`.red;
 };
 
 const pct = (s, b) => ` ${Math.floor(10000 * (1 - s / b)) / 100}%`.grey;
 
 Promise.all([
-  execp('cat dist/super.js | wc -c'),
-  execp('git show master:dist/super.js | wc -c'),
-  execp('cat dist/super.min.js | wc -c'),
-  execp('git show master:dist/super.min.js | wc -c'),
-  execp('cat dist/super.min.js | gzip -c | wc -c'),
-  execp('git show master:dist/super.min.js | gzip -c | wc -c'),
+  execp("cat dist/super.js | wc -c"),
+  execp("git show master:dist/super.js | wc -c"),
+  execp("cat dist/super.min.js | wc -c"),
+  execp("git show master:dist/super.min.js | wc -c"),
+  execp("cat dist/super.min.js | gzip -c | wc -c"),
+  execp("git show master:dist/super.min.js | gzip -c | wc -c")
 ])
   .then(results => results.map(result => parseInt(result, 10)))
   .then(([rawNew, rawOld, minNew, minOld, zipNew, zipOld]) => {

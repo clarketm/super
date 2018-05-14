@@ -10,7 +10,20 @@ module.exports = {
     [
       require("babel-plugin-transform-builtin-extend").default,
       {
-        globals: ["Set", "Map", "Array", "Object", "String", "Number", "Date", "Boolean", "Symbol", "Math", "Regex", "Error"]
+        globals: [
+          "Set",
+          "Map",
+          "Array",
+          "Object",
+          "String",
+          "Number",
+          "Date",
+          "Boolean",
+          "Symbol",
+          "Math",
+          "Regex",
+          "Error"
+        ]
       }
     ]
   ]

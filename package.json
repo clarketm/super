@@ -15,11 +15,11 @@
     "stats:dist": "node ./resources/dist-stats.js",
     "bundle:dist": "rollup -c ./resources/rollup-config.js",
     "bundle:es": "rollup -c ./resources/rollup-config-es.js",
-    "lint": "eslint --fix ./packages/**/src/lib/*.js",
+    "lint": "eslint --fix ./packages/**/src/lib/*.js ./packages/**/index.js",
+    "prettier": "prettier --write ./resources/**/*.js ./packages/**/index.js ./packages/**/src/lib/*.js",
     "docs": "shx rm -rf ./docs ; esdoc",
-    "prettier": "prettier --write ./resources/**/*.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prep": "yarn lint && yarn prettier && yarn build && yarn test",
+    "test": "mocha --require babel-core/register ./packages/**/test/*.spec.js",
+    "prep": "yarn lint && yarn prettier && yarn docs && yarn build && yarn test",
     "prepublish": "yarn prep"
   },
   "husky": {
@@ -61,7 +61,9 @@
   },
   "homepage": "https://github.com/clarketm/super#readme",
   "devDependencies": {
+    "@clarketm/babel-preset-super": "^0.0.1",
     "@clarketm/eslint-config-super": "^0.0.1",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
     "colors": "^1.2.5",
     "esdoc": "^1.1.0",
@@ -73,6 +75,7 @@
     "flow-bin": "^0.72.0",
     "husky": "^1.0.0-rc.4",
     "lint-staged": "^7.1.0",
+    "mocha": "^5.1.1",
     "prettier": "^1.12.1",
     "rollup": "^0.58.2",
     "rollup-plugin-buble": "^0.19.2",
