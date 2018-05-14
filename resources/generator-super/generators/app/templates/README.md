@@ -1,0 +1,3 @@
+# <%= type %>
+
+<%= type %> with superpowers! 💪
