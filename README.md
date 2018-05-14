@@ -2,17 +2,17 @@
 
 **Types** with superpowers! 💪
 
-## Types
-
-*  [SuperArray](https://github.com/clarketm/super/tree/master/packages/superarray#readme) – **Array** with superpowers! 💪
-*  [SuperObject](https://github.com/clarketm/super/tree/master/packages/superobject#readme) – **Object** with superpowers! 💪
-*  [SuperMap](https://github.com/clarketm/super/tree/master/packages/supermap#readme) – **Map** with superpowers! 💪
-*  [SuperMath](https://github.com/clarketm/super/tree/master/packages/supermath#readme) – **Math** with superpowers! 💪
-*  [SuperNumber](https://github.com/clarketm/super/tree/master/packages/supernumber#readme) – **Number** with superpowers! 💪
-*  [SuperSet](https://github.com/clarketm/super/tree/master/packages/superset#readme) – **Set** with superpowers! 💪
-*  [SuperString](https://github.com/clarketm/super/tree/master/packages/superstring#readme) – **String** with superpowers! 💪
-
 ## Packages
+
+*  [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme) – **Array** with superpowers! 💪
+*  [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme) – **Object** with superpowers! 💪
+*  [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme) – **Map** with superpowers! 💪
+*  [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme) – **Math** with superpowers! 💪
+*  [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme) – **Number** with superpowers! 💪
+*  [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme) – **Set** with superpowers! 💪
+*  [String](https://github.com/clarketm/super/tree/master/packages/String#readme) – **String** with superpowers! 💪
+
+## Misc.
 
 *  [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme) – **Babel preset** with superpowers! 💪
 *  [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme) – **ESLint config** with superpowers! 💪
