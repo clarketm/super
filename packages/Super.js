@@ -6,14 +6,14 @@
  */
 
 import { Map } from './map/src/lib/Map';
-import { Array } from './Array/src/lib/Array';
-import { Math } from './Math/src/lib/Math';
-import { Number } from './Number/src/lib/Number';
-import { Object } from './Object/src/lib/Object';
-import { Set } from './Set/src/lib/Set';
-import { String } from './String/src/lib/String';
+import { Array } from "./Array/src/lib/Array";
+import { Math } from "./Math/src/lib/Math";
+import { Number } from "./Number/src/lib/Number";
+import { Object } from "./Object/src/lib/Object";
+import { Set } from "./Set/src/lib/Set";
+import { String } from "./String/src/lib/String";
 
-import { version } from '../package.json';
+import { version } from "../package.json";
 
 export default {
   version,
@@ -23,16 +23,7 @@ export default {
   Number,
   Object,
   Set,
-  String,
+  String
 };
 
-export {
-  version,
-  Array,
-  Map,
-  Math,
-  Number,
-  Object,
-  Set,
-  String,
-};
+export { version, Array, Map, Math, Number, Object, Set, String };

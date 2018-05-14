@@ -141,14 +141,10 @@ class _Object extends Object {
       if (item instanceof InstanceType.OBJECT) {
         let copy = {};
 
-        Object.getOwnPropertySymbols(item).forEach(
-          s => (copy[s] = _clone(item[s]))
-        );
+        Object.getOwnPropertySymbols(item).forEach(s => (copy[s] = _clone(item[s])));
 
         if (includeNonEnumerable) {
-          Object.getOwnPropertyNames(item).forEach(
-            k => (copy[k] = _clone(item[k]))
-          );
+          Object.getOwnPropertyNames(item).forEach(k => (copy[k] = _clone(item[k])));
         } else {
           Object.keys(item).forEach(k => (copy[k] = _clone(item[k])));
         }

@@ -1,4 +1,5 @@
 # generator-super [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+
 > Yeoman generator with superpowers!
 
 Yeoman generator used by [super](https://github.com/clarketm/super) 💪
@@ -20,15 +21,14 @@ yo @clarketm/super
 
 ## Getting To Know Yeoman
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+* Yeoman has a heart of gold.
+* Yeoman is a person with feelings and opinions, but is very easy to work with.
+* Yeoman can be too opinionated at times but is easily convinced not to be.
+* Feel free to [learn more about Yeoman](http://yeoman.io/).
 
 ## License
 
 MIT © [Travis Clarke](https://www.travismclarke.com/)
-
 
 [npm-image]: https://badge.fury.io/js/generator-super.svg
 [npm-url]: https://npmjs.org/package/generator-super

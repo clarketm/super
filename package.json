@@ -4,21 +4,17 @@
   "description": "types with superpowers! 💪",
   "main": "dist/super.js",
   "module": "dist/super.es.js",
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE.md"
-  ],
+  "files": ["dist", "README.md", "LICENSE.md"],
   "scripts": {
     "build": "yarn build:dist",
     "build:dist": "shx rm -rf ./dist ; yarn bundle:dist ; yarn bundle:es ; yarn stats:dist",
     "stats:dist": "node ./resources/dist-stats.js",
     "bundle:dist": "rollup -c ./resources/rollup-config.js",
     "bundle:es": "rollup -c ./resources/rollup-config-es.js",
-    "lint": "eslint --fix ./packages/**/src/lib/*.js ./packages/**/index.js",
-    "prettier": "prettier --write ./resources/**/*.js ./packages/**/index.js ./packages/**/src/lib/*.js",
+    "lint": "lerna run lint",
+    "prettier": "prettier --write './*.{js,json,css,md}' ; lerna run prettier",
     "docs": "shx rm -rf ./docs ; esdoc",
-    "test": "mocha --require babel-core/register ./packages/**/test/*.spec.js",
+    "test": "lerna run test",
     "prep": "yarn lint && yarn prettier && yarn docs && yarn build && yarn test",
     "prepublish": "yarn prep"
   },
@@ -28,10 +24,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,css,md}, !packages/*/lib": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js,json,css,md}, !packages/*/lib": ["prettier --write", "git add"]
   },
   "repository": {
     "type": "git",

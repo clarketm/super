@@ -11,4 +11,5 @@ Construct a String
 Convert a string to title case
 
 | Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
+| ---- | ---- | --------- | ----------- |
+

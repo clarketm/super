@@ -3,24 +3,16 @@
   "version": "0.0.1",
   "description": "String with superpowers! 💪",
   "main": "./lib/String.js",
-  "directories": {
-    "lib": "./lib"
-  },
+  "files": ["lib", "README.md", "LICENSE.md"],
   "scripts": {
     "build": "shx rm -rf ./bin ./lib ; babel ./src --out-dir ./",
     "lint": "eslint --fix ./src ./test",
     "prep": "yarn lint && yarn prettier && yarn build && yarn test",
     "prepublish": "yarn prep",
-    "prettier": "prettier --write ./src/**/*.js ./test/**/*.js",
+    "prettier": "prettier --write './{src,test}/**/*.js' './*.{js,json,css,md}'",
     "test": "mocha --require babel-core/register ./test/*"
   },
-  "keywords": [
-    "javascript",
-    "super",
-    "superpowers",
-    "String",
-    "polyfill"
-  ],
+  "keywords": ["javascript", "super", "superpowers", "String", "polyfill"],
   "author": {
     "name": "Travis Clarke",
     "email": "travis.m.clarke@gmail.com",

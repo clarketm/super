@@ -17,20 +17,17 @@ type Callback = (value: any, index: number, array: Array) => Array;
  * @public
  *
  * @extends {Array}
- */
-class _Array extends Array {
+ */ class _Array extends Array {
   /**
    * @public
    *
    * @desc Construct a Array
    *
    * @param {Iterable} iterable
-   */
-  constructor(iterable: Iterable = []) {
+   */ constructor(iterable: Iterable = []) {
     super();
     this.push(...iterable);
   }
-
   /**
    * @public
    *
@@ -38,13 +35,9 @@ class _Array extends Array {
    *
    * @param {Callback} callback - callback function
    * @returns {Array} A new array with each element being the result of the callback function and flattened to a depth of 1
-   */
-  flatMap(
-    callback: (value: any, index: number, array: Array) => boolean
-  ): Array {
+   */ flatMap(callback: (value: any, index: number, array: Array) => boolean): Array {
     return this.map(callback).flatten();
   }
-
   /**
    * @public
    *
@@ -52,8 +45,7 @@ class _Array extends Array {
    *
    * @param {number} depth - flatten depth
    * @returns {Array}  new array with the sub-array elements concatted into it.
-   */
-  flatten(depth: number = 1): Array {
+   */ flatten(depth: number = 1): Array {
     function _flatten(depth, arr) {
       if (depth <= 0) return arr;
 
@@ -62,10 +54,8 @@ class _Array extends Array {
         else return acc.concat(val);
       }, []);
     }
-
     return _flatten(depth, this);
   }
 }
-
 export default _Array;
 export { _Array as Array };

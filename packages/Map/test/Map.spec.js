@@ -7,9 +7,7 @@ describe("Map", () => {
   describe("#some", () => {
     it("should return true if the callback function returns a truthy value for any map element", () => {
       expected = true;
-      actual = new Map([["a", 3], ["b", 4], ["c", 5]]).some(
-        value => value === 3
-      );
+      actual = new Map([["a", 3], ["b", 4], ["c", 5]]).some(value => value === 3);
 
       assert.equal(actual, expected);
     });
@@ -25,18 +23,14 @@ describe("Map", () => {
   describe("#every", () => {
     it("should return true if the callback function returns a truthy value for every map element", () => {
       expected = true;
-      actual = new Map([["a", 3], ["b", 4], ["c", 5]]).every(
-        value => value > 0
-      );
+      actual = new Map([["a", 3], ["b", 4], ["c", 5]]).every(value => value > 0);
 
       assert.equal(actual, expected);
     });
 
     it("should return true if the callback function does not returns a truthy value for every map element", () => {
       expected = false;
-      actual = new Map([["a", 3], ["b", 4], ["c", 5]]).every(
-        value => value === 9
-      );
+      actual = new Map([["a", 3], ["b", 4], ["c", 5]]).every(value => value === 9);
 
       assert.equal(actual, expected);
     });

@@ -6,6 +6,6 @@ Math with superpowers! 💪
 
 Factorial
 
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-| num | number |  | integral number |
+| Name | Type   | Attribute | Description     |
+| ---- | ------ | --------- | --------------- |
+| num  | number |           | integral number |

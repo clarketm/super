@@ -10,22 +10,22 @@ Construct an Object
 
 Check for nested value from string key
 
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-| path | string |  |
+| Name | Type   | Attribute | Description |
+| ---- | ------ | --------- | ----------- |
+| path | string |           |
 
 ### `getNested(path: string): Item`
 
 Get nested JavaScript object value from string key
 
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-| path | string |  |
+| Name | Type   | Attribute | Description |
+| ---- | ------ | --------- | ----------- |
+| path | string |           |
 
 ### `clone(config: Config): object`
 
 Deep clone an Object
 
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
+| Name   | Type   | Attribute                   | Description          |
+| ------ | ------ | --------------------------- | -------------------- |
 | config | Config | optional: true, default: {} | Configuration object |

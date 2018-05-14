@@ -44,19 +44,16 @@ const IntegerToRomanNumeralMap = new Map([
  * @public
  *
  * @extends {Number}
- */
-class _Number extends Number {
+ */ class _Number extends Number {
   /**
    * @public
    *
    * @desc Construct a Number
    *
    * @param {number} number
-   */
-  constructor(number: Number) {
+   */ constructor(number: Number) {
     super(number);
   }
-
   /**
    * @public
    *
@@ -64,8 +61,7 @@ class _Number extends Number {
    *
    * @param {string} str - Roman numeral
    * @returns {number} Number representation of a roman numeral
-   */
-  static fromRomanNumeral(str: string): Number {
+   */ static fromRomanNumeral(str: string): Number {
     function _romanToInteger(num, result = 0) {
       // TODO: reduce iterations
       for (let [roman, int] of RomanNumeralToIntegerMap) {
@@ -77,15 +73,13 @@ class _Number extends Number {
     }
     return _romanToInteger(str);
   }
-
   /**
    * @public
    *
    * @desc Convert a number to roman numeral
    *
    * @returns {string} Roman numeral representation of number
-   */
-  toRomanNumeral(): String {
+   */ toRomanNumeral(): String {
     function _integerToRoman(num, result = "") {
       // TODO: reduce iterations
       for (let [int, roman] of IntegerToRomanNumeralMap) {
@@ -96,6 +90,5 @@ class _Number extends Number {
     return _integerToRoman(this);
   }
 }
-
 export default _Number;
 export { _Number as Number };
