@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superobject",
-  "version": "1.0.2",
+  "version": "1.1.2",
   "description": "Object with superpowers! 💪",
   "main": "./lib/Object.js",
   "directories": {
