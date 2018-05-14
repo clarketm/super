@@ -59,7 +59,7 @@ module.exports = class extends Generator {
           "package.json",
           "tgitignore",
           "Type.js",
-          "Type.spec.js"
+          "Type.s.js"
         ];
 
         this.fs.copy(src, dest);
@@ -73,11 +73,7 @@ module.exports = class extends Generator {
         };
 
         files.forEach(f => {
-          this.fs.copyTpl(
-            this.templatePath(f),
-            this.destinationPath(`${this.dir}/${f}`),
-            opts
-          );
+          this.fs.copyTpl(this.templatePath(f), this.destinationPath(`${this.dir}/${f}`), opts);
         });
 
         this.fs.move(
@@ -91,7 +87,7 @@ module.exports = class extends Generator {
         );
 
         this.fs.move(
-          this.destinationPath(`${this.dir}`, "Type.spec.js"),
+          this.destinationPath(`${this.dir}`, "Type.s.js"),
           this.destinationPath(`${this.dir}`, `test/${this.type}.spec.js`)
         );
       }

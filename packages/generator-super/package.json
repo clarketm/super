@@ -8,15 +8,9 @@
     "email": "travis.m.clarke@gmail.com",
     "url": "https://www.travismclarke.com/"
   },
-  "files": [
-    "generators"
-  ],
+  "files": ["generators"],
   "main": "generators/index.js",
-  "keywords": [
-    "super",
-    "javascript",
-    "yeoman-generator"
-  ],
+  "keywords": ["super", "javascript", "yeoman-generator"],
   "publishConfig": {
     "access": "public"
   },
@@ -47,25 +41,16 @@
   },
   "scripts": {
     "prepublishOnly": "nsp check",
-    "pretest": "eslint .",
+    "pretest": "eslint --fix .",
     "precommit": "lint-staged",
     "test": "jest"
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.js": ["eslint --fix", "git add"],
+    "*.json": ["prettier --write", "git add"]
   },
   "eslintConfig": {
-    "extends": [
-      "xo",
-      "prettier"
-    ],
+    "extends": ["xo", "prettier"],
     "env": {
       "jest": true,
       "node": true
@@ -74,14 +59,11 @@
       "prettier/prettier": [
         "error",
         {
-          "singleQuote": true,
           "printWidth": 90
         }
       ]
     },
-    "plugins": [
-      "prettier"
-    ]
+    "plugins": ["prettier"]
   },
   "license": "MIT"
 }
