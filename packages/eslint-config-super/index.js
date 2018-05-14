@@ -27,7 +27,7 @@ module.exports = {
     "no-debugger": "warn",
     indent: "off",
     "linebreak-style": ["error", "unix"],
-    quotes: ["warn", "single"],
+    quotes: ["warn", "double"],
     "flowtype/define-flow-type": 1
   }
 };
