@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superstring",
-  "version": "1.2.2",
+  "version": "1.2.4",
   "description": "String with superpowers! 💪",
   "main": "./lib/String.js",
   "files": [
@@ -34,7 +34,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@clarketm/babel-preset-super": "^1.2.1",
+    "@clarketm/babel-preset-super": "^1.2.4",
     "@clarketm/eslint-config-super": "^1.2.2",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
