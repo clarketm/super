@@ -11,15 +11,15 @@
   (factory((global.Queue = {})));
 }(this, (function (exports) { 'use strict';
 
-  // 
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
   /**
+   * 
    * @module super/queue
-   *
-   */
-
-  /**
-   * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
    */
 
   /**
@@ -29,106 +29,140 @@
    * @public
    *
    */
-  var Queue = function Queue(iterable) {
-    if ( iterable === void 0 ) iterable = [];
+  var Queue = function () {
+    /**
+     * @public
+     *
+     * @desc Construct a Queue
+     *
+     * @param {Iterable} iterable
+     */
+    function Queue() {
+      var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 
-    this._queue = [].concat( iterable );
-  };
+      _classCallCheck(this, Queue);
 
-  var prototypeAccessors = { size: { configurable: true } };
+      this._queue = [].concat(_toConsumableArray(iterable));
+    }
 
-  /**
-   * @public
-   *
-   * @desc Get the current length of the queue
-   *
-   * @returns {number} length of the queue
-   */
-  prototypeAccessors.size.get = function () {
-    return this._queue.length;
-  };
+    /**
+     * @public
+     *
+     * @desc Get the current size of the queue
+     *
+     * @returns {number} size of the queue
+     */
 
-  /**
-   * @public
-   *
-   * @desc Check if queue is empty
-   *
-   * @returns {boolean} is queue empty
-   */
-  Queue.prototype.isEmpty = function isEmpty () {
-    return this._queue.length === 0;
-  };
 
-  /**
-   * @public
-   *
-   * @desc Clear the items from the queue
-   *
-   * @returns {void}
-   */
-  Queue.prototype.clear = function clear () {
-    this._queue.length = 0;
-  };
+    _createClass(Queue, [{
+      key: "isEmpty",
 
-  /**
-   * @public
-   *
-   * @desc Enqueue an item into the queue
-   *
-   * @param {Item} item - item to enqueue
-   * @returns {number} length after enqueue
-   */
-  Queue.prototype.enqueue = function enqueue (item) {
-    return this._queue.push(item);
-  };
 
-  /**
-   * @public
-   *
-   * @desc Dequeue an item from the queue
-   *
-   * @returns {Item} dequeued item
-   */
-  Queue.prototype.dequeue = function dequeue () {
-    return this._queue.shift();
-  };
+      /**
+       * @public
+       *
+       * @desc Check if queue is empty
+       *
+       * @returns {boolean} is queue empty
+       */
+      value: function isEmpty() {
+        return this._queue.length === 0;
+      }
 
-  /**
-   * @public
-   *
-   * @desc Get the front item in the queue
-   *
-   * @returns {Item} front item
-   */
-  Queue.prototype.front = function front () {
-    return this._queue[0];
-  };
+      /**
+       * @public
+       *
+       * @desc Clear the items from the queue
+       *
+       * @returns {void}
+       */
 
-  /**
-   * @public
-   *
-   * @desc Get the rear item in the queue
-   *
-   * @returns {Item} rear item
-   */
-  Queue.prototype.rear = function rear () {
-    return this._queue[this._queue.length - 1];
-  };
+    }, {
+      key: "clear",
+      value: function clear() {
+        this._queue.length = 0;
+      }
 
-  /**
-   * @public
-   *
-   * @desc Convert the queue to an array
-   *
-   * @returns {Array} array representation of the queue
-   */
-  Queue.prototype.toArray = function toArray () {
-    return this._queue.slice(0);
-  };
+      /**
+       * @public
+       *
+       * @desc Enqueue an item into the queue
+       *
+       * @param {Item} item - item to enqueue
+       * @returns {number} length after enqueue
+       */
 
-  Object.defineProperties( Queue.prototype, prototypeAccessors );
+    }, {
+      key: "enqueue",
+      value: function enqueue(item) {
+        return this._queue.push(item);
+      }
 
-  exports.default = Queue;
+      /**
+       * @public
+       *
+       * @desc Dequeue an item from the queue
+       *
+       * @returns {Item} dequeued item
+       */
+
+    }, {
+      key: "dequeue",
+      value: function dequeue() {
+        return this._queue.shift();
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the front item in the queue
+       *
+       * @returns {Item} front item
+       */
+
+    }, {
+      key: "front",
+      value: function front() {
+        return this._queue[0];
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the rear item in the queue
+       *
+       * @returns {Item} rear item
+       */
+
+    }, {
+      key: "rear",
+      value: function rear() {
+        return this._queue[this._queue.length - 1];
+      }
+
+      /**
+       * @public
+       *
+       * @desc Convert the queue to an array
+       *
+       * @returns {Array} array representation of the queue
+       */
+
+    }, {
+      key: "toArray",
+      value: function toArray() {
+        return this._queue.slice(0);
+      }
+    }, {
+      key: "size",
+      get: function get() {
+        return this._queue.length;
+      }
+    }]);
+
+    return Queue;
+  }();
+
   exports.Queue = Queue;
 
   Object.defineProperty(exports, '__esModule', { value: true });
