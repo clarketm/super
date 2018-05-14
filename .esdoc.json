@@ -1,6 +1,6 @@
 {
   "source": "./packages/",
-  "includes": ["^super.*/src/lib/Super.*\\.js$"],
+  "includes": ["\\w+/src/lib/\\w+\\.js$"],
   "destination": "./docs",
   "plugins": [
     {
