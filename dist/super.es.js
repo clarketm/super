@@ -31,8 +31,7 @@ var PrimitiveType = {
  * @public
  *
  * @extends {Map}
- */
-var _Map = (function (Map) {
+ */ var _Map = (function (Map) {
   function _Map(iterable) {
     Map.call(this, iterable);
   }
@@ -40,7 +39,6 @@ var _Map = (function (Map) {
   if ( Map ) _Map.__proto__ = Map;
   _Map.prototype = Object.create( Map && Map.prototype );
   _Map.prototype.constructor = _Map;
-
   /**
    * @public
    *
@@ -48,8 +46,7 @@ var _Map = (function (Map) {
    *
    * @param {Callback} callback - callback function
    * @returns {boolean} true if the callback function returns a truthy value for any map element; otherwise, false
-   */
-  _Map.prototype.some = function some (callback) {
+   */ _Map.prototype.some = function some (callback) {
     var this$1 = this;
 
     var result;
@@ -62,10 +59,8 @@ var _Map = (function (Map) {
       result = callback(value, key, this$1);
       if (result) { return true; }
     }
-
     return false;
   };
-
   /**
    * @public
    *
@@ -73,8 +68,7 @@ var _Map = (function (Map) {
    *
    * @param {Callback} callback - callback function
    * @returns {boolean} true if the callback function returns a truthy value for every map element; otherwise, false
-   */
-  _Map.prototype.every = function every (callback) {
+   */ _Map.prototype.every = function every (callback) {
     var this$1 = this;
 
     var result;
@@ -87,10 +81,8 @@ var _Map = (function (Map) {
       result = callback(value, key, this$1);
       if (!result) { return false; }
     }
-
     return true;
   };
-
   /**
    * @public
    *
@@ -99,8 +91,7 @@ var _Map = (function (Map) {
    * @param {Item} key - Map key
    * @param {Item} defaultValue - the default value to set in Map if the key is not defined
    * @returns {Item} The value if the key is defined in Map; otherwise, the default value
-   */
-  _Map.prototype.setDefault = function setDefault (key, defaultValue) {
+   */ _Map.prototype.setDefault = function setDefault (key, defaultValue) {
     if (this.has(key)) {
       return this.get(key);
     } else {
@@ -108,15 +99,13 @@ var _Map = (function (Map) {
       return defaultValue;
     }
   };
-
   /**
    * @public
    *
    * @desc Convert Map to an Object
    *
    * @returns {object} Object representation of Map
-   */
-  _Map.prototype.toObject = function toObject () {
+   */ _Map.prototype.toObject = function toObject () {
     return Array.from(this).reduce(function (obj, ref) {
       var key = ref[0];
       var value = ref[1];
@@ -147,9 +136,8 @@ var _Map = (function (Map) {
  * @public
  *
  * @extends {Array}
- */
-var _Array = (function (Array) {
-  function _Array(iterable) {
+ */ var _Array = (function (Array) {
+   function _Array(iterable) {
     var ref;
 
     if ( iterable === void 0 ) iterable = [];
@@ -157,10 +145,9 @@ var _Array = (function (Array) {
     (ref = this).push.apply(ref, iterable);
   }
 
-  if ( Array ) _Array.__proto__ = Array;
-  _Array.prototype = Object.create( Array && Array.prototype );
-  _Array.prototype.constructor = _Array;
-
+   if ( Array ) _Array.__proto__ = Array;
+   _Array.prototype = Object.create( Array && Array.prototype );
+   _Array.prototype.constructor = _Array;
   /**
    * @public
    *
@@ -168,13 +155,9 @@ var _Array = (function (Array) {
    *
    * @param {Callback} callback - callback function
    * @returns {Array} A new array with each element being the result of the callback function and flattened to a depth of 1
-   */
-  _Array.prototype.flatMap = function flatMap (
-    callback
-  ) {
+   */ _Array.prototype.flatMap = function flatMap (callback) {
     return this.map(callback).flatten();
   };
-
   /**
    * @public
    *
@@ -182,8 +165,7 @@ var _Array = (function (Array) {
    *
    * @param {number} depth - flatten depth
    * @returns {Array}  new array with the sub-array elements concatted into it.
-   */
-  _Array.prototype.flatten = function flatten (depth) {
+   */ _Array.prototype.flatten = function flatten (depth) {
     if ( depth === void 0 ) depth = 1;
 
     function _flatten(depth, arr) {
@@ -194,12 +176,11 @@ var _Array = (function (Array) {
         else { return acc.concat(val); }
       }, []);
     }
-
     return _flatten(depth, this);
   };
 
-  return _Array;
-}(Array));
+   return _Array;
+ }(Array));
 
 /**
  * @module supermath
@@ -213,8 +194,7 @@ var _Array = (function (Array) {
  * @public
  *
  * @alias Math
- */
-var _Math = Object.create(Math);
+ */ var _Math = Object.create(Math);
 
 /**
  * @public
@@ -223,8 +203,7 @@ var _Math = Object.create(Math);
  *
  * @param {number} num - integral number
  * @returns {number} factorial of num
- */
-_Math.factorial = function(num) {
+ */ _Math.factorial = function(num) {
   if (num < 0) { throw new Error("Factorial not defined for negative values"); }
   if (num === 0) { return 1; }
   return num * _Math.factorial(num - 1);
@@ -274,8 +253,7 @@ var IntegerToRomanNumeralMap = new Map([
  * @public
  *
  * @extends {Number}
- */
-var _Number = (function (Number) {
+ */ var _Number = (function (Number) {
   function _Number(number) {
     Number.call(this, number);
   }
@@ -283,7 +261,6 @@ var _Number = (function (Number) {
   if ( Number ) _Number.__proto__ = Number;
   _Number.prototype = Object.create( Number && Number.prototype );
   _Number.prototype.constructor = _Number;
-
   /**
    * @public
    *
@@ -291,8 +268,7 @@ var _Number = (function (Number) {
    *
    * @param {string} str - Roman numeral
    * @returns {number} Number representation of a roman numeral
-   */
-  _Number.fromRomanNumeral = function fromRomanNumeral (str) {
+   */ _Number.fromRomanNumeral = function fromRomanNumeral (str) {
     function _romanToInteger(num, result) {
       if ( result === void 0 ) result = 0;
 
@@ -310,15 +286,13 @@ var _Number = (function (Number) {
     }
     return _romanToInteger(str);
   };
-
   /**
    * @public
    *
    * @desc Convert a number to roman numeral
    *
    * @returns {string} Roman numeral representation of number
-   */
-  _Number.prototype.toRomanNumeral = function toRomanNumeral () {
+   */ _Number.prototype.toRomanNumeral = function toRomanNumeral () {
     function _integerToRoman(num, result) {
       if ( result === void 0 ) result = "";
 
@@ -479,14 +453,10 @@ var _Object = (function (Object) {
       if (item instanceof InstanceType$1.OBJECT) {
         var copy$1 = {};
 
-        Object.getOwnPropertySymbols(item).forEach(
-          function (s) { return (copy$1[s] = _clone(item[s])); }
-        );
+        Object.getOwnPropertySymbols(item).forEach(function (s) { return (copy$1[s] = _clone(item[s])); });
 
         if (includeNonEnumerable) {
-          Object.getOwnPropertyNames(item).forEach(
-            function (k) { return (copy$1[k] = _clone(item[k])); }
-          );
+          Object.getOwnPropertyNames(item).forEach(function (k) { return (copy$1[k] = _clone(item[k])); });
         } else {
           Object.keys(item).forEach(function (k) { return (copy$1[k] = _clone(item[k])); });
         }
@@ -771,7 +741,7 @@ var _String = (function (String) {
   return _String;
 }(String));
 
-var version = "1.0.0";
+var version = "0.0.1-alpha";
 
 var Super = {
   version: version,
