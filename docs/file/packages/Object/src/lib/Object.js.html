@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="">
-  <title data-ice="title">Source | @clarketm/super</title>
+  <base data-ice="baseUrl" href="../../../../../">
+  <title data-ice="title">packages/Object/src/lib/Object.js | @clarketm/super</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -55,94 +55,186 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1>Source <img data-ice="coverageBadge" src="./badge.svg"><span data-ice="totalCoverageCount" class="total-coverage-count">49/53</span></h1>
+<div class="content" data-ice="content"><h1 data-ice="title">packages/Object/src/lib/Object.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
 
-<table class="files-summary" data-ice="files" data-use-coverage="true">
-  <thead>
-    <tr>
-      <td>File</td>
-      <td>Identifier</td>
-      <td class="coverage">Document</td>
-      <td style="display: none;">Size</td>
-      <td style="display: none;">Lines</td>
-      <td style="display: none;">Updated</td>
-    </tr>
-  </thead>
-  <tbody>
-    
-  <tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/Array/src/lib/Array.js.html">packages/Array/src/lib/Array.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="class/packages/Array/src/lib/Array.js~_Array.html">_Array</a></span></td>
-      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">4/4</span></td>
-      <td style="display: none;" data-ice="size">1525 byte</td>
-      <td style="display: none;" data-ice="lines">65</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 14:35:37 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/Map/src/lib/Map.js.html#errorLines=18">packages/Map/src/lib/Map.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-InstanceType">InstanceType</a></span>
-<span><a href="variable/index.html#static-variable-PrimitiveType">PrimitiveType</a></span>
-<span><a href="class/packages/Map/src/lib/Map.js~_Map.html">_Map</a></span></td>
-      <td class="coverage"><span data-ice="coverage">87 %</span><span data-ice="coverageCount" class="coverage-count">7/8</span></td>
-      <td style="display: none;" data-ice="size">2873 byte</td>
-      <td style="display: none;" data-ice="lines">131</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 13:44:55 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/Math/src/lib/Math.js.html">packages/Math/src/lib/Math.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-_Math">_Math</a></span>
-<span><a href="function/index.html#static-function-factorial">factorial</a></span></td>
-      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">2/2</span></td>
-      <td style="display: none;" data-ice="size">529 byte</td>
-      <td style="display: none;" data-ice="lines">33</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 13:31:36 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/Number/src/lib/Number.js.html#errorLines=10">packages/Number/src/lib/Number.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-IntegerToRomanNumeralMap">IntegerToRomanNumeralMap</a></span>
-<span><a href="variable/index.html#static-variable-RomanNumeralToIntegerMap">RomanNumeralToIntegerMap</a></span>
-<span><a href="class/packages/Number/src/lib/Number.js~_Number.html">_Number</a></span></td>
-      <td class="coverage"><span data-ice="coverage">83 %</span><span data-ice="coverageCount" class="coverage-count">5/6</span></td>
-      <td style="display: none;" data-ice="size">1831 byte</td>
-      <td style="display: none;" data-ice="lines">97</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 13:38:45 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/Object/src/lib/Object.js.html#errorLines=18">packages/Object/src/lib/Object.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-InstanceType">InstanceType</a></span>
-<span><a href="variable/index.html#static-variable-PrimitiveType">PrimitiveType</a></span>
-<span><a href="class/packages/Object/src/lib/Object.js~_Object.html">_Object</a></span></td>
-      <td class="coverage"><span data-ice="coverage">85 %</span><span data-ice="coverageCount" class="coverage-count">6/7</span></td>
-      <td style="display: none;" data-ice="size">3585 byte</td>
-      <td style="display: none;" data-ice="lines">177</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 13:44:55 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/Queue/src/lib/Queue.js.html#errorLines=19">packages/Queue/src/lib/Queue.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html">Queue</a></span></td>
-      <td class="coverage"><span data-ice="coverage">90 %</span><span data-ice="coverageCount" class="coverage-count">10/11</span></td>
-      <td style="display: none;" data-ice="size">2000 byte</td>
-      <td style="display: none;" data-ice="lines">133</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 14:28:25 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/Set/src/lib/Set.js.html">packages/Set/src/lib/Set.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="class/packages/Set/src/lib/Set.js~_Set.html">_Set</a></span></td>
-      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">10/10</span></td>
-      <td style="display: none;" data-ice="size">3501 byte</td>
-      <td style="display: none;" data-ice="lines">183</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 13:31:36 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/String/src/lib/String.js.html">packages/String/src/lib/String.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="class/packages/String/src/lib/String.js~_String.html">_String</a></span></td>
-      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">5/5</span></td>
-      <td style="display: none;" data-ice="size">1142 byte</td>
-      <td style="display: none;" data-ice="lines">70</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 13:31:36 (UTC)</td>
-    </tr>
-</tbody>
-</table>
+/**
+ * @module super/object
+ *
+ */
+
+const PrimitiveType = {
+  BOOLEAN: &quot;boolean&quot;,
+  FUNCTION: &quot;function&quot;,
+  NUMBER: &quot;number&quot;,
+  OBJECT: &quot;object&quot;,
+  STRING: &quot;string&quot;,
+  SYMBOL: &quot;symbol&quot;,
+  UNDEFINED: &quot;undefined&quot;
+};
+
+const InstanceType = {
+  OBJECT: Object,
+  ARRAY: Array,
+  REGEXP: RegExp,
+  DATE: Date
+};
+
+/**
+ * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
+ */
+export type Item =
+  | null
+  | undefined
+  | boolean
+  | number
+  | string
+  | Symbol
+  | Function
+  | Array
+  | Date
+  | Object;
+
+/**
+ * @typedef {object} Config
+ * @property {boolean} [includeNonEnumerable=false]
+ */
+
+type Config = {
+  includeNonEnumerable: ?boolean
+};
+
+/**
+ *
+ * Object with superpowers! &#x1F4AA;
+ *
+ * @public
+ *
+ */
+class _Object extends Object {
+  /**
+   * @public
+   *
+   * @desc Construct an Object
+   *
+   * @param {Object} object
+   */
+  constructor(object: Object) {
+    super(object);
+  }
+
+  /**
+   * @public
+   *
+   * @desc Check for nested value from string key
+   *
+   * @param {string} path
+   * @return {boolean} property value exists
+   */
+  hasNested(path: string): boolean {
+    let item = this;
+    // TODO: throw error on invalid path
+    path = path.replace(/\[(\w+)\]/, &quot;.$1&quot;).replace(/^\./, &quot;&quot;);
+
+    const keys = path.split(&quot;.&quot;);
+    for (let key of keys) {
+      if (typeof item === PrimitiveType.OBJECT &amp;&amp; key in item) item = item[key];
+      else return false;
+    }
+    return true;
+  }
+
+  /**
+   * @public
+   *
+   * @desc  Get nested JavaScript object value from string key
+   *
+   * @param {string} path
+   * @return {Item} property value
+   */
+  getNested(path: string): Item {
+    let item = this;
+    // TODO: throw error on invalid path
+    path = path.replace(/\[(\w+)\]/, &quot;.$1&quot;).replace(/^\./, &quot;&quot;);
+
+    const keys = path.split(&quot;.&quot;);
+    for (let key of keys) {
+      if (typeof item === PrimitiveType.OBJECT &amp;&amp; key in item) item = item[key];
+      else return;
+    }
+    return item;
+  }
+
+  /**
+   * @public
+   *
+   * @desc Deep clone an Object
+   *
+   * @param {Config} [config={}] Configuration object
+   * @returns {object} Deep cloned Object
+   *
+   * @example
+   *
+   * const obj = new SuperObject({ key1: [&quot;1&quot;, 1, true, (a, b) =&gt; a+b], [Symbol(&quot;key2&quot;)]: {s: &quot;s&quot;} });
+   * const clone = obj.clone();
+   *
+   * console.log(clone);
+   * // { key1: [&quot;1&quot;, 1, true, (a, b) =&gt; a+b], Symbol(&quot;key2&quot;): {s: &quot;s&quot;} }
+   *
+   */
+  clone(config: Config = {}): Object {
+    const { includeNonEnumerable = false } = config;
+
+    /**
+     * @private
+     *
+     * @desc Deep clone helper
+     *
+     * @param {Item} item
+     * @returns {any} cloned item
+     */
+    function _clone(item: Item): Item {
+      if (item === null || typeof item !== PrimitiveType.OBJECT) {
+        return item;
+      }
+
+      if (item instanceof InstanceType.DATE) {
+        return new Date(item.valueOf());
+      }
+
+      if (item instanceof InstanceType.ARRAY) {
+        let copy = [];
+
+        item.forEach((_, i) =&gt; (copy[i] = _clone(item[i])));
+
+        return copy;
+      }
+
+      if (item instanceof InstanceType.OBJECT) {
+        let copy = {};
+
+        Object.getOwnPropertySymbols(item).forEach(s =&gt; (copy[s] = _clone(item[s])));
+
+        if (includeNonEnumerable) {
+          Object.getOwnPropertyNames(item).forEach(k =&gt; (copy[k] = _clone(item[k])));
+        } else {
+          Object.keys(item).forEach(k =&gt; (copy[k] = _clone(item[k])));
+        }
+
+        return copy;
+      }
+
+      throw new Error(`Unable to copy object: ${item}`);
+    }
+
+    return _clone(this, config);
+  }
+}
+
+export default _Object;
+export { _Object as Object };
+</code></pre>
+
 </div>
 
 <footer class="footer">

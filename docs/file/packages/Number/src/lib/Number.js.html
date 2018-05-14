@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="">
-  <title data-ice="title">Source | @clarketm/super</title>
+  <base data-ice="baseUrl" href="../../../../../">
+  <title data-ice="title">packages/Number/src/lib/Number.js | @clarketm/super</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -55,94 +55,106 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1>Source <img data-ice="coverageBadge" src="./badge.svg"><span data-ice="totalCoverageCount" class="total-coverage-count">49/53</span></h1>
+<div class="content" data-ice="content"><h1 data-ice="title">packages/Number/src/lib/Number.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// @flow
 
-<table class="files-summary" data-ice="files" data-use-coverage="true">
-  <thead>
-    <tr>
-      <td>File</td>
-      <td>Identifier</td>
-      <td class="coverage">Document</td>
-      <td style="display: none;">Size</td>
-      <td style="display: none;">Lines</td>
-      <td style="display: none;">Updated</td>
-    </tr>
-  </thead>
-  <tbody>
-    
-  <tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/Array/src/lib/Array.js.html">packages/Array/src/lib/Array.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="class/packages/Array/src/lib/Array.js~_Array.html">_Array</a></span></td>
-      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">4/4</span></td>
-      <td style="display: none;" data-ice="size">1525 byte</td>
-      <td style="display: none;" data-ice="lines">65</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 14:35:37 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/Map/src/lib/Map.js.html#errorLines=18">packages/Map/src/lib/Map.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-InstanceType">InstanceType</a></span>
-<span><a href="variable/index.html#static-variable-PrimitiveType">PrimitiveType</a></span>
-<span><a href="class/packages/Map/src/lib/Map.js~_Map.html">_Map</a></span></td>
-      <td class="coverage"><span data-ice="coverage">87 %</span><span data-ice="coverageCount" class="coverage-count">7/8</span></td>
-      <td style="display: none;" data-ice="size">2873 byte</td>
-      <td style="display: none;" data-ice="lines">131</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 13:44:55 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/Math/src/lib/Math.js.html">packages/Math/src/lib/Math.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-_Math">_Math</a></span>
-<span><a href="function/index.html#static-function-factorial">factorial</a></span></td>
-      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">2/2</span></td>
-      <td style="display: none;" data-ice="size">529 byte</td>
-      <td style="display: none;" data-ice="lines">33</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 13:31:36 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/Number/src/lib/Number.js.html#errorLines=10">packages/Number/src/lib/Number.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-IntegerToRomanNumeralMap">IntegerToRomanNumeralMap</a></span>
-<span><a href="variable/index.html#static-variable-RomanNumeralToIntegerMap">RomanNumeralToIntegerMap</a></span>
-<span><a href="class/packages/Number/src/lib/Number.js~_Number.html">_Number</a></span></td>
-      <td class="coverage"><span data-ice="coverage">83 %</span><span data-ice="coverageCount" class="coverage-count">5/6</span></td>
-      <td style="display: none;" data-ice="size">1831 byte</td>
-      <td style="display: none;" data-ice="lines">97</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 13:38:45 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/Object/src/lib/Object.js.html#errorLines=18">packages/Object/src/lib/Object.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-InstanceType">InstanceType</a></span>
-<span><a href="variable/index.html#static-variable-PrimitiveType">PrimitiveType</a></span>
-<span><a href="class/packages/Object/src/lib/Object.js~_Object.html">_Object</a></span></td>
-      <td class="coverage"><span data-ice="coverage">85 %</span><span data-ice="coverageCount" class="coverage-count">6/7</span></td>
-      <td style="display: none;" data-ice="size">3585 byte</td>
-      <td style="display: none;" data-ice="lines">177</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 13:44:55 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/Queue/src/lib/Queue.js.html#errorLines=19">packages/Queue/src/lib/Queue.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html">Queue</a></span></td>
-      <td class="coverage"><span data-ice="coverage">90 %</span><span data-ice="coverageCount" class="coverage-count">10/11</span></td>
-      <td style="display: none;" data-ice="size">2000 byte</td>
-      <td style="display: none;" data-ice="lines">133</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 14:28:25 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/Set/src/lib/Set.js.html">packages/Set/src/lib/Set.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="class/packages/Set/src/lib/Set.js~_Set.html">_Set</a></span></td>
-      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">10/10</span></td>
-      <td style="display: none;" data-ice="size">3501 byte</td>
-      <td style="display: none;" data-ice="lines">183</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 13:31:36 (UTC)</td>
-    </tr>
-<tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/String/src/lib/String.js.html">packages/String/src/lib/String.js</a></span></td>
-      <td data-ice="identifier" class="identifiers"><span><a href="class/packages/String/src/lib/String.js~_String.html">_String</a></span></td>
-      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">5/5</span></td>
-      <td style="display: none;" data-ice="size">1142 byte</td>
-      <td style="display: none;" data-ice="lines">70</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 13:31:36 (UTC)</td>
-    </tr>
-</tbody>
-</table>
+/**
+ * @module super/number
+ *
+ */
+
+const RomanNumeralToIntegerMap = new Map([
+  [&quot;M&quot;, 1000],
+  [&quot;CM&quot;, 900],
+  [&quot;D&quot;, 500],
+  [&quot;CD&quot;, 400],
+  [&quot;C&quot;, 100],
+  [&quot;XC&quot;, 90],
+  [&quot;L&quot;, 50],
+  [&quot;XL&quot;, 40],
+  [&quot;X&quot;, 10],
+  [&quot;IX&quot;, 9],
+  [&quot;V&quot;, 5],
+  [&quot;IV&quot;, 4],
+  [&quot;I&quot;, 1]
+]);
+
+const IntegerToRomanNumeralMap = new Map([
+  [1000, &quot;M&quot;],
+  [900, &quot;CM&quot;],
+  [500, &quot;D&quot;],
+  [400, &quot;CD&quot;],
+  [100, &quot;C&quot;],
+  [90, &quot;XC&quot;],
+  [50, &quot;L&quot;],
+  [40, &quot;XL&quot;],
+  [10, &quot;X&quot;],
+  [9, &quot;IX&quot;],
+  [5, &quot;V&quot;],
+  [4, &quot;IV&quot;],
+  [1, &quot;I&quot;]
+]);
+
+/**
+ *
+ * Number with superpowers! &#x1F4AA;
+ *
+ * @public
+ *
+ */
+class _Number extends Number {
+  /**
+   * @public
+   *
+   * @desc Construct a Number
+   *
+   * @param {number} number
+   */
+  constructor(number: Number) {
+    super(number);
+  }
+  /**
+   * @public
+   *
+   * @desc Convert a roman numeral to number
+   *
+   * @param {string} str - Roman numeral
+   * @returns {number} Number representation of a roman numeral
+   */
+  static fromRomanNumeral(str: string): Number {
+    function _romanToInteger(num, result = 0) {
+      // TODO: reduce iterations
+      for (let [roman, int] of RomanNumeralToIntegerMap) {
+        if (num.slice(0, roman.length) === roman) {
+          return _romanToInteger(num.slice(roman.length), result + int);
+        }
+      }
+      return result;
+    }
+    return _romanToInteger(str);
+  }
+  /**
+   * @public
+   *
+   * @desc Convert a number to roman numeral
+   *
+   * @returns {string} Roman numeral representation of number
+   */
+  toRomanNumeral(): String {
+    function _integerToRoman(num, result = &quot;&quot;) {
+      // TODO: reduce iterations
+      for (let [int, roman] of IntegerToRomanNumeralMap) {
+        if (num &gt;= int) return _integerToRoman(num - int, result + roman);
+      }
+      return result;
+    }
+    return _integerToRoman(this);
+  }
+}
+export default _Number;
+export { _Number as Number };
+</code></pre>
+
 </div>
 
 <footer class="footer">
