@@ -1,1 +1,144 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(a){return typeof a}:function(a){return a&&"function"==typeof Symbol&&a.constructor===Symbol&&a!==Symbol.prototype?"symbol":typeof a},_slicedToArray=function(){function a(a,b){var c=[],d=!0,e=!1,f=void 0;try{for(var g,h=a[Symbol.iterator]();!(d=(g=h.next()).done)&&(c.push(g.value),!(b&&c.length===b));d=!0);}catch(a){e=!0,f=a}finally{try{!d&&h["return"]&&h["return"]()}finally{if(e)throw f}}return c}return function(b,c){if(Array.isArray(b))return b;if(Symbol.iterator in Object(b))return a(b,c);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_createClass=function(){function a(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}return function(b,c,d){return c&&a(b.prototype,c),d&&a(b,d),b}}();function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError("Cannot call a class as a function")}function _possibleConstructorReturn(a,b){if(!a)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return b&&("object"==typeof b||"function"==typeof b)?b:a}function _inherits(a,b){if("function"!=typeof b&&null!==b)throw new TypeError("Super expression must either be null or a function, not "+typeof b);a.prototype=Object.create(b&&b.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}}),b&&(Object.setPrototypeOf?Object.setPrototypeOf(a,b):a.__proto__=b)}function _extendableBuiltin(a){function b(){var b=Reflect.construct(a,Array.from(arguments));return Object.setPrototypeOf(b,Object.getPrototypeOf(this)),b}return b.prototype=Object.create(a.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}}),Object.setPrototypeOf?Object.setPrototypeOf(b,a):b.__proto__=a,b}var PrimitiveType={BOOLEAN:"boolean",FUNCTION:"function",NUMBER:"number",OBJECT:"object",STRING:"string",SYMBOL:"symbol",UNDEFINED:"undefined"},InstanceType={OBJECT:Object,ARRAY:Array,REGEXP:RegExp,DATE:Date},_Map=function(a){function b(a){return _classCallCheck(this,b),_possibleConstructorReturn(this,(b.__proto__||Object.getPrototypeOf(b)).call(this,a))}return _inherits(b,a),_createClass(b,[{key:"some",value:function some(a){var b=void 0,c=!0,d=!1,e=void 0;try{for(var f,g=this.entries()[Symbol.iterator]();!(c=(f=g.next()).done);c=!0){var h=f.value,i=_slicedToArray(h,2),j=i[0],k=i[1];if(b=a(k,j,this),b)return!0}}catch(a){d=!0,e=a}finally{try{!c&&g.return&&g.return()}finally{if(d)throw e}}return!1}},{key:"every",value:function every(a){var b=void 0,c=!0,d=!1,e=void 0;try{for(var f,g=this.entries()[Symbol.iterator]();!(c=(f=g.next()).done);c=!0){var h=f.value,i=_slicedToArray(h,2),j=i[0],k=i[1];if(b=a(k,j,this),!b)return!1}}catch(a){d=!0,e=a}finally{try{!c&&g.return&&g.return()}finally{if(d)throw e}}return!0}},{key:"setDefault",value:function setDefault(a,b){return this.has(a)?this.get(a):(this.set(a,b),b)}},{key:"toObject",value:function toObject(){return Array.from(this).reduce(function(a,b){var c=_slicedToArray(b,2),d=c[0],e=c[1];return("undefined"==typeof d?"undefined":_typeof(d))!==PrimitiveType.OBJECT&&(a[d]=e),a},{})}}]),b}(_extendableBuiltin(Map));exports.default=_Map,exports.Map=_Map;
+/**
+ * Copyright (c) 2018, Travis Clarke
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (factory((global.Map = {})));
+}(this, (function (exports) { 'use strict';
+
+  // 
+
+  /**
+   * @module super/map
+   *
+   */
+
+  var PrimitiveType = {
+    BOOLEAN: "boolean",
+    FUNCTION: "function",
+    NUMBER: "number",
+    OBJECT: "object",
+    STRING: "string",
+    SYMBOL: "symbol",
+    UNDEFINED: "undefined"
+  };
+
+  /**
+   * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
+   */
+
+  /**
+   * @typedef {Function} Callback
+   */
+
+  /**
+   *
+   * Map with superpowers! 💪
+   *
+   * @public
+   *
+   */
+  var _Map = (function (Map) {
+    function _Map(iterable) {
+      Map.call(this, iterable);
+    }
+
+    if ( Map ) _Map.__proto__ = Map;
+    _Map.prototype = Object.create( Map && Map.prototype );
+    _Map.prototype.constructor = _Map;
+    /**
+     * @public
+     *
+     * @desc Tests whether at least one element in the map passes the test implemented by the provided function
+     *
+     * @param {Callback} callback - callback function
+     * @returns {boolean} true if the callback function returns a truthy value for any map element; otherwise, false
+     */
+    _Map.prototype.some = function some (callback) {
+      var this$1 = this;
+
+      var result;
+
+      for (var i = 0, list = this$1.entries(); i < list.length; i += 1) {
+        var ref = list[i];
+        var key = ref[0];
+        var value = ref[1];
+
+        result = callback(value, key, this$1);
+        if (result) { return true; }
+      }
+      return false;
+    };
+    /**
+     * @public
+     *
+     * @desc Test whether all elements in the map pass the test implemented by the provided function
+     *
+     * @param {Callback} callback - callback function
+     * @returns {boolean} true if the callback function returns a truthy value for every map element; otherwise, false
+     */
+    _Map.prototype.every = function every (callback) {
+      var this$1 = this;
+
+      var result;
+
+      for (var i = 0, list = this$1.entries(); i < list.length; i += 1) {
+        var ref = list[i];
+        var key = ref[0];
+        var value = ref[1];
+
+        result = callback(value, key, this$1);
+        if (!result) { return false; }
+      }
+      return true;
+    };
+    /**
+     * @public
+     *
+     * @desc Similar to get(), but will set key to defaultValue if key is not already in Map.
+     *
+     * @param {Item} key - Map key
+     * @param {Item} defaultValue - the default value to set in Map if the key is not defined
+     * @returns {Item} The value if the key is defined in Map; otherwise, the default value
+     */
+    _Map.prototype.setDefault = function setDefault (key, defaultValue) {
+      if (this.has(key)) {
+        return this.get(key);
+      } else {
+        this.set(key, defaultValue);
+        return defaultValue;
+      }
+    };
+    /**
+     * @public
+     *
+     * @desc Convert Map to an Object
+     *
+     * @returns {object} Object representation of Map
+     */
+    _Map.prototype.toObject = function toObject () {
+      return Array.from(this).reduce(function (obj, ref) {
+        var key = ref[0];
+        var value = ref[1];
+
+        if (typeof key !== PrimitiveType.OBJECT) {
+          obj[key] = value;
+        }
+        return obj;
+      }, {});
+    };
+
+    return _Map;
+  }(Map));
+
+  exports.default = _Map;
+  exports.Map = _Map;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
