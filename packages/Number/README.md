@@ -19,7 +19,3 @@ Convert a roman numeral to number
 ### `toRomanNumeral(): string`
 
 Convert a number to roman numeral
-
-| Name | Type | Attribute | Description |
-| ---- | ---- | --------- | ----------- |
-

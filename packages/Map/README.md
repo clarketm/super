@@ -36,7 +36,3 @@ Similar to get(), but will set key to defaultValue if key is not already in Map.
 ### `toObject(): object`
 
 Convert Map to an Object
-
-| Name | Type | Attribute | Description |
-| ---- | ---- | --------- | ----------- |
-

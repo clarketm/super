@@ -42,9 +42,9 @@ class Queue {
   /**
    * @public
    *
-   * @desc Get the current length of the queue
+   * @desc Get the current size of the queue
    *
-   * @returns {number} length of the queue
+   * @returns {number} size of the queue
    */
   get size(): number {
     return this._queue.length;
