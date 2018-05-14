@@ -17,9 +17,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "babel-cli": ">= 6"
-  },
   "dependencies": {
     "babel-plugin-transform-builtin-extend": "^1.1.2",
     "babel-preset-flow": "^6.23.0",
