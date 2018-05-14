@@ -4585,8 +4585,8 @@ yeoman-assert@^3.1.0:
   resolved "https://registry.yarnpkg.com/yeoman-assert/-/yeoman-assert-3.1.1.tgz#9f6fa0ecba7dd007c40f579668cb5dda18c79343"
 
 yeoman-environment@^2.0.0, yeoman-environment@^2.0.5:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/yeoman-environment/-/yeoman-environment-2.1.0.tgz#175f49ad693aff41c8998d32f6103c20c62ec37b"
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/yeoman-environment/-/yeoman-environment-2.1.1.tgz#10a045f7fc4397873764882eae055a33e56ee1c5"
   dependencies:
     chalk "^2.1.0"
     cross-spawn "^6.0.5"
