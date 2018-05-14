@@ -8,7 +8,7 @@
     "build": "shx rm -rf ./bin ./lib ; babel ./src --out-dir ./",
     "lint": "eslint --fix ./src ./test",
     "prep": "yarn lint && yarn prettier && yarn build && yarn test",
-    "prepublish": "yarn prep",
+    "prepublishOnly": "yarn prep",
     "prettier": "prettier --write ./src/**/*.js ./test/**/*.js",
     "test": "mocha --require babel-core/register ./test/*"
   },
@@ -19,8 +19,7 @@
     "url": "https://www.travismclarke.com/"
   },
   "license": "MIT",
-  "homepage":
-    "https://github.com/clarketm/super/tree/master/packages/<%= name %>#readme",
+  "homepage": "https://github.com/clarketm/super/tree/master/packages/<%= name %>#readme",
   "publishConfig": {
     "access": "public"
   },
