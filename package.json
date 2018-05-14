@@ -53,6 +53,9 @@
     "url": "https://github.com/clarketm/super/issues"
   },
   "homepage": "https://github.com/clarketm/super#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@clarketm/babel-preset-super": "^0.0.1",
     "@clarketm/eslint-config-super": "^0.0.1",

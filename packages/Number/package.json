@@ -3,11 +3,7 @@
   "version": "1.2.1",
   "description": "Number with superpowers! 💪",
   "main": "./lib/Number.js",
-  "files": [
-    "lib",
-    "README.md",
-    "LICENSE.md"
-  ],
+  "files": ["lib", "README.md", "LICENSE.md"],
   "scripts": {
     "build": "shx rm -rf ./bin ./lib ; babel ./src --out-dir ./",
     "lint": "eslint --fix ./src ./test",
@@ -16,13 +12,7 @@
     "prettier": "prettier --write './{src,test}/**/*.js' './*.{js,json,css,md}'",
     "test": "mocha --require babel-core/register ./test/*"
   },
-  "keywords": [
-    "javascript",
-    "super",
-    "superpowers",
-    "Number",
-    "polyfill"
-  ],
+  "keywords": ["javascript", "super", "superpowers", "Number", "polyfill"],
   "author": {
     "name": "Travis Clarke",
     "email": "travis.m.clarke@gmail.com",
