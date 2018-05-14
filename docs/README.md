@@ -47,7 +47,9 @@ Convert the node and next nodes (recursively) to an array
 
 ListNode
 
-### `constructor()`
+### `constructor(item: Item)`
+
+Construct a ListNode
 
 ### `_value: *`
 

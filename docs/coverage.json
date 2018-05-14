@@ -1,7 +1,7 @@
 {
-  "coverage": "88.05%",
+  "coverage": "89.55%",
   "expectCount": 67,
-  "actualCount": 59,
+  "actualCount": 60,
   "files": {
     "packages/Array/src/lib/Array.js": {
       "expectCount": 4,
@@ -18,12 +18,11 @@
     },
     "packages/LinkedList/src/lib/ListNode.js": {
       "expectCount": 11,
-      "actualCount": 7,
+      "actualCount": 8,
       "undocumentLines": [
-        11,
-        35,
-        56,
-        77
+        42,
+        63,
+        84
       ]
     },
     "packages/Map/src/lib/Map.js": {

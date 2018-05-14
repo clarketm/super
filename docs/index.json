@@ -312,7 +312,7 @@
     "__docId__": 13,
     "kind": "file",
     "name": "packages/LinkedList/src/lib/ListNode.js",
-    "content": "/**\n * @flow\n * @module super/linkedlist\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * ListNode\n *\n * @public\n *\n */\nclass ListNode {\n  constructor(item: Item) {\n    this.value = item;\n    this.prev = null;\n    this.next = null;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the value of the node\n   *\n   * @returns {Item} node value\n   */\n  get value(): Item {\n    return this._value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the value of the node\n   *\n   */\n  set value(value: Item) {\n    this._value = value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the next node in list\n   *\n   * @returns {ListNode} next node\n   */\n  get next(): ListNode {\n    return this._next;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the next node in list\n   *\n   */\n  set next(next: ListNode) {\n    this._next = next;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the previous node in list\n   *\n   * @returns {ListNode} previous node\n   */\n  get prev(): ListNode {\n    return this._prev;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the next node in list\n   *\n   */\n  set prev(prev: ListNode) {\n    this._prev = prev;\n  }\n}\n\nexport { ListNode };\n",
+    "content": "/**\n * @flow\n * @module super/linkedlist\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * ListNode\n *\n * @public\n *\n */\nclass ListNode {\n  /**\n   * @public\n   *\n   * @desc Construct a ListNode\n   *\n   * @param {Item} item - node value\n   */\n  constructor(item: Item) {\n    this.value = item;\n    this.prev = null;\n    this.next = null;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the value of the node\n   *\n   * @returns {Item} node value\n   */\n  get value(): Item {\n    return this._value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the value of the node\n   *\n   */\n  set value(value: Item) {\n    this._value = value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the next node in list\n   *\n   * @returns {ListNode} next node\n   */\n  get next(): ListNode {\n    return this._next;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the next node in list\n   *\n   */\n  set next(next: ListNode) {\n    this._next = next;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the previous node in list\n   *\n   * @returns {ListNode} previous node\n   */\n  get prev(): ListNode {\n    return this._prev;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the next node in list\n   *\n   */\n  set prev(prev: ListNode) {\n    this._prev = prev;\n  }\n}\n\nexport { ListNode };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/LinkedList/src/lib/ListNode.js",
     "access": "public",
@@ -344,9 +344,20 @@
     "static": false,
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#constructor",
     "access": "public",
-    "description": null,
-    "lineNumber": 11,
-    "undocument": true
+    "description": "Construct a ListNode",
+    "lineNumber": 18,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Item"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "item",
+        "description": "node value"
+      }
+    ]
   },
   {
     "__docId__": 19,
@@ -359,7 +370,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "access": "public",
     "description": "Get the value of the node",
-    "lineNumber": 24,
+    "lineNumber": 31,
     "unknown": [
       {
         "tagName": "@returns",
@@ -391,7 +402,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "access": "public",
     "description": "Set the value of the node",
-    "lineNumber": 34
+    "lineNumber": 41
   },
   {
     "__docId__": 21,
@@ -402,7 +413,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#_value",
     "access": "private",
     "description": null,
-    "lineNumber": 35,
+    "lineNumber": 42,
     "undocument": true,
     "type": {
       "types": [
@@ -421,7 +432,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "access": "public",
     "description": "Get the next node in list",
-    "lineNumber": 45,
+    "lineNumber": 52,
     "unknown": [
       {
         "tagName": "@returns",
@@ -453,7 +464,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "access": "public",
     "description": "Set the next node in list",
-    "lineNumber": 55
+    "lineNumber": 62
   },
   {
     "__docId__": 24,
@@ -464,7 +475,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#_next",
     "access": "private",
     "description": null,
-    "lineNumber": 56,
+    "lineNumber": 63,
     "undocument": true,
     "type": {
       "types": [
@@ -483,7 +494,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
     "access": "public",
     "description": "Get the previous node in list",
-    "lineNumber": 66,
+    "lineNumber": 73,
     "unknown": [
       {
         "tagName": "@returns",
@@ -515,7 +526,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
     "access": "public",
     "description": "Set the next node in list",
-    "lineNumber": 76
+    "lineNumber": 83
   },
   {
     "__docId__": 27,
@@ -526,7 +537,7 @@
     "longname": "packages/LinkedList/src/lib/ListNode.js~ListNode#_prev",
     "access": "private",
     "description": null,
-    "lineNumber": 77,
+    "lineNumber": 84,
     "undocument": true,
     "type": {
       "types": [
