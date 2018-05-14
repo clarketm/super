@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * @module superset
+ * @module super/set
  *
  */
 
@@ -16,7 +16,6 @@ type Callback = (value1: any, value2: any, set: Set) => boolean;
  *
  * @public
  *
- * @extends {Set}
  */
 class _Set extends Set {
   /**

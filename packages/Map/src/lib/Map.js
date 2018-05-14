@@ -1,5 +1,10 @@
 // @flow
 
+/**
+ * @module super/map
+ *
+ */
+
 const PrimitiveType = {
   BOOLEAN: "boolean",
   FUNCTION: "function",
@@ -18,9 +23,19 @@ const InstanceType = {
 };
 
 /**
- * @module supermap
- *
+ * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
  */
+export type Item =
+  | null
+  | undefined
+  | boolean
+  | number
+  | string
+  | Symbol
+  | Function
+  | Array
+  | Date
+  | Object;
 
 /**
  * @typedef {Function} Callback
@@ -33,15 +48,16 @@ type Callback = (value: any, key: any, map: Map) => boolean;
  *
  * @public
  *
- * @extends {Map}
- */ class _Map extends Map {
+ */
+class _Map extends Map {
   /**
    * @public
    *
    * @desc Construct a Map
    *
    * @param {Iterable} iterable
-   */ constructor(iterable: Iterable) {
+   */
+  constructor(iterable: Iterable) {
     super(iterable);
   }
   /**
@@ -51,7 +67,8 @@ type Callback = (value: any, key: any, map: Map) => boolean;
    *
    * @param {Callback} callback - callback function
    * @returns {boolean} true if the callback function returns a truthy value for any map element; otherwise, false
-   */ some(callback: (value: any, key: any, map: Map) => boolean): boolean {
+   */
+  some(callback: (value: any, key: any, map: Map) => boolean): boolean {
     let result;
 
     for (let [key, value] of this.entries()) {
@@ -67,7 +84,8 @@ type Callback = (value: any, key: any, map: Map) => boolean;
    *
    * @param {Callback} callback - callback function
    * @returns {boolean} true if the callback function returns a truthy value for every map element; otherwise, false
-   */ every(callback: (value: any, key: any, map: Map) => boolean): boolean {
+   */
+  every(callback: (value: any, key: any, map: Map) => boolean): boolean {
     let result;
 
     for (let [key, value] of this.entries()) {
@@ -84,7 +102,8 @@ type Callback = (value: any, key: any, map: Map) => boolean;
    * @param {Item} key - Map key
    * @param {Item} defaultValue - the default value to set in Map if the key is not defined
    * @returns {Item} The value if the key is defined in Map; otherwise, the default value
-   */ setDefault(key: Item, defaultValue: Item): Item {
+   */
+  setDefault(key: Item, defaultValue: Item): Item {
     if (this.has(key)) {
       return this.get(key);
     } else {
@@ -98,7 +117,8 @@ type Callback = (value: any, key: any, map: Map) => boolean;
    * @desc Convert Map to an Object
    *
    * @returns {object} Object representation of Map
-   */ toObject() {
+   */
+  toObject() {
     return Array.from(this).reduce((obj, [key, value]) => {
       if (typeof key !== PrimitiveType.OBJECT) {
         obj[key] = value;

@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * @module superarray
+ * @module super/array
  *
  */
 
@@ -16,15 +16,16 @@ type Callback = (value: any, index: number, array: Array) => Array;
  *
  * @public
  *
- * @extends {Array}
- */ class _Array extends Array {
+ */
+class _Array extends Array {
   /**
    * @public
    *
-   * @desc Construct a Array
+   * @desc Construct an Array
    *
    * @param {Iterable} iterable
-   */ constructor(iterable: Iterable = []) {
+   */
+  constructor(iterable: Iterable = []) {
     super();
     this.push(...iterable);
   }
@@ -35,7 +36,8 @@ type Callback = (value: any, index: number, array: Array) => Array;
    *
    * @param {Callback} callback - callback function
    * @returns {Array} A new array with each element being the result of the callback function and flattened to a depth of 1
-   */ flatMap(callback: (value: any, index: number, array: Array) => boolean): Array {
+   */
+  flatMap(callback: (value: any, index: number, array: Array) => boolean): Array {
     return this.map(callback).flatten();
   }
   /**
@@ -45,7 +47,8 @@ type Callback = (value: any, index: number, array: Array) => Array;
    *
    * @param {number} depth - flatten depth
    * @returns {Array}  new array with the sub-array elements concatted into it.
-   */ flatten(depth: number = 1): Array {
+   */
+  flatten(depth: number = 1): Array {
     function _flatten(depth, arr) {
       if (depth <= 0) return arr;
 

@@ -1,5 +1,10 @@
 // @flow
 
+/**
+ * @module super/object
+ *
+ */
+
 const PrimitiveType = {
   BOOLEAN: "boolean",
   FUNCTION: "function",
@@ -18,9 +23,19 @@ const InstanceType = {
 };
 
 /**
- * @module superobject
- *
+ * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
  */
+export type Item =
+  | null
+  | undefined
+  | boolean
+  | number
+  | string
+  | Symbol
+  | Function
+  | Array
+  | Date
+  | Object;
 
 /**
  * @typedef {object} Config
@@ -37,7 +52,6 @@ type Config = {
  *
  * @public
  *
- * @extends {Object}
  */
 class _Object extends Object {
   /**

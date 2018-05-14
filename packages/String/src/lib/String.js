@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * @module superstring
+ * @module super/string
  *
  */
 
@@ -11,7 +11,6 @@
  *
  * @public
  *
- * @extends {String}
  */
 class _String extends String {
   /**

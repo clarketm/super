@@ -11,6 +11,11 @@
   (factory((global.Super = {})));
 }(this, (function (exports) { 'use strict';
 
+  /**
+   * @module super/map
+   *
+   */
+
   var PrimitiveType = {
     BOOLEAN: "boolean",
     FUNCTION: "function",
@@ -22,8 +27,7 @@
   };
 
   /**
-   * @module supermap
-   *
+   * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
    */
 
   /**
@@ -36,8 +40,8 @@
    *
    * @public
    *
-   * @extends {Map}
-   */ var _Map = (function (Map) {
+   */
+  var _Map = (function (Map) {
     function _Map(iterable) {
       Map.call(this, iterable);
     }
@@ -52,7 +56,8 @@
      *
      * @param {Callback} callback - callback function
      * @returns {boolean} true if the callback function returns a truthy value for any map element; otherwise, false
-     */ _Map.prototype.some = function some (callback) {
+     */
+    _Map.prototype.some = function some (callback) {
       var this$1 = this;
 
       var result;
@@ -74,7 +79,8 @@
      *
      * @param {Callback} callback - callback function
      * @returns {boolean} true if the callback function returns a truthy value for every map element; otherwise, false
-     */ _Map.prototype.every = function every (callback) {
+     */
+    _Map.prototype.every = function every (callback) {
       var this$1 = this;
 
       var result;
@@ -97,7 +103,8 @@
      * @param {Item} key - Map key
      * @param {Item} defaultValue - the default value to set in Map if the key is not defined
      * @returns {Item} The value if the key is defined in Map; otherwise, the default value
-     */ _Map.prototype.setDefault = function setDefault (key, defaultValue) {
+     */
+    _Map.prototype.setDefault = function setDefault (key, defaultValue) {
       if (this.has(key)) {
         return this.get(key);
       } else {
@@ -111,7 +118,8 @@
      * @desc Convert Map to an Object
      *
      * @returns {object} Object representation of Map
-     */ _Map.prototype.toObject = function toObject () {
+     */
+    _Map.prototype.toObject = function toObject () {
       return Array.from(this).reduce(function (obj, ref) {
         var key = ref[0];
         var value = ref[1];
@@ -127,7 +135,7 @@
   }(Map));
 
   /**
-   * @module superarray
+   * @module super/array
    *
    */
 
@@ -141,9 +149,9 @@
    *
    * @public
    *
-   * @extends {Array}
-   */ var _Array = (function (Array) {
-     function _Array(iterable) {
+   */
+  var _Array = (function (Array) {
+    function _Array(iterable) {
       var ref;
 
       if ( iterable === void 0 ) iterable = [];
@@ -151,9 +159,9 @@
       (ref = this).push.apply(ref, iterable);
     }
 
-     if ( Array ) _Array.__proto__ = Array;
-     _Array.prototype = Object.create( Array && Array.prototype );
-     _Array.prototype.constructor = _Array;
+    if ( Array ) _Array.__proto__ = Array;
+    _Array.prototype = Object.create( Array && Array.prototype );
+    _Array.prototype.constructor = _Array;
     /**
      * @public
      *
@@ -161,7 +169,8 @@
      *
      * @param {Callback} callback - callback function
      * @returns {Array} A new array with each element being the result of the callback function and flattened to a depth of 1
-     */ _Array.prototype.flatMap = function flatMap (callback) {
+     */
+    _Array.prototype.flatMap = function flatMap (callback) {
       return this.map(callback).flatten();
     };
     /**
@@ -171,7 +180,8 @@
      *
      * @param {number} depth - flatten depth
      * @returns {Array}  new array with the sub-array elements concatted into it.
-     */ _Array.prototype.flatten = function flatten (depth) {
+     */
+    _Array.prototype.flatten = function flatten (depth) {
       if ( depth === void 0 ) depth = 1;
 
       function _flatten(depth, arr) {
@@ -185,11 +195,11 @@
       return _flatten(depth, this);
     };
 
-     return _Array;
-   }(Array));
+    return _Array;
+  }(Array));
 
   /**
-   * @module supermath
+   * @module super/math
    *
    */
 
@@ -200,7 +210,8 @@
    * @public
    *
    * @alias Math
-   */ var _Math = Object.create(Math);
+   */
+  var _Math = Object.create(Math);
 
   /**
    * @public
@@ -209,14 +220,15 @@
    *
    * @param {number} num - integral number
    * @returns {number} factorial of num
-   */ _Math.factorial = function(num) {
+   */
+  _Math.factorial = function(num) {
     if (num < 0) { throw new Error("Factorial not defined for negative values"); }
     if (num === 0) { return 1; }
     return num * _Math.factorial(num - 1);
   };
 
   /**
-   * @module supernumber
+   * @module super/number
    *
    */
 
@@ -258,8 +270,8 @@
    *
    * @public
    *
-   * @extends {Number}
-   */ var _Number = (function (Number) {
+   */
+  var _Number = (function (Number) {
     function _Number(number) {
       Number.call(this, number);
     }
@@ -274,7 +286,8 @@
      *
      * @param {string} str - Roman numeral
      * @returns {number} Number representation of a roman numeral
-     */ _Number.fromRomanNumeral = function fromRomanNumeral (str) {
+     */
+    _Number.fromRomanNumeral = function fromRomanNumeral (str) {
       function _romanToInteger(num, result) {
         if ( result === void 0 ) result = 0;
 
@@ -298,7 +311,8 @@
      * @desc Convert a number to roman numeral
      *
      * @returns {string} Roman numeral representation of number
-     */ _Number.prototype.toRomanNumeral = function toRomanNumeral () {
+     */
+    _Number.prototype.toRomanNumeral = function toRomanNumeral () {
       function _integerToRoman(num, result) {
         if ( result === void 0 ) result = "";
 
@@ -318,6 +332,11 @@
     return _Number;
   }(Number));
 
+  /**
+   * @module super/object
+   *
+   */
+
   var PrimitiveType$1 = {
     BOOLEAN: "boolean",
     FUNCTION: "function",
@@ -336,8 +355,7 @@
   };
 
   /**
-   * @module superobject
-   *
+   * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
    */
 
   /**
@@ -352,7 +370,6 @@
    *
    * @public
    *
-   * @extends {Object}
    */
   var _Object = (function (Object) {
     function _Object(object) {
@@ -480,7 +497,7 @@
   }(Object));
 
   /**
-   * @module superset
+   * @module super/set
    *
    */
 
@@ -494,7 +511,6 @@
    *
    * @public
    *
-   * @extends {Set}
    */
   var _Set = (function (Set) {
     function _Set(iterable) {
@@ -682,7 +698,7 @@
   }(Set));
 
   /**
-   * @module superstring
+   * @module super/string
    *
    */
 
@@ -692,7 +708,6 @@
    *
    * @public
    *
-   * @extends {String}
    */
   var _String = (function (String) {
     function _String(string) {
