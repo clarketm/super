@@ -11,13 +11,6 @@
   (factory((global.Object = {})));
 }(this, (function (exports) { 'use strict';
 
-  // 
-
-  /**
-   * @module super/object
-   *
-   */
-
   var PrimitiveType = {
     BOOLEAN: "boolean",
     FUNCTION: "function",
@@ -35,15 +28,45 @@
     DATE: Date
   };
 
-  /**
-   * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
-   */
+  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  function _extendableBuiltin(cls) {
+    function ExtendableBuiltin() {
+      var instance = Reflect.construct(cls, Array.from(arguments));
+      Object.setPrototypeOf(instance, Object.getPrototypeOf(this));
+      return instance;
+    }
+
+    ExtendableBuiltin.prototype = Object.create(cls.prototype, {
+      constructor: {
+        value: cls,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(ExtendableBuiltin, cls);
+    } else {
+      ExtendableBuiltin.__proto__ = cls;
+    }
+
+    return ExtendableBuiltin;
+  }
 
   /**
    * @typedef {object} Config
    * @property {boolean} [includeNonEnumerable=false]
    */
-
 
   /**
    *
@@ -52,14 +75,22 @@
    * @public
    *
    */
-  var _Object = (function (Object) {
-    function _Object(object) {
-      Object.call(this, object);
-    }
 
-    if ( Object ) _Object.__proto__ = Object;
-    _Object.prototype = Object.create( Object && Object.prototype );
-    _Object.prototype.constructor = _Object;
+  var _Object = function (_extendableBuiltin2) {
+    _inherits(_Object, _extendableBuiltin2);
+
+    /**
+     * @public
+     *
+     * @desc Construct an Object
+     *
+     * @param {Object} object
+     */
+    function _Object(object) {
+      _classCallCheck(this, _Object);
+
+      return _possibleConstructorReturn(this, (_Object.__proto__ || Object.getPrototypeOf(_Object)).call(this, object));
+    }
 
     /**
      * @public
@@ -69,115 +100,172 @@
      * @param {string} path
      * @return {boolean} property value exists
      */
-    _Object.prototype.hasNested = function hasNested (path) {
-      var item = this;
-      // TODO: throw error on invalid path
-      path = path.replace(/\[(\w+)\]/, ".$1").replace(/^\./, "");
 
-      var keys = path.split(".");
-      for (var i = 0, list = keys; i < list.length; i += 1) {
-        var key = list[i];
 
-        if (typeof item === PrimitiveType.OBJECT && key in item) { item = item[key]; }
-        else { return false; }
+    _createClass(_Object, [{
+      key: "hasNested",
+      value: function hasNested(path) {
+        var item = this;
+        // TODO: throw error on invalid path
+        path = path.replace(/\[(\w+)\]/, ".$1").replace(/^\./, "");
+
+        var keys = path.split(".");
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = keys[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var key = _step.value;
+
+            if ((typeof item === "undefined" ? "undefined" : _typeof(item)) === PrimitiveType.OBJECT && key in item) item = item[key];else return false;
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+              _iterator.return();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
+
+        return true;
       }
-      return true;
-    };
-
-    /**
-     * @public
-     *
-     * @desc  Get nested JavaScript object value from string key
-     *
-     * @param {string} path
-     * @return {Item} property value
-     */
-    _Object.prototype.getNested = function getNested (path) {
-      var item = this;
-      // TODO: throw error on invalid path
-      path = path.replace(/\[(\w+)\]/, ".$1").replace(/^\./, "");
-
-      var keys = path.split(".");
-      for (var i = 0, list = keys; i < list.length; i += 1) {
-        var key = list[i];
-
-        if (typeof item === PrimitiveType.OBJECT && key in item) { item = item[key]; }
-        else { return; }
-      }
-      return item;
-    };
-
-    /**
-     * @public
-     *
-     * @desc Deep clone an Object
-     *
-     * @param {Config} [config={}] Configuration object
-     * @returns {object} Deep cloned Object
-     *
-     * @example
-     *
-     * const obj = new SuperObject({ key1: ["1", 1, true, (a, b) => a+b], [Symbol("key2")]: {s: "s"} });
-     * const clone = obj.clone();
-     *
-     * console.log(clone);
-     * // { key1: ["1", 1, true, (a, b) => a+b], Symbol("key2"): {s: "s"} }
-     *
-     */
-    _Object.prototype.clone = function clone (config) {
-      if ( config === void 0 ) config = {};
-
-      var includeNonEnumerable = config.includeNonEnumerable; if ( includeNonEnumerable === void 0 ) includeNonEnumerable = false;
 
       /**
-       * @private
+       * @public
        *
-       * @desc Deep clone helper
+       * @desc  Get nested JavaScript object value from string key
        *
-       * @param {Item} item
-       * @returns {any} cloned item
+       * @param {string} path
+       * @return {Item} property value
        */
-      function _clone(item) {
-        if (item === null || typeof item !== PrimitiveType.OBJECT) {
-          return item;
-        }
 
-        if (item instanceof InstanceType.DATE) {
-          return new Date(item.valueOf());
-        }
+    }, {
+      key: "getNested",
+      value: function getNested(path) {
+        var item = this;
+        // TODO: throw error on invalid path
+        path = path.replace(/\[(\w+)\]/, ".$1").replace(/^\./, "");
 
-        if (item instanceof InstanceType.ARRAY) {
-          var copy = [];
+        var keys = path.split(".");
+        var _iteratorNormalCompletion2 = true;
+        var _didIteratorError2 = false;
+        var _iteratorError2 = undefined;
 
-          item.forEach(function (_, i) { return (copy[i] = _clone(item[i])); });
+        try {
+          for (var _iterator2 = keys[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+            var key = _step2.value;
 
-          return copy;
-        }
-
-        if (item instanceof InstanceType.OBJECT) {
-          var copy$1 = {};
-
-          Object.getOwnPropertySymbols(item).forEach(function (s) { return (copy$1[s] = _clone(item[s])); });
-
-          if (includeNonEnumerable) {
-            Object.getOwnPropertyNames(item).forEach(function (k) { return (copy$1[k] = _clone(item[k])); });
-          } else {
-            Object.keys(item).forEach(function (k) { return (copy$1[k] = _clone(item[k])); });
+            if ((typeof item === "undefined" ? "undefined" : _typeof(item)) === PrimitiveType.OBJECT && key in item) item = item[key];else return;
           }
-
-          return copy$1;
+        } catch (err) {
+          _didIteratorError2 = true;
+          _iteratorError2 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+              _iterator2.return();
+            }
+          } finally {
+            if (_didIteratorError2) {
+              throw _iteratorError2;
+            }
+          }
         }
 
-        throw new Error(("Unable to copy object: " + item));
+        return item;
       }
 
-      return _clone(this, config);
-    };
+      /**
+       * @public
+       *
+       * @desc Deep clone an Object
+       *
+       * @param {Config} [config={}] Configuration object
+       * @returns {object} Deep cloned Object
+       *
+       * @example
+       *
+       * const obj = new SuperObject({ key1: ["1", 1, true, (a, b) => a+b], [Symbol("key2")]: {s: "s"} });
+       * const clone = obj.clone();
+       *
+       * console.log(clone);
+       * // { key1: ["1", 1, true, (a, b) => a+b], Symbol("key2"): {s: "s"} }
+       *
+       */
+
+    }, {
+      key: "clone",
+      value: function clone() {
+        var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+        var _config$includeNonEnu = config.includeNonEnumerable,
+            includeNonEnumerable = _config$includeNonEnu === undefined ? false : _config$includeNonEnu;
+
+        /**
+         * @private
+         *
+         * @desc Deep clone helper
+         *
+         * @param {Item} item
+         * @returns {any} cloned item
+         */
+
+        function _clone(item) {
+          if (item === null || (typeof item === "undefined" ? "undefined" : _typeof(item)) !== PrimitiveType.OBJECT) {
+            return item;
+          }
+
+          if (item instanceof InstanceType.DATE) {
+            return new Date(item.valueOf());
+          }
+
+          if (item instanceof InstanceType.ARRAY) {
+            var copy = [];
+
+            item.forEach(function (_, i) {
+              return copy[i] = _clone(item[i]);
+            });
+
+            return copy;
+          }
+
+          if (item instanceof InstanceType.OBJECT) {
+            var _copy = {};
+
+            Object.getOwnPropertySymbols(item).forEach(function (s) {
+              return _copy[s] = _clone(item[s]);
+            });
+
+            if (includeNonEnumerable) {
+              Object.getOwnPropertyNames(item).forEach(function (k) {
+                return _copy[k] = _clone(item[k]);
+              });
+            } else {
+              Object.keys(item).forEach(function (k) {
+                return _copy[k] = _clone(item[k]);
+              });
+            }
+
+            return _copy;
+          }
+
+          throw new Error("Unable to copy object: " + item);
+        }
+
+        return _clone(this, config);
+      }
+    }]);
 
     return _Object;
-  }(Object));
+  }(_extendableBuiltin(Object));
 
-  exports.default = _Object;
   exports.Object = _Object;
 
   Object.defineProperty(exports, '__esModule', { value: true });

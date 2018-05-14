@@ -1,41 +1,10 @@
-// @flow
-
 /**
+ * @flow
  * @module super/object
- *
  */
 
-const PrimitiveType = {
-  BOOLEAN: "boolean",
-  FUNCTION: "function",
-  NUMBER: "number",
-  OBJECT: "object",
-  STRING: "string",
-  SYMBOL: "symbol",
-  UNDEFINED: "undefined"
-};
-
-const InstanceType = {
-  OBJECT: Object,
-  ARRAY: Array,
-  REGEXP: RegExp,
-  DATE: Date
-};
-
-/**
- * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
- */
-export type Item =
-  | null
-  | undefined
-  | boolean
-  | number
-  | string
-  | Symbol
-  | Function
-  | Array
-  | Date
-  | Object;
+import { InstanceType, PrimitiveType } from "../../../shared/src/constants";
+import type { Item } from "../../../shared/src/types";
 
 /**
  * @typedef {object} Config
