@@ -127,5 +127,4 @@ class _Map extends Map {
     }, {});
   }
 }
-export default _Map;
 export { _Map as Map };

@@ -36,7 +36,6 @@
   "devDependencies": {
     "@clarketm/babel-preset-super": "^1.2.1",
     "@clarketm/eslint-config-super": "^1.2.2",
-    "rollup": "^0.58.2",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
     "chai": "^4.1.2",
@@ -44,6 +43,7 @@
     "eslint-plugin-flowtype": "^2.46.3",
     "mocha": "^5.1.1",
     "prettier": "^1.12.1",
+    "rollup": "^0.58.2",
     "shx": "^0.2.2"
   }
 }
