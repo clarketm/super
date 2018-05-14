@@ -1,8 +1,6 @@
-// @flow
-
 /**
+ * @flow
  * @module <%= name %>
- *
  */
 
 /**
@@ -15,5 +13,4 @@
  */
 // class _<%= type %> extends <%= type %> {}
 
-// export default _<%= type %>;
 // export { _<%= type %> as <%= type %> };
