@@ -1,7 +1,21 @@
 // @flow
 
-import { InstanceType, PrimitiveType } from "../../../shared/src/constants";
-import type { Item } from "../../../shared/src/types";
+const PrimitiveType = {
+  BOOLEAN: "boolean",
+  FUNCTION: "function",
+  NUMBER: "number",
+  OBJECT: "object",
+  STRING: "string",
+  SYMBOL: "symbol",
+  UNDEFINED: "undefined"
+};
+
+const InstanceType = {
+  OBJECT: Object,
+  ARRAY: Array,
+  REGEXP: RegExp,
+  DATE: Date
+};
 
 /**
  * @module superobject
