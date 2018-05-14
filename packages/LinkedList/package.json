@@ -1,0 +1,49 @@
+{
+  "name": "@clarketm/superlinkedlist",
+  "version": "0.0.0",
+  "description": "LinkedList with superpowers! 💪",
+  "main": "./lib/LinkedList.js",
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE.md"
+  ],
+  "scripts": {
+    "build": "shx rm -rf ./bin ./lib ; rollup -c ../shared/rollup-config.js",
+    "lint": "eslint --fix ./src ./test",
+    "prep": "yarn lint && yarn prettier && yarn build && yarn test",
+    "prepublishOnly": "yarn prep",
+    "prettier": "prettier --write './{src,test}/**/*.js' './*.{js,css,md}'",
+    "test": "mocha --require babel-core/register ./test/*"
+  },
+  "keywords": [
+    "javascript",
+    "super",
+    "superpowers",
+    "LinkedList",
+    "polyfill"
+  ],
+  "author": {
+    "name": "Travis Clarke",
+    "email": "travis.m.clarke@gmail.com",
+    "url": "https://www.travismclarke.com/"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/clarketm/super/tree/master/packages/superlinkedlist#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@clarketm/babel-preset-super": "^1.2.1",
+    "@clarketm/eslint-config-super": "^1.2.2",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-plugin-flowtype": "^2.46.3",
+    "mocha": "^5.1.1",
+    "prettier": "^1.12.1",
+    "rollup": "^0.58.2",
+    "shx": "^0.2.2"
+  }
+}
