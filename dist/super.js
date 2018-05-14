@@ -815,7 +815,7 @@
     return _String;
   }(String));
 
-  var version = "0.0.3-alpha";
+  var version = "0.0.4-alpha";
 
   var Super = {
     version: version,
