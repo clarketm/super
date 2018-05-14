@@ -3,7 +3,7 @@
     "__docId__": 0,
     "kind": "file",
     "name": "packages/Array/src/lib/Array.js",
-    "content": "// @flow\n\n/**\n * @module super/array\n *\n */\n\n/**\n * @typedef {Function} Callback\n */\ntype Callback = (value: any, index: number, array: Array) => Array;\n\n/**\n *\n * Array with superpowers! 💪\n *\n * @public\n *\n * @alias Array\n */\nclass _Array extends Array {\n  /**\n   * @public\n   *\n   * @desc Construct an Array\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable = []) {\n    super();\n    this.push(...iterable);\n  }\n  /**\n   * @public\n   *\n   * @desc Maps each element using a mapping function, then flattens the result into a new array\n   *\n   * @param {Callback} callback - callback function\n   * @returns {Array} A new array with each element being the result of the callback function and flattened to a depth of 1\n   */\n  flatMap(callback: (value: any, index: number, array: Array) => boolean): Array {\n    return this.map(callback).flatten();\n  }\n  /**\n   * @public\n   *\n   * @desc Creates a new array with all sub-array elements concatted into it recursively up to the specified depth\n   *\n   * @param {number} depth - flatten depth\n   * @returns {Array}  new array with the sub-array elements concatted into it.\n   */\n  flatten(depth: number = 1): Array {\n    function _flatten(depth, arr) {\n      if (depth <= 0) return arr;\n\n      return arr.reduce((acc, val) => {\n        if (Array.isArray(val)) return acc.concat(_flatten(depth - 1, val));\n        else return acc.concat(val);\n      }, []);\n    }\n    return _flatten(depth, this);\n  }\n}\nexport default _Array;\nexport { _Array as Array };\n",
+    "content": "// @flow\n\n/**\n * @module super/array\n *\n */\n\n/**\n * @typedef {Function} Callback\n */\ntype Callback = (value: any, index: number, array: Array) => Array;\n\n/**\n *\n * Array with superpowers! 💪\n *\n * @public\n *\n */\nclass _Array extends Array {\n  /**\n   * @public\n   *\n   * @desc Construct an Array\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable = []) {\n    super();\n    this.push(...iterable);\n  }\n  /**\n   * @public\n   *\n   * @desc Maps each element using a mapping function, then flattens the result into a new array\n   *\n   * @param {Callback} callback - callback function\n   * @returns {Array} A new array with each element being the result of the callback function and flattened to a depth of 1\n   */\n  flatMap(callback: (value: any, index: number, array: Array) => boolean): Array {\n    return this.map(callback).flatten();\n  }\n  /**\n   * @public\n   *\n   * @desc Creates a new array with all sub-array elements concatted into it recursively up to the specified depth\n   *\n   * @param {number} depth - flatten depth\n   * @returns {Array}  new array with the sub-array elements concatted into it.\n   */\n  flatten(depth: number = 1): Array {\n    function _flatten(depth, arr) {\n      if (depth <= 0) return arr;\n\n      return arr.reduce((acc, val) => {\n        if (Array.isArray(val)) return acc.concat(_flatten(depth - 1, val));\n        else return acc.concat(val);\n      }, []);\n    }\n    return _flatten(depth, this);\n  }\n}\nexport default _Array;\nexport { _Array as Array };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/Array/src/lib/Array.js",
     "access": "public",
@@ -22,13 +22,7 @@
     "importPath": "@clarketm/super/packages/Array/src/lib/Array.js",
     "importStyle": "_Array",
     "description": "\nArray with superpowers! 💪",
-    "lineNumber": 11,
-    "unknown": [
-      {
-        "tagName": "@alias",
-        "tagValue": "Array"
-      }
-    ],
+    "lineNumber": 10,
     "interface": false,
     "extends": [
       "Array"
@@ -62,7 +56,7 @@
     "longname": "packages/Array/src/lib/Array.js~_Array#constructor",
     "access": "public",
     "description": "Construct an Array",
-    "lineNumber": 19,
+    "lineNumber": 18,
     "params": [
       {
         "nullable": null,
@@ -87,7 +81,7 @@
     "longname": "packages/Array/src/lib/Array.js~_Array#flatMap",
     "access": "public",
     "description": "Maps each element using a mapping function, then flattens the result into a new array",
-    "lineNumber": 31,
+    "lineNumber": 30,
     "unknown": [
       {
         "tagName": "@returns",
@@ -126,7 +120,7 @@
     "longname": "packages/Array/src/lib/Array.js~_Array#flatten",
     "access": "public",
     "description": "Creates a new array with all sub-array elements concatted into it recursively up to the specified depth",
-    "lineNumber": 42,
+    "lineNumber": 41,
     "unknown": [
       {
         "tagName": "@returns",
@@ -1817,7 +1811,7 @@
   },
   {
     "kind": "index",
-    "content": "# Super\n\n**Data Structures** with superpowers! 💪\n\n## Packages\n\n* [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme) – **Array** with superpowers! 💪\n* [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme) – **Object** with superpowers! 💪\n* [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme) – **Map** with superpowers! 💪\n* [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme) – **Math** with superpowers! 💪\n* [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme) – **Number** with superpowers! 💪\n* [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme) – **Set** with superpowers! 💪\n* [String](https://github.com/clarketm/super/tree/master/packages/String#readme) – **String** with superpowers! 💪\n\n## Misc.\n\n* [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme) – **Babel preset** with superpowers! 💪\n* [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme) – **ESLint config** with superpowers! 💪\n* [generator-super](https://github.com/clarketm/super/tree/master/packages/generator-super#readme) – **Yeoman generator** with superpowers! 💪\n",
+    "content": "# Super\n\n**Data Structures** with superpowers! 💪\n\n## Packages\n\n* [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)\n* [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)\n* [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)\n* [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)\n* [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)\n* [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)\n* [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)\n* [String](https://github.com/clarketm/super/tree/master/packages/String#readme)\n\n## Misc.\n\n* [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme)\n* [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme)\n* [generator-super](https://github.com/clarketm/super/tree/master/packages/generator-super#readme)\n",
     "longname": "/Users/clarketm/js/super/README.md",
     "name": "./README.md",
     "static": true,
