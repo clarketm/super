@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/babel-preset-super",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Babel preset with superpowers! 💪",
   "main": "index.js",
   "scripts": {
