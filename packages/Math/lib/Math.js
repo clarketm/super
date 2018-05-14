@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _Math=exports._Math=Object.create(Math);_Math.factorial=function(a){if(0>a)throw new Error("Factorial not defined for negative values");return 0===a?1:a*_Math.factorial(a-1)},exports.default=_Math,exports.Math=_Math;
