@@ -1,9 +1,13 @@
 {
   "name": "@clarketm/superobject",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Object with superpowers! 💪",
   "main": "./lib/Object.js",
-  "files": ["lib", "README.md", "LICENSE.md"],
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE.md"
+  ],
   "scripts": {
     "build": "shx rm -rf ./bin ./lib ; babel ./src --out-dir ./",
     "lint": "eslint --fix ./src ./test",
@@ -12,7 +16,13 @@
     "prettier": "prettier --write './{src,test}/**/*.js' './*.{js,json,css,md}'",
     "test": "mocha --require babel-core/register ./test/*"
   },
-  "keywords": ["javascript", "super", "superpowers", "Object", "polyfill"],
+  "keywords": [
+    "javascript",
+    "super",
+    "superpowers",
+    "Object",
+    "polyfill"
+  ],
   "author": {
     "name": "Travis Clarke",
     "email": "travis.m.clarke@gmail.com",
@@ -25,7 +35,7 @@
   },
   "devDependencies": {
     "@clarketm/babel-preset-super": "^1.2.1",
-    "@clarketm/eslint-config-super": "^1.2.1",
+    "@clarketm/eslint-config-super": "^1.2.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
