@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/generator-super",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Yeoman generator with superpowers! 💪",
   "homepage": "https://github.com/clarketm/super/tree/master/packages/generator-super#readme",
   "author": {
