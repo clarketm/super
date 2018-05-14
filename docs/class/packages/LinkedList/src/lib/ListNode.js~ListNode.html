@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">Queue | @clarketm/super</title>
+  <title data-ice="title">ListNode | @clarketm/super</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -57,17 +57,17 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Queue from &apos;<span><a href="file/packages/Queue/src/lib/Queue.js.html#lineNumber10">@clarketm/super/packages/Queue/src/lib/Queue.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {ListNode} from &apos;<span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber15">@clarketm/super/packages/LinkedList/src/lib/ListNode.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/packages/Queue/src/lib/Queue.js.html#lineNumber10">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber15">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">Queue</h1>
+  <h1 data-ice="name">ListNode</h1>
 
   
 
@@ -83,7 +83,7 @@
 
   
   
-  <div class="description" data-ice="description"><p>Queue with superpowers! &#x1F4AA;</p>
+  <div class="description" data-ice="description"><p>ListNode</p>
 </div>
   
 
@@ -116,14 +116,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(iterable: <span>Iterable</span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">()</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Construct a Queue</p>
-</div>
+        
       </div>
     </td>
     <td>
@@ -152,13 +151,158 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html#instance-get-size">size</a></span></span><span class="code" data-ice="signature">: <span>number</span>: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next">next</a></span></span><span class="code" data-ice="signature">: <span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html">ListNode</a></span>: <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Get the current length of the queue</p>
+        <div data-ice="description"><p>Get the next node in list</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">set</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next">next</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Set the next node in list</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-prev">prev</a></span></span><span class="code" data-ice="signature">: <span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html">ListNode</a></span>: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Get the previous node in list</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">set</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-prev">prev</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Set the next node in list</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value">value</a></span></span><span class="code" data-ice="signature">: <span><a href="typedef/index.html#static-typedef-Item">Item</a></span>: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Get the value of the node</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">set</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value">value</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Set the value of the node</p>
 </div>
       </div>
     </td>
@@ -187,7 +331,63 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html#instance-member-_queue">_queue</a></span></span><span class="code" data-ice="signature">: <span><span>undefined</span><span>[]</span></span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-member-_next">_next</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-member-_prev">_prev</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-member-_value">_value</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
         </p>
       </div>
       <div>
@@ -204,216 +404,7 @@
 </tbody>
 </table>
 </div>
-<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html#instance-method-clear">clear</a></span></span><span class="code" data-ice="signature">(): <span>void</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Clear the items from the queue</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html#instance-method-dequeue">dequeue</a></span></span><span class="code" data-ice="signature">(): <span><a href="typedef/index.html#static-typedef-Item">Item</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Dequeue an item from the queue</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html#instance-method-enqueue">enqueue</a></span></span><span class="code" data-ice="signature">(item: <span><a href="typedef/index.html#static-typedef-Item">Item</a></span>): <span>number</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Enqueue an item into the queue</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html#instance-method-front">front</a></span></span><span class="code" data-ice="signature">(): <span><a href="typedef/index.html#static-typedef-Item">Item</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Get the front item in the queue</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html#instance-method-isEmpty">isEmpty</a></span></span><span class="code" data-ice="signature">(): <span>boolean</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Check if queue is empty</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html#instance-method-rear">rear</a></span></span><span class="code" data-ice="signature">(): <span><a href="typedef/index.html#static-typedef-Item">Item</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Get the rear item in the queue</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html#instance-method-toArray">toArray</a></span></span><span class="code" data-ice="signature">(): <span>Array</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Convert the queue to an array</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
+
 
 
 
@@ -429,39 +420,22 @@
     
     
     
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(iterable: <span>Iterable</span>)</span>
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">()</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/Queue/src/lib/Queue.js.html#lineNumber18">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber16">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Construct a Queue</p>
-</div>
+  
 
   
 
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">iterable</td>
-      <td data-ice="type" class="code"><span>Iterable</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-</tbody>
-  </table>
-</div>
+  <div data-ice="properties">
 </div>
 
   
@@ -485,25 +459,25 @@
 <div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-get-size">
+  <h3 data-ice="anchor" id="instance-get-next">
     <span class="access" data-ice="access">public</span>
     
     <span class="kind" data-ice="kind">get</span>
     
     
     
-    <span class="code" data-ice="name">size</span><span class="code" data-ice="signature">: <span>number</span>: <span>*</span></span>
+    <span class="code" data-ice="name">next</span><span class="code" data-ice="signature">: <span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html">ListNode</a></span>: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/Queue/src/lib/Queue.js.html#lineNumber29">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber50">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Get the current length of the queue</p>
+  <div data-ice="description"><p>Get the next node in list</p>
 </div>
 
   
@@ -516,8 +490,8 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>number</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>length of the queue</p>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html">ListNode</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>next node</p>
 </td>
         </tr>
       </tbody>
@@ -525,6 +499,252 @@
     <div data-ice="returnProperties">
 </div>
   </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-set-next">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">set</span>
+    
+    
+    
+    <span class="code" data-ice="name">next</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber60">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Set the next node in list</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-prev">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    
+    <span class="code" data-ice="name">prev</span><span class="code" data-ice="signature">: <span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html">ListNode</a></span>: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber71">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Get the previous node in list</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html">ListNode</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>previous node</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-set-prev">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">set</span>
+    
+    
+    
+    <span class="code" data-ice="name">prev</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber81">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Set the next node in list</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-value">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    
+    <span class="code" data-ice="name">value</span><span class="code" data-ice="signature">: <span><a href="typedef/index.html#static-typedef-Item">Item</a></span>: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber29">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Get the value of the node</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="typedef/index.html#static-typedef-Item">Item</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>node value</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-set-value">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">set</span>
+    
+    
+    
+    <span class="code" data-ice="name">value</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber39">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Set the value of the node</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
 
   
 
@@ -544,18 +764,104 @@
 <h2 data-ice="title">Private Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-_queue">
+  <h3 data-ice="anchor" id="instance-member-_next">
     <span class="access" data-ice="access">private</span>
     
     
     
     
     
-    <span class="code" data-ice="name">_queue</span><span class="code" data-ice="signature">: <span><span>undefined</span><span>[]</span></span></span>
+    <span class="code" data-ice="name">_next</span><span class="code" data-ice="signature">: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/Queue/src/lib/Queue.js.html#lineNumber19">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber61">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-_prev">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_prev</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber82">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-_value">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_value</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber40">source</a></span></span>
     </span>
   </h3>
 
@@ -587,424 +893,7 @@
   
 </div>
 </div>
-<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
 
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-clear">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">clear</span><span class="code" data-ice="signature">(): <span>void</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/Queue/src/lib/Queue.js.html#lineNumber51">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Clear the items from the queue</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>void</span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-dequeue">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">dequeue</span><span class="code" data-ice="signature">(): <span><a href="typedef/index.html#static-typedef-Item">Item</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/Queue/src/lib/Queue.js.html#lineNumber74">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Dequeue an item from the queue</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="typedef/index.html#static-typedef-Item">Item</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>dequeued item</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-enqueue">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">enqueue</span><span class="code" data-ice="signature">(item: <span><a href="typedef/index.html#static-typedef-Item">Item</a></span>): <span>number</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/Queue/src/lib/Queue.js.html#lineNumber63">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Enqueue an item into the queue</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">item</td>
-      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-Item">Item</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>item to enqueue</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>number</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>length after enqueue</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-front">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">front</span><span class="code" data-ice="signature">(): <span><a href="typedef/index.html#static-typedef-Item">Item</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/Queue/src/lib/Queue.js.html#lineNumber85">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Get the front item in the queue</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="typedef/index.html#static-typedef-Item">Item</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>front item</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-isEmpty">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">isEmpty</span><span class="code" data-ice="signature">(): <span>boolean</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/Queue/src/lib/Queue.js.html#lineNumber40">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Check if queue is empty</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>boolean</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>is queue empty</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-rear">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">rear</span><span class="code" data-ice="signature">(): <span><a href="typedef/index.html#static-typedef-Item">Item</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/Queue/src/lib/Queue.js.html#lineNumber96">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Get the rear item in the queue</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="typedef/index.html#static-typedef-Item">Item</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>rear item</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-toArray">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">toArray</span><span class="code" data-ice="signature">(): <span>Array</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/Queue/src/lib/Queue.js.html#lineNumber107">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Convert the queue to an array</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>Array</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>array representation of the queue</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-</div>
 </div>
 
 <footer class="footer">

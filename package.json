@@ -84,7 +84,7 @@
     "rollup-plugin-json": "^3.0.0",
     "rollup-plugin-strip-banner": "^0.2.0",
     "shx": "^0.2.2",
-    "uglify-js": "^3.3.25",
+    "uglify-js": "2.8.11",
     "uglify-save-license": "^0.4.1"
   },
   "dependencies": {}

@@ -1,12 +1,30 @@
 {
-  "coverage": "92.45%",
-  "expectCount": 53,
-  "actualCount": 49,
+  "coverage": "85.91%",
+  "expectCount": 71,
+  "actualCount": 61,
   "files": {
     "packages/Array/src/lib/Array.js": {
       "expectCount": 4,
       "actualCount": 4,
       "undocumentLines": []
+    },
+    "packages/LinkedList/src/lib/LinkedList.js": {
+      "expectCount": 7,
+      "actualCount": 5,
+      "undocumentLines": [
+        37,
+        38
+      ]
+    },
+    "packages/LinkedList/src/lib/ListNode.js": {
+      "expectCount": 11,
+      "actualCount": 7,
+      "undocumentLines": [
+        16,
+        40,
+        61,
+        82
+      ]
     },
     "packages/Map/src/lib/Map.js": {
       "expectCount": 8,

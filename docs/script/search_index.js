@@ -18,6 +18,18 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "@clarketm/super/packages/linkedlist/src/lib/linkedlist.js~linkedlist",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html",
+    "<span>LinkedList</span> <span class=\"search-result-import-path\">@clarketm/super/packages/LinkedList/src/lib/LinkedList.js</span>",
+    "class"
+  ],
+  [
+    "@clarketm/super/packages/linkedlist/src/lib/listnode.js~listnode",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html",
+    "<span>ListNode</span> <span class=\"search-result-import-path\">@clarketm/super/packages/LinkedList/src/lib/ListNode.js</span>",
+    "class"
+  ],
+  [
     "@clarketm/super/packages/map/src/lib/map.js~primitivetype",
     "variable/index.html#static-variable-PrimitiveType",
     "<span>PrimitiveType</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Map/src/lib/Map.js</span>",
@@ -96,12 +108,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "packages/array/src/lib/array.js~callback",
-    "typedef/index.html#static-typedef-Callback",
-    "packages/Array/src/lib/Array.js~Callback",
-    "typedef"
-  ],
-  [
     "packages/array/src/lib/array.js~_array#constructor",
     "class/packages/Array/src/lib/Array.js~_Array.html#instance-constructor-constructor",
     "packages/Array/src/lib/Array.js~_Array#constructor",
@@ -118,6 +124,120 @@ window.esdocSearchIndex = [
     "class/packages/Array/src/lib/Array.js~_Array.html#instance-method-flatten",
     "packages/Array/src/lib/Array.js~_Array#flatten",
     "method"
+  ],
+  [
+    "packages/linkedlist/src/lib/linkedlist.js",
+    "file/packages/LinkedList/src/lib/LinkedList.js.html",
+    "packages/LinkedList/src/lib/LinkedList.js",
+    "file"
+  ],
+  [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#_head",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-member-_head",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#_head",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#_size",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-member-_size",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#_size",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#constructor",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-constructor-constructor",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#constructor",
+    "method"
+  ],
+  [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#head",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-get-head",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#head",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#size",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-get-size",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#size",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#toarray",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-toArray",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#toArray",
+    "method"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js",
+    "file/packages/LinkedList/src/lib/ListNode.js.html",
+    "packages/LinkedList/src/lib/ListNode.js",
+    "file"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#_next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-member-_next",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#_next",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#_prev",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-member-_prev",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#_prev",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#_value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-member-_value",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#_value",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#constructor",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-constructor-constructor",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#constructor",
+    "method"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-prev",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-prev",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/types.js",
+    "file/packages/LinkedList/src/lib/types.js.html",
+    "packages/LinkedList/src/lib/types.js",
+    "file"
   ],
   [
     "packages/map/src/lib/map.js",

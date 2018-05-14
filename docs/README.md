@@ -24,6 +24,37 @@ Creates a new array with all sub-array elements concatted into it recursively up
 | --- | --- | --- | --- |
 | depth | number |  | flatten depth |
 
+## `LinkedList`
+
+LinkedList with superpowers! 💪
+
+### `constructor(iterable: Iterable)`
+
+Construct a LinkedList
+
+### `_size: *`
+
+### `_head: *`
+
+### `toArray(): Array`
+
+Convert the node and next nodes (recursively) to an array
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+## `ListNode`
+
+ListNode
+
+### `constructor()`
+
+### `_value: *`
+
+### `_next: *`
+
+### `_prev: *`
+
 ## `_Map`
 
 Map with superpowers! 💪
