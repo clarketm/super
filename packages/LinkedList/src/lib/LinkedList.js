@@ -119,19 +119,26 @@ class LinkedList {
    *
    * @alias insert(0, value)
    *
-   * @desc Prepend a node at the end of the list
+   * @desc Prepend a node to the front of the list
    *
    * @param {Item} value - value to prepend to list
+   * @returns {number} size after insertion
    */
-  prepend(value: Item) {
+  prepend(value: Item): number {
     return this.insert(0, value);
   }
 
   /**
    * @public
-   * @alias prepend
+   *
+   * @alias insert(0, value)
+   *
+   * @desc Unshift a node to the front of the list
+   *
+   * @param {Item} value - value to unshift to list
+   * @returns {number} size after insertion
    */
-  unshift(value: Item) {
+  unshift(value: Item): number {
     return this.prepend(value);
   }
 
@@ -140,19 +147,26 @@ class LinkedList {
    *
    * @alias insert(list.size, value)
    *
-   * @desc Append a node at the end of the list
+   * @desc Append a node to the rear of the list
    *
    * @param {Item} value - value to append to list
+   * @returns {number} size after insertion
    */
-  append(value: Item) {
+  append(value: Item): number {
     return this.insert(this.size, value);
   }
 
   /**
    * @public
-   * @alias append
+   *
+   * @alias insert(list.size, value)
+   *
+   * @desc Push a node to the rear of the list
+   *
+   * @param {Item} value - value to push to list
+   * @returns {number} size after insertion
    */
-  push(value: Item) {
+  push(value: Item): number {
     return this.append(value);
   }
 

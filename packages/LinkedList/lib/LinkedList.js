@@ -263,9 +263,10 @@
        *
        * @alias insert(0, value)
        *
-       * @desc Prepend a node at the end of the list
+       * @desc Prepend a node to the front of the list
        *
        * @param {Item} value - value to prepend to list
+       * @returns {number} size after insertion
        */
 
     }, {
@@ -276,7 +277,13 @@
 
       /**
        * @public
-       * @alias prepend
+       *
+       * @alias insert(0, value)
+       *
+       * @desc Unshift a node to the front of the list
+       *
+       * @param {Item} value - value to unshift to list
+       * @returns {number} size after insertion
        */
 
     }, {
@@ -290,9 +297,10 @@
        *
        * @alias insert(list.size, value)
        *
-       * @desc Append a node at the end of the list
+       * @desc Append a node to the rear of the list
        *
        * @param {Item} value - value to append to list
+       * @returns {number} size after insertion
        */
 
     }, {
@@ -303,7 +311,13 @@
 
       /**
        * @public
-       * @alias append
+       *
+       * @alias insert(list.size, value)
+       *
+       * @desc Push a node to the rear of the list
+       *
+       * @param {Item} value - value to push to list
+       * @returns {number} size after insertion
        */
 
     }, {
