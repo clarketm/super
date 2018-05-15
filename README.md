@@ -1,6 +1,6 @@
 # Super
 
-**Data Structures** with superpowers! 💪
+**Data Structures** with superpowers! 💪implemented in **JavaScript**.
 
 ![Binary Tree](/hero.png)
 
