@@ -450,13 +450,13 @@ Construct a TrieNode
 
 ### `_children: *`
 
-### `has(char: *): boolean`
+### `has(char: character): boolean`
 
 Check if node has a specific character as a child
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| char | * | nullable: undefined |
+| char | character |  | character to check |
 
 ### `get(char: character): TrieNode`
 
@@ -464,7 +464,7 @@ Get child node with specific character value
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| char | character |  | character node to get |
+| char | character |  | character to get |
 
 ### `set(char: character, node: TrieNode)`
 
@@ -472,7 +472,7 @@ Set child node with specific character value
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| char | character |  | character node to get |
+| char | character |  | character to set |
 | node | TrieNode |  | node to assign to character |
 
 ### `delete(char: character)`
@@ -481,7 +481,7 @@ Delete child node with specific character value
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| char | character |  | character node to delete |
+| char | character |  | character to delete |
 
 # Function
 

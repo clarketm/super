@@ -89,6 +89,7 @@
        *
        * @desc Check if node has a specific character as a child
        *
+       * @param {character} char - character to check
        * @returns {boolean} node has child
        */
       value: function has(char) {
@@ -100,7 +101,7 @@
        *
        * @desc Get child node with specific character value
        *
-       * @param {character} char - character node to get
+       * @param {character} char - character to get
        * @returns {TrieNode} node with character value
        */
 
@@ -115,7 +116,7 @@
        *
        * @desc Set child node with specific character value
        *
-       * @param {character} char - character node to get
+       * @param {character} char - character to set
        * @param {TrieNode} node - node to assign to character
        */
 
@@ -130,7 +131,7 @@
        *
        * @desc Delete child node with specific character value
        *
-       * @param {character} char - character node to delete
+       * @param {character} char - character to delete
        */
 
     }, {

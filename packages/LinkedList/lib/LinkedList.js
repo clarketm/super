@@ -230,6 +230,7 @@
        * @param {Item} value - value to insert into list
        * @returns {number} size after insertion
        */
+      // TODO: insert by value
       value: function insert(position, value) {
         if (position < 0) {
           return this.insert(Math.max(0, this.size + 1 - Math.abs(position)), value);
@@ -334,6 +335,7 @@
        * @param {number} position - position to remove node
        * @returns {Item} removed item
        */
+      // TODO: remove by value
 
     }, {
       key: "remove",

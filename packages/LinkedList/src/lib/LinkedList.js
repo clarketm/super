@@ -84,6 +84,7 @@ class LinkedList {
    * @param {Item} value - value to insert into list
    * @returns {number} size after insertion
    */
+  // TODO: insert by value
   insert(position: number, value: Item): number {
     if (position < 0) {
       return this.insert(Math.max(0, this.size + 1 - Math.abs(position)), value);
@@ -178,6 +179,7 @@ class LinkedList {
    * @param {number} position - position to remove node
    * @returns {Item} removed item
    */
+  // TODO: remove by value
   remove(position: number): Item {
     if (position < 0) {
       return this.remove(Math.max(0, this.size - Math.abs(position)));

@@ -46,7 +46,7 @@ class TrieNode {
    * @returns {character} character
    */
   // INFO: char or value?
-  get char(): number {
+  get char(): character {
     return this._char;
   }
 
@@ -77,6 +77,7 @@ class TrieNode {
    *
    * @desc Check if node has a specific character as a child
    *
+   * @param {character} char - character to check
    * @returns {boolean} node has child
    */
   has(char: character): boolean {
@@ -88,7 +89,7 @@ class TrieNode {
    *
    * @desc Get child node with specific character value
    *
-   * @param {character} char - character node to get
+   * @param {character} char - character to get
    * @returns {TrieNode} node with character value
    */
   get(char: character): TrieNode {
@@ -100,7 +101,7 @@ class TrieNode {
    *
    * @desc Set child node with specific character value
    *
-   * @param {character} char - character node to get
+   * @param {character} char - character to set
    * @param {TrieNode} node - node to assign to character
    */
   set(char: character, node: TrieNode) {
@@ -112,7 +113,7 @@ class TrieNode {
    *
    * @desc Delete child node with specific character value
    *
-   * @param {character} char - character node to delete
+   * @param {character} char - character to delete
    */
   delete(char: character) {
     this._children.delete(char);
