@@ -1,5 +1,17 @@
 window.esdocSearchIndex = [
   [
+    "@clarketm/super/packages/binarytree/src/lib/binarytree.js~binarytree",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html",
+    "<span>BinaryTree</span> <span class=\"search-result-import-path\">@clarketm/super/packages/BinaryTree/src/lib/BinaryTree.js</span>",
+    "class"
+  ],
+  [
+    "@clarketm/super/packages/binarytree/src/lib/binarytreenode.js~binarytreenode",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html",
+    "<span>BinaryTreeNode</span> <span class=\"search-result-import-path\">@clarketm/super/packages/BinaryTree/src/lib/BinaryTreeNode.js</span>",
+    "class"
+  ],
+  [
     "@clarketm/super/packages/number/src/lib/number.js~integertoromannumeralmap",
     "variable/index.html#static-variable-IntegerToRomanNumeralMap",
     "<span>IntegerToRomanNumeralMap</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Number/src/lib/Number.js</span>",
@@ -39,6 +51,12 @@ window.esdocSearchIndex = [
     "@clarketm/super/packages/number/src/lib/number.js~romannumeraltointegermap",
     "variable/index.html#static-variable-RomanNumeralToIntegerMap",
     "<span>RomanNumeralToIntegerMap</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Number/src/lib/Number.js</span>",
+    "variable"
+  ],
+  [
+    "@clarketm/super/packages/binarytree/src/lib/binarytree.js~traversaltype",
+    "variable/index.html#static-variable-TraversalType",
+    "<span>TraversalType</span> <span class=\"search-result-import-path\">@clarketm/super/packages/BinaryTree/src/lib/BinaryTree.js</span>",
     "variable"
   ],
   [
@@ -124,6 +142,168 @@ window.esdocSearchIndex = [
     "class/packages/Array/src/lib/Array.js~_Array.html#instance-method-flatten",
     "packages/Array/src/lib/Array.js~_Array#flatten",
     "method"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js",
+    "file/packages/BinaryTree/src/lib/BinaryTree.js.html",
+    "packages/BinaryTree/src/lib/BinaryTree.js",
+    "file"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#_root",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-member-_root",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#_root",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#constructor",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-constructor-constructor",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#constructor",
+    "method"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#findmax",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-findMax",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#findMax",
+    "method"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#findmin",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-findMin",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#findMin",
+    "method"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#getheight",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-getHeight",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#getHeight",
+    "method"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#height",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-get-height",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#height",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#inorder",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-inOrder",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#inOrder",
+    "method"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#insert",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-insert",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#insert",
+    "method"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#levelorder",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-levelOrder",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#levelOrder",
+    "method"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#postorder",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-postOrder",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#postOrder",
+    "method"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#preorder",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-preOrder",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#preOrder",
+    "method"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#remove",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-remove",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#remove",
+    "method"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#root",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-get-root",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#root",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#search",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-search",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#search",
+    "method"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#toarray",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-toArray",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#toArray",
+    "method"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js",
+    "file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js",
+    "file"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#_left",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-member-_left",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#_left",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#_right",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-member-_right",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#_right",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#_value",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-member-_value",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#_value",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#constructor",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-constructor-constructor",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#constructor",
+    "method"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-left",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-left",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-right",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#value",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-value",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#value",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#value",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-value",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#value",
+    "member"
   ],
   [
     "packages/linkedlist/src/lib/linkedlist.js",
@@ -259,20 +439,14 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#next",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
-    "member"
-  ],
-  [
-    "packages/linkedlist/src/lib/listnode.js~listnode#next",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
-    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-prev",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
+    "packages/linkedlist/src/lib/listnode.js~listnode#next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
@@ -282,14 +456,20 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "packages/linkedlist/src/lib/listnode.js~listnode#value",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
+    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-prev",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#value",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "member"
   ],

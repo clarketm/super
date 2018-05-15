@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">packages/LinkedList/src/lib/LinkedList.js | @clarketm/super</title>
+  <title data-ice="title">packages/BinaryTree/src/lib/BinaryTree.js | @clarketm/super</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -56,271 +56,395 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">packages/LinkedList/src/lib/LinkedList.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">packages/BinaryTree/src/lib/BinaryTree.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
  * @flow
- * @module super/linkedlist
+ * @module super/binarytree
  */
 
-import { ListNode } from &quot;./ListNode&quot;;
 import type { Item } from &quot;../../../shared/src/types&quot;;
+import { BinaryTreeNode } from &quot;./BinaryTreeNode&quot;;
+import { Queue } from &quot;../../../Queue/src/lib/Queue&quot;;
+
+export const TraversalType = {
+  PRE_ORDER: &quot;pre&quot;,
+  IN_ORDER: &quot;in&quot;,
+  POST_ORDER: &quot;post&quot;,
+  LEVEL_ORDER: &quot;level&quot;
+};
+
+type Traversal = $Keys&lt;typeof TraversalType&gt;;
 
 /**
  *
- * LinkedList with superpowers! &#x1F4AA;
+ * BinaryTree with superpowers! &#x1F4AA;
  *
  * @public
  *
  */
-class LinkedList {
+class BinaryTree {
   /**
    * @public
    *
-   * @desc Construct a LinkedList
+   * @desc Construct a BinaryTree
    *
    * @param {Iterable} iterable
    */
   constructor(iterable: Iterable = []) {
-    let head = new ListNode(0);
-    let prev = null;
-    let curr = head;
-    let size = 0;
+    this._root = null;
 
     for (let item of iterable) {
-      curr.next = new ListNode(item);
-      curr = curr.next;
+      this.insert(item);
+    }
+  }
 
-      curr.prev = prev;
-      prev = curr;
+  /**
+   * @public
+   *
+   * @desc Get the root of the tree
+   *
+   * @returns {BinaryTreeNode} root node
+   */
+  get root(): BinaryTreeNode {
+    return this._root;
+  }
 
-      size++;
+  /**
+   * @public
+   *
+   * @alias getHeight(root)
+   *
+   * @desc Get the root of the tree
+   *
+   * @returns {BinaryTreeNode} root node
+   */
+  get height(): number {
+    return this.getHeight(this.root);
+  }
+
+  /**
+   * @public
+   *
+   * @desc Get the height of the tree at node
+   *
+   * @param {BinaryTreeNode} node - root node
+   * @returns {number} height of tree
+   */
+  getHeight(node: BinaryTreeNode = this.root): number {
+    /**
+     * @private
+     *
+     * @desc Height helper
+     *
+     * @param {BinaryTreeNode} node
+     * @returns {number} height of tree
+     */
+    const _height = (node: BinaryTreeNode) =&gt; {
+      if (!node) return 0;
+      return Math.max(_height(node.left), _height(node.right)) + 1;
+    };
+
+    return _height(node);
+  }
+
+  /**
+   * @public
+   *
+   * @desc Find minimum value in tree
+   *
+   * @param {BinaryTreeNode} node - root node
+   * @returns {BinaryTreeNode} node
+   */
+  findMin(node: BinaryTreeNode = this.root): BinaryTreeNode {
+    if (!node.left) return node;
+    else return this.findMin(node.left);
+  }
+
+  /**
+   * @public
+   *
+   * @desc Find maximum value in tree
+   *
+   * @param {BinaryTreeNode} node - root node
+   * @returns {BinaryTreeNode} node
+   */
+  findMax(node: BinaryTreeNode = this.root): BinaryTreeNode {
+    if (!node.right) return node;
+    else return this.findMax(node.right);
+  }
+
+  /**
+   * @public
+   *
+   * @desc Insert a value into the tree
+   *
+   * @param {Item} value - value to insert into the tree
+   */
+  insert(value: Item) {
+    let node = new BinaryTreeNode(value);
+
+    if (!this.root) {
+      this._root = node;
+      return;
     }
 
-    this._size = size;
-    this._head = head.next;
-    this._tail = curr;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Get the head of the list
-   *
-   * @returns {ListNode} head node
-   */
-  get head(): ListNode {
-    return this._head;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Get the tail of the list
-   *
-   * @returns {ListNode} tail node
-   */
-  get tail(): ListNode {
-    return this._tail;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Get the size of the list
-   *
-   * @returns {number} number of nodes in the list
-   */
-  get size(): number {
-    return this._size;
-  }
-
-  /**
-   * @public
-   *
-   * @desc Insert a node at a given position
-   *
-   * @param {number} position - position to insert node
-   * @param {Item} value - value to insert into list
-   * @returns {number} size after insertion
-   */
-  // TODO: insert by value
-  insert(position: number, value: Item): number {
-    if (position &lt; 0) {
-      return this.insert(Math.max(0, this.size + 1 - Math.abs(position)), value);
+    /**
+     * @private
+     *
+     * @desc Insert helper
+     *
+     * @param {BinaryTreeNode} root
+     */
+    function _insert(root: BinaryTreeNode) {
+      if (node.value &lt; root.value) {
+        if (root.left) {
+          return _insert(root.left, node);
+        } else {
+          root.left = node;
+        }
+      } else if (node.value &gt;= root.value) {
+        if (root.right) {
+          return _insert(root.right, node);
+        } else {
+          root.right = node;
+        }
+      }
     }
 
-    let prev = null;
-    let curr = this.head;
+    return _insert(this.root);
+  }
 
-    let p = 0;
-    while (p &lt; position &amp;&amp; curr) {
-      prev = curr;
-      curr = curr.next;
-      p++;
+  /**
+   * @public
+   *
+   * @desc Search and retrieve a value from the tree
+   *
+   * @param {Item} value - value to search
+   * @return {BinaryTreeNode} match node, or null if not found
+   */
+  search(value: Item): BinaryTreeNode {
+    if (!value) return null;
+
+    /**
+     * @private
+     *
+     * @desc Search helper
+     *
+     * @param {BinaryTreeNode} node
+     * @return {BinaryTreeNode} match node
+     */
+    function _search(node): BinaryTreeNode {
+      if (!node) return null;
+
+      if (value === node.value) {
+        return node;
+      } else if (value &lt; node.value) {
+        return _search(node.left);
+      } else if (value &gt;= node.value) {
+        return _search(node.right);
+      }
     }
 
-    let node = new ListNode(value);
-    node.prev = prev;
-    node.next = curr;
-
-    if (prev) prev.next = node;
-    else this._head = node;
-
-    if (curr) curr.prev = node;
-    else this._tail = node;
-
-    this._size++;
-
-    return this._size;
+    return _search(this.root);
   }
 
   /**
    * @public
    *
-   * @alias insert(0, value)
+   * @desc Remove a value from the tree
    *
-   * @desc Prepend a node to the front of the list
-   *
-   * @param {Item} value - value to prepend to list
-   * @returns {number} size after insertion
+   * @param {Item} value - value to remove
    */
-  prepend(value: Item): number {
-    return this.insert(0, value);
+  remove(value: Item) {
+    /**
+     * @private
+     *
+     * @desc Remove helper
+     *
+     * @param {BinaryTreeNode} node
+     * @param {Item} value
+     */
+    const _remove = (node: BinaryTreeNode, value: Item) =&gt; {
+      if (!node) return null;
+
+      if (node.value === value) {
+        if (!node.left &amp;&amp; !node.right) {
+          return null;
+        } else if (!node.left) {
+          return node.right;
+        } else if (!node.right) {
+          return node.left;
+        } else {
+          let aux = this.findMin(node.right);
+          node.value = aux.value;
+          node.right = _remove(node.right, aux.value);
+          return node;
+        }
+      } else if (value &lt; node.value) {
+        node.left = _remove(node.left, value);
+        return node;
+      } else if (value &gt;= node.value) {
+        node.right = _remove(node.right, value);
+        return node;
+      }
+    };
+
+    this._root = _remove(this.root, value);
   }
 
   /**
    * @public
    *
-   * @alias insert(0, value)
+   * @desc Traverse the tree in preOrder traversal ordering
    *
-   * @desc Unshift a node to the front of the list
-   *
-   * @param {Item} value - value to unshift to list
-   * @returns {number} size after insertion
+   * @param {BinaryTreeNode} node - root node
+   * @returns {Array&lt;BinaryTreeNode|Item&gt;} array of nodes or values
    */
-  unshift(value: Item): number {
-    return this.prepend(value);
-  }
-
-  /**
-   * @public
-   *
-   * @alias insert(list.size, value)
-   *
-   * @desc Append a node to the rear of the list
-   *
-   * @param {Item} value - value to append to list
-   * @returns {number} size after insertion
-   */
-  append(value: Item): number {
-    return this.insert(this.size, value);
-  }
-
-  /**
-   * @public
-   *
-   * @alias insert(list.size, value)
-   *
-   * @desc Push a node to the rear of the list
-   *
-   * @param {Item} value - value to push to list
-   * @returns {number} size after insertion
-   */
-  push(value: Item): number {
-    return this.append(value);
-  }
-
-  /**
-   * @public
-   *
-   * @desc Remove a node at a given position
-   *
-   * @param {number} position - position to remove node
-   * @returns {Item} removed item
-   */
-  // TODO: remove by value
-  remove(position: number): Item {
-    if (position &lt; 0) {
-      return this.remove(Math.max(0, this.size - Math.abs(position)));
+  preOrder(node: BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
+    let nodes = [];
+    /**
+     * @private
+     *
+     * @desc PreOrder helper
+     *
+     * @param {BinaryTreeNode} node
+     */
+    function _preOrder(node: BinaryTreeNode) {
+      if (node) {
+        nodes = [...nodes, node];
+        _preOrder(node.left);
+        _preOrder(node.right);
+      }
     }
 
-    let prev = null;
-    let curr = this.head;
+    _preOrder(node);
 
-    let p = 0;
-    while (p &lt; position &amp;&amp; curr) {
-      prev = curr;
-      curr = curr.next;
-      p++;
+    return nodes;
+  }
+
+  /**
+   * @public
+   *
+   * @desc Traverse the tree in inOrder traversal ordering
+   *
+   * @param {BinaryTreeNode} node - root node
+   * @returns {Array&lt;BinaryTreeNode|Item&gt;} array of nodes or values
+   */
+  inOrder(node: BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
+    let nodes = [];
+    /**
+     * @private
+     *
+     * @desc inOrder helper
+     *
+     * @param {BinaryTreeNode} node
+     */
+    function _inOrder(node: BinaryTreeNode) {
+      if (node) {
+        _inOrder(node.left);
+        nodes = [...nodes, node];
+        _inOrder(node.right);
+      }
     }
 
-    if (prev &amp;&amp; curr &amp;&amp; curr.next) {
-      prev.next = curr.next;
-      curr.next.prev = prev;
-      this._size--;
-    } else if (prev &amp;&amp; curr) {
-      prev.next = null;
-      this._tail = prev;
-      this._size--;
-    } else if (curr &amp;&amp; curr.next) {
-      curr.next.prev = null;
-      this._head = curr.next;
-      this._size--;
+    _inOrder(node);
+
+    return nodes;
+  }
+
+  /**
+   * @public
+   *
+   * @desc Traverse the tree in postOrder traversal ordering
+   *
+   * @param {BinaryTreeNode} node - root node
+   * @returns {Array&lt;BinaryTreeNode|Item&gt;} array of nodes or values
+   */
+  postOrder(node: BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
+    let nodes = [];
+    /**
+     * @private
+     *
+     * @desc PreOrder helper
+     *
+     * @param {BinaryTreeNode} node
+     */
+    function _postOrder(node: BinaryTreeNode) {
+      if (node) {
+        _postOrder(node.left);
+        _postOrder(node.right);
+        nodes = [...nodes, node];
+      }
     }
 
-    return curr;
+    _postOrder(node);
+
+    return nodes;
   }
 
   /**
    * @public
    *
-   * @alias remove(0)
+   * @desc Traverse the tree in levelOrder traversal ordering
    *
-   * @desc Shift a node from the front of list
-   *
-   * @returns {Item} shifted item
+   * @param {BinaryTreeNode} node - root node
+   * @returns {Array&lt;BinaryTreeNode|Item&gt;} array of nodes or values
    */
-  shift(): Item {
-    return this.remove(0);
+  levelOrder(node: BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
+    let nodes = [];
+
+    let q = new Queue();
+    q.enqueue(node);
+
+    while (!q.isEmpty()) {
+      let node = q.dequeue();
+      nodes.push(node);
+
+      if (node.left) {
+        q.enqueue(node.left);
+      }
+
+      if (node.right) {
+        q.enqueue(node.right);
+      }
+    }
+
+    return nodes;
   }
 
   /**
    * @public
    *
-   * @alias remove(list.size - 1)
+   * @desc Convert the tree to an array
    *
-   * @desc Pop a node from the rear of list
-   *
-   * @returns {Item} shifted item
-   */
-  pop(): Item {
-    return this.remove(this.size - 1);
-  }
-
-  // TODO:
-  // searchNodeAt (position: number)
-
-  /**
-   * @public
-   *
-   * @desc Convert the node and next nodes (recursively) to an array
-   *
+   * @param {Traversal} traversal - method of traversal
+   * @param {boolean} flatten - if false return nodes; if true return only values
    * @returns {Array} array representation of the list
    */
-  toArray(): Array {
-    let array = [];
-    let node = this.head;
+  toArray(traversal: Traversal, flatten: boolean = false): Array&lt;BinaryTreeNode | Item&gt; {
+    let nodes;
 
-    while (node !== null) {
-      array.push(node.value);
-      node = node.next;
+    switch (traversal) {
+      default:
+      case TraversalType.PRE_ORDER:
+        nodes = this.preOrder(this.root);
+        break;
+      case TraversalType.IN_ORDER:
+        nodes = this.inOrder(this.root);
+        break;
+      case TraversalType.POST_ORDER:
+        nodes = this.postOrder(this.root);
+        break;
+      case TraversalType.LEVEL_ORDER:
+        nodes = this.levelOrder(this.root);
+        break;
     }
 
-    return array;
+    return flatten ? nodes.map(v =&gt; v.value) : nodes;
   }
 }
 
-export { LinkedList };
+export { BinaryTree };
 </code></pre>
 
 </div>

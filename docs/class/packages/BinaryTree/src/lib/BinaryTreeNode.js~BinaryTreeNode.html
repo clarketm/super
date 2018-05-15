@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">QueueNode | @clarketm/super</title>
+  <title data-ice="title">BinaryTreeNode | @clarketm/super</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -57,17 +57,17 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {QueueNode} from &apos;<span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#lineNumber10">@clarketm/super/packages/PriorityQueue/src/lib/QueueNode.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {BinaryTreeNode} from &apos;<span><a href="file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html#lineNumber10">@clarketm/super/packages/BinaryTree/src/lib/BinaryTreeNode.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#lineNumber10">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html#lineNumber10">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">QueueNode</h1>
+  <h1 data-ice="name">BinaryTreeNode</h1>
 
   
 
@@ -83,7 +83,7 @@
 
   
   
-  <div class="description" data-ice="description"><p>QueueNode</p>
+  <div class="description" data-ice="description"><p>BinaryTreeNode</p>
 </div>
   
 
@@ -116,13 +116,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>, priority: <span>number</span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Construct a PriorityQueue</p>
+        <div data-ice="description"><p>Construct a BinaryTreeNode</p>
 </div>
       </div>
     </td>
@@ -152,13 +152,42 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-get-priority">priority</a></span></span><span class="code" data-ice="signature">: <span>number</span>: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-left">left</a></span></span><span class="code" data-ice="signature">: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>: <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Get the priority of the node</p>
+        <div data-ice="description"><p>Get the next node</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">set</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-left">left</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Set the left node</p>
 </div>
       </div>
     </td>
@@ -181,13 +210,100 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-get-value">value</a></span></span><span class="code" data-ice="signature">: <span>Item</span>: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right">right</a></span></span><span class="code" data-ice="signature">: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Get the previous node</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">set</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-right">right</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Set the next node</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-value">value</a></span></span><span class="code" data-ice="signature">: <span>Item</span>: <span>*</span></span>
         </p>
       </div>
       <div>
         
         
         <div data-ice="description"><p>Get the value of the node</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">set</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-value">value</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Set the value of the node</p>
 </div>
       </div>
     </td>
@@ -216,7 +332,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-member-_priority">_priority</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-member-_left">_left</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
         </p>
       </div>
       <div>
@@ -244,7 +360,35 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-member-_value">_value</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-member-_right">_right</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-member-_value">_value</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
         </p>
       </div>
       <div>
@@ -277,18 +421,18 @@
     
     
     
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(value: <span>Item</span>, priority: <span>number</span>)</span>
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(value: <span>Item</span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#lineNumber19">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html#lineNumber18">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Construct a PriorityQueue</p>
+  <div data-ice="description"><p>Construct a BinaryTreeNode</p>
 </div>
 
   
@@ -305,14 +449,7 @@
       <td data-ice="name" class="code" data-depth="0">value</td>
       <td data-ice="type" class="code"><span>Item</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>item value</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">priority</td>
-      <td data-ice="type" class="code"><span>number</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>priority of item</p>
+      <td data-ice="description"><p>node value</p>
 </td>
     </tr>
 </tbody>
@@ -341,25 +478,25 @@
 <div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-get-priority">
+  <h3 data-ice="anchor" id="instance-get-left">
     <span class="access" data-ice="access">public</span>
     
     <span class="kind" data-ice="kind">get</span>
     
     
     
-    <span class="code" data-ice="name">priority</span><span class="code" data-ice="signature">: <span>number</span>: <span>*</span></span>
+    <span class="code" data-ice="name">left</span><span class="code" data-ice="signature">: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#lineNumber42">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html#lineNumber52">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Get the priority of the node</p>
+  <div data-ice="description"><p>Get the next node</p>
 </div>
 
   
@@ -372,8 +509,8 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>number</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>priority of item</p>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>next node</p>
 </td>
         </tr>
       </tbody>
@@ -381,6 +518,151 @@
     <div data-ice="returnProperties">
 </div>
   </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-set-left">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">set</span>
+    
+    
+    
+    <span class="code" data-ice="name">left</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html#lineNumber62">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Set the left node</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-right">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    
+    <span class="code" data-ice="name">right</span><span class="code" data-ice="signature">: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html#lineNumber73">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Get the previous node</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>previous node</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-set-right">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">set</span>
+    
+    
+    
+    <span class="code" data-ice="name">right</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html#lineNumber83">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Set the next node</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
 
   
 
@@ -409,7 +691,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#lineNumber31">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html#lineNumber31">source</a></span></span>
     </span>
   </h3>
 
@@ -454,21 +736,108 @@
   
   
 </div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-set-value">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">set</span>
+    
+    
+    
+    <span class="code" data-ice="name">value</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html#lineNumber41">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Set the value of the node</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
 <h2 data-ice="title">Private Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-_priority">
+  <h3 data-ice="anchor" id="instance-member-_left">
     <span class="access" data-ice="access">private</span>
     
     
     
     
     
-    <span class="code" data-ice="name">_priority</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">_left</span><span class="code" data-ice="signature">: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#lineNumber21">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html#lineNumber20">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-_right">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_right</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html#lineNumber21">source</a></span></span>
     </span>
   </h3>
 
@@ -511,7 +880,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#lineNumber20">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html#lineNumber19">source</a></span></span>
     </span>
   </h3>
 
