@@ -2,6 +2,8 @@
 
 **Data Structures** with superpowers! 💪
 
+![Binary Tree](/hero.png)
+
 ## Data Structures
 
 * [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)
@@ -21,3 +23,7 @@
 * [babel-preset-super](https://github.com/clarketm/super/tree/master/packages/babel-preset-super#readme)
 * [eslint-config-super](https://github.com/clarketm/super/tree/master/packages/eslint-config-super#readme)
 * [generator-super](https://github.com/clarketm/super/tree/master/packages/generator-super#readme)
+
+<!-- #### External Resources -->
+
+<!-- * [Book: Data structures](https://en.wikipedia.org/wiki/Book:Data_structures) -->
