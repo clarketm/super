@@ -1,6 +1,6 @@
 # Super
 
-**Data Structures** with superpowers! 💪
+### **Data Structures** with superpowers!  💪😎
 > <sub>implemented in **JavaScript**.</sub>
 
 <br>
