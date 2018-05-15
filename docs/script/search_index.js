@@ -30,6 +30,18 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "@clarketm/super/packages/trie/src/lib/trie.js~trie",
+    "class/packages/Trie/src/lib/Trie.js~Trie.html",
+    "<span>Trie</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Trie/src/lib/Trie.js</span>",
+    "class"
+  ],
+  [
+    "@clarketm/super/packages/trie/src/lib/trienode.js~trienode",
+    "class/packages/Trie/src/lib/TrieNode.js~TrieNode.html",
+    "<span>TrieNode</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Trie/src/lib/TrieNode.js</span>",
+    "class"
+  ],
+  [
     "@clarketm/super/packages/array/src/lib/array.js~_array",
     "class/packages/Array/src/lib/Array.js~_Array.html",
     "<span>_Array</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Array/src/lib/Array.js</span>",
@@ -120,6 +132,18 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#_tail",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-member-_tail",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#_tail",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#append",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-append",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#append",
+    "method"
+  ],
+  [
     "packages/linkedlist/src/lib/linkedlist.js~linkedlist#constructor",
     "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-constructor-constructor",
     "packages/LinkedList/src/lib/LinkedList.js~LinkedList#constructor",
@@ -132,15 +156,63 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#insert",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-insert",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#insert",
+    "method"
+  ],
+  [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#pop",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-pop",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#pop",
+    "method"
+  ],
+  [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#prepend",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-prepend",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#prepend",
+    "method"
+  ],
+  [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#push",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-push",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#push",
+    "method"
+  ],
+  [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#remove",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-remove",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#remove",
+    "method"
+  ],
+  [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#shift",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-shift",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#shift",
+    "method"
+  ],
+  [
     "packages/linkedlist/src/lib/linkedlist.js~linkedlist#size",
     "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-get-size",
     "packages/LinkedList/src/lib/LinkedList.js~LinkedList#size",
     "member"
   ],
   [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#tail",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-get-tail",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#tail",
+    "member"
+  ],
+  [
     "packages/linkedlist/src/lib/linkedlist.js~linkedlist#toarray",
     "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-toArray",
     "packages/LinkedList/src/lib/LinkedList.js~LinkedList#toArray",
+    "method"
+  ],
+  [
+    "packages/linkedlist/src/lib/linkedlist.js~linkedlist#unshift",
+    "class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-unshift",
+    "packages/LinkedList/src/lib/LinkedList.js~LinkedList#unshift",
     "method"
   ],
   [
@@ -471,6 +543,144 @@ window.esdocSearchIndex = [
     "packages/string/src/lib/string.js~_string#totitlecase",
     "class/packages/String/src/lib/String.js~_String.html#instance-method-toTitleCase",
     "packages/String/src/lib/String.js~_String#toTitleCase",
+    "method"
+  ],
+  [
+    "packages/trie/src/lib/trie.js",
+    "file/packages/Trie/src/lib/Trie.js.html",
+    "packages/Trie/src/lib/Trie.js",
+    "file"
+  ],
+  [
+    "packages/trie/src/lib/trie.js~trie#_root",
+    "class/packages/Trie/src/lib/Trie.js~Trie.html#instance-member-_root",
+    "packages/Trie/src/lib/Trie.js~Trie#_root",
+    "member"
+  ],
+  [
+    "packages/trie/src/lib/trie.js~trie#constructor",
+    "class/packages/Trie/src/lib/Trie.js~Trie.html#instance-constructor-constructor",
+    "packages/Trie/src/lib/Trie.js~Trie#constructor",
+    "method"
+  ],
+  [
+    "packages/trie/src/lib/trie.js~trie#contains",
+    "class/packages/Trie/src/lib/Trie.js~Trie.html#instance-method-contains",
+    "packages/Trie/src/lib/Trie.js~Trie#contains",
+    "method"
+  ],
+  [
+    "packages/trie/src/lib/trie.js~trie#includes",
+    "class/packages/Trie/src/lib/Trie.js~Trie.html#instance-method-includes",
+    "packages/Trie/src/lib/Trie.js~Trie#includes",
+    "method"
+  ],
+  [
+    "packages/trie/src/lib/trie.js~trie#insert",
+    "class/packages/Trie/src/lib/Trie.js~Trie.html#instance-method-insert",
+    "packages/Trie/src/lib/Trie.js~Trie#insert",
+    "method"
+  ],
+  [
+    "packages/trie/src/lib/trie.js~trie#remove",
+    "class/packages/Trie/src/lib/Trie.js~Trie.html#instance-method-remove",
+    "packages/Trie/src/lib/Trie.js~Trie#remove",
+    "method"
+  ],
+  [
+    "packages/trie/src/lib/trie.js~trie#root",
+    "class/packages/Trie/src/lib/Trie.js~Trie.html#instance-get-root",
+    "packages/Trie/src/lib/Trie.js~Trie#root",
+    "member"
+  ],
+  [
+    "packages/trie/src/lib/trie.js~trie#search",
+    "class/packages/Trie/src/lib/Trie.js~Trie.html#instance-method-search",
+    "packages/Trie/src/lib/Trie.js~Trie#search",
+    "method"
+  ],
+  [
+    "packages/trie/src/lib/trie.js~trie#startswith",
+    "class/packages/Trie/src/lib/Trie.js~Trie.html#instance-method-startsWith",
+    "packages/Trie/src/lib/Trie.js~Trie#startsWith",
+    "method"
+  ],
+  [
+    "packages/trie/src/lib/trienode.js",
+    "file/packages/Trie/src/lib/TrieNode.js.html",
+    "packages/Trie/src/lib/TrieNode.js",
+    "file"
+  ],
+  [
+    "packages/trie/src/lib/trienode.js~trienode#_char",
+    "class/packages/Trie/src/lib/TrieNode.js~TrieNode.html#instance-member-_char",
+    "packages/Trie/src/lib/TrieNode.js~TrieNode#_char",
+    "member"
+  ],
+  [
+    "packages/trie/src/lib/trienode.js~trienode#_children",
+    "class/packages/Trie/src/lib/TrieNode.js~TrieNode.html#instance-member-_children",
+    "packages/Trie/src/lib/TrieNode.js~TrieNode#_children",
+    "member"
+  ],
+  [
+    "packages/trie/src/lib/trienode.js~trienode#_iscompleteword",
+    "class/packages/Trie/src/lib/TrieNode.js~TrieNode.html#instance-member-_isCompleteWord",
+    "packages/Trie/src/lib/TrieNode.js~TrieNode#_isCompleteWord",
+    "member"
+  ],
+  [
+    "packages/trie/src/lib/trienode.js~trienode#char",
+    "class/packages/Trie/src/lib/TrieNode.js~TrieNode.html#instance-get-char",
+    "packages/Trie/src/lib/TrieNode.js~TrieNode#char",
+    "member"
+  ],
+  [
+    "packages/trie/src/lib/trienode.js~trienode#constructor",
+    "class/packages/Trie/src/lib/TrieNode.js~TrieNode.html#instance-constructor-constructor",
+    "packages/Trie/src/lib/TrieNode.js~TrieNode#constructor",
+    "method"
+  ],
+  [
+    "packages/trie/src/lib/trienode.js~trienode#count",
+    "class/packages/Trie/src/lib/TrieNode.js~TrieNode.html#instance-get-count",
+    "packages/Trie/src/lib/TrieNode.js~TrieNode#count",
+    "member"
+  ],
+  [
+    "packages/trie/src/lib/trienode.js~trienode#delete",
+    "class/packages/Trie/src/lib/TrieNode.js~TrieNode.html#instance-method-delete",
+    "packages/Trie/src/lib/TrieNode.js~TrieNode#delete",
+    "method"
+  ],
+  [
+    "packages/trie/src/lib/trienode.js~trienode#get",
+    "class/packages/Trie/src/lib/TrieNode.js~TrieNode.html#instance-method-get",
+    "packages/Trie/src/lib/TrieNode.js~TrieNode#get",
+    "method"
+  ],
+  [
+    "packages/trie/src/lib/trienode.js~trienode#has",
+    "class/packages/Trie/src/lib/TrieNode.js~TrieNode.html#instance-method-has",
+    "packages/Trie/src/lib/TrieNode.js~TrieNode#has",
+    "method"
+  ],
+  [
+    "packages/trie/src/lib/trienode.js~trienode#iscompleteword",
+    "class/packages/Trie/src/lib/TrieNode.js~TrieNode.html#instance-get-isCompleteWord",
+    "packages/Trie/src/lib/TrieNode.js~TrieNode#isCompleteWord",
+    "member"
+  ],
+  [
+    "packages/trie/src/lib/trienode.js~trienode#isleafnode",
+    "class/packages/Trie/src/lib/TrieNode.js~TrieNode.html#instance-get-isLeafNode",
+    "packages/Trie/src/lib/TrieNode.js~TrieNode#isLeafNode",
+    "member"
+  ],
+  [
+    "packages/trie/src/lib/trienode.js~trienode#set",
+    "class/packages/Trie/src/lib/TrieNode.js~TrieNode.html#instance-method-set",
+    "packages/Trie/src/lib/TrieNode.js~TrieNode#set",
     "method"
   ]
 ]

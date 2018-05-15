@@ -1,7 +1,7 @@
 {
-  "coverage": "89.55%",
-  "expectCount": 67,
-  "actualCount": 60,
+  "coverage": "88%",
+  "expectCount": 100,
+  "actualCount": 88,
   "files": {
     "packages/Array/src/lib/Array.js": {
       "expectCount": 4,
@@ -9,11 +9,12 @@
       "undocumentLines": []
     },
     "packages/LinkedList/src/lib/LinkedList.js": {
-      "expectCount": 7,
-      "actualCount": 5,
+      "expectCount": 17,
+      "actualCount": 14,
       "undocumentLines": [
-        39,
-        40
+        40,
+        41,
+        42
       ]
     },
     "packages/LinkedList/src/lib/ListNode.js": {
@@ -63,6 +64,22 @@
       "expectCount": 5,
       "actualCount": 5,
       "undocumentLines": []
+    },
+    "packages/Trie/src/lib/Trie.js": {
+      "expectCount": 10,
+      "actualCount": 9,
+      "undocumentLines": [
+        25
+      ]
+    },
+    "packages/Trie/src/lib/TrieNode.js": {
+      "expectCount": 13,
+      "actualCount": 10,
+      "undocumentLines": [
+        19,
+        20,
+        21
+      ]
     }
   }
 }

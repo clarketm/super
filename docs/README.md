@@ -36,6 +36,67 @@ Construct a LinkedList
 
 ### `_head: *`
 
+### `_tail: *`
+
+### `insert(position: number, value: Item): number`
+
+Insert a node at a given position
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| position | number |  | position to insert node |
+| value | Item |  | value to insert into list |
+
+### `prepend(value: Item): *`
+
+Prepend a node at the end of the list
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| value | Item |  | value to prepend to list |
+
+### `unshift(value: *): *`
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| value | * | nullable: undefined |
+
+### `append(value: Item): *`
+
+Append a node at the end of the list
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| value | Item |  | value to append to list |
+
+### `push(value: *): *`
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| value | * | nullable: undefined |
+
+### `remove(position: number): Item`
+
+Remove a node at a given position
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| position | number |  | position to remove node |
+
+### `shift(): Item`
+
+Shift a node from the front of list
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `pop(): Item`
+
+Pop a node from the rear of list
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
 ### `toArray(): Array`
 
 Convert the node and next nodes (recursively) to an array
@@ -312,6 +373,111 @@ Convert a string to title case
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
+
+## `Trie`
+
+Trie with superpowers! 💪
+
+### `constructor(iterable: Iterable<string>)`
+
+Construct a Trie
+
+### `_root: *`
+
+### `insert(word: string)`
+
+Insert a string into the trie
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| word | string |  | string to insert |
+
+### `remove(word: string): *`
+
+Remove a string from the trie
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| word | string |  | string to remove |
+
+### `search(query: string): Match`
+
+Search for a node in the trie matching the query
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| query | string |  | string query to search for |
+
+### `includes(word: string): boolean`
+
+Check if the trie includes a word
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| word | string |  | full word to search for |
+
+### `contains(word: string): boolean`
+
+Check if the trie contains a word
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| word | string |  | full word to search for |
+
+### `startsWith(prefix: string): boolean`
+
+Check if the trie contains a prefix
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| prefix | string |  | prefix (i.e. partial word) to search for |
+
+## `TrieNode`
+
+TrieNode
+
+### `constructor(char: character)`
+
+Construct a TrieNode
+
+### `_char: *`
+
+### `_isCompleteWord: boolean`
+
+### `_children: *`
+
+### `has(char: *): boolean`
+
+Check if node has a specific character as a child
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| char | * | nullable: undefined |
+
+### `get(char: character): TrieNode`
+
+Get child node with specific character value
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| char | character |  | character node to get |
+
+### `set(char: character, node: TrieNode)`
+
+Set child node with specific character value
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| char | character |  | character node to get |
+| node | TrieNode |  | node to assign to character |
+
+### `delete(char: character)`
+
+Delete child node with specific character value
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| char | character |  | character node to delete |
 
 # Function
 
