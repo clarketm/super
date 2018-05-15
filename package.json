@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/super",
-  "version": "0.0.7-alpha",
+  "version": "0.0.8-alpha",
   "description": "Data Structures with superpowers! 💪",
   "main": "dist/super.js",
   "module": "dist/super.es.js",
@@ -48,8 +48,11 @@
     "math",
     "number",
     "object",
+    "priorityqueue",
+    "queue",
     "set",
-    "string"
+    "string",
+    "trie"
   ],
   "author": {
     "name": "Travis Clarke",

@@ -1471,7 +1471,7 @@
     return _String;
   }(_extendableBuiltin$5(String));
 
-  var version = "0.0.7-alpha";
+  var version = "0.0.8-alpha";
 
   var Super = {
     version: version,
