@@ -18,7 +18,7 @@ Insert a string into the trie
 | ---- | ------ | --------- | ---------------- |
 | word | string |           | string to insert |
 
-### `remove(word: string): *`
+### `remove(word: string)`
 
 Remove a string from the trie
 
