@@ -1,8 +1,10 @@
 # Super
 
-**Data Structures** with superpowers! 💪implemented in **JavaScript**.
+**Data Structures** with superpowers! 💪<sub>implemented in **JavaScript**.</sub>
 
-![Binary Tree](/hero.png)
+<br>
+<p align="center"><img src="/hero.png" /></div>
+<br>
 
 ## Data Structures
 
