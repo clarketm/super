@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">packages/Number/src/lib/Number.js | @clarketm/super</title>
+  <title data-ice="title">packages/PriorityQueue/src/lib/QueueNode.js | @clarketm/super</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -53,101 +53,59 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">packages/Number/src/lib/Number.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">packages/PriorityQueue/src/lib/QueueNode.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
  * @flow
- * @module super/number
+ * @module super/priorityqueue
  */
 
-const RomanNumeralToIntegerMap = new Map([
-  [&quot;M&quot;, 1000],
-  [&quot;CM&quot;, 900],
-  [&quot;D&quot;, 500],
-  [&quot;CD&quot;, 400],
-  [&quot;C&quot;, 100],
-  [&quot;XC&quot;, 90],
-  [&quot;L&quot;, 50],
-  [&quot;XL&quot;, 40],
-  [&quot;X&quot;, 10],
-  [&quot;IX&quot;, 9],
-  [&quot;V&quot;, 5],
-  [&quot;IV&quot;, 4],
-  [&quot;I&quot;, 1]
-]);
-
-const IntegerToRomanNumeralMap = new Map([
-  [1000, &quot;M&quot;],
-  [900, &quot;CM&quot;],
-  [500, &quot;D&quot;],
-  [400, &quot;CD&quot;],
-  [100, &quot;C&quot;],
-  [90, &quot;XC&quot;],
-  [50, &quot;L&quot;],
-  [40, &quot;XL&quot;],
-  [10, &quot;X&quot;],
-  [9, &quot;IX&quot;],
-  [5, &quot;V&quot;],
-  [4, &quot;IV&quot;],
-  [1, &quot;I&quot;]
-]);
+import type { Item } from &quot;../../../shared/src/types&quot;;
 
 /**
  *
- * Number with superpowers! &#x1F4AA;
+ * QueueNode
  *
  * @public
  *
  */
-class _Number extends Number {
+class QueueNode {
   /**
    * @public
    *
-   * @desc Construct a Number
+   * @desc Construct a PriorityQueue
    *
-   * @param {number} number
+   * @param {Item} value - item value
+   * @param {number} priority - priority of item
    */
-  constructor(number: Number) {
-    super(number);
+  constructor(value: Item, priority: number) {
+    this._value = value;
+    this._priority = priority;
   }
+
   /**
    * @public
    *
-   * @desc Convert a roman numeral to number
+   * @desc Get the value of the node
    *
-   * @param {string} str - Roman numeral
-   * @returns {number} Number representation of a roman numeral
+   * @returns {Item} node value
    */
-  static fromRomanNumeral(str: string): Number {
-    function _romanToInteger(num, result = 0) {
-      // TODO: reduce iterations
-      for (let [roman, int] of RomanNumeralToIntegerMap) {
-        if (num.slice(0, roman.length) === roman) {
-          return _romanToInteger(num.slice(roman.length), result + int);
-        }
-      }
-      return result;
-    }
-    return _romanToInteger(str);
+  get value(): Item {
+    return this._value;
   }
+
   /**
    * @public
    *
-   * @desc Convert a number to roman numeral
+   * @desc Get the priority of the node
    *
-   * @returns {string} Roman numeral representation of number
+   * @returns {number} priority of item
    */
-  toRomanNumeral(): String {
-    function _integerToRoman(num, result = &quot;&quot;) {
-      // TODO: reduce iterations
-      for (let [int, roman] of IntegerToRomanNumeralMap) {
-        if (num &gt;= int) return _integerToRoman(num - int, result + roman);
-      }
-      return result;
-    }
-    return _integerToRoman(this);
+  get priority(): number {
+    return this._priority;
   }
 }
-export { _Number as Number };
+
+export { QueueNode };
 </code></pre>
 
 </div>

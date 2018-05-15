@@ -1586,6 +1586,752 @@
   {
     "__docId__": 67,
     "kind": "file",
+    "name": "packages/PriorityQueue/src/lib/PriorityQueue.js",
+    "content": "/**\n * @flow\n * @module super/priorityqueue\n */\n\nimport type { Item } from \"../../../shared/src/types\";\nimport { PrimitiveType } from \"../../../shared/src/constants\";\nimport { QueueNode } from \"./QueueNode\";\nimport { isIterable } from \"../../../shared/src/helpers\";\nimport isPlainObject from \"lodash/isPlainObject\";\n\ntype PriorityQueueIterable =\n  | Map<number, Item>\n  | Array<[number, Item]>\n  | Array<[Item]>\n  | Array<{ priority: number, value: Item }>;\n\n/**\n * @typedef {Function} Comparator\n */\ntype Comparator = (a: any, b: any) => number;\n\n/**\n *\n * PriorityQueue with superpowers! 💪\n *\n * @public\n *\n */\nclass PriorityQueue {\n  /**\n   * @public\n   *\n   * @desc Construct a PriorityQueue\n   *\n   * @param {PriorityQueueIterable} iterable\n   * @param {Comparator} comparator\n   */\n  constructor(iterable: PriorityQueueIterable = new Map(), comparator: Comparator) {\n    this._queue = [];\n    this._comparator = comparator\n      ? PriorityQueue._wrapComparator(comparator)\n      : PriorityQueue._defaultComparator;\n\n    if (!(iterable instanceof Map)) {\n      if (isIterable(iterable)) {\n        if (Array.isArray(iterable[0])) {\n          iterable = new Map(iterable);\n        } else if (isPlainObject(iterable[0])) {\n          // } else if (typeof iterable[0] === PrimitiveType.OBJECT) {\n          // } else if (Object.getPrototypeOf(iterable[0]) === Object.prototype) {\n          iterable = new Map(iterable.map(({ value, priority }) => [priority, value]));\n        } else {\n          return iterable.forEach(v => this.insert(v));\n        }\n      } else {\n        throw new Error(\"Unable to construct from non-iterable\");\n      }\n    }\n\n    for (let [priority, value] of iterable.entries()) {\n      this.insert(value, priority);\n    }\n  }\n\n  static _wrapComparator(comparator: Comparator): Comparator {\n    return (a, b) => comparator(a.value, b.value);\n  }\n\n  /**\n   * @private\n   *\n   * @desc Default comparator function to sort from:\n   *       highest priority (max) -> lowest priority (min)\n   *\n   * @returns {number} size of the queue\n   */\n  static _defaultComparator(a, b) {\n    return a.priority < b.priority;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the current size of the queue\n   *\n   * @returns {number} size of the queue\n   */\n  get size(): number {\n    return this._queue.length;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if queue is empty\n   *\n   * @returns {boolean} is queue empty\n   */\n  isEmpty(): boolean {\n    return this._queue.length === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Clear the items from the queue\n   *\n   * @returns {void}\n   */\n  clear() {\n    this._queue.length = 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Enqueue an item into the queue\n   *\n   * @param {Item} value - item to insert\n   * @param {number} [priority = 0] - priority of item (higher value === higher priority)\n   * @returns {number} size after insert\n   */\n  insert(value: Item, priority: number = 0): number {\n    if (typeof priority !== PrimitiveType.NUMBER) {\n      throw new Error(`Unable to insert non-number priority: ${priority}`);\n    }\n\n    // TODO: use a heap\n    this._queue.push(new QueueNode(value, priority));\n    this._queue.sort(this._comparator);\n\n    return this.size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove and return the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  deleteMax(): Item {\n    return this._queue.shift();\n  }\n\n  /**\n   * @public\n   *\n   * @alias deleteMax\n   *\n   * @desc Remove and return the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  deleteHigh(): Item {\n    return this.deleteMax();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove and return the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  deleteMin(): Item {\n    return this._queue.pop();\n  }\n\n  /**\n   * @public\n   *\n   * @alias deleteMin\n   *\n   * @desc Remove and return the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  deleteLow(): Item {\n    return this.deleteMin();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  getMax(): Item {\n    return this._queue[0];\n  }\n\n  /**\n   * @public\n   *\n   * @alias getMax\n   *\n   * @desc Get the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  getHigh(): Item {\n    return this.getMax();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  getMin(): Item {\n    return this._queue[this._queue.length - 1];\n  }\n\n  /**\n   * @public\n   *\n   * @alias getMin\n   *\n   * @desc Get the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  getLow(): Item {\n    return this.getMin();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the queue to an array\n   *\n   * @returns {Array} array representation of the queue\n   */\n  toArray(): Array {\n    return this._queue.slice(0);\n  }\n}\n\nexport { PriorityQueue };\n",
+    "static": true,
+    "longname": "/Users/clarketm/js/super/packages/PriorityQueue/src/lib/PriorityQueue.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 68,
+    "kind": "typedef",
+    "name": "Comparator",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js",
+    "static": true,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~Comparator",
+    "access": "public",
+    "description": "",
+    "type": {
+      "types": [
+        "Function"
+      ],
+      "optional": false,
+      "name": "Comparator"
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "class",
+    "name": "PriorityQueue",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js",
+    "static": true,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "access": "public",
+    "export": true,
+    "importPath": "@clarketm/super/packages/PriorityQueue/src/lib/PriorityQueue.js",
+    "importStyle": "{PriorityQueue}",
+    "description": "\nPriorityQueue with superpowers! 💪",
+    "lineNumber": 23,
+    "interface": false
+  },
+  {
+    "__docId__": 70,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#constructor",
+    "access": "public",
+    "description": "Construct a PriorityQueue",
+    "lineNumber": 32,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "PriorityQueueIterable"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "iterable",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Comparator"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "comparator",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 71,
+    "kind": "member",
+    "name": "_queue",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#_queue",
+    "access": "private",
+    "description": null,
+    "lineNumber": 33,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "member",
+    "name": "_comparator",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#_comparator",
+    "access": "private",
+    "description": null,
+    "lineNumber": 34,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 73,
+    "kind": "method",
+    "name": "_wrapComparator",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue._wrapComparator",
+    "access": "private",
+    "description": null,
+    "lineNumber": 57,
+    "undocument": true,
+    "params": [
+      {
+        "name": "comparator",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 74,
+    "kind": "method",
+    "name": "_defaultComparator",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue._defaultComparator",
+    "access": "private",
+    "description": "Default comparator function to sort from:\n      highest priority (max) -> lowest priority (min)",
+    "lineNumber": 69,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} size of the queue"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "size of the queue"
+    },
+    "params": [
+      {
+        "name": "a",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "b",
+        "types": [
+          "*"
+        ]
+      }
+    ]
+  },
+  {
+    "__docId__": 75,
+    "kind": "get",
+    "name": "size",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#size",
+    "access": "public",
+    "description": "Get the current size of the queue",
+    "lineNumber": 80,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} size of the queue"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "size of the queue"
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 76,
+    "kind": "method",
+    "name": "isEmpty",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#isEmpty",
+    "access": "public",
+    "description": "Check if queue is empty",
+    "lineNumber": 91,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean} is queue empty"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "is queue empty"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 77,
+    "kind": "method",
+    "name": "clear",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#clear",
+    "access": "public",
+    "description": "Clear the items from the queue",
+    "lineNumber": 102,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{void}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "void"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 78,
+    "kind": "method",
+    "name": "insert",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#insert",
+    "access": "public",
+    "description": "Enqueue an item into the queue",
+    "lineNumber": 115,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} size after insert"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Item"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "item to insert"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": " 0",
+        "defaultRaw": 0,
+        "name": "priority",
+        "description": "priority of item (higher value === higher priority)"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "size after insert"
+    }
+  },
+  {
+    "__docId__": 79,
+    "kind": "method",
+    "name": "deleteMax",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteMax",
+    "access": "public",
+    "description": "Remove and return the item with the highest priority",
+    "lineNumber": 134,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} highest priority item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "highest priority item"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 80,
+    "kind": "method",
+    "name": "deleteHigh",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteHigh",
+    "access": "public",
+    "description": "Remove and return the item with the highest priority",
+    "lineNumber": 147,
+    "unknown": [
+      {
+        "tagName": "@alias",
+        "tagValue": "deleteMax"
+      },
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} highest priority item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "highest priority item"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 81,
+    "kind": "method",
+    "name": "deleteMin",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteMin",
+    "access": "public",
+    "description": "Remove and return the item with the lowest priority",
+    "lineNumber": 158,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} lowest priority item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "lowest priority item"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 82,
+    "kind": "method",
+    "name": "deleteLow",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteLow",
+    "access": "public",
+    "description": "Remove and return the item with the lowest priority",
+    "lineNumber": 171,
+    "unknown": [
+      {
+        "tagName": "@alias",
+        "tagValue": "deleteMin"
+      },
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} lowest priority item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "lowest priority item"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 83,
+    "kind": "method",
+    "name": "getMax",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getMax",
+    "access": "public",
+    "description": "Get the item with the highest priority",
+    "lineNumber": 182,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} highest priority item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "highest priority item"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 84,
+    "kind": "method",
+    "name": "getHigh",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getHigh",
+    "access": "public",
+    "description": "Get the item with the highest priority",
+    "lineNumber": 195,
+    "unknown": [
+      {
+        "tagName": "@alias",
+        "tagValue": "getMax"
+      },
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} highest priority item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "highest priority item"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "name": "getMin",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getMin",
+    "access": "public",
+    "description": "Get the item with the lowest priority",
+    "lineNumber": 206,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} lowest priority item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "lowest priority item"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 86,
+    "kind": "method",
+    "name": "getLow",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getLow",
+    "access": "public",
+    "description": "Get the item with the lowest priority",
+    "lineNumber": 219,
+    "unknown": [
+      {
+        "tagName": "@alias",
+        "tagValue": "getMin"
+      },
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} lowest priority item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "lowest priority item"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 87,
+    "kind": "method",
+    "name": "toArray",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#toArray",
+    "access": "public",
+    "description": "Convert the queue to an array",
+    "lineNumber": 230,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Array} array representation of the queue"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Array"
+      ],
+      "spread": false,
+      "description": "array representation of the queue"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 88,
+    "kind": "file",
+    "name": "packages/PriorityQueue/src/lib/QueueNode.js",
+    "content": "/**\n * @flow\n * @module super/priorityqueue\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * QueueNode\n *\n * @public\n *\n */\nclass QueueNode {\n  /**\n   * @public\n   *\n   * @desc Construct a PriorityQueue\n   *\n   * @param {Item} value - item value\n   * @param {number} priority - priority of item\n   */\n  constructor(value: Item, priority: number) {\n    this._value = value;\n    this._priority = priority;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the value of the node\n   *\n   * @returns {Item} node value\n   */\n  get value(): Item {\n    return this._value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the priority of the node\n   *\n   * @returns {number} priority of item\n   */\n  get priority(): number {\n    return this._priority;\n  }\n}\n\nexport { QueueNode };\n",
+    "static": true,
+    "longname": "/Users/clarketm/js/super/packages/PriorityQueue/src/lib/QueueNode.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 89,
+    "kind": "class",
+    "name": "QueueNode",
+    "memberof": "packages/PriorityQueue/src/lib/QueueNode.js",
+    "static": true,
+    "longname": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
+    "access": "public",
+    "export": true,
+    "importPath": "@clarketm/super/packages/PriorityQueue/src/lib/QueueNode.js",
+    "importStyle": "{QueueNode}",
+    "description": "\nQueueNode",
+    "lineNumber": 10,
+    "interface": false
+  },
+  {
+    "__docId__": 90,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode#constructor",
+    "access": "public",
+    "description": "Construct a PriorityQueue",
+    "lineNumber": 19,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Item"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "item value"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "priority",
+        "description": "priority of item"
+      }
+    ]
+  },
+  {
+    "__docId__": 91,
+    "kind": "member",
+    "name": "_value",
+    "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode#_value",
+    "access": "private",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 92,
+    "kind": "member",
+    "name": "_priority",
+    "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode#_priority",
+    "access": "private",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "get",
+    "name": "value",
+    "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode#value",
+    "access": "public",
+    "description": "Get the value of the node",
+    "lineNumber": 31,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} node value"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "node value"
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 94,
+    "kind": "get",
+    "name": "priority",
+    "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode#priority",
+    "access": "public",
+    "description": "Get the priority of the node",
+    "lineNumber": 42,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} priority of item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "priority of item"
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "file",
     "name": "packages/Queue/src/lib/Queue.js",
     "content": "/**\n * @flow\n * @module super/queue\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * Queue with superpowers! 💪\n *\n * @public\n *\n */\nclass Queue {\n  /**\n   * @public\n   *\n   * @desc Construct a Queue\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable = []) {\n    this._queue = [...iterable];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the current size of the queue\n   *\n   * @returns {number} size of the queue\n   */\n  get size(): number {\n    return this._queue.length;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if queue is empty\n   *\n   * @returns {boolean} is queue empty\n   */\n  isEmpty(): boolean {\n    return this._queue.length === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Clear the items from the queue\n   *\n   * @returns {void}\n   */\n  clear() {\n    this._queue.length = 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Enqueue an item into the queue\n   *\n   * @param {Item} item - item to enqueue\n   * @returns {number} size after enqueue\n   */\n  enqueue(item: Item): number {\n    return this._queue.push(item);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Dequeue an item from the queue\n   *\n   * @returns {Item} dequeued item\n   */\n  dequeue(): Item {\n    return this._queue.shift();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the front item in the queue\n   *\n   * @returns {Item} front item\n   */\n  front(): Item {\n    return this._queue[0];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the rear item in the queue\n   *\n   * @returns {Item} rear item\n   */\n  rear(): Item {\n    return this._queue[this._queue.length - 1];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the queue to an array\n   *\n   * @returns {Array} array representation of the queue\n   */\n  toArray(): Array {\n    return this._queue.slice(0);\n  }\n}\n\nexport { Queue };\n",
     "static": true,
@@ -1595,7 +2341,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 68,
+    "__docId__": 96,
     "kind": "class",
     "name": "Queue",
     "memberof": "packages/Queue/src/lib/Queue.js",
@@ -1610,7 +2356,7 @@
     "interface": false
   },
   {
-    "__docId__": 69,
+    "__docId__": 97,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1635,7 +2381,7 @@
     ]
   },
   {
-    "__docId__": 70,
+    "__docId__": 98,
     "kind": "member",
     "name": "_queue",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1652,7 +2398,7 @@
     }
   },
   {
-    "__docId__": 71,
+    "__docId__": 99,
     "kind": "get",
     "name": "size",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1684,7 +2430,7 @@
     }
   },
   {
-    "__docId__": 72,
+    "__docId__": 100,
     "kind": "method",
     "name": "isEmpty",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1712,7 +2458,7 @@
     "params": []
   },
   {
-    "__docId__": 73,
+    "__docId__": 101,
     "kind": "method",
     "name": "clear",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1740,7 +2486,7 @@
     "params": []
   },
   {
-    "__docId__": 74,
+    "__docId__": 102,
     "kind": "method",
     "name": "enqueue",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1779,7 +2525,7 @@
     }
   },
   {
-    "__docId__": 75,
+    "__docId__": 103,
     "kind": "method",
     "name": "dequeue",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1807,7 +2553,7 @@
     "params": []
   },
   {
-    "__docId__": 76,
+    "__docId__": 104,
     "kind": "method",
     "name": "front",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1835,7 +2581,7 @@
     "params": []
   },
   {
-    "__docId__": 77,
+    "__docId__": 105,
     "kind": "method",
     "name": "rear",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1863,7 +2609,7 @@
     "params": []
   },
   {
-    "__docId__": 78,
+    "__docId__": 106,
     "kind": "method",
     "name": "toArray",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -1891,7 +2637,7 @@
     "params": []
   },
   {
-    "__docId__": 79,
+    "__docId__": 107,
     "kind": "file",
     "name": "packages/Set/src/lib/Set.js",
     "content": "/**\n * @flow\n * @module super/set\n */\n\n/**\n * @typedef {Function} Callback\n */\ntype Callback = (value1: any, value2: any, set: Set) => boolean;\n\n/**\n *\n * Set with superpowers! 💪\n *\n * @public\n *\n */\nclass _Set extends Set {\n  /**\n   * @public\n   *\n   * @desc Construct a Set\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable) {\n    super(iterable);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Tests whether at least one element in the set passes the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for any set element; otherwise, false\n   */\n  some(callback: (value1: any, value2: any, set: Set) => boolean): boolean {\n    let result;\n\n    for (let [value1, value2] of this.entries()) {\n      result = callback(value1, value2, this);\n      if (result) return true;\n    }\n\n    return false;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Test whether all elements in the set pass the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for every set element; otherwise, false\n   */\n  every(callback: (value1: any, value2: any, set: Set) => boolean): boolean {\n    let result;\n\n    for (let [value1, value2] of this.entries()) {\n      result = callback(value1, value2, this);\n      if (!result) return false;\n    }\n\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Subset of a set\n   *\n   * @param {Set} setB - SetB\n   * @returns {boolean} setA is subset of setB\n   */\n  isSubset(setB: Set): boolean {\n    let setA = this;\n\n    for (let v of setA) {\n      if (!setB.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Superset of a set\n   *\n   * @param {Set} setB - SetB\n   * @returns {boolean} setA is superset of setB\n   */\n  isSuperset(setB: Set): boolean {\n    let setA = this;\n\n    for (let v of setB) {\n      if (!setA.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Union of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - union between setA and setB\n   */\n  union(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Intersection of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - intersection between setA and setB\n   */\n  intersection(setB: Set): Set {\n    let setA = this;\n    let setC = new Set();\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Difference of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - difference between setA and setB\n   */\n  difference(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.delete(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Symmetric difference of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - difference difference between setA and setB\n   */\n  symmetricDifference(setB: Set): Set {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.delete(v);\n      else setC.add(v);\n    }\n\n    return setC;\n  }\n}\n\nexport { _Set as Set };\n",
@@ -1902,7 +2648,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 80,
+    "__docId__": 108,
     "kind": "class",
     "name": "_Set",
     "memberof": "packages/Set/src/lib/Set.js",
@@ -1920,7 +2666,7 @@
     ]
   },
   {
-    "__docId__": 81,
+    "__docId__": 109,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -1945,7 +2691,7 @@
     ]
   },
   {
-    "__docId__": 82,
+    "__docId__": 110,
     "kind": "method",
     "name": "some",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -1984,7 +2730,7 @@
     }
   },
   {
-    "__docId__": 83,
+    "__docId__": 111,
     "kind": "method",
     "name": "every",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -2023,7 +2769,7 @@
     }
   },
   {
-    "__docId__": 84,
+    "__docId__": 112,
     "kind": "method",
     "name": "isSubset",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -2062,7 +2808,7 @@
     }
   },
   {
-    "__docId__": 85,
+    "__docId__": 113,
     "kind": "method",
     "name": "isSuperset",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -2101,7 +2847,7 @@
     }
   },
   {
-    "__docId__": 86,
+    "__docId__": 114,
     "kind": "method",
     "name": "union",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -2140,7 +2886,7 @@
     }
   },
   {
-    "__docId__": 87,
+    "__docId__": 115,
     "kind": "method",
     "name": "intersection",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -2179,7 +2925,7 @@
     }
   },
   {
-    "__docId__": 88,
+    "__docId__": 116,
     "kind": "method",
     "name": "difference",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -2218,7 +2964,7 @@
     }
   },
   {
-    "__docId__": 89,
+    "__docId__": 117,
     "kind": "method",
     "name": "symmetricDifference",
     "memberof": "packages/Set/src/lib/Set.js~_Set",
@@ -2257,7 +3003,7 @@
     }
   },
   {
-    "__docId__": 90,
+    "__docId__": 118,
     "kind": "file",
     "name": "packages/String/src/lib/String.js",
     "content": "/**\n * @flow\n * @module super/string\n */\n\n/**\n *\n * String with superpowers! 💪\n *\n * @public\n *\n */\nclass _String extends String {\n  /**\n   * @public\n   *\n   * @desc Construct a String\n   *\n   * @param {string} string\n   */\n  constructor(string: String) {\n    super(string);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Transposes the ordering of all characters in the string\n   *\n   * @returns {string} String reversed\n   */\n  reverse(): String {\n    return this.split(\"\")\n      .filter(s => s)\n      .reverse()\n      .join(\"\");\n  }\n\n  /**\n   * @public\n   *\n   * @desc Transposes the ordering of the words in the string\n   *\n   * @returns {string} String with words reversed\n   */\n  reverseWords(): String {\n    return this.split(\" \")\n      .filter(s => s)\n      .reverse()\n      .join(\" \");\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert a string to title case\n   *\n   * @returns {string} Title cased string representation\n   */\n  toTitleCase(): String {\n    return this.split(\" \")\n      .map(v => v && v.charAt(0).toUpperCase() + v.substr(1).toLowerCase())\n      .join(\" \");\n  }\n}\n\nexport { _String as String };\n",
@@ -2268,7 +3014,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 91,
+    "__docId__": 119,
     "kind": "class",
     "name": "_String",
     "memberof": "packages/String/src/lib/String.js",
@@ -2286,7 +3032,7 @@
     ]
   },
   {
-    "__docId__": 92,
+    "__docId__": 120,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -2311,7 +3057,7 @@
     ]
   },
   {
-    "__docId__": 93,
+    "__docId__": 121,
     "kind": "method",
     "name": "reverse",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -2339,7 +3085,7 @@
     "params": []
   },
   {
-    "__docId__": 94,
+    "__docId__": 122,
     "kind": "method",
     "name": "reverseWords",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -2367,7 +3113,7 @@
     "params": []
   },
   {
-    "__docId__": 95,
+    "__docId__": 123,
     "kind": "method",
     "name": "toTitleCase",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -2395,7 +3141,7 @@
     "params": []
   },
   {
-    "__docId__": 96,
+    "__docId__": 124,
     "kind": "file",
     "name": "packages/Trie/src/lib/Trie.js",
     "content": "/**\n * @flow\n * @module super/trie\n */\n\nimport { TrieNode } from \"./TrieNode\";\nimport { PrimitiveType } from \"../../../shared/src/constants\";\n\ntype Match = {\n  query: string,\n  matchedChars: number,\n  isMatch: boolean,\n  isCompleteWord: boolean,\n  node: TrieNode\n};\n\n/**\n *\n * Trie with superpowers! 💪\n *\n * @public\n *\n */\nclass Trie {\n  /**\n   * @public\n   *\n   * @desc Construct a Trie\n   *\n   * @param {Iterable<string>} iterable\n   */\n  constructor(iterable: Iterable<string> = []) {\n    this._root = new TrieNode();\n\n    for (let word of iterable) {\n      this.insert(word);\n    }\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the root of the trie\n   *\n   * @returns {TrieNode} root node\n   */\n  get root(): TrieNode {\n    return this._root;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Insert a string into the trie\n   *\n   * @param {string} word - string to insert\n   */\n  insert(word: string) {\n    if (typeof word !== PrimitiveType.STRING) {\n      throw new Error(`Unable to insert non-string value: ${word}`);\n    }\n\n    let curr = this.root;\n\n    for (const char of word) {\n      if (curr.has(char)) {\n        curr = curr.get(char);\n      } else {\n        let node = new TrieNode(char);\n        curr.set(char, node);\n        curr = node;\n      }\n    }\n\n    curr._isCompleteWord = true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove a string from the trie\n   *\n   * @param {string} word - string to remove\n   */\n  remove(word: string) {\n    if (typeof word !== PrimitiveType.STRING) {\n      throw new Error(`Unable to remove non-string value: ${word}`);\n    }\n\n    /**\n     * @public\n     *\n     * @desc Remove helper\n     *\n     * @param {TrieNode} curr - trie node\n     * @param {number} level - level in trie (0 -> height)\n     * @return {boolean} true if node is a leaf node and should be deleted; otherwise false\n     */\n    function _remove(curr: TrieNode, level: number = 0): boolean {\n      if (!curr) return false;\n\n      if (level === word.length) {\n        curr._isCompleteWord = false;\n        return curr.isLeafNode;\n      }\n\n      let char = word[level];\n\n      if (_remove(curr.get(char), level + 1)) {\n        curr.delete(char);\n        return curr.isLeafNode;\n      }\n    }\n\n    return _remove(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Search for a node in the trie matching the query\n   *\n   * @param {string} query - string query to search for\n   * @returns {Match} match object\n   */\n  search(query: string): Match {\n    let node = this.root;\n    let index = 0;\n\n    while (index < query.length) {\n      node = node.get(query[index]);\n      if (!node) break;\n      index++;\n    }\n\n    return {\n      query,\n      matchedChars: index,\n      isMatch: query.length === index,\n      isCompleteWord: query.length === index && node.isCompleteWord,\n      node\n    };\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if the trie includes a word\n   *\n   * @param {string} word - full word to search for\n   * @returns {boolean} contains the word\n   */\n  includes(word: string): boolean {\n    let { isCompleteWord } = this.search(word);\n    return isCompleteWord;\n  }\n\n  /**\n   * @public\n   *\n   * @alias includes(word)\n   *\n   * @desc Check if the trie contains a word\n   *\n   * @param {string} word - full word to search for\n   * @returns {boolean} contains the word\n   */\n  contains(word: string): boolean {\n    return this.includes(word);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if the trie contains a prefix\n   *\n   * @param {string} prefix - prefix (i.e. partial word) to search for\n   * @returns {boolean} contains the prefix\n   */\n  startsWith(prefix: string): boolean {\n    let { isMatch } = this.search(prefix);\n    return isMatch;\n  }\n}\n\nexport { Trie };\n",
@@ -2406,7 +3152,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 97,
+    "__docId__": 125,
     "kind": "class",
     "name": "Trie",
     "memberof": "packages/Trie/src/lib/Trie.js",
@@ -2421,7 +3167,7 @@
     "interface": false
   },
   {
-    "__docId__": 98,
+    "__docId__": 126,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -2446,7 +3192,7 @@
     ]
   },
   {
-    "__docId__": 99,
+    "__docId__": 127,
     "kind": "member",
     "name": "_root",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -2463,7 +3209,7 @@
     }
   },
   {
-    "__docId__": 100,
+    "__docId__": 128,
     "kind": "get",
     "name": "root",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -2495,7 +3241,7 @@
     }
   },
   {
-    "__docId__": 101,
+    "__docId__": 129,
     "kind": "method",
     "name": "insert",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -2521,7 +3267,7 @@
     "return": null
   },
   {
-    "__docId__": 102,
+    "__docId__": 130,
     "kind": "method",
     "name": "remove",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -2551,7 +3297,7 @@
     }
   },
   {
-    "__docId__": 103,
+    "__docId__": 131,
     "kind": "method",
     "name": "search",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -2590,7 +3336,7 @@
     }
   },
   {
-    "__docId__": 104,
+    "__docId__": 132,
     "kind": "method",
     "name": "includes",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -2629,7 +3375,7 @@
     }
   },
   {
-    "__docId__": 105,
+    "__docId__": 133,
     "kind": "method",
     "name": "contains",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -2672,7 +3418,7 @@
     }
   },
   {
-    "__docId__": 106,
+    "__docId__": 134,
     "kind": "method",
     "name": "startsWith",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -2711,7 +3457,7 @@
     }
   },
   {
-    "__docId__": 107,
+    "__docId__": 135,
     "kind": "file",
     "name": "packages/Trie/src/lib/TrieNode.js",
     "content": "/**\n * @flow\n * @module super/trie\n */\n\nimport type { character } from \"../../../shared/src/types\";\n\n/**\n *\n * TrieNode\n *\n * @public\n *\n */\nclass TrieNode {\n  /**\n   * @public\n   *\n   * @desc Construct a TrieNode\n   *\n   * @param {character} char - node character value\n   */\n  constructor(char: character = null) {\n    this._char = char;\n    this._isCompleteWord = false;\n    this._children = new Map();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get children count of the node\n   *\n   * @returns {number} child count\n   */\n  // INFO: count or size?\n  get count(): number {\n    return this._children.size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get character value of node\n   *\n   * @returns {character} character\n   */\n  // INFO: char or value?\n  get char(): character {\n    return this._char;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Checks if node is a complete word\n   *\n   * @returns {boolean} is complete word\n   */\n  get isCompleteWord(): boolean {\n    return this._isCompleteWord;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Checks if node is a leaf node\n   *\n   * @returns {boolean} is leaf node\n   */\n  get isLeafNode(): boolean {\n    return this.count === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if node has a specific character as a child\n   *\n   * @param {character} char - character to check\n   * @returns {boolean} node has child\n   */\n  has(char: character): boolean {\n    return this._children.has(char);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get child node with specific character value\n   *\n   * @param {character} char - character to get\n   * @returns {TrieNode} node with character value\n   */\n  get(char: character): TrieNode {\n    return this._children.get(char);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set child node with specific character value\n   *\n   * @param {character} char - character to set\n   * @param {TrieNode} node - node to assign to character\n   */\n  set(char: character, node: TrieNode) {\n    this._children.set(char, node);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Delete child node with specific character value\n   *\n   * @param {character} char - character to delete\n   */\n  delete(char: character) {\n    this._children.delete(char);\n  }\n}\n\nexport { TrieNode };\n",
@@ -2722,7 +3468,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 108,
+    "__docId__": 136,
     "kind": "class",
     "name": "TrieNode",
     "memberof": "packages/Trie/src/lib/TrieNode.js",
@@ -2737,7 +3483,7 @@
     "interface": false
   },
   {
-    "__docId__": 109,
+    "__docId__": 137,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -2762,7 +3508,7 @@
     ]
   },
   {
-    "__docId__": 110,
+    "__docId__": 138,
     "kind": "member",
     "name": "_char",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -2779,7 +3525,7 @@
     }
   },
   {
-    "__docId__": 111,
+    "__docId__": 139,
     "kind": "member",
     "name": "_isCompleteWord",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -2796,7 +3542,7 @@
     }
   },
   {
-    "__docId__": 112,
+    "__docId__": 140,
     "kind": "member",
     "name": "_children",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -2813,7 +3559,7 @@
     }
   },
   {
-    "__docId__": 113,
+    "__docId__": 141,
     "kind": "get",
     "name": "count",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -2845,7 +3591,7 @@
     }
   },
   {
-    "__docId__": 114,
+    "__docId__": 142,
     "kind": "get",
     "name": "char",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -2877,7 +3623,7 @@
     }
   },
   {
-    "__docId__": 115,
+    "__docId__": 143,
     "kind": "get",
     "name": "isCompleteWord",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -2909,7 +3655,7 @@
     }
   },
   {
-    "__docId__": 116,
+    "__docId__": 144,
     "kind": "get",
     "name": "isLeafNode",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -2941,7 +3687,7 @@
     }
   },
   {
-    "__docId__": 117,
+    "__docId__": 145,
     "kind": "method",
     "name": "has",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -2980,7 +3726,7 @@
     }
   },
   {
-    "__docId__": 118,
+    "__docId__": 146,
     "kind": "method",
     "name": "get",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -3019,7 +3765,7 @@
     }
   },
   {
-    "__docId__": 119,
+    "__docId__": 147,
     "kind": "method",
     "name": "set",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -3055,7 +3801,7 @@
     "return": null
   },
   {
-    "__docId__": 120,
+    "__docId__": 148,
     "kind": "method",
     "name": "delete",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",

@@ -217,6 +217,131 @@ Deep clone an Object
 | --- | --- | --- | --- |
 | config | Config | optional: true, default: {} | Configuration object |
 
+## `PriorityQueue`
+
+PriorityQueue with superpowers! 💪
+
+### `constructor(iterable: PriorityQueueIterable, comparator: Comparator)`
+
+Construct a PriorityQueue
+
+### `_queue: *[]`
+
+### `_comparator: *`
+
+### `_wrapComparator(comparator: *): *`
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| comparator | * | nullable: undefined |
+
+### `_defaultComparator(a: *, b: *): number`
+
+Default comparator function to sort from: highest priority (max) -> lowest priority (min)
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| a | * | nullable: undefined |
+| b | * | nullable: undefined |
+
+### `isEmpty(): boolean`
+
+Check if queue is empty
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `clear(): void`
+
+Clear the items from the queue
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `insert(value: Item, priority: number): number`
+
+Enqueue an item into the queue
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| value | Item |  | item to insert |
+| priority | number | optional: true, default: 0 | priority of item (higher value === higher priority) |
+
+### `deleteMax(): Item`
+
+Remove and return the item with the highest priority
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `deleteHigh(): Item`
+
+Remove and return the item with the highest priority
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `deleteMin(): Item`
+
+Remove and return the item with the lowest priority
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `deleteLow(): Item`
+
+Remove and return the item with the lowest priority
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `getMax(): Item`
+
+Get the item with the highest priority
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `getHigh(): Item`
+
+Get the item with the highest priority
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `getMin(): Item`
+
+Get the item with the lowest priority
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `getLow(): Item`
+
+Get the item with the lowest priority
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `toArray(): Array`
+
+Convert the queue to an array
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+## `QueueNode`
+
+QueueNode
+
+### `constructor(value: Item, priority: number)`
+
+Construct a PriorityQueue
+
+### `_value: *`
+
+### `_priority: *`
+
 ## `Queue`
 
 Queue with superpowers! 💪

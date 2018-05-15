@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">_Object | @clarketm/super</title>
+  <title data-ice="title">QueueNode | @clarketm/super</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -54,23 +54,23 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode"></code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {QueueNode} from &apos;<span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#lineNumber10">@clarketm/super/packages/PriorityQueue/src/lib/QueueNode.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/packages/Object/src/lib/Object.js.html#lineNumber20">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#lineNumber10">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">_Object</h1>
+  <h1 data-ice="name">QueueNode</h1>
 
   
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>Object</span> &#x2192; _Object</div></div>
+  
   
   
   
@@ -80,7 +80,7 @@
 
   
   
-  <div class="description" data-ice="description"><p>Object with superpowers! &#x1F4AA;</p>
+  <div class="description" data-ice="description"><p>QueueNode</p>
 </div>
   
 
@@ -113,14 +113,141 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/Object/src/lib/Object.js~_Object.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(object: <span>Object</span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>, priority: <span>number</span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Construct an Object</p>
+        <div data-ice="description"><p>Construct a PriorityQueue</p>
 </div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div data-ice="memberSummary"><h2>Member Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Members</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-get-priority">priority</a></span></span><span class="code" data-ice="signature">: <span>number</span>: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Get the priority of the node</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-get-value">value</a></span></span><span class="code" data-ice="signature">: <span>Item</span>: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Get the value of the node</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+<table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Private Members</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-member-_priority">_priority</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-member-_value">_value</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
       </div>
     </td>
     <td>
@@ -132,100 +259,6 @@
 </table>
 </div>
 
-<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/Object/src/lib/Object.js~_Object.html#instance-method-clone">clone</a></span></span><span class="code" data-ice="signature">(config: <span><a href="typedef/index.html#static-typedef-Config">Config</a></span>): <span>object</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Deep clone an Object</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/Object/src/lib/Object.js~_Object.html#instance-method-getNested">getNested</a></span></span><span class="code" data-ice="signature">(path: <span>string</span>): <span>Item</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p> Get nested JavaScript object value from string key</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/Object/src/lib/Object.js~_Object.html#instance-method-hasNested">hasNested</a></span></span><span class="code" data-ice="signature">(path: <span>string</span>): <span>boolean</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Check for nested value from string key</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
 
 
 
@@ -241,18 +274,18 @@
     
     
     
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(object: <span>Object</span>)</span>
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(value: <span>Item</span>, priority: <span>number</span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/Object/src/lib/Object.js.html#lineNumber28">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#lineNumber19">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Construct an Object</p>
+  <div data-ice="description"><p>Construct a PriorityQueue</p>
 </div>
 
   
@@ -266,75 +299,17 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">object</td>
-      <td data-ice="type" class="code"><span>Object</span></td>
+      <td data-ice="name" class="code" data-depth="0">value</td>
+      <td data-ice="type" class="code"><span>Item</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>item value</p>
+</td>
     </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-</div>
-
-<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
-
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-clone">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">clone</span><span class="code" data-ice="signature">(config: <span><a href="typedef/index.html#static-typedef-Config">Config</a></span>): <span>object</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/Object/src/lib/Object.js.html#lineNumber89">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Deep clone an Object</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">config</td>
-      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-Config">Config</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: {}</li></ul></td>
-      <td data-ice="description"><p>Configuration object</p>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">priority</td>
+      <td data-ice="type" class="code"><span>number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>priority of item</p>
 </td>
     </tr>
 </tbody>
@@ -342,13 +317,60 @@
 </div>
 </div>
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+<div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-priority">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    
+    <span class="code" data-ice="name">priority</span><span class="code" data-ice="signature">: <span>number</span>: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#lineNumber42">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Get the priority of the node</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
   <div class="return-params" data-ice="returnParams">
     <h4>Return:</h4>
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>object</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>Deep cloned Object</p>
+          <td class="return-type code" data-ice="returnType"><span>number</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>priority of item</p>
 </td>
         </tr>
       </tbody>
@@ -365,19 +387,7 @@
 
   
 
-  <div data-ice="example">
-    <h4>Example:</h4>
-    
-  <div class="example-doc" data-ice="exampleDoc">
-      
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">
-const obj = new SuperObject({ key1: [&quot;1&quot;, 1, true, (a, b) =&gt; a+b], [Symbol(&quot;key2&quot;)]: {s: &quot;s&quot;} });
-const clone = obj.clone();
-
-console.log(clone);
-// { key1: [&quot;1&quot;, 1, true, (a, b) =&gt; a+b], Symbol(&quot;key2&quot;): {s: &quot;s&quot;} }</code></pre>
-    </div>
-</div>
+  
 
   
 
@@ -385,46 +395,30 @@ console.log(clone);
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-getNested">
+  <h3 data-ice="anchor" id="instance-get-value">
     <span class="access" data-ice="access">public</span>
     
+    <span class="kind" data-ice="kind">get</span>
     
     
     
-    
-    <span class="code" data-ice="name">getNested</span><span class="code" data-ice="signature">(path: <span>string</span>): <span>Item</span></span>
+    <span class="code" data-ice="name">value</span><span class="code" data-ice="signature">: <span>Item</span>: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/Object/src/lib/Object.js.html#lineNumber60">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#lineNumber31">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p> Get nested JavaScript object value from string key</p>
+  <div data-ice="description"><p>Get the value of the node</p>
 </div>
 
   
 
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">path</td>
-      <td data-ice="type" class="code"><span>string</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-</tbody>
-  </table>
-</div>
+  <div data-ice="properties">
 </div>
 
   <div class="return-params" data-ice="returnParams">
@@ -433,7 +427,7 @@ console.log(clone);
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span>Item</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>property value</p>
+          <td class="return-desc" data-ice="returnDescription"><p>node value</p>
 </td>
         </tr>
       </tbody>
@@ -441,6 +435,51 @@ console.log(clone);
     <div data-ice="returnProperties">
 </div>
   </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<h2 data-ice="title">Private Members</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-_priority">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_priority</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#lineNumber21">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
 
   
 
@@ -458,62 +497,32 @@ console.log(clone);
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-hasNested">
-    <span class="access" data-ice="access">public</span>
+  <h3 data-ice="anchor" id="instance-member-_value">
+    <span class="access" data-ice="access">private</span>
     
     
     
     
     
-    <span class="code" data-ice="name">hasNested</span><span class="code" data-ice="signature">(path: <span>string</span>): <span>boolean</span></span>
+    <span class="code" data-ice="name">_value</span><span class="code" data-ice="signature">: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/Object/src/lib/Object.js.html#lineNumber40">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#lineNumber20">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Check for nested value from string key</p>
-</div>
+  
 
   
 
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">path</td>
-      <td data-ice="type" class="code"><span>string</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-</tbody>
-  </table>
-</div>
+  <div data-ice="properties">
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>boolean</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>property value exists</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
+  
 
   
 
@@ -531,6 +540,7 @@ console.log(clone);
   
 </div>
 </div>
+
 </div>
 
 <footer class="footer">

@@ -18,9 +18,21 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@clarketm/super/packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html",
+    "<span>PriorityQueue</span> <span class=\"search-result-import-path\">@clarketm/super/packages/PriorityQueue/src/lib/PriorityQueue.js</span>",
+    "class"
+  ],
+  [
     "@clarketm/super/packages/queue/src/lib/queue.js~queue",
     "class/packages/Queue/src/lib/Queue.js~Queue.html",
     "<span>Queue</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Queue/src/lib/Queue.js</span>",
+    "class"
+  ],
+  [
+    "@clarketm/super/packages/priorityqueue/src/lib/queuenode.js~queuenode",
+    "class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html",
+    "<span>QueueNode</span> <span class=\"search-result-import-path\">@clarketm/super/packages/PriorityQueue/src/lib/QueueNode.js</span>",
     "class"
   ],
   [
@@ -247,13 +259,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#next",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#next",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
@@ -271,13 +283,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#value",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#value",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "member"
   ],
@@ -388,6 +400,162 @@ window.esdocSearchIndex = [
     "class/packages/Object/src/lib/Object.js~_Object.html#instance-method-hasNested",
     "packages/Object/src/lib/Object.js~_Object#hasNested",
     "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js",
+    "file/packages/PriorityQueue/src/lib/PriorityQueue.js.html",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js",
+    "file"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~comparator",
+    "typedef/index.html#static-typedef-Comparator",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~Comparator",
+    "typedef"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#_comparator",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-member-_comparator",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#_comparator",
+    "member"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#_queue",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-member-_queue",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#_queue",
+    "member"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#clear",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-clear",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#clear",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#constructor",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-constructor-constructor",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#constructor",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#deletehigh",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-deleteHigh",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteHigh",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#deletelow",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-deleteLow",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteLow",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#deletemax",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-deleteMax",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteMax",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#deletemin",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-deleteMin",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteMin",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#gethigh",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-getHigh",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getHigh",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#getlow",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-getLow",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getLow",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#getmax",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-getMax",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getMax",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#getmin",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-getMin",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getMin",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#insert",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-insert",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#insert",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#isempty",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-isEmpty",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#isEmpty",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#size",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-get-size",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#size",
+    "member"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#toarray",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-toArray",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#toArray",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue._defaultcomparator",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#static-method-_defaultComparator",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue._defaultComparator",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue._wrapcomparator",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#static-method-_wrapComparator",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue._wrapComparator",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/queuenode.js",
+    "file/packages/PriorityQueue/src/lib/QueueNode.js.html",
+    "packages/PriorityQueue/src/lib/QueueNode.js",
+    "file"
+  ],
+  [
+    "packages/priorityqueue/src/lib/queuenode.js~queuenode#_priority",
+    "class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-member-_priority",
+    "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode#_priority",
+    "member"
+  ],
+  [
+    "packages/priorityqueue/src/lib/queuenode.js~queuenode#_value",
+    "class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-member-_value",
+    "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode#_value",
+    "member"
+  ],
+  [
+    "packages/priorityqueue/src/lib/queuenode.js~queuenode#constructor",
+    "class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-constructor-constructor",
+    "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode#constructor",
+    "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/queuenode.js~queuenode#priority",
+    "class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-get-priority",
+    "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode#priority",
+    "member"
+  ],
+  [
+    "packages/priorityqueue/src/lib/queuenode.js~queuenode#value",
+    "class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html#instance-get-value",
+    "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode#value",
+    "member"
   ],
   [
     "packages/queue/src/lib/queue.js",
