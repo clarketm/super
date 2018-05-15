@@ -127,9 +127,7 @@ Convert the tree to an array
 
 BinaryTreeNode
 
-### `constructor(value: Item)`
-
-Construct a BinaryTreeNode
+### `constructor()`
 
 ### `_value: *`
 

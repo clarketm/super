@@ -13,16 +13,16 @@
       "actualCount": 15,
       "undocumentLines": [
         9,
-        32
+        33
       ]
     },
     "packages/BinaryTree/src/lib/BinaryTreeNode.js": {
       "expectCount": 11,
       "actualCount": 8,
       "undocumentLines": [
-        19,
-        20,
-        21
+        23,
+        24,
+        25
       ]
     },
     "packages/LinkedList/src/lib/LinkedList.js": {
