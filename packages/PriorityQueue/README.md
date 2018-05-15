@@ -33,6 +33,8 @@ Remove and return the item with the highest priority
 
 ### `deleteHigh(): Item`
 
+> Alias to `deleteMax()`
+
 Remove and return the item with the highest priority
 
 ### `deleteMin(): Item`
@@ -40,6 +42,8 @@ Remove and return the item with the highest priority
 Remove and return the item with the lowest priority
 
 ### `deleteLow(): Item`
+
+> Alias to `deleteMin()`
 
 Remove and return the item with the lowest priority
 
@@ -49,6 +53,8 @@ Get the item with the highest priority
 
 ### `getHigh(): Item`
 
+> Alias to `getMax()`
+
 Get the item with the highest priority
 
 ### `getMin(): Item`
@@ -56,6 +62,8 @@ Get the item with the highest priority
 Get the item with the lowest priority
 
 ### `getLow(): Item`
+
+> Alias to `getMin()`
 
 Get the item with the lowest priority
 
