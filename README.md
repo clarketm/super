@@ -13,6 +13,7 @@
 * [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)
 * [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)
 * [String](https://github.com/clarketm/super/tree/master/packages/String#readme)
+* [Trie](https://github.com/clarketm/super/tree/master/packages/Trie#readme)
 
 ### Misc.
 
