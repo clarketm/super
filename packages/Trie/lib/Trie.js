@@ -329,8 +329,6 @@
           throw new Error("Unable to remove non-string value: " + word);
         }
 
-        var length = word.length;
-
         /**
          * @public
          *
@@ -345,7 +343,7 @@
 
           if (!curr) return false;
 
-          if (level === length) {
+          if (level === word.length) {
             curr._isCompleteWord = false;
             return curr.isLeafNode;
           }
@@ -359,27 +357,7 @@
         }
 
         return _remove(this.root);
-
-        // let curr = this.root;
-        // let i = 0;
-        // let last = word.length - 1;
-        //
-        // while (curr.has(word[i])) {
-        //   let node = curr.get(word[i]);
-        //
-        //   if (i === last) curr._isCompleteWord = false;
-        //
-        //   if (node.count === 0 || node.count === 1 && node.has(word[i + 1])) {
-        //     curr.delete(word[i]);
-        //     break;
-        //   }
-        //
-        //   i++;
-        // }
       }
-
-      // TODO:
-      // remove (str: string)
 
       /**
        * @public
