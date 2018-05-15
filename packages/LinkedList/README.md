@@ -14,9 +14,9 @@ Get the size of the list
 
 Get the head of the list
 
-### `toArray(): Array`
+### `tail: ListNode`
 
-Convert the node and next nodes (recursively) to an array
+Get the tail of the list
 
 ### `insert(position: number, value: Item): number`
 
@@ -27,31 +27,45 @@ Insert a node at a given position
 | position | number |           | position to insert node   |
 | value    | Item   |           | value to insert into list |
 
-### `prepend(value: Item): *`
+### `prepend(value: Item): number`
 
-Prepend a node at the end of the list
+> Alias to `insert(0, value)`
+
+Prepend a node to the front of the list
 
 | Name  | Type | Attribute | Description              |
 | ----- | ---- | --------- | ------------------------ |
 | value | Item |           | value to prepend to list |
 
-### `unshift(value: *): *`
+### `unshift(value: Item): number`
 
-| Name  | Type | Attribute           | Description |
-| ----- | ---- | ------------------- | ----------- |
-| value | \*   | nullable: undefined |
+> Alias to `insert(0, value)`
 
-### `append(value: Item): *`
+Unshift a node to the front of the list
 
-Append a node at the end of the list
+| Name  | Type | Attribute | Description              |
+| ----- | ---- | --------- | ------------------------ |
+| value | Item |           | value to unshift to list |
+
+### `append(value: Item): number`
+
+> Alias to `insert(list.size, value)`
+
+Append a node to the rear of the list
 
 | Name  | Type | Attribute | Description             |
 | ----- | ---- | --------- | ----------------------- |
 | value | Item |           | value to append to list |
 
-### `push(value: *): *`
+### `push(value: Item): number`
 
-> Alias to `append`
+> Alias to `insert(list.size, value)`
+
+Push a node to the rear of the list
+
+| Name  | Type | Attribute | Description           |
+| ----- | ---- | --------- | --------------------- |
+| value | Item |           | value to push to list |
 
 ### `remove(position: number): Item`
 
@@ -63,9 +77,13 @@ Remove a node at a given position
 
 ### `shift(): Item`
 
+> Alias to `remove(0)`
+
 Shift a node from the front of list
 
 ### `pop(): Item`
+
+> Alias to `remove(list.size - 1)`
 
 Pop a node from the rear of list
 
