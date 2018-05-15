@@ -7,6 +7,7 @@ import json from "rollup-plugin-json";
 import saveLicense from "uglify-save-license";
 import stripBanner from "rollup-plugin-strip-banner";
 import flow from "rollup-plugin-flow";
+import resolve from "rollup-plugin-node-resolve";
 
 const copyright = fs.readFileSync(path.join("resources", "COPYRIGHT"), "utf-8");
 
@@ -24,6 +25,7 @@ export default {
   },
   plugins: [
     flow({ pretty: true }),
+    resolve(),
     commonjs(),
     json(),
     stripBanner(),
