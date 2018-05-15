@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superstring",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "String with superpowers! 💪",
   "main": "./lib/String.js",
   "files": [
