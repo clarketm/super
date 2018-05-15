@@ -54,9 +54,22 @@ class TrieNode {
    * @public
    *
    * @desc Checks if node is a complete word
+   *
+   * @returns {boolean} is complete word
    */
   get isCompleteWord(): boolean {
     return this._isCompleteWord;
+  }
+
+  /**
+   * @public
+   *
+   * @desc Checks if node is a leaf node
+   *
+   * @returns {boolean} is leaf node
+   */
+  get isLeafNode(): boolean {
+    return this.count === 0;
   }
 
   /**
@@ -66,7 +79,7 @@ class TrieNode {
    *
    * @returns {boolean} node has child
    */
-  hasChild(char: character): boolean {
+  has(char: character): boolean {
     return this._children.has(char);
   }
 
@@ -78,7 +91,7 @@ class TrieNode {
    * @param {character} char - character node to get
    * @returns {TrieNode} node with character value
    */
-  getChild(char: character): TrieNode {
+  get(char: character): TrieNode {
     return this._children.get(char);
   }
 
@@ -90,8 +103,19 @@ class TrieNode {
    * @param {character} char - character node to get
    * @param {TrieNode} node - node to assign to character
    */
-  setChild(char: character, node: TrieNode) {
+  set(char: character, node: TrieNode) {
     this._children.set(char, node);
+  }
+
+  /**
+   * @public
+   *
+   * @desc Delete child node with specific character value
+   *
+   * @param {character} char - character node to delete
+   */
+  delete(char: character) {
+    this._children.delete(char);
   }
 }
 

@@ -81,7 +81,7 @@
 
 
     createClass(TrieNode, [{
-      key: "hasChild",
+      key: "has",
 
 
       /**
@@ -91,7 +91,7 @@
        *
        * @returns {boolean} node has child
        */
-      value: function hasChild(char) {
+      value: function has(char) {
         return this._children.has(char);
       }
 
@@ -105,8 +105,8 @@
        */
 
     }, {
-      key: "getChild",
-      value: function getChild(char) {
+      key: "get",
+      value: function get$$1(char) {
         return this._children.get(char);
       }
 
@@ -120,9 +120,23 @@
        */
 
     }, {
-      key: "setChild",
-      value: function setChild(char, node) {
+      key: "set",
+      value: function set$$1(char, node) {
         this._children.set(char, node);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Delete child node with specific character value
+       *
+       * @param {character} char - character node to delete
+       */
+
+    }, {
+      key: "delete",
+      value: function _delete(char) {
+        this._children.delete(char);
       }
     }, {
       key: "count",
@@ -149,12 +163,28 @@
        * @public
        *
        * @desc Checks if node is a complete word
+       *
+       * @returns {boolean} is complete word
        */
 
     }, {
       key: "isCompleteWord",
       get: function get$$1() {
         return this._isCompleteWord;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Checks if node is a leaf node
+       *
+       * @returns {boolean} is leaf node
+       */
+
+    }, {
+      key: "isLeafNode",
+      get: function get$$1() {
+        return this.count === 0;
       }
     }]);
     return TrieNode;
@@ -203,9 +233,9 @@
 
       try {
         for (var _iterator = iterable[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var str = _step.value;
+          var word = _step.value;
 
-          this.insert(str);
+          this.insert(word);
         }
       } catch (err) {
         _didIteratorError = true;
@@ -241,11 +271,11 @@
        *
        * @desc Insert a string into the trie
        *
-       * @param {string} str - string to insert
+       * @param {string} word - string to insert
        */
-      value: function insert(str) {
-        if ((typeof str === "undefined" ? "undefined" : _typeof(str)) !== PrimitiveType.STRING) {
-          throw new Error("Unable to insert non-string value: " + str);
+      value: function insert(word) {
+        if ((typeof word === "undefined" ? "undefined" : _typeof(word)) !== PrimitiveType.STRING) {
+          throw new Error("Unable to insert non-string value: " + word);
         }
 
         var curr = this.root;
@@ -255,14 +285,14 @@
         var _iteratorError2 = undefined;
 
         try {
-          for (var _iterator2 = str[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+          for (var _iterator2 = word[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
             var char = _step2.value;
 
-            if (curr.hasChild(char)) {
-              curr = curr.getChild(char);
+            if (curr.has(char)) {
+              curr = curr.get(char);
             } else {
               var node = new TrieNode(char);
-              curr.setChild(char, node);
+              curr.set(char, node);
               curr = node;
             }
           }
@@ -284,6 +314,70 @@
         curr._isCompleteWord = true;
       }
 
+      /**
+       * @public
+       *
+       * @desc Remove a string from the trie
+       *
+       * @param {string} word - string to remove
+       */
+
+    }, {
+      key: "remove",
+      value: function remove(word) {
+        if ((typeof word === "undefined" ? "undefined" : _typeof(word)) !== PrimitiveType.STRING) {
+          throw new Error("Unable to remove non-string value: " + word);
+        }
+
+        var length = word.length;
+
+        /**
+         * @public
+         *
+         * @desc Remove helper
+         *
+         * @param {TrieNode} curr - trie node
+         * @param {number} level - level in trie (0 -> height)
+         * @return {boolean} true if node is a leaf node and should be deleted; otherwise false
+         */
+        function _remove(curr) {
+          var level = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+          if (!curr) return false;
+
+          if (level === length) {
+            curr._isCompleteWord = false;
+            return curr.isLeafNode;
+          }
+
+          var char = word[level];
+
+          if (_remove(curr.get(char), level + 1)) {
+            curr.delete(char);
+            return curr.isLeafNode;
+          }
+        }
+
+        return _remove(this.root);
+
+        // let curr = this.root;
+        // let i = 0;
+        // let last = word.length - 1;
+        //
+        // while (curr.has(word[i])) {
+        //   let node = curr.get(word[i]);
+        //
+        //   if (i === last) curr._isCompleteWord = false;
+        //
+        //   if (node.count === 0 || node.count === 1 && node.has(word[i + 1])) {
+        //     curr.delete(word[i]);
+        //     break;
+        //   }
+        //
+        //   i++;
+        // }
+      }
+
       // TODO:
       // remove (str: string)
 
@@ -303,7 +397,7 @@
         var index = 0;
 
         while (index < query.length) {
-          node = node.getChild(query[index]);
+          node = node.get(query[index]);
           if (!node) break;
           index++;
         }
