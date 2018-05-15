@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
 import flow from "rollup-plugin-flow";
+import resolve from "rollup-plugin-node-resolve";
+import commonjs from "rollup-plugin-commonjs";
 import babel from "rollup-plugin-babel";
 import { minify } from "uglify-js";
 import saveLicense from "uglify-save-license";
@@ -21,6 +23,8 @@ export default {
   },
   plugins: [
     flow({ pretty: true }),
+    resolve(),
+    commonjs(),
     babel({
       presets: [["env", { modules: false }], "@clarketm/babel-preset-super"],
       plugins: ["external-helpers"],
