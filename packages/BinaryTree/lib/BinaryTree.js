@@ -58,6 +58,12 @@
    *
    */
   var BinaryTreeNode = function () {
+    /** @private */
+
+    /** @private */
+
+    /** @private */
+
     /**
      * @public
      *
@@ -102,9 +108,9 @@
       /**
        * @public
        *
-       * @desc Get the next node
+       * @desc Get the left child node
        *
-       * @returns {BinaryTreeNode} next node
+       * @returns {BinaryTreeNode} left child node
        */
 
     }, {
@@ -116,7 +122,7 @@
       /**
        * @public
        *
-       * @desc Set the left node
+       * @desc Set the left child node
        *
        */
       ,
@@ -127,9 +133,9 @@
       /**
        * @public
        *
-       * @desc Get the previous node
+       * @desc Get the right child node
        *
-       * @returns {BinaryTreeNode} previous node
+       * @returns {BinaryTreeNode} right child node
        */
 
     }, {
@@ -141,7 +147,7 @@
       /**
        * @public
        *
-       * @desc Set the next node
+       * @desc Set the right child node
        *
        */
       ,
@@ -317,6 +323,8 @@
    */
 
   var BinaryTree = function () {
+    /** @private */
+
     /**
      * @public
      *
@@ -471,7 +479,7 @@
           }
         }
 
-        return _insert(this.root);
+        _insert(this.root);
       }
 
       /**
@@ -566,7 +574,7 @@
        * @desc Traverse the tree in preOrder traversal ordering
        *
        * @param {BinaryTreeNode} node - root node
-       * @returns {Array<BinaryTreeNode|Item>} array of nodes or values
+       * @returns {Array<BinaryTreeNode>} array of nodes or values
        */
 
     }, {
@@ -601,7 +609,7 @@
        * @desc Traverse the tree in inOrder traversal ordering
        *
        * @param {BinaryTreeNode} node - root node
-       * @returns {Array<BinaryTreeNode|Item>} array of nodes or values
+       * @returns {Array<BinaryTreeNode>} array of nodes or values
        */
 
     }, {
@@ -636,7 +644,7 @@
        * @desc Traverse the tree in postOrder traversal ordering
        *
        * @param {BinaryTreeNode} node - root node
-       * @returns {Array<BinaryTreeNode|Item>} array of nodes or values
+       * @returns {Array<BinaryTreeNode>} array of nodes or values
        */
 
     }, {
@@ -671,7 +679,7 @@
        * @desc Traverse the tree in levelOrder traversal ordering
        *
        * @param {BinaryTreeNode} node - root node
-       * @returns {Array<BinaryTreeNode|Item>} array of nodes or values
+       * @returns {Array<BinaryTreeNode>} array of nodes or values
        */
 
     }, {
@@ -707,7 +715,7 @@
        *
        * @param {Traversal} traversal - method of traversal
        * @param {boolean} flatten - if false return nodes; if true return only values
-       * @returns {Array} array representation of the list
+       * @returns {Array<BinaryTreeNode | Item> } array representation of the list
        */
 
     }, {
@@ -748,7 +756,7 @@
        *
        * @alias getHeight(root)
        *
-       * @desc Get the root of the tree
+       * @desc Get the height of the tree
        *
        * @returns {BinaryTreeNode} root node
        */

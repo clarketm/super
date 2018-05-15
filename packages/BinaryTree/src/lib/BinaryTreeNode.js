@@ -13,6 +13,15 @@ import type { Item } from "../../../shared/src/types";
  *
  */
 class BinaryTreeNode {
+  /** @private */
+  _value: Item;
+
+  /** @private */
+  _left: ?BinaryTreeNode;
+
+  /** @private */
+  _right: ?BinaryTreeNode;
+
   /**
    * @public
    *
@@ -50,18 +59,18 @@ class BinaryTreeNode {
   /**
    * @public
    *
-   * @desc Get the next node
+   * @desc Get the left child node
    *
-   * @returns {BinaryTreeNode} next node
+   * @returns {BinaryTreeNode} left child node
    */
-  get left(): BinaryTreeNode {
+  get left(): ?BinaryTreeNode {
     return this._left;
   }
 
   /**
    * @public
    *
-   * @desc Set the left node
+   * @desc Set the left child node
    *
    */
   set left(left: BinaryTreeNode) {
@@ -71,18 +80,18 @@ class BinaryTreeNode {
   /**
    * @public
    *
-   * @desc Get the previous node
+   * @desc Get the right child node
    *
-   * @returns {BinaryTreeNode} previous node
+   * @returns {BinaryTreeNode} right child node
    */
-  get right(): BinaryTreeNode {
+  get right(): ?BinaryTreeNode {
     return this._right;
   }
 
   /**
    * @public
    *
-   * @desc Set the next node
+   * @desc Set the right child node
    *
    */
   set right(right: BinaryTreeNode) {
