@@ -363,7 +363,7 @@ class BinaryTree {
    * @param {BinaryTreeNode} node - root node
    * @returns {Array&lt;BinaryTreeNode&gt;} array of nodes or values
    */
-  postOrder(node: BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
+  postOrder(node: ?BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
     let nodes = [];
     /**
      * @private
@@ -372,7 +372,7 @@ class BinaryTree {
      *
      * @param {BinaryTreeNode} node
      */
-    function _postOrder(node: BinaryTreeNode) {
+    function _postOrder(node: ?BinaryTreeNode) {
       if (node) {
         _postOrder(node.left);
         _postOrder(node.right);
@@ -393,7 +393,7 @@ class BinaryTree {
    * @param {BinaryTreeNode} node - root node
    * @returns {Array&lt;BinaryTreeNode&gt;} array of nodes or values
    */
-  levelOrder(node: BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
+  levelOrder(node: ?BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
     let nodes = [];
 
     let q = new Queue();
