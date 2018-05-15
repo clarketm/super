@@ -12,3 +12,8 @@ export type Item =
   | Array
   | Date
   | Object;
+
+/**
+ * @typedef {string} character
+ */
+export type character = string;
