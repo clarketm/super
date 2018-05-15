@@ -135,7 +135,7 @@
     "__docId__": 5,
     "kind": "file",
     "name": "packages/LinkedList/src/lib/LinkedList.js",
-    "content": "/**\n * @flow\n * @module super/linkedlist\n */\n\nimport { ListNode } from \"./ListNode\";\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * LinkedList with superpowers! 💪\n *\n * @public\n *\n */\nclass LinkedList {\n  /**\n   * @public\n   *\n   * @desc Construct a LinkedList\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable = []) {\n    let head = new ListNode(0);\n    let prev = null;\n    let curr = head;\n    let size = 0;\n\n    for (let item of iterable) {\n      curr.next = new ListNode(item);\n      curr = curr.next;\n\n      curr.prev = prev;\n      prev = curr;\n\n      size++;\n    }\n\n    this._size = size;\n    this._head = head.next;\n    this._tail = curr;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the head of the list\n   *\n   * @returns {ListNode} head node\n   */\n  get head(): ListNode {\n    return this._head;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the tail of the list\n   *\n   * @returns {ListNode} tail node\n   */\n  get tail(): ListNode {\n    return this._tail;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the size of the list\n   *\n   * @returns {number} number of nodes in the list\n   */\n  get size(): number {\n    return this._size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Insert a node at a given position\n   *\n   * @param {number} position - position to insert node\n   * @param {Item} value - value to insert into list\n   * @returns {number} size after insertion\n   */\n  insert(position: number, value: Item): number {\n    if (position < 0) {\n      return this.insert(Math.max(0, this.size + 1 - Math.abs(position)), value);\n    }\n\n    let prev = null;\n    let curr = this.head;\n\n    let p = 0;\n    while (p < position && curr) {\n      prev = curr;\n      curr = curr.next;\n      p++;\n    }\n\n    let node = new ListNode(value);\n    node.prev = prev;\n    node.next = curr;\n\n    if (prev) prev.next = node;\n    else this._head = node;\n\n    if (curr) curr.prev = node;\n    else this._tail = node;\n\n    this._size++;\n\n    return this._size;\n  }\n\n  /**\n   * @public\n   *\n   * @alias insert(0, value)\n   *\n   * @desc Prepend a node at the end of the list\n   *\n   * @param {Item} value - value to prepend to list\n   */\n  prepend(value: Item) {\n    return this.insert(0, value);\n  }\n\n  /**\n   * @public\n   * @alias prepend\n   */\n  unshift(value: Item) {\n    return this.prepend(value);\n  }\n\n  /**\n   * @public\n   *\n   * @alias insert(list.size, value)\n   *\n   * @desc Append a node at the end of the list\n   *\n   * @param {Item} value - value to append to list\n   */\n  append(value: Item) {\n    return this.insert(this.size, value);\n  }\n\n  /**\n   * @public\n   * @alias append\n   */\n  push(value: Item) {\n    return this.append(value);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove a node at a given position\n   *\n   * @param {number} position - position to remove node\n   * @returns {Item} removed item\n   */\n  remove(position: number): Item {\n    if (position < 0) {\n      return this.remove(Math.max(0, this.size - Math.abs(position)));\n    }\n\n    let prev = null;\n    let curr = this.head;\n\n    let p = 0;\n    while (p < position && curr) {\n      prev = curr;\n      curr = curr.next;\n      p++;\n    }\n\n    if (prev && curr && curr.next) {\n      prev.next = curr.next;\n      curr.next.prev = prev;\n      this._size--;\n    } else if (prev && curr) {\n      prev.next = null;\n      this._tail = prev;\n      this._size--;\n    } else if (curr && curr.next) {\n      curr.next.prev = null;\n      this._head = curr.next;\n      this._size--;\n    }\n\n    return curr;\n  }\n\n  /**\n   * @public\n   *\n   * @alias remove(0)\n   *\n   * @desc Shift a node from the front of list\n   *\n   * @returns {Item} shifted item\n   */\n  shift(): Item {\n    return this.remove(0);\n  }\n\n  /**\n   * @public\n   *\n   * @alias remove(list.size - 1)\n   *\n   * @desc Pop a node from the rear of list\n   *\n   * @returns {Item} shifted item\n   */\n  pop(): Item {\n    return this.remove(this.size - 1);\n  }\n\n  // TODO:\n  // searchNodeAt (position: number)\n\n  /**\n   * @public\n   *\n   * @desc Convert the node and next nodes (recursively) to an array\n   *\n   * @returns {Array} array representation of the list\n   */\n  toArray(): Array {\n    let array = [];\n    let node = this.head;\n\n    while (node !== null) {\n      array.push(node.value);\n      node = node.next;\n    }\n\n    return array;\n  }\n}\n\nexport { LinkedList };\n",
+    "content": "/**\n * @flow\n * @module super/linkedlist\n */\n\nimport { ListNode } from \"./ListNode\";\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * LinkedList with superpowers! 💪\n *\n * @public\n *\n */\nclass LinkedList {\n  /**\n   * @public\n   *\n   * @desc Construct a LinkedList\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable = []) {\n    let head = new ListNode(0);\n    let prev = null;\n    let curr = head;\n    let size = 0;\n\n    for (let item of iterable) {\n      curr.next = new ListNode(item);\n      curr = curr.next;\n\n      curr.prev = prev;\n      prev = curr;\n\n      size++;\n    }\n\n    this._size = size;\n    this._head = head.next;\n    this._tail = curr;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the head of the list\n   *\n   * @returns {ListNode} head node\n   */\n  get head(): ListNode {\n    return this._head;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the tail of the list\n   *\n   * @returns {ListNode} tail node\n   */\n  get tail(): ListNode {\n    return this._tail;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the size of the list\n   *\n   * @returns {number} number of nodes in the list\n   */\n  get size(): number {\n    return this._size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Insert a node at a given position\n   *\n   * @param {number} position - position to insert node\n   * @param {Item} value - value to insert into list\n   * @returns {number} size after insertion\n   */\n  insert(position: number, value: Item): number {\n    if (position < 0) {\n      return this.insert(Math.max(0, this.size + 1 - Math.abs(position)), value);\n    }\n\n    let prev = null;\n    let curr = this.head;\n\n    let p = 0;\n    while (p < position && curr) {\n      prev = curr;\n      curr = curr.next;\n      p++;\n    }\n\n    let node = new ListNode(value);\n    node.prev = prev;\n    node.next = curr;\n\n    if (prev) prev.next = node;\n    else this._head = node;\n\n    if (curr) curr.prev = node;\n    else this._tail = node;\n\n    this._size++;\n\n    return this._size;\n  }\n\n  /**\n   * @public\n   *\n   * @alias insert(0, value)\n   *\n   * @desc Prepend a node to the front of the list\n   *\n   * @param {Item} value - value to prepend to list\n   * @returns {number} size after insertion\n   */\n  prepend(value: Item): number {\n    return this.insert(0, value);\n  }\n\n  /**\n   * @public\n   *\n   * @alias insert(0, value)\n   *\n   * @desc Unshift a node to the front of the list\n   *\n   * @param {Item} value - value to unshift to list\n   * @returns {number} size after insertion\n   */\n  unshift(value: Item): number {\n    return this.prepend(value);\n  }\n\n  /**\n   * @public\n   *\n   * @alias insert(list.size, value)\n   *\n   * @desc Append a node to the rear of the list\n   *\n   * @param {Item} value - value to append to list\n   * @returns {number} size after insertion\n   */\n  append(value: Item): number {\n    return this.insert(this.size, value);\n  }\n\n  /**\n   * @public\n   *\n   * @alias insert(list.size, value)\n   *\n   * @desc Push a node to the rear of the list\n   *\n   * @param {Item} value - value to push to list\n   * @returns {number} size after insertion\n   */\n  push(value: Item): number {\n    return this.append(value);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove a node at a given position\n   *\n   * @param {number} position - position to remove node\n   * @returns {Item} removed item\n   */\n  remove(position: number): Item {\n    if (position < 0) {\n      return this.remove(Math.max(0, this.size - Math.abs(position)));\n    }\n\n    let prev = null;\n    let curr = this.head;\n\n    let p = 0;\n    while (p < position && curr) {\n      prev = curr;\n      curr = curr.next;\n      p++;\n    }\n\n    if (prev && curr && curr.next) {\n      prev.next = curr.next;\n      curr.next.prev = prev;\n      this._size--;\n    } else if (prev && curr) {\n      prev.next = null;\n      this._tail = prev;\n      this._size--;\n    } else if (curr && curr.next) {\n      curr.next.prev = null;\n      this._head = curr.next;\n      this._size--;\n    }\n\n    return curr;\n  }\n\n  /**\n   * @public\n   *\n   * @alias remove(0)\n   *\n   * @desc Shift a node from the front of list\n   *\n   * @returns {Item} shifted item\n   */\n  shift(): Item {\n    return this.remove(0);\n  }\n\n  /**\n   * @public\n   *\n   * @alias remove(list.size - 1)\n   *\n   * @desc Pop a node from the rear of list\n   *\n   * @returns {Item} shifted item\n   */\n  pop(): Item {\n    return this.remove(this.size - 1);\n  }\n\n  // TODO:\n  // searchNodeAt (position: number)\n\n  /**\n   * @public\n   *\n   * @desc Convert the node and next nodes (recursively) to an array\n   *\n   * @returns {Array} array representation of the list\n   */\n  toArray(): Array {\n    let array = [];\n    let node = this.head;\n\n    while (node !== null) {\n      array.push(node.value);\n      node = node.next;\n    }\n\n    return array;\n  }\n}\n\nexport { LinkedList };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/LinkedList/src/lib/LinkedList.js",
     "access": "public",
@@ -388,12 +388,16 @@
     "static": false,
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#prepend",
     "access": "public",
-    "description": "Prepend a node at the end of the list",
-    "lineNumber": 124,
+    "description": "Prepend a node to the front of the list",
+    "lineNumber": 125,
     "unknown": [
       {
         "tagName": "@alias",
         "tagValue": "insert(0, value)"
+      },
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} size after insertion"
       }
     ],
     "params": [
@@ -409,9 +413,12 @@
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "number"
+      ],
+      "spread": false,
+      "description": "size after insertion"
     }
   },
   {
@@ -424,26 +431,37 @@
     "static": false,
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#unshift",
     "access": "public",
-    "description": "",
-    "lineNumber": 132,
+    "description": "Unshift a node to the front of the list",
+    "lineNumber": 139,
     "unknown": [
       {
         "tagName": "@alias",
-        "tagValue": "prepend"
+        "tagValue": "insert(0, value)"
+      },
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} size after insertion"
       }
     ],
     "params": [
       {
-        "name": "value",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Item"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "value to unshift to list"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "number"
+      ],
+      "spread": false,
+      "description": "size after insertion"
     }
   },
   {
@@ -456,12 +474,16 @@
     "static": false,
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#append",
     "access": "public",
-    "description": "Append a node at the end of the list",
-    "lineNumber": 145,
+    "description": "Append a node to the rear of the list",
+    "lineNumber": 153,
     "unknown": [
       {
         "tagName": "@alias",
         "tagValue": "insert(list.size, value)"
+      },
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} size after insertion"
       }
     ],
     "params": [
@@ -477,9 +499,12 @@
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "number"
+      ],
+      "spread": false,
+      "description": "size after insertion"
     }
   },
   {
@@ -492,26 +517,37 @@
     "static": false,
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#push",
     "access": "public",
-    "description": "",
-    "lineNumber": 153,
+    "description": "Push a node to the rear of the list",
+    "lineNumber": 167,
     "unknown": [
       {
         "tagName": "@alias",
-        "tagValue": "append"
+        "tagValue": "insert(list.size, value)"
+      },
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} size after insertion"
       }
     ],
     "params": [
       {
-        "name": "value",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Item"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": "value to push to list"
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "number"
+      ],
+      "spread": false,
+      "description": "size after insertion"
     }
   },
   {
@@ -525,7 +561,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#remove",
     "access": "public",
     "description": "Remove a node at a given position",
-    "lineNumber": 165,
+    "lineNumber": 179,
     "unknown": [
       {
         "tagName": "@returns",
@@ -564,7 +600,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#shift",
     "access": "public",
     "description": "Shift a node from the front of list",
-    "lineNumber": 206,
+    "lineNumber": 220,
     "unknown": [
       {
         "tagName": "@alias",
@@ -596,7 +632,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#pop",
     "access": "public",
     "description": "Pop a node from the rear of list",
-    "lineNumber": 219,
+    "lineNumber": 233,
     "unknown": [
       {
         "tagName": "@alias",
@@ -628,7 +664,7 @@
     "longname": "packages/LinkedList/src/lib/LinkedList.js~LinkedList#toArray",
     "access": "public",
     "description": "Convert the node and next nodes (recursively) to an array",
-    "lineNumber": 233,
+    "lineNumber": 247,
     "unknown": [
       {
         "tagName": "@returns",

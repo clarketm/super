@@ -47,33 +47,37 @@ Insert a node at a given position
 | position | number |  | position to insert node |
 | value | Item |  | value to insert into list |
 
-### `prepend(value: Item): *`
+### `prepend(value: Item): number`
 
-Prepend a node at the end of the list
+Prepend a node to the front of the list
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
 | value | Item |  | value to prepend to list |
 
-### `unshift(value: *): *`
+### `unshift(value: Item): number`
+
+Unshift a node to the front of the list
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| value | * | nullable: undefined |
+| value | Item |  | value to unshift to list |
 
-### `append(value: Item): *`
+### `append(value: Item): number`
 
-Append a node at the end of the list
+Append a node to the rear of the list
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
 | value | Item |  | value to append to list |
 
-### `push(value: *): *`
+### `push(value: Item): number`
+
+Push a node to the rear of the list
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| value | * | nullable: undefined |
+| value | Item |  | value to push to list |
 
 ### `remove(position: number): Item`
 

@@ -330,13 +330,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-append">append</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-append">append</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>number</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Append a node at the end of the list</p>
+        <div data-ice="description"><p>Append a node to the rear of the list</p>
 </div>
       </div>
     </td>
@@ -417,13 +417,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-prepend">prepend</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-prepend">prepend</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>number</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Prepend a node at the end of the list</p>
+        <div data-ice="description"><p>Prepend a node to the front of the list</p>
 </div>
       </div>
     </td>
@@ -446,13 +446,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-push">push</a></span></span><span class="code" data-ice="signature">(value: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-push">push</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>number</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Push a node to the rear of the list</p>
+</div>
       </div>
     </td>
     <td>
@@ -561,13 +562,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-unshift">unshift</a></span></span><span class="code" data-ice="signature">(value: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html#instance-method-unshift">unshift</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>number</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Unshift a node to the front of the list</p>
+</div>
       </div>
     </td>
     <td>
@@ -961,18 +963,18 @@
     
     
     
-    <span class="code" data-ice="name">append</span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>*</span></span>
+    <span class="code" data-ice="name">append</span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>number</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber145">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber153">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Append a node at the end of the list</p>
+  <div data-ice="description"><p>Append a node to the rear of the list</p>
 </div>
 
   
@@ -1002,8 +1004,9 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>number</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>size after insertion</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -1119,7 +1122,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber219">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber233">source</a></span></span>
     </span>
   </h3>
 
@@ -1172,18 +1175,18 @@
     
     
     
-    <span class="code" data-ice="name">prepend</span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>*</span></span>
+    <span class="code" data-ice="name">prepend</span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>number</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber124">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber125">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Prepend a node at the end of the list</p>
+  <div data-ice="description"><p>Prepend a node to the front of the list</p>
 </div>
 
   
@@ -1213,8 +1216,9 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>number</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>size after insertion</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -1245,18 +1249,19 @@
     
     
     
-    <span class="code" data-ice="name">push</span><span class="code" data-ice="signature">(value: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">push</span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>number</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber153">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber167">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Push a node to the rear of the list</p>
+</div>
 
   
 
@@ -1270,9 +1275,10 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">value</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Item</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>value to push to list</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -1284,8 +1290,9 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>number</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>size after insertion</p>
+</td>
         </tr>
       </tbody>
     </table>
@@ -1320,7 +1327,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber165">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber179">source</a></span></span>
     </span>
   </h3>
 
@@ -1394,7 +1401,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber206">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber220">source</a></span></span>
     </span>
   </h3>
 
@@ -1451,7 +1458,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber233">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber247">source</a></span></span>
     </span>
   </h3>
 
@@ -1504,18 +1511,19 @@
     
     
     
-    <span class="code" data-ice="name">unshift</span><span class="code" data-ice="signature">(value: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">unshift</span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>number</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber132">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/LinkedList.js.html#lineNumber139">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Unshift a node to the front of the list</p>
+</div>
 
   
 
@@ -1529,9 +1537,10 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">value</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span>Item</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>value to unshift to list</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -1543,8 +1552,9 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
+          <td class="return-type code" data-ice="returnType"><span>number</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>size after insertion</p>
+</td>
         </tr>
       </tbody>
     </table>
