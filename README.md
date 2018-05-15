@@ -10,6 +10,7 @@
 * [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)
 * [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)
 * [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)
+* [PriorityQueue](https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme)
 * [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)
 * [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)
 * [String](https://github.com/clarketm/super/tree/master/packages/String#readme)

@@ -7,6 +7,13 @@ import type { Item } from "../../../shared/src/types";
 import { PrimitiveType } from "../../../shared/src/constants";
 import { QueueNode } from "./QueueNode";
 import { isIterable } from "../../../shared/src/helpers";
+import isPlainObject from "lodash/isPlainObject";
+
+type PriorityQueueIterable =
+  | Map<number, Item>
+  | Array<[number, Item]>
+  | Array<[Item]>
+  | Array<{ priority: number, value: Item }>;
 
 /**
  * @typedef {Function} Comparator
@@ -26,16 +33,10 @@ class PriorityQueue {
    *
    * @desc Construct a PriorityQueue
    *
-   * @param {Map<number,Item> | Array<[number, Item]> | Array<[Item]> | Array<{ priority: number, value: Item }>} iterable
+   * @param {PriorityQueueIterable} iterable
    * @param {Comparator} comparator
    */
-  constructor(
-    iterable:
-      | Map<number, Item>
-      | Array<[number, Item]>
-      | Array<{ priority: number, value: Item }> = new Map(),
-    comparator: Comparator
-  ) {
+  constructor(iterable: PriorityQueueIterable = new Map(), comparator: Comparator) {
     this._queue = [];
     this._comparator = comparator
       ? PriorityQueue._wrapComparator(comparator)
@@ -45,7 +46,8 @@ class PriorityQueue {
       if (isIterable(iterable)) {
         if (Array.isArray(iterable[0])) {
           iterable = new Map(iterable);
-        } else if (typeof iterable[0] === PrimitiveType.OBJECT) {
+        } else if (isPlainObject(iterable[0])) {
+          // } else if (typeof iterable[0] === PrimitiveType.OBJECT) {
           // } else if (Object.getPrototypeOf(iterable[0]) === Object.prototype) {
           iterable = new Map(iterable.map(({ value, priority }) => [priority, value]));
         } else {
