@@ -28,7 +28,7 @@ Creates a new array with all sub-array elements concatted into it recursively up
 
 BinaryTree with superpowers! 💪
 
-### `constructor(iterable: Iterable)`
+### `constructor(iterable: Iterable<number>)`
 
 Construct a BinaryTree
 

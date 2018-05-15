@@ -88,9 +88,9 @@ class BinaryTree {
    *
    * @desc Construct a BinaryTree
    *
-   * @param {Iterable} iterable
+   * @param {Iterable&lt;number&gt;} iterable
    */
-  constructor(iterable: Iterable = []) {
+  constructor(iterable: Iterable&lt;number&gt; = []) {
     this._root = null;
 
     for (let item of iterable) {
@@ -198,13 +198,13 @@ class BinaryTree {
     function _insert(root: BinaryTreeNode) {
       if (node.value &lt; root.value) {
         if (root.left) {
-          return _insert(root.left, node);
+          return _insert(root.left);
         } else {
           root.left = node;
         }
       } else if (node.value &gt;= root.value) {
         if (root.right) {
-          return _insert(root.right, node);
+          return _insert(root.right);
         } else {
           root.right = node;
         }
