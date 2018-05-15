@@ -63,7 +63,7 @@ class Queue {
    * @desc Enqueue an item into the queue
    *
    * @param {Item} item - item to enqueue
-   * @returns {number} length after enqueue
+   * @returns {number} size after enqueue
    */
   enqueue(item: Item): number {
     return this._queue.push(item);
