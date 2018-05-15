@@ -135,7 +135,7 @@
     "__docId__": 5,
     "kind": "file",
     "name": "packages/BinaryTree/src/lib/BinaryTree.js",
-    "content": "/**\n * @flow\n * @module super/binarytree\n */\n\nimport type { Item } from \"../../../shared/src/types\";\nimport { BinaryTreeNode } from \"./BinaryTreeNode\";\nimport { Queue } from \"../../../Queue/src/lib/Queue\";\n\nexport const TraversalType = {\n  PRE_ORDER: \"pre\",\n  IN_ORDER: \"in\",\n  POST_ORDER: \"post\",\n  LEVEL_ORDER: \"level\"\n};\n\ntype Traversal = $Keys<typeof TraversalType>;\n\n/**\n *\n * BinaryTree with superpowers! 💪\n *\n * @public\n *\n */\nclass BinaryTree {\n  /**\n   * @public\n   *\n   * @desc Construct a BinaryTree\n   *\n   * @param {Iterable<number>} iterable\n   */\n  constructor(iterable: Iterable<number> = []) {\n    this._root = null;\n\n    for (let item of iterable) {\n      this.insert(item);\n    }\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the root of the tree\n   *\n   * @returns {BinaryTreeNode} root node\n   */\n  get root(): BinaryTreeNode {\n    return this._root;\n  }\n\n  /**\n   * @public\n   *\n   * @alias getHeight(root)\n   *\n   * @desc Get the root of the tree\n   *\n   * @returns {BinaryTreeNode} root node\n   */\n  get height(): number {\n    return this.getHeight(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the height of the tree at node\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {number} height of tree\n   */\n  getHeight(node: BinaryTreeNode = this.root): number {\n    /**\n     * @private\n     *\n     * @desc Height helper\n     *\n     * @param {BinaryTreeNode} node\n     * @returns {number} height of tree\n     */\n    const _height = (node: BinaryTreeNode) => {\n      if (!node) return 0;\n      return Math.max(_height(node.left), _height(node.right)) + 1;\n    };\n\n    return _height(node);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Find minimum value in tree\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {BinaryTreeNode} node\n   */\n  findMin(node: BinaryTreeNode = this.root): BinaryTreeNode {\n    if (!node.left) return node;\n    else return this.findMin(node.left);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Find maximum value in tree\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {BinaryTreeNode} node\n   */\n  findMax(node: BinaryTreeNode = this.root): BinaryTreeNode {\n    if (!node.right) return node;\n    else return this.findMax(node.right);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Insert a value into the tree\n   *\n   * @param {Item} value - value to insert into the tree\n   */\n  insert(value: Item) {\n    let node = new BinaryTreeNode(value);\n\n    if (!this.root) {\n      this._root = node;\n      return;\n    }\n\n    /**\n     * @private\n     *\n     * @desc Insert helper\n     *\n     * @param {BinaryTreeNode} root\n     */\n    function _insert(root: BinaryTreeNode) {\n      if (node.value < root.value) {\n        if (root.left) {\n          return _insert(root.left);\n        } else {\n          root.left = node;\n        }\n      } else if (node.value >= root.value) {\n        if (root.right) {\n          return _insert(root.right);\n        } else {\n          root.right = node;\n        }\n      }\n    }\n\n    return _insert(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Search and retrieve a value from the tree\n   *\n   * @param {Item} value - value to search\n   * @return {BinaryTreeNode} match node, or null if not found\n   */\n  search(value: Item): BinaryTreeNode {\n    if (!value) return null;\n\n    /**\n     * @private\n     *\n     * @desc Search helper\n     *\n     * @param {BinaryTreeNode} node\n     * @return {BinaryTreeNode} match node\n     */\n    function _search(node): BinaryTreeNode {\n      if (!node) return null;\n\n      if (value === node.value) {\n        return node;\n      } else if (value < node.value) {\n        return _search(node.left);\n      } else if (value >= node.value) {\n        return _search(node.right);\n      }\n    }\n\n    return _search(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove a value from the tree\n   *\n   * @param {Item} value - value to remove\n   */\n  remove(value: Item) {\n    /**\n     * @private\n     *\n     * @desc Remove helper\n     *\n     * @param {BinaryTreeNode} node\n     * @param {Item} value\n     */\n    const _remove = (node: BinaryTreeNode, value: Item) => {\n      if (!node) return null;\n\n      if (node.value === value) {\n        if (!node.left && !node.right) {\n          return null;\n        } else if (!node.left) {\n          return node.right;\n        } else if (!node.right) {\n          return node.left;\n        } else {\n          let aux = this.findMin(node.right);\n          node.value = aux.value;\n          node.right = _remove(node.right, aux.value);\n          return node;\n        }\n      } else if (value < node.value) {\n        node.left = _remove(node.left, value);\n        return node;\n      } else if (value >= node.value) {\n        node.right = _remove(node.right, value);\n        return node;\n      }\n    };\n\n    this._root = _remove(this.root, value);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in preOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode|Item>} array of nodes or values\n   */\n  preOrder(node: BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n    /**\n     * @private\n     *\n     * @desc PreOrder helper\n     *\n     * @param {BinaryTreeNode} node\n     */\n    function _preOrder(node: BinaryTreeNode) {\n      if (node) {\n        nodes = [...nodes, node];\n        _preOrder(node.left);\n        _preOrder(node.right);\n      }\n    }\n\n    _preOrder(node);\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in inOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode|Item>} array of nodes or values\n   */\n  inOrder(node: BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n    /**\n     * @private\n     *\n     * @desc inOrder helper\n     *\n     * @param {BinaryTreeNode} node\n     */\n    function _inOrder(node: BinaryTreeNode) {\n      if (node) {\n        _inOrder(node.left);\n        nodes = [...nodes, node];\n        _inOrder(node.right);\n      }\n    }\n\n    _inOrder(node);\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in postOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode|Item>} array of nodes or values\n   */\n  postOrder(node: BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n    /**\n     * @private\n     *\n     * @desc PreOrder helper\n     *\n     * @param {BinaryTreeNode} node\n     */\n    function _postOrder(node: BinaryTreeNode) {\n      if (node) {\n        _postOrder(node.left);\n        _postOrder(node.right);\n        nodes = [...nodes, node];\n      }\n    }\n\n    _postOrder(node);\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in levelOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode|Item>} array of nodes or values\n   */\n  levelOrder(node: BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n\n    let q = new Queue();\n    q.enqueue(node);\n\n    while (!q.isEmpty()) {\n      let node = q.dequeue();\n      nodes.push(node);\n\n      if (node.left) {\n        q.enqueue(node.left);\n      }\n\n      if (node.right) {\n        q.enqueue(node.right);\n      }\n    }\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the tree to an array\n   *\n   * @param {Traversal} traversal - method of traversal\n   * @param {boolean} flatten - if false return nodes; if true return only values\n   * @returns {Array} array representation of the list\n   */\n  toArray(traversal: Traversal, flatten: boolean = false): Array<BinaryTreeNode | Item> {\n    let nodes;\n\n    switch (traversal) {\n      default:\n      case TraversalType.PRE_ORDER:\n        nodes = this.preOrder(this.root);\n        break;\n      case TraversalType.IN_ORDER:\n        nodes = this.inOrder(this.root);\n        break;\n      case TraversalType.POST_ORDER:\n        nodes = this.postOrder(this.root);\n        break;\n      case TraversalType.LEVEL_ORDER:\n        nodes = this.levelOrder(this.root);\n        break;\n    }\n\n    return flatten ? nodes.map(v => v.value) : nodes;\n  }\n}\n\nexport { BinaryTree };\n",
+    "content": "/**\n * @flow\n * @module super/binarytree\n */\n\nimport type { Item } from \"../../../shared/src/types\";\nimport { BinaryTreeNode } from \"./BinaryTreeNode\";\nimport { Queue } from \"../../../Queue/src/lib/Queue\";\n\nexport const TraversalType = {\n  PRE_ORDER: \"pre\",\n  IN_ORDER: \"in\",\n  POST_ORDER: \"post\",\n  LEVEL_ORDER: \"level\"\n};\n\ntype Traversal = $Keys<typeof TraversalType>;\n\n/**\n *\n * BinaryTree with superpowers! 💪\n *\n * @public\n *\n */\nclass BinaryTree {\n  /**\n   * @public\n   *\n   * @desc Construct a BinaryTree\n   *\n   * @param {Iterable<number>} iterable\n   */\n  constructor(iterable: Iterable<number> = []) {\n    this._root = null;\n\n    for (let item of iterable) {\n      this.insert(item);\n    }\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the root of the tree\n   *\n   * @returns {BinaryTreeNode} root node\n   */\n  get root(): BinaryTreeNode {\n    return this._root;\n  }\n\n  /**\n   * @public\n   *\n   * @alias getHeight(root)\n   *\n   * @desc Get the height of the tree\n   *\n   * @returns {BinaryTreeNode} root node\n   */\n  get height(): number {\n    return this.getHeight(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the height of the tree at node\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {number} height of tree\n   */\n  getHeight(node: BinaryTreeNode = this.root): number {\n    /**\n     * @private\n     *\n     * @desc Height helper\n     *\n     * @param {BinaryTreeNode} node\n     * @returns {number} height of tree\n     */\n    const _height = (node: BinaryTreeNode) => {\n      if (!node) return 0;\n      return Math.max(_height(node.left), _height(node.right)) + 1;\n    };\n\n    return _height(node);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Find minimum value in tree\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {BinaryTreeNode} node\n   */\n  findMin(node: BinaryTreeNode = this.root): BinaryTreeNode {\n    if (!node.left) return node;\n    else return this.findMin(node.left);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Find maximum value in tree\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {BinaryTreeNode} node\n   */\n  findMax(node: BinaryTreeNode = this.root): BinaryTreeNode {\n    if (!node.right) return node;\n    else return this.findMax(node.right);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Insert a value into the tree\n   *\n   * @param {Item} value - value to insert into the tree\n   */\n  insert(value: Item) {\n    let node = new BinaryTreeNode(value);\n\n    if (!this.root) {\n      this._root = node;\n      return;\n    }\n\n    /**\n     * @private\n     *\n     * @desc Insert helper\n     *\n     * @param {BinaryTreeNode} root\n     */\n    function _insert(root: BinaryTreeNode) {\n      if (node.value < root.value) {\n        if (root.left) {\n          return _insert(root.left);\n        } else {\n          root.left = node;\n        }\n      } else if (node.value >= root.value) {\n        if (root.right) {\n          return _insert(root.right);\n        } else {\n          root.right = node;\n        }\n      }\n    }\n\n    _insert(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Search and retrieve a value from the tree\n   *\n   * @param {Item} value - value to search\n   * @return {BinaryTreeNode} match node, or null if not found\n   */\n  search(value: Item): BinaryTreeNode {\n    if (!value) return null;\n\n    /**\n     * @private\n     *\n     * @desc Search helper\n     *\n     * @param {BinaryTreeNode} node\n     * @return {BinaryTreeNode} match node\n     */\n    function _search(node): BinaryTreeNode {\n      if (!node) return null;\n\n      if (value === node.value) {\n        return node;\n      } else if (value < node.value) {\n        return _search(node.left);\n      } else if (value >= node.value) {\n        return _search(node.right);\n      }\n    }\n\n    return _search(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove a value from the tree\n   *\n   * @param {Item} value - value to remove\n   */\n  remove(value: Item) {\n    /**\n     * @private\n     *\n     * @desc Remove helper\n     *\n     * @param {BinaryTreeNode} node\n     * @param {Item} value\n     */\n    const _remove = (node: BinaryTreeNode, value: Item) => {\n      if (!node) return null;\n\n      if (node.value === value) {\n        if (!node.left && !node.right) {\n          return null;\n        } else if (!node.left) {\n          return node.right;\n        } else if (!node.right) {\n          return node.left;\n        } else {\n          let aux = this.findMin(node.right);\n          node.value = aux.value;\n          node.right = _remove(node.right, aux.value);\n          return node;\n        }\n      } else if (value < node.value) {\n        node.left = _remove(node.left, value);\n        return node;\n      } else if (value >= node.value) {\n        node.right = _remove(node.right, value);\n        return node;\n      }\n    };\n\n    this._root = _remove(this.root, value);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in preOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode>} array of nodes or values\n   */\n  preOrder(node: BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n    /**\n     * @private\n     *\n     * @desc PreOrder helper\n     *\n     * @param {BinaryTreeNode} node\n     */\n    function _preOrder(node: BinaryTreeNode) {\n      if (node) {\n        nodes = [...nodes, node];\n        _preOrder(node.left);\n        _preOrder(node.right);\n      }\n    }\n\n    _preOrder(node);\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in inOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode>} array of nodes or values\n   */\n  inOrder(node: BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n    /**\n     * @private\n     *\n     * @desc inOrder helper\n     *\n     * @param {BinaryTreeNode} node\n     */\n    function _inOrder(node: BinaryTreeNode) {\n      if (node) {\n        _inOrder(node.left);\n        nodes = [...nodes, node];\n        _inOrder(node.right);\n      }\n    }\n\n    _inOrder(node);\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in postOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode>} array of nodes or values\n   */\n  postOrder(node: BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n    /**\n     * @private\n     *\n     * @desc PreOrder helper\n     *\n     * @param {BinaryTreeNode} node\n     */\n    function _postOrder(node: BinaryTreeNode) {\n      if (node) {\n        _postOrder(node.left);\n        _postOrder(node.right);\n        nodes = [...nodes, node];\n      }\n    }\n\n    _postOrder(node);\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in levelOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode>} array of nodes or values\n   */\n  levelOrder(node: BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n\n    let q = new Queue();\n    q.enqueue(node);\n\n    while (!q.isEmpty()) {\n      let node = q.dequeue();\n      nodes.push(node);\n\n      if (node.left) {\n        q.enqueue(node.left);\n      }\n\n      if (node.right) {\n        q.enqueue(node.right);\n      }\n    }\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the tree to an array\n   *\n   * @param {Traversal} traversal - method of traversal\n   * @param {boolean} flatten - if false return nodes; if true return only values\n   * @returns {Array<BinaryTreeNode | Item> } array representation of the list\n   */\n  toArray(traversal: Traversal, flatten: boolean = false): Array<BinaryTreeNode | Item> {\n    let nodes;\n\n    switch (traversal) {\n      default:\n      case TraversalType.PRE_ORDER:\n        nodes = this.preOrder(this.root);\n        break;\n      case TraversalType.IN_ORDER:\n        nodes = this.inOrder(this.root);\n        break;\n      case TraversalType.POST_ORDER:\n        nodes = this.postOrder(this.root);\n        break;\n      case TraversalType.LEVEL_ORDER:\n        nodes = this.levelOrder(this.root);\n        break;\n    }\n\n    return flatten ? nodes.map(v => v.value) : nodes;\n  }\n}\n\nexport { BinaryTree };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/BinaryTree/src/lib/BinaryTree.js",
     "access": "public",
@@ -261,7 +261,7 @@
     "static": false,
     "longname": "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#height",
     "access": "public",
-    "description": "Get the root of the tree",
+    "description": "Get the height of the tree",
     "lineNumber": 59,
     "unknown": [
       {
@@ -428,11 +428,7 @@
         "description": "value to insert into the tree"
       }
     ],
-    "return": {
-      "types": [
-        "*"
-      ]
-    }
+    "return": null
   },
   {
     "__docId__": 17,
@@ -508,7 +504,7 @@
     "unknown": [
       {
         "tagName": "@returns",
-        "tagValue": "{Array<BinaryTreeNode|Item>} array of nodes or values"
+        "tagValue": "{Array<BinaryTreeNode>} array of nodes or values"
       }
     ],
     "params": [
@@ -526,7 +522,7 @@
     "return": {
       "nullable": null,
       "types": [
-        "Array<BinaryTreeNode|Item>"
+        "Array<BinaryTreeNode>"
       ],
       "spread": false,
       "description": "array of nodes or values"
@@ -547,7 +543,7 @@
     "unknown": [
       {
         "tagName": "@returns",
-        "tagValue": "{Array<BinaryTreeNode|Item>} array of nodes or values"
+        "tagValue": "{Array<BinaryTreeNode>} array of nodes or values"
       }
     ],
     "params": [
@@ -565,7 +561,7 @@
     "return": {
       "nullable": null,
       "types": [
-        "Array<BinaryTreeNode|Item>"
+        "Array<BinaryTreeNode>"
       ],
       "spread": false,
       "description": "array of nodes or values"
@@ -586,7 +582,7 @@
     "unknown": [
       {
         "tagName": "@returns",
-        "tagValue": "{Array<BinaryTreeNode|Item>} array of nodes or values"
+        "tagValue": "{Array<BinaryTreeNode>} array of nodes or values"
       }
     ],
     "params": [
@@ -604,7 +600,7 @@
     "return": {
       "nullable": null,
       "types": [
-        "Array<BinaryTreeNode|Item>"
+        "Array<BinaryTreeNode>"
       ],
       "spread": false,
       "description": "array of nodes or values"
@@ -625,7 +621,7 @@
     "unknown": [
       {
         "tagName": "@returns",
-        "tagValue": "{Array<BinaryTreeNode|Item>} array of nodes or values"
+        "tagValue": "{Array<BinaryTreeNode>} array of nodes or values"
       }
     ],
     "params": [
@@ -643,7 +639,7 @@
     "return": {
       "nullable": null,
       "types": [
-        "Array<BinaryTreeNode|Item>"
+        "Array<BinaryTreeNode>"
       ],
       "spread": false,
       "description": "array of nodes or values"
@@ -664,7 +660,7 @@
     "unknown": [
       {
         "tagName": "@returns",
-        "tagValue": "{Array} array representation of the list"
+        "tagValue": "{Array<BinaryTreeNode | Item> } array representation of the list"
       }
     ],
     "params": [
@@ -692,7 +688,7 @@
     "return": {
       "nullable": null,
       "types": [
-        "Array"
+        "Array<BinaryTreeNode | Item> "
       ],
       "spread": false,
       "description": "array representation of the list"
@@ -702,7 +698,7 @@
     "__docId__": 25,
     "kind": "file",
     "name": "packages/BinaryTree/src/lib/BinaryTreeNode.js",
-    "content": "/**\n * @flow\n * @module super/binarytree\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * BinaryTreeNode\n *\n * @public\n *\n */\nclass BinaryTreeNode {\n  /**\n   * @public\n   *\n   * @desc Construct a BinaryTreeNode\n   *\n   * @param {Item} value - node value\n   */\n  constructor(value: Item) {\n    this._value = value;\n    this._left = null;\n    this._right = null;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the value of the node\n   *\n   * @returns {Item} node value\n   */\n  get value(): Item {\n    return this._value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the value of the node\n   *\n   */\n  set value(value: Item) {\n    this._value = value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the next node\n   *\n   * @returns {BinaryTreeNode} next node\n   */\n  get left(): BinaryTreeNode {\n    return this._left;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the left node\n   *\n   */\n  set left(left: BinaryTreeNode) {\n    this._left = left;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the previous node\n   *\n   * @returns {BinaryTreeNode} previous node\n   */\n  get right(): BinaryTreeNode {\n    return this._right;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the next node\n   *\n   */\n  set right(right: BinaryTreeNode) {\n    this._right = right;\n  }\n}\n\nexport { BinaryTreeNode };\n",
+    "content": "/**\n * @flow\n * @module super/binarytree\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * BinaryTreeNode\n *\n * @public\n *\n */\nclass BinaryTreeNode {\n  /**\n   * @public\n   *\n   * @desc Construct a BinaryTreeNode\n   *\n   * @param {Item} value - node value\n   */\n  constructor(value: Item) {\n    this._value = value;\n    this._left = null;\n    this._right = null;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the value of the node\n   *\n   * @returns {Item} node value\n   */\n  get value(): Item {\n    return this._value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the value of the node\n   *\n   */\n  set value(value: Item) {\n    this._value = value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the left child node\n   *\n   * @returns {BinaryTreeNode} left child node\n   */\n  get left(): BinaryTreeNode {\n    return this._left;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the left child node\n   *\n   */\n  set left(left: BinaryTreeNode) {\n    this._left = left;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the right child node\n   *\n   * @returns {BinaryTreeNode} right child node\n   */\n  get right(): BinaryTreeNode {\n    return this._right;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the right child node\n   *\n   */\n  set right(right: BinaryTreeNode) {\n    this._right = right;\n  }\n}\n\nexport { BinaryTreeNode };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/BinaryTree/src/lib/BinaryTreeNode.js",
     "access": "public",
@@ -855,12 +851,12 @@
     "static": false,
     "longname": "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
     "access": "public",
-    "description": "Get the next node",
+    "description": "Get the left child node",
     "lineNumber": 52,
     "unknown": [
       {
         "tagName": "@returns",
-        "tagValue": "{BinaryTreeNode} next node"
+        "tagValue": "{BinaryTreeNode} left child node"
       }
     ],
     "return": {
@@ -869,7 +865,7 @@
         "BinaryTreeNode"
       ],
       "spread": false,
-      "description": "next node"
+      "description": "left child node"
     },
     "type": {
       "types": [
@@ -887,7 +883,7 @@
     "static": false,
     "longname": "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
     "access": "public",
-    "description": "Set the left node",
+    "description": "Set the left child node",
     "lineNumber": 62
   },
   {
@@ -900,12 +896,12 @@
     "static": false,
     "longname": "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
     "access": "public",
-    "description": "Get the previous node",
+    "description": "Get the right child node",
     "lineNumber": 73,
     "unknown": [
       {
         "tagName": "@returns",
-        "tagValue": "{BinaryTreeNode} previous node"
+        "tagValue": "{BinaryTreeNode} right child node"
       }
     ],
     "return": {
@@ -914,7 +910,7 @@
         "BinaryTreeNode"
       ],
       "spread": false,
-      "description": "previous node"
+      "description": "right child node"
     },
     "type": {
       "types": [
@@ -932,7 +928,7 @@
     "static": false,
     "longname": "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
     "access": "public",
-    "description": "Set the next node",
+    "description": "Set the right child node",
     "lineNumber": 83
   },
   {

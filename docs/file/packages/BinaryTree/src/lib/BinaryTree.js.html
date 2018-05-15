@@ -114,7 +114,7 @@ class BinaryTree {
    *
    * @alias getHeight(root)
    *
-   * @desc Get the root of the tree
+   * @desc Get the height of the tree
    *
    * @returns {BinaryTreeNode} root node
    */
@@ -211,7 +211,7 @@ class BinaryTree {
       }
     }
 
-    return _insert(this.root);
+    _insert(this.root);
   }
 
   /**
@@ -298,7 +298,7 @@ class BinaryTree {
    * @desc Traverse the tree in preOrder traversal ordering
    *
    * @param {BinaryTreeNode} node - root node
-   * @returns {Array&lt;BinaryTreeNode|Item&gt;} array of nodes or values
+   * @returns {Array&lt;BinaryTreeNode&gt;} array of nodes or values
    */
   preOrder(node: BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
     let nodes = [];
@@ -328,7 +328,7 @@ class BinaryTree {
    * @desc Traverse the tree in inOrder traversal ordering
    *
    * @param {BinaryTreeNode} node - root node
-   * @returns {Array&lt;BinaryTreeNode|Item&gt;} array of nodes or values
+   * @returns {Array&lt;BinaryTreeNode&gt;} array of nodes or values
    */
   inOrder(node: BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
     let nodes = [];
@@ -358,7 +358,7 @@ class BinaryTree {
    * @desc Traverse the tree in postOrder traversal ordering
    *
    * @param {BinaryTreeNode} node - root node
-   * @returns {Array&lt;BinaryTreeNode|Item&gt;} array of nodes or values
+   * @returns {Array&lt;BinaryTreeNode&gt;} array of nodes or values
    */
   postOrder(node: BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
     let nodes = [];
@@ -388,7 +388,7 @@ class BinaryTree {
    * @desc Traverse the tree in levelOrder traversal ordering
    *
    * @param {BinaryTreeNode} node - root node
-   * @returns {Array&lt;BinaryTreeNode|Item&gt;} array of nodes or values
+   * @returns {Array&lt;BinaryTreeNode&gt;} array of nodes or values
    */
   levelOrder(node: BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
     let nodes = [];
@@ -419,7 +419,7 @@ class BinaryTree {
    *
    * @param {Traversal} traversal - method of traversal
    * @param {boolean} flatten - if false return nodes; if true return only values
-   * @returns {Array} array representation of the list
+   * @returns {Array&lt;BinaryTreeNode | Item&gt; } array representation of the list
    */
   toArray(traversal: Traversal, flatten: boolean = false): Array&lt;BinaryTreeNode | Item&gt; {
     let nodes;

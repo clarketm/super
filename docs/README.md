@@ -58,7 +58,7 @@ Find maximum value in tree
 | --- | --- | --- | --- |
 | node | BinaryTreeNode |  | root node |
 
-### `insert(value: Item): *`
+### `insert(value: Item)`
 
 Insert a value into the tree
 
@@ -82,7 +82,7 @@ Remove a value from the tree
 | --- | --- | --- | --- |
 | value | Item |  | value to remove |
 
-### `preOrder(node: BinaryTreeNode): Array<BinaryTreeNode|Item>`
+### `preOrder(node: BinaryTreeNode): Array<BinaryTreeNode>`
 
 Traverse the tree in preOrder traversal ordering
 
@@ -90,7 +90,7 @@ Traverse the tree in preOrder traversal ordering
 | --- | --- | --- | --- |
 | node | BinaryTreeNode |  | root node |
 
-### `inOrder(node: BinaryTreeNode): Array<BinaryTreeNode|Item>`
+### `inOrder(node: BinaryTreeNode): Array<BinaryTreeNode>`
 
 Traverse the tree in inOrder traversal ordering
 
@@ -98,7 +98,7 @@ Traverse the tree in inOrder traversal ordering
 | --- | --- | --- | --- |
 | node | BinaryTreeNode |  | root node |
 
-### `postOrder(node: BinaryTreeNode): Array<BinaryTreeNode|Item>`
+### `postOrder(node: BinaryTreeNode): Array<BinaryTreeNode>`
 
 Traverse the tree in postOrder traversal ordering
 
@@ -106,7 +106,7 @@ Traverse the tree in postOrder traversal ordering
 | --- | --- | --- | --- |
 | node | BinaryTreeNode |  | root node |
 
-### `levelOrder(node: BinaryTreeNode): Array<BinaryTreeNode|Item>`
+### `levelOrder(node: BinaryTreeNode): Array<BinaryTreeNode>`
 
 Traverse the tree in levelOrder traversal ordering
 
@@ -114,7 +114,7 @@ Traverse the tree in levelOrder traversal ordering
 | --- | --- | --- | --- |
 | node | BinaryTreeNode |  | root node |
 
-### `toArray(traversal: Traversal, flatten: boolean): Array`
+### `toArray(traversal: Traversal, flatten: boolean): Array<BinaryTreeNode | Item> `
 
 Convert the tree to an array
 

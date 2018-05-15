@@ -158,7 +158,7 @@
       <div>
         
         
-        <div data-ice="description"><p>Get the root of the tree</p>
+        <div data-ice="description"><p>Get the height of the tree</p>
 </div>
       </div>
     </td>
@@ -338,7 +338,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-inOrder">inOrder</a></span></span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>|<span>Item</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-inOrder">inOrder</a></span></span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>&gt;</span>
         </p>
       </div>
       <div>
@@ -367,7 +367,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-insert">insert</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-insert">insert</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>)</span>
         </p>
       </div>
       <div>
@@ -396,7 +396,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-levelOrder">levelOrder</a></span></span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>|<span>Item</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-levelOrder">levelOrder</a></span></span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>&gt;</span>
         </p>
       </div>
       <div>
@@ -425,7 +425,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-postOrder">postOrder</a></span></span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>|<span>Item</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-postOrder">postOrder</a></span></span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>&gt;</span>
         </p>
       </div>
       <div>
@@ -454,7 +454,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-preOrder">preOrder</a></span></span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>|<span>Item</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-preOrder">preOrder</a></span></span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>&gt;</span>
         </p>
       </div>
       <div>
@@ -541,7 +541,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-toArray">toArray</a></span></span><span class="code" data-ice="signature">(traversal: <span>Traversal</span>, flatten: <span>boolean</span>): <span>Array</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-toArray">toArray</a></span></span><span class="code" data-ice="signature">(traversal: <span>Traversal</span>, flatten: <span>boolean</span>): <span>Array&lt;BinaryTreeNode | Item&gt; </span></span>
         </p>
       </div>
       <div>
@@ -648,7 +648,7 @@
   
   
   
-  <div data-ice="description"><p>Get the root of the tree</p>
+  <div data-ice="description"><p>Get the height of the tree</p>
 </div>
 
   
@@ -1021,7 +1021,7 @@
     
     
     
-    <span class="code" data-ice="name">inOrder</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>|<span>Item</span>&gt;</span>
+    <span class="code" data-ice="name">inOrder</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>&gt;</span>
     <span class="right-info">
       
       
@@ -1062,7 +1062,7 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>|<span>Item</span>&gt;</td>
+          <td class="return-type code" data-ice="returnType"><span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>&gt;</td>
           <td class="return-desc" data-ice="returnDescription"><p>array of nodes or values</p>
 </td>
         </tr>
@@ -1095,7 +1095,7 @@
     
     
     
-    <span class="code" data-ice="name">insert</span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>*</span></span>
+    <span class="code" data-ice="name">insert</span><span class="code" data-ice="signature">(value: <span>Item</span>)</span>
     <span class="right-info">
       
       
@@ -1131,19 +1131,7 @@
 </div>
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
+  
 
   
 
@@ -1168,7 +1156,7 @@
     
     
     
-    <span class="code" data-ice="name">levelOrder</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>|<span>Item</span>&gt;</span>
+    <span class="code" data-ice="name">levelOrder</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>&gt;</span>
     <span class="right-info">
       
       
@@ -1209,7 +1197,7 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>|<span>Item</span>&gt;</td>
+          <td class="return-type code" data-ice="returnType"><span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>&gt;</td>
           <td class="return-desc" data-ice="returnDescription"><p>array of nodes or values</p>
 </td>
         </tr>
@@ -1242,7 +1230,7 @@
     
     
     
-    <span class="code" data-ice="name">postOrder</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>|<span>Item</span>&gt;</span>
+    <span class="code" data-ice="name">postOrder</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>&gt;</span>
     <span class="right-info">
       
       
@@ -1283,7 +1271,7 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>|<span>Item</span>&gt;</td>
+          <td class="return-type code" data-ice="returnType"><span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>&gt;</td>
           <td class="return-desc" data-ice="returnDescription"><p>array of nodes or values</p>
 </td>
         </tr>
@@ -1316,7 +1304,7 @@
     
     
     
-    <span class="code" data-ice="name">preOrder</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>|<span>Item</span>&gt;</span>
+    <span class="code" data-ice="name">preOrder</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>&gt;</span>
     <span class="right-info">
       
       
@@ -1357,7 +1345,7 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>|<span>Item</span>&gt;</td>
+          <td class="return-type code" data-ice="returnType"><span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span>&gt;</td>
           <td class="return-desc" data-ice="returnDescription"><p>array of nodes or values</p>
 </td>
         </tr>
@@ -1525,7 +1513,7 @@
     
     
     
-    <span class="code" data-ice="name">toArray</span><span class="code" data-ice="signature">(traversal: <span>Traversal</span>, flatten: <span>boolean</span>): <span>Array</span></span>
+    <span class="code" data-ice="name">toArray</span><span class="code" data-ice="signature">(traversal: <span>Traversal</span>, flatten: <span>boolean</span>): <span>Array&lt;BinaryTreeNode | Item&gt; </span></span>
     <span class="right-info">
       
       
@@ -1573,7 +1561,7 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Array</span></td>
+          <td class="return-type code" data-ice="returnType"><span>Array&lt;BinaryTreeNode | Item&gt; </span></td>
           <td class="return-desc" data-ice="returnDescription"><p>array representation of the list</p>
 </td>
         </tr>
