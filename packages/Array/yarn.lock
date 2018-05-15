@@ -78,7 +78,7 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@clarketm/babel-preset-super@^1.2.3":
+"@clarketm/babel-preset-super@^1.2.4":
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/@clarketm/babel-preset-super/-/babel-preset-super-1.2.4.tgz#be5a88a61269f685151533ae0a04a2944b94a40a"
   dependencies:
