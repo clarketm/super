@@ -239,7 +239,7 @@
         var curr = this.head;
 
         var p = 0;
-        while (p < position && curr !== null) {
+        while (p < position && curr) {
           prev = curr;
           curr = curr.next;
           p++;
@@ -324,11 +324,15 @@
     }, {
       key: "remove",
       value: function remove(position) {
+        if (position < 0) {
+          return this.remove(Math.max(0, this.size - Math.abs(position)));
+        }
+
         var prev = null;
         var curr = this.head;
 
         var p = 0;
-        while (p < position && curr !== null) {
+        while (p < position && curr) {
           prev = curr;
           curr = curr.next;
           p++;

@@ -93,7 +93,7 @@ class LinkedList {
     let curr = this.head;
 
     let p = 0;
-    while (p < position && curr !== null) {
+    while (p < position && curr) {
       prev = curr;
       curr = curr.next;
       p++;
@@ -165,11 +165,15 @@ class LinkedList {
    * @returns {Item} removed item
    */
   remove(position: number): Item {
+    if (position < 0) {
+      return this.remove(Math.max(0, this.size - Math.abs(position)));
+    }
+
     let prev = null;
     let curr = this.head;
 
     let p = 0;
-    while (p < position && curr !== null) {
+    while (p < position && curr) {
       prev = curr;
       curr = curr.next;
       p++;

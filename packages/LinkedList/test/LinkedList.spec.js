@@ -243,6 +243,26 @@ describe("LinkedList", () => {
 
       assert.equal(actual, expected);
     });
+
+    it("should remove node at head for position of -3 (negative of size)", () => {
+      list = new LinkedList([1, 2, 3]);
+      list.remove(-3);
+
+      expected = 2;
+      actual = list.head.value;
+
+      assert.equal(actual, expected);
+    });
+
+    it("should remove node at tail for position of -1", () => {
+      list = new LinkedList([1, 2, 3]);
+      list.remove(-1);
+
+      expected = 2;
+      actual = list.tail.value;
+
+      assert.equal(actual, expected);
+    });
   });
 
   describe("#shift", () => {
