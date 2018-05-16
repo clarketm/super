@@ -180,8 +180,41 @@ Object.is(object, clone);    // false
 <br>
 
 ### [PriorityQueue](https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme)
+**TODO**
 
 ### [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)
+
+```js
+import { Queue } from "@clarketm/super";
+
+let queue = new Queue([2, 4, 6, 8]);
+
+//   front              rear
+//     ^                 ^
+//  |  2  |  4  |  6  |  8  |
+
+queue.size;       // 4
+queue.isEmpty();  // false
+queue.front();    // 2
+queue.rear();     // 8
+
+queue.enqueue(10);  // 5 : new size
+
+//   front                   rear
+//     ^                      ^
+//  |  2  |  4  |  6  |  8  | 10 |
+
+queue.dequeue();    // 2  : dequeued item
+
+//   front              rear
+//     ^                 ^
+//  |  4  |  6  |  8  | 10 |
+
+queue.clear();
+queue.size;       // 0
+
+```
+<br>
 
 ### [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)
 
