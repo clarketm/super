@@ -22,13 +22,13 @@ $ npm install @clarketm/super --save
 
 ## Usage
 ```js
-// 1. import each module `independently`
+// 1. import `each` module `independently`
 import { Array, Map, Queue, Map, ... } from "@clarketm/super";
 
 let array = new Array([1, 2]);
 ...
 
-// 2. import `all` modules under a namespace
+// 2. import `all` modules under a `namespace`
 import Super from "@clarketm/super";
 
 let array = new Super.Array([1, 2]);
