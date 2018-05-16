@@ -1,6 +1,6 @@
 # [Super](https://www.npmjs.com/package/@clarketm/super)
 
-**Data Structures** with superpowers! 💪😎👍
+**Data Structures** with superpowers! 💪😎
 
 > <sub>implemented in **JavaScript**.</sub>
 
