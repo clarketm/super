@@ -194,9 +194,10 @@ let queue = new Queue([2, 4, 6, 8]);
 //  |  2  |  4  |  6  |  8  |
 
 queue.size;       // 4
+queue.front;      // 2
+queue.rear;       // 8
+
 queue.isEmpty();  // false
-queue.front();    // 2
-queue.rear();     // 8
 
 queue.enqueue(10);  // 5 : new size
 
