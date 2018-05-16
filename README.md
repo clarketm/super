@@ -11,14 +11,16 @@
 ## Data Structures
 
 ### [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)
-```js
-let array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]
 
-// Use any built-in array methods:
-array.push(4); // [0, 1, 2, 3, 4];
+```js
+let array = new Array([0, 1, 2, 3]);  // [0, 1, 2, 3]
+
+// Use any built-in Array methods:
+array.push(4);  // [0, 1, 2, 3, 4];
 
 // Use custom methods (e.g. `flatten`):
-new Array([[[1]], [[2]], [[3]]]).flatten(2); // [1, 2, 3]
+let array = new Array([[[1]], [[2]], [[3]]]);
+array.flatten(2); // [1, 2, 3]
 
 ```
 <br>
@@ -97,7 +99,27 @@ list.toArray();     // [ 1, 100, 3, 5, 7 ]
 ```
 <br>
 
-* [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)
+### [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)
+
+```js
+let map = new Map([["a", 1], ["b", 2], ["c", 3]]);  // Map { 'a' => 1, 'b' => 2, 'c' => 3 }
+
+// Use any built-in Map methods:
+map.get("c");   // 3
+
+// Use custom methods (e.g. `setDefault`):
+// note: `setDefault` is similar to get(), but will set key to a defaultValue if the key is not in Map.
+let item = map.setDefault("c", 3);
+item;    // 3
+map;     // Map { 'a' => 1, 'b' => 2, 'c' => 3 }
+
+let item = map.setDefault("d", 4);
+item;    // 4
+map;     // Map { 'a' => 1, 'b' => 2, 'c' => 3 'd' => 4 }
+
+```
+<br>
+
 * [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)
 * [PriorityQueue](https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme)
 * [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)
