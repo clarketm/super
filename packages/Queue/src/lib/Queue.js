@@ -13,14 +13,17 @@ import type { Item } from "../../../shared/src/types";
  *
  */
 class Queue {
+  /** @private */
+  _queue: Array<any>;
+
   /**
    * @public
    *
    * @desc Construct a Queue
    *
-   * @param {Iterable} iterable
+   * @param {Iterable<any>} iterable
    */
-  constructor(iterable: Iterable = []) {
+  constructor(iterable: Iterable<any> = []) {
     this._queue = [...iterable];
   }
 
@@ -109,7 +112,7 @@ class Queue {
    *
    * @returns {Array} array representation of the queue
    */
-  toArray(): Array {
+  toArray(): Array<any> {
     return this._queue.slice(0);
   }
 }

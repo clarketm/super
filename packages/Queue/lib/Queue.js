@@ -58,12 +58,14 @@
    *
    */
   var Queue = function () {
+    /** @private */
+
     /**
      * @public
      *
      * @desc Construct a Queue
      *
-     * @param {Iterable} iterable
+     * @param {Iterable<any>} iterable
      */
     function Queue() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
