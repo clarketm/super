@@ -11,12 +11,12 @@
 ## Installation
 
 ### Yarn
-```shell
+```bash
 $ yarn add @clarketm/super
 ```
 
 ### Npm
-```shell
+```bash
 $ npm install @clarketm/super --save
 ```
 
