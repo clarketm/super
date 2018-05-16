@@ -16,7 +16,7 @@
 let array = new Array([0, 1, 2, 3]);  // [0, 1, 2, 3]
 
 // Use any built-in Array methods:
-array.push(4);  // [0, 1, 2, 3, 4];
+array.push(4);  // [0, 1, 2, 3, 4]
 
 // Use custom methods (e.g. `flatten`):
 let array = new Array([[[1]], [[2]], [[3]]]);
@@ -138,10 +138,43 @@ Object.is(object, clone);    // false
 ```
 <br>
 
-* [PriorityQueue](https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme)
-* [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)
-* [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)
-* [Trie](https://github.com/clarketm/super/tree/master/packages/Trie#readme)
+### [PriorityQueue](https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme)
+
+### [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)
+
+### [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)
+
+```js
+let setA = new Set([1, 2, 3]);  // Set { 1, 2, 3 }
+let setB = new Set([2, 3, 4]);  // Set { 2, 3, 4 }
+
+// Use any built-in Set methods:
+setA.has(1);  // true
+
+// Use custom methods:
+
+// `isSubset`
+setA.isSubset(setB);  // false
+
+// `isSuperset`
+setA.isSuperset(setB);  // false
+
+// `union`
+setA.union(setB);  // Set { 1, 2, 3, 4 }
+
+// `intersection`
+setA.intersection(setB);  // Set { 2, 3 }
+
+// `difference`
+setA.difference(setB);   // Set { 1 }
+
+// `symmetricDifference`
+setA.symmetricDifference(setB);  // Set { 1, 4 }
+
+```
+<br>
+
+### [Trie](https://github.com/clarketm/super/tree/master/packages/Trie#readme)
 
 ## Data Types
 * [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)
