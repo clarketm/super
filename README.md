@@ -217,6 +217,54 @@ setA.symmetricDifference(setB);  // Set { 1, 4 }
 
 ### [Trie](https://github.com/clarketm/super/tree/master/packages/Trie#readme)
 
+```js
+import { Trie } from "@clarketm/super";
+
+let trie = new Trie(["me", "men", "go"]);
+
+//               root 
+//              /   \
+//            'm'    'g'
+//           /         \
+//    $ <- 'e'        'o' -> $
+//         /             
+//  $ <- 'n'      
+//
+// $: denotes a complete word
+//
+
+tree.root;     // TrieNode { _char: √, ... }
+
+tree.insert("met");
+
+//               root 
+//              /   \
+//            'm'    'g'
+//           /         \
+//    $ <- 'e'        'o' -> $
+//         /  \            
+//  $ <- 'n'   't' -> $    
+//
+// $: denotes a complete word
+//
+
+tree.search(3);    // BinaryTreeNode { _value: 3, ... }
+
+tree.remove("go");
+
+//               root 
+//              /   
+//            'm'    
+//           /         
+//    $ <- 'e'        
+//         /  \            
+//  $ <- 'n'   't' -> $    
+//
+// $: denotes a complete word
+//
+```
+<br>
+
 ## Data Types
 * [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)
 * [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)
