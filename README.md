@@ -71,7 +71,7 @@ let tree = new BinaryTree([5, 3, 7, 2, 8, 4, 6, 1]);
 //       /             
 //      1              
 
-tree.root;     // BinaryTreeNode {_value: 5, ... }
+tree.root;     // BinaryTreeNode { _value: 5, ... }
 tree.height;   // 1
 
 tree.insert(9);
@@ -83,6 +83,7 @@ tree.insert(9);
 //        2   4  6    8
 //       /             \
 //      1               9  -> node inserted
+//
 
 tree.search(3);    // BinaryTreeNode { _value: 3, ... }
 
@@ -95,6 +96,7 @@ tree.remove(9);
 //        2   4  6    8
 //       /             
 //      1                -> node removed
+//
 ```
 <br>
 
@@ -248,7 +250,23 @@ tree.insert("met");
 // $: denotes a complete word
 //
 
-tree.search(3);    // BinaryTreeNode { _value: 3, ... }
+// `word` search w/ `contains`
+tree.contains("me");    // true
+
+// `prefix` search w/ `startsWith`
+tree.startsWith("m");   // true
+
+// Return a full Match object w/ `search`
+tree.search("men");    
+
+// Match object
+// { 
+//  query: 'men',
+//  matchedChars: 3,
+//  isMatch: true,
+//  isCompleteWord: true,
+//  node: TrieNode { ... }
+// }
 
 tree.remove("go");
 
