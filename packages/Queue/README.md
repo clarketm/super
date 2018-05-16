@@ -10,6 +10,14 @@ Construct a Queue
 
 Get the current size of the queue
 
+### `front: Item`
+
+Get the front item in the queue
+
+### `rear: Item`
+
+Get the rear item in the queue
+
 ### `isEmpty(): boolean`
 
 Check if queue is empty
@@ -29,14 +37,6 @@ Enqueue an item into the queue
 ### `dequeue(): Item`
 
 Dequeue an item from the queue
-
-### `front(): Item`
-
-Get the front item in the queue
-
-### `rear(): Item`
-
-Get the rear item in the queue
 
 ### `toArray(): Array`
 

@@ -13,6 +13,24 @@ describe("Queue", () => {
     });
   });
 
+  describe("#front", () => {
+    it("should get the front item in the queue", () => {
+      expected = 3;
+      actual = new Queue([3, 5, 7]).front;
+
+      assert.equal(actual, expected);
+    });
+  });
+
+  describe("#rear", () => {
+    it("should get the rear item in the queue", () => {
+      expected = 7;
+      actual = new Queue([3, 5, 7]).rear;
+
+      assert.equal(actual, expected);
+    });
+  });
+
   describe("#isEmpty", () => {
     it("should return true if empty", () => {
       expected = true;
@@ -54,24 +72,6 @@ describe("Queue", () => {
     it("should dequeue the item from the queue", () => {
       expected = 1;
       actual = new Queue([1]).dequeue();
-
-      assert.equal(actual, expected);
-    });
-  });
-
-  describe("#front", () => {
-    it("should get the front item in the queue", () => {
-      expected = 3;
-      actual = new Queue([3, 5, 7]).front();
-
-      assert.equal(actual, expected);
-    });
-  });
-
-  describe("#rear", () => {
-    it("should get the rear item in the queue", () => {
-      expected = 7;
-      actual = new Queue([3, 5, 7]).rear();
 
       assert.equal(actual, expected);
     });

@@ -41,6 +41,28 @@ class Queue {
   /**
    * @public
    *
+   * @desc Get the front item in the queue
+   *
+   * @returns {Item} front item
+   */
+  get front(): Item {
+    return this._queue[0];
+  }
+
+  /**
+   * @public
+   *
+   * @desc Get the rear item in the queue
+   *
+   * @returns {Item} rear item
+   */
+  get rear(): Item {
+    return this._queue[this._queue.length - 1];
+  }
+
+  /**
+   * @public
+   *
    * @desc Check if queue is empty
    *
    * @returns {boolean} is queue empty
@@ -81,28 +103,6 @@ class Queue {
    */
   dequeue(): Item {
     return this._queue.shift();
-  }
-
-  /**
-   * @public
-   *
-   * @desc Get the front item in the queue
-   *
-   * @returns {Item} front item
-   */
-  front(): Item {
-    return this._queue[0];
-  }
-
-  /**
-   * @public
-   *
-   * @desc Get the rear item in the queue
-   *
-   * @returns {Item} rear item
-   */
-  rear(): Item {
-    return this._queue[this._queue.length - 1];
   }
 
   /**
