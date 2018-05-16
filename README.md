@@ -4,9 +4,7 @@
 
 > <sub>implemented in **JavaScript**.</sub>
 
-<br>
-![hero](https://github.com/clarketm/super/blob/master/resources/hero.png)
-<br>
+[![hero](https://github.com/clarketm/super/blob/master/resources/hero.png)](https://github.com/clarketm/super)
 
 ## Installation
 
