@@ -23,7 +23,7 @@ $ npm install @clarketm/super --save
 ## Usage
 ```js
 // 1. import `each` module `independently`
-import { Array, Map, Queue, Map, ... } from "@clarketm/super";
+import { Array, Map, Queue, Trie, ... } from "@clarketm/super";
 
 let array = new Array([1, 2]);
 ...
