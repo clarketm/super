@@ -6,7 +6,7 @@
 
 [![hero](https://github.com/clarketm/super/blob/master/resources/hero.png)](https://github.com/clarketm/super)
 
-> _"The data structures in JavaScript that you wish you had!"_
+> _"The data structures in JavaScript that you wish you had!"_ - Mark Twain
 
 ## Installation
 
