@@ -21,9 +21,10 @@ array.push(4); // [0, 1, 2, 3, 4];
 new Array([[[1]], [[2]], [[3]]]).flatten(2); // [1, 2, 3]
 
 ```
-
 <br>
+
 ### [BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)
+
 ```js
 let tree = new BinaryTree([5, 3, 7, 2, 8, 4, 6, 1]);
 
@@ -59,11 +60,11 @@ tree.remove(9);
 //        2   4  6    8
 //       /             
 //      1                -> node removed
-
 ```
 <br>
 
 ### [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)
+
 ```js
 let list = new LinkedList([1, 3, 5, 7]);
 
