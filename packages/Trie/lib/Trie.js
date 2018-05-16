@@ -46,6 +46,10 @@
    * @module super/trie
    */
 
+  var SpecialChar = {
+    ROOT: "√"
+  };
+
   /**
    *
    * TrieNode
@@ -53,7 +57,14 @@
    * @public
    *
    */
+
   var TrieNode = function () {
+    /** @private */
+
+    /** @private */
+
+    /** @private */
+
     /**
      * @public
      *
@@ -62,7 +73,7 @@
      * @param {character} char - node character value
      */
     function TrieNode() {
-      var char = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var char = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : SpecialChar.ROOT;
       classCallCheck(this, TrieNode);
 
       this._char = char;
@@ -215,6 +226,8 @@
    */
 
   var Trie = function () {
+    /** @private */
+
     /**
      * @public
      *

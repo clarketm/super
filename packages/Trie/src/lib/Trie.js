@@ -22,6 +22,9 @@ type Match = {
  *
  */
 class Trie {
+  /** @private */
+  _root: TrieNode;
+
   /**
    * @public
    *

@@ -5,6 +5,10 @@
 
 import type { character } from "../../../shared/src/types";
 
+const SpecialChar = {
+  ROOT: "√"
+};
+
 /**
  *
  * TrieNode
@@ -13,6 +17,15 @@ import type { character } from "../../../shared/src/types";
  *
  */
 class TrieNode {
+  /** @private */
+  _char: character;
+
+  /** @private */
+  _isCompleteWord: boolean;
+
+  /** @private */
+  _children: Map<character, TrieNode>;
+
   /**
    * @public
    *
@@ -20,7 +33,7 @@ class TrieNode {
    *
    * @param {character} char - node character value
    */
-  constructor(char: character = null) {
+  constructor(char: character = SpecialChar.ROOT) {
     this._char = char;
     this._isCompleteWord = false;
     this._children = new Map();
@@ -92,7 +105,7 @@ class TrieNode {
    * @param {character} char - character to get
    * @returns {TrieNode} node with character value
    */
-  get(char: character): TrieNode {
+  get(char: character): ?TrieNode {
     return this._children.get(char);
   }
 
