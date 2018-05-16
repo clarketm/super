@@ -6,7 +6,7 @@
 
 [![hero](https://github.com/clarketm/super/blob/master/resources/hero.png)](https://github.com/clarketm/super)
 
-> *"The data structures in JavaScript that you wish you had!"*
+> _"The data structures in JavaScript that you wish you had!"_
 
 ## Installation
 
@@ -272,9 +272,9 @@ let trie = new Trie(["me", "men", "go"]);
 // $: denotes a complete word
 //
 
-tree.root; // TrieNode { _char: √, ... }
+trie.root; // TrieNode { _char: √, ... }
 
-tree.insert("met");
+trie.insert("met");
 
 //               root
 //              /   \
@@ -288,13 +288,13 @@ tree.insert("met");
 //
 
 // `word` search w/ `contains`
-tree.contains("me"); // true
+trie.contains("me"); // true
 
 // `prefix` search w/ `startsWith`
-tree.startsWith("m"); // true
+trie.startsWith("m"); // true
 
 // Return a full Match object w/ `search`
-tree.search("men");
+trie.search("men");
 
 // Match object
 // {
@@ -305,7 +305,7 @@ tree.search("men");
 //  node: TrieNode { ... }
 // }
 
-tree.remove("go");
+trie.remove("go");
 
 //               root
 //              /
