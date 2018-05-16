@@ -21,7 +21,45 @@ array.push(4); // [0, 1, 2, 3, 4];
 new Array([[[1]], [[2]], [[3]]]).flatten(2); // [1, 2, 3]
 ```
 
-* [BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)
+* **[BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)**
+```js
+let tree = new BinaryTree([5, 3, 7, 2, 8, 4, 6, 1]);
+
+//              5  -> root 
+//            /   \
+//           3     7
+//         /  \   /  \
+//        2   4  6    8
+//       /             
+//      1              
+
+tree.root;     // BinaryTreeNode {_value: 5, ... }
+tree.height;   // 1
+
+tree.insert(9);
+
+//              5  -> root 
+//            /   \
+//           3     7
+//         /  \   /  \
+//        2   4  6    8
+//       /             \
+//      1               9  -> node inserted
+
+tree.search(3);    // BinaryTreeNode { _value: 3, ... }
+
+tree.remove(9);
+
+//              5  -> root 
+//            /   \
+//           3     7
+//         /  \   /  \
+//        2   4  6    8
+//       /             
+//      1                -> node removed
+
+```
+
 * [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)
 * [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)
 * [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)
