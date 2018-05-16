@@ -10,7 +10,17 @@
 
 ## Data Structures
 
-* [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)
+* **[Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)**
+```js
+let array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]
+
+// Use any built-in array methods:
+arr.push(4); // [0, 1, 2, 3, 6];
+
+// `flatten`:
+let array = new Array([[[1]], [[2]], [[3]]]).flatten(2); // [1, 2, 3]
+```
+
 * [BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)
 * [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)
 * [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)
