@@ -107,8 +107,9 @@ let map = new Map([["a", 1], ["b", 2], ["c", 3]]);  // Map { 'a' => 1, 'b' => 2,
 // Use any built-in Map methods:
 map.get("c");   // 3
 
-// Use custom methods (e.g. `setDefault`):
+// Use custom methods (e.g. `setDefault`): 
 // note: `setDefault` is similar to get(), but will set key to a defaultValue if the key is not in Map.
+
 let item = map.setDefault("c", 3);
 item;    // 3
 map;     // Map { 'a' => 1, 'b' => 2, 'c' => 3 }
@@ -120,7 +121,23 @@ map;     // Map { 'a' => 1, 'b' => 2, 'c' => 3 'd' => 4 }
 ```
 <br>
 
-* [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)
+### [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)
+
+```js
+let object = new Object({ a: 1, b: true, c: 4 });  // Object { a: 1, b: true, c: 4 }
+
+// Use any built-in Object methods:
+Object.keys(object);   // [ 'a', 'b', 'c' ]
+
+// Use custom methods (e.g. `clone`):
+// note: `clone` will create a deep copy of the object.
+
+let clone = object.clone();  // Object { a: 1, b: true, c: 4 }
+Object.is(object, clone);    // false
+
+```
+<br>
+
 * [PriorityQueue](https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme)
 * [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)
 * [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)
