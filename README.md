@@ -1,11 +1,11 @@
-# Super
+# [Super](https://www.npmjs.com/package/@clarketm/super)
 
 **Data Structures** with superpowers! 💪😎👍
 
 > <sub>implemented in **JavaScript**.</sub>
 
 <br>
-<p align="center"><img src="/resources/hero.png" /></div>
+![hero](https://github.com/clarketm/super/blob/master/resources/hero.png)
 <br>
 
 ## Installation
