@@ -116,7 +116,7 @@ list.tail;    // ListNode { _value: 7, ... }
 list.insert(1, 100);
 
 //         node inserted at pos: 1
-//              ^
+//                 ^
 //    1    <->    100    <->    3    <->    5    <->    7
 
 list.append(99);
