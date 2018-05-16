@@ -3093,7 +3093,7 @@
     "__docId__": 130,
     "kind": "file",
     "name": "packages/Queue/src/lib/Queue.js",
-    "content": "/**\n * @flow\n * @module super/queue\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * Queue with superpowers! 💪\n *\n * @public\n *\n */\nclass Queue {\n  /**\n   * @public\n   *\n   * @desc Construct a Queue\n   *\n   * @param {Iterable} iterable\n   */\n  constructor(iterable: Iterable = []) {\n    this._queue = [...iterable];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the current size of the queue\n   *\n   * @returns {number} size of the queue\n   */\n  get size(): number {\n    return this._queue.length;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if queue is empty\n   *\n   * @returns {boolean} is queue empty\n   */\n  isEmpty(): boolean {\n    return this._queue.length === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Clear the items from the queue\n   *\n   * @returns {void}\n   */\n  clear() {\n    this._queue.length = 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Enqueue an item into the queue\n   *\n   * @param {Item} item - item to enqueue\n   * @returns {number} size after enqueue\n   */\n  enqueue(item: Item): number {\n    return this._queue.push(item);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Dequeue an item from the queue\n   *\n   * @returns {Item} dequeued item\n   */\n  dequeue(): Item {\n    return this._queue.shift();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the front item in the queue\n   *\n   * @returns {Item} front item\n   */\n  front(): Item {\n    return this._queue[0];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the rear item in the queue\n   *\n   * @returns {Item} rear item\n   */\n  rear(): Item {\n    return this._queue[this._queue.length - 1];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the queue to an array\n   *\n   * @returns {Array} array representation of the queue\n   */\n  toArray(): Array {\n    return this._queue.slice(0);\n  }\n}\n\nexport { Queue };\n",
+    "content": "/**\n * @flow\n * @module super/queue\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * Queue with superpowers! 💪\n *\n * @public\n *\n */\nclass Queue {\n  /** @private */\n  _queue: Array<any>;\n\n  /**\n   * @public\n   *\n   * @desc Construct a Queue\n   *\n   * @param {Iterable<any>} iterable\n   */\n  constructor(iterable: Iterable<any> = []) {\n    this._queue = [...iterable];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the current size of the queue\n   *\n   * @returns {number} size of the queue\n   */\n  get size(): number {\n    return this._queue.length;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the front item in the queue\n   *\n   * @returns {Item} front item\n   */\n  get front(): Item {\n    return this._queue[0];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the rear item in the queue\n   *\n   * @returns {Item} rear item\n   */\n  get rear(): Item {\n    return this._queue[this._queue.length - 1];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if queue is empty\n   *\n   * @returns {boolean} is queue empty\n   */\n  isEmpty(): boolean {\n    return this._queue.length === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Clear the items from the queue\n   *\n   * @returns {void}\n   */\n  clear() {\n    this._queue.length = 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Enqueue an item into the queue\n   *\n   * @param {Item} item - item to enqueue\n   * @returns {number} size after enqueue\n   */\n  enqueue(item: Item): number {\n    return this._queue.push(item);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Dequeue an item from the queue\n   *\n   * @returns {Item} dequeued item\n   */\n  dequeue(): Item {\n    return this._queue.shift();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the queue to an array\n   *\n   * @returns {Array} array representation of the queue\n   */\n  toArray(): Array<any> {\n    return this._queue.slice(0);\n  }\n}\n\nexport { Queue };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/Queue/src/lib/Queue.js",
     "access": "public",
@@ -3126,12 +3126,12 @@
     "longname": "packages/Queue/src/lib/Queue.js~Queue#constructor",
     "access": "public",
     "description": "Construct a Queue",
-    "lineNumber": 18,
+    "lineNumber": 19,
     "params": [
       {
         "nullable": null,
         "types": [
-          "Iterable"
+          "Iterable<any>"
         ],
         "spread": false,
         "optional": false,
@@ -3149,7 +3149,7 @@
     "longname": "packages/Queue/src/lib/Queue.js~Queue#_queue",
     "access": "private",
     "description": null,
-    "lineNumber": 19,
+    "lineNumber": 20,
     "undocument": true,
     "type": {
       "types": [
@@ -3166,23 +3166,9 @@
     "async": false,
     "static": false,
     "longname": "packages/Queue/src/lib/Queue.js~Queue#size",
-    "access": "public",
-    "description": "Get the current size of the queue",
-    "lineNumber": 29,
-    "unknown": [
-      {
-        "tagName": "@returns",
-        "tagValue": "{number} size of the queue"
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "number"
-      ],
-      "spread": false,
-      "description": "size of the queue"
-    },
+    "access": "private",
+    "description": null,
+    "lineNumber": 32,
     "type": {
       "types": [
         "*"
@@ -3191,6 +3177,70 @@
   },
   {
     "__docId__": 135,
+    "kind": "get",
+    "name": "front",
+    "memberof": "packages/Queue/src/lib/Queue.js~Queue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/Queue/src/lib/Queue.js~Queue#front",
+    "access": "public",
+    "description": "Get the front item in the queue",
+    "lineNumber": 43,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} front item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "front item"
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 136,
+    "kind": "get",
+    "name": "rear",
+    "memberof": "packages/Queue/src/lib/Queue.js~Queue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/Queue/src/lib/Queue.js~Queue#rear",
+    "access": "public",
+    "description": "Get the rear item in the queue",
+    "lineNumber": 54,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} rear item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "rear item"
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 137,
     "kind": "method",
     "name": "isEmpty",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3200,7 +3250,7 @@
     "longname": "packages/Queue/src/lib/Queue.js~Queue#isEmpty",
     "access": "public",
     "description": "Check if queue is empty",
-    "lineNumber": 40,
+    "lineNumber": 65,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3218,7 +3268,7 @@
     "params": []
   },
   {
-    "__docId__": 136,
+    "__docId__": 138,
     "kind": "method",
     "name": "clear",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3228,7 +3278,7 @@
     "longname": "packages/Queue/src/lib/Queue.js~Queue#clear",
     "access": "public",
     "description": "Clear the items from the queue",
-    "lineNumber": 51,
+    "lineNumber": 76,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3246,7 +3296,7 @@
     "params": []
   },
   {
-    "__docId__": 137,
+    "__docId__": 139,
     "kind": "method",
     "name": "enqueue",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3256,7 +3306,7 @@
     "longname": "packages/Queue/src/lib/Queue.js~Queue#enqueue",
     "access": "public",
     "description": "Enqueue an item into the queue",
-    "lineNumber": 63,
+    "lineNumber": 88,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3285,7 +3335,7 @@
     }
   },
   {
-    "__docId__": 138,
+    "__docId__": 140,
     "kind": "method",
     "name": "dequeue",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3295,7 +3345,7 @@
     "longname": "packages/Queue/src/lib/Queue.js~Queue#dequeue",
     "access": "public",
     "description": "Dequeue an item from the queue",
-    "lineNumber": 74,
+    "lineNumber": 99,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3313,62 +3363,6 @@
     "params": []
   },
   {
-    "__docId__": 139,
-    "kind": "method",
-    "name": "front",
-    "memberof": "packages/Queue/src/lib/Queue.js~Queue",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "packages/Queue/src/lib/Queue.js~Queue#front",
-    "access": "public",
-    "description": "Get the front item in the queue",
-    "lineNumber": 85,
-    "unknown": [
-      {
-        "tagName": "@returns",
-        "tagValue": "{Item} front item"
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "Item"
-      ],
-      "spread": false,
-      "description": "front item"
-    },
-    "params": []
-  },
-  {
-    "__docId__": 140,
-    "kind": "method",
-    "name": "rear",
-    "memberof": "packages/Queue/src/lib/Queue.js~Queue",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "packages/Queue/src/lib/Queue.js~Queue#rear",
-    "access": "public",
-    "description": "Get the rear item in the queue",
-    "lineNumber": 96,
-    "unknown": [
-      {
-        "tagName": "@returns",
-        "tagValue": "{Item} rear item"
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "Item"
-      ],
-      "spread": false,
-      "description": "rear item"
-    },
-    "params": []
-  },
-  {
     "__docId__": 141,
     "kind": "method",
     "name": "toArray",
@@ -3379,7 +3373,7 @@
     "longname": "packages/Queue/src/lib/Queue.js~Queue#toArray",
     "access": "public",
     "description": "Convert the queue to an array",
-    "lineNumber": 107,
+    "lineNumber": 110,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3904,7 +3898,7 @@
     "__docId__": 159,
     "kind": "file",
     "name": "packages/Trie/src/lib/Trie.js",
-    "content": "/**\n * @flow\n * @module super/trie\n */\n\nimport { TrieNode } from \"./TrieNode\";\nimport { PrimitiveType } from \"../../../shared/src/constants\";\n\ntype Match = {\n  query: string,\n  matchedChars: number,\n  isMatch: boolean,\n  isCompleteWord: boolean,\n  node: TrieNode\n};\n\n/**\n *\n * Trie with superpowers! 💪\n *\n * @public\n *\n */\nclass Trie {\n  /**\n   * @public\n   *\n   * @desc Construct a Trie\n   *\n   * @param {Iterable<string>} iterable\n   */\n  constructor(iterable: Iterable<string> = []) {\n    this._root = new TrieNode();\n\n    for (let word of iterable) {\n      this.insert(word);\n    }\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the root of the trie\n   *\n   * @returns {TrieNode} root node\n   */\n  get root(): TrieNode {\n    return this._root;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Insert a string into the trie\n   *\n   * @param {string} word - string to insert\n   */\n  insert(word: string) {\n    if (typeof word !== PrimitiveType.STRING) {\n      throw new Error(`Unable to insert non-string value: ${word}`);\n    }\n\n    let curr = this.root;\n\n    for (const char of word) {\n      if (curr.has(char)) {\n        curr = curr.get(char);\n      } else {\n        let node = new TrieNode(char);\n        curr.set(char, node);\n        curr = node;\n      }\n    }\n\n    curr._isCompleteWord = true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove a string from the trie\n   *\n   * @param {string} word - string to remove\n   */\n  remove(word: string) {\n    if (typeof word !== PrimitiveType.STRING) {\n      throw new Error(`Unable to remove non-string value: ${word}`);\n    }\n\n    /**\n     * @public\n     *\n     * @desc Remove helper\n     *\n     * @param {TrieNode} curr - trie node\n     * @param {number} level - level in trie (0 -> height)\n     * @return {boolean} true if node is a leaf node and should be deleted; otherwise false\n     */\n    function _remove(curr: TrieNode, level: number = 0): boolean {\n      if (!curr) return false;\n\n      if (level === word.length) {\n        curr._isCompleteWord = false;\n        return curr.isLeafNode;\n      }\n\n      let char = word[level];\n\n      if (_remove(curr.get(char), level + 1)) {\n        curr.delete(char);\n        return curr.isLeafNode;\n      }\n    }\n\n    return _remove(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Search for a node in the trie matching the query\n   *\n   * @param {string} query - string query to search for\n   * @returns {Match} match object\n   */\n  search(query: string): Match {\n    let node = this.root;\n    let index = 0;\n\n    while (index < query.length) {\n      node = node.get(query[index]);\n      if (!node) break;\n      index++;\n    }\n\n    return {\n      query,\n      matchedChars: index,\n      isMatch: query.length === index,\n      isCompleteWord: query.length === index && node.isCompleteWord,\n      node\n    };\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if the trie includes a word\n   *\n   * @param {string} word - full word to search for\n   * @returns {boolean} contains the word\n   */\n  includes(word: string): boolean {\n    let { isCompleteWord } = this.search(word);\n    return isCompleteWord;\n  }\n\n  /**\n   * @public\n   *\n   * @alias includes(word)\n   *\n   * @desc Check if the trie contains a word\n   *\n   * @param {string} word - full word to search for\n   * @returns {boolean} contains the word\n   */\n  contains(word: string): boolean {\n    return this.includes(word);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if the trie contains a prefix\n   *\n   * @param {string} prefix - prefix (i.e. partial word) to search for\n   * @returns {boolean} contains the prefix\n   */\n  startsWith(prefix: string): boolean {\n    let { isMatch } = this.search(prefix);\n    return isMatch;\n  }\n}\n\nexport { Trie };\n",
+    "content": "/**\n * @flow\n * @module super/trie\n */\n\nimport { TrieNode } from \"./TrieNode\";\nimport { PrimitiveType } from \"../../../shared/src/constants\";\n\ntype Match = {\n  query: string,\n  matchedChars: number,\n  isMatch: boolean,\n  isCompleteWord: boolean,\n  node: TrieNode\n};\n\n/**\n *\n * Trie with superpowers! 💪\n *\n * @public\n *\n */\nclass Trie {\n  /** @private */\n  _root: TrieNode;\n\n  /**\n   * @public\n   *\n   * @desc Construct a Trie\n   *\n   * @param {Iterable<string>} iterable\n   */\n  constructor(iterable: Iterable<string> = []) {\n    this._root = new TrieNode();\n\n    for (let word of iterable) {\n      this.insert(word);\n    }\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the root of the trie\n   *\n   * @returns {TrieNode} root node\n   */\n  get root(): TrieNode {\n    return this._root;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Insert a string into the trie\n   *\n   * @param {string} word - string to insert\n   */\n  insert(word: string) {\n    if (typeof word !== PrimitiveType.STRING) {\n      throw new Error(`Unable to insert non-string value: ${word}`);\n    }\n\n    let curr = this.root;\n\n    for (const char of word) {\n      if (curr.has(char)) {\n        curr = curr.get(char);\n      } else {\n        let node = new TrieNode(char);\n        curr.set(char, node);\n        curr = node;\n      }\n    }\n\n    curr._isCompleteWord = true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove a string from the trie\n   *\n   * @param {string} word - string to remove\n   */\n  remove(word: string) {\n    if (typeof word !== PrimitiveType.STRING) {\n      throw new Error(`Unable to remove non-string value: ${word}`);\n    }\n\n    /**\n     * @public\n     *\n     * @desc Remove helper\n     *\n     * @param {TrieNode} curr - trie node\n     * @param {number} level - level in trie (0 -> height)\n     * @return {boolean} true if node is a leaf node and should be deleted; otherwise false\n     */\n    function _remove(curr: TrieNode, level: number = 0): boolean {\n      if (!curr) return false;\n\n      if (level === word.length) {\n        curr._isCompleteWord = false;\n        return curr.isLeafNode;\n      }\n\n      let char = word[level];\n\n      if (_remove(curr.get(char), level + 1)) {\n        curr.delete(char);\n        return curr.isLeafNode;\n      }\n    }\n\n    return _remove(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Search for a node in the trie matching the query\n   *\n   * @param {string} query - string query to search for\n   * @returns {Match} match object\n   */\n  search(query: string): Match {\n    let node = this.root;\n    let index = 0;\n\n    while (index < query.length) {\n      node = node.get(query[index]);\n      if (!node) break;\n      index++;\n    }\n\n    return {\n      query,\n      matchedChars: index,\n      isMatch: query.length === index,\n      isCompleteWord: query.length === index && node.isCompleteWord,\n      node\n    };\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if the trie includes a word\n   *\n   * @param {string} word - full word to search for\n   * @returns {boolean} contains the word\n   */\n  includes(word: string): boolean {\n    let { isCompleteWord } = this.search(word);\n    return isCompleteWord;\n  }\n\n  /**\n   * @public\n   *\n   * @alias includes(word)\n   *\n   * @desc Check if the trie contains a word\n   *\n   * @param {string} word - full word to search for\n   * @returns {boolean} contains the word\n   */\n  contains(word: string): boolean {\n    return this.includes(word);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if the trie contains a prefix\n   *\n   * @param {string} prefix - prefix (i.e. partial word) to search for\n   * @returns {boolean} contains the prefix\n   */\n  startsWith(prefix: string): boolean {\n    let { isMatch } = this.search(prefix);\n    return isMatch;\n  }\n}\n\nexport { Trie };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/Trie/src/lib/Trie.js",
     "access": "public",
@@ -3937,7 +3931,7 @@
     "longname": "packages/Trie/src/lib/Trie.js~Trie#constructor",
     "access": "public",
     "description": "Construct a Trie",
-    "lineNumber": 24,
+    "lineNumber": 25,
     "params": [
       {
         "nullable": null,
@@ -3960,7 +3954,7 @@
     "longname": "packages/Trie/src/lib/Trie.js~Trie#_root",
     "access": "private",
     "description": null,
-    "lineNumber": 25,
+    "lineNumber": 26,
     "undocument": true,
     "type": {
       "types": [
@@ -3977,23 +3971,9 @@
     "async": false,
     "static": false,
     "longname": "packages/Trie/src/lib/Trie.js~Trie#root",
-    "access": "public",
-    "description": "Get the root of the trie",
-    "lineNumber": 39,
-    "unknown": [
-      {
-        "tagName": "@returns",
-        "tagValue": "{TrieNode} root node"
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "TrieNode"
-      ],
-      "spread": false,
-      "description": "root node"
-    },
+    "access": "private",
+    "description": null,
+    "lineNumber": 42,
     "type": {
       "types": [
         "*"
@@ -4011,7 +3991,7 @@
     "longname": "packages/Trie/src/lib/Trie.js~Trie#insert",
     "access": "public",
     "description": "Insert a string into the trie",
-    "lineNumber": 50,
+    "lineNumber": 53,
     "params": [
       {
         "nullable": null,
@@ -4037,7 +4017,7 @@
     "longname": "packages/Trie/src/lib/Trie.js~Trie#remove",
     "access": "public",
     "description": "Remove a string from the trie",
-    "lineNumber": 77,
+    "lineNumber": 80,
     "params": [
       {
         "nullable": null,
@@ -4067,7 +4047,7 @@
     "longname": "packages/Trie/src/lib/Trie.js~Trie#search",
     "access": "public",
     "description": "Search for a node in the trie matching the query",
-    "lineNumber": 118,
+    "lineNumber": 121,
     "unknown": [
       {
         "tagName": "@returns",
@@ -4106,7 +4086,7 @@
     "longname": "packages/Trie/src/lib/Trie.js~Trie#includes",
     "access": "public",
     "description": "Check if the trie includes a word",
-    "lineNumber": 145,
+    "lineNumber": 148,
     "unknown": [
       {
         "tagName": "@returns",
@@ -4145,7 +4125,7 @@
     "longname": "packages/Trie/src/lib/Trie.js~Trie#contains",
     "access": "public",
     "description": "Check if the trie contains a word",
-    "lineNumber": 160,
+    "lineNumber": 163,
     "unknown": [
       {
         "tagName": "@alias",
@@ -4188,7 +4168,7 @@
     "longname": "packages/Trie/src/lib/Trie.js~Trie#startsWith",
     "access": "public",
     "description": "Check if the trie contains a prefix",
-    "lineNumber": 172,
+    "lineNumber": 175,
     "unknown": [
       {
         "tagName": "@returns",
@@ -4220,7 +4200,7 @@
     "__docId__": 170,
     "kind": "file",
     "name": "packages/Trie/src/lib/TrieNode.js",
-    "content": "/**\n * @flow\n * @module super/trie\n */\n\nimport type { character } from \"../../../shared/src/types\";\n\n/**\n *\n * TrieNode\n *\n * @public\n *\n */\nclass TrieNode {\n  /**\n   * @public\n   *\n   * @desc Construct a TrieNode\n   *\n   * @param {character} char - node character value\n   */\n  constructor(char: character = null) {\n    this._char = char;\n    this._isCompleteWord = false;\n    this._children = new Map();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get children count of the node\n   *\n   * @returns {number} child count\n   */\n  // INFO: count or size?\n  get count(): number {\n    return this._children.size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get character value of node\n   *\n   * @returns {character} character\n   */\n  // INFO: char or value?\n  get char(): character {\n    return this._char;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Checks if node is a complete word\n   *\n   * @returns {boolean} is complete word\n   */\n  get isCompleteWord(): boolean {\n    return this._isCompleteWord;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Checks if node is a leaf node\n   *\n   * @returns {boolean} is leaf node\n   */\n  get isLeafNode(): boolean {\n    return this.count === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if node has a specific character as a child\n   *\n   * @param {character} char - character to check\n   * @returns {boolean} node has child\n   */\n  has(char: character): boolean {\n    return this._children.has(char);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get child node with specific character value\n   *\n   * @param {character} char - character to get\n   * @returns {TrieNode} node with character value\n   */\n  get(char: character): TrieNode {\n    return this._children.get(char);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set child node with specific character value\n   *\n   * @param {character} char - character to set\n   * @param {TrieNode} node - node to assign to character\n   */\n  set(char: character, node: TrieNode) {\n    this._children.set(char, node);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Delete child node with specific character value\n   *\n   * @param {character} char - character to delete\n   */\n  delete(char: character) {\n    this._children.delete(char);\n  }\n}\n\nexport { TrieNode };\n",
+    "content": "/**\n * @flow\n * @module super/trie\n */\n\nimport type { character } from \"../../../shared/src/types\";\n\nconst SpecialChar = {\n  ROOT: \"√\"\n};\n\n/**\n *\n * TrieNode\n *\n * @public\n *\n */\nclass TrieNode {\n  /** @private */\n  _char: character;\n\n  /** @private */\n  _isCompleteWord: boolean;\n\n  /** @private */\n  _children: Map<character, TrieNode>;\n\n  /**\n   * @public\n   *\n   * @desc Construct a TrieNode\n   *\n   * @param {character} char - node character value\n   */\n  constructor(char: character = SpecialChar.ROOT) {\n    this._char = char;\n    this._isCompleteWord = false;\n    this._children = new Map();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get children count of the node\n   *\n   * @returns {number} child count\n   */\n  // INFO: count or size?\n  get count(): number {\n    return this._children.size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get character value of node\n   *\n   * @returns {character} character\n   */\n  // INFO: char or value?\n  get char(): character {\n    return this._char;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Checks if node is a complete word\n   *\n   * @returns {boolean} is complete word\n   */\n  get isCompleteWord(): boolean {\n    return this._isCompleteWord;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Checks if node is a leaf node\n   *\n   * @returns {boolean} is leaf node\n   */\n  get isLeafNode(): boolean {\n    return this.count === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if node has a specific character as a child\n   *\n   * @param {character} char - character to check\n   * @returns {boolean} node has child\n   */\n  has(char: character): boolean {\n    return this._children.has(char);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get child node with specific character value\n   *\n   * @param {character} char - character to get\n   * @returns {TrieNode} node with character value\n   */\n  get(char: character): ?TrieNode {\n    return this._children.get(char);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set child node with specific character value\n   *\n   * @param {character} char - character to set\n   * @param {TrieNode} node - node to assign to character\n   */\n  set(char: character, node: TrieNode) {\n    this._children.set(char, node);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Delete child node with specific character value\n   *\n   * @param {character} char - character to delete\n   */\n  delete(char: character) {\n    this._children.delete(char);\n  }\n}\n\nexport { TrieNode };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/Trie/src/lib/TrieNode.js",
     "access": "public",
@@ -4229,6 +4209,26 @@
   },
   {
     "__docId__": 171,
+    "kind": "variable",
+    "name": "SpecialChar",
+    "memberof": "packages/Trie/src/lib/TrieNode.js",
+    "static": true,
+    "longname": "packages/Trie/src/lib/TrieNode.js~SpecialChar",
+    "access": "public",
+    "export": false,
+    "importPath": "@clarketm/super/packages/Trie/src/lib/TrieNode.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"ROOT\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 172,
     "kind": "class",
     "name": "TrieNode",
     "memberof": "packages/Trie/src/lib/TrieNode.js",
@@ -4238,12 +4238,18 @@
     "export": true,
     "importPath": "@clarketm/super/packages/Trie/src/lib/TrieNode.js",
     "importStyle": "{TrieNode}",
-    "description": "\nTrieNode",
-    "lineNumber": 10,
+    "description": "",
+    "lineNumber": 19,
+    "unknown": [
+      {
+        "tagName": "@module",
+        "tagValue": "super/trie"
+      }
+    ],
     "interface": false
   },
   {
-    "__docId__": 172,
+    "__docId__": 173,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4251,24 +4257,12 @@
     "async": false,
     "static": false,
     "longname": "packages/Trie/src/lib/TrieNode.js~TrieNode#constructor",
-    "access": "public",
-    "description": "Construct a TrieNode",
-    "lineNumber": 18,
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "character"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "char",
-        "description": "node character value"
-      }
-    ]
+    "access": "private",
+    "description": null,
+    "lineNumber": 31
   },
   {
-    "__docId__": 173,
+    "__docId__": 174,
     "kind": "member",
     "name": "_char",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4276,7 +4270,7 @@
     "longname": "packages/Trie/src/lib/TrieNode.js~TrieNode#_char",
     "access": "private",
     "description": null,
-    "lineNumber": 19,
+    "lineNumber": 32,
     "undocument": true,
     "type": {
       "types": [
@@ -4285,7 +4279,7 @@
     }
   },
   {
-    "__docId__": 174,
+    "__docId__": 175,
     "kind": "member",
     "name": "_isCompleteWord",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4293,7 +4287,7 @@
     "longname": "packages/Trie/src/lib/TrieNode.js~TrieNode#_isCompleteWord",
     "access": "private",
     "description": null,
-    "lineNumber": 20,
+    "lineNumber": 33,
     "undocument": true,
     "type": {
       "types": [
@@ -4302,7 +4296,7 @@
     }
   },
   {
-    "__docId__": 175,
+    "__docId__": 176,
     "kind": "member",
     "name": "_children",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4310,40 +4304,8 @@
     "longname": "packages/Trie/src/lib/TrieNode.js~TrieNode#_children",
     "access": "private",
     "description": null,
-    "lineNumber": 21,
+    "lineNumber": 34,
     "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 176,
-    "kind": "get",
-    "name": "count",
-    "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "packages/Trie/src/lib/TrieNode.js~TrieNode#count",
-    "access": "public",
-    "description": "Get children count of the node",
-    "lineNumber": 32,
-    "unknown": [
-      {
-        "tagName": "@returns",
-        "tagValue": "{number} child count"
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "number"
-      ],
-      "spread": false,
-      "description": "child count"
-    },
     "type": {
       "types": [
         "*"
@@ -4353,6 +4315,24 @@
   {
     "__docId__": 177,
     "kind": "get",
+    "name": "count",
+    "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/Trie/src/lib/TrieNode.js~TrieNode#count",
+    "access": "private",
+    "description": null,
+    "lineNumber": 50,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 178,
+    "kind": "get",
     "name": "char",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
     "generator": false,
@@ -4361,7 +4341,7 @@
     "longname": "packages/Trie/src/lib/TrieNode.js~TrieNode#char",
     "access": "public",
     "description": "Get character value of node",
-    "lineNumber": 44,
+    "lineNumber": 62,
     "unknown": [
       {
         "tagName": "@returns",
@@ -4383,7 +4363,7 @@
     }
   },
   {
-    "__docId__": 178,
+    "__docId__": 179,
     "kind": "get",
     "name": "isCompleteWord",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4393,7 +4373,7 @@
     "longname": "packages/Trie/src/lib/TrieNode.js~TrieNode#isCompleteWord",
     "access": "public",
     "description": "Checks if node is a complete word",
-    "lineNumber": 55,
+    "lineNumber": 73,
     "unknown": [
       {
         "tagName": "@returns",
@@ -4415,7 +4395,7 @@
     }
   },
   {
-    "__docId__": 179,
+    "__docId__": 180,
     "kind": "get",
     "name": "isLeafNode",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4425,7 +4405,7 @@
     "longname": "packages/Trie/src/lib/TrieNode.js~TrieNode#isLeafNode",
     "access": "public",
     "description": "Checks if node is a leaf node",
-    "lineNumber": 66,
+    "lineNumber": 84,
     "unknown": [
       {
         "tagName": "@returns",
@@ -4447,7 +4427,7 @@
     }
   },
   {
-    "__docId__": 180,
+    "__docId__": 181,
     "kind": "method",
     "name": "has",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4457,7 +4437,7 @@
     "longname": "packages/Trie/src/lib/TrieNode.js~TrieNode#has",
     "access": "public",
     "description": "Check if node has a specific character as a child",
-    "lineNumber": 78,
+    "lineNumber": 96,
     "unknown": [
       {
         "tagName": "@returns",
@@ -4486,7 +4466,7 @@
     }
   },
   {
-    "__docId__": 181,
+    "__docId__": 182,
     "kind": "method",
     "name": "get",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4496,7 +4476,7 @@
     "longname": "packages/Trie/src/lib/TrieNode.js~TrieNode#get",
     "access": "public",
     "description": "Get child node with specific character value",
-    "lineNumber": 90,
+    "lineNumber": 108,
     "unknown": [
       {
         "tagName": "@returns",
@@ -4525,7 +4505,7 @@
     }
   },
   {
-    "__docId__": 182,
+    "__docId__": 183,
     "kind": "method",
     "name": "set",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4535,7 +4515,7 @@
     "longname": "packages/Trie/src/lib/TrieNode.js~TrieNode#set",
     "access": "public",
     "description": "Set child node with specific character value",
-    "lineNumber": 102,
+    "lineNumber": 120,
     "params": [
       {
         "nullable": null,
@@ -4561,7 +4541,7 @@
     "return": null
   },
   {
-    "__docId__": 183,
+    "__docId__": 184,
     "kind": "method",
     "name": "delete",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4571,7 +4551,7 @@
     "longname": "packages/Trie/src/lib/TrieNode.js~TrieNode#delete",
     "access": "public",
     "description": "Delete child node with specific character value",
-    "lineNumber": 113,
+    "lineNumber": 131,
     "params": [
       {
         "nullable": null,
@@ -4588,7 +4568,7 @@
   },
   {
     "kind": "index",
-    "content": "# Super\n\n**Data Structures** with superpowers! 💪😎\n\n> <sub>implemented in **JavaScript**.</sub>\n\n<br>\n<p align=\"center\"><img src=\"/hero.png\" /></div>\n<br>\n\n## Data Structures\n\n* [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)\n* [BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)\n* [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)\n* [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)\n* [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)\n* [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)\n* [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)\n* [PriorityQueue](https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme)\n* [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)\n* [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)\n* [String](https://github.com/clarketm/super/tree/master/packages/String#readme)\n* [Trie](https://github.com/clarketm/super/tree/master/packages/Trie#readme)\n\n<!-- #### External Resources -->\n\n<!-- * [Book: Data structures](https://en.wikipedia.org/wiki/Book:Data_structures) -->\n",
+    "content": "# Super\n\n**Data Structures** with superpowers! 💪😎👍\n\n> <sub>implemented in **JavaScript**.</sub>\n\n<br>\n<p align=\"center\"><img src=\"/resources/hero.png\" /></div>\n<br>\n\n## Installation\n\n### Yarn\n\n```bash\n$ yarn add @clarketm/super\n```\n\n### Npm\n\n```bash\n$ npm install @clarketm/super --save\n```\n\n## Usage\n\n```js\n// 1. import `each` module `independently`\nimport { Array, Map, Queue, Trie, ... } from \"@clarketm/super\";\n\nlet array = new Array([1, 2]);\n...\n\n// 2. import `all` modules under a `namespace`\nimport Super from \"@clarketm/super\";\n\nlet array = new Super.Array([1, 2]);\n...\n```\n\n## Data Structures\n\n### [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)\n\n```js\nimport { Array } from \"@clarketm/super\";\n\nlet array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]\n\n// Use any built-in Array methods:\narray.push(4); // [0, 1, 2, 3, 4]\n\n// Use custom methods (e.g. `flatten`):\nlet array = new Array([[[1]], [[2]], [[3]]]);\narray.flatten(2); // [1, 2, 3]\n```\n\n<br>\n\n### [BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)\n\n```js\nimport { BinaryTree } from \"@clarketm/super\";\n\nlet tree = new BinaryTree([5, 3, 7, 2, 8, 4, 6, 1]);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /\n//      1\n\ntree.root; // BinaryTreeNode { _value: 5, ... }\ntree.height; // 1\n\ntree.insert(9);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /             \\\n//      1               9  -> node inserted\n//\n\ntree.search(3); // BinaryTreeNode { _value: 3, ... }\n\ntree.remove(9);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /\n//      1                -> node removed\n//\n```\n\n<br>\n\n### [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)\n\n```js\nimport { LinkedList } from \"@clarketm/super\";\n\nlet list = new LinkedList([1, 3, 5, 7]);\n\n//    1    <->    3    <->    5    <->    7\n\nlist.size; // 4\nlist.head; // ListNode { _value: 1, ... }\nlist.tail; // ListNode { _value: 7, ... }\n\nlist.insert(1, 100);\n\n//         node inserted at pos: 1\n//              ^\n//    1    <->    100    <->    3    <->    5    <->    7\n\nlist.append(99);\n\n//                                                          node inserted at tail\n//                                                                   ^\n//    1    <->    100    <->    3    <->    5    <->    7    <->    99\n\nlist.remove(-1);\n\n//                                                          node removed from tail\n//                                                                   ^\n//    1    <->    100    <->    3    <->    5    <->    7\n\nlist.toArray(); // [ 1, 100, 3, 5, 7 ]\n```\n\n<br>\n\n### [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)\n\n```js\nimport { Map } from \"@clarketm/super\";\n\nlet map = new Map([[\"a\", 1], [\"b\", 2], [\"c\", 3]]); // Map { 'a' => 1, 'b' => 2, 'c' => 3 }\n\n// Use any built-in Map methods:\nmap.get(\"c\"); // 3\n\n// Use custom methods (e.g. `setDefault`):\n// note: `setDefault` is similar to get(), but will set key to a defaultValue if the key is not in Map.\n\nlet item = map.setDefault(\"c\", 3);\nitem; // 3\nmap; // Map { 'a' => 1, 'b' => 2, 'c' => 3 }\n\nlet item = map.setDefault(\"d\", 4);\nitem; // 4\nmap; // Map { 'a' => 1, 'b' => 2, 'c' => 3 'd' => 4 }\n```\n\n<br>\n\n### [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)\n\n```js\nimport { Object } from \"@clarketm/super\";\n\nlet object = new Object({ a: 1, b: true, c: 4 }); // Object { a: 1, b: true, c: 4 }\n\n// Use any built-in Object methods:\nObject.keys(object); // [ 'a', 'b', 'c' ]\n\n// Use custom methods (e.g. `clone`):\n// note: `clone` will create a deep copy of the object.\n\nlet clone = object.clone(); // Object { a: 1, b: true, c: 4 }\nObject.is(object, clone); // false\n```\n\n<br>\n\n### [PriorityQueue](https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme)\n\n**TODO**\n\n### [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)\n\n```js\nimport { Queue } from \"@clarketm/super\";\n\nlet queue = new Queue([2, 4, 6, 8]);\n\n//   front              rear\n//     ^                 ^\n//  |  2  |  4  |  6  |  8  |\n\nqueue.size; // 4\nqueue.front; // 2\nqueue.rear; // 8\n\nqueue.isEmpty(); // false\n\nqueue.enqueue(10); // 5 : new size\n\n//   front                   rear\n//     ^                      ^\n//  |  2  |  4  |  6  |  8  | 10 |\n\nqueue.dequeue(); // 2  : dequeued item\n\n//   front              rear\n//     ^                 ^\n//  |  4  |  6  |  8  | 10 |\n\nqueue.clear();\nqueue.size; // 0\n```\n\n<br>\n\n### [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)\n\n```js\nimport { Set } from \"@clarketm/super\";\n\nlet setA = new Set([1, 2, 3]); // Set { 1, 2, 3 }\nlet setB = new Set([2, 3, 4]); // Set { 2, 3, 4 }\n\n// Use any built-in Set methods:\nsetA.has(1); // true\n\n// Use custom methods:\n\n// `isSubset`\nsetA.isSubset(setB); // false\n\n// `isSuperset`\nsetA.isSuperset(setB); // false\n\n// `union`\nsetA.union(setB); // Set { 1, 2, 3, 4 }\n\n// `intersection`\nsetA.intersection(setB); // Set { 2, 3 }\n\n// `difference`\nsetA.difference(setB); // Set { 1 }\n\n// `symmetricDifference`\nsetA.symmetricDifference(setB); // Set { 1, 4 }\n```\n\n<br>\n\n### [Trie](https://github.com/clarketm/super/tree/master/packages/Trie#readme)\n\n```js\nimport { Trie } from \"@clarketm/super\";\n\nlet trie = new Trie([\"me\", \"men\", \"go\"]);\n\n//               root\n//              /   \\\n//            'm'    'g'\n//           /         \\\n//    $ <- 'e'         'o' -> $\n//         /\n//  $ <- 'n'\n//\n// $: denotes a complete word\n//\n\ntree.root; // TrieNode { _char: √, ... }\n\ntree.insert(\"met\");\n\n//               root\n//              /   \\\n//            'm'    'g'\n//           /         \\\n//    $ <- 'e'         'o' -> $\n//         /  \\\n//  $ <- 'n'   't' -> $\n//\n// $: denotes a complete word\n//\n\n// `word` search w/ `contains`\ntree.contains(\"me\"); // true\n\n// `prefix` search w/ `startsWith`\ntree.startsWith(\"m\"); // true\n\n// Return a full Match object w/ `search`\ntree.search(\"men\");\n\n// Match object\n// {\n//  query: 'men',\n//  matchedChars: 3,\n//  isMatch: true,\n//  isCompleteWord: true,\n//  node: TrieNode { ... }\n// }\n\ntree.remove(\"go\");\n\n//               root\n//              /\n//            'm'\n//           /\n//    $ <- 'e'\n//         /  \\\n//  $ <- 'n'   't' -> $\n//\n// $: denotes a complete word\n//\n```\n\n<br>\n\n## Data Types\n\n* [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)\n* [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)\n* [String](https://github.com/clarketm/super/tree/master/packages/String#readme)\n\n### ## :star: Credits\n\n* Icons made by <a href=\"http://www.freepik.com\" title=\"Freepik\">Freepik</a> from <a href=\"https://www.flaticon.com/\" title=\"Flaticon\">www.flaticon.com</a> is licensed by <a href=\"http://creativecommons.org/licenses/by/3.0/\" title=\"Creative Commons BY 3.0\" target=\"_blank\">CC 3.0 BY</a></div>\n",
     "longname": "/Users/clarketm/js/super/README.md",
     "name": "./README.md",
     "static": true,

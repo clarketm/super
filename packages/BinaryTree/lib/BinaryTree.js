@@ -171,12 +171,14 @@
    *
    */
   var Queue = function () {
+    /** @private */
+
     /**
      * @public
      *
      * @desc Construct a Queue
      *
-     * @param {Iterable} iterable
+     * @param {Iterable<any>} iterable
      */
     function Queue() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -255,34 +257,6 @@
       /**
        * @public
        *
-       * @desc Get the front item in the queue
-       *
-       * @returns {Item} front item
-       */
-
-    }, {
-      key: "front",
-      value: function front() {
-        return this._queue[0];
-      }
-
-      /**
-       * @public
-       *
-       * @desc Get the rear item in the queue
-       *
-       * @returns {Item} rear item
-       */
-
-    }, {
-      key: "rear",
-      value: function rear() {
-        return this._queue[this._queue.length - 1];
-      }
-
-      /**
-       * @public
-       *
        * @desc Convert the queue to an array
        *
        * @returns {Array} array representation of the queue
@@ -297,6 +271,34 @@
       key: "size",
       get: function get$$1() {
         return this._queue.length;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the front item in the queue
+       *
+       * @returns {Item} front item
+       */
+
+    }, {
+      key: "front",
+      get: function get$$1() {
+        return this._queue[0];
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the rear item in the queue
+       *
+       * @returns {Item} rear item
+       */
+
+    }, {
+      key: "rear",
+      get: function get$$1() {
+        return this._queue[this._queue.length - 1];
       }
     }]);
     return Queue;

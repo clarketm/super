@@ -1,6 +1,6 @@
 {
-  "coverage": "85.62%",
-  "expectCount": 153,
+  "coverage": "85.06%",
+  "expectCount": 154,
   "actualCount": 131,
   "files": {
     "packages/Array/src/lib/Array.js": {
@@ -86,7 +86,7 @@
       "expectCount": 11,
       "actualCount": 10,
       "undocumentLines": [
-        19
+        20
       ]
     },
     "packages/Set/src/lib/Set.js": {
@@ -103,16 +103,17 @@
       "expectCount": 10,
       "actualCount": 9,
       "undocumentLines": [
-        25
+        26
       ]
     },
     "packages/Trie/src/lib/TrieNode.js": {
-      "expectCount": 13,
+      "expectCount": 14,
       "actualCount": 10,
       "undocumentLines": [
-        19,
-        20,
-        21
+        3,
+        32,
+        33,
+        34
       ]
     }
   }

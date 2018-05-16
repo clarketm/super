@@ -457,7 +457,7 @@ Construct a PriorityQueue
 
 Queue with superpowers! 💪
 
-### `constructor(iterable: Iterable)`
+### `constructor(iterable: Iterable<any>)`
 
 Construct a Queue
 
@@ -488,20 +488,6 @@ Enqueue an item into the queue
 ### `dequeue(): Item`
 
 Dequeue an item from the queue
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-
-### `front(): Item`
-
-Get the front item in the queue
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-
-### `rear(): Item`
-
-Get the rear item in the queue
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
@@ -674,11 +660,7 @@ Check if the trie contains a prefix
 
 ## `TrieNode`
 
-TrieNode
-
-### `constructor(char: character)`
-
-Construct a TrieNode
+### `constructor()`
 
 ### `_char: *`
 

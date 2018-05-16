@@ -54,6 +54,12 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "@clarketm/super/packages/trie/src/lib/trienode.js~specialchar",
+    "variable/index.html#static-variable-SpecialChar",
+    "<span>SpecialChar</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Trie/src/lib/TrieNode.js</span>",
+    "variable"
+  ],
+  [
     "@clarketm/super/packages/binarytree/src/lib/binarytree.js~traversaltype",
     "variable/index.html#static-variable-TraversalType",
     "<span>TraversalType</span> <span class=\"search-result-import-path\">@clarketm/super/packages/BinaryTree/src/lib/BinaryTree.js</span>",
@@ -271,13 +277,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-left",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-left",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
     "member"
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-left",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-left",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
     "member"
   ],
@@ -295,13 +301,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#value",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-value",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-value",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#value",
     "member"
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#value",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-value",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-value",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#value",
     "member"
   ],
@@ -439,13 +445,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#next",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#next",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
@@ -775,9 +781,9 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/queue/src/lib/queue.js~queue#front",
-    "class/packages/Queue/src/lib/Queue.js~Queue.html#instance-method-front",
+    "class/packages/Queue/src/lib/Queue.js~Queue.html#instance-get-front",
     "packages/Queue/src/lib/Queue.js~Queue#front",
-    "method"
+    "member"
   ],
   [
     "packages/queue/src/lib/queue.js~queue#isempty",
@@ -787,9 +793,9 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/queue/src/lib/queue.js~queue#rear",
-    "class/packages/Queue/src/lib/Queue.js~Queue.html#instance-method-rear",
+    "class/packages/Queue/src/lib/Queue.js~Queue.html#instance-get-rear",
     "packages/Queue/src/lib/Queue.js~Queue#rear",
-    "method"
+    "member"
   ],
   [
     "packages/queue/src/lib/queue.js~queue#size",

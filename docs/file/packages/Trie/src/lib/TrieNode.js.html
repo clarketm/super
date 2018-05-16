@@ -52,6 +52,7 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#string-src-lib">String/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/String/src/lib/String.js~_String.html">_String</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#trie-src-lib">Trie/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/Trie.js~Trie.html">Trie</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/TrieNode.js~TrieNode.html">TrieNode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SpecialChar">SpecialChar</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -64,6 +65,10 @@
 
 import type { character } from &quot;../../../shared/src/types&quot;;
 
+const SpecialChar = {
+  ROOT: &quot;&#x221A;&quot;
+};
+
 /**
  *
  * TrieNode
@@ -72,6 +77,15 @@ import type { character } from &quot;../../../shared/src/types&quot;;
  *
  */
 class TrieNode {
+  /** @private */
+  _char: character;
+
+  /** @private */
+  _isCompleteWord: boolean;
+
+  /** @private */
+  _children: Map&lt;character, TrieNode&gt;;
+
   /**
    * @public
    *
@@ -79,7 +93,7 @@ class TrieNode {
    *
    * @param {character} char - node character value
    */
-  constructor(char: character = null) {
+  constructor(char: character = SpecialChar.ROOT) {
     this._char = char;
     this._isCompleteWord = false;
     this._children = new Map();
@@ -151,7 +165,7 @@ class TrieNode {
    * @param {character} char - character to get
    * @returns {TrieNode} node with character value
    */
-  get(char: character): TrieNode {
+  get(char: character): ?TrieNode {
     return this._children.get(char);
   }
 

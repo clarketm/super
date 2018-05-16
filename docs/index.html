@@ -52,35 +52,280 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#string-src-lib">String/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/String/src/lib/String.js~_String.html">_String</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#trie-src-lib">Trie/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/Trie.js~Trie.html">Trie</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/TrieNode.js~TrieNode.html">TrieNode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SpecialChar">SpecialChar</a></span></span></li>
 </ul>
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="super">Super</h1><p><strong>Data Structures</strong> with superpowers! &#x1F4AA;&#x1F60E;</p>
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="super">Super</h1><p><strong>Data Structures</strong> with superpowers! &#x1F4AA;&#x1F60E;&#x1F44D;</p>
 <blockquote>
 <p>&lt;sub&gt;implemented in <strong>JavaScript</strong>.&lt;/sub&gt;</p>
 </blockquote>
 <p><br></p>
-<p></p><p><img src="/hero.png">
+<p></p><p><img src="/resources/hero.png">
 <br></p>
-<h2 id="data-structures">Data Structures</h2><ul>
-<li><a href="https://github.com/clarketm/super/tree/master/packages/Array#readme">Array</a></li>
-<li><a href="https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme">BinaryTree</a></li>
-<li><a href="https://github.com/clarketm/super/tree/master/packages/LinkedList#readme">LinkedList</a></li>
-<li><a href="https://github.com/clarketm/super/tree/master/packages/Map#readme">Map</a></li>
-<li><a href="https://github.com/clarketm/super/tree/master/packages/Math#readme">Math</a></li>
+<h2 id="installation">Installation</h2><h3 id="yarn">Yarn</h3><pre><code class="lang-bash"><code class="source-code prettyprint">$ yarn add @clarketm/super</code>
+</code></pre>
+<h3 id="npm">Npm</h3><pre><code class="lang-bash"><code class="source-code prettyprint">$ npm install @clarketm/super --save</code>
+</code></pre>
+<h2 id="usage">Usage</h2><pre><code class="lang-js"><code class="source-code prettyprint">// 1. import `each` module `independently`
+import { Array, Map, Queue, Trie, ... } from &quot;@clarketm/super&quot;;
+
+let array = new Array([1, 2]);
+...
+
+// 2. import `all` modules under a `namespace`
+import Super from &quot;@clarketm/super&quot;;
+
+let array = new Super.Array([1, 2]);
+...</code>
+</code></pre>
+<h2 id="data-structures">Data Structures</h2><h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-array-readme--array--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Array#readme">Array</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Array } from &quot;@clarketm/super&quot;;
+
+let array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]
+
+// Use any built-in Array methods:
+array.push(4); // [0, 1, 2, 3, 4]
+
+// Use custom methods (e.g. `flatten`):
+let array = new Array([[[1]], [[2]], [[3]]]);
+array.flatten(2); // [1, 2, 3]</code>
+</code></pre>
+<p><br></p>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-binarytree-readme--binarytree--a-"><a href="https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme">BinaryTree</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { BinaryTree } from &quot;@clarketm/super&quot;;
+
+let tree = new BinaryTree([5, 3, 7, 2, 8, 4, 6, 1]);
+
+//              5  -&gt; root
+//            /   \
+//           3     7
+//         /  \   /  \
+//        2   4  6    8
+//       /
+//      1
+
+tree.root; // BinaryTreeNode { _value: 5, ... }
+tree.height; // 1
+
+tree.insert(9);
+
+//              5  -&gt; root
+//            /   \
+//           3     7
+//         /  \   /  \
+//        2   4  6    8
+//       /             \
+//      1               9  -&gt; node inserted
+//
+
+tree.search(3); // BinaryTreeNode { _value: 3, ... }
+
+tree.remove(9);
+
+//              5  -&gt; root
+//            /   \
+//           3     7
+//         /  \   /  \
+//        2   4  6    8
+//       /
+//      1                -&gt; node removed
+//</code>
+</code></pre>
+<p><br></p>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-linkedlist-readme--linkedlist--a-"><a href="https://github.com/clarketm/super/tree/master/packages/LinkedList#readme">LinkedList</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { LinkedList } from &quot;@clarketm/super&quot;;
+
+let list = new LinkedList([1, 3, 5, 7]);
+
+//    1    &lt;-&gt;    3    &lt;-&gt;    5    &lt;-&gt;    7
+
+list.size; // 4
+list.head; // ListNode { _value: 1, ... }
+list.tail; // ListNode { _value: 7, ... }
+
+list.insert(1, 100);
+
+//         node inserted at pos: 1
+//              ^
+//    1    &lt;-&gt;    100    &lt;-&gt;    3    &lt;-&gt;    5    &lt;-&gt;    7
+
+list.append(99);
+
+//                                                          node inserted at tail
+//                                                                   ^
+//    1    &lt;-&gt;    100    &lt;-&gt;    3    &lt;-&gt;    5    &lt;-&gt;    7    &lt;-&gt;    99
+
+list.remove(-1);
+
+//                                                          node removed from tail
+//                                                                   ^
+//    1    &lt;-&gt;    100    &lt;-&gt;    3    &lt;-&gt;    5    &lt;-&gt;    7
+
+list.toArray(); // [ 1, 100, 3, 5, 7 ]</code>
+</code></pre>
+<p><br></p>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-map-readme--map--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Map#readme">Map</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Map } from &quot;@clarketm/super&quot;;
+
+let map = new Map([[&quot;a&quot;, 1], [&quot;b&quot;, 2], [&quot;c&quot;, 3]]); // Map { &apos;a&apos; =&gt; 1, &apos;b&apos; =&gt; 2, &apos;c&apos; =&gt; 3 }
+
+// Use any built-in Map methods:
+map.get(&quot;c&quot;); // 3
+
+// Use custom methods (e.g. `setDefault`):
+// note: `setDefault` is similar to get(), but will set key to a defaultValue if the key is not in Map.
+
+let item = map.setDefault(&quot;c&quot;, 3);
+item; // 3
+map; // Map { &apos;a&apos; =&gt; 1, &apos;b&apos; =&gt; 2, &apos;c&apos; =&gt; 3 }
+
+let item = map.setDefault(&quot;d&quot;, 4);
+item; // 4
+map; // Map { &apos;a&apos; =&gt; 1, &apos;b&apos; =&gt; 2, &apos;c&apos; =&gt; 3 &apos;d&apos; =&gt; 4 }</code>
+</code></pre>
+<p><br></p>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-object-readme--object--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Object#readme">Object</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Object } from &quot;@clarketm/super&quot;;
+
+let object = new Object({ a: 1, b: true, c: 4 }); // Object { a: 1, b: true, c: 4 }
+
+// Use any built-in Object methods:
+Object.keys(object); // [ &apos;a&apos;, &apos;b&apos;, &apos;c&apos; ]
+
+// Use custom methods (e.g. `clone`):
+// note: `clone` will create a deep copy of the object.
+
+let clone = object.clone(); // Object { a: 1, b: true, c: 4 }
+Object.is(object, clone); // false</code>
+</code></pre>
+<p><br></p>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-priorityqueue-readme--priorityqueue--a-"><a href="https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme">PriorityQueue</a></h3><p><strong>TODO</strong></p>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-queue-readme--queue--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Queue#readme">Queue</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Queue } from &quot;@clarketm/super&quot;;
+
+let queue = new Queue([2, 4, 6, 8]);
+
+//   front              rear
+//     ^                 ^
+//  |  2  |  4  |  6  |  8  |
+
+queue.size; // 4
+queue.front; // 2
+queue.rear; // 8
+
+queue.isEmpty(); // false
+
+queue.enqueue(10); // 5 : new size
+
+//   front                   rear
+//     ^                      ^
+//  |  2  |  4  |  6  |  8  | 10 |
+
+queue.dequeue(); // 2  : dequeued item
+
+//   front              rear
+//     ^                 ^
+//  |  4  |  6  |  8  | 10 |
+
+queue.clear();
+queue.size; // 0</code>
+</code></pre>
+<p><br></p>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-set-readme--set--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Set#readme">Set</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Set } from &quot;@clarketm/super&quot;;
+
+let setA = new Set([1, 2, 3]); // Set { 1, 2, 3 }
+let setB = new Set([2, 3, 4]); // Set { 2, 3, 4 }
+
+// Use any built-in Set methods:
+setA.has(1); // true
+
+// Use custom methods:
+
+// `isSubset`
+setA.isSubset(setB); // false
+
+// `isSuperset`
+setA.isSuperset(setB); // false
+
+// `union`
+setA.union(setB); // Set { 1, 2, 3, 4 }
+
+// `intersection`
+setA.intersection(setB); // Set { 2, 3 }
+
+// `difference`
+setA.difference(setB); // Set { 1 }
+
+// `symmetricDifference`
+setA.symmetricDifference(setB); // Set { 1, 4 }</code>
+</code></pre>
+<p><br></p>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-trie-readme--trie--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Trie#readme">Trie</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Trie } from &quot;@clarketm/super&quot;;
+
+let trie = new Trie([&quot;me&quot;, &quot;men&quot;, &quot;go&quot;]);
+
+//               root
+//              /   \
+//            &apos;m&apos;    &apos;g&apos;
+//           /         \
+//    $ &lt;- &apos;e&apos;         &apos;o&apos; -&gt; $
+//         /
+//  $ &lt;- &apos;n&apos;
+//
+// $: denotes a complete word
+//
+
+tree.root; // TrieNode { _char: &#x221A;, ... }
+
+tree.insert(&quot;met&quot;);
+
+//               root
+//              /   \
+//            &apos;m&apos;    &apos;g&apos;
+//           /         \
+//    $ &lt;- &apos;e&apos;         &apos;o&apos; -&gt; $
+//         /  \
+//  $ &lt;- &apos;n&apos;   &apos;t&apos; -&gt; $
+//
+// $: denotes a complete word
+//
+
+// `word` search w/ `contains`
+tree.contains(&quot;me&quot;); // true
+
+// `prefix` search w/ `startsWith`
+tree.startsWith(&quot;m&quot;); // true
+
+// Return a full Match object w/ `search`
+tree.search(&quot;men&quot;);
+
+// Match object
+// {
+//  query: &apos;men&apos;,
+//  matchedChars: 3,
+//  isMatch: true,
+//  isCompleteWord: true,
+//  node: TrieNode { ... }
+// }
+
+tree.remove(&quot;go&quot;);
+
+//               root
+//              /
+//            &apos;m&apos;
+//           /
+//    $ &lt;- &apos;e&apos;
+//         /  \
+//  $ &lt;- &apos;n&apos;   &apos;t&apos; -&gt; $
+//
+// $: denotes a complete word
+//</code>
+</code></pre>
+<p><br></p>
+<h2 id="data-types">Data Types</h2><ul>
 <li><a href="https://github.com/clarketm/super/tree/master/packages/Number#readme">Number</a></li>
-<li><a href="https://github.com/clarketm/super/tree/master/packages/Object#readme">Object</a></li>
-<li><a href="https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme">PriorityQueue</a></li>
-<li><a href="https://github.com/clarketm/super/tree/master/packages/Queue#readme">Queue</a></li>
-<li><a href="https://github.com/clarketm/super/tree/master/packages/Set#readme">Set</a></li>
+<li><a href="https://github.com/clarketm/super/tree/master/packages/Math#readme">Math</a></li>
 <li><a href="https://github.com/clarketm/super/tree/master/packages/String#readme">String</a></li>
-<li><a href="https://github.com/clarketm/super/tree/master/packages/Trie#readme">Trie</a></li>
 </ul>
-<p><!-- #### External Resources -->
-</p>
-<p><!-- * [Book: Data structures](https://en.wikipedia.org/wiki/Book:Data_structures) -->
-</p>
+<h3 id="----star--credits">## :star: Credits</h3><ul>
+<li>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></li>
+</ul>
 </div>
 </div>
 

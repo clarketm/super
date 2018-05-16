@@ -5,22 +5,25 @@
 > <sub>implemented in **JavaScript**.</sub>
 
 <br>
-<p align="center"><img src="/hero.png" /></div>
+<p align="center"><img src="/resources/hero.png" /></div>
 <br>
 
 ## Installation
 
 ### Yarn
+
 ```bash
 $ yarn add @clarketm/super
 ```
 
 ### Npm
+
 ```bash
 $ npm install @clarketm/super --save
 ```
 
 ## Usage
+
 ```js
 // 1. import `each` module `independently`
 import { Array, Map, Queue, Trie, ... } from "@clarketm/super";
@@ -33,9 +36,7 @@ import Super from "@clarketm/super";
 
 let array = new Super.Array([1, 2]);
 ...
-
 ```
-
 
 ## Data Structures
 
@@ -44,16 +45,16 @@ let array = new Super.Array([1, 2]);
 ```js
 import { Array } from "@clarketm/super";
 
-let array = new Array([0, 1, 2, 3]);  // [0, 1, 2, 3]
+let array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]
 
 // Use any built-in Array methods:
-array.push(4);  // [0, 1, 2, 3, 4]
+array.push(4); // [0, 1, 2, 3, 4]
 
 // Use custom methods (e.g. `flatten`):
 let array = new Array([[[1]], [[2]], [[3]]]);
 array.flatten(2); // [1, 2, 3]
-
 ```
+
 <br>
 
 ### [BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)
@@ -63,20 +64,20 @@ import { BinaryTree } from "@clarketm/super";
 
 let tree = new BinaryTree([5, 3, 7, 2, 8, 4, 6, 1]);
 
-//              5  -> root 
+//              5  -> root
 //            /   \
 //           3     7
 //         /  \   /  \
 //        2   4  6    8
-//       /             
-//      1              
+//       /
+//      1
 
-tree.root;     // BinaryTreeNode { _value: 5, ... }
-tree.height;   // 1
+tree.root; // BinaryTreeNode { _value: 5, ... }
+tree.height; // 1
 
 tree.insert(9);
 
-//              5  -> root 
+//              5  -> root
 //            /   \
 //           3     7
 //         /  \   /  \
@@ -85,19 +86,20 @@ tree.insert(9);
 //      1               9  -> node inserted
 //
 
-tree.search(3);    // BinaryTreeNode { _value: 3, ... }
+tree.search(3); // BinaryTreeNode { _value: 3, ... }
 
 tree.remove(9);
 
-//              5  -> root 
+//              5  -> root
 //            /   \
 //           3     7
 //         /  \   /  \
 //        2   4  6    8
-//       /             
+//       /
 //      1                -> node removed
 //
 ```
+
 <br>
 
 ### [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)
@@ -109,9 +111,9 @@ let list = new LinkedList([1, 3, 5, 7]);
 
 //    1    <->    3    <->    5    <->    7
 
-list.size;    // 4
-list.head;    // ListNode { _value: 1, ... }
-list.tail;    // ListNode { _value: 7, ... }
+list.size; // 4
+list.head; // ListNode { _value: 1, ... }
+list.tail; // ListNode { _value: 7, ... }
 
 list.insert(1, 100);
 
@@ -123,17 +125,17 @@ list.append(99);
 
 //                                                          node inserted at tail
 //                                                                   ^
-//    1    <->    100    <->    3    <->    5    <->    7    <->    99  
+//    1    <->    100    <->    3    <->    5    <->    7    <->    99
 
 list.remove(-1);
 
 //                                                          node removed from tail
 //                                                                   ^
-//    1    <->    100    <->    3    <->    5    <->    7  
+//    1    <->    100    <->    3    <->    5    <->    7
 
-list.toArray();     // [ 1, 100, 3, 5, 7 ]
-
+list.toArray(); // [ 1, 100, 3, 5, 7 ]
 ```
+
 <br>
 
 ### [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)
@@ -141,23 +143,23 @@ list.toArray();     // [ 1, 100, 3, 5, 7 ]
 ```js
 import { Map } from "@clarketm/super";
 
-let map = new Map([["a", 1], ["b", 2], ["c", 3]]);  // Map { 'a' => 1, 'b' => 2, 'c' => 3 }
+let map = new Map([["a", 1], ["b", 2], ["c", 3]]); // Map { 'a' => 1, 'b' => 2, 'c' => 3 }
 
 // Use any built-in Map methods:
-map.get("c");   // 3
+map.get("c"); // 3
 
-// Use custom methods (e.g. `setDefault`): 
+// Use custom methods (e.g. `setDefault`):
 // note: `setDefault` is similar to get(), but will set key to a defaultValue if the key is not in Map.
 
 let item = map.setDefault("c", 3);
-item;    // 3
-map;     // Map { 'a' => 1, 'b' => 2, 'c' => 3 }
+item; // 3
+map; // Map { 'a' => 1, 'b' => 2, 'c' => 3 }
 
 let item = map.setDefault("d", 4);
-item;    // 4
-map;     // Map { 'a' => 1, 'b' => 2, 'c' => 3 'd' => 4 }
-
+item; // 4
+map; // Map { 'a' => 1, 'b' => 2, 'c' => 3 'd' => 4 }
 ```
+
 <br>
 
 ### [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)
@@ -165,21 +167,22 @@ map;     // Map { 'a' => 1, 'b' => 2, 'c' => 3 'd' => 4 }
 ```js
 import { Object } from "@clarketm/super";
 
-let object = new Object({ a: 1, b: true, c: 4 });  // Object { a: 1, b: true, c: 4 }
+let object = new Object({ a: 1, b: true, c: 4 }); // Object { a: 1, b: true, c: 4 }
 
 // Use any built-in Object methods:
-Object.keys(object);   // [ 'a', 'b', 'c' ]
+Object.keys(object); // [ 'a', 'b', 'c' ]
 
 // Use custom methods (e.g. `clone`):
 // note: `clone` will create a deep copy of the object.
 
-let clone = object.clone();  // Object { a: 1, b: true, c: 4 }
-Object.is(object, clone);    // false
-
+let clone = object.clone(); // Object { a: 1, b: true, c: 4 }
+Object.is(object, clone); // false
 ```
+
 <br>
 
 ### [PriorityQueue](https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme)
+
 **TODO**
 
 ### [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)
@@ -193,28 +196,28 @@ let queue = new Queue([2, 4, 6, 8]);
 //     ^                 ^
 //  |  2  |  4  |  6  |  8  |
 
-queue.size;       // 4
-queue.front;      // 2
-queue.rear;       // 8
+queue.size; // 4
+queue.front; // 2
+queue.rear; // 8
 
-queue.isEmpty();  // false
+queue.isEmpty(); // false
 
-queue.enqueue(10);  // 5 : new size
+queue.enqueue(10); // 5 : new size
 
 //   front                   rear
 //     ^                      ^
 //  |  2  |  4  |  6  |  8  | 10 |
 
-queue.dequeue();    // 2  : dequeued item
+queue.dequeue(); // 2  : dequeued item
 
 //   front              rear
 //     ^                 ^
 //  |  4  |  6  |  8  | 10 |
 
 queue.clear();
-queue.size;       // 0
-
+queue.size; // 0
 ```
+
 <br>
 
 ### [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)
@@ -222,33 +225,33 @@ queue.size;       // 0
 ```js
 import { Set } from "@clarketm/super";
 
-let setA = new Set([1, 2, 3]);  // Set { 1, 2, 3 }
-let setB = new Set([2, 3, 4]);  // Set { 2, 3, 4 }
+let setA = new Set([1, 2, 3]); // Set { 1, 2, 3 }
+let setB = new Set([2, 3, 4]); // Set { 2, 3, 4 }
 
 // Use any built-in Set methods:
-setA.has(1);  // true
+setA.has(1); // true
 
 // Use custom methods:
 
 // `isSubset`
-setA.isSubset(setB);  // false
+setA.isSubset(setB); // false
 
 // `isSuperset`
-setA.isSuperset(setB);  // false
+setA.isSuperset(setB); // false
 
 // `union`
-setA.union(setB);  // Set { 1, 2, 3, 4 }
+setA.union(setB); // Set { 1, 2, 3, 4 }
 
 // `intersection`
-setA.intersection(setB);  // Set { 2, 3 }
+setA.intersection(setB); // Set { 2, 3 }
 
 // `difference`
-setA.difference(setB);   // Set { 1 }
+setA.difference(setB); // Set { 1 }
 
 // `symmetricDifference`
-setA.symmetricDifference(setB);  // Set { 1, 4 }
-
+setA.symmetricDifference(setB); // Set { 1, 4 }
 ```
+
 <br>
 
 ### [Trie](https://github.com/clarketm/super/tree/master/packages/Trie#readme)
@@ -258,43 +261,43 @@ import { Trie } from "@clarketm/super";
 
 let trie = new Trie(["me", "men", "go"]);
 
-//               root 
+//               root
 //              /   \
 //            'm'    'g'
 //           /         \
 //    $ <- 'e'         'o' -> $
-//         /             
-//  $ <- 'n'      
+//         /
+//  $ <- 'n'
 //
 // $: denotes a complete word
 //
 
-tree.root;     // TrieNode { _char: √, ... }
+tree.root; // TrieNode { _char: √, ... }
 
 tree.insert("met");
 
-//               root 
+//               root
 //              /   \
 //            'm'    'g'
 //           /         \
 //    $ <- 'e'         'o' -> $
-//         /  \            
-//  $ <- 'n'   't' -> $    
+//         /  \
+//  $ <- 'n'   't' -> $
 //
 // $: denotes a complete word
 //
 
 // `word` search w/ `contains`
-tree.contains("me");    // true
+tree.contains("me"); // true
 
 // `prefix` search w/ `startsWith`
-tree.startsWith("m");   // true
+tree.startsWith("m"); // true
 
 // Return a full Match object w/ `search`
-tree.search("men");    
+tree.search("men");
 
 // Match object
-// { 
+// {
 //  query: 'men',
 //  matchedChars: 3,
 //  isMatch: true,
@@ -304,20 +307,26 @@ tree.search("men");
 
 tree.remove("go");
 
-//               root 
-//              /   
-//            'm'    
-//           /         
-//    $ <- 'e'        
-//         /  \            
-//  $ <- 'n'   't' -> $    
+//               root
+//              /
+//            'm'
+//           /
+//    $ <- 'e'
+//         /  \
+//  $ <- 'n'   't' -> $
 //
 // $: denotes a complete word
 //
 ```
+
 <br>
 
 ## Data Types
+
 * [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)
 * [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)
 * [String](https://github.com/clarketm/super/tree/master/packages/String#readme)
+
+### ## :star: Credits
+
+* Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>

@@ -52,6 +52,7 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#string-src-lib">String/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/String/src/lib/String.js~_String.html">_String</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#trie-src-lib">Trie/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/Trie.js~Trie.html">Trie</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/TrieNode.js~TrieNode.html">TrieNode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SpecialChar">SpecialChar</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -72,14 +73,17 @@ import type { Item } from &quot;../../../shared/src/types&quot;;
  *
  */
 class Queue {
+  /** @private */
+  _queue: Array&lt;any&gt;;
+
   /**
    * @public
    *
    * @desc Construct a Queue
    *
-   * @param {Iterable} iterable
+   * @param {Iterable&lt;any&gt;} iterable
    */
-  constructor(iterable: Iterable = []) {
+  constructor(iterable: Iterable&lt;any&gt; = []) {
     this._queue = [...iterable];
   }
 
@@ -92,6 +96,28 @@ class Queue {
    */
   get size(): number {
     return this._queue.length;
+  }
+
+  /**
+   * @public
+   *
+   * @desc Get the front item in the queue
+   *
+   * @returns {Item} front item
+   */
+  get front(): Item {
+    return this._queue[0];
+  }
+
+  /**
+   * @public
+   *
+   * @desc Get the rear item in the queue
+   *
+   * @returns {Item} rear item
+   */
+  get rear(): Item {
+    return this._queue[this._queue.length - 1];
   }
 
   /**
@@ -142,33 +168,11 @@ class Queue {
   /**
    * @public
    *
-   * @desc Get the front item in the queue
-   *
-   * @returns {Item} front item
-   */
-  front(): Item {
-    return this._queue[0];
-  }
-
-  /**
-   * @public
-   *
-   * @desc Get the rear item in the queue
-   *
-   * @returns {Item} rear item
-   */
-  rear(): Item {
-    return this._queue[this._queue.length - 1];
-  }
-
-  /**
-   * @public
-   *
    * @desc Convert the queue to an array
    *
    * @returns {Array} array representation of the queue
    */
-  toArray(): Array {
+  toArray(): Array&lt;any&gt; {
     return this._queue.slice(0);
   }
 }
