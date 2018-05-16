@@ -98,15 +98,13 @@ list.toArray();     // [ 1, 100, 3, 5, 7 ]
 <br>
 
 * [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)
-* [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)
-* [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)
 * [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)
 * [PriorityQueue](https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme)
 * [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)
 * [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)
-* [String](https://github.com/clarketm/super/tree/master/packages/String#readme)
 * [Trie](https://github.com/clarketm/super/tree/master/packages/Trie#readme)
 
-<!-- #### External Resources -->
-
-<!-- * [Book: Data structures](https://en.wikipedia.org/wiki/Book:Data_structures) -->
+## Data Types
+* [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)
+* [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)
+* [String](https://github.com/clarketm/super/tree/master/packages/String#readme)
