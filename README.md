@@ -6,6 +6,8 @@
 
 [![hero](https://github.com/clarketm/super/blob/master/resources/hero.png)](https://github.com/clarketm/super)
 
+> *"The data structures in JavaScript that you wish you had!"*
+
 ## Installation
 
 ### Yarn
