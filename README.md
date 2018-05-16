@@ -10,7 +10,7 @@
 
 ## Data Structures
 
-* **[Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)**
+### [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)
 ```js
 let array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]
 
@@ -19,9 +19,11 @@ array.push(4); // [0, 1, 2, 3, 4];
 
 // Use custom methods (e.g. `flatten`):
 new Array([[[1]], [[2]], [[3]]]).flatten(2); // [1, 2, 3]
+
 ```
 
-* **[BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)**
+<br>
+### [BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)
 ```js
 let tree = new BinaryTree([5, 3, 7, 2, 8, 4, 6, 1]);
 
@@ -57,9 +59,43 @@ tree.remove(9);
 //        2   4  6    8
 //       /             
 //      1                -> node removed
-```
 
-* [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)
+```
+<br>
+
+### [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)
+```js
+let list = new LinkedList([1, 3, 5, 7]);
+
+//    1    <->    3    <->    5    <->    7
+
+list.size;    // 4
+list.head;    // ListNode { _value: 1, ... }
+list.tail;    // ListNode { _value: 7, ... }
+
+list.insert(1, 100);
+
+//         node inserted at pos: 1
+//              ^
+//    1    <->    100    <->    3    <->    5    <->    7
+
+list.append(99);
+
+//                                                          node inserted at tail
+//                                                                   ^
+//    1    <->    100    <->    3    <->    5    <->    7    <->    99  
+
+list.remove(-1);
+
+//                                                          node removed from tail
+//                                                                   ^
+//    1    <->    100    <->    3    <->    5    <->    7  
+
+list.toArray();     // [ 1, 100, 3, 5, 7 ]
+
+```
+<br>
+
 * [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)
 * [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)
 * [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)
