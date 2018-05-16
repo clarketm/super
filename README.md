@@ -8,11 +8,42 @@
 <p align="center"><img src="/hero.png" /></div>
 <br>
 
+## Installation
+
+### Yarn
+```bash
+$ yarn add @clarketm/super
+```
+
+### Npm
+```bash
+$ yarn add @clarketm/super
+```
+
+## Usage
+```js
+// 1. import each module `independently`
+import { Array, Map, Queue, Map, ... } from "@clarketm/super";
+
+let array = new Array([1, 2]);
+...
+
+// 2. import `all` modules under a namespace
+import Super from "@clarketm/super";
+
+let array = new Super.Array([1, 2]);
+...
+
+```
+
+
 ## Data Structures
 
 ### [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)
 
 ```js
+import { Array } from "@clarketm/super";
+
 let array = new Array([0, 1, 2, 3]);  // [0, 1, 2, 3]
 
 // Use any built-in Array methods:
@@ -28,6 +59,8 @@ array.flatten(2); // [1, 2, 3]
 ### [BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)
 
 ```js
+import { BinaryTree } from "@clarketm/super";
+
 let tree = new BinaryTree([5, 3, 7, 2, 8, 4, 6, 1]);
 
 //              5  -> root 
@@ -68,6 +101,8 @@ tree.remove(9);
 ### [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)
 
 ```js
+import { LinkedList } from "@clarketm/super";
+
 let list = new LinkedList([1, 3, 5, 7]);
 
 //    1    <->    3    <->    5    <->    7
@@ -102,6 +137,8 @@ list.toArray();     // [ 1, 100, 3, 5, 7 ]
 ### [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)
 
 ```js
+import { Map } from "@clarketm/super";
+
 let map = new Map([["a", 1], ["b", 2], ["c", 3]]);  // Map { 'a' => 1, 'b' => 2, 'c' => 3 }
 
 // Use any built-in Map methods:
@@ -124,6 +161,8 @@ map;     // Map { 'a' => 1, 'b' => 2, 'c' => 3 'd' => 4 }
 ### [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)
 
 ```js
+import { Object } from "@clarketm/super";
+
 let object = new Object({ a: 1, b: true, c: 4 });  // Object { a: 1, b: true, c: 4 }
 
 // Use any built-in Object methods:
@@ -145,6 +184,8 @@ Object.is(object, clone);    // false
 ### [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)
 
 ```js
+import { Set } from "@clarketm/super";
+
 let setA = new Set([1, 2, 3]);  // Set { 1, 2, 3 }
 let setB = new Set([2, 3, 4]);  // Set { 2, 3, 4 }
 
