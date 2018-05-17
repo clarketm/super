@@ -195,11 +195,10 @@ let pq = new PriorityQueue(new Map([[100, "high"], [0, "low"]]));
 let pq = new PriorityQueue([[100, "high"], [0, "low"]]);
 
 // Array of Objects
-let pq = new PriorityQueue([{value: "high", priority: 100}, {value: "low", priority: 0}]);
+let pq = new PriorityQueue([{ value: "high", priority: 100 }, { value: "low", priority: 0 }]);
 
 // Array w/ custom comparator
 let pq = new PriorityQueue(["high", "low"], (a, b) => a.length > b.length);
-
 
 let pq = new PriorityQueue([[100, "high"], [50, "medium"], [0, "low"]]);
 
@@ -209,13 +208,13 @@ let pq = new PriorityQueue([[100, "high"], [50, "medium"], [0, "low"]]);
 //   |    (100)     |     (50)     |     (0)     |
 //
 
-pq.size;      // 3
-pq.high;      // QueueNode { _value: 'super high', _priority: 1000, ... }
-pq.low;       // QueueNode { _value: 'low', _priority: 0, ... }
+pq.size; // 3
+pq.high; // QueueNode { _value: 'super high', _priority: 1000, ... }
+pq.low; // QueueNode { _value: 'low', _priority: 0, ... }
 
 pq.isEmpty(); // false
 
-pq.insert("super high", 1000);  // 4 : new size
+pq.insert("super high", 1000); // 4 : new size
 
 //       highest priority                                lowest priority
 //             ^                                               ^
@@ -223,7 +222,7 @@ pq.insert("super high", 1000);  // 4 : new size
 //   |       (1000)       |    (100)     |     (50)     |     (0)     |
 //
 
-pq.deleteHigh();  // QueueNode { _value: 'super high', _priority: 1000, ... }
+pq.deleteHigh(); // QueueNode { _value: 'super high', _priority: 1000, ... }
 
 //   highest priority               lowest priority
 //          ^                             ^
@@ -231,7 +230,7 @@ pq.deleteHigh();  // QueueNode { _value: 'super high', _priority: 1000, ... }
 //   |    (100)     |     (50)     |     (0)     |
 //
 
-pq.deleteLow();   // QueueNode { _value: 'low', _priority: 0, ... }
+pq.deleteLow(); // QueueNode { _value: 'low', _priority: 0, ... }
 
 //  highest priority   lowest priority
 //          ^               ^

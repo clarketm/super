@@ -197,7 +197,64 @@ let clone = object.clone(); // Object { a: 1, b: true, c: 4 }
 Object.is(object, clone); // false</code>
 </code></pre>
 <p><br></p>
-<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-priorityqueue-readme--priorityqueue--a-"><a href="https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme">PriorityQueue</a></h3><p><strong>TODO</strong></p>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-priorityqueue-readme--priorityqueue--a-"><a href="https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme">PriorityQueue</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { PriorityQueue } from &quot;@clarketm/super&quot;;
+
+// note: a PriorityQueue can be constructed from either a Map, Array of Arrays, Array of Objects, or Array w/ custom comparator.
+
+// Map
+let pq = new PriorityQueue(new Map([[100, &quot;high&quot;], [0, &quot;low&quot;]]));
+
+// Array of Arrays
+let pq = new PriorityQueue([[100, &quot;high&quot;], [0, &quot;low&quot;]]);
+
+// Array of Objects
+let pq = new PriorityQueue([{ value: &quot;high&quot;, priority: 100 }, { value: &quot;low&quot;, priority: 0 }]);
+
+// Array w/ custom comparator
+let pq = new PriorityQueue([&quot;high&quot;, &quot;low&quot;], (a, b) =&gt; a.length &gt; b.length);
+
+let pq = new PriorityQueue([[100, &quot;high&quot;], [50, &quot;medium&quot;], [0, &quot;low&quot;]]);
+
+//    highest priority              lowest priority
+//          ^                             ^
+//   |    &quot;high&quot;    |   &quot;medium&quot;   |    &quot;low&quot;    |
+//   |    (100)     |     (50)     |     (0)     |
+//
+
+pq.size; // 3
+pq.high; // QueueNode { _value: &apos;super high&apos;, _priority: 1000, ... }
+pq.low; // QueueNode { _value: &apos;low&apos;, _priority: 0, ... }
+
+pq.isEmpty(); // false
+
+pq.insert(&quot;super high&quot;, 1000); // 4 : new size
+
+//       highest priority                                lowest priority
+//             ^                                               ^
+//   |    &quot;super high&quot;    |    &quot;high&quot;    |   &quot;medium&quot;   |    &quot;low&quot;    |
+//   |       (1000)       |    (100)     |     (50)     |     (0)     |
+//
+
+pq.deleteHigh(); // QueueNode { _value: &apos;super high&apos;, _priority: 1000, ... }
+
+//   highest priority               lowest priority
+//          ^                             ^
+//   |    &quot;high&quot;    |   &quot;medium&quot;   |    &quot;low&quot;    |
+//   |    (100)     |     (50)     |     (0)     |
+//
+
+pq.deleteLow(); // QueueNode { _value: &apos;low&apos;, _priority: 0, ... }
+
+//  highest priority   lowest priority
+//          ^               ^
+//   |    &quot;high&quot;    |   &quot;medium&quot;   |
+//   |    (100)     |     (50)     |
+//
+
+pq.clear();
+pq.size; // 0</code>
+</code></pre>
+<p><br></p>
 <h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-queue-readme--queue--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Queue#readme">Queue</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Queue } from &quot;@clarketm/super&quot;;
 
 let queue = new Queue([2, 4, 6, 8]);
