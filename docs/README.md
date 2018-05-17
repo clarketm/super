@@ -175,6 +175,106 @@ BinaryTreeNode
 
 ### `_right: *`
 
+## `Heap`
+
+Heap with superpowers! 💪
+
+### `constructor()`
+
+### `_heap: undefined[]`
+
+### `_compare: *`
+
+### `_parent(index: *): *`
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| index | * | nullable: undefined |
+
+### `_left(index: number): Item`
+
+Get the left child (i.e. 2*i+1)
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| index | number |  |
+
+### `_right(index: number): Item`
+
+Get the right child (i.e. 2*i+2)
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| index | number |  |
+
+### `_defaultComparator(a: *, b: *): number`
+
+Default comparator function to sort from: highest priority (max) -> lowest priority (min)
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| a | * | nullable: undefined |
+| b | * | nullable: undefined |
+
+### `isEmpty(): boolean`
+
+Check if heap is empty
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `clear(): void`
+
+Clear the items from the heap
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `insert(value: Item): number`
+
+Insert an item into the heap
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| value | Item |  | item to insert |
+
+### `deleteMax(): Item`
+
+Remove and return the maximum item
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `deleteMin(): Item`
+
+Remove and return the minimum item
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
+### `_percolateDown(index: number)`
+
+Heapify down
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| index | number |  | start index |
+
+### `_percolateUp(index: number)`
+
+Heapify up
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| index | number |  | start index |
+
+### `toArray(): Array<Item>`
+
+Convert the heap to an array
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+
 ## `LinkedList`
 
 LinkedList with superpowers! 💪

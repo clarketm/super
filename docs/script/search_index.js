@@ -12,6 +12,18 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@clarketm/super/packages/heap/src/lib/heap.js~heap",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html",
+    "<span>Heap</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Heap/src/lib/Heap.js</span>",
+    "class"
+  ],
+  [
+    "@clarketm/super/packages/heap/src/lib/heap.js~heaptype",
+    "variable/index.html#static-variable-HeapType",
+    "<span>HeapType</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Heap/src/lib/Heap.js</span>",
+    "variable"
+  ],
+  [
     "@clarketm/super/packages/number/src/lib/number.js~integertoromannumeralmap",
     "variable/index.html#static-variable-IntegerToRomanNumeralMap",
     "<span>IntegerToRomanNumeralMap</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Number/src/lib/Number.js</span>",
@@ -379,13 +391,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-right",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
     "member"
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-right",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
     "member"
   ],
@@ -406,6 +418,120 @@ window.esdocSearchIndex = [
     "file/packages/BubbleSort/src/lib/BubbleSort.js.html",
     "packages/BubbleSort/src/lib/BubbleSort.js",
     "file"
+  ],
+  [
+    "packages/heap/src/lib/heap.js",
+    "file/packages/Heap/src/lib/Heap.js.html",
+    "packages/Heap/src/lib/Heap.js",
+    "file"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap#_compare",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#instance-member-_compare",
+    "packages/Heap/src/lib/Heap.js~Heap#_compare",
+    "member"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap#_heap",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#instance-member-_heap",
+    "packages/Heap/src/lib/Heap.js~Heap#_heap",
+    "member"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap#_percolatedown",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-_percolateDown",
+    "packages/Heap/src/lib/Heap.js~Heap#_percolateDown",
+    "method"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap#_percolateup",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-_percolateUp",
+    "packages/Heap/src/lib/Heap.js~Heap#_percolateUp",
+    "method"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap#clear",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-clear",
+    "packages/Heap/src/lib/Heap.js~Heap#clear",
+    "method"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap#constructor",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#instance-constructor-constructor",
+    "packages/Heap/src/lib/Heap.js~Heap#constructor",
+    "method"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap#deletemax",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-deleteMax",
+    "packages/Heap/src/lib/Heap.js~Heap#deleteMax",
+    "method"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap#deletemin",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-deleteMin",
+    "packages/Heap/src/lib/Heap.js~Heap#deleteMin",
+    "method"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap#insert",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-insert",
+    "packages/Heap/src/lib/Heap.js~Heap#insert",
+    "method"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap#isempty",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-isEmpty",
+    "packages/Heap/src/lib/Heap.js~Heap#isEmpty",
+    "method"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap#max",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#instance-get-max",
+    "packages/Heap/src/lib/Heap.js~Heap#max",
+    "member"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap#min",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#instance-get-min",
+    "packages/Heap/src/lib/Heap.js~Heap#min",
+    "member"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap#size",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#instance-get-size",
+    "packages/Heap/src/lib/Heap.js~Heap#size",
+    "member"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap#toarray",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-toArray",
+    "packages/Heap/src/lib/Heap.js~Heap#toArray",
+    "method"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap._defaultcomparator",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#static-method-_defaultComparator",
+    "packages/Heap/src/lib/Heap.js~Heap._defaultComparator",
+    "method"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap._left",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#static-method-_left",
+    "packages/Heap/src/lib/Heap.js~Heap._left",
+    "method"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap._parent",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#static-method-_parent",
+    "packages/Heap/src/lib/Heap.js~Heap._parent",
+    "method"
+  ],
+  [
+    "packages/heap/src/lib/heap.js~heap._right",
+    "class/packages/Heap/src/lib/Heap.js~Heap.html#static-method-_right",
+    "packages/Heap/src/lib/Heap.js~Heap._right",
+    "method"
   ],
   [
     "packages/insertionsort/src/lib/insertionsort.js",
@@ -559,25 +685,25 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#prev",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-prev",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
-    "member"
-  ],
-  [
-    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-prev",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
     "member"
   ],
   [
-    "packages/linkedlist/src/lib/listnode.js~listnode#value",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
+    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-prev",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#value",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "member"
   ],

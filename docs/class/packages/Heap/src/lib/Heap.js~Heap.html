@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">PriorityQueue | @clarketm/super</title>
+  <title data-ice="title">Heap | @clarketm/super</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -70,17 +70,17 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {PriorityQueue} from &apos;<span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber19">@clarketm/super/packages/PriorityQueue/src/lib/PriorityQueue.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {Heap} from &apos;<span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber19">@clarketm/super/packages/Heap/src/lib/Heap.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber19">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber19">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">PriorityQueue</h1>
+  <h1 data-ice="name">Heap</h1>
 
   
 
@@ -96,7 +96,7 @@
 
   
   
-  <div class="description" data-ice="description"><p>PriorityQueue with superpowers! &#x1F4AA;</p>
+  <div class="description" data-ice="description"><p>Heap with superpowers! &#x1F4AA;</p>
 </div>
   
 
@@ -128,7 +128,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#static-method-_defaultComparator">_defaultComparator</a></span></span><span class="code" data-ice="signature">(a: <span>*</span>, b: <span>*</span>): <span>number</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#static-method-_defaultComparator">_defaultComparator</a></span></span><span class="code" data-ice="signature">(a: <span>*</span>, b: <span>*</span>): <span>number</span></span>
         </p>
       </div>
       <div>
@@ -158,13 +158,71 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#static-method-_wrapComparator">_wrapComparator</a></span></span><span class="code" data-ice="signature">(comparator: <span>*</span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#static-method-_left">_left</a></span></span><span class="code" data-ice="signature">(index: <span>number</span>): <span>Item</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Get the left child (i.e.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      <span data-ice="static">static</span>
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#static-method-_parent">_parent</a></span></span><span class="code" data-ice="signature">(index: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
         
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      <span data-ice="static">static</span>
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#static-method-_right">_right</a></span></span><span class="code" data-ice="signature">(index: <span>number</span>): <span>Item</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Get the right child (i.e.</p>
+</div>
       </div>
     </td>
     <td>
@@ -193,7 +251,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">()</span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">()</span>
         </p>
       </div>
       <div>
@@ -228,13 +286,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-get-high">high</a></span></span><span class="code" data-ice="signature">: <span>Item</span>: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#instance-get-max">max</a></span></span><span class="code" data-ice="signature">: <span>Item</span>: <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Get the item with the highest priority</p>
+        <div data-ice="description"><p>Get the maximum item in heap</p>
 </div>
       </div>
     </td>
@@ -257,13 +315,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-get-low">low</a></span></span><span class="code" data-ice="signature">: <span>Item</span>: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#instance-get-min">min</a></span></span><span class="code" data-ice="signature">: <span>Item</span>: <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Get the item with the lowest priority</p>
+        <div data-ice="description"><p>Get the minimum item in heap</p>
 </div>
       </div>
     </td>
@@ -286,71 +344,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-get-max">max</a></span></span><span class="code" data-ice="signature">: <span>Item</span>: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#instance-get-size">size</a></span></span><span class="code" data-ice="signature">: <span>number</span>: <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Get the item with the highest priority</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      <span class="kind" data-ice="kind">get</span>
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-get-min">min</a></span></span><span class="code" data-ice="signature">: <span>Item</span>: <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Get the item with the lowest priority</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      <span class="kind" data-ice="kind">get</span>
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-get-size">size</a></span></span><span class="code" data-ice="signature">: <span>number</span>: <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Get the current size of the queue</p>
+        <div data-ice="description"><p>Get the current size of the heap</p>
 </div>
       </div>
     </td>
@@ -379,7 +379,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-member-_comparator">_comparator</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#instance-member-_compare">_compare</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
         </p>
       </div>
       <div>
@@ -407,7 +407,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-member-_queue">_queue</a></span></span><span class="code" data-ice="signature">: <span><span>*</span><span>[]</span></span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#instance-member-_heap">_heap</a></span></span><span class="code" data-ice="signature">: <span><span>undefined</span><span>[]</span></span></span>
         </p>
       </div>
       <div>
@@ -442,13 +442,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-clear">clear</a></span></span><span class="code" data-ice="signature">(): <span>void</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-clear">clear</a></span></span><span class="code" data-ice="signature">(): <span>void</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Clear the items from the queue</p>
+        <div data-ice="description"><p>Clear the items from the heap</p>
 </div>
       </div>
     </td>
@@ -471,13 +471,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-deleteHigh">deleteHigh</a></span></span><span class="code" data-ice="signature">(): <span>Item</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-deleteMax">deleteMax</a></span></span><span class="code" data-ice="signature">(): <span>Item</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Remove and return the item with the highest priority</p>
+        <div data-ice="description"><p>Remove and return the maximum item</p>
 </div>
       </div>
     </td>
@@ -500,13 +500,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-deleteLow">deleteLow</a></span></span><span class="code" data-ice="signature">(): <span>Item</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-deleteMin">deleteMin</a></span></span><span class="code" data-ice="signature">(): <span>Item</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Remove and return the item with the lowest priority</p>
+        <div data-ice="description"><p>Remove and return the minimum item</p>
 </div>
       </div>
     </td>
@@ -529,13 +529,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-deleteMax">deleteMax</a></span></span><span class="code" data-ice="signature">(): <span>Item</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-insert">insert</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>number</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Remove and return the item with the highest priority</p>
+        <div data-ice="description"><p>Insert an item into the heap</p>
 </div>
       </div>
     </td>
@@ -558,13 +558,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-deleteMin">deleteMin</a></span></span><span class="code" data-ice="signature">(): <span>Item</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-isEmpty">isEmpty</a></span></span><span class="code" data-ice="signature">(): <span>boolean</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Remove and return the item with the lowest priority</p>
+        <div data-ice="description"><p>Check if heap is empty</p>
 </div>
       </div>
     </td>
@@ -587,13 +587,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-insert">insert</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>, priority: <span>number</span>): <span>number</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-toArray">toArray</a></span></span><span class="code" data-ice="signature">(): <span>Array</span>&lt;<span>Item</span>&gt;</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Enqueue an item into the queue</p>
+        <div data-ice="description"><p>Convert the heap to an array</p>
 </div>
       </div>
     </td>
@@ -602,9 +602,15 @@
       
     </td>
   </tr>
-<tr data-ice="target">
+</tbody>
+</table>
+<table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Private Methods</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
     <td>
-      <span class="access" data-ice="access">public</span>
+      <span class="access" data-ice="access">private</span>
       
       
       
@@ -616,13 +622,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-isEmpty">isEmpty</a></span></span><span class="code" data-ice="signature">(): <span>boolean</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-_percolateDown">_percolateDown</a></span></span><span class="code" data-ice="signature">(index: <span>number</span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Check if queue is empty</p>
+        <div data-ice="description"><p>Heapify down</p>
 </div>
       </div>
     </td>
@@ -633,7 +639,7 @@
   </tr>
 <tr data-ice="target">
     <td>
-      <span class="access" data-ice="access">public</span>
+      <span class="access" data-ice="access">private</span>
       
       
       
@@ -645,13 +651,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-toArray">toArray</a></span></span><span class="code" data-ice="signature">(): <span>Array</span>&lt;<span>Item</span>&gt;</span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html#instance-method-_percolateUp">_percolateUp</a></span></span><span class="code" data-ice="signature">(index: <span>number</span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Convert the queue to an array</p>
+        <div data-ice="description"><p>Heapify up</p>
 </div>
       </div>
     </td>
@@ -681,7 +687,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber70">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber87">source</a></span></span>
     </span>
   </h3>
 
@@ -750,18 +756,91 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-method-_wrapComparator">
+  <h3 data-ice="anchor" id="static-method-_left">
     <span class="access" data-ice="access">private</span>
     <span data-ice="static">static</span>
     
     
     
     
-    <span class="code" data-ice="name">_wrapComparator</span><span class="code" data-ice="signature">(comparator: <span>*</span>): <span>*</span></span>
+    <span class="code" data-ice="name">_left</span><span class="code" data-ice="signature">(index: <span>number</span>): <span>Item</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber58">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber63">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Get the left child (i.e. 2*i+1)</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">index</td>
+      <td data-ice="type" class="code"><span>number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>Item</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>_left child</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-method-_parent">
+    <span class="access" data-ice="access">private</span>
+    <span data-ice="static">static</span>
+    
+    
+    
+    
+    <span class="code" data-ice="name">_parent</span><span class="code" data-ice="signature">(index: <span>*</span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber51">source</a></span></span>
     </span>
   </h3>
 
@@ -781,7 +860,7 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">comparator</td>
+      <td data-ice="name" class="code" data-depth="0">index</td>
       <td data-ice="type" class="code"><span>*</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
@@ -820,6 +899,79 @@
   
   
 </div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-method-_right">
+    <span class="access" data-ice="access">private</span>
+    <span data-ice="static">static</span>
+    
+    
+    
+    
+    <span class="code" data-ice="name">_right</span><span class="code" data-ice="signature">(index: <span>number</span>): <span>Item</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber75">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Get the right child (i.e. 2*i+2)</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">index</td>
+      <td data-ice="type" class="code"><span>number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>Item</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>_left child</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
 </div>
 <div data-ice="constructorDetails"><h2 data-ice="title">Private Constructors</h2>
 
@@ -835,7 +987,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber31">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber31">source</a></span></span>
     </span>
   </h3>
 
@@ -870,120 +1022,6 @@
 <div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-get-high">
-    <span class="access" data-ice="access">public</span>
-    
-    <span class="kind" data-ice="kind">get</span>
-    
-    
-    
-    <span class="code" data-ice="name">high</span><span class="code" data-ice="signature">: <span>Item</span>: <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber105">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Get the item with the highest priority</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>Item</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>highest priority item</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-get-low">
-    <span class="access" data-ice="access">public</span>
-    
-    <span class="kind" data-ice="kind">get</span>
-    
-    
-    
-    <span class="code" data-ice="name">low</span><span class="code" data-ice="signature">: <span>Item</span>: <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber129">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Get the item with the lowest priority</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>Item</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>lowest priority item</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-get-max">
     <span class="access" data-ice="access">public</span>
     
@@ -995,14 +1033,14 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber92">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber109">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Get the item with the highest priority</p>
+  <div data-ice="description"><p>Get the maximum item in heap</p>
 </div>
 
   
@@ -1016,7 +1054,7 @@
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span>Item</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>highest priority item</p>
+          <td class="return-desc" data-ice="returnDescription"><p>maximum item</p>
 </td>
         </tr>
       </tbody>
@@ -1052,14 +1090,14 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber116">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber122">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Get the item with the lowest priority</p>
+  <div data-ice="description"><p>Get the minimum item in heap</p>
 </div>
 
   
@@ -1073,7 +1111,7 @@
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span>Item</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>lowest priority item</p>
+          <td class="return-desc" data-ice="returnDescription"><p>minimum item</p>
 </td>
         </tr>
       </tbody>
@@ -1109,14 +1147,14 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber81">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber98">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Get the current size of the queue</p>
+  <div data-ice="description"><p>Get the current size of the heap</p>
 </div>
 
   
@@ -1130,7 +1168,7 @@
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span>number</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>size of the queue</p>
+          <td class="return-desc" data-ice="returnDescription"><p>size of the heap</p>
 </td>
         </tr>
       </tbody>
@@ -1157,18 +1195,18 @@
 <h2 data-ice="title">Private Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-_comparator">
+  <h3 data-ice="anchor" id="instance-member-_compare">
     <span class="access" data-ice="access">private</span>
     
     
     
     
     
-    <span class="code" data-ice="name">_comparator</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">_compare</span><span class="code" data-ice="signature">: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber33">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber33">source</a></span></span>
     </span>
   </h3>
 
@@ -1200,18 +1238,18 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-_queue">
+  <h3 data-ice="anchor" id="instance-member-_heap">
     <span class="access" data-ice="access">private</span>
     
     
     
     
     
-    <span class="code" data-ice="name">_queue</span><span class="code" data-ice="signature">: <span><span>*</span><span>[]</span></span></span>
+    <span class="code" data-ice="name">_heap</span><span class="code" data-ice="signature">: <span><span>undefined</span><span>[]</span></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber32">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber32">source</a></span></span>
     </span>
   </h3>
 
@@ -1257,14 +1295,14 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber151">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber144">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Clear the items from the queue</p>
+  <div data-ice="description"><p>Clear the items from the heap</p>
 </div>
 
   
@@ -1302,120 +1340,6 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-deleteHigh">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">deleteHigh</span><span class="code" data-ice="signature">(): <span>Item</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber196">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Remove and return the item with the highest priority</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>Item</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>highest priority item</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-deleteLow">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">deleteLow</span><span class="code" data-ice="signature">(): <span>Item</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber220">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Remove and return the item with the lowest priority</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>Item</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>lowest priority item</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-method-deleteMax">
     <span class="access" data-ice="access">public</span>
     
@@ -1427,14 +1351,14 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber183">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber169">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Remove and return the item with the highest priority</p>
+  <div data-ice="description"><p>Remove and return the maximum item</p>
 </div>
 
   
@@ -1448,7 +1372,7 @@
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span>Item</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>highest priority item</p>
+          <td class="return-desc" data-ice="returnDescription"><p>maximum item</p>
 </td>
         </tr>
       </tbody>
@@ -1484,14 +1408,14 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber207">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber185">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Remove and return the item with the lowest priority</p>
+  <div data-ice="description"><p>Remove and return the minimum item</p>
 </div>
 
   
@@ -1505,7 +1429,7 @@
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span>Item</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>lowest priority item</p>
+          <td class="return-desc" data-ice="returnDescription"><p>minimum item</p>
 </td>
         </tr>
       </tbody>
@@ -1537,18 +1461,18 @@
     
     
     
-    <span class="code" data-ice="name">insert</span><span class="code" data-ice="signature">(value: <span>Item</span>, priority: <span>number</span>): <span>number</span></span>
+    <span class="code" data-ice="name">insert</span><span class="code" data-ice="signature">(value: <span>Item</span>): <span>number</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber164">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber156">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Enqueue an item into the queue</p>
+  <div data-ice="description"><p>Insert an item into the heap</p>
 </div>
 
   
@@ -1566,14 +1490,6 @@
       <td data-ice="type" class="code"><span>Item</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>item to insert</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">priority</td>
-      <td data-ice="type" class="code"><span>number</span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default:  0</li></ul></td>
-      <td data-ice="description"><p>priority of item (higher value === higher priority)</p>
 </td>
     </tr>
 </tbody>
@@ -1623,14 +1539,14 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber140">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber133">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Check if queue is empty</p>
+  <div data-ice="description"><p>Check if heap is empty</p>
 </div>
 
   
@@ -1644,7 +1560,7 @@
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span>boolean</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>is queue empty</p>
+          <td class="return-desc" data-ice="returnDescription"><p>is heap empty</p>
 </td>
         </tr>
       </tbody>
@@ -1680,14 +1596,14 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber231">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber239">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Convert the queue to an array</p>
+  <div data-ice="description"><p>Convert the heap to an array</p>
 </div>
 
   
@@ -1701,7 +1617,7 @@
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span>Array</span>&lt;<span>Item</span>&gt;</td>
-          <td class="return-desc" data-ice="returnDescription"><p>array representation of the queue</p>
+          <td class="return-desc" data-ice="returnDescription"><p>array representation of the heap</p>
 </td>
         </tr>
       </tbody>
@@ -1709,6 +1625,130 @@
     <div data-ice="returnProperties">
 </div>
   </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<h2 data-ice="title">Private Methods</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-_percolateDown">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_percolateDown</span><span class="code" data-ice="signature">(index: <span>number</span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber196">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Heapify down</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">index</td>
+      <td data-ice="type" class="code"><span>number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>start index</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-_percolateUp">
+    <span class="access" data-ice="access">private</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">_percolateUp</span><span class="code" data-ice="signature">(index: <span>number</span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/Heap/src/lib/Heap.js.html#lineNumber222">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Heapify up</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">index</td>
+      <td data-ice="type" class="code"><span>number</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>start index</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
 
   
 
