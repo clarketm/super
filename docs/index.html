@@ -35,8 +35,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-TraversalType">TraversalType</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#bubblesort-src-lib">BubbleSort/src/lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-bubbleSort">bubbleSort</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#heap-src-lib">Heap/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Heap/src/lib/Heap.js~Heap.html">Heap</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-HeapType">HeapType</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#insertionsort-src-lib">InsertionSort/src/lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-insertionSort">insertionSort</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#linkedlist-src-lib">LinkedList/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/LinkedList/src/lib/LinkedList.js~LinkedList.html">LinkedList</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html">ListNode</a></span></span></li>
@@ -162,6 +160,57 @@ tree.remove(9);
 //       /
 //      1                -&gt; node removed
 //</code>
+</code></pre>
+<p><br></p>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-heap-readme--heap--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Heap#readme">Heap</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Heap } from &quot;@clarketm/super&quot;;
+
+// Max / Min (default) heap comparators
+let { MAX, MIN } = Heap.HeapType;
+
+let minHeap = new Heap([3, 7, 2, 5], MIN);
+
+//              2  -&gt; min
+//            /   \
+//           5     3
+//          /
+//         7
+//
+
+minHeap.min; // 2
+
+minHeap.insert(8); // 5 : new size
+
+//              2  -&gt; min
+//            /   \
+//           5     3
+//          /       \
+//         7         8  -&gt; node inserted
+//
+
+let min = minHeap.deleteMin(); // 2
+
+//              3  -&gt; min
+//            /   \
+//           5     8
+//          /
+//         7
+//
+
+let maxHeap = new Heap([3, 7, 2, 5], MAX);
+
+//              7  -&gt; max
+//            /   \
+//           5     3
+//          /
+//         2
+//
+
+maxHeap.max; // 7
+
+maxHeap.isEmpty(); // false
+
+maxHeap.clear();
+maxHeap.size; // 0</code>
 </code></pre>
 <p><br></p>
 <h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-linkedlist-readme--linkedlist--a-"><a href="https://github.com/clarketm/super/tree/master/packages/LinkedList#readme">LinkedList</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { LinkedList } from &quot;@clarketm/super&quot;;
