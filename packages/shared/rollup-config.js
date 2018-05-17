@@ -24,12 +24,12 @@ export default {
   plugins: [
     flow({ pretty: true }),
     resolve(),
-    commonjs(),
     babel({
       presets: [["env", { modules: false }], "@clarketm/babel-preset-super"],
       plugins: ["external-helpers"],
       babelrc: false
     }),
+    commonjs(),
     {
       name: "uglify",
       transformBundle(code) {
