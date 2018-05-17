@@ -5,6 +5,7 @@
 
 import type { Comparator, Item } from "../../../shared/src/types";
 import { mergeSort } from "../../../MergeSort/src/lib/MergeSort";
+import { quickSort } from "../../../QuickSort/src/lib/QuickSort";
 
 /**
  * @typedef {Function} Callback
@@ -76,6 +77,19 @@ class _Array extends Array<Item> {
   mergeSort(comparator: Comparator): Array<Item> {
     // $FlowFixMe
     return mergeSort.call(this, null, comparator);
+  }
+
+  /**
+   * @public
+   *
+   * @desc Sort using quick sort
+   *
+   * @param {Comparator} comparator - comparator function
+   * @returns {Array<Item>} sorted array
+   */
+  quickSort(comparator: Comparator): Array<Item> {
+    // $FlowFixMe
+    return quickSort.call(this, null, comparator);
   }
 }
 

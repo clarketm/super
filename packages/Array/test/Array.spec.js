@@ -73,4 +73,42 @@ describe("Array", () => {
       assert.deepEqual(array, expected);
     });
   });
+
+  describe("#quickSort", () => {
+    it("should sort array using quick sort", () => {
+      array = new Array([6, 4, 1, 9, 8, 7]);
+      array.quickSort();
+
+      expected = [1, 4, 6, 7, 8, 9];
+
+      assert.deepEqual(array, expected);
+    });
+
+    it("should quick in descending order with a custom comparator", () => {
+      array = new Array([3, 7, 1, 9, 3, 7]);
+      array.quickSort((a, b) => b - a);
+
+      expected = [9, 7, 7, 3, 3, 1];
+
+      assert.deepEqual(array, expected);
+    });
+
+    it("should quick in ascending string length order with a custom comparator", () => {
+      array = new Array(["1111", "11111", "1", "11", "111"]);
+      array.quickSort((a, b) => a.length - b.length);
+
+      expected = ["1", "11", "111", "1111", "11111"];
+
+      assert.deepEqual(array, expected);
+    });
+
+    it("should quick in descending string length order with a custom comparator", () => {
+      array = new Array(["1111", "11111", "1", "11", "111"]);
+      array.quickSort((a, b) => b.length - a.length);
+
+      expected = ["11111", "1111", "111", "11", "1"];
+
+      assert.deepEqual(array, expected);
+    });
+  });
 });
