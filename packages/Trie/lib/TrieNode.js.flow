@@ -1,0 +1,16 @@
+
+declare export class TrieNode {
+
+  _char: any;
+  _children: Map<any, TrieNode>;
+  _isCompleteWord: boolean;
+  get char(): any;
+  get count(): number;
+  get isCompleteWord(): boolean;
+  get isLeafNode(): boolean;
+  constructor(char?: any): void;
+  delete(char: any): void;
+  get(char: any): ?TrieNode;
+  has(char: any): boolean;
+  set(char: any, node: TrieNode): void;
+}

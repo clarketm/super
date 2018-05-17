@@ -1,0 +1,8 @@
+
+declare export class Object extends Object {
+
+  clone(config?: {includeNonEnumerable: ?boolean}): Object;
+  constructor(object: Object): void;
+  getNested(path: string): any;
+  hasNested(path: string): boolean;
+}

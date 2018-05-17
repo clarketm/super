@@ -1,0 +1,8 @@
+
+declare export class Array extends Array<any> {
+
+  constructor(iterable?: Array<any>): void;
+  flatMap(callback: (value: any, index: number, array: Array<any>) => Array<any>): Array<any>;
+  flatten(depth?: number): Array<any>;
+  mergeSort(comparator: any): Array<any>;
+}

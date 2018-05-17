@@ -1,0 +1,7 @@
+
+declare export class Number extends Number {
+  static fromRomanNumeral(str: string): number;
+
+  constructor(number: number): void;
+  toRomanNumeral(): string;
+}

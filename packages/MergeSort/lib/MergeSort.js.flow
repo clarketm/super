@@ -1,0 +1,2 @@
+
+declare export function mergeSort(arr: Array<any>, comparator?: any): Array<any | any>;

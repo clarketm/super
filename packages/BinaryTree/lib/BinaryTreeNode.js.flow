@@ -1,0 +1,14 @@
+
+declare export class BinaryTreeNode {
+
+  _left: ?BinaryTreeNode;
+  _right: ?BinaryTreeNode;
+  _value: any;
+  get left(): ?BinaryTreeNode
+  set left(value: ?BinaryTreeNode): void;
+  get right(): ?BinaryTreeNode
+  set right(value: ?BinaryTreeNode): void;
+  get value(): any
+  set value(value: any): void;
+  constructor(value: any): void;
+}

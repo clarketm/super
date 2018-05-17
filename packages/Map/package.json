@@ -9,7 +9,7 @@
     "LICENSE.md"
   ],
   "scripts": {
-    "build": "shx rm -rf ./bin ./lib ; rollup -c ../shared/rollup-config.js",
+    "build": "shx rm -rf ./lib/*.js ; rollup -c ../shared/rollup-config.js",
     "lint": "eslint --fix ./src ./test",
     "prep": "yarn lint && yarn prettier && yarn build && yarn types && yarn test",
     "prepublishOnly": "yarn prep",
