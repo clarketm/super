@@ -4,7 +4,7 @@
  */
 
 import type { Comparator, Item } from "../../../shared/src/types";
-import { _compare, _defaultComparator, swap, randInt } from "../../../shared/src/helpers";
+import { _compareLessThan, _defaultComparator, swap, randInt } from "../../../shared/src/helpers";
 
 const PartitionType = {
   LOMUTO: "lomuto",
@@ -41,7 +41,7 @@ function quickSort(arr: Array<Item>, comparator: Comparator = _defaultComparator
   }
 
   let target = this instanceof Array ? this : arr.slice(0);
-  let compare = _compare(comparator);
+  let compare = _compareLessThan(comparator);
 
   // TODO: make customizable?
   let partitionType: Partition = PartitionType.HOARE;

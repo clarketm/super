@@ -304,6 +304,39 @@
     return Queue;
   }();
 
+  // 
+
+  function _defaultComparator(a, b) {
+    return a - b;
+  }
+
+  /**
+   * if a == b , then return `true`
+   */
+  function _compareEqual(comparator) {
+    return function (a, b) {
+      return comparator(a, b) === 0;
+    };
+  }
+
+  /**
+   * if a < b  , then return `true`
+   */
+  function _compareLessThan(comparator) {
+    return function (a, b) {
+      return comparator(a, b) < 0;
+    };
+  }
+
+  /**
+   * if a > b  , then return `true`
+   */
+  function _compareGreaterThan(comparator) {
+    return function (a, b) {
+      return comparator(a, b) > 0;
+    };
+  }
+
   /**
    * 
    * @module super/binarytree
@@ -327,18 +360,25 @@
   var BinaryTree = function () {
     /** @private */
 
+    /** @private */
+
     /**
      * @public
      *
      * @desc Construct a BinaryTree
      *
      * @param {Array<number>} iterable
+     * @param {Comparator} comparator
      */
     function BinaryTree() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      var comparator = arguments[1];
       classCallCheck(this, BinaryTree);
 
       this._root = null;
+      this._compareEqual = _compareEqual(comparator || _defaultComparator);
+      this._compareLessThan = _compareLessThan(comparator || _defaultComparator);
+      this._compareGreaterThan = _compareGreaterThan(comparator || _defaultComparator);
 
       var _iteratorNormalCompletion = true;
       var _didIteratorError = false;
@@ -367,11 +407,12 @@
     }
 
     /**
-     * @public
+     * @private
      *
-     * @desc Get the root of the tree
+     * @desc Default comparator function to sort from:
+     *       highest priority (max) -> lowest priority (min)
      *
-     * @returns {BinaryTreeNode} root node
+     * @returns {number} comparison
      */
 
 
@@ -453,6 +494,8 @@
     }, {
       key: "insert",
       value: function insert(value) {
+        var _this = this;
+
         var node = new BinaryTreeNode(value);
 
         if (!this.root) {
@@ -467,21 +510,21 @@
          *
          * @param {BinaryTreeNode} root
          */
-        function _insert(root) {
-          if (node.value < root.value) {
+        var _insert = function _insert(root) {
+          if (_this._compareLessThan(node.value, root.value)) {
             if (root.left) {
               return _insert(root.left);
             } else {
               root.left = node;
             }
-          } else if (node.value >= root.value) {
+          } else {
             if (root.right) {
               return _insert(root.right);
             } else {
               root.right = node;
             }
           }
-        }
+        };
 
         _insert(this.root);
       }
@@ -498,6 +541,8 @@
     }, {
       key: "search",
       value: function search(value) {
+        var _this2 = this;
+
         if (!value) return null;
 
         /**
@@ -508,17 +553,17 @@
          * @param {BinaryTreeNode} node
          * @return {BinaryTreeNode} match node
          */
-        function _search(node) {
+        var _search = function _search(node) {
           if (!node) return null;
 
-          if (value === node.value) {
+          if (_this2._compareEqual(value, node.value)) {
             return node;
-          } else if (value < node.value) {
+          } else if (_this2._compareLessThan(value, node.value)) {
             return _search(node.left);
-          } else if (value >= node.value) {
+          } else if (_this2._compareGreaterThan(value, node.value)) {
             return _search(node.right);
           }
-        }
+        };
 
         return _search(this.root);
       }
@@ -534,7 +579,7 @@
     }, {
       key: "remove",
       value: function remove(value) {
-        var _this = this;
+        var _this3 = this;
 
         /**
          * @private
@@ -547,7 +592,7 @@
         var _remove = function _remove(node, value) {
           if (!node) return null;
 
-          if (node.value === value) {
+          if (_this3._compareEqual(node.value, value)) {
             if (!node.left && !node.right) {
               return null;
             } else if (!node.left) {
@@ -555,17 +600,17 @@
             } else if (!node.right) {
               return node.left;
             } else {
-              var aux = _this.findMin(node.right);
+              var aux = _this3.findMin(node.right);
               // $FlowFixMe
               node.value = aux.value;
               // $FlowFixMe
               node.right = _remove(node.right, aux.value);
               return node;
             }
-          } else if (value < node.value) {
+          } else if (_this3._compareLessThan(value, node.value)) {
             node.left = _remove(node.left, value);
             return node;
-          } else if (value >= node.value) {
+          } else if (_this3._compareGreaterThan(value, node.value)) {
             node.right = _remove(node.right, value);
             return node;
           }
@@ -754,6 +799,15 @@
       }
     }, {
       key: "root",
+
+
+      /**
+       * @public
+       *
+       * @desc Get the root of the tree
+       *
+       * @returns {BinaryTreeNode} root node
+       */
       get: function get$$1() {
         return this._root;
       }
@@ -772,6 +826,11 @@
       key: "height",
       get: function get$$1() {
         return this.getHeight(this.root);
+      }
+    }], [{
+      key: "_defaultComparator",
+      value: function _defaultComparator$$1(a, b) {
+        return a.value > b.value;
       }
     }]);
     return BinaryTree;

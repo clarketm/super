@@ -4,7 +4,7 @@
  */
 
 import type { Comparator, Item } from "../../../shared/src/types";
-import { _compare, swap } from "../../../shared/src/helpers";
+import { _compareLessThan, swap } from "../../../shared/src/helpers";
 
 /**
  *
@@ -35,7 +35,7 @@ class Heap {
    */
   constructor(iterable: Array<Item> = [], comparator: Comparator) {
     this._heap = [...iterable];
-    this._compare = _compare(comparator || Heap._defaultComparator);
+    this._compare = _compareLessThan(comparator || Heap.HeapType.MIN);
 
     for (let i = Math.floor(iterable.length / 2); i >= 0; i--) {
       this._percolateDown(i);
@@ -76,18 +76,6 @@ class Heap {
    */
   static _right(index: number): Item {
     return 2 * index + 2;
-  }
-
-  /**
-   * @private
-   *
-   * @desc Default comparator function to sort from:
-   *       highest priority (max) -> lowest priority (min)
-   *
-   * @returns {number} size of the queue
-   */
-  static _defaultComparator(a: any, b: any): number | boolean {
-    return a - b;
   }
 
   /**

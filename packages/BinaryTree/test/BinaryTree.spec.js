@@ -41,6 +41,24 @@ describe("BinaryTree", () => {
 
       assert.equal(actual, expected);
     });
+
+    it("construct a tree using a custom string length (ascending) comparator", () => {
+      tree = new BinaryTree(["hi", "loooong", "boy"], (a, b) => a.length - b.length);
+
+      expected = "hi";
+      actual = tree.findMin().value;
+
+      assert.equal(actual, expected);
+    });
+
+    it("construct a tree using a custom string length (descending) comparator", () => {
+      tree = new BinaryTree(["hi", "loooong", "boy"], (a, b) => b.length - a.length);
+
+      expected = "loooong";
+      actual = tree.findMin().value;
+
+      assert.equal(actual, expected);
+    });
   });
 
   describe("#findMax", () => {
@@ -48,6 +66,24 @@ describe("BinaryTree", () => {
       tree = new BinaryTree([5, 3, 7, 1, 6, 4, 8]);
 
       expected = 8;
+      actual = tree.findMax().value;
+
+      assert.equal(actual, expected);
+    });
+
+    it("construct a tree using a custom string length (ascending) comparator", () => {
+      tree = new BinaryTree(["blue", "red", "green"], (a, b) => a.length - b.length);
+
+      expected = "green";
+      actual = tree.findMax().value;
+
+      assert.equal(actual, expected);
+    });
+
+    it("construct a tree using a custom string length (descending) comparator", () => {
+      tree = new BinaryTree(["blue", "red", "green"], (a, b) => b.length - a.length);
+
+      expected = "red";
       actual = tree.findMax().value;
 
       assert.equal(actual, expected);

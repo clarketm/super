@@ -118,6 +118,18 @@ tree.remove(9);
 //       /
 //      1                -> node removed
 //
+
+// Use a custom comparator to determine tree hierarchy
+
+// string length (ascending) comparator
+let tree = new BinaryTree(["green", "red", "blue"], (a, b) => a.length - b.length);
+
+//            "blue"  -> root
+//           /     \
+//        "red"  "green"
+//
+
+tree.findMax().value; // "green"
 ```
 
 <br>

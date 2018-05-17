@@ -690,7 +690,7 @@
        * @desc Default comparator function to sort from:
        *       highest priority (max) -> lowest priority (min)
        *
-       * @returns {number} size of the queue
+       * @returns {number} comparison
        */
 
     }, {

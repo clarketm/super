@@ -137,15 +137,29 @@ function _defaultComparator(a, b) {
 }
 
 /**
- *
- * if a < b  , then return `true`
- * if b >= a , then return `false`
- *
+ * if a == b , then return `true`
  */
-function _compare(comparator) {
-  //
+function _compareEqual(comparator) {
+  return function (a, b) {
+    return comparator(a, b) === 0;
+  };
+}
+
+/**
+ * if a < b  , then return `true`
+ */
+function _compareLessThan(comparator) {
   return function (a, b) {
     return comparator(a, b) < 0;
+  };
+}
+
+/**
+ * if a > b  , then return `true`
+ */
+function _compareGreaterThan(comparator) {
+  return function (a, b) {
+    return comparator(a, b) > 0;
   };
 }
 
@@ -186,7 +200,7 @@ function bubbleSort(arr) {
   }
 
   var target = this instanceof Array ? this : arr.slice(0);
-  var compare = _compare(comparator);
+  var compare = _compareLessThan(comparator);
 
   /**
    *
@@ -236,7 +250,7 @@ function insertionSort(arr) {
   }
 
   var target = this instanceof Array ? this : arr.slice(0);
-  var compare = _compare(comparator);
+  var compare = _compareLessThan(comparator);
 
   /**
    *
@@ -281,7 +295,7 @@ function mergeSort(arr) {
   }
 
   var target = this instanceof Array ? this : arr.slice(0);
-  var compare = _compare(comparator);
+  var compare = _compareLessThan(comparator);
 
   /**
    *
@@ -384,7 +398,7 @@ function quickSort(arr) {
   }
 
   var target = this instanceof Array ? this : arr.slice(0);
-  var compare = _compare(comparator);
+  var compare = _compareLessThan(comparator);
 
   // TODO: make customizable?
   var partitionType = PartitionType.HOARE;
@@ -549,7 +563,7 @@ function selectionSort(arr) {
   }
 
   var target = this instanceof Array ? this : arr.slice(0);
-  var compare = _compare(comparator);
+  var compare = _compareLessThan(comparator);
 
   /**
    *
@@ -1026,18 +1040,25 @@ var TraversalType = {
 var BinaryTree = function () {
   /** @private */
 
+  /** @private */
+
   /**
    * @public
    *
    * @desc Construct a BinaryTree
    *
    * @param {Array<number>} iterable
+   * @param {Comparator} comparator
    */
   function BinaryTree() {
     var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var comparator = arguments[1];
     classCallCheck(this, BinaryTree);
 
     this._root = null;
+    this._compareEqual = _compareEqual(comparator || _defaultComparator);
+    this._compareLessThan = _compareLessThan(comparator || _defaultComparator);
+    this._compareGreaterThan = _compareGreaterThan(comparator || _defaultComparator);
 
     var _iteratorNormalCompletion = true;
     var _didIteratorError = false;
@@ -1066,11 +1087,12 @@ var BinaryTree = function () {
   }
 
   /**
-   * @public
+   * @private
    *
-   * @desc Get the root of the tree
+   * @desc Default comparator function to sort from:
+   *       highest priority (max) -> lowest priority (min)
    *
-   * @returns {BinaryTreeNode} root node
+   * @returns {number} comparison
    */
 
 
@@ -1152,6 +1174,8 @@ var BinaryTree = function () {
   }, {
     key: "insert",
     value: function insert(value) {
+      var _this = this;
+
       var node = new BinaryTreeNode(value);
 
       if (!this.root) {
@@ -1166,21 +1190,21 @@ var BinaryTree = function () {
        *
        * @param {BinaryTreeNode} root
        */
-      function _insert(root) {
-        if (node.value < root.value) {
+      var _insert = function _insert(root) {
+        if (_this._compareLessThan(node.value, root.value)) {
           if (root.left) {
             return _insert(root.left);
           } else {
             root.left = node;
           }
-        } else if (node.value >= root.value) {
+        } else {
           if (root.right) {
             return _insert(root.right);
           } else {
             root.right = node;
           }
         }
-      }
+      };
 
       _insert(this.root);
     }
@@ -1197,6 +1221,8 @@ var BinaryTree = function () {
   }, {
     key: "search",
     value: function search(value) {
+      var _this2 = this;
+
       if (!value) return null;
 
       /**
@@ -1207,17 +1233,17 @@ var BinaryTree = function () {
        * @param {BinaryTreeNode} node
        * @return {BinaryTreeNode} match node
        */
-      function _search(node) {
+      var _search = function _search(node) {
         if (!node) return null;
 
-        if (value === node.value) {
+        if (_this2._compareEqual(value, node.value)) {
           return node;
-        } else if (value < node.value) {
+        } else if (_this2._compareLessThan(value, node.value)) {
           return _search(node.left);
-        } else if (value >= node.value) {
+        } else if (_this2._compareGreaterThan(value, node.value)) {
           return _search(node.right);
         }
-      }
+      };
 
       return _search(this.root);
     }
@@ -1233,7 +1259,7 @@ var BinaryTree = function () {
   }, {
     key: "remove",
     value: function remove(value) {
-      var _this = this;
+      var _this3 = this;
 
       /**
        * @private
@@ -1246,7 +1272,7 @@ var BinaryTree = function () {
       var _remove = function _remove(node, value) {
         if (!node) return null;
 
-        if (node.value === value) {
+        if (_this3._compareEqual(node.value, value)) {
           if (!node.left && !node.right) {
             return null;
           } else if (!node.left) {
@@ -1254,17 +1280,17 @@ var BinaryTree = function () {
           } else if (!node.right) {
             return node.left;
           } else {
-            var aux = _this.findMin(node.right);
+            var aux = _this3.findMin(node.right);
             // $FlowFixMe
             node.value = aux.value;
             // $FlowFixMe
             node.right = _remove(node.right, aux.value);
             return node;
           }
-        } else if (value < node.value) {
+        } else if (_this3._compareLessThan(value, node.value)) {
           node.left = _remove(node.left, value);
           return node;
-        } else if (value >= node.value) {
+        } else if (_this3._compareGreaterThan(value, node.value)) {
           node.right = _remove(node.right, value);
           return node;
         }
@@ -1453,6 +1479,15 @@ var BinaryTree = function () {
     }
   }, {
     key: "root",
+
+
+    /**
+     * @public
+     *
+     * @desc Get the root of the tree
+     *
+     * @returns {BinaryTreeNode} root node
+     */
     get: function get$$1() {
       return this._root;
     }
@@ -1471,6 +1506,11 @@ var BinaryTree = function () {
     key: "height",
     get: function get$$1() {
       return this.getHeight(this.root);
+    }
+  }], [{
+    key: "_defaultComparator",
+    value: function _defaultComparator$$1(a, b) {
+      return a.value > b.value;
     }
   }]);
   return BinaryTree;
@@ -1504,7 +1544,7 @@ var Heap = function () {
     classCallCheck(this, Heap);
 
     this._heap = [].concat(toConsumableArray(iterable));
-    this._compare = _compare(comparator || Heap._defaultComparator);
+    this._compare = _compareLessThan(comparator || Heap.HeapType.MIN);
 
     for (var i = Math.floor(iterable.length / 2); i >= 0; i--) {
       this._percolateDown(i);
@@ -1740,21 +1780,6 @@ var Heap = function () {
     key: "_right",
     value: function _right(index) {
       return 2 * index + 2;
-    }
-
-    /**
-     * @private
-     *
-     * @desc Default comparator function to sort from:
-     *       highest priority (max) -> lowest priority (min)
-     *
-     * @returns {number} size of the queue
-     */
-
-  }, {
-    key: "_defaultComparator",
-    value: function _defaultComparator$$1(a, b) {
-      return a - b;
     }
   }]);
   return Heap;
@@ -3350,7 +3375,7 @@ var PriorityQueue = function () {
      * @desc Default comparator function to sort from:
      *       highest priority (max) -> lowest priority (min)
      *
-     * @returns {number} size of the queue
+     * @returns {number} comparison
      */
 
   }, {
@@ -4274,7 +4299,7 @@ var Trie = function () {
   return Trie;
 }();
 
-var version = "0.0.8";
+var version = "0.0.9";
 
 var Super = {
   version: version,

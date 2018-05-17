@@ -68,11 +68,22 @@ Sort using selection sort
 
 BinaryTree with superpowers! 💪
 
-### `constructor(iterable: Array<number>)`
-
-Construct a BinaryTree
+### `constructor()`
 
 ### `_root: *`
+
+### `_compareEqual: *`
+
+### `_compareLessThan: *`
+
+### `_compareGreaterThan: *`
+
+### `_defaultComparator(a: *, b: *): *`
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| a | * | nullable: undefined |
+| b | * | nullable: undefined |
 
 ### `getHeight(node: BinaryTreeNode): number`
 

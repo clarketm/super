@@ -3,9 +3,15 @@
  * @module super/binarytree
  */
 
-import type { Item } from "../../../shared/src/types";
+import type { Comparator, Item } from "../../../shared/src/types";
 import { BinaryTreeNode } from "./BinaryTreeNode";
 import { Queue } from "../../../Queue/src/lib/Queue";
+import {
+  _compareEqual,
+  _compareLessThan,
+  _compareGreaterThan,
+  _defaultComparator
+} from "../../../shared/src/helpers";
 
 export const TraversalType = {
   PRE_ORDER: "pre",
@@ -27,19 +33,40 @@ class BinaryTree {
   /** @private */
   _root: ?BinaryTreeNode;
 
+  /** @private */
+  _compareEqual: Comparator;
+  _compareLessThan: Comparator;
+  _compareGreaterThan: Comparator;
+
   /**
    * @public
    *
    * @desc Construct a BinaryTree
    *
    * @param {Array<number>} iterable
+   * @param {Comparator} comparator
    */
-  constructor(iterable: Array<number> = []) {
+  constructor(iterable: Array<number> = [], comparator: Comparator) {
     this._root = null;
+    this._compareEqual = _compareEqual(comparator || _defaultComparator);
+    this._compareLessThan = _compareLessThan(comparator || _defaultComparator);
+    this._compareGreaterThan = _compareGreaterThan(comparator || _defaultComparator);
 
     for (let item of iterable) {
       this.insert(item);
     }
+  }
+
+  /**
+   * @private
+   *
+   * @desc Default comparator function to sort from:
+   *       highest priority (max) -> lowest priority (min)
+   *
+   * @returns {number} comparison
+   */
+  static _defaultComparator(a: any, b: any): number | boolean {
+    return a.value > b.value;
   }
 
   /**
@@ -141,21 +168,21 @@ class BinaryTree {
      *
      * @param {BinaryTreeNode} root
      */
-    function _insert(root: BinaryTreeNode) {
-      if (node.value < root.value) {
+    const _insert = (root: BinaryTreeNode) => {
+      if (this._compareLessThan(node.value, root.value)) {
         if (root.left) {
           return _insert(root.left);
         } else {
           root.left = node;
         }
-      } else if (node.value >= root.value) {
+      } else {
         if (root.right) {
           return _insert(root.right);
         } else {
           root.right = node;
         }
       }
-    }
+    };
 
     _insert(this.root);
   }
@@ -179,17 +206,17 @@ class BinaryTree {
      * @param {BinaryTreeNode} node
      * @return {BinaryTreeNode} match node
      */
-    function _search(node): ?BinaryTreeNode {
+    const _search = (node): ?BinaryTreeNode => {
       if (!node) return null;
 
-      if (value === node.value) {
+      if (this._compareEqual(value, node.value)) {
         return node;
-      } else if (value < node.value) {
+      } else if (this._compareLessThan(value, node.value)) {
         return _search(node.left);
-      } else if (value >= node.value) {
+      } else if (this._compareGreaterThan(value, node.value)) {
         return _search(node.right);
       }
-    }
+    };
 
     return _search(this.root);
   }
@@ -213,7 +240,7 @@ class BinaryTree {
     const _remove = (node: ?BinaryTreeNode, value: Item) => {
       if (!node) return null;
 
-      if (node.value === value) {
+      if (this._compareEqual(node.value, value)) {
         if (!node.left && !node.right) {
           return null;
         } else if (!node.left) {
@@ -228,10 +255,10 @@ class BinaryTree {
           node.right = _remove(node.right, aux.value);
           return node;
         }
-      } else if (value < node.value) {
+      } else if (this._compareLessThan(value, node.value)) {
         node.left = _remove(node.left, value);
         return node;
-      } else if (value >= node.value) {
+      } else if (this._compareGreaterThan(value, node.value)) {
         node.right = _remove(node.right, value);
         return node;
       }

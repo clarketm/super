@@ -159,7 +159,19 @@ tree.remove(9);
 //        2   4  6    8
 //       /
 //      1                -&gt; node removed
-//</code>
+//
+
+// Use a custom comparator to determine tree hierarchy
+
+// string length (ascending) comparator
+let tree = new BinaryTree([&quot;green&quot;, &quot;red&quot;, &quot;blue&quot;], (a, b) =&gt; a.length - b.length);
+
+//            &quot;blue&quot;  -&gt; root
+//           /     \
+//        &quot;red&quot;  &quot;green&quot;
+//
+
+tree.findMax().value; // &quot;green&quot;</code>
 </code></pre>
 <p><br></p>
 <h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-heap-readme--heap--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Heap#readme">Heap</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Heap } from &quot;@clarketm/super&quot;;

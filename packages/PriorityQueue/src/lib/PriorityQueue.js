@@ -78,7 +78,7 @@ class PriorityQueue {
    * @desc Default comparator function to sort from:
    *       highest priority (max) -> lowest priority (min)
    *
-   * @returns {number} size of the queue
+   * @returns {number} comparison
    */
   static _defaultComparator(a: any, b: any): number | boolean {
     return a.priority < b.priority;

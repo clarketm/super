@@ -18,13 +18,9 @@
   }
 
   /**
-   *
    * if a < b  , then return `true`
-   * if b >= a , then return `false`
-   *
    */
-  function _compare(comparator) {
-    //
+  function _compareLessThan(comparator) {
     return function (a, b) {
       return comparator(a, b) < 0;
     };
@@ -84,7 +80,7 @@
     }
 
     var target = this instanceof Array ? this : arr.slice(0);
-    var compare = _compare(comparator);
+    var compare = _compareLessThan(comparator);
 
     // TODO: make customizable?
     var partitionType = PartitionType.HOARE;

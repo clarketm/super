@@ -2,7 +2,7 @@
 
 BinaryTree with superpowers! 💪
 
-### `constructor(iterable: Iterable<number>)`
+### `constructor(iterable: Iterable<number>, comparator: Comparator)`
 
 Construct a BinaryTree
 

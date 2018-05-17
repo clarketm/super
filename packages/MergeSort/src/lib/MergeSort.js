@@ -4,7 +4,7 @@
  */
 
 import type { Comparator, Item } from "../../../shared/src/types";
-import { _compare, _defaultComparator } from "../../../shared/src/helpers";
+import { _compareLessThan, _defaultComparator } from "../../../shared/src/helpers";
 
 /**
  *
@@ -25,7 +25,7 @@ function mergeSort(arr: Array<Item>, comparator: Comparator = _defaultComparator
   }
 
   let target = this instanceof Array ? this : arr.slice(0);
-  let compare = _compare(comparator);
+  let compare = _compareLessThan(comparator);
 
   /**
    *

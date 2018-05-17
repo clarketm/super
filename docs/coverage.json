@@ -1,7 +1,7 @@
 {
-  "coverage": "85.53%",
-  "expectCount": 159,
-  "actualCount": 136,
+  "coverage": "84.04%",
+  "expectCount": 163,
+  "actualCount": 137,
   "files": {
     "packages/Array/src/lib/Array.js": {
       "expectCount": 9,
@@ -9,11 +9,14 @@
       "undocumentLines": []
     },
     "packages/BinaryTree/src/lib/BinaryTree.js": {
-      "expectCount": 17,
-      "actualCount": 15,
+      "expectCount": 21,
+      "actualCount": 16,
       "undocumentLines": [
-        9,
-        33
+        10,
+        37,
+        38,
+        39,
+        40
       ]
     },
     "packages/BinaryTree/src/lib/BinaryTreeNode.js": {

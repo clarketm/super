@@ -48,13 +48,9 @@
   // 
 
   /**
-   *
    * if a < b  , then return `true`
-   * if b >= a , then return `false`
-   *
    */
-  function _compare(comparator) {
-    //
+  function _compareLessThan(comparator) {
     return function (a, b) {
       return comparator(a, b) < 0;
     };
@@ -103,7 +99,7 @@
       classCallCheck(this, Heap);
 
       this._heap = [].concat(toConsumableArray(iterable));
-      this._compare = _compare(comparator || Heap._defaultComparator);
+      this._compare = _compareLessThan(comparator || Heap.HeapType.MIN);
 
       for (var i = Math.floor(iterable.length / 2); i >= 0; i--) {
         this._percolateDown(i);
@@ -339,21 +335,6 @@
       key: "_right",
       value: function _right(index) {
         return 2 * index + 2;
-      }
-
-      /**
-       * @private
-       *
-       * @desc Default comparator function to sort from:
-       *       highest priority (max) -> lowest priority (min)
-       *
-       * @returns {number} size of the queue
-       */
-
-    }, {
-      key: "_defaultComparator",
-      value: function _defaultComparator$$1(a, b) {
-        return a - b;
       }
     }]);
     return Heap;

@@ -74,7 +74,7 @@
  */
 
 import type { Comparator, Item } from &quot;../../../shared/src/types&quot;;
-import { _compare, _defaultComparator, swap } from &quot;../../../shared/src/helpers&quot;;
+import { _compareLessThan, _defaultComparator, swap } from &quot;../../../shared/src/helpers&quot;;
 
 /**
  *
@@ -95,7 +95,7 @@ function selectionSort(arr: Array&lt;Item&gt;, comparator: Comparator = _default
   }
 
   let target = this instanceof Array ? this : arr.slice(0);
-  let compare = _compare(comparator);
+  let compare = _compareLessThan(comparator);
 
   /**
    *

@@ -246,6 +246,24 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#_compareequal",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-member-_compareEqual",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#_compareEqual",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#_comparegreaterthan",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-member-_compareGreaterThan",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#_compareGreaterThan",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytree.js~binarytree#_comparelessthan",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-member-_compareLessThan",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#_compareLessThan",
+    "member"
+  ],
+  [
     "packages/binarytree/src/lib/binarytree.js~binarytree#_root",
     "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-member-_root",
     "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree#_root",
@@ -336,6 +354,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "packages/binarytree/src/lib/binarytree.js~binarytree._defaultcomparator",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#static-method-_defaultComparator",
+    "packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree._defaultComparator",
+    "method"
+  ],
+  [
     "packages/binarytree/src/lib/binarytreenode.js",
     "file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js",
@@ -367,13 +391,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-left",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-left",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
     "member"
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-left",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-left",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
     "member"
   ],
@@ -391,13 +415,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#value",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-value",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-value",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#value",
     "member"
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#value",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-value",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-value",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#value",
     "member"
   ],

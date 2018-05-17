@@ -16,14 +16,38 @@ export function _defaultComparator(a: any, b: any): number | boolean {
 }
 
 /**
- *
- * if a < b  , then return `true`
- * if b >= a , then return `false`
- *
+ * if a == b , then return `true`
  */
-export function _compare(comparator: Comparator): Comparator {
-  //
+export function _compareEqual(comparator: Comparator): Comparator {
+  return (a, b) => comparator(a, b) === 0;
+}
+
+/**
+ * if a < b  , then return `true`
+ */
+export function _compareLessThan(comparator: Comparator): Comparator {
   return (a, b) => comparator(a, b) < 0;
+}
+
+/**
+ * if a <= b  , then return `true`
+ */
+export function _compareLessThanEqual(comparator: Comparator): Comparator {
+  return (a, b) => comparator(a, b) <= 0;
+}
+
+/**
+ * if a > b  , then return `true`
+ */
+export function _compareGreaterThan(comparator: Comparator): Comparator {
+  return (a, b) => comparator(a, b) > 0;
+}
+
+/**
+ * if a >= b  , then return `true`
+ */
+export function _compareGreaterThanEqual(comparator: Comparator): Comparator {
+  return (a, b) => comparator(a, b) >= 0;
 }
 
 export function swap(arr: Array<Item>, a: Item, b: Item) {

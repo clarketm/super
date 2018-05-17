@@ -73,9 +73,15 @@
  * @module super/binarytree
  */
 
-import type { Item } from &quot;../../../shared/src/types&quot;;
+import type { Comparator, Item } from &quot;../../../shared/src/types&quot;;
 import { BinaryTreeNode } from &quot;./BinaryTreeNode&quot;;
 import { Queue } from &quot;../../../Queue/src/lib/Queue&quot;;
+import {
+  _compareEqual,
+  _compareLessThan,
+  _compareGreaterThan,
+  _defaultComparator
+} from &quot;../../../shared/src/helpers&quot;;
 
 export const TraversalType = {
   PRE_ORDER: &quot;pre&quot;,
@@ -97,19 +103,40 @@ class BinaryTree {
   /** @private */
   _root: ?BinaryTreeNode;
 
+  /** @private */
+  _compareEqual: Comparator;
+  _compareLessThan: Comparator;
+  _compareGreaterThan: Comparator;
+
   /**
    * @public
    *
    * @desc Construct a BinaryTree
    *
    * @param {Array&lt;number&gt;} iterable
+   * @param {Comparator} comparator
    */
-  constructor(iterable: Array&lt;number&gt; = []) {
+  constructor(iterable: Array&lt;number&gt; = [], comparator: Comparator) {
     this._root = null;
+    this._compareEqual = _compareEqual(comparator || _defaultComparator);
+    this._compareLessThan = _compareLessThan(comparator || _defaultComparator);
+    this._compareGreaterThan = _compareGreaterThan(comparator || _defaultComparator);
 
     for (let item of iterable) {
       this.insert(item);
     }
+  }
+
+  /**
+   * @private
+   *
+   * @desc Default comparator function to sort from:
+   *       highest priority (max) -&gt; lowest priority (min)
+   *
+   * @returns {number} comparison
+   */
+  static _defaultComparator(a: any, b: any): number | boolean {
+    return a.value &gt; b.value;
   }
 
   /**
@@ -211,21 +238,21 @@ class BinaryTree {
      *
      * @param {BinaryTreeNode} root
      */
-    function _insert(root: BinaryTreeNode) {
-      if (node.value &lt; root.value) {
+    const _insert = (root: BinaryTreeNode) =&gt; {
+      if (this._compareLessThan(node.value, root.value)) {
         if (root.left) {
           return _insert(root.left);
         } else {
           root.left = node;
         }
-      } else if (node.value &gt;= root.value) {
+      } else {
         if (root.right) {
           return _insert(root.right);
         } else {
           root.right = node;
         }
       }
-    }
+    };
 
     _insert(this.root);
   }
@@ -249,17 +276,17 @@ class BinaryTree {
      * @param {BinaryTreeNode} node
      * @return {BinaryTreeNode} match node
      */
-    function _search(node): ?BinaryTreeNode {
+    const _search = (node): ?BinaryTreeNode =&gt; {
       if (!node) return null;
 
-      if (value === node.value) {
+      if (this._compareEqual(value, node.value)) {
         return node;
-      } else if (value &lt; node.value) {
+      } else if (this._compareLessThan(value, node.value)) {
         return _search(node.left);
-      } else if (value &gt;= node.value) {
+      } else if (this._compareGreaterThan(value, node.value)) {
         return _search(node.right);
       }
-    }
+    };
 
     return _search(this.root);
   }
@@ -283,7 +310,7 @@ class BinaryTree {
     const _remove = (node: ?BinaryTreeNode, value: Item) =&gt; {
       if (!node) return null;
 
-      if (node.value === value) {
+      if (this._compareEqual(node.value, value)) {
         if (!node.left &amp;&amp; !node.right) {
           return null;
         } else if (!node.left) {
@@ -298,10 +325,10 @@ class BinaryTree {
           node.right = _remove(node.right, aux.value);
           return node;
         }
-      } else if (value &lt; node.value) {
+      } else if (this._compareLessThan(value, node.value)) {
         node.left = _remove(node.left, value);
         return node;
-      } else if (value &gt;= node.value) {
+      } else if (this._compareGreaterThan(value, node.value)) {
         node.right = _remove(node.right, value);
         return node;
       }
