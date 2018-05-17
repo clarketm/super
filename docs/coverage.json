@@ -1,7 +1,7 @@
 {
-  "coverage": "84.96%",
-  "expectCount": 153,
-  "actualCount": 130,
+  "coverage": "85.06%",
+  "expectCount": 154,
+  "actualCount": 131,
   "files": {
     "packages/Array/src/lib/Array.js": {
       "expectCount": 6,
@@ -24,6 +24,11 @@
         24,
         25
       ]
+    },
+    "packages/BubbleSort/src/lib/BubbleSort.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "packages/LinkedList/src/lib/LinkedList.js": {
       "expectCount": 17,

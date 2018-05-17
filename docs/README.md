@@ -611,6 +611,13 @@ Delete child node with specific character value
 
 # Function
 
+## `bubbleSort(arr: *, comparator: *): *`
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| arr | * | nullable: undefined |
+| comparator | * | nullable: undefined, optional: true, default: _defaultComparator |
+
 ## `factorial(num: number): number`
 
 Factorial

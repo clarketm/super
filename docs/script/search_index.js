@@ -126,6 +126,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@clarketm/super/packages/bubblesort/src/lib/bubblesort.js~bubblesort",
+    "function/index.html#static-function-bubbleSort",
+    "<span>bubbleSort</span> <span class=\"search-result-import-path\">@clarketm/super/packages/BubbleSort/src/lib/BubbleSort.js</span>",
+    "function"
+  ],
+  [
     "@clarketm/super/packages/math/src/lib/math.js~factorial",
     "function/index.html#static-function-factorial",
     "<span>factorial</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Math/src/lib/Math.js</span>",
@@ -343,14 +349,20 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-right",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
     "member"
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-right",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#value",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-value",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#value",
     "member"
   ],
   [
@@ -360,10 +372,10 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#value",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-value",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#value",
-    "member"
+    "packages/bubblesort/src/lib/bubblesort.js",
+    "file/packages/BubbleSort/src/lib/BubbleSort.js.html",
+    "packages/BubbleSort/src/lib/BubbleSort.js",
+    "file"
   ],
   [
     "packages/linkedlist/src/lib/linkedlist.js",
@@ -499,25 +511,25 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#next",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
-    "member"
-  ],
-  [
-    "packages/linkedlist/src/lib/listnode.js~listnode#next",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
-    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-prev",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
+    "packages/linkedlist/src/lib/listnode.js~listnode#next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#prev",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-prev",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-prev",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
     "member"
   ],
