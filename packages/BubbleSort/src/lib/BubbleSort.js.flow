@@ -1,0 +1,2 @@
+
+declare export function bubbleSort(arr: Array<any>, comparator?: any): Array<any>;
