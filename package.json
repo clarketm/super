@@ -52,6 +52,7 @@
     "array",
     "binarytree",
     "bubblesort",
+    "heap",
     "insertionsort",
     "map",
     "math",
