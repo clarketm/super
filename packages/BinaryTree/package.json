@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superbinarytree",
-  "version": "1.2.13",
+  "version": "1.2.14",
   "description": "BinaryTree with superpowers! 💪",
   "main": "./lib/BinaryTree.js",
   "files": [
