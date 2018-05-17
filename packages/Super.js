@@ -22,7 +22,6 @@ import { version } from "../package.json";
 
 export default {
   version,
-
   // Data Structures
   Array,
   BinaryTree,
@@ -33,12 +32,10 @@ export default {
   Queue,
   Set,
   Trie,
-
   // Data Types
   Math,
   Number,
   String,
-
   // Sorting Algorithms
   mergeSort
 };

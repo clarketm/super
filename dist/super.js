@@ -3654,7 +3654,6 @@
 
   var Super = {
     version: version,
-
     // Data Structures
     Array: _Array,
     BinaryTree: BinaryTree,
@@ -3665,12 +3664,10 @@
     Queue: Queue,
     Set: _Set,
     Trie: Trie,
-
     // Data Types
     Math: _Math,
     Number: _Number,
     String: _String,
-
     // Sorting Algorithms
     mergeSort: mergeSort$1
   };
