@@ -225,10 +225,10 @@ pq.insert("super high", 1000);  // 4 : new size
 
 pq.deleteHigh();  // QueueNode { _value: 'super high', _priority: 1000, ... }
 
-//       highest priority                  lowest priority
-//             ^                                 ^
-//   |    "super high"    |    "high"    |   "medium"   |
-//   |       (1000)       |    (100)     |     (50)     |
+//   highest priority               lowest priority
+//          ^                             ^
+//   |    "high"    |   "medium"   |    "low"    |
+//   |    (100)     |     (50)     |     (0)     |
 //
 
 pq.deleteLow();   // QueueNode { _value: 'low', _priority: 0, ... }
