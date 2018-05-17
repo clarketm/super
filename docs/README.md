@@ -32,6 +32,14 @@ Sort using bubble sort
 | --- | --- | --- | --- |
 | comparator | Comparator |  | comparator function |
 
+### `insertionSort(comparator: Comparator): Array<Item>`
+
+Sort using insertion sort
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| comparator | Comparator |  | comparator function |
+
 ### `mergeSort(comparator: Comparator): Array<Item>`
 
 Sort using merge sort
@@ -43,6 +51,14 @@ Sort using merge sort
 ### `quickSort(comparator: Comparator): Array<Item>`
 
 Sort using quick sort
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| comparator | Comparator |  | comparator function |
+
+### `selectionSort(comparator: Comparator): Array<Item>`
+
+Sort using selection sort
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |

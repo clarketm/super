@@ -62,13 +62,17 @@ array.flatten(2); // [1, 2, 3]
 
 // sorting
 array.bubbleSort(); // [0, 1, 2, 3]
+array.insertionSort(); // [0, 1, 2, 3]
 array.mergeSort(); // [0, 1, 2, 3]
 array.quickort(); // [0, 1, 2, 3]
+array.selectionSort(); // [0, 1, 2, 3]
 
 // sorting (w/ comparator)
 array.bubbleSort((a, b) => b - a); // [3, 2, 1, 0]
+array.insertionSort((a, b) => b - a); // [3, 2, 1, 0]
 array.mergeSort((a, b) => b - a); // [3, 2, 1, 0]
 array.quickSort((a, b) => b - a); // [3, 2, 1, 0]
+array.selectionSort((a, b) => b - a); // [3, 2, 1, 0]
 ```
 
 <br>
@@ -406,6 +410,50 @@ trie.remove("go");
 
 ## Sorting Algorithms
 
+### [BubbleSort](https://github.com/clarketm/super/tree/master/packages/BubbleSort#readme)
+
+```js
+import { bubbleSort } from "@clarketm/super";
+
+// General usage
+
+// ascending
+let sortedArray = bubbleSort([4, 3, 8, 1]); // [1, 3, 4, 8]
+
+// Custom comparator
+
+// descending
+let sortedArray = bubbleSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]
+
+// ascending (string length)
+let sortedArray = bubbleSort(["111", "1", "11"], (a, b) => a.length - b.length); // ["1", "11", "111"]
+
+// descending (string length)
+let sortedArray = bubbleSort(["111", "1", "11"], (a, b) => b.length - a.length); // ["111", "11", "1"]
+```
+
+### [InsertionSort](https://github.com/clarketm/super/tree/master/packages/InsertionSort#readme)
+
+```js
+import { insertionSort } from "@clarketm/super";
+
+// General usage
+
+// ascending
+let sortedArray = insertionSort([4, 3, 8, 1]); // [1, 3, 4, 8]
+
+// Custom comparator
+
+// descending
+let sortedArray = insertionSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]
+
+// ascending (string length)
+let sortedArray = insertionSort(["111", "1", "11"], (a, b) => a.length - b.length); // ["1", "11", "111"]
+
+// descending (string length)
+let sortedArray = insertionSort(["111", "1", "11"], (a, b) => b.length - a.length); // ["111", "11", "1"]
+```
+
 ### [MergeSort](https://github.com/clarketm/super/tree/master/packages/MergeSort#readme)
 
 ```js
@@ -450,26 +498,26 @@ let sortedArray = quickSort(["111", "1", "11"], (a, b) => a.length - b.length); 
 let sortedArray = quickSort(["111", "1", "11"], (a, b) => b.length - a.length); // ["111", "11", "1"]
 ```
 
-### [BubbleSort](https://github.com/clarketm/super/tree/master/packages/BubbleSort#readme)
+### [SelectionSort](https://github.com/clarketm/super/tree/master/packages/SelectionSort#readme)
 
 ```js
-import { bubbleSort } from "@clarketm/super";
+import { selectionSort } from "@clarketm/super";
 
 // General usage
 
 // ascending
-let sortedArray = bubbleSort([4, 3, 8, 1]); // [1, 3, 4, 8]
+let sortedArray = selectionSort([4, 3, 8, 1]); // [1, 3, 4, 8]
 
 // Custom comparator
 
 // descending
-let sortedArray = bubbleSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]
+let sortedArray = selectionSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]
 
 // ascending (string length)
-let sortedArray = bubbleSort(["111", "1", "11"], (a, b) => a.length - b.length); // ["1", "11", "111"]
+let sortedArray = selectionSort(["111", "1", "11"], (a, b) => a.length - b.length); // ["1", "11", "111"]
 
 // descending (string length)
-let sortedArray = bubbleSort(["111", "1", "11"], (a, b) => b.length - a.length); // ["111", "11", "1"]
+let sortedArray = selectionSort(["111", "1", "11"], (a, b) => b.length - a.length); // ["111", "11", "1"]
 ```
 
 ## Credits

@@ -109,13 +109,17 @@ array.flatten(2); // [1, 2, 3]
 
 // sorting
 array.bubbleSort(); // [0, 1, 2, 3]
+array.insertionSort(); // [0, 1, 2, 3]
 array.mergeSort(); // [0, 1, 2, 3]
 array.quickort(); // [0, 1, 2, 3]
+array.selectionSort(); // [0, 1, 2, 3]
 
 // sorting (w/ comparator)
 array.bubbleSort((a, b) =&gt; b - a); // [3, 2, 1, 0]
+array.insertionSort((a, b) =&gt; b - a); // [3, 2, 1, 0]
 array.mergeSort((a, b) =&gt; b - a); // [3, 2, 1, 0]
-array.quickSort((a, b) =&gt; b - a); // [3, 2, 1, 0]</code>
+array.quickSort((a, b) =&gt; b - a); // [3, 2, 1, 0]
+array.selectionSort((a, b) =&gt; b - a); // [3, 2, 1, 0]</code>
 </code></pre>
 <p><br></p>
 <h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-binarytree-readme--binarytree--a-"><a href="https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme">BinaryTree</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { BinaryTree } from &quot;@clarketm/super&quot;;
@@ -407,7 +411,43 @@ trie.remove(&quot;go&quot;);
 <li><a href="https://github.com/clarketm/super/tree/master/packages/String#readme">String</a></li>
 </ul>
 <p><br></p>
-<h2 id="sorting-algorithms">Sorting Algorithms</h2><h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-mergesort-readme--mergesort--a-"><a href="https://github.com/clarketm/super/tree/master/packages/MergeSort#readme">MergeSort</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { mergeSort } from &quot;@clarketm/super&quot;;
+<h2 id="sorting-algorithms">Sorting Algorithms</h2><h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-bubblesort-readme--bubblesort--a-"><a href="https://github.com/clarketm/super/tree/master/packages/BubbleSort#readme">BubbleSort</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { bubbleSort } from &quot;@clarketm/super&quot;;
+
+// General usage
+
+// ascending
+let sortedArray = bubbleSort([4, 3, 8, 1]); // [1, 3, 4, 8]
+
+// Custom comparator
+
+// descending
+let sortedArray = bubbleSort([4, 3, 8, 1], (a, b) =&gt; b - a); // [8, 4, 3, 1]
+
+// ascending (string length)
+let sortedArray = bubbleSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a, b) =&gt; a.length - b.length); // [&quot;1&quot;, &quot;11&quot;, &quot;111&quot;]
+
+// descending (string length)
+let sortedArray = bubbleSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a, b) =&gt; b.length - a.length); // [&quot;111&quot;, &quot;11&quot;, &quot;1&quot;]</code>
+</code></pre>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-insertionsort-readme--insertionsort--a-"><a href="https://github.com/clarketm/super/tree/master/packages/InsertionSort#readme">InsertionSort</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { insertionSort } from &quot;@clarketm/super&quot;;
+
+// General usage
+
+// ascending
+let sortedArray = insertionSort([4, 3, 8, 1]); // [1, 3, 4, 8]
+
+// Custom comparator
+
+// descending
+let sortedArray = insertionSort([4, 3, 8, 1], (a, b) =&gt; b - a); // [8, 4, 3, 1]
+
+// ascending (string length)
+let sortedArray = insertionSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a, b) =&gt; a.length - b.length); // [&quot;1&quot;, &quot;11&quot;, &quot;111&quot;]
+
+// descending (string length)
+let sortedArray = insertionSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a, b) =&gt; b.length - a.length); // [&quot;111&quot;, &quot;11&quot;, &quot;1&quot;]</code>
+</code></pre>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-mergesort-readme--mergesort--a-"><a href="https://github.com/clarketm/super/tree/master/packages/MergeSort#readme">MergeSort</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { mergeSort } from &quot;@clarketm/super&quot;;
 
 // General usage
 
@@ -443,23 +483,23 @@ let sortedArray = quickSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a
 // descending (string length)
 let sortedArray = quickSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a, b) =&gt; b.length - a.length); // [&quot;111&quot;, &quot;11&quot;, &quot;1&quot;]</code>
 </code></pre>
-<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-bubblesort-readme--bubblesort--a-"><a href="https://github.com/clarketm/super/tree/master/packages/BubbleSort#readme">BubbleSort</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { bubbleSort } from &quot;@clarketm/super&quot;;
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-selectionsort-readme--selectionsort--a-"><a href="https://github.com/clarketm/super/tree/master/packages/SelectionSort#readme">SelectionSort</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { selectionSort } from &quot;@clarketm/super&quot;;
 
 // General usage
 
 // ascending
-let sortedArray = bubbleSort([4, 3, 8, 1]); // [1, 3, 4, 8]
+let sortedArray = selectionSort([4, 3, 8, 1]); // [1, 3, 4, 8]
 
 // Custom comparator
 
 // descending
-let sortedArray = bubbleSort([4, 3, 8, 1], (a, b) =&gt; b - a); // [8, 4, 3, 1]
+let sortedArray = selectionSort([4, 3, 8, 1], (a, b) =&gt; b - a); // [8, 4, 3, 1]
 
 // ascending (string length)
-let sortedArray = bubbleSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a, b) =&gt; a.length - b.length); // [&quot;1&quot;, &quot;11&quot;, &quot;111&quot;]
+let sortedArray = selectionSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a, b) =&gt; a.length - b.length); // [&quot;1&quot;, &quot;11&quot;, &quot;111&quot;]
 
 // descending (string length)
-let sortedArray = bubbleSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a, b) =&gt; b.length - a.length); // [&quot;111&quot;, &quot;11&quot;, &quot;1&quot;]</code>
+let sortedArray = selectionSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a, b) =&gt; b.length - a.length); // [&quot;111&quot;, &quot;11&quot;, &quot;1&quot;]</code>
 </code></pre>
 <h2 id="credits">Credits</h2><ul>
 <li>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></li>

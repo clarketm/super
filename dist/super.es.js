@@ -217,6 +217,51 @@ function bubbleSort(arr) {
 
 /**
  *
+ * InsertionSort with superpowers! 💪
+ *
+ * time:    O(n^2)
+ * space:   O(1)
+ *
+ * @public
+ *
+ * @param {Array<Item>} arr - array to sort
+ * @param {Comparator} comparator
+ * @returns {Array<Item>} sorted array
+ */
+function insertionSort(arr) {
+  var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
+
+  if (!(this instanceof Array) && !(arr instanceof Array)) {
+    throw new Error("Array type is required");
+  }
+
+  var target = this instanceof Array ? this : arr.slice(0);
+  var compare = _compare(comparator);
+
+  /**
+   *
+   * InsertionSort helper
+   *
+   * @private
+   *
+   * @param {Array<Item>} arr - array target
+   * @returns {Array<Item>} sorted array
+   */
+  function _insertionSort(arr) {
+    for (var i = 0; i < arr.length - 1; i++) {
+      for (var j = i; j >= 0 && compare(arr[j + 1], arr[j]); j--) {
+        swap(arr, j, j + 1);
+      }
+    }
+
+    return arr;
+  }
+
+  return _insertionSort(target);
+}
+
+/**
+ *
  * MergeSort with superpowers! 💪
  *
  * time:    O(nlogn)
@@ -483,6 +528,56 @@ function partitionHoare(arr, low, high, pivotType, compare) {
   }
 }
 
+/**
+ *
+ * SelectionSort with superpowers! 💪
+ *
+ * time:    O(n^2)
+ * space:   O(1)
+ *
+ * @public
+ *
+ * @param {Array<Item>} arr - array to sort
+ * @param {Comparator} comparator
+ * @returns {Array<Item>} sorted array
+ */
+function selectionSort(arr) {
+  var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
+
+  if (!(this instanceof Array) && !(arr instanceof Array)) {
+    throw new Error("Array type is required");
+  }
+
+  var target = this instanceof Array ? this : arr.slice(0);
+  var compare = _compare(comparator);
+
+  /**
+   *
+   * SelectionSort helper
+   *
+   * @private
+   *
+   * @param {Array<Item>} arr - array target
+   * @returns {Array<Item>} sorted array
+   */
+  function _selectionSort(arr) {
+    for (var i = 0; i < arr.length - 1; i++) {
+      var min = i;
+
+      for (var j = i + 1; j < arr.length; j++) {
+        if (compare(arr[j], arr[min])) {
+          min = j;
+        }
+      }
+      swap(arr, i, min);
+    }
+
+    return arr;
+  }
+
+  return _selectionSort(target);
+}
+
 function _extendableBuiltin(cls) {
   function ExtendableBuiltin() {
     var instance = Reflect.construct(cls, Array.from(arguments));
@@ -600,6 +695,22 @@ var _Array = function (_extendableBuiltin2) {
     /**
      * @public
      *
+     * @desc Sort using insertion sort
+     *
+     * @param {Comparator} comparator - comparator function
+     * @returns {Array<Item>} sorted array
+     */
+
+  }, {
+    key: "insertionSort",
+    value: function insertionSort$$1(comparator) {
+      // $FlowFixMe
+      return insertionSort.call(this, null, comparator);
+    }
+
+    /**
+     * @public
+     *
      * @desc Sort using merge sort
      *
      * @param {Comparator} comparator - comparator function
@@ -627,6 +738,22 @@ var _Array = function (_extendableBuiltin2) {
     value: function quickSort$$1(comparator) {
       // $FlowFixMe
       return quickSort.call(this, null, comparator);
+    }
+
+    /**
+     * @public
+     *
+     * @desc Sort using selection sort
+     *
+     * @param {Comparator} comparator - comparator function
+     * @returns {Array<Item>} sorted array
+     */
+
+  }, {
+    key: "selectionSort",
+    value: function selectionSort$$1(comparator) {
+      // $FlowFixMe
+      return selectionSort.call(this, null, comparator);
     }
   }]);
   return _Array;
@@ -1348,51 +1475,6 @@ var BinaryTree = function () {
   }]);
   return BinaryTree;
 }();
-
-/**
- *
- * InsertionSort with superpowers! 💪
- *
- * time:    O(n^2)
- * space:   O(1)
- *
- * @public
- *
- * @param {Array<Item>} arr - array to sort
- * @param {Comparator} comparator
- * @returns {Array<Item>} sorted array
- */
-function insertionSort(arr) {
-  var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
-
-  if (!(this instanceof Array) && !(arr instanceof Array)) {
-    throw new Error("Array type is required");
-  }
-
-  var target = this instanceof Array ? this : arr.slice(0);
-  var compare = _compare(comparator);
-
-  /**
-   *
-   * InsertionSort helper
-   *
-   * @private
-   *
-   * @param {Array<Item>} arr - array target
-   * @returns {Array<Item>} sorted array
-   */
-  function _insertionSort(arr) {
-    for (var i = 0; i < arr.length - 1; i++) {
-      for (var j = i; j >= 0 && compare(arr[j + 1], arr[j]); j--) {
-        swap(arr, j, j + 1);
-      }
-    }
-
-    return arr;
-  }
-
-  return _insertionSort(target);
-}
 
 /**
  *
@@ -2984,56 +3066,6 @@ var PriorityQueue = function () {
   }]);
   return PriorityQueue;
 }();
-
-/**
- *
- * SelectionSort with superpowers! 💪
- *
- * time:    O(n^2)
- * space:   O(1)
- *
- * @public
- *
- * @param {Array<Item>} arr - array to sort
- * @param {Comparator} comparator
- * @returns {Array<Item>} sorted array
- */
-function selectionSort(arr) {
-  var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
-
-  if (!(this instanceof Array) && !(arr instanceof Array)) {
-    throw new Error("Array type is required");
-  }
-
-  var target = this instanceof Array ? this : arr.slice(0);
-  var compare = _compare(comparator);
-
-  /**
-   *
-   * SelectionSort helper
-   *
-   * @private
-   *
-   * @param {Array<Item>} arr - array target
-   * @returns {Array<Item>} sorted array
-   */
-  function _selectionSort(arr) {
-    for (var i = 0; i < arr.length - 1; i++) {
-      var min = i;
-
-      for (var j = i + 1; j < arr.length; j++) {
-        if (compare(arr[j], arr[min])) {
-          min = j;
-        }
-      }
-      swap(arr, i, min);
-    }
-
-    return arr;
-  }
-
-  return _selectionSort(target);
-}
 
 function _extendableBuiltin$4(cls) {
   function ExtendableBuiltin() {

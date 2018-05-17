@@ -24,6 +24,22 @@ Creates a new array with all sub-array elements concatted into it recursively up
 | ----- | ------ | --------- | ------------- |
 | depth | number |           | flatten depth |
 
+### `bubbleSort(comparator: Comparator): Array`
+
+Sort using bubble sort
+
+| Name       | Type       | Attribute | Description         |
+| ---------- | ---------- | --------- | ------------------- |
+| comparator | Comparator |           | comparator function |
+
+### `insertionSort(comparator: Comparator): Array`
+
+Sort using insertion sort
+
+| Name       | Type       | Attribute | Description         |
+| ---------- | ---------- | --------- | ------------------- |
+| comparator | Comparator |           | comparator function |
+
 ### `mergeSort(comparator: Comparator): Array`
 
 Sort using merge sort
@@ -35,6 +51,14 @@ Sort using merge sort
 ### `quickSort(comparator: Comparator): Array`
 
 Sort using quick sort
+
+| Name       | Type       | Attribute | Description         |
+| ---------- | ---------- | --------- | ------------------- |
+| comparator | Comparator |           | comparator function |
+
+### `selectionSort(comparator: Comparator): Array`
+
+Sort using selection sort
 
 | Name       | Type       | Attribute | Description         |
 | ---------- | ---------- | --------- | ------------------- |

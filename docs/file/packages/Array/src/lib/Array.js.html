@@ -75,8 +75,10 @@
 
 import type { Comparator, Item } from &quot;../../../shared/src/types&quot;;
 import { bubbleSort } from &quot;../../../BubbleSort/src/lib/BubbleSort&quot;;
+import { insertionSort } from &quot;../../../InsertionSort/src/lib/InsertionSort&quot;;
 import { mergeSort } from &quot;../../../MergeSort/src/lib/MergeSort&quot;;
 import { quickSort } from &quot;../../../QuickSort/src/lib/QuickSort&quot;;
+import { selectionSort } from &quot;../../../SelectionSort/src/lib/SelectionSort&quot;;
 
 /**
  * @typedef {Function} Callback
@@ -153,6 +155,19 @@ class _Array extends Array&lt;Item&gt; {
   /**
    * @public
    *
+   * @desc Sort using insertion sort
+   *
+   * @param {Comparator} comparator - comparator function
+   * @returns {Array&lt;Item&gt;} sorted array
+   */
+  insertionSort(comparator: Comparator): Array&lt;Item&gt; {
+    // $FlowFixMe
+    return insertionSort.call(this, null, comparator);
+  }
+
+  /**
+   * @public
+   *
    * @desc Sort using merge sort
    *
    * @param {Comparator} comparator - comparator function
@@ -174,6 +189,19 @@ class _Array extends Array&lt;Item&gt; {
   quickSort(comparator: Comparator): Array&lt;Item&gt; {
     // $FlowFixMe
     return quickSort.call(this, null, comparator);
+  }
+
+  /**
+   * @public
+   *
+   * @desc Sort using selection sort
+   *
+   * @param {Comparator} comparator - comparator function
+   * @returns {Array&lt;Item&gt;} sorted array
+   */
+  selectionSort(comparator: Comparator): Array&lt;Item&gt; {
+    // $FlowFixMe
+    return selectionSort.call(this, null, comparator);
   }
 }
 
