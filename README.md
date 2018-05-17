@@ -6,7 +6,7 @@
 [![Lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 [![License](https://img.shields.io/npm/l/@clarketm/super.svg)]()
 
-**Data structures**, **data types**, and **Algorithms** with superpowers! 💪😎
+**Data structures**, **data types**, and **algorithms** with superpowers! 💪😎
 
 > <sub>implemented in **JavaScript**.</sub>
 
