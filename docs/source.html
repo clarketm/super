@@ -50,6 +50,11 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#priorityqueue-src-lib">PriorityQueue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html">PriorityQueue</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html">QueueNode</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#queue-src-lib">Queue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html">Queue</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#quicksort-src-lib">QuickSort/src/lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-partitionHoare">partitionHoare</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-partitionLomuto">partitionLomuto</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-quickSort">quickSort</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PartitionType">PartitionType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PivotType">PivotType</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#set-src-lib">Set/src/lib</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#string-src-lib">String/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/String/src/lib/String.js~_String.html">_String</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#trie-src-lib">Trie/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/Trie.js~Trie.html">Trie</a></span></span></li>
@@ -59,7 +64,7 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1>Source <img data-ice="coverageBadge" src="./badge.svg"><span data-ice="totalCoverageCount" class="total-coverage-count">125/147</span></h1>
+<div class="content" data-ice="content"><h1>Source <img data-ice="coverageBadge" src="./badge.svg"><span data-ice="totalCoverageCount" class="total-coverage-count">130/153</span></h1>
 
 <table class="files-summary" data-ice="files" data-use-coverage="true">
   <thead>
@@ -77,19 +82,19 @@
   <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/packages/Array/src/lib/Array.js.html">packages/Array/src/lib/Array.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="class/packages/Array/src/lib/Array.js~_Array.html">_Array</a></span></td>
-      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">5/5</span></td>
-      <td style="display: none;" data-ice="size">1972 byte</td>
-      <td style="display: none;" data-ice="lines">82</td>
-      <td style="display: none;" data-ice="updated">2018-05-05 11:03:06 (UTC)</td>
+      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">6/6</span></td>
+      <td style="display: none;" data-ice="size">2330 byte</td>
+      <td style="display: none;" data-ice="lines">96</td>
+      <td style="display: none;" data-ice="updated">2018-05-05 14:08:40 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#errorLines=33,9">packages/BinaryTree/src/lib/BinaryTree.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html">BinaryTree</a></span>
 <span><a href="variable/index.html#static-variable-TraversalType">TraversalType</a></span></td>
       <td class="coverage"><span data-ice="coverage">88 %</span><span data-ice="coverageCount" class="coverage-count">15/17</span></td>
-      <td style="display: none;" data-ice="size">8350 byte</td>
+      <td style="display: none;" data-ice="size">8352 byte</td>
       <td style="display: none;" data-ice="lines">396</td>
-      <td style="display: none;" data-ice="updated">2018-05-05 10:56:54 (UTC)</td>
+      <td style="display: none;" data-ice="updated">2018-05-05 13:52:57 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html#errorLines=23,24,25">packages/BinaryTree/src/lib/BinaryTreeNode.js</a></span></td>
@@ -139,7 +144,7 @@
       <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">2/2</span></td>
       <td style="display: none;" data-ice="size">2060 byte</td>
       <td style="display: none;" data-ice="lines">103</td>
-      <td style="display: none;" data-ice="updated">2018-05-05 11:02:54 (UTC)</td>
+      <td style="display: none;" data-ice="updated">2018-05-05 14:09:16 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/packages/Number/src/lib/Number.js.html#errorLines=8">packages/Number/src/lib/Number.js</a></span></td>
@@ -182,6 +187,18 @@
       <td style="display: none;" data-ice="size">1862 byte</td>
       <td style="display: none;" data-ice="lines">120</td>
       <td style="display: none;" data-ice="updated">2018-05-05 10:33:46 (UTC)</td>
+    </tr>
+<tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/packages/QuickSort/src/lib/QuickSort.js.html#errorLines=12">packages/QuickSort/src/lib/QuickSort.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-PartitionType">PartitionType</a></span>
+<span><a href="variable/index.html#static-variable-PivotType">PivotType</a></span>
+<span><a href="function/index.html#static-function-partitionHoare">partitionHoare</a></span>
+<span><a href="function/index.html#static-function-partitionLomuto">partitionLomuto</a></span>
+<span><a href="function/index.html#static-function-quickSort">quickSort</a></span></td>
+      <td class="coverage"><span data-ice="coverage">80 %</span><span data-ice="coverageCount" class="coverage-count">4/5</span></td>
+      <td style="display: none;" data-ice="size">4122 byte</td>
+      <td style="display: none;" data-ice="lines">201</td>
+      <td style="display: none;" data-ice="updated">2018-05-05 14:04:58 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/packages/Set/src/lib/Set.js.html">packages/Set/src/lib/Set.js</a></span></td>

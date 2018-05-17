@@ -148,6 +148,7 @@ declare export class Queue {
   isEmpty(): boolean;
   toArray(): Array<any>;
 }
+declare export function quickSort(arr: Array<any>, comparator?: any): Array<any>;
 
 declare export class Set extends Set<any> {
 
@@ -198,3 +199,7 @@ declare export class TrieNode {
   has(char: any): boolean;
   set(char: any, node: TrieNode): void;
 }
+
+declare export function _compare(comparator: any): any;
+declare export function _defaultComparator(a: any, b: any): number | boolean;
+declare export function isIterable(item: any): boolean;

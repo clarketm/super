@@ -30,6 +30,18 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "@clarketm/super/packages/quicksort/src/lib/quicksort.js~partitiontype",
+    "variable/index.html#static-variable-PartitionType",
+    "<span>PartitionType</span> <span class=\"search-result-import-path\">@clarketm/super/packages/QuickSort/src/lib/QuickSort.js</span>",
+    "variable"
+  ],
+  [
+    "@clarketm/super/packages/quicksort/src/lib/quicksort.js~pivottype",
+    "variable/index.html#static-variable-PivotType",
+    "<span>PivotType</span> <span class=\"search-result-import-path\">@clarketm/super/packages/QuickSort/src/lib/QuickSort.js</span>",
+    "variable"
+  ],
+  [
     "@clarketm/super/packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue",
     "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html",
     "<span>PriorityQueue</span> <span class=\"search-result-import-path\">@clarketm/super/packages/PriorityQueue/src/lib/PriorityQueue.js</span>",
@@ -132,6 +144,24 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@clarketm/super/packages/quicksort/src/lib/quicksort.js~partitionhoare",
+    "function/index.html#static-function-partitionHoare",
+    "<span>partitionHoare</span> <span class=\"search-result-import-path\">@clarketm/super/packages/QuickSort/src/lib/QuickSort.js</span>",
+    "function"
+  ],
+  [
+    "@clarketm/super/packages/quicksort/src/lib/quicksort.js~partitionlomuto",
+    "function/index.html#static-function-partitionLomuto",
+    "<span>partitionLomuto</span> <span class=\"search-result-import-path\">@clarketm/super/packages/QuickSort/src/lib/QuickSort.js</span>",
+    "function"
+  ],
+  [
+    "@clarketm/super/packages/quicksort/src/lib/quicksort.js~quicksort",
+    "function/index.html#static-function-quickSort",
+    "<span>quickSort</span> <span class=\"search-result-import-path\">@clarketm/super/packages/QuickSort/src/lib/QuickSort.js</span>",
+    "function"
+  ],
+  [
     "packages/array/src/lib/array.js",
     "file/packages/Array/src/lib/Array.js.html",
     "packages/Array/src/lib/Array.js",
@@ -165,6 +195,12 @@ window.esdocSearchIndex = [
     "packages/array/src/lib/array.js~_array#mergesort",
     "class/packages/Array/src/lib/Array.js~_Array.html#instance-method-mergeSort",
     "packages/Array/src/lib/Array.js~_Array#mergeSort",
+    "method"
+  ],
+  [
+    "packages/array/src/lib/array.js~_array#quicksort",
+    "class/packages/Array/src/lib/Array.js~_Array.html#instance-method-quickSort",
+    "packages/Array/src/lib/Array.js~_Array#quickSort",
     "method"
   ],
   [
@@ -295,25 +331,25 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-left",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
-    "member"
-  ],
-  [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
     "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-left",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
     "member"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-right",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-left",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
     "member"
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
     "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-right",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
     "member"
   ],
@@ -826,6 +862,12 @@ window.esdocSearchIndex = [
     "class/packages/Queue/src/lib/Queue.js~Queue.html#instance-method-toArray",
     "packages/Queue/src/lib/Queue.js~Queue#toArray",
     "method"
+  ],
+  [
+    "packages/quicksort/src/lib/quicksort.js",
+    "file/packages/QuickSort/src/lib/QuickSort.js.html",
+    "packages/QuickSort/src/lib/QuickSort.js",
+    "file"
   ],
   [
     "packages/set/src/lib/set.js",

@@ -32,6 +32,14 @@ Sort using merge sort
 | --- | --- | --- | --- |
 | comparator | Comparator |  | comparator function |
 
+### `quickSort(comparator: Comparator): Array<Item>`
+
+Sort using quick sort
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| comparator | Comparator |  | comparator function |
+
 ## `BinaryTree`
 
 BinaryTree with superpowers! 💪
@@ -628,3 +636,36 @@ Merge helper
 | --- | --- | --- | --- |
 | arr | * | nullable: undefined |
 | comparator | * | nullable: undefined, optional: true, default: _defaultComparator |
+
+## `partitionLomuto(arr: Array<number>, low: number, high: number, pivotType: PivotType, compare: Comparator): number`
+
+Partition (Lomuto)
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| arr | Array<number> |  |
+| low | number |  |
+| high | number |  |
+| pivotType | PivotType |  |
+| compare | Comparator |  |
+
+## `partitionHoare(arr: Array<number>, low: number, high: number, pivotType: string, compare: Comparator): number`
+
+Partition (Hoare) it is more efficient than the Lomuto partition scheme because it does three times fewer swaps on average
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| arr | Array<number> |  |
+| low | number |  |
+| high | number |  |
+| pivotType | string |  |
+| compare | Comparator |  |
+
+## `quickSort(arr: Array<Item>, comparator: Comparator): Array<Item>`
+
+QuickSort with superpowers! 💪 time: O(nlogn) space: O(nlogn)
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| arr | Array<Item> |  | array to sort |
+| comparator | Comparator |  |

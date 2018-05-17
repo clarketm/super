@@ -17,7 +17,14 @@
     return a - b;
   }
 
+  /**
+   *
+   * if a < b  , then return `true`
+   * if b >= a , then return `false`
+   *
+   */
   function _compare(comparator) {
+    //
     return function (a, b) {
       return comparator(a, b) < 0;
     };

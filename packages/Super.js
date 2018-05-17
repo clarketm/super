@@ -10,11 +10,12 @@ import { BinaryTree } from "./BinaryTree/src/lib/BinaryTree";
 import { LinkedList } from "./LinkedList/src/lib/LinkedList";
 import { Map } from "./Map/src/lib/Map";
 import { Math } from "./Math/src/lib/Math";
-import { mergeSort } from "./mergeSort/src/lib/MergeSort";
+import { mergeSort } from "./MergeSort/src/lib/MergeSort";
 import { Number } from "./Number/src/lib/Number";
 import { Object } from "./Object/src/lib/Object";
 import { PriorityQueue } from "./PriorityQueue/src/lib/PriorityQueue";
 import { Queue } from "./Queue/src/lib/Queue";
+import { quickSort } from "./QuickSort/src/lib/QuickSort";
 import { Set } from "./Set/src/lib/Set";
 import { String } from "./String/src/lib/String";
 import { Trie } from "./Trie/src/lib/Trie";
@@ -37,7 +38,8 @@ export default {
   Number,
   String,
   // Sorting Algorithms
-  mergeSort
+  mergeSort,
+  quickSort
 };
 
 export {
@@ -57,5 +59,6 @@ export {
   Number,
   String,
   // Sorting Algorithms
-  mergeSort
+  mergeSort,
+  quickSort
 };

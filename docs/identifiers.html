@@ -50,6 +50,11 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#priorityqueue-src-lib">PriorityQueue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html">PriorityQueue</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html">QueueNode</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#queue-src-lib">Queue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html">Queue</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#quicksort-src-lib">QuickSort/src/lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-partitionHoare">partitionHoare</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-partitionLomuto">partitionLomuto</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-quickSort">quickSort</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PartitionType">PartitionType</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PivotType">PivotType</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#set-src-lib">Set/src/lib</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#string-src-lib">String/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/String/src/lib/String.js~_String.html">_String</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#trie-src-lib">Trie/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/Trie.js~Trie.html">Trie</a></span></span></li>
@@ -767,6 +772,161 @@
 </div>
     </div>
 <div data-ice="dirSummaryWrap">
+      <h2 data-ice="dirPath" id="quicksort-src-lib">QuickSort/src/lib</h2>
+      <div data-ice="dirSummary"><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">summary</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-function">F</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-partitionHoare">partitionHoare</a></span></span><span class="code" data-ice="signature">(arr: <span>Array</span>&lt;<span>number</span>&gt;, low: <span>number</span>, high: <span>number</span>, pivotType: <span>string</span>, compare: <span>Comparator</span>): <span>number</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Partition (Hoare)
+it is more efficient than the Lomuto partition scheme
+because it does three times fewer swaps on average</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-function">F</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-partitionLomuto">partitionLomuto</a></span></span><span class="code" data-ice="signature">(arr: <span>Array</span>&lt;<span>number</span>&gt;, low: <span>number</span>, high: <span>number</span>, pivotType: <span><a href="variable/index.html#static-variable-PivotType">PivotType</a></span>, compare: <span>Comparator</span>): <span>number</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Partition (Lomuto)</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-function">F</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-quickSort">quickSort</a></span></span><span class="code" data-ice="signature">(arr: <span>Array</span>&lt;<span>Item</span>&gt;, comparator: <span>Comparator</span>): <span>Array</span>&lt;<span>Item</span>&gt;</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>QuickSort with superpowers! &#x1F4AA;</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-variable">V</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-PartitionType">PartitionType</a></span></span><span class="code" data-ice="signature">: {&quot;LOMUTO&quot;: <span>string</span>, &quot;HOARE&quot;: <span>string</span>}</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          <span data-ice="kind-icon" class="kind-variable">V</span>
+          
+          
+          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-PivotType">PivotType</a></span></span><span class="code" data-ice="signature">: {&quot;LOW&quot;: <span>string</span>, &quot;HIGH&quot;: <span>string</span>, &quot;MID&quot;: <span>string</span>, &quot;RANDOM&quot;: <span>string</span>}</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+    </div>
+<div data-ice="dirSummaryWrap">
       <h2 data-ice="dirPath" id="set-src-lib">Set/src/lib</h2>
       <div data-ice="dirSummary"><table class="summary" data-ice="summary">
   <thead><tr><td data-ice="title" colspan="3">summary</td></tr></thead>
@@ -952,6 +1112,7 @@
 <div style="padding-left: 2em"><a href="#object-src-lib">lib</a></div>
 <div style="padding-left: 2em"><a href="#priorityqueue-src-lib">lib</a></div>
 <div style="padding-left: 2em"><a href="#queue-src-lib">lib</a></div>
+<div style="padding-left: 2em"><a href="#quicksort-src-lib">lib</a></div>
 <div style="padding-left: 2em"><a href="#set-src-lib">lib</a></div>
 <div style="padding-left: 2em"><a href="#string-src-lib">lib</a></div>
 <div style="padding-left: 2em"><a href="#trie-src-lib">lib</a></div></div>

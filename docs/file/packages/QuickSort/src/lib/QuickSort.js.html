@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">packages/String/src/lib/String.js | @clarketm/super</title>
+  <title data-ice="title">packages/QuickSort/src/lib/QuickSort.js | @clarketm/super</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -64,74 +64,208 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">packages/String/src/lib/String.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">packages/QuickSort/src/lib/QuickSort.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
  * @flow
- * @module super/string
+ * @module super/quicksort
  */
+
+import type { Comparator, Item } from &quot;../../../shared/src/types&quot;;
+import { _compare, _defaultComparator, swap, randInt } from &quot;../../../shared/src/helpers&quot;;
+
+const PartitionType = {
+  LOMUTO: &quot;lomuto&quot;,
+  HOARE: &quot;hoare&quot;
+};
+
+const PivotType = {
+  LOW: &quot;low&quot;,
+  HIGH: &quot;high&quot;,
+  MID: &quot;mid&quot;,
+  RANDOM: &quot;rand&quot;
+};
+
+type Partition = $Values&lt;typeof PartitionType&gt;;
+
+type Pivot = $Values&lt;typeof PivotType&gt;;
 
 /**
  *
- * String with superpowers! &#x1F4AA;
+ * QuickSort with superpowers! &#x1F4AA;
+ *
+ * time:    O(nlogn)
+ * space:   O(nlogn)
  *
  * @public
  *
+ * @param {Array&lt;Item&gt;} arr - array to sort
+ * @param {Comparator} comparator
+ * @returns {Array&lt;Item&gt;} sorted array
  */
-class _String extends String {
-  /**
-   * @public
-   *
-   * @desc Construct a String
-   *
-   * @param {string} string
-   */
-  constructor(string: string) {
-    super(string);
+function quickSort(arr: Array&lt;Item&gt;, comparator: Comparator = _defaultComparator) {
+  if (!(this instanceof Array) &amp;&amp; !(arr instanceof Array)) {
+    throw new Error(&quot;Array type is required&quot;);
   }
 
-  /**
-   * @public
-   *
-   * @desc Transposes the ordering of all characters in the string
-   *
-   * @returns {string} String reversed
-   */
-  reverse(): string {
-    return this.split(&quot;&quot;)
-      .filter(s =&gt; s)
-      .reverse()
-      .join(&quot;&quot;);
-  }
+  let target = this instanceof Array ? this : arr.slice(0);
+  let compare = _compare(comparator);
+
+  // TODO: make customizable?
+  let partitionType: Partition = PartitionType.HOARE;
+  let pivotType: Pivot = PivotType.RANDOM;
 
   /**
-   * @public
    *
-   * @desc Transposes the ordering of the words in the string
+   * QuickSort helper
    *
-   * @returns {string} String with words reversed
+   * @private
+   *
+   * @param {Array&lt;Item&gt;} arr - array target
+   * @param {number} low
+   * @param {number} high
+   * @returns {Array&lt;Item&gt;} sorted partition
    */
-  reverseWords(): string {
-    return this.split(&quot; &quot;)
-      .filter(s =&gt; s)
-      .reverse()
-      .join(&quot; &quot;);
+  function _quickSort(
+    arr: Array&lt;Item&gt;,
+    low: number = 0,
+    high: number = arr.length - 1
+  ): Array&lt;Item&gt; {
+    if (low &lt; high) {
+      let pivot;
+
+      switch (partitionType) {
+        case PartitionType.LOMUTO:
+          pivot = partitionLomuto(arr, low, high, pivotType, compare);
+          _quickSort(arr, low, pivot - 1);
+          break;
+        case PartitionType.HOARE:
+        default:
+          pivot = partitionHoare(arr, low, high, pivotType, compare);
+          _quickSort(arr, low, pivot);
+          break;
+      }
+
+      _quickSort(arr, pivot + 1, high);
+    }
+    return arr;
   }
 
-  /**
-   * @public
-   *
-   * @desc Convert a string to title case
-   *
-   * @returns {string} Title cased string representation
-   */
-  toTitleCase(): string {
-    return this.split(&quot; &quot;)
-      .map(v =&gt; v &amp;&amp; v.charAt(0).toUpperCase() + v.substr(1).toLowerCase())
-      .join(&quot; &quot;);
+  return _quickSort(target);
+}
+
+/**
+ *
+ * Partition (Lomuto)
+ *
+ * @param {Array&lt;number&gt;} arr
+ * @param {number} low
+ * @param {number} high
+ * @param {PivotType} pivotType
+ * @param {Comparator} compare
+ * @return {number} pivot
+ */
+
+function partitionLomuto(
+  arr: Array&lt;Item&gt;,
+  low: number,
+  high: number,
+  pivotType: Pivot,
+  compare: Comparator
+): Item {
+  function _partitionLomutoLow(arr: Array&lt;Item&gt;, low: number, high: number): Item {
+    let pivot = low;
+    let i = low + 1;
+
+    for (let j = low + 1; j &lt;= high; j++) {
+      if (compare(arr[j], arr[pivot])) {
+        swap(arr, i, j);
+        i++;
+      }
+    }
+    swap(arr, i - 1, low);
+    return i - 1;
+  }
+  function _partitionLomutoHigh(arr: Array&lt;Item&gt;, low: number, high: number): Item {
+    let pivot = high;
+    let i = low - 1;
+
+    for (let j = low; j &lt; high; j++) {
+      if (compare(arr[j], arr[pivot])) {
+        i++;
+        swap(arr, i, j);
+      }
+    }
+    swap(arr, i + 1, high);
+    return i + 1;
+  }
+
+  switch (pivotType) {
+    case PivotType.LOW:
+      return _partitionLomutoLow(arr, low, high);
+
+    case PivotType.HIGH:
+    default:
+      return _partitionLomutoHigh(arr, low, high);
   }
 }
 
-export { _String as String };
+/**
+ *
+ * Partition (Hoare)
+ * it is more efficient than the Lomuto partition scheme
+ * because it does three times fewer swaps on average
+ *
+ * @param {Array&lt;number&gt;} arr
+ * @param {number} low
+ * @param {number} high
+ * @param {string} pivotType
+ * @param {Comparator} compare
+ * @return {number} pivot
+ */
+function partitionHoare(
+  arr: Array&lt;Item&gt;,
+  low: number,
+  high: number,
+  pivotType: Pivot,
+  compare: Comparator
+): Item {
+  let pivot;
+
+  switch (pivotType) {
+    case PivotType.LOW:
+      pivot = low;
+      break;
+
+    case PivotType.RANDOM:
+      let random = randInt(low, high);
+      swap(arr, random, low);
+      pivot = low;
+      break;
+
+    case PivotType.MID:
+    default:
+      pivot = Math.trunc((low + high) / 2);
+      break;
+  }
+
+  let i = low - 1;
+  let j = high + 1;
+
+  while (true) {
+    do {
+      i++;
+    } while (compare(arr[i], arr[pivot]));
+    do {
+      j--;
+    } while (compare(arr[pivot], arr[j]));
+    if (i &gt;= j) {
+      return j;
+    }
+    swap(arr, i, j);
+  }
+}
+
+export { quickSort };
 </code></pre>
 
 </div>

@@ -136,10 +136,33 @@ function _defaultComparator(a, b) {
   return a - b;
 }
 
+/**
+ *
+ * if a < b  , then return `true`
+ * if b >= a , then return `false`
+ *
+ */
 function _compare(comparator) {
+  //
   return function (a, b) {
     return comparator(a, b) < 0;
   };
+}
+
+function swap(arr, a, b) {
+  if (a !== b) {
+    var _ref = [arr[b], arr[a]];
+    // $FlowFixMe
+
+    arr[a] = _ref[0];
+    arr[b] = _ref[1];
+  }
+}
+
+function randInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /**
@@ -231,6 +254,183 @@ function merge(arr, leftArr, rightArr, compare) {
   }
 
   return arr;
+}
+
+var PartitionType = {
+  LOMUTO: "lomuto",
+  HOARE: "hoare"
+};
+
+var PivotType = {
+  LOW: "low",
+  HIGH: "high",
+  MID: "mid",
+  RANDOM: "rand"
+};
+
+/**
+ *
+ * QuickSort with superpowers! 💪
+ *
+ * time:    O(nlogn)
+ * space:   O(nlogn)
+ *
+ * @public
+ *
+ * @param {Array<Item>} arr - array to sort
+ * @param {Comparator} comparator
+ * @returns {Array<Item>} sorted array
+ */
+function quickSort(arr) {
+  var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
+
+  if (!(this instanceof Array) && !(arr instanceof Array)) {
+    throw new Error("Array type is required");
+  }
+
+  var target = this instanceof Array ? this : arr.slice(0);
+  var compare = _compare(comparator);
+
+  // TODO: make customizable?
+  var partitionType = PartitionType.HOARE;
+  var pivotType = PivotType.RANDOM;
+
+  /**
+   *
+   * QuickSort helper
+   *
+   * @private
+   *
+   * @param {Array<Item>} arr - array target
+   * @param {number} low
+   * @param {number} high
+   * @returns {Array<Item>} sorted partition
+   */
+  function _quickSort(arr) {
+    var low = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var high = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : arr.length - 1;
+
+    if (low < high) {
+      var pivot = void 0;
+
+      switch (partitionType) {
+        case PartitionType.LOMUTO:
+          pivot = partitionLomuto(arr, low, high, pivotType, compare);
+          _quickSort(arr, low, pivot - 1);
+          break;
+        case PartitionType.HOARE:
+        default:
+          pivot = partitionHoare(arr, low, high, pivotType, compare);
+          _quickSort(arr, low, pivot);
+          break;
+      }
+
+      _quickSort(arr, pivot + 1, high);
+    }
+    return arr;
+  }
+
+  return _quickSort(target);
+}
+
+/**
+ *
+ * Partition (Lomuto)
+ *
+ * @param {Array<number>} arr
+ * @param {number} low
+ * @param {number} high
+ * @param {PivotType} pivotType
+ * @param {Comparator} compare
+ * @return {number} pivot
+ */
+
+function partitionLomuto(arr, low, high, pivotType, compare) {
+  function _partitionLomutoLow(arr, low, high) {
+    var pivot = low;
+    var i = low + 1;
+
+    for (var j = low + 1; j <= high; j++) {
+      if (compare(arr[j], arr[pivot])) {
+        swap(arr, i, j);
+        i++;
+      }
+    }
+    swap(arr, i - 1, low);
+    return i - 1;
+  }
+  function _partitionLomutoHigh(arr, low, high) {
+    var pivot = high;
+    var i = low - 1;
+
+    for (var j = low; j < high; j++) {
+      if (compare(arr[j], arr[pivot])) {
+        i++;
+        swap(arr, i, j);
+      }
+    }
+    swap(arr, i + 1, high);
+    return i + 1;
+  }
+
+  switch (pivotType) {
+    case PivotType.LOW:
+      return _partitionLomutoLow(arr, low, high);
+
+    case PivotType.HIGH:
+    default:
+      return _partitionLomutoHigh(arr, low, high);
+  }
+}
+
+/**
+ *
+ * Partition (Hoare)
+ * it is more efficient than the Lomuto partition scheme
+ * because it does three times fewer swaps on average
+ *
+ * @param {Array<number>} arr
+ * @param {number} low
+ * @param {number} high
+ * @param {string} pivotType
+ * @param {Comparator} compare
+ * @return {number} pivot
+ */
+function partitionHoare(arr, low, high, pivotType, compare) {
+  var pivot = void 0;
+
+  switch (pivotType) {
+    case PivotType.LOW:
+      pivot = low;
+      break;
+
+    case PivotType.RANDOM:
+      var random = randInt(low, high);
+      swap(arr, random, low);
+      pivot = low;
+      break;
+
+    case PivotType.MID:
+    default:
+      pivot = Math.trunc((low + high) / 2);
+      break;
+  }
+
+  var i = low - 1;
+  var j = high + 1;
+
+  while (true) {
+    do {
+      i++;
+    } while (compare(arr[i], arr[pivot]));
+    do {
+      j--;
+    } while (compare(arr[pivot], arr[j]));
+    if (i >= j) {
+      return j;
+    }
+    swap(arr, i, j);
+  }
 }
 
 function _extendableBuiltin(cls) {
@@ -345,6 +545,22 @@ var _Array = function (_extendableBuiltin2) {
     value: function mergeSort$$1(comparator) {
       // $FlowFixMe
       return mergeSort.call(this, null, comparator);
+    }
+
+    /**
+     * @public
+     *
+     * @desc Sort using quick sort
+     *
+     * @param {Comparator} comparator - comparator function
+     * @returns {Array<Item>} sorted array
+     */
+
+  }, {
+    key: "quickSort",
+    value: function quickSort$$1(comparator) {
+      // $FlowFixMe
+      return quickSort.call(this, null, comparator);
     }
   }]);
   return _Array;
@@ -1712,97 +1928,6 @@ _Math.factorial = function (num) {
   if (num === 0) return 1;
   return num * _Math.factorial(num - 1);
 };
-
-/**
- *
- * MergeSort with superpowers! 💪
- *
- * time:    O(nlogn)
- * space:   O(n)
- *
- * @public
- *
- * @param {Array<Item>} arr - array to sort
- * @param {Comparator} comparator
- * @returns {Array<Item>} sorted array
- */
-function mergeSort$1(arr) {
-  var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
-
-  if (!(this instanceof Array) && !(arr instanceof Array)) {
-    throw new Error("Array type is required");
-  }
-
-  var target = this instanceof Array ? this : arr.slice(0);
-  var compare = _compare(comparator);
-
-  /**
-   *
-   * MergeSort helper
-   *
-   * @private
-   *
-   * @param {Array<Item>} arr - array target
-   * @returns {Array<Item>} merged array
-   */
-  function _mergeSort(arr) {
-    if (arr.length <= 1) return arr;
-
-    var mid = Math.trunc(arr.length / 2);
-    var leftArr = arr.slice(0, mid);
-    var rightArr = arr.slice(mid);
-
-    _mergeSort(leftArr);
-    _mergeSort(rightArr);
-
-    return merge$1(arr, leftArr, rightArr, compare);
-  }
-
-  return _mergeSort(target);
-}
-
-/**
- *
- * Merge helper
- *
- * @private
- *
- * @param {Array<Item>} arr - array merge target
- * @param {Array<Item>} leftArr - left array to merge
- * @param {Array<Item>} rightArr - right array to merge
- * @param {Comparator} compare
- * @returns {Array<Item>} merged array
- */
-function merge$1(arr, leftArr, rightArr, compare) {
-  var i = 0;
-  var j = 0;
-  var k = 0;
-
-  while (i < leftArr.length && j < rightArr.length) {
-    if (compare(leftArr[i], rightArr[j])) {
-      arr[k] = leftArr[i];
-      i++;
-    } else {
-      arr[k] = rightArr[j];
-      j++;
-    }
-    k++;
-  }
-
-  while (i < leftArr.length) {
-    arr[k] = leftArr[i];
-    i++;
-    k++;
-  }
-
-  while (j < rightArr.length) {
-    arr[k] = rightArr[j];
-    j++;
-    k++;
-  }
-
-  return arr;
-}
 
 function _extendableBuiltin$2(cls) {
   function ExtendableBuiltin() {
@@ -3680,8 +3805,9 @@ var Super = {
   Number: _Number,
   String: _String,
   // Sorting Algorithms
-  mergeSort: mergeSort$1
+  mergeSort: mergeSort,
+  quickSort: quickSort
 };
 
 export default Super;
-export { version, _Array as Array, BinaryTree, LinkedList, _Map as Map, _Object as Object, PriorityQueue, Queue, _Set as Set, Trie, _Math as Math, _Number as Number, _String as String, mergeSort$1 as mergeSort };
+export { version, _Array as Array, BinaryTree, LinkedList, _Map as Map, _Object as Object, PriorityQueue, Queue, _Set as Set, Trie, _Math as Math, _Number as Number, _String as String, mergeSort, quickSort };
