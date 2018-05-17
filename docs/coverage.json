@@ -1,7 +1,7 @@
 {
-  "coverage": "85.95%",
-  "expectCount": 178,
-  "actualCount": 153,
+  "coverage": "85.53%",
+  "expectCount": 159,
+  "actualCount": 136,
   "files": {
     "packages/Array/src/lib/Array.js": {
       "expectCount": 9,
@@ -29,14 +29,6 @@
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
-    },
-    "packages/Heap/src/lib/Heap.js": {
-      "expectCount": 19,
-      "actualCount": 17,
-      "undocumentLines": [
-        34,
-        35
-      ]
     },
     "packages/InsertionSort/src/lib/InsertionSort.js": {
       "expectCount": 1,

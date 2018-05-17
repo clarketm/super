@@ -1485,10 +1485,6 @@ var BinaryTree = function () {
  */
 
 var Heap = function () {
-  // static HeapType = {
-  //   MIN: (a: Item, b: Item): number => a - b,
-  //   MAX: (a: Item, b: Item): number => b - a
-  // };
 
   /** @private */
 
@@ -1763,6 +1759,15 @@ var Heap = function () {
   }]);
   return Heap;
 }();
+
+Heap.HeapType = {
+  MIN: function MIN(a, b) {
+    return a - b;
+  },
+  MAX: function MAX(a, b) {
+    return b - a;
+  }
+};
 
 /**
  *
@@ -2859,13 +2864,12 @@ var QueueNode = function () {
 
 var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
-/** Detect free variable `global` from Node.js. */
-var freeGlobal = _typeof(commonjsGlobal) == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
+var freeGlobal = typeof commonjsGlobal == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
 
 var _freeGlobal = freeGlobal;
 
 /** Detect free variable `self`. */
-var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
+var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
 
 /** Used as a reference to the global object. */
 var root = _freeGlobal || freeSelf || Function('return this')();
@@ -2873,9 +2877,9 @@ var root = _freeGlobal || freeSelf || Function('return this')();
 var _root = root;
 
 /** Built-in value references. */
-var _Symbol2 = _root.Symbol;
+var Symbol$1 = _root.Symbol;
 
-var _Symbol = _Symbol2;
+var _Symbol = Symbol$1;
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -2962,13 +2966,15 @@ function baseGetTag(value) {
   if (value == null) {
     return value === undefined ? undefinedTag : nullTag;
   }
-  return symToStringTag$1 && symToStringTag$1 in Object(value) ? _getRawTag(value) : _objectToString(value);
+  return (symToStringTag$1 && symToStringTag$1 in Object(value))
+    ? _getRawTag(value)
+    : _objectToString(value);
 }
 
 var _baseGetTag = baseGetTag;
 
 function overArg(func, transform) {
-  return function (arg) {
+  return function(arg) {
     return func(transform(arg));
   };
 }
@@ -2981,7 +2987,7 @@ var getPrototype = _overArg(Object.getPrototypeOf, Object);
 var _getPrototype = getPrototype;
 
 function isObjectLike(value) {
-  return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
+  return value != null && typeof value == 'object';
 }
 
 var isObjectLike_1 = isObjectLike;
@@ -3039,7 +3045,8 @@ function isPlainObject(value) {
     return true;
   }
   var Ctor = hasOwnProperty$1.call(proto, 'constructor') && proto.constructor;
-  return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
+  return typeof Ctor == 'function' && Ctor instanceof Ctor &&
+    funcToString.call(Ctor) == objectCtorString;
 }
 
 var isPlainObject_1 = isPlainObject;

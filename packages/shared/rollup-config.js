@@ -23,13 +23,14 @@ export default {
   },
   plugins: [
     flow({ pretty: true }),
-    resolve(),
-    commonjs(),
     babel({
       presets: [["env", { modules: false }], "@clarketm/babel-preset-super"],
       plugins: ["external-helpers"],
+      exclude: "**/node_modules/**",
       babelrc: false
     }),
+    resolve(),
+    commonjs(),
     {
       name: "uglify",
       transformBundle(code) {

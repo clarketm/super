@@ -1,0 +1,9 @@
+
+declare export class QueueNode {
+
+  _priority: number;
+  _value: any;
+  get priority(): number;
+  get value(): any;
+  constructor(value: any, priority: number): void;
+}
