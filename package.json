@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/super",
-  "version": "0.0.10-alpha",
+  "version": "0.0.1",
   "description": "Data Structures with superpowers! 💪",
   "main": "dist/super.js",
   "module": "dist/super.es.js",

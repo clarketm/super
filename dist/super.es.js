@@ -1467,7 +1467,7 @@ var _String = function (_extendableBuiltin2) {
   return _String;
 }(_extendableBuiltin$5(String));
 
-var version = "0.0.10-alpha";
+var version = "0.0.1";
 
 var Super = {
   version: version,
