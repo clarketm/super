@@ -392,6 +392,30 @@ trie.remove("go");
 * [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)
 * [String](https://github.com/clarketm/super/tree/master/packages/String#readme)
 
+## Sorting Algorithms
+
+### [MergeSort](https://github.com/clarketm/super/tree/master/packages/MergeSort#readme)
+
+```js
+import { mergeSort } from "@clarketm/super";
+
+// General usage
+
+// ascending
+let sortedArray = mergeSort([4, 3, 8, 1]); // [1, 3, 4, 8]
+
+// Custom comparator
+
+// descending
+let sortedArray = mergeSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]
+
+// ascending (string length)
+let sortedArray = mergeSort(["111", "1", "11"], (a, b) => a.length - b.length); // ["1", "11", "111"]
+
+// descending (string length)
+let sortedArray = mergeSort(["111", "1", "11"], (a, b) => b.length - a.length); // ["111", "11", "1"]
+```
+
 ## Credits
 
 * Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>

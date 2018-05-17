@@ -130,7 +130,1372 @@
     }
   };
 
+  function isIterable(item) {
+    try {
+      return _typeof(item[Symbol.iterator]) === PrimitiveType.FUNCTION;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function _defaultComparator(a, b) {
+    return a - b;
+  }
+
+  function _compare(comparator) {
+    return function (a, b) {
+      return comparator(a, b) < 0;
+    };
+  }
+
+  /**
+   *
+   * MergeSort with superpowers! 💪
+   *
+   * time:    O(nlogn)
+   * space:   O(n)
+   *
+   * @public
+   *
+   * @param {Array} arr – array to sort
+   * @param {Comparator} comparator
+   * @returns {Array} sorted array
+   */
+  function mergeSort(arr) {
+    var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
+
+    if (!(this instanceof Array) && !(arr instanceof Array)) {
+      throw new Error("Array type is required");
+    }
+
+    var target = this instanceof Array ? this : arr.slice(0);
+    var compare = _compare(comparator);
+
+    /**
+     *
+     * MergeSort helper
+     *
+     * @private
+     *
+     * @param {Array<Item>} arr – array target
+     * @returns {Array<Item>} merged array
+     */
+    function _mergeSort(arr) {
+      if (arr.length <= 1) return arr;
+
+      var mid = Math.trunc(arr.length / 2);
+      var leftArr = arr.slice(0, mid);
+      var rightArr = arr.slice(mid);
+
+      _mergeSort(leftArr);
+      _mergeSort(rightArr);
+
+      return merge(arr, leftArr, rightArr, compare);
+    }
+
+    return _mergeSort(target);
+  }
+
+  /**
+   *
+   * Merge helper
+   *
+   * @private
+   *
+   * @param {Array<Item>} arr – array merge target
+   * @param {Array<Item>} leftArr – left array to merge
+   * @param {Array<Item>} rightArr – right array to merge
+   * @param {Comparator} compare
+   * @returns {Array<Item>} merged array
+   */
+  function merge(arr, leftArr, rightArr, compare) {
+    var i = 0;
+    var j = 0;
+    var k = 0;
+
+    while (i < leftArr.length && j < rightArr.length) {
+      if (compare(leftArr[i], rightArr[j])) {
+        arr[k] = leftArr[i];
+        i++;
+      } else {
+        arr[k] = rightArr[j];
+        j++;
+      }
+      k++;
+    }
+
+    while (i < leftArr.length) {
+      arr[k] = leftArr[i];
+      i++;
+      k++;
+    }
+
+    while (j < rightArr.length) {
+      arr[k] = rightArr[j];
+      j++;
+      k++;
+    }
+
+    return arr;
+  }
+
   function _extendableBuiltin(cls) {
+    function ExtendableBuiltin() {
+      var instance = Reflect.construct(cls, Array.from(arguments));
+      Object.setPrototypeOf(instance, Object.getPrototypeOf(this));
+      return instance;
+    }
+
+    ExtendableBuiltin.prototype = Object.create(cls.prototype, {
+      constructor: {
+        value: cls,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(ExtendableBuiltin, cls);
+    } else {
+      ExtendableBuiltin.__proto__ = cls;
+    }
+
+    return ExtendableBuiltin;
+  }
+
+  /**
+   * @typedef {Function} Callback
+   */
+
+  /**
+   *
+   * Array with superpowers! 💪
+   *
+   * @public
+   *
+   */
+
+  var _Array = function (_extendableBuiltin2) {
+    inherits(_Array, _extendableBuiltin2);
+
+    /**
+     * @public
+     *
+     * @desc Construct an Array
+     *
+     * @param {Iterable<Item>} iterable
+     */
+    function _Array() {
+      var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      classCallCheck(this, _Array);
+
+      var _this = possibleConstructorReturn(this, (_Array.__proto__ || Object.getPrototypeOf(_Array)).call(this));
+
+      _this.push.apply(_this, toConsumableArray(iterable));
+      return _this;
+    }
+    /**
+     * @public
+     *
+     * @desc Maps each element using a mapping function, then flattens the result into a new array
+     *
+     * @param {Callback} callback - callback function
+     * @returns {Array<Item>} A new array with each element being the result of the callback function and flattened to a depth of 1
+     */
+
+
+    createClass(_Array, [{
+      key: "flatMap",
+      value: function flatMap(callback) {
+        return this.map(callback).flatten();
+      }
+      /**
+       * @public
+       *
+       * @desc Creates a new array with all sub-array elements concatted into it recursively up to the specified depth
+       *
+       * @param {number} depth - flatten depth
+       * @returns {Array<Item>}  new array with the sub-array elements concatted into it.
+       */
+
+    }, {
+      key: "flatten",
+      value: function flatten() {
+        var depth = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+        function _flatten(depth, arr) {
+          if (depth <= 0) return arr;
+
+          return arr.reduce(function (acc, val) {
+            if (Array.isArray(val)) return acc.concat(_flatten(depth - 1, val));else return acc.concat(val);
+          }, []);
+        }
+        return _flatten(depth, this);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Sort using merge sort
+       *
+       * @param {Comparator} comparator - comparator function
+       * @returns {Array<Item>} sorted array
+       */
+
+    }, {
+      key: "mergeSort",
+      value: function mergeSort$$1(comparator) {
+        return mergeSort.call(this, null, comparator);
+      }
+    }]);
+    return _Array;
+  }(_extendableBuiltin(Array));
+
+  /**
+   *
+   * BinaryTreeNode
+   *
+   * @public
+   *
+   */
+  var BinaryTreeNode = function () {
+    /** @private */
+
+    /** @private */
+
+    /** @private */
+
+    /**
+     * @public
+     *
+     * @desc Construct a BinaryTreeNode
+     *
+     * @param {Item} value - node value
+     */
+    function BinaryTreeNode(value) {
+      classCallCheck(this, BinaryTreeNode);
+
+      this._value = value;
+      this._left = null;
+      this._right = null;
+    }
+
+    /**
+     * @public
+     *
+     * @desc Get the value of the node
+     *
+     * @returns {Item} node value
+     */
+
+
+    createClass(BinaryTreeNode, [{
+      key: "value",
+      get: function get$$1() {
+        return this._value;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Set the value of the node
+       *
+       */
+      ,
+      set: function set$$1(value) {
+        this._value = value;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the left child node
+       *
+       * @returns {BinaryTreeNode} left child node
+       */
+
+    }, {
+      key: "left",
+      get: function get$$1() {
+        return this._left;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Set the left child node
+       *
+       */
+      ,
+      set: function set$$1(left) {
+        this._left = left;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the right child node
+       *
+       * @returns {BinaryTreeNode} right child node
+       */
+
+    }, {
+      key: "right",
+      get: function get$$1() {
+        return this._right;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Set the right child node
+       *
+       */
+      ,
+      set: function set$$1(right) {
+        this._right = right;
+      }
+    }]);
+    return BinaryTreeNode;
+  }();
+
+  /**
+   *
+   * Queue with superpowers! 💪
+   *
+   * @public
+   *
+   */
+  var Queue = function () {
+    /** @private */
+
+    /**
+     * @public
+     *
+     * @desc Construct a Queue
+     *
+     * @param {Iterable<Item>} iterable
+     */
+    function Queue() {
+      var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      classCallCheck(this, Queue);
+
+      this._queue = [].concat(toConsumableArray(iterable));
+    }
+
+    /**
+     * @public
+     *
+     * @desc Get the current size of the queue
+     *
+     * @returns {number} size of the queue
+     */
+
+
+    createClass(Queue, [{
+      key: "isEmpty",
+
+
+      /**
+       * @public
+       *
+       * @desc Check if queue is empty
+       *
+       * @returns {boolean} is queue empty
+       */
+      value: function isEmpty() {
+        return this._queue.length === 0;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Clear the items from the queue
+       *
+       * @returns {void}
+       */
+
+    }, {
+      key: "clear",
+      value: function clear() {
+        this._queue.length = 0;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Enqueue an item into the queue
+       *
+       * @param {Item} item - item to enqueue
+       * @returns {number} size after enqueue
+       */
+
+    }, {
+      key: "enqueue",
+      value: function enqueue(item) {
+        return this._queue.push(item);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Dequeue an item from the queue
+       *
+       * @returns {Item} dequeued item
+       */
+
+    }, {
+      key: "dequeue",
+      value: function dequeue() {
+        return this._queue.shift();
+      }
+
+      /**
+       * @public
+       *
+       * @desc Convert the queue to an array
+       *
+       * @returns {Array<Item>} array representation of the queue
+       */
+
+    }, {
+      key: "toArray",
+      value: function toArray$$1() {
+        return this._queue.slice(0);
+      }
+    }, {
+      key: "size",
+      get: function get$$1() {
+        return this._queue.length;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the front item in the queue
+       *
+       * @returns {Item} front item
+       */
+
+    }, {
+      key: "front",
+      get: function get$$1() {
+        return this._queue[0];
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the rear item in the queue
+       *
+       * @returns {Item} rear item
+       */
+
+    }, {
+      key: "rear",
+      get: function get$$1() {
+        return this._queue[this._queue.length - 1];
+      }
+    }]);
+    return Queue;
+  }();
+
+  var TraversalType = {
+    PRE_ORDER: "pre",
+    IN_ORDER: "in",
+    POST_ORDER: "post",
+    LEVEL_ORDER: "level"
+  };
+
+  /**
+   *
+   * BinaryTree with superpowers! 💪
+   *
+   * @public
+   *
+   */
+
+  var BinaryTree = function () {
+    /** @private */
+
+    /**
+     * @public
+     *
+     * @desc Construct a BinaryTree
+     *
+     * @param {Iterable<number>} iterable
+     */
+    function BinaryTree() {
+      var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      classCallCheck(this, BinaryTree);
+
+      this._root = null;
+
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = iterable[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var item = _step.value;
+
+          this.insert(item);
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+    }
+
+    /**
+     * @public
+     *
+     * @desc Get the root of the tree
+     *
+     * @returns {BinaryTreeNode} root node
+     */
+
+
+    createClass(BinaryTree, [{
+      key: "getHeight",
+
+
+      /**
+       * @public
+       *
+       * @desc Get the height of the tree at node
+       *
+       * @param {BinaryTreeNode} node - root node
+       * @returns {number} height of tree
+       */
+      value: function getHeight() {
+        var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
+
+        /**
+         * @private
+         *
+         * @desc Height helper
+         *
+         * @param {BinaryTreeNode} node
+         * @returns {number} height of tree
+         */
+        var _height = function _height(node) {
+          if (!node) return 0;
+          return Math.max(_height(node.left), _height(node.right)) + 1;
+        };
+
+        return _height(node);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Find minimum value in tree
+       *
+       * @param {BinaryTreeNode} node - root node
+       * @returns {BinaryTreeNode} node
+       */
+
+    }, {
+      key: "findMin",
+      value: function findMin() {
+        var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
+
+        if (!node.left) return node;else return this.findMin(node.left);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Find maximum value in tree
+       *
+       * @param {BinaryTreeNode} node - root node
+       * @returns {BinaryTreeNode} node
+       */
+
+    }, {
+      key: "findMax",
+      value: function findMax() {
+        var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
+
+        if (!node.right) return node;else return this.findMax(node.right);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Insert a value into the tree
+       *
+       * @param {Item} value - value to insert into the tree
+       */
+
+    }, {
+      key: "insert",
+      value: function insert(value) {
+        var node = new BinaryTreeNode(value);
+
+        if (!this.root) {
+          this._root = node;
+          return;
+        }
+
+        /**
+         * @private
+         *
+         * @desc Insert helper
+         *
+         * @param {BinaryTreeNode} root
+         */
+        function _insert(root) {
+          if (node.value < root.value) {
+            if (root.left) {
+              return _insert(root.left);
+            } else {
+              root.left = node;
+            }
+          } else if (node.value >= root.value) {
+            if (root.right) {
+              return _insert(root.right);
+            } else {
+              root.right = node;
+            }
+          }
+        }
+
+        _insert(this.root);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Search and retrieve a value from the tree
+       *
+       * @param {Item} value - value to search
+       * @return {BinaryTreeNode} match node, or null if not found
+       */
+
+    }, {
+      key: "search",
+      value: function search(value) {
+        if (!value) return null;
+
+        /**
+         * @private
+         *
+         * @desc Search helper
+         *
+         * @param {BinaryTreeNode} node
+         * @return {BinaryTreeNode} match node
+         */
+        function _search(node) {
+          if (!node) return null;
+
+          if (value === node.value) {
+            return node;
+          } else if (value < node.value) {
+            return _search(node.left);
+          } else if (value >= node.value) {
+            return _search(node.right);
+          }
+        }
+
+        return _search(this.root);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Remove a value from the tree
+       *
+       * @param {Item} value - value to remove
+       */
+
+    }, {
+      key: "remove",
+      value: function remove(value) {
+        var _this = this;
+
+        /**
+         * @private
+         *
+         * @desc Remove helper
+         *
+         * @param {BinaryTreeNode} node
+         * @param {Item} value
+         */
+        var _remove = function _remove(node, value) {
+          if (!node) return null;
+
+          if (node.value === value) {
+            if (!node.left && !node.right) {
+              return null;
+            } else if (!node.left) {
+              return node.right;
+            } else if (!node.right) {
+              return node.left;
+            } else {
+              var aux = _this.findMin(node.right);
+              node.value = aux.value;
+              node.right = _remove(node.right, aux.value);
+              return node;
+            }
+          } else if (value < node.value) {
+            node.left = _remove(node.left, value);
+            return node;
+          } else if (value >= node.value) {
+            node.right = _remove(node.right, value);
+            return node;
+          }
+        };
+
+        this._root = _remove(this.root, value);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Traverse the tree in preOrder traversal ordering
+       *
+       * @param {BinaryTreeNode} node - root node
+       * @returns {Array<BinaryTreeNode>} array of nodes or values
+       */
+
+    }, {
+      key: "preOrder",
+      value: function preOrder() {
+        var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
+
+        var nodes = [];
+        /**
+         * @private
+         *
+         * @desc PreOrder helper
+         *
+         * @param {BinaryTreeNode} node
+         */
+        function _preOrder(node) {
+          if (node) {
+            nodes = [].concat(toConsumableArray(nodes), [node]);
+            _preOrder(node.left);
+            _preOrder(node.right);
+          }
+        }
+
+        _preOrder(node);
+
+        return nodes;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Traverse the tree in inOrder traversal ordering
+       *
+       * @param {BinaryTreeNode} node - root node
+       * @returns {Array<BinaryTreeNode>} array of nodes or values
+       */
+
+    }, {
+      key: "inOrder",
+      value: function inOrder() {
+        var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
+
+        var nodes = [];
+        /**
+         * @private
+         *
+         * @desc inOrder helper
+         *
+         * @param {BinaryTreeNode} node
+         */
+        function _inOrder(node) {
+          if (node) {
+            _inOrder(node.left);
+            nodes = [].concat(toConsumableArray(nodes), [node]);
+            _inOrder(node.right);
+          }
+        }
+
+        _inOrder(node);
+
+        return nodes;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Traverse the tree in postOrder traversal ordering
+       *
+       * @param {BinaryTreeNode} node - root node
+       * @returns {Array<BinaryTreeNode>} array of nodes or values
+       */
+
+    }, {
+      key: "postOrder",
+      value: function postOrder() {
+        var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
+
+        var nodes = [];
+        /**
+         * @private
+         *
+         * @desc PreOrder helper
+         *
+         * @param {BinaryTreeNode} node
+         */
+        function _postOrder(node) {
+          if (node) {
+            _postOrder(node.left);
+            _postOrder(node.right);
+            nodes = [].concat(toConsumableArray(nodes), [node]);
+          }
+        }
+
+        _postOrder(node);
+
+        return nodes;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Traverse the tree in levelOrder traversal ordering
+       *
+       * @param {BinaryTreeNode} node - root node
+       * @returns {Array<BinaryTreeNode>} array of nodes or values
+       */
+
+    }, {
+      key: "levelOrder",
+      value: function levelOrder() {
+        var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
+
+        var nodes = [];
+
+        var q = new Queue();
+        q.enqueue(node);
+
+        while (!q.isEmpty()) {
+          var _node = q.dequeue();
+          nodes.push(_node);
+
+          if (_node.left) {
+            q.enqueue(_node.left);
+          }
+
+          if (_node.right) {
+            q.enqueue(_node.right);
+          }
+        }
+
+        return nodes;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Convert the tree to an array
+       *
+       * @param {Traversal} traversal - method of traversal
+       * @param {boolean} flatten - if false return nodes; if true return only values
+       * @returns {Array<BinaryTreeNode | Item> } array representation of the list
+       */
+
+    }, {
+      key: "toArray",
+      value: function toArray$$1(traversal) {
+        var flatten = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+        var nodes = void 0;
+
+        switch (traversal) {
+          default:
+          case TraversalType.PRE_ORDER:
+            nodes = this.preOrder(this.root);
+            break;
+          case TraversalType.IN_ORDER:
+            nodes = this.inOrder(this.root);
+            break;
+          case TraversalType.POST_ORDER:
+            nodes = this.postOrder(this.root);
+            break;
+          case TraversalType.LEVEL_ORDER:
+            nodes = this.levelOrder(this.root);
+            break;
+        }
+
+        return flatten ? nodes.map(function (v) {
+          return v.value;
+        }) : nodes;
+      }
+    }, {
+      key: "root",
+      get: function get$$1() {
+        return this._root;
+      }
+
+      /**
+       * @public
+       *
+       * @alias getHeight(root)
+       *
+       * @desc Get the height of the tree
+       *
+       * @returns {BinaryTreeNode} root node
+       */
+
+    }, {
+      key: "height",
+      get: function get$$1() {
+        return this.getHeight(this.root);
+      }
+    }]);
+    return BinaryTree;
+  }();
+
+  /**
+   *
+   * ListNode
+   *
+   * @public
+   *
+   */
+  var ListNode = function () {
+    /** @private */
+
+    /** @private */
+
+    /** @private */
+
+    /**
+     * @public
+     *
+     * @desc Construct a ListNode
+     *
+     * @param {Item} item - node value
+     */
+    function ListNode(item) {
+      classCallCheck(this, ListNode);
+
+      this._value = item;
+      this._prev = null;
+      this._next = null;
+    }
+
+    /**
+     * @public
+     *
+     * @desc Get the value of the node
+     *
+     * @returns {Item} node value
+     */
+
+
+    createClass(ListNode, [{
+      key: "value",
+      get: function get$$1() {
+        return this._value;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Set the value of the node
+       *
+       */
+      ,
+      set: function set$$1(value) {
+        this._value = value;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the next node in list
+       *
+       * @returns {ListNode} next node
+       */
+
+    }, {
+      key: "next",
+      get: function get$$1() {
+        return this._next;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Set the next node in list
+       *
+       */
+      ,
+      set: function set$$1(next) {
+        this._next = next;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the previous node in list
+       *
+       * @returns {ListNode} previous node
+       */
+
+    }, {
+      key: "prev",
+      get: function get$$1() {
+        return this._prev;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Set the next node in list
+       *
+       */
+      ,
+      set: function set$$1(prev) {
+        this._prev = prev;
+      }
+    }]);
+    return ListNode;
+  }();
+
+  /**
+   *
+   * LinkedList with superpowers! 💪
+   *
+   * @public
+   *
+   */
+
+  var LinkedList = function () {
+    /** @private */
+
+    /** @private */
+
+    /** @private */
+
+    /**
+     * @public
+     *
+     * @desc Construct a LinkedList
+     *
+     * @param {Iterable<Item>} iterable
+     */
+    function LinkedList() {
+      var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      classCallCheck(this, LinkedList);
+
+      var head = new ListNode(0);
+      var prev = null;
+      var curr = head;
+      var size = 0;
+
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = iterable[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var item = _step.value;
+
+          curr.next = new ListNode(item);
+          curr = curr.next;
+
+          curr.prev = prev;
+          prev = curr;
+
+          size++;
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
+      this._size = size;
+      this._head = head.next;
+      this._tail = curr;
+    }
+
+    /**
+     * @public
+     *
+     * @desc Get the head of the list
+     *
+     * @returns {ListNode} head node
+     */
+
+
+    createClass(LinkedList, [{
+      key: "insert",
+
+
+      /**
+       * @public
+       *
+       * @desc Insert a node at a given position
+       *
+       * @param {number} position - position to insert node
+       * @param {Item} value - value to insert into list
+       * @returns {number} size after insertion
+       */
+      // TODO: insert by value
+      value: function insert(position, value) {
+        if (position < 0) {
+          return this.insert(Math.max(0, this.size + 1 - Math.abs(position)), value);
+        }
+
+        var prev = null;
+        var curr = this.head;
+
+        var p = 0;
+        while (p < position && curr) {
+          prev = curr;
+          curr = curr.next;
+          p++;
+        }
+
+        var node = new ListNode(value);
+        node.prev = prev;
+        node.next = curr;
+
+        if (prev) prev.next = node;else this._head = node;
+
+        if (curr) curr.prev = node;else this._tail = node;
+
+        this._size++;
+
+        return this._size;
+      }
+
+      /**
+       * @public
+       *
+       * @alias insert(0, value)
+       *
+       * @desc Prepend a node to the front of the list
+       *
+       * @param {Item} value - value to prepend to list
+       * @returns {number} size after insertion
+       */
+
+    }, {
+      key: "prepend",
+      value: function prepend(value) {
+        return this.insert(0, value);
+      }
+
+      /**
+       * @public
+       *
+       * @alias insert(0, value)
+       *
+       * @desc Unshift a node to the front of the list
+       *
+       * @param {Item} value - value to unshift to list
+       * @returns {number} size after insertion
+       */
+
+    }, {
+      key: "unshift",
+      value: function unshift(value) {
+        return this.prepend(value);
+      }
+
+      /**
+       * @public
+       *
+       * @alias insert(list.size, value)
+       *
+       * @desc Append a node to the rear of the list
+       *
+       * @param {Item} value - value to append to list
+       * @returns {number} size after insertion
+       */
+
+    }, {
+      key: "append",
+      value: function append(value) {
+        return this.insert(this.size, value);
+      }
+
+      /**
+       * @public
+       *
+       * @alias insert(list.size, value)
+       *
+       * @desc Push a node to the rear of the list
+       *
+       * @param {Item} value - value to push to list
+       * @returns {number} size after insertion
+       */
+
+    }, {
+      key: "push",
+      value: function push(value) {
+        return this.append(value);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Remove a node at a given position
+       *
+       * @param {number} position - position to remove node
+       * @returns {Item} removed item
+       */
+      // TODO: remove by value
+
+    }, {
+      key: "remove",
+      value: function remove(position) {
+        if (position < 0) {
+          return this.remove(Math.max(0, this.size - Math.abs(position)));
+        }
+
+        var prev = null;
+        var curr = this.head;
+
+        var p = 0;
+        while (p < position && curr) {
+          prev = curr;
+          curr = curr.next;
+          p++;
+        }
+
+        if (prev && curr && curr.next) {
+          prev.next = curr.next;
+          curr.next.prev = prev;
+          this._size--;
+        } else if (prev && curr) {
+          prev.next = null;
+          this._tail = prev;
+          this._size--;
+        } else if (curr && curr.next) {
+          curr.next.prev = null;
+          this._head = curr.next;
+          this._size--;
+        }
+
+        return curr;
+      }
+
+      /**
+       * @public
+       *
+       * @alias remove(0)
+       *
+       * @desc Shift a node from the front of list
+       *
+       * @returns {Item} shifted item
+       */
+
+    }, {
+      key: "shift",
+      value: function shift() {
+        return this.remove(0);
+      }
+
+      /**
+       * @public
+       *
+       * @alias remove(list.size - 1)
+       *
+       * @desc Pop a node from the rear of list
+       *
+       * @returns {Item} shifted item
+       */
+
+    }, {
+      key: "pop",
+      value: function pop() {
+        return this.remove(this.size - 1);
+      }
+
+      // TODO:
+      // searchNodeAt (position: number)
+
+      /**
+       * @public
+       *
+       * @desc Convert the node and next nodes (recursively) to an array
+       *
+       * @returns {Array<Item>} array representation of the list
+       */
+
+    }, {
+      key: "toArray",
+      value: function toArray$$1() {
+        var array = [];
+        var node = this.head;
+
+        while (node !== null) {
+          array.push(node.value);
+          node = node.next;
+        }
+
+        return array;
+      }
+    }, {
+      key: "head",
+      get: function get$$1() {
+        return this._head;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the tail of the list
+       *
+       * @returns {ListNode} tail node
+       */
+
+    }, {
+      key: "tail",
+      get: function get$$1() {
+        return this._tail;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the size of the list
+       *
+       * @returns {number} number of nodes in the list
+       */
+
+    }, {
+      key: "size",
+      get: function get$$1() {
+        return this._size;
+      }
+    }]);
+    return LinkedList;
+  }();
+
+  function _extendableBuiltin$1(cls) {
     function ExtendableBuiltin() {
       var instance = Reflect.construct(cls, Array.from(arguments));
       Object.setPrototypeOf(instance, Object.getPrototypeOf(this));
@@ -320,221 +1685,7 @@
       }
     }]);
     return _Map;
-  }(_extendableBuiltin(Map));
-
-  function _defaultComparator(a, b) {
-    return a - b;
-  }
-
-  function _compare(comparator) {
-    return function (a, b) {
-      return comparator(a, b) < 0;
-    };
-  }
-
-  /**
-   *
-   * MergeSort with superpowers! 💪
-   *
-   * time:    O(nlogn)
-   * space:   O(n)
-   *
-   * @public
-   *
-   * @param {Array} arr – array to sort
-   * @param {Comparator} comparator
-   * @returns {Array} sorted array
-   */
-  function mergeSort(arr) {
-    var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
-
-    if (!(this instanceof Array) && !(arr instanceof Array)) {
-      throw new Error("Array type is required");
-    }
-
-    var target = this instanceof Array ? this : arr.slice(0);
-    var compare = _compare(comparator);
-
-    /**
-     *
-     * MergeSort helper
-     *
-     * @private
-     *
-     * @param {Array<Item>} arr – array target
-     * @returns {Array<Item>} merged array
-     */
-    function _mergeSort(arr) {
-      if (arr.length <= 1) return arr;
-
-      var mid = Math.trunc(arr.length / 2);
-      var leftArr = arr.slice(0, mid);
-      var rightArr = arr.slice(mid);
-
-      _mergeSort(leftArr);
-      _mergeSort(rightArr);
-
-      return merge(arr, leftArr, rightArr, compare);
-    }
-
-    return _mergeSort(target);
-  }
-
-  /**
-   *
-   * Merge helper
-   *
-   * @private
-   *
-   * @param {Array<Item>} arr – array merge target
-   * @param {Array<Item>} leftArr – left array to merge
-   * @param {Array<Item>} rightArr – right array to merge
-   * @param {Comparator} compare
-   * @returns {Array<Item>} merged array
-   */
-  function merge(arr, leftArr, rightArr, compare) {
-    var i = 0;
-    var j = 0;
-    var k = 0;
-
-    while (i < leftArr.length && j < rightArr.length) {
-      if (compare(leftArr[i], rightArr[j])) {
-        arr[k] = leftArr[i];
-        i++;
-      } else {
-        arr[k] = rightArr[j];
-        j++;
-      }
-      k++;
-    }
-
-    while (i < leftArr.length) {
-      arr[k] = leftArr[i];
-      i++;
-      k++;
-    }
-
-    while (j < rightArr.length) {
-      arr[k] = rightArr[j];
-      j++;
-      k++;
-    }
-
-    return arr;
-  }
-
-  function _extendableBuiltin$1(cls) {
-    function ExtendableBuiltin() {
-      var instance = Reflect.construct(cls, Array.from(arguments));
-      Object.setPrototypeOf(instance, Object.getPrototypeOf(this));
-      return instance;
-    }
-
-    ExtendableBuiltin.prototype = Object.create(cls.prototype, {
-      constructor: {
-        value: cls,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-
-    if (Object.setPrototypeOf) {
-      Object.setPrototypeOf(ExtendableBuiltin, cls);
-    } else {
-      ExtendableBuiltin.__proto__ = cls;
-    }
-
-    return ExtendableBuiltin;
-  }
-
-  /**
-   * @typedef {Function} Callback
-   */
-
-  /**
-   *
-   * Array with superpowers! 💪
-   *
-   * @public
-   *
-   */
-
-  var _Array = function (_extendableBuiltin2) {
-    inherits(_Array, _extendableBuiltin2);
-
-    /**
-     * @public
-     *
-     * @desc Construct an Array
-     *
-     * @param {Iterable<Item>} iterable
-     */
-    function _Array() {
-      var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-      classCallCheck(this, _Array);
-
-      var _this = possibleConstructorReturn(this, (_Array.__proto__ || Object.getPrototypeOf(_Array)).call(this));
-
-      _this.push.apply(_this, toConsumableArray(iterable));
-      return _this;
-    }
-    /**
-     * @public
-     *
-     * @desc Maps each element using a mapping function, then flattens the result into a new array
-     *
-     * @param {Callback} callback - callback function
-     * @returns {Array<Item>} A new array with each element being the result of the callback function and flattened to a depth of 1
-     */
-
-
-    createClass(_Array, [{
-      key: "flatMap",
-      value: function flatMap(callback) {
-        return this.map(callback).flatten();
-      }
-      /**
-       * @public
-       *
-       * @desc Creates a new array with all sub-array elements concatted into it recursively up to the specified depth
-       *
-       * @param {number} depth - flatten depth
-       * @returns {Array<Item>}  new array with the sub-array elements concatted into it.
-       */
-
-    }, {
-      key: "flatten",
-      value: function flatten() {
-        var depth = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-
-        function _flatten(depth, arr) {
-          if (depth <= 0) return arr;
-
-          return arr.reduce(function (acc, val) {
-            if (Array.isArray(val)) return acc.concat(_flatten(depth - 1, val));else return acc.concat(val);
-          }, []);
-        }
-        return _flatten(depth, this);
-      }
-
-      /**
-       * @public
-       *
-       * @desc Sort using merge sort
-       *
-       * @param {Comparator} comparator - comparator function
-       * @returns {Array<Item>} sorted array
-       */
-
-    }, {
-      key: "mergeSort",
-      value: function mergeSort$$1(comparator) {
-        return mergeSort.call(this, null, comparator);
-      }
-    }]);
-    return _Array;
-  }(_extendableBuiltin$1(Array));
+  }(_extendableBuiltin$1(Map));
 
   /**
    *
@@ -945,38 +2096,333 @@
 
   /**
    *
-   * Queue with superpowers! 💪
+   * QueueNode
    *
    * @public
    *
    */
-  var Queue = function () {
+  var QueueNode = function () {
+    /** @private */
+
     /** @private */
 
     /**
      * @public
      *
-     * @desc Construct a Queue
+     * @desc Construct a PriorityQueue
      *
-     * @param {Iterable<Item>} iterable
+     * @param {Item} value - item value
+     * @param {number} priority - priority of item
      */
-    function Queue() {
-      var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-      classCallCheck(this, Queue);
+    function QueueNode(value, priority) {
+      classCallCheck(this, QueueNode);
 
-      this._queue = [].concat(toConsumableArray(iterable));
+      this._value = value;
+      this._priority = priority;
     }
 
     /**
      * @public
      *
-     * @desc Get the current size of the queue
+     * @desc Get the value of the node
      *
-     * @returns {number} size of the queue
+     * @returns {Item} node value
      */
 
 
-    createClass(Queue, [{
+    createClass(QueueNode, [{
+      key: "value",
+      get: function get$$1() {
+        return this._value;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the priority of the node
+       *
+       * @returns {number} priority of item
+       */
+
+    }, {
+      key: "priority",
+      get: function get$$1() {
+        return this._priority;
+      }
+    }]);
+    return QueueNode;
+  }();
+
+  var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+  /** Detect free variable `global` from Node.js. */
+  var freeGlobal = _typeof(commonjsGlobal) == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
+
+  var _freeGlobal = freeGlobal;
+
+  /** Detect free variable `self`. */
+  var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
+
+  /** Used as a reference to the global object. */
+  var root = _freeGlobal || freeSelf || Function('return this')();
+
+  var _root = root;
+
+  /** Built-in value references. */
+  var _Symbol2 = _root.Symbol;
+
+  var _Symbol = _Symbol2;
+
+  /** Used for built-in method references. */
+  var objectProto = Object.prototype;
+
+  /** Used to check objects for own properties. */
+  var hasOwnProperty = objectProto.hasOwnProperty;
+
+  /**
+   * Used to resolve the
+   * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+   * of values.
+   */
+  var nativeObjectToString = objectProto.toString;
+
+  /** Built-in value references. */
+  var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
+
+  /**
+   * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+   *
+   * @private
+   * @param {*} value The value to query.
+   * @returns {string} Returns the raw `toStringTag`.
+   */
+  function getRawTag(value) {
+    var isOwn = hasOwnProperty.call(value, symToStringTag),
+        tag = value[symToStringTag];
+
+    try {
+      value[symToStringTag] = undefined;
+      var unmasked = true;
+    } catch (e) {}
+
+    var result = nativeObjectToString.call(value);
+    if (unmasked) {
+      if (isOwn) {
+        value[symToStringTag] = tag;
+      } else {
+        delete value[symToStringTag];
+      }
+    }
+    return result;
+  }
+
+  var _getRawTag = getRawTag;
+
+  var objectProto$1 = Object.prototype;
+
+  /**
+   * Used to resolve the
+   * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+   * of values.
+   */
+  var nativeObjectToString$1 = objectProto$1.toString;
+
+  /**
+   * Converts `value` to a string using `Object.prototype.toString`.
+   *
+   * @private
+   * @param {*} value The value to convert.
+   * @returns {string} Returns the converted string.
+   */
+  function objectToString(value) {
+    return nativeObjectToString$1.call(value);
+  }
+
+  var _objectToString = objectToString;
+
+  /** `Object#toString` result references. */
+  var nullTag = '[object Null]',
+      undefinedTag = '[object Undefined]';
+
+  /** Built-in value references. */
+  var symToStringTag$1 = _Symbol ? _Symbol.toStringTag : undefined;
+
+  /**
+   * The base implementation of `getTag` without fallbacks for buggy environments.
+   *
+   * @private
+   * @param {*} value The value to query.
+   * @returns {string} Returns the `toStringTag`.
+   */
+  function baseGetTag(value) {
+    if (value == null) {
+      return value === undefined ? undefinedTag : nullTag;
+    }
+    return symToStringTag$1 && symToStringTag$1 in Object(value) ? _getRawTag(value) : _objectToString(value);
+  }
+
+  var _baseGetTag = baseGetTag;
+
+  function overArg(func, transform) {
+    return function (arg) {
+      return func(transform(arg));
+    };
+  }
+
+  var _overArg = overArg;
+
+  /** Built-in value references. */
+  var getPrototype = _overArg(Object.getPrototypeOf, Object);
+
+  var _getPrototype = getPrototype;
+
+  function isObjectLike(value) {
+    return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
+  }
+
+  var isObjectLike_1 = isObjectLike;
+
+  /** `Object#toString` result references. */
+  var objectTag = '[object Object]';
+
+  /** Used for built-in method references. */
+  var funcProto = Function.prototype,
+      objectProto$2 = Object.prototype;
+
+  /** Used to resolve the decompiled source of functions. */
+  var funcToString = funcProto.toString;
+
+  /** Used to check objects for own properties. */
+  var hasOwnProperty$1 = objectProto$2.hasOwnProperty;
+
+  /** Used to infer the `Object` constructor. */
+  var objectCtorString = funcToString.call(Object);
+
+  /**
+   * Checks if `value` is a plain object, that is, an object created by the
+   * `Object` constructor or one with a `[[Prototype]]` of `null`.
+   *
+   * @static
+   * @memberOf _
+   * @since 0.8.0
+   * @category Lang
+   * @param {*} value The value to check.
+   * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
+   * @example
+   *
+   * function Foo() {
+   *   this.a = 1;
+   * }
+   *
+   * _.isPlainObject(new Foo);
+   * // => false
+   *
+   * _.isPlainObject([1, 2, 3]);
+   * // => false
+   *
+   * _.isPlainObject({ 'x': 0, 'y': 0 });
+   * // => true
+   *
+   * _.isPlainObject(Object.create(null));
+   * // => true
+   */
+  function isPlainObject(value) {
+    if (!isObjectLike_1(value) || _baseGetTag(value) != objectTag) {
+      return false;
+    }
+    var proto = _getPrototype(value);
+    if (proto === null) {
+      return true;
+    }
+    var Ctor = hasOwnProperty$1.call(proto, 'constructor') && proto.constructor;
+    return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
+  }
+
+  var isPlainObject_1 = isPlainObject;
+
+  /**
+   *
+   * PriorityQueue with superpowers! 💪
+   *
+   * @public
+   *
+   */
+
+  var PriorityQueue = function () {
+    /** @private */
+
+    /** @private */
+
+    /**
+     * @public
+     *
+     * @desc Construct a PriorityQueue
+     *
+     * @param {PriorityQueueIterable} iterable
+     * @param {Comparator} comparator
+     */
+    function PriorityQueue() {
+      var _this = this;
+
+      var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new Map();
+      var comparator = arguments[1];
+      classCallCheck(this, PriorityQueue);
+
+      this._queue = [];
+      this._comparator = comparator ? PriorityQueue._wrapComparator(comparator) : PriorityQueue._defaultComparator;
+
+      if (!(iterable instanceof Map)) {
+        if (isIterable(iterable)) {
+          if (Array.isArray(iterable[0])) {
+            iterable = new Map(iterable);
+          } else if (isPlainObject_1(iterable[0])) {
+            iterable = new Map(iterable.map(function (_ref) {
+              var value = _ref.value,
+                  priority = _ref.priority;
+              return [priority, value];
+            }));
+          } else {
+            return iterable.forEach(function (v) {
+              return _this.insert(v);
+            });
+          }
+        } else {
+          throw new Error("Unable to construct from non-iterable");
+        }
+      }
+
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = iterable.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var _ref2 = _step.value;
+
+          var _ref3 = slicedToArray(_ref2, 2);
+
+          var priority = _ref3[0];
+          var value = _ref3[1];
+
+          this.insert(value, priority);
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+    }
+
+    createClass(PriorityQueue, [{
       key: "isEmpty",
 
 
@@ -1010,28 +2456,85 @@
        *
        * @desc Enqueue an item into the queue
        *
-       * @param {Item} item - item to enqueue
-       * @returns {number} size after enqueue
+       * @param {Item} value - item to insert
+       * @param {number} [priority = 0] - priority of item (higher value === higher priority)
+       * @returns {number} size after insert
        */
 
     }, {
-      key: "enqueue",
-      value: function enqueue(item) {
-        return this._queue.push(item);
+      key: "insert",
+      value: function insert(value) {
+        var priority = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+        if ((typeof priority === "undefined" ? "undefined" : _typeof(priority)) !== PrimitiveType.NUMBER) {
+          throw new Error("Unable to insert non-number priority: " + priority);
+        }
+
+        // TODO: use a heap
+        this._queue.push(new QueueNode(value, priority));
+        this._queue.sort(this._comparator);
+
+        return this.size;
       }
 
       /**
        * @public
        *
-       * @desc Dequeue an item from the queue
+       * @desc Remove and return the item with the highest priority
        *
-       * @returns {Item} dequeued item
+       * @returns {Item} highest priority item
        */
 
     }, {
-      key: "dequeue",
-      value: function dequeue() {
+      key: "deleteMax",
+      value: function deleteMax() {
         return this._queue.shift();
+      }
+
+      /**
+       * @public
+       *
+       * @alias deleteMax
+       *
+       * @desc Remove and return the item with the highest priority
+       *
+       * @returns {Item} highest priority item
+       */
+
+    }, {
+      key: "deleteHigh",
+      value: function deleteHigh() {
+        return this.deleteMax();
+      }
+
+      /**
+       * @public
+       *
+       * @desc Remove and return the item with the lowest priority
+       *
+       * @returns {Item} lowest priority item
+       */
+
+    }, {
+      key: "deleteMin",
+      value: function deleteMin() {
+        return this._queue.pop();
+      }
+
+      /**
+       * @public
+       *
+       * @alias deleteMin
+       *
+       * @desc Remove and return the item with the lowest priority
+       *
+       * @returns {Item} lowest priority item
+       */
+
+    }, {
+      key: "deleteLow",
+      value: function deleteLow() {
+        return this.deleteMin();
       }
 
       /**
@@ -1049,6 +2552,15 @@
       }
     }, {
       key: "size",
+
+
+      /**
+       * @public
+       *
+       * @desc Get the current size of the queue
+       *
+       * @returns {number} size of the queue
+       */
       get: function get$$1() {
         return this._queue.length;
       }
@@ -1056,13 +2568,13 @@
       /**
        * @public
        *
-       * @desc Get the front item in the queue
+       * @desc Get the item with the highest priority
        *
-       * @returns {Item} front item
+       * @returns {Item} highest priority item
        */
 
     }, {
-      key: "front",
+      key: "max",
       get: function get$$1() {
         return this._queue[0];
       }
@@ -1070,18 +2582,72 @@
       /**
        * @public
        *
-       * @desc Get the rear item in the queue
+       * @alias max
        *
-       * @returns {Item} rear item
+       * @desc Get the item with the highest priority
+       *
+       * @returns {Item} highest priority item
        */
 
     }, {
-      key: "rear",
+      key: "high",
+      get: function get$$1() {
+        return this.max;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the item with the lowest priority
+       *
+       * @returns {Item} lowest priority item
+       */
+
+    }, {
+      key: "min",
       get: function get$$1() {
         return this._queue[this._queue.length - 1];
       }
+
+      /**
+       * @public
+       *
+       * @alias min
+       *
+       * @desc Get the item with the lowest priority
+       *
+       * @returns {Item} lowest priority item
+       */
+
+    }, {
+      key: "low",
+      get: function get$$1() {
+        return this.min;
+      }
+    }], [{
+      key: "_wrapComparator",
+      value: function _wrapComparator(comparator) {
+        return function (a, b) {
+          return comparator(a.value, b.value);
+        };
+      }
+
+      /**
+       * @private
+       *
+       * @desc Default comparator function to sort from:
+       *       highest priority (max) -> lowest priority (min)
+       *
+       * @returns {number} size of the queue
+       */
+
+    }, {
+      key: "_defaultComparator",
+      value: function _defaultComparator$$1(a, b) {
+        return a.priority < b.priority;
+      }
     }]);
-    return Queue;
+    return PriorityQueue;
   }();
 
   function _extendableBuiltin$4(cls) {
@@ -1590,30 +3156,449 @@
     return _String;
   }(_extendableBuiltin$5(String));
 
-  var version = "0.0.1";
+  var SpecialChar = {
+    ROOT: "√"
+  };
+
+  /**
+   *
+   * TrieNode
+   *
+   * @public
+   *
+   */
+
+  var TrieNode = function () {
+    /** @private */
+
+    /** @private */
+
+    /** @private */
+
+    /**
+     * @public
+     *
+     * @desc Construct a TrieNode
+     *
+     * @param {character} char - node character value
+     */
+    function TrieNode() {
+      var char = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : SpecialChar.ROOT;
+      classCallCheck(this, TrieNode);
+
+      this._char = char;
+      this._isCompleteWord = false;
+      this._children = new Map();
+    }
+
+    /**
+     * @public
+     *
+     * @desc Get children count of the node
+     *
+     * @returns {number} child count
+     */
+    // INFO: count or size?
+
+
+    createClass(TrieNode, [{
+      key: "has",
+
+
+      /**
+       * @public
+       *
+       * @desc Check if node has a specific character as a child
+       *
+       * @param {character} char - character to check
+       * @returns {boolean} node has child
+       */
+      value: function has(char) {
+        return this._children.has(char);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get child node with specific character value
+       *
+       * @param {character} char - character to get
+       * @returns {TrieNode} node with character value
+       */
+
+    }, {
+      key: "get",
+      value: function get$$1(char) {
+        return this._children.get(char);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Set child node with specific character value
+       *
+       * @param {character} char - character to set
+       * @param {TrieNode} node - node to assign to character
+       */
+
+    }, {
+      key: "set",
+      value: function set$$1(char, node) {
+        this._children.set(char, node);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Delete child node with specific character value
+       *
+       * @param {character} char - character to delete
+       */
+
+    }, {
+      key: "delete",
+      value: function _delete(char) {
+        this._children.delete(char);
+      }
+    }, {
+      key: "count",
+      get: function get$$1() {
+        return this._children.size;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get character value of node
+       *
+       * @returns {character} character
+       */
+      // INFO: char or value?
+
+    }, {
+      key: "char",
+      get: function get$$1() {
+        return this._char;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Checks if node is a complete word
+       *
+       * @returns {boolean} is complete word
+       */
+
+    }, {
+      key: "isCompleteWord",
+      get: function get$$1() {
+        return this._isCompleteWord;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Checks if node is a leaf node
+       *
+       * @returns {boolean} is leaf node
+       */
+
+    }, {
+      key: "isLeafNode",
+      get: function get$$1() {
+        return this.count === 0;
+      }
+    }]);
+    return TrieNode;
+  }();
+
+  /**
+   *
+   * Trie with superpowers! 💪
+   *
+   * @public
+   *
+   */
+
+  var Trie = function () {
+    /** @private */
+
+    /**
+     * @public
+     *
+     * @desc Construct a Trie
+     *
+     * @param {Iterable<string>} iterable
+     */
+    function Trie() {
+      var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      classCallCheck(this, Trie);
+
+      this._root = new TrieNode();
+
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = iterable[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var word = _step.value;
+
+          this.insert(word);
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+    }
+
+    /**
+     * @public
+     *
+     * @desc Get the root of the trie
+     *
+     * @returns {TrieNode} root node
+     */
+
+
+    createClass(Trie, [{
+      key: "insert",
+
+
+      /**
+       * @public
+       *
+       * @desc Insert a string into the trie
+       *
+       * @param {string} word - string to insert
+       */
+      value: function insert(word) {
+        if ((typeof word === "undefined" ? "undefined" : _typeof(word)) !== PrimitiveType.STRING) {
+          throw new Error("Unable to insert non-string value: " + word);
+        }
+
+        var curr = this.root;
+
+        var _iteratorNormalCompletion2 = true;
+        var _didIteratorError2 = false;
+        var _iteratorError2 = undefined;
+
+        try {
+          for (var _iterator2 = word[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+            var char = _step2.value;
+
+            if (curr.has(char)) {
+              curr = curr.get(char);
+            } else {
+              var node = new TrieNode(char);
+              curr.set(char, node);
+              curr = node;
+            }
+          }
+        } catch (err) {
+          _didIteratorError2 = true;
+          _iteratorError2 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+              _iterator2.return();
+            }
+          } finally {
+            if (_didIteratorError2) {
+              throw _iteratorError2;
+            }
+          }
+        }
+
+        curr._isCompleteWord = true;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Remove a string from the trie
+       *
+       * @param {string} word - string to remove
+       */
+
+    }, {
+      key: "remove",
+      value: function remove(word) {
+        if ((typeof word === "undefined" ? "undefined" : _typeof(word)) !== PrimitiveType.STRING) {
+          throw new Error("Unable to remove non-string value: " + word);
+        }
+
+        /**
+         * @public
+         *
+         * @desc Remove helper
+         *
+         * @param {TrieNode} curr - trie node
+         * @param {number} level - level in trie (0 -> height)
+         * @return {boolean} true if node is a leaf node and should be deleted; otherwise false
+         */
+        function _remove(curr) {
+          var level = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+          if (!curr) return false;
+
+          if (level === word.length) {
+            curr._isCompleteWord = false;
+            return curr.isLeafNode;
+          }
+
+          var char = word[level];
+
+          if (_remove(curr.get(char), level + 1)) {
+            curr.delete(char);
+            return curr.isLeafNode;
+          }
+        }
+
+        return _remove(this.root);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Search for a node in the trie matching the query
+       *
+       * @param {string} query - string query to search for
+       * @returns {Match} match object
+       */
+
+    }, {
+      key: "search",
+      value: function search(query) {
+        var node = this.root;
+        var index = 0;
+
+        while (index < query.length) {
+          node = node.get(query[index]);
+          if (!node) break;
+          index++;
+        }
+
+        return {
+          query: query,
+          matchedChars: index,
+          isMatch: query.length === index,
+          isCompleteWord: query.length === index && node.isCompleteWord,
+          node: node
+        };
+      }
+
+      /**
+       * @public
+       *
+       * @desc Check if the trie includes a word
+       *
+       * @param {string} word - full word to search for
+       * @returns {boolean} contains the word
+       */
+
+    }, {
+      key: "includes",
+      value: function includes(word) {
+        var _search = this.search(word),
+            isCompleteWord = _search.isCompleteWord;
+
+        return isCompleteWord;
+      }
+
+      /**
+       * @public
+       *
+       * @alias includes(word)
+       *
+       * @desc Check if the trie contains a word
+       *
+       * @param {string} word - full word to search for
+       * @returns {boolean} contains the word
+       */
+
+    }, {
+      key: "contains",
+      value: function contains(word) {
+        return this.includes(word);
+      }
+
+      /**
+       * @public
+       *
+       * @desc Check if the trie contains a prefix
+       *
+       * @param {string} prefix - prefix (i.e. partial word) to search for
+       * @returns {boolean} contains the prefix
+       */
+
+    }, {
+      key: "startsWith",
+      value: function startsWith(prefix) {
+        var _search2 = this.search(prefix),
+            isMatch = _search2.isMatch;
+
+        return isMatch;
+      }
+    }, {
+      key: "root",
+      get: function get$$1() {
+        return this._root;
+      }
+    }]);
+    return Trie;
+  }();
+
+  var version = "0.0.2";
 
   var Super = {
     version: version,
+
+    // Data Structures
     Array: _Array,
+    BinaryTree: BinaryTree,
+    LinkedList: LinkedList,
     Map: _Map,
-    Math: _Math,
-    Number: _Number,
     Object: _Object,
+    PriorityQueue: PriorityQueue,
     Queue: Queue,
     Set: _Set,
-    String: _String
+    Trie: Trie,
+
+    // Data Types
+    Math: _Math,
+    Number: _Number,
+    String: _String,
+
+    // Sorting Algorithms
+    mergeSort: mergeSort
   };
 
   exports.default = Super;
   exports.version = version;
   exports.Array = _Array;
+  exports.BinaryTree = BinaryTree;
+  exports.LinkedList = LinkedList;
   exports.Map = _Map;
-  exports.Math = _Math;
-  exports.Number = _Number;
   exports.Object = _Object;
+  exports.PriorityQueue = PriorityQueue;
   exports.Queue = Queue;
   exports.Set = _Set;
+  exports.Trie = Trie;
+  exports.Math = _Math;
+  exports.Number = _Number;
   exports.String = _String;
+  exports.mergeSort = mergeSort;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
