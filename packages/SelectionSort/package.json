@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superselectionsort",
-  "version": "1.2.16",
+  "version": "1.2.17",
   "description": "SelectionSort with superpowers! 💪",
   "main": "./lib/SelectionSort.js",
   "files": [
