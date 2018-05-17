@@ -24,6 +24,14 @@ Creates a new array with all sub-array elements concatted into it recursively up
 | --- | --- | --- | --- |
 | depth | number |  | flatten depth |
 
+### `bubbleSort(comparator: Comparator): Array<Item>`
+
+Sort using bubble sort
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| comparator | Comparator |  | comparator function |
+
 ### `mergeSort(comparator: Comparator): Array<Item>`
 
 Sort using merge sort

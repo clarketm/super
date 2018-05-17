@@ -180,6 +180,12 @@ window.esdocSearchIndex = [
     "typedef"
   ],
   [
+    "packages/array/src/lib/array.js~_array#bubblesort",
+    "class/packages/Array/src/lib/Array.js~_Array.html#instance-method-bubbleSort",
+    "packages/Array/src/lib/Array.js~_Array#bubbleSort",
+    "method"
+  ],
+  [
     "packages/array/src/lib/array.js~_array#constructor",
     "class/packages/Array/src/lib/Array.js~_Array.html#instance-constructor-constructor",
     "packages/Array/src/lib/Array.js~_Array#constructor",
@@ -349,13 +355,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-right",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
     "member"
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-right",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
     "member"
   ],
@@ -511,13 +517,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#next",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#next",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],

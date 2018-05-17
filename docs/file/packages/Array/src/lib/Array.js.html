@@ -72,6 +72,7 @@
  */
 
 import type { Comparator, Item } from &quot;../../../shared/src/types&quot;;
+import { bubbleSort } from &quot;../../../BubbleSort/src/lib/BubbleSort&quot;;
 import { mergeSort } from &quot;../../../MergeSort/src/lib/MergeSort&quot;;
 import { quickSort } from &quot;../../../QuickSort/src/lib/QuickSort&quot;;
 
@@ -132,6 +133,19 @@ class _Array extends Array&lt;Item&gt; {
 
     // $FlowFixMe
     return _flatten(depth, this);
+  }
+
+  /**
+   * @public
+   *
+   * @desc Sort using bubble sort
+   *
+   * @param {Comparator} comparator - comparator function
+   * @returns {Array&lt;Item&gt;} sorted array
+   */
+  bubbleSort(comparator: Comparator): Array&lt;Item&gt; {
+    // $FlowFixMe
+    return bubbleSort.call(this, null, comparator);
   }
 
   /**

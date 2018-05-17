@@ -1,11 +1,11 @@
 {
-  "coverage": "85.06%",
-  "expectCount": 154,
-  "actualCount": 131,
+  "coverage": "85.16%",
+  "expectCount": 155,
+  "actualCount": 132,
   "files": {
     "packages/Array/src/lib/Array.js": {
-      "expectCount": 6,
-      "actualCount": 6,
+      "expectCount": 7,
+      "actualCount": 7,
       "undocumentLines": []
     },
     "packages/BinaryTree/src/lib/BinaryTree.js": {
