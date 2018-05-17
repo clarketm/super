@@ -1,10 +1,14 @@
 
 declare export class Array extends Array<any> {
 
+  bubbleSort(comparator: any): Array<any>;
   constructor(iterable?: Array<any>): void;
   flatMap(callback: (value: any, index: number, array: Array<any>) => Array<any>): Array<any>;
   flatten(depth?: number): Array<any>;
+  insertionSort(comparator: any): Array<any>;
   mergeSort(comparator: any): Array<any>;
+  quickSort(comparator: any): Array<any>;
+  selectionSort(comparator: any): Array<any>;
 }
 
 declare export class BinaryTree {
@@ -42,6 +46,31 @@ declare export class BinaryTreeNode {
 }
 
 declare export function bubbleSort(arr: Array<any>, comparator?: any): Array<any>;
+
+declare export class Heap {
+  static HeapType: {MAX: (a: any, b: any) => number, MIN: (a: any, b: any) => number};
+  static _defaultComparator(a: any, b: any): number | boolean;
+  static _left(index: number): any;
+  static _parent(index: number): any;
+  static _right(index: number): any;
+
+  _compare: any;
+  _heap: Array<any>;
+  get max(): any;
+  get min(): any;
+  get size(): number;
+  _percolateDown(index: number): void;
+  _percolateUp(index: number): void;
+  clear(): void;
+  constructor(iterable?: Array<any>, comparator: any): void;
+  deleteMax(): any;
+  deleteMin(): any;
+  insert(value: any): number;
+  isEmpty(): boolean;
+  toArray(): Array<any>;
+}
+
+declare export function insertionSort(arr: Array<any>, comparator?: any): Array<any>;
 
 declare export class LinkedList {
 
@@ -150,7 +179,10 @@ declare export class Queue {
   isEmpty(): boolean;
   toArray(): Array<any>;
 }
+
 declare export function quickSort(arr: Array<any>, comparator?: any): Array<any>;
+
+declare export function selectionSort(arr: Array<any>, comparator?: any): Array<any>;
 
 declare export class Set extends Set<any> {
 
@@ -205,3 +237,5 @@ declare export class TrieNode {
 declare export function _compare(comparator: any): any;
 declare export function _defaultComparator(a: any, b: any): number | boolean;
 declare export function isIterable(item: any): boolean;
+declare export function randInt(min: number, max: number): number;
+declare export function swap(arr: Array<any>, a: any, b: any): void;
