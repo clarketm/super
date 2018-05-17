@@ -1,6 +1,7 @@
 [ignore]
 .*/node_modules/.*
 ./packages/generator-super
+.*\.flow
 
 [include]
 ./packages/.*/src/lib/.*\.js

@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/super",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Data structures, data types, and algorithms with superpowers! 💪",
   "main": "dist/super.js",
   "module": "dist/super.es.js",
@@ -12,14 +12,14 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build ; yarn build:dist",
-    "build:dist": "shx rm -rf ./dist ; yarn bundle:dist ; yarn bundle:es ; yarn stats:dist",
+    "build:dist": "shx rm -rf ./dist/super{es,}.{min.,}js ; yarn bundle:dist ; yarn bundle:es ; yarn stats:dist",
     "stats:dist": "node ./resources/dist-stats.js",
     "bundle:dist": "rollup -c ./resources/rollup-config.js",
     "bundle:es": "rollup -c ./resources/rollup-config-es.js",
     "lint": "lerna run lint",
     "prettier": "prettier --write './*.{js,css,md}' ; lerna run prettier",
     "docs": "shx rm -rf ./docs ; esdoc",
-    "types": "flow gen-flow-files ./packages --out-dir packages",
+    "types": "flow gen-flow-files ./packages --out-dir packages ; shx cat ./packages/*/src/lib/*.flow > ./dist/super.js.flow",
     "test": "lerna run test",
     "prep": "yarn lint && yarn prettier && yarn docs && yarn build && yarn test",
     "prepublishOnly": "yarn prep && bash ./resources/publish.sh"

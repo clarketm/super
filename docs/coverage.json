@@ -74,8 +74,8 @@
       "expectCount": 19,
       "actualCount": 17,
       "undocumentLines": [
-        31,
-        32
+        32,
+        33
       ]
     },
     "packages/PriorityQueue/src/lib/QueueNode.js": {
