@@ -31,3 +31,11 @@ Sort using merge sort
 | Name       | Type       | Attribute | Description         |
 | ---------- | ---------- | --------- | ------------------- |
 | comparator | Comparator |           | comparator function |
+
+### `quickSort(comparator: Comparator): Array`
+
+Sort using quick sort
+
+| Name       | Type       | Attribute | Description         |
+| ---------- | ---------- | --------- | ------------------- |
+| comparator | Comparator |           | comparator function |

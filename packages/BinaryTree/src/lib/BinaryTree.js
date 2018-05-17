@@ -14,7 +14,7 @@ export const TraversalType = {
   LEVEL_ORDER: "level"
 };
 
-type Traversal = $Keys<typeof TraversalType>;
+type Traversal = $Values<typeof TraversalType>;
 
 /**
  *

@@ -87,16 +87,16 @@
     babel-preset-stage-0 "^6.24.1"
 
 "@clarketm/eslint-config-super@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@clarketm/eslint-config-super/-/eslint-config-super-1.2.2.tgz#890a1aad22e497a93850514e7934da21ffca9cc5"
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@clarketm/eslint-config-super/-/eslint-config-super-1.2.3.tgz#eb55e231640cda6366f070dffa56613b0084990f"
 
 "@types/estree@0.0.38":
   version "0.0.38"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.38.tgz#c1be40aa933723c608820a99a373a16d215a1ca2"
 
 "@types/node@*":
-  version "10.0.10"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.0.10.tgz#7f4667269e086daeef8667069f9f2cd862f49eb7"
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.1.0.tgz#2783ee1b6c47cbd4044f4a233976c1ac5fa9e942"
 
 acorn-jsx@^3.0.0:
   version "3.0.1"

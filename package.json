@@ -19,7 +19,8 @@
     "lint": "lerna run lint",
     "prettier": "prettier --write './*.{js,css,md}' ; lerna run prettier",
     "docs": "shx rm -rf ./docs ; esdoc",
-    "types": "flow gen-flow-files ./packages --out-dir packages ; sed -i '/flow/d; /import/d' ./packages/*/src/lib/*.js.flow ; shx cat ./packages/*/src/lib/*.flow > ./dist/super.js.flow",
+    "types:gen": "flow gen-flow-files ./packages --out-dir packages ; sed -i '/flow/d; /import/d' ./packages/*/src/lib/*.js.flow",
+    "types:dist": "shx cat ./packages/*/src/lib/*.flow ./packages/shared/src/*.flow > ./dist/super.js.flow",
     "test": "lerna run test",
     "prep": "yarn lint && yarn prettier && yarn docs && yarn build && yarn test",
     "prepublishOnly": "yarn prep && bash ./resources/publish.sh"
