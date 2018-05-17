@@ -7,6 +7,7 @@ import type { Comparator, Item } from "../../../shared/src/types";
 import { PrimitiveType } from "../../../shared/src/constants";
 import { QueueNode } from "./QueueNode";
 import { isIterable } from "../../../shared/src/helpers";
+// $FlowFixMe
 import isPlainObject from "lodash/isPlainObject";
 
 type PriorityQueueItem1 = [Item];
