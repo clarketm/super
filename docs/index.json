@@ -269,7 +269,7 @@
     "__docId__": 9,
     "kind": "file",
     "name": "packages/BinaryTree/src/lib/BinaryTree.js",
-    "content": "/**\n * @flow\n * @module super/binarytree\n */\n\nimport type { Item } from \"../../../shared/src/types\";\nimport { BinaryTreeNode } from \"./BinaryTreeNode\";\nimport { Queue } from \"../../../Queue/src/lib/Queue\";\n\nexport const TraversalType = {\n  PRE_ORDER: \"pre\",\n  IN_ORDER: \"in\",\n  POST_ORDER: \"post\",\n  LEVEL_ORDER: \"level\"\n};\n\ntype Traversal = $Values<typeof TraversalType>;\n\n/**\n *\n * BinaryTree with superpowers! 💪\n *\n * @public\n *\n */\nclass BinaryTree {\n  /** @private */\n  _root: ?BinaryTreeNode;\n\n  /**\n   * @public\n   *\n   * @desc Construct a BinaryTree\n   *\n   * @param {Array<number>} iterable\n   */\n  constructor(iterable: Array<number> = []) {\n    this._root = null;\n\n    for (let item of iterable) {\n      this.insert(item);\n    }\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the root of the tree\n   *\n   * @returns {BinaryTreeNode} root node\n   */\n  get root(): ?BinaryTreeNode {\n    return this._root;\n  }\n\n  /**\n   * @public\n   *\n   * @alias getHeight(root)\n   *\n   * @desc Get the height of the tree\n   *\n   * @returns {BinaryTreeNode} root node\n   */\n  get height(): number {\n    return this.getHeight(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the height of the tree at node\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {number} height of tree\n   */\n  getHeight(node: ?BinaryTreeNode = this.root): number {\n    /**\n     * @private\n     *\n     * @desc Height helper\n     *\n     * @param {BinaryTreeNode} node\n     * @returns {number} height of tree\n     */\n    const _height = (node: ?BinaryTreeNode) => {\n      if (!node) return 0;\n      return Math.max(_height(node.left), _height(node.right)) + 1;\n    };\n\n    return _height(node);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Find minimum value in tree\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {BinaryTreeNode} node\n   */\n  findMin(node: ?BinaryTreeNode = this.root): ?BinaryTreeNode {\n    // $FlowFixMe\n    if (!node.left) return node;\n    else return this.findMin(node.left);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Find maximum value in tree\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {BinaryTreeNode} node\n   */\n  findMax(node: ?BinaryTreeNode = this.root): ?BinaryTreeNode {\n    // $FlowFixMe\n    if (!node.right) return node;\n    else return this.findMax(node.right);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Insert a value into the tree\n   *\n   * @param {Item} value - value to insert into the tree\n   */\n  insert(value: Item) {\n    let node = new BinaryTreeNode(value);\n\n    if (!this.root) {\n      this._root = node;\n      return;\n    }\n\n    /**\n     * @private\n     *\n     * @desc Insert helper\n     *\n     * @param {BinaryTreeNode} root\n     */\n    function _insert(root: BinaryTreeNode) {\n      if (node.value < root.value) {\n        if (root.left) {\n          return _insert(root.left);\n        } else {\n          root.left = node;\n        }\n      } else if (node.value >= root.value) {\n        if (root.right) {\n          return _insert(root.right);\n        } else {\n          root.right = node;\n        }\n      }\n    }\n\n    _insert(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Search and retrieve a value from the tree\n   *\n   * @param {Item} value - value to search\n   * @return {BinaryTreeNode} match node, or null if not found\n   */\n  search(value: Item): ?BinaryTreeNode {\n    if (!value) return null;\n\n    /**\n     * @private\n     *\n     * @desc Search helper\n     *\n     * @param {BinaryTreeNode} node\n     * @return {BinaryTreeNode} match node\n     */\n    function _search(node): ?BinaryTreeNode {\n      if (!node) return null;\n\n      if (value === node.value) {\n        return node;\n      } else if (value < node.value) {\n        return _search(node.left);\n      } else if (value >= node.value) {\n        return _search(node.right);\n      }\n    }\n\n    return _search(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove a value from the tree\n   *\n   * @param {Item} value - value to remove\n   */\n  remove(value: Item) {\n    /**\n     * @private\n     *\n     * @desc Remove helper\n     *\n     * @param {BinaryTreeNode} node\n     * @param {Item} value\n     */\n    const _remove = (node: ?BinaryTreeNode, value: Item) => {\n      if (!node) return null;\n\n      if (node.value === value) {\n        if (!node.left && !node.right) {\n          return null;\n        } else if (!node.left) {\n          return node.right;\n        } else if (!node.right) {\n          return node.left;\n        } else {\n          let aux = this.findMin(node.right);\n          // $FlowFixMe\n          node.value = aux.value;\n          // $FlowFixMe\n          node.right = _remove(node.right, aux.value);\n          return node;\n        }\n      } else if (value < node.value) {\n        node.left = _remove(node.left, value);\n        return node;\n      } else if (value >= node.value) {\n        node.right = _remove(node.right, value);\n        return node;\n      }\n    };\n\n    // $FlowFixMe\n    this._root = _remove(this.root, value);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in preOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode>} array of nodes or values\n   */\n  preOrder(node: ?BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n    /**\n     * @private\n     *\n     * @desc PreOrder helper\n     *\n     * @param {BinaryTreeNode} node\n     */\n    function _preOrder(node: ?BinaryTreeNode) {\n      if (node) {\n        nodes = [...nodes, node];\n        _preOrder(node.left);\n        _preOrder(node.right);\n      }\n    }\n\n    _preOrder(node);\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in inOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode>} array of nodes or values\n   */\n  inOrder(node: ?BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n    /**\n     * @private\n     *\n     * @desc inOrder helper\n     *\n     * @param {BinaryTreeNode} node\n     */\n    function _inOrder(node: ?BinaryTreeNode) {\n      if (node) {\n        _inOrder(node.left);\n        nodes = [...nodes, node];\n        _inOrder(node.right);\n      }\n    }\n\n    _inOrder(node);\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in postOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode>} array of nodes or values\n   */\n  postOrder(node: ?BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n    /**\n     * @private\n     *\n     * @desc PreOrder helper\n     *\n     * @param {BinaryTreeNode} node\n     */\n    function _postOrder(node: ?BinaryTreeNode) {\n      if (node) {\n        _postOrder(node.left);\n        _postOrder(node.right);\n        nodes = [...nodes, node];\n      }\n    }\n\n    _postOrder(node);\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in levelOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode>} array of nodes or values\n   */\n  levelOrder(node: ?BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n\n    let q = new Queue();\n    q.enqueue(node);\n\n    while (!q.isEmpty()) {\n      let node = q.dequeue();\n      nodes.push(node);\n\n      if (node.left) {\n        q.enqueue(node.left);\n      }\n\n      if (node.right) {\n        q.enqueue(node.right);\n      }\n    }\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the tree to an array\n   *\n   * @param {Traversal} traversal - method of traversal\n   * @param {boolean} flatten - if false return nodes; if true return only values\n   * @returns {Array<BinaryTreeNode | Item> } array representation of the list\n   */\n  toArray(traversal: Traversal, flatten: boolean = false): Array<BinaryTreeNode | Item> {\n    let nodes;\n\n    switch (traversal) {\n      default:\n      case TraversalType.PRE_ORDER:\n        nodes = this.preOrder(this.root);\n        break;\n      case TraversalType.IN_ORDER:\n        nodes = this.inOrder(this.root);\n        break;\n      case TraversalType.POST_ORDER:\n        nodes = this.postOrder(this.root);\n        break;\n      case TraversalType.LEVEL_ORDER:\n        nodes = this.levelOrder(this.root);\n        break;\n    }\n\n    return flatten ? nodes.map(v => v.value) : nodes;\n  }\n}\n\nexport { BinaryTree };\n",
+    "content": "/**\n * @flow\n * @module super/binarytree\n */\n\nimport type { Item } from \"../../../shared/src/types\";\nimport { BinaryTreeNode } from \"./BinaryTreeNode\";\nimport { Queue } from \"../../../Queue/src/lib/Queue\";\n\nexport const TraversalType = {\n  PRE_ORDER: \"pre\",\n  IN_ORDER: \"in\",\n  POST_ORDER: \"post\",\n  LEVEL_ORDER: \"level\"\n};\n\ntype Traversal = $Keys<typeof TraversalType>;\n\n/**\n *\n * BinaryTree with superpowers! 💪\n *\n * @public\n *\n */\nclass BinaryTree {\n  /** @private */\n  _root: ?BinaryTreeNode;\n\n  /**\n   * @public\n   *\n   * @desc Construct a BinaryTree\n   *\n   * @param {Array<number>} iterable\n   */\n  constructor(iterable: Array<number> = []) {\n    this._root = null;\n\n    for (let item of iterable) {\n      this.insert(item);\n    }\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the root of the tree\n   *\n   * @returns {BinaryTreeNode} root node\n   */\n  get root(): ?BinaryTreeNode {\n    return this._root;\n  }\n\n  /**\n   * @public\n   *\n   * @alias getHeight(root)\n   *\n   * @desc Get the height of the tree\n   *\n   * @returns {BinaryTreeNode} root node\n   */\n  get height(): number {\n    return this.getHeight(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the height of the tree at node\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {number} height of tree\n   */\n  getHeight(node: ?BinaryTreeNode = this.root): number {\n    /**\n     * @private\n     *\n     * @desc Height helper\n     *\n     * @param {BinaryTreeNode} node\n     * @returns {number} height of tree\n     */\n    const _height = (node: ?BinaryTreeNode) => {\n      if (!node) return 0;\n      return Math.max(_height(node.left), _height(node.right)) + 1;\n    };\n\n    return _height(node);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Find minimum value in tree\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {BinaryTreeNode} node\n   */\n  findMin(node: ?BinaryTreeNode = this.root): ?BinaryTreeNode {\n    // $FlowFixMe\n    if (!node.left) return node;\n    else return this.findMin(node.left);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Find maximum value in tree\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {BinaryTreeNode} node\n   */\n  findMax(node: ?BinaryTreeNode = this.root): ?BinaryTreeNode {\n    // $FlowFixMe\n    if (!node.right) return node;\n    else return this.findMax(node.right);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Insert a value into the tree\n   *\n   * @param {Item} value - value to insert into the tree\n   */\n  insert(value: Item) {\n    let node = new BinaryTreeNode(value);\n\n    if (!this.root) {\n      this._root = node;\n      return;\n    }\n\n    /**\n     * @private\n     *\n     * @desc Insert helper\n     *\n     * @param {BinaryTreeNode} root\n     */\n    function _insert(root: BinaryTreeNode) {\n      if (node.value < root.value) {\n        if (root.left) {\n          return _insert(root.left);\n        } else {\n          root.left = node;\n        }\n      } else if (node.value >= root.value) {\n        if (root.right) {\n          return _insert(root.right);\n        } else {\n          root.right = node;\n        }\n      }\n    }\n\n    _insert(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Search and retrieve a value from the tree\n   *\n   * @param {Item} value - value to search\n   * @return {BinaryTreeNode} match node, or null if not found\n   */\n  search(value: Item): ?BinaryTreeNode {\n    if (!value) return null;\n\n    /**\n     * @private\n     *\n     * @desc Search helper\n     *\n     * @param {BinaryTreeNode} node\n     * @return {BinaryTreeNode} match node\n     */\n    function _search(node): ?BinaryTreeNode {\n      if (!node) return null;\n\n      if (value === node.value) {\n        return node;\n      } else if (value < node.value) {\n        return _search(node.left);\n      } else if (value >= node.value) {\n        return _search(node.right);\n      }\n    }\n\n    return _search(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove a value from the tree\n   *\n   * @param {Item} value - value to remove\n   */\n  remove(value: Item) {\n    /**\n     * @private\n     *\n     * @desc Remove helper\n     *\n     * @param {BinaryTreeNode} node\n     * @param {Item} value\n     */\n    const _remove = (node: ?BinaryTreeNode, value: Item) => {\n      if (!node) return null;\n\n      if (node.value === value) {\n        if (!node.left && !node.right) {\n          return null;\n        } else if (!node.left) {\n          return node.right;\n        } else if (!node.right) {\n          return node.left;\n        } else {\n          let aux = this.findMin(node.right);\n          // $FlowFixMe\n          node.value = aux.value;\n          // $FlowFixMe\n          node.right = _remove(node.right, aux.value);\n          return node;\n        }\n      } else if (value < node.value) {\n        node.left = _remove(node.left, value);\n        return node;\n      } else if (value >= node.value) {\n        node.right = _remove(node.right, value);\n        return node;\n      }\n    };\n\n    // $FlowFixMe\n    this._root = _remove(this.root, value);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in preOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode>} array of nodes or values\n   */\n  preOrder(node: ?BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n    /**\n     * @private\n     *\n     * @desc PreOrder helper\n     *\n     * @param {BinaryTreeNode} node\n     */\n    function _preOrder(node: ?BinaryTreeNode) {\n      if (node) {\n        nodes = [...nodes, node];\n        _preOrder(node.left);\n        _preOrder(node.right);\n      }\n    }\n\n    _preOrder(node);\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in inOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode>} array of nodes or values\n   */\n  inOrder(node: ?BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n    /**\n     * @private\n     *\n     * @desc inOrder helper\n     *\n     * @param {BinaryTreeNode} node\n     */\n    function _inOrder(node: ?BinaryTreeNode) {\n      if (node) {\n        _inOrder(node.left);\n        nodes = [...nodes, node];\n        _inOrder(node.right);\n      }\n    }\n\n    _inOrder(node);\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in postOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode>} array of nodes or values\n   */\n  postOrder(node: ?BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n    /**\n     * @private\n     *\n     * @desc PreOrder helper\n     *\n     * @param {BinaryTreeNode} node\n     */\n    function _postOrder(node: ?BinaryTreeNode) {\n      if (node) {\n        _postOrder(node.left);\n        _postOrder(node.right);\n        nodes = [...nodes, node];\n      }\n    }\n\n    _postOrder(node);\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Traverse the tree in levelOrder traversal ordering\n   *\n   * @param {BinaryTreeNode} node - root node\n   * @returns {Array<BinaryTreeNode>} array of nodes or values\n   */\n  levelOrder(node: ?BinaryTreeNode = this.root): Array<BinaryTreeNode> {\n    let nodes = [];\n\n    let q = new Queue();\n    q.enqueue(node);\n\n    while (!q.isEmpty()) {\n      let node = q.dequeue();\n      nodes.push(node);\n\n      if (node.left) {\n        q.enqueue(node.left);\n      }\n\n      if (node.right) {\n        q.enqueue(node.right);\n      }\n    }\n\n    return nodes;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the tree to an array\n   *\n   * @param {Traversal} traversal - method of traversal\n   * @param {boolean} flatten - if false return nodes; if true return only values\n   * @returns {Array<BinaryTreeNode | Item> } array representation of the list\n   */\n  toArray(traversal: Traversal, flatten: boolean = false): Array<BinaryTreeNode | Item> {\n    let nodes;\n\n    switch (traversal) {\n      default:\n      case TraversalType.PRE_ORDER:\n        nodes = this.preOrder(this.root);\n        break;\n      case TraversalType.IN_ORDER:\n        nodes = this.inOrder(this.root);\n        break;\n      case TraversalType.POST_ORDER:\n        nodes = this.postOrder(this.root);\n        break;\n      case TraversalType.LEVEL_ORDER:\n        nodes = this.levelOrder(this.root);\n        break;\n    }\n\n    return flatten ? nodes.map(v => v.value) : nodes;\n  }\n}\n\nexport { BinaryTree };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/BinaryTree/src/lib/BinaryTree.js",
     "access": "public",
@@ -1083,6 +1083,61 @@
   {
     "__docId__": 46,
     "kind": "file",
+    "name": "packages/InsertionSort/src/lib/InsertionSort.js",
+    "content": "/**\n * @flow\n * @module super/insertionsort\n */\n\nimport type { Comparator, Item } from \"../../../shared/src/types\";\nimport { _compare, _defaultComparator, swap } from \"../../../shared/src/helpers\";\n\n/**\n *\n * InsertionSort with superpowers! 💪\n *\n * time:    O(n^2)\n * space:   O(1)\n *\n * @public\n *\n * @param {Array<Item>} arr - array to sort\n * @param {Comparator} comparator\n * @returns {Array<Item>} sorted array\n */\nfunction insertionSort(arr: Array<Item>, comparator: Comparator = _defaultComparator) {\n  if (!(this instanceof Array) && !(arr instanceof Array)) {\n    throw new Error(\"Array type is required\");\n  }\n\n  let target = this instanceof Array ? this : arr.slice(0);\n  let compare = _compare(comparator);\n\n  /**\n   *\n   * InsertionSort helper\n   *\n   * @private\n   *\n   * @param {Array<Item>} arr - array target\n   * @returns {Array<Item>} sorted array\n   */\n  function _insertionSort(arr: Array<Item>): Array<Item> {\n    for (let i = 0; i < arr.length - 1; i++) {\n      for (let j = i; j >= 0 && compare(arr[j + 1], arr[j]); j--) {\n        swap(arr, j, j + 1);\n      }\n    }\n\n    return arr;\n  }\n\n  return _insertionSort(target);\n}\n\nexport { insertionSort };\n",
+    "static": true,
+    "longname": "/Users/clarketm/js/super/packages/InsertionSort/src/lib/InsertionSort.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 47,
+    "kind": "function",
+    "name": "insertionSort",
+    "memberof": "packages/InsertionSort/src/lib/InsertionSort.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "packages/InsertionSort/src/lib/InsertionSort.js~insertionSort",
+    "access": "public",
+    "export": true,
+    "importPath": "@clarketm/super/packages/InsertionSort/src/lib/InsertionSort.js",
+    "importStyle": "{insertionSort}",
+    "description": "",
+    "lineNumber": 22,
+    "unknown": [
+      {
+        "tagName": "@module",
+        "tagValue": "super/insertionsort"
+      }
+    ],
+    "params": [
+      {
+        "name": "arr",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "comparator",
+        "optional": true,
+        "types": [
+          "*"
+        ],
+        "defaultRaw": "_defaultComparator",
+        "defaultValue": "_defaultComparator"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
     "name": "packages/LinkedList/src/lib/LinkedList.js",
     "content": "/**\n * @flow\n * @module super/linkedlist\n */\n\nimport { ListNode } from \"./ListNode\";\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * LinkedList with superpowers! 💪\n *\n * @public\n *\n */\nclass LinkedList {\n  /** @private */\n  _size: number;\n\n  /** @private */\n  _head: ?ListNode;\n\n  /** @private */\n  _tail: ?ListNode;\n\n  /**\n   * @public\n   *\n   * @desc Construct a LinkedList\n   *\n   * @param {Array<Item>} iterable\n   */\n  constructor(iterable: Array<Item> = []) {\n    let head = new ListNode(0);\n    let prev = null;\n    let curr = head;\n    let size = 0;\n\n    for (let item: Item of iterable) {\n      curr.next = new ListNode(item);\n      curr = curr.next;\n\n      curr.prev = prev;\n      prev = curr;\n\n      size++;\n    }\n\n    this._size = size;\n    this._head = head.next;\n    this._tail = curr;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the head of the list\n   *\n   * @returns {ListNode} head node\n   */\n  get head(): ?ListNode {\n    return this._head;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the tail of the list\n   *\n   * @returns {ListNode} tail node\n   */\n  get tail(): ?ListNode {\n    return this._tail;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the size of the list\n   *\n   * @returns {number} number of nodes in the list\n   */\n  get size(): number {\n    return this._size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Insert a node at a given position\n   *\n   * @param {number} position - position to insert node\n   * @param {Item} value - value to insert into list\n   * @returns {number} size after insertion\n   */\n  // TODO: insert by value\n  insert(position: number, value: Item): number {\n    if (position < 0) {\n      return this.insert(Math.max(0, this.size + 1 - Math.abs(position)), value);\n    }\n\n    let prev = null;\n    let curr = this.head;\n\n    let p = 0;\n    while (p < position && curr) {\n      prev = curr;\n      curr = curr.next;\n      p++;\n    }\n\n    let node = new ListNode(value);\n    node.prev = prev;\n    node.next = curr;\n\n    if (prev) prev.next = node;\n    else this._head = node;\n\n    if (curr) curr.prev = node;\n    else this._tail = node;\n\n    this._size++;\n\n    return this._size;\n  }\n\n  /**\n   * @public\n   *\n   * @alias insert(0, value)\n   *\n   * @desc Prepend a node to the front of the list\n   *\n   * @param {Item} value - value to prepend to list\n   * @returns {number} size after insertion\n   */\n  prepend(value: Item): number {\n    return this.insert(0, value);\n  }\n\n  /**\n   * @public\n   *\n   * @alias insert(0, value)\n   *\n   * @desc Unshift a node to the front of the list\n   *\n   * @param {Item} value - value to unshift to list\n   * @returns {number} size after insertion\n   */\n  unshift(value: Item): number {\n    return this.prepend(value);\n  }\n\n  /**\n   * @public\n   *\n   * @alias insert(list.size, value)\n   *\n   * @desc Append a node to the rear of the list\n   *\n   * @param {Item} value - value to append to list\n   * @returns {number} size after insertion\n   */\n  append(value: Item): number {\n    return this.insert(this.size, value);\n  }\n\n  /**\n   * @public\n   *\n   * @alias insert(list.size, value)\n   *\n   * @desc Push a node to the rear of the list\n   *\n   * @param {Item} value - value to push to list\n   * @returns {number} size after insertion\n   */\n  push(value: Item): number {\n    return this.append(value);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove a node at a given position\n   *\n   * @param {number} position - position to remove node\n   * @returns {Item} removed item\n   */\n  // TODO: remove by value\n  remove(position: number): Item {\n    if (position < 0) {\n      return this.remove(Math.max(0, this.size - Math.abs(position)));\n    }\n\n    let prev = null;\n    let curr = this.head;\n\n    let p = 0;\n    while (p < position && curr) {\n      prev = curr;\n      curr = curr.next;\n      p++;\n    }\n\n    if (prev && curr && curr.next) {\n      prev.next = curr.next;\n      // $FlowFixMe\n      curr.next.prev = prev;\n      this._size--;\n    } else if (prev && curr) {\n      prev.next = null;\n      this._tail = prev;\n      this._size--;\n    } else if (curr && curr.next) {\n      curr.next.prev = null;\n      this._head = curr.next;\n      this._size--;\n    }\n\n    return curr;\n  }\n\n  /**\n   * @public\n   *\n   * @alias remove(0)\n   *\n   * @desc Shift a node from the front of list\n   *\n   * @returns {Item} shifted item\n   */\n  shift(): Item {\n    return this.remove(0);\n  }\n\n  /**\n   * @public\n   *\n   * @alias remove(list.size - 1)\n   *\n   * @desc Pop a node from the rear of list\n   *\n   * @returns {Item} shifted item\n   */\n  pop(): Item {\n    return this.remove(this.size - 1);\n  }\n\n  // TODO:\n  // searchNodeAt (position: number)\n\n  /**\n   * @public\n   *\n   * @desc Convert the node and next nodes (recursively) to an array\n   *\n   * @returns {Array<Item>} array representation of the list\n   */\n  toArray(): Array<Item> {\n    let array = [];\n    let node = this.head;\n\n    while (node) {\n      array.push(node.value);\n      node = node.next;\n    }\n\n    return array;\n  }\n}\n\nexport { LinkedList };\n",
     "static": true,
@@ -1092,7 +1147,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 47,
+    "__docId__": 49,
     "kind": "class",
     "name": "LinkedList",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js",
@@ -1107,7 +1162,7 @@
     "interface": false
   },
   {
-    "__docId__": 48,
+    "__docId__": 50,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1120,7 +1175,7 @@
     "lineNumber": 28
   },
   {
-    "__docId__": 49,
+    "__docId__": 51,
     "kind": "member",
     "name": "_size",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1137,7 +1192,7 @@
     }
   },
   {
-    "__docId__": 50,
+    "__docId__": 52,
     "kind": "member",
     "name": "_head",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1154,7 +1209,7 @@
     }
   },
   {
-    "__docId__": 51,
+    "__docId__": 53,
     "kind": "member",
     "name": "_tail",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1171,7 +1226,7 @@
     }
   },
   {
-    "__docId__": 52,
+    "__docId__": 54,
     "kind": "get",
     "name": "head",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1189,7 +1244,7 @@
     }
   },
   {
-    "__docId__": 53,
+    "__docId__": 55,
     "kind": "get",
     "name": "tail",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1221,7 +1276,7 @@
     }
   },
   {
-    "__docId__": 54,
+    "__docId__": 56,
     "kind": "get",
     "name": "size",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1253,7 +1308,7 @@
     }
   },
   {
-    "__docId__": 55,
+    "__docId__": 57,
     "kind": "method",
     "name": "insert",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1302,7 +1357,7 @@
     }
   },
   {
-    "__docId__": 58,
+    "__docId__": 60,
     "kind": "method",
     "name": "prepend",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1345,7 +1400,7 @@
     }
   },
   {
-    "__docId__": 59,
+    "__docId__": 61,
     "kind": "method",
     "name": "unshift",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1388,7 +1443,7 @@
     }
   },
   {
-    "__docId__": 60,
+    "__docId__": 62,
     "kind": "method",
     "name": "append",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1431,7 +1486,7 @@
     }
   },
   {
-    "__docId__": 61,
+    "__docId__": 63,
     "kind": "method",
     "name": "push",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1474,7 +1529,7 @@
     }
   },
   {
-    "__docId__": 62,
+    "__docId__": 64,
     "kind": "method",
     "name": "remove",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1513,7 +1568,7 @@
     }
   },
   {
-    "__docId__": 65,
+    "__docId__": 67,
     "kind": "method",
     "name": "shift",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1545,7 +1600,7 @@
     "params": []
   },
   {
-    "__docId__": 66,
+    "__docId__": 68,
     "kind": "method",
     "name": "pop",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1577,7 +1632,7 @@
     "params": []
   },
   {
-    "__docId__": 67,
+    "__docId__": 69,
     "kind": "method",
     "name": "toArray",
     "memberof": "packages/LinkedList/src/lib/LinkedList.js~LinkedList",
@@ -1605,7 +1660,7 @@
     "params": []
   },
   {
-    "__docId__": 68,
+    "__docId__": 70,
     "kind": "file",
     "name": "packages/LinkedList/src/lib/ListNode.js",
     "content": "/**\n * @flow\n * @module super/linkedlist\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * ListNode\n *\n * @public\n *\n */\nclass ListNode {\n  /** @private */\n  _value: Item;\n\n  /** @private */\n  _next: ?ListNode;\n\n  /** @private */\n  _prev: ?ListNode;\n\n  /**\n   * @public\n   *\n   * @desc Construct a ListNode\n   *\n   * @param {Item} item - node value\n   */\n  constructor(item: Item) {\n    this._value = item;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the value of the node\n   *\n   * @returns {Item} node value\n   */\n  get value(): Item {\n    return this._value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the value of the node\n   *\n   */\n  set value(value: Item) {\n    this._value = value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the next node in list\n   *\n   * @returns {ListNode} next node\n   */\n  get next(): ?ListNode {\n    return this._next;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the next node in list\n   *\n   */\n  set next(next: ?ListNode) {\n    this._next = next;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the previous node in list\n   *\n   * @returns {ListNode} previous node\n   */\n  get prev(): ?ListNode {\n    return this._prev;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set the next node in list\n   *\n   */\n  set prev(prev: ?ListNode) {\n    this._prev = prev;\n  }\n}\n\nexport { ListNode };\n",
@@ -1616,7 +1671,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 69,
+    "__docId__": 71,
     "kind": "class",
     "name": "ListNode",
     "memberof": "packages/LinkedList/src/lib/ListNode.js",
@@ -1631,7 +1686,7 @@
     "interface": false
   },
   {
-    "__docId__": 70,
+    "__docId__": 72,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/LinkedList/src/lib/ListNode.js~ListNode",
@@ -1644,7 +1699,7 @@
     "lineNumber": 22
   },
   {
-    "__docId__": 71,
+    "__docId__": 73,
     "kind": "member",
     "name": "_value",
     "memberof": "packages/LinkedList/src/lib/ListNode.js~ListNode",
@@ -1661,7 +1716,7 @@
     }
   },
   {
-    "__docId__": 72,
+    "__docId__": 74,
     "kind": "get",
     "name": "value",
     "memberof": "packages/LinkedList/src/lib/ListNode.js~ListNode",
@@ -1679,7 +1734,7 @@
     }
   },
   {
-    "__docId__": 73,
+    "__docId__": 75,
     "kind": "set",
     "name": "value",
     "memberof": "packages/LinkedList/src/lib/ListNode.js~ListNode",
@@ -1692,7 +1747,7 @@
     "lineNumber": 48
   },
   {
-    "__docId__": 75,
+    "__docId__": 77,
     "kind": "get",
     "name": "next",
     "memberof": "packages/LinkedList/src/lib/ListNode.js~ListNode",
@@ -1724,7 +1779,7 @@
     }
   },
   {
-    "__docId__": 76,
+    "__docId__": 78,
     "kind": "set",
     "name": "next",
     "memberof": "packages/LinkedList/src/lib/ListNode.js~ListNode",
@@ -1737,7 +1792,7 @@
     "lineNumber": 69
   },
   {
-    "__docId__": 77,
+    "__docId__": 79,
     "kind": "member",
     "name": "_next",
     "memberof": "packages/LinkedList/src/lib/ListNode.js~ListNode",
@@ -1754,7 +1809,7 @@
     }
   },
   {
-    "__docId__": 78,
+    "__docId__": 80,
     "kind": "get",
     "name": "prev",
     "memberof": "packages/LinkedList/src/lib/ListNode.js~ListNode",
@@ -1786,7 +1841,7 @@
     }
   },
   {
-    "__docId__": 79,
+    "__docId__": 81,
     "kind": "set",
     "name": "prev",
     "memberof": "packages/LinkedList/src/lib/ListNode.js~ListNode",
@@ -1799,7 +1854,7 @@
     "lineNumber": 90
   },
   {
-    "__docId__": 80,
+    "__docId__": 82,
     "kind": "member",
     "name": "_prev",
     "memberof": "packages/LinkedList/src/lib/ListNode.js~ListNode",
@@ -1816,7 +1871,7 @@
     }
   },
   {
-    "__docId__": 81,
+    "__docId__": 83,
     "kind": "file",
     "name": "packages/Map/src/lib/Map.js",
     "content": "/**\n * @flow\n * @module super/map\n */\n\nimport type { Item } from \"../../../shared/src/types\";\nimport { PrimitiveType } from \"../../../shared/src/constants\";\n\n/**\n * @typedef {Function} Callback\n */\ntype Callback = (value: any, key: any, map: Map<Item, Item>) => boolean;\n\n/**\n *\n * Map with superpowers! 💪\n *\n * @public\n *\n */\nclass _Map extends Map<Item, Item> {\n  /**\n   * @public\n   *\n   * @desc Construct a Map\n   *\n   * @param {Array<Item>} iterable\n   */\n  constructor(iterable: Array<Item>) {\n    super(iterable);\n  }\n  /**\n   * @public\n   *\n   * @desc Tests whether at least one element in the map passes the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for any map element; otherwise, false\n   */\n  some(callback: (value: any, key: any, map: Map<Item, Item>) => boolean): boolean {\n    let result;\n\n    for (let [key, value] of this.entries()) {\n      result = callback(value, key, this);\n      if (result) return true;\n    }\n    return false;\n  }\n  /**\n   * @public\n   *\n   * @desc Test whether all elements in the map pass the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for every map element; otherwise, false\n   */\n  every(callback: (value: any, key: any, map: Map<Item, Item>) => boolean): boolean {\n    let result;\n\n    for (let [key, value] of this.entries()) {\n      result = callback(value, key, this);\n      if (!result) return false;\n    }\n    return true;\n  }\n  /**\n   * @public\n   *\n   * @desc Similar to get(), but will set key to defaultValue if key is not already in Map.\n   *\n   * @param {Item} key - Map key\n   * @param {Item} defaultValue - the default value to set in Map if the key is not defined\n   * @returns {Item} The value if the key is defined in Map; otherwise, the default value\n   */\n  setDefault(key: Item, defaultValue: Item): Item {\n    if (this.has(key)) {\n      return this.get(key);\n    } else {\n      this.set(key, defaultValue);\n      return defaultValue;\n    }\n  }\n  /**\n   * @public\n   *\n   * @desc Convert Map to an Object\n   *\n   * @returns {object} Object representation of Map\n   */\n  toObject() {\n    return Array.from(this).reduce((obj, [key, value]) => {\n      if (typeof key !== PrimitiveType.OBJECT) {\n        obj[key] = value;\n      }\n      return obj;\n    }, {});\n  }\n}\nexport { _Map as Map };\n",
@@ -1827,7 +1882,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 82,
+    "__docId__": 84,
     "kind": "typedef",
     "name": "Callback",
     "memberof": "packages/Map/src/lib/Map.js",
@@ -1844,7 +1899,7 @@
     }
   },
   {
-    "__docId__": 83,
+    "__docId__": 85,
     "kind": "class",
     "name": "_Map",
     "memberof": "packages/Map/src/lib/Map.js",
@@ -1862,7 +1917,7 @@
     ]
   },
   {
-    "__docId__": 84,
+    "__docId__": 86,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Map/src/lib/Map.js~_Map",
@@ -1887,7 +1942,7 @@
     ]
   },
   {
-    "__docId__": 85,
+    "__docId__": 87,
     "kind": "method",
     "name": "some",
     "memberof": "packages/Map/src/lib/Map.js~_Map",
@@ -1926,7 +1981,7 @@
     }
   },
   {
-    "__docId__": 86,
+    "__docId__": 88,
     "kind": "method",
     "name": "every",
     "memberof": "packages/Map/src/lib/Map.js~_Map",
@@ -1965,7 +2020,7 @@
     }
   },
   {
-    "__docId__": 87,
+    "__docId__": 89,
     "kind": "method",
     "name": "setDefault",
     "memberof": "packages/Map/src/lib/Map.js~_Map",
@@ -2014,7 +2069,7 @@
     }
   },
   {
-    "__docId__": 88,
+    "__docId__": 90,
     "kind": "method",
     "name": "toObject",
     "memberof": "packages/Map/src/lib/Map.js~_Map",
@@ -2042,7 +2097,7 @@
     "params": []
   },
   {
-    "__docId__": 89,
+    "__docId__": 91,
     "kind": "file",
     "name": "packages/Math/src/lib/Math.js",
     "content": "/**\n * @flow\n * @module super/math\n */\n\n/**\n *\n * Math with superpowers! 💪\n *\n * @public\n *\n * @alias Math\n */\nexport const _Math = Object.create(Math);\n\n/**\n * @public\n *\n * @desc Factorial\n *\n * @param {number} num - integral number\n * @returns {number} factorial of num\n */\n_Math.factorial = function(num: number): number {\n  if (num < 0) throw new Error(\"Factorial not defined for negative values\");\n  if (num === 0) return 1;\n  return num * _Math.factorial(num - 1);\n};\n\nexport { _Math as Math };\n",
@@ -2053,7 +2108,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 90,
+    "__docId__": 92,
     "kind": "variable",
     "name": "_Math",
     "memberof": "packages/Math/src/lib/Math.js",
@@ -2078,7 +2133,7 @@
     }
   },
   {
-    "__docId__": 91,
+    "__docId__": 93,
     "kind": "function",
     "name": "factorial",
     "memberof": "packages/Math/src/lib/Math.js",
@@ -2120,7 +2175,7 @@
     }
   },
   {
-    "__docId__": 92,
+    "__docId__": 94,
     "kind": "file",
     "name": "packages/MergeSort/src/lib/MergeSort.js",
     "content": "/**\n * @flow\n * @module super/mergesort\n */\n\nimport type { Comparator, Item } from \"../../../shared/src/types\";\nimport { _compare, _defaultComparator } from \"../../../shared/src/helpers\";\n\n/**\n *\n * MergeSort with superpowers! 💪\n *\n * time:    O(nlogn)\n * space:   O(n)\n *\n * @public\n *\n * @param {Array<Item>} arr - array to sort\n * @param {Comparator} comparator\n * @returns {Array<Item>} sorted array\n */\nfunction mergeSort(arr: Array<Item>, comparator: Comparator = _defaultComparator) {\n  if (!(this instanceof Array) && !(arr instanceof Array)) {\n    throw new Error(\"Array type is required\");\n  }\n\n  let target = this instanceof Array ? this : arr.slice(0);\n  let compare = _compare(comparator);\n\n  /**\n   *\n   * MergeSort helper\n   *\n   * @private\n   *\n   * @param {Array<Item>} arr - array target\n   * @returns {Array<Item>} merged array\n   */\n  function _mergeSort(arr: Array<Item>) {\n    if (arr.length <= 1) return arr;\n\n    let mid = Math.trunc(arr.length / 2);\n    let leftArr = arr.slice(0, mid);\n    let rightArr = arr.slice(mid);\n\n    _mergeSort(leftArr);\n    _mergeSort(rightArr);\n\n    return merge(arr, leftArr, rightArr, compare);\n  }\n\n  return _mergeSort(target);\n}\n\n/**\n *\n * Merge helper\n *\n * @private\n *\n * @param {Array<Item>} arr - array merge target\n * @param {Array<Item>} leftArr - left array to merge\n * @param {Array<Item>} rightArr - right array to merge\n * @param {Comparator} compare\n * @returns {Array<Item>} merged array\n */\nfunction merge(\n  arr: Array<Item>,\n  leftArr: Array<Item>,\n  rightArr: Array<Item>,\n  compare: Comparator\n): Array<Item> {\n  let i: number = 0;\n  let j: number = 0;\n  let k: number = 0;\n\n  while (i < leftArr.length && j < rightArr.length) {\n    if (compare(leftArr[i], rightArr[j])) {\n      arr[k] = leftArr[i];\n      i++;\n    } else {\n      arr[k] = rightArr[j];\n      j++;\n    }\n    k++;\n  }\n\n  while (i < leftArr.length) {\n    arr[k] = leftArr[i];\n    i++;\n    k++;\n  }\n\n  while (j < rightArr.length) {\n    arr[k] = rightArr[j];\n    j++;\n    k++;\n  }\n\n  return arr;\n}\n\nexport { mergeSort };\n",
@@ -2131,7 +2186,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 93,
+    "__docId__": 95,
     "kind": "function",
     "name": "merge",
     "memberof": "packages/MergeSort/src/lib/MergeSort.js",
@@ -2203,7 +2258,7 @@
     }
   },
   {
-    "__docId__": 94,
+    "__docId__": 96,
     "kind": "function",
     "name": "mergeSort",
     "memberof": "packages/MergeSort/src/lib/MergeSort.js",
@@ -2247,7 +2302,7 @@
     }
   },
   {
-    "__docId__": 95,
+    "__docId__": 97,
     "kind": "file",
     "name": "packages/Number/src/lib/Number.js",
     "content": "/**\n * @flow\n * @module super/number\n */\n\nconst RomanNumeralToIntegerMap = new Map([\n  [\"M\", 1000],\n  [\"CM\", 900],\n  [\"D\", 500],\n  [\"CD\", 400],\n  [\"C\", 100],\n  [\"XC\", 90],\n  [\"L\", 50],\n  [\"XL\", 40],\n  [\"X\", 10],\n  [\"IX\", 9],\n  [\"V\", 5],\n  [\"IV\", 4],\n  [\"I\", 1]\n]);\n\nconst IntegerToRomanNumeralMap = new Map([\n  [1000, \"M\"],\n  [900, \"CM\"],\n  [500, \"D\"],\n  [400, \"CD\"],\n  [100, \"C\"],\n  [90, \"XC\"],\n  [50, \"L\"],\n  [40, \"XL\"],\n  [10, \"X\"],\n  [9, \"IX\"],\n  [5, \"V\"],\n  [4, \"IV\"],\n  [1, \"I\"]\n]);\n\n/**\n *\n * Number with superpowers! 💪\n *\n * @public\n *\n */\nclass _Number extends Number {\n  /**\n   * @public\n   *\n   * @desc Construct a Number\n   *\n   * @param {number} number\n   */\n  constructor(number: number) {\n    super(number);\n  }\n  /**\n   * @public\n   *\n   * @desc Convert a roman numeral to number\n   *\n   * @param {string} str - Roman numeral\n   * @returns {number} Number representation of a roman numeral\n   */\n  static fromRomanNumeral(str: string): number {\n    function _romanToInteger(num: string, result: number = 0) {\n      // TODO: reduce iterations\n      for (let [roman, int] of RomanNumeralToIntegerMap) {\n        if (num.slice(0, roman.length) === roman) {\n          return _romanToInteger(num.slice(roman.length), result + int);\n        }\n      }\n      return result;\n    }\n    return _romanToInteger(str);\n  }\n  /**\n   * @public\n   *\n   * @desc Convert a number to roman numeral\n   *\n   * @returns {string} Roman numeral representation of number\n   */\n  toRomanNumeral(): string {\n    function _integerToRoman(num: number, result: string = \"\") {\n      // TODO: reduce iterations\n      for (let [int, roman] of IntegerToRomanNumeralMap) {\n        if (num >= int) return _integerToRoman(num - int, result + roman);\n      }\n      return result;\n    }\n    // $FlowFixMe\n    return _integerToRoman(this);\n  }\n}\nexport { _Number as Number };\n",
@@ -2258,7 +2313,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 96,
+    "__docId__": 98,
     "kind": "variable",
     "name": "RomanNumeralToIntegerMap",
     "memberof": "packages/Number/src/lib/Number.js",
@@ -2283,7 +2338,7 @@
     }
   },
   {
-    "__docId__": 97,
+    "__docId__": 99,
     "kind": "variable",
     "name": "IntegerToRomanNumeralMap",
     "memberof": "packages/Number/src/lib/Number.js",
@@ -2303,7 +2358,7 @@
     }
   },
   {
-    "__docId__": 98,
+    "__docId__": 100,
     "kind": "class",
     "name": "_Number",
     "memberof": "packages/Number/src/lib/Number.js",
@@ -2321,7 +2376,7 @@
     ]
   },
   {
-    "__docId__": 99,
+    "__docId__": 101,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Number/src/lib/Number.js~_Number",
@@ -2346,7 +2401,7 @@
     ]
   },
   {
-    "__docId__": 100,
+    "__docId__": 102,
     "kind": "method",
     "name": "fromRomanNumeral",
     "memberof": "packages/Number/src/lib/Number.js~_Number",
@@ -2385,7 +2440,7 @@
     }
   },
   {
-    "__docId__": 101,
+    "__docId__": 103,
     "kind": "method",
     "name": "toRomanNumeral",
     "memberof": "packages/Number/src/lib/Number.js~_Number",
@@ -2413,7 +2468,7 @@
     "params": []
   },
   {
-    "__docId__": 102,
+    "__docId__": 104,
     "kind": "file",
     "name": "packages/Object/src/lib/Object.js",
     "content": "/**\n * @flow\n * @module super/object\n */\n\nimport { InstanceType, PrimitiveType } from \"../../../shared/src/constants\";\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n * @typedef {object} Config\n * @property {boolean} [includeNonEnumerable=false]\n */\n\ntype Config = {\n  includeNonEnumerable: ?boolean\n};\n\n/**\n *\n * Object with superpowers! 💪\n *\n * @public\n *\n */\nclass _Object extends Object {\n  /**\n   * @public\n   *\n   * @desc Construct an Object\n   *\n   * @param {Object} object\n   */\n  constructor(object: Object) {\n    // $FlowFixMe\n    super(object);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check for nested value from string key\n   *\n   * @param {string} path\n   * @return {boolean} property value exists\n   */\n  hasNested(path: string): boolean {\n    let item = this;\n    // TODO: throw error on invalid path\n    path = path.replace(/\\[(\\w+)\\]/, \".$1\").replace(/^\\./, \"\");\n\n    const keys = path.split(\".\");\n    for (let key of keys) {\n      if (typeof item === PrimitiveType.OBJECT && key in item) item = item[key];\n      else return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc  Get nested JavaScript object value from string key\n   *\n   * @param {string} path\n   * @return {Item} property value\n   */\n  getNested(path: string): Item {\n    let item = this;\n    // TODO: throw error on invalid path\n    path = path.replace(/\\[(\\w+)\\]/, \".$1\").replace(/^\\./, \"\");\n\n    const keys = path.split(\".\");\n    for (let key of keys) {\n      if (typeof item === PrimitiveType.OBJECT && key in item) item = item[key];\n      else return;\n    }\n    return item;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Deep clone an Object\n   *\n   * @param {Config} [config={}] Configuration object\n   * @returns {object} Deep cloned Object\n   *\n   * @example\n   *\n   * const obj = new SuperObject({ key1: [\"1\", 1, true, (a, b) => a+b], [Symbol(\"key2\")]: {s: \"s\"} });\n   * const clone = obj.clone();\n   *\n   * console.log(clone);\n   * // { key1: [\"1\", 1, true, (a, b) => a+b], Symbol(\"key2\"): {s: \"s\"} }\n   *\n   */\n  // $FlowFixMe\n  clone(config: Config = {}): Object {\n    const { includeNonEnumerable = false } = config;\n\n    /**\n     * @private\n     *\n     * @desc Deep clone helper\n     *\n     * @param {Item} item\n     * @returns {any} cloned item\n     */\n    function _clone(item: Item): Item {\n      if (item === null || typeof item !== PrimitiveType.OBJECT) {\n        return item;\n      }\n\n      if (item instanceof InstanceType.DATE) {\n        return new Date(item.valueOf());\n      }\n\n      if (item instanceof InstanceType.ARRAY) {\n        let copy = [];\n\n        item.forEach((_, i) => (copy[i] = _clone(item[i])));\n\n        return copy;\n      }\n\n      if (item instanceof InstanceType.OBJECT) {\n        let copy = {};\n\n        // $FlowFixMe\n        Object.getOwnPropertySymbols(item).forEach(s => (copy[s] = _clone(item[s])));\n\n        if (includeNonEnumerable) {\n          Object.getOwnPropertyNames(item).forEach(k => (copy[k] = _clone(item[k])));\n        } else {\n          Object.keys(item).forEach(k => (copy[k] = _clone(item[k])));\n        }\n\n        return copy;\n      }\n\n      throw new Error(`Unable to copy object: ${item}`);\n    }\n\n    return _clone(this);\n  }\n}\n\nexport { _Object as Object };\n",
@@ -2424,7 +2479,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 103,
+    "__docId__": 105,
     "kind": "typedef",
     "name": "Config",
     "memberof": "packages/Object/src/lib/Object.js",
@@ -2455,7 +2510,7 @@
     }
   },
   {
-    "__docId__": 104,
+    "__docId__": 106,
     "kind": "class",
     "name": "_Object",
     "memberof": "packages/Object/src/lib/Object.js",
@@ -2473,7 +2528,7 @@
     ]
   },
   {
-    "__docId__": 105,
+    "__docId__": 107,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Object/src/lib/Object.js~_Object",
@@ -2498,7 +2553,7 @@
     ]
   },
   {
-    "__docId__": 106,
+    "__docId__": 108,
     "kind": "method",
     "name": "hasNested",
     "memberof": "packages/Object/src/lib/Object.js~_Object",
@@ -2531,7 +2586,7 @@
     }
   },
   {
-    "__docId__": 107,
+    "__docId__": 109,
     "kind": "method",
     "name": "getNested",
     "memberof": "packages/Object/src/lib/Object.js~_Object",
@@ -2564,7 +2619,7 @@
     }
   },
   {
-    "__docId__": 108,
+    "__docId__": 110,
     "kind": "method",
     "name": "clone",
     "memberof": "packages/Object/src/lib/Object.js~_Object",
@@ -2608,7 +2663,7 @@
     }
   },
   {
-    "__docId__": 109,
+    "__docId__": 111,
     "kind": "file",
     "name": "packages/PriorityQueue/src/lib/PriorityQueue.js",
     "content": "/**\n * @flow\n * @module super/priorityqueue\n */\n\nimport type { Comparator, Item } from \"../../../shared/src/types\";\nimport { PrimitiveType } from \"../../../shared/src/constants\";\nimport { QueueNode } from \"./QueueNode\";\nimport { isIterable } from \"../../../shared/src/helpers\";\n// $FlowFixMe\nimport isPlainObject from \"lodash/isPlainObject\";\n\ntype PriorityQueueItem1 = [Item];\ntype PriorityQueueItem2 = [[number, Item]];\ntype PriorityQueueItem3 = [{ priority: number, value: Item }];\n\ntype PriorityQueueIterable =\n  | Map<number, Item>\n  | PriorityQueueItem1\n  | PriorityQueueItem2\n  | PriorityQueueItem3;\n\n/**\n *\n * PriorityQueue with superpowers! 💪\n *\n * @public\n *\n */\nclass PriorityQueue {\n  /** @private */\n  _queue: Array<Item>;\n\n  /** @private */\n  _comparator: Comparator;\n\n  /**\n   * @public\n   *\n   * @desc Construct a PriorityQueue\n   *\n   * @param {PriorityQueueIterable} iterable\n   * @param {Comparator} comparator\n   */\n  constructor(iterable: PriorityQueueIterable = new Map(), comparator: Comparator) {\n    this._queue = [];\n    this._comparator = comparator\n      ? PriorityQueue._wrapComparator(comparator)\n      : PriorityQueue._defaultComparator;\n\n    if (!(iterable instanceof Map)) {\n      if (isIterable(iterable)) {\n        if (Array.isArray(iterable[0])) {\n          // $FlowFixMe\n          iterable = new Map(iterable);\n        } else if (isPlainObject(iterable[0])) {\n          iterable = new Map(iterable.map(({ value, priority }) => [priority, value]));\n        } else {\n          return iterable.forEach(v => this.insert(v));\n        }\n      } else {\n        throw new Error(\"Unable to construct from non-iterable\");\n      }\n    }\n\n    for (let [priority, value] of iterable.entries()) {\n      this.insert(value, priority);\n    }\n  }\n\n  static _wrapComparator(comparator: Comparator): Comparator {\n    return (a, b) => comparator(a.value, b.value);\n  }\n\n  /**\n   * @private\n   *\n   * @desc Default comparator function to sort from:\n   *       highest priority (max) -> lowest priority (min)\n   *\n   * @returns {number} size of the queue\n   */\n  static _defaultComparator(a: any, b: any): number | boolean {\n    return a.priority < b.priority;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the current size of the queue\n   *\n   * @returns {number} size of the queue\n   */\n  get size(): number {\n    return this._queue.length;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  get max(): Item {\n    return this._queue[0];\n  }\n\n  /**\n   * @public\n   *\n   * @alias max\n   *\n   * @desc Get the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  get high(): Item {\n    return this.max;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  get min(): Item {\n    return this._queue[this._queue.length - 1];\n  }\n\n  /**\n   * @public\n   *\n   * @alias min\n   *\n   * @desc Get the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  get low(): Item {\n    return this.min;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if queue is empty\n   *\n   * @returns {boolean} is queue empty\n   */\n  isEmpty(): boolean {\n    return this._queue.length === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Clear the items from the queue\n   *\n   * @returns {void}\n   */\n  clear() {\n    this._queue.length = 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Enqueue an item into the queue\n   *\n   * @param {Item} value - item to insert\n   * @param {number} [priority = 0] - priority of item (higher value === higher priority)\n   * @returns {number} size after insert\n   */\n  insert(value: Item, priority: number = 0): number {\n    if (typeof priority !== PrimitiveType.NUMBER) {\n      throw new Error(`Unable to insert non-number priority: ${priority}`);\n    }\n\n    // TODO: use a heap\n    this._queue.push(new QueueNode(value, priority));\n    this._queue.sort(this._comparator);\n\n    return this.size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove and return the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  deleteMax(): Item {\n    return this._queue.shift();\n  }\n\n  /**\n   * @public\n   *\n   * @alias deleteMax\n   *\n   * @desc Remove and return the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  deleteHigh(): Item {\n    return this.deleteMax();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove and return the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  deleteMin(): Item {\n    return this._queue.pop();\n  }\n\n  /**\n   * @public\n   *\n   * @alias deleteMin\n   *\n   * @desc Remove and return the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  deleteLow(): Item {\n    return this.deleteMin();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the queue to an array\n   *\n   * @returns {Array<Item>} array representation of the queue\n   */\n  toArray(): Array<Item> {\n    return this._queue.slice(0);\n  }\n}\n\nexport { PriorityQueue };\n",
@@ -2619,7 +2674,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 110,
+    "__docId__": 112,
     "kind": "class",
     "name": "PriorityQueue",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js",
@@ -2634,7 +2689,7 @@
     "interface": false
   },
   {
-    "__docId__": 111,
+    "__docId__": 113,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2647,7 +2702,7 @@
     "lineNumber": 31
   },
   {
-    "__docId__": 112,
+    "__docId__": 114,
     "kind": "member",
     "name": "_queue",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2664,7 +2719,7 @@
     }
   },
   {
-    "__docId__": 113,
+    "__docId__": 115,
     "kind": "member",
     "name": "_comparator",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2681,7 +2736,7 @@
     }
   },
   {
-    "__docId__": 114,
+    "__docId__": 116,
     "kind": "method",
     "name": "_wrapComparator",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2707,7 +2762,7 @@
     }
   },
   {
-    "__docId__": 115,
+    "__docId__": 117,
     "kind": "method",
     "name": "_defaultComparator",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2748,7 +2803,7 @@
     ]
   },
   {
-    "__docId__": 116,
+    "__docId__": 118,
     "kind": "get",
     "name": "size",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2780,7 +2835,7 @@
     }
   },
   {
-    "__docId__": 117,
+    "__docId__": 119,
     "kind": "get",
     "name": "max",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2812,7 +2867,7 @@
     }
   },
   {
-    "__docId__": 118,
+    "__docId__": 120,
     "kind": "get",
     "name": "high",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2848,7 +2903,7 @@
     }
   },
   {
-    "__docId__": 119,
+    "__docId__": 121,
     "kind": "get",
     "name": "min",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2880,7 +2935,7 @@
     }
   },
   {
-    "__docId__": 120,
+    "__docId__": 122,
     "kind": "get",
     "name": "low",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2916,7 +2971,7 @@
     }
   },
   {
-    "__docId__": 121,
+    "__docId__": 123,
     "kind": "method",
     "name": "isEmpty",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2944,7 +2999,7 @@
     "params": []
   },
   {
-    "__docId__": 122,
+    "__docId__": 124,
     "kind": "method",
     "name": "clear",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2972,7 +3027,7 @@
     "params": []
   },
   {
-    "__docId__": 123,
+    "__docId__": 125,
     "kind": "method",
     "name": "insert",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3023,7 +3078,7 @@
     }
   },
   {
-    "__docId__": 124,
+    "__docId__": 126,
     "kind": "method",
     "name": "deleteMax",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3051,7 +3106,7 @@
     "params": []
   },
   {
-    "__docId__": 125,
+    "__docId__": 127,
     "kind": "method",
     "name": "deleteHigh",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3083,7 +3138,7 @@
     "params": []
   },
   {
-    "__docId__": 126,
+    "__docId__": 128,
     "kind": "method",
     "name": "deleteMin",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3111,7 +3166,7 @@
     "params": []
   },
   {
-    "__docId__": 127,
+    "__docId__": 129,
     "kind": "method",
     "name": "deleteLow",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3143,7 +3198,7 @@
     "params": []
   },
   {
-    "__docId__": 128,
+    "__docId__": 130,
     "kind": "method",
     "name": "toArray",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3171,7 +3226,7 @@
     "params": []
   },
   {
-    "__docId__": 129,
+    "__docId__": 131,
     "kind": "file",
     "name": "packages/PriorityQueue/src/lib/QueueNode.js",
     "content": "/**\n * @flow\n * @module super/priorityqueue\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * QueueNode\n *\n * @public\n *\n */\nclass QueueNode {\n  /** @private */\n  _value: Item;\n\n  /** @private */\n  _priority: number;\n\n  /**\n   * @public\n   *\n   * @desc Construct a PriorityQueue\n   *\n   * @param {Item} value - item value\n   * @param {number} priority - priority of item\n   */\n  constructor(value: Item, priority: number) {\n    this._value = value;\n    this._priority = priority;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the value of the node\n   *\n   * @returns {Item} node value\n   */\n  get value(): Item {\n    return this._value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the priority of the node\n   *\n   * @returns {number} priority of item\n   */\n  get priority(): number {\n    return this._priority;\n  }\n}\n\nexport { QueueNode };\n",
@@ -3182,7 +3237,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 130,
+    "__docId__": 132,
     "kind": "class",
     "name": "QueueNode",
     "memberof": "packages/PriorityQueue/src/lib/QueueNode.js",
@@ -3197,7 +3252,7 @@
     "interface": false
   },
   {
-    "__docId__": 131,
+    "__docId__": 133,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
@@ -3210,7 +3265,7 @@
     "lineNumber": 22
   },
   {
-    "__docId__": 132,
+    "__docId__": 134,
     "kind": "member",
     "name": "_value",
     "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
@@ -3227,7 +3282,7 @@
     }
   },
   {
-    "__docId__": 133,
+    "__docId__": 135,
     "kind": "member",
     "name": "_priority",
     "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
@@ -3244,7 +3299,7 @@
     }
   },
   {
-    "__docId__": 134,
+    "__docId__": 136,
     "kind": "get",
     "name": "value",
     "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
@@ -3262,7 +3317,7 @@
     }
   },
   {
-    "__docId__": 135,
+    "__docId__": 137,
     "kind": "get",
     "name": "priority",
     "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
@@ -3294,7 +3349,7 @@
     }
   },
   {
-    "__docId__": 136,
+    "__docId__": 138,
     "kind": "file",
     "name": "packages/Queue/src/lib/Queue.js",
     "content": "/**\n * @flow\n * @module super/queue\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * Queue with superpowers! 💪\n *\n * @public\n *\n */\nclass Queue {\n  /** @private */\n  _queue: Array<Item>;\n\n  /**\n   * @public\n   *\n   * @desc Construct a Queue\n   *\n   * @param {Array<Item>} iterable\n   */\n  constructor(iterable: Array<Item> = []) {\n    this._queue = [...iterable];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the current size of the queue\n   *\n   * @returns {number} size of the queue\n   */\n  get size(): number {\n    return this._queue.length;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the front item in the queue\n   *\n   * @returns {Item} front item\n   */\n  get front(): Item {\n    return this._queue[0];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the rear item in the queue\n   *\n   * @returns {Item} rear item\n   */\n  get rear(): Item {\n    return this._queue[this._queue.length - 1];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if queue is empty\n   *\n   * @returns {boolean} is queue empty\n   */\n  isEmpty(): boolean {\n    return this._queue.length === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Clear the items from the queue\n   *\n   * @returns {void}\n   */\n  clear() {\n    this._queue.length = 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Enqueue an item into the queue\n   *\n   * @param {Item} item - item to enqueue\n   * @returns {number} size after enqueue\n   */\n  enqueue(item: Item): number {\n    return this._queue.push(item);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Dequeue an item from the queue\n   *\n   * @returns {Item} dequeued item\n   */\n  dequeue(): Item {\n    return this._queue.shift();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the queue to an array\n   *\n   * @returns {Array<Item>} array representation of the queue\n   */\n  toArray(): Array<Item> {\n    return this._queue.slice(0);\n  }\n}\n\nexport { Queue };\n",
@@ -3305,7 +3360,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 137,
+    "__docId__": 139,
     "kind": "class",
     "name": "Queue",
     "memberof": "packages/Queue/src/lib/Queue.js",
@@ -3320,7 +3375,7 @@
     "interface": false
   },
   {
-    "__docId__": 138,
+    "__docId__": 140,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3345,7 +3400,7 @@
     ]
   },
   {
-    "__docId__": 139,
+    "__docId__": 141,
     "kind": "member",
     "name": "_queue",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3362,7 +3417,7 @@
     }
   },
   {
-    "__docId__": 140,
+    "__docId__": 142,
     "kind": "get",
     "name": "size",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3380,7 +3435,7 @@
     }
   },
   {
-    "__docId__": 141,
+    "__docId__": 143,
     "kind": "get",
     "name": "front",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3412,7 +3467,7 @@
     }
   },
   {
-    "__docId__": 142,
+    "__docId__": 144,
     "kind": "get",
     "name": "rear",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3444,7 +3499,7 @@
     }
   },
   {
-    "__docId__": 143,
+    "__docId__": 145,
     "kind": "method",
     "name": "isEmpty",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3472,7 +3527,7 @@
     "params": []
   },
   {
-    "__docId__": 144,
+    "__docId__": 146,
     "kind": "method",
     "name": "clear",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3500,7 +3555,7 @@
     "params": []
   },
   {
-    "__docId__": 145,
+    "__docId__": 147,
     "kind": "method",
     "name": "enqueue",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3539,7 +3594,7 @@
     }
   },
   {
-    "__docId__": 146,
+    "__docId__": 148,
     "kind": "method",
     "name": "dequeue",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3567,7 +3622,7 @@
     "params": []
   },
   {
-    "__docId__": 147,
+    "__docId__": 149,
     "kind": "method",
     "name": "toArray",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3595,7 +3650,7 @@
     "params": []
   },
   {
-    "__docId__": 148,
+    "__docId__": 150,
     "kind": "file",
     "name": "packages/QuickSort/src/lib/QuickSort.js",
     "content": "/**\n * @flow\n * @module super/quicksort\n */\n\nimport type { Comparator, Item } from \"../../../shared/src/types\";\nimport { _compare, _defaultComparator, swap, randInt } from \"../../../shared/src/helpers\";\n\nconst PartitionType = {\n  LOMUTO: \"lomuto\",\n  HOARE: \"hoare\"\n};\n\nconst PivotType = {\n  LOW: \"low\",\n  HIGH: \"high\",\n  MID: \"mid\",\n  RANDOM: \"rand\"\n};\n\ntype Partition = $Values<typeof PartitionType>;\n\ntype Pivot = $Values<typeof PivotType>;\n\n/**\n *\n * QuickSort with superpowers! 💪\n *\n * time:    O(nlogn)\n * space:   O(nlogn)\n *\n * @public\n *\n * @param {Array<Item>} arr - array to sort\n * @param {Comparator} comparator\n * @returns {Array<Item>} sorted array\n */\nfunction quickSort(arr: Array<Item>, comparator: Comparator = _defaultComparator) {\n  if (!(this instanceof Array) && !(arr instanceof Array)) {\n    throw new Error(\"Array type is required\");\n  }\n\n  let target = this instanceof Array ? this : arr.slice(0);\n  let compare = _compare(comparator);\n\n  // TODO: make customizable?\n  let partitionType: Partition = PartitionType.HOARE;\n  let pivotType: Pivot = PivotType.RANDOM;\n\n  /**\n   *\n   * QuickSort helper\n   *\n   * @private\n   *\n   * @param {Array<Item>} arr - array target\n   * @param {number} low\n   * @param {number} high\n   * @returns {Array<Item>} sorted partition\n   */\n  function _quickSort(\n    arr: Array<Item>,\n    low: number = 0,\n    high: number = arr.length - 1\n  ): Array<Item> {\n    if (low < high) {\n      let pivot;\n\n      switch (partitionType) {\n        case PartitionType.LOMUTO:\n          pivot = partitionLomuto(arr, low, high, pivotType, compare);\n          _quickSort(arr, low, pivot - 1);\n          break;\n        case PartitionType.HOARE:\n        default:\n          pivot = partitionHoare(arr, low, high, pivotType, compare);\n          _quickSort(arr, low, pivot);\n          break;\n      }\n\n      _quickSort(arr, pivot + 1, high);\n    }\n    return arr;\n  }\n\n  return _quickSort(target);\n}\n\n/**\n *\n * Partition (Lomuto)\n *\n * @param {Array<number>} arr\n * @param {number} low\n * @param {number} high\n * @param {PivotType} pivotType\n * @param {Comparator} compare\n * @return {number} pivot\n */\n\nfunction partitionLomuto(\n  arr: Array<Item>,\n  low: number,\n  high: number,\n  pivotType: Pivot,\n  compare: Comparator\n): Item {\n  function _partitionLomutoLow(arr: Array<Item>, low: number, high: number): Item {\n    let pivot = low;\n    let i = low + 1;\n\n    for (let j = low + 1; j <= high; j++) {\n      if (compare(arr[j], arr[pivot])) {\n        swap(arr, i, j);\n        i++;\n      }\n    }\n    swap(arr, i - 1, low);\n    return i - 1;\n  }\n  function _partitionLomutoHigh(arr: Array<Item>, low: number, high: number): Item {\n    let pivot = high;\n    let i = low - 1;\n\n    for (let j = low; j < high; j++) {\n      if (compare(arr[j], arr[pivot])) {\n        i++;\n        swap(arr, i, j);\n      }\n    }\n    swap(arr, i + 1, high);\n    return i + 1;\n  }\n\n  switch (pivotType) {\n    case PivotType.LOW:\n      return _partitionLomutoLow(arr, low, high);\n\n    case PivotType.HIGH:\n    default:\n      return _partitionLomutoHigh(arr, low, high);\n  }\n}\n\n/**\n *\n * Partition (Hoare)\n * it is more efficient than the Lomuto partition scheme\n * because it does three times fewer swaps on average\n *\n * @param {Array<number>} arr\n * @param {number} low\n * @param {number} high\n * @param {string} pivotType\n * @param {Comparator} compare\n * @return {number} pivot\n */\nfunction partitionHoare(\n  arr: Array<Item>,\n  low: number,\n  high: number,\n  pivotType: Pivot,\n  compare: Comparator\n): Item {\n  let pivot;\n\n  switch (pivotType) {\n    case PivotType.LOW:\n      pivot = low;\n      break;\n\n    case PivotType.RANDOM:\n      let random = randInt(low, high);\n      swap(arr, random, low);\n      pivot = low;\n      break;\n\n    case PivotType.MID:\n    default:\n      pivot = Math.trunc((low + high) / 2);\n      break;\n  }\n\n  let i = low - 1;\n  let j = high + 1;\n\n  while (true) {\n    do {\n      i++;\n    } while (compare(arr[i], arr[pivot]));\n    do {\n      j--;\n    } while (compare(arr[pivot], arr[j]));\n    if (i >= j) {\n      return j;\n    }\n    swap(arr, i, j);\n  }\n}\n\nexport { quickSort };\n",
@@ -3606,7 +3661,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 149,
+    "__docId__": 151,
     "kind": "variable",
     "name": "PartitionType",
     "memberof": "packages/QuickSort/src/lib/QuickSort.js",
@@ -3631,7 +3686,7 @@
     }
   },
   {
-    "__docId__": 150,
+    "__docId__": 152,
     "kind": "variable",
     "name": "PivotType",
     "memberof": "packages/QuickSort/src/lib/QuickSort.js",
@@ -3651,7 +3706,7 @@
     }
   },
   {
-    "__docId__": 151,
+    "__docId__": 153,
     "kind": "function",
     "name": "partitionLomuto",
     "memberof": "packages/QuickSort/src/lib/QuickSort.js",
@@ -3727,7 +3782,7 @@
     }
   },
   {
-    "__docId__": 152,
+    "__docId__": 154,
     "kind": "function",
     "name": "partitionHoare",
     "memberof": "packages/QuickSort/src/lib/QuickSort.js",
@@ -3803,7 +3858,7 @@
     }
   },
   {
-    "__docId__": 153,
+    "__docId__": 155,
     "kind": "function",
     "name": "quickSort",
     "memberof": "packages/QuickSort/src/lib/QuickSort.js",
@@ -3855,7 +3910,62 @@
     }
   },
   {
-    "__docId__": 154,
+    "__docId__": 156,
+    "kind": "file",
+    "name": "packages/SelectionSort/src/lib/SelectionSort.js",
+    "content": "/**\n * @flow\n * @module super/selectionsort\n */\n\nimport type { Comparator, Item } from \"../../../shared/src/types\";\nimport { _compare, _defaultComparator, swap } from \"../../../shared/src/helpers\";\n\n/**\n *\n * SelectionSort with superpowers! 💪\n *\n * time:    O(n^2)\n * space:   O(1)\n *\n * @public\n *\n * @param {Array<Item>} arr - array to sort\n * @param {Comparator} comparator\n * @returns {Array<Item>} sorted array\n */\nfunction selectionSort(arr: Array<Item>, comparator: Comparator = _defaultComparator) {\n  if (!(this instanceof Array) && !(arr instanceof Array)) {\n    throw new Error(\"Array type is required\");\n  }\n\n  let target = this instanceof Array ? this : arr.slice(0);\n  let compare = _compare(comparator);\n\n  /**\n   *\n   * SelectionSort helper\n   *\n   * @private\n   *\n   * @param {Array<Item>} arr - array target\n   * @returns {Array<Item>} sorted array\n   */\n  function _selectionSort(arr: Array<Item>): Array<Item> {\n    for (let i = 0; i < arr.length - 1; i++) {\n      let min = i;\n\n      for (let j = i + 1; j < arr.length; j++) {\n        if (compare(arr[j], arr[min])) {\n          min = j;\n        }\n      }\n      swap(arr, i, min);\n    }\n\n    return arr;\n  }\n\n  return _selectionSort(target);\n}\n\nexport { selectionSort };\n",
+    "static": true,
+    "longname": "/Users/clarketm/js/super/packages/SelectionSort/src/lib/SelectionSort.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 157,
+    "kind": "function",
+    "name": "selectionSort",
+    "memberof": "packages/SelectionSort/src/lib/SelectionSort.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "packages/SelectionSort/src/lib/SelectionSort.js~selectionSort",
+    "access": "public",
+    "export": true,
+    "importPath": "@clarketm/super/packages/SelectionSort/src/lib/SelectionSort.js",
+    "importStyle": "{selectionSort}",
+    "description": "",
+    "lineNumber": 22,
+    "unknown": [
+      {
+        "tagName": "@module",
+        "tagValue": "super/selectionsort"
+      }
+    ],
+    "params": [
+      {
+        "name": "arr",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "comparator",
+        "optional": true,
+        "types": [
+          "*"
+        ],
+        "defaultRaw": "_defaultComparator",
+        "defaultValue": "_defaultComparator"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 158,
     "kind": "file",
     "name": "packages/Set/src/lib/Set.js",
     "content": "/**\n * @flow\n * @module super/set\n */\n\n/**\n * @typedef {Function} Callback\n */\nimport type { Item } from \"../../../shared/src/types\";\n\ntype Callback = (value1: any, value2: any, set: Set<Item>) => boolean;\n\n/**\n *\n * Set with superpowers! 💪\n *\n * @public\n *\n */\nclass _Set extends Set<Item> {\n  /**\n   * @public\n   *\n   * @desc Construct a Set\n   *\n   * @param {Array<Item>} iterable\n   */\n  constructor(iterable: Array<Item>) {\n    super(iterable);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Tests whether at least one element in the set passes the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for any set element; otherwise, false\n   */\n  some(callback: (value1: any, value2: any, set: Set<Item>) => boolean): boolean {\n    let result;\n\n    for (let [value1, value2] of this.entries()) {\n      result = callback(value1, value2, this);\n      if (result) return true;\n    }\n\n    return false;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Test whether all elements in the set pass the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for every set element; otherwise, false\n   */\n  every(callback: (value1: any, value2: any, set: Set<Item>) => boolean): boolean {\n    let result;\n\n    for (let [value1, value2] of this.entries()) {\n      result = callback(value1, value2, this);\n      if (!result) return false;\n    }\n\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Subset of a set\n   *\n   * @param {Set<Item>} setB - SetB\n   * @returns {boolean} setA is subset of setB\n   */\n  isSubset(setB: Set<Item>): boolean {\n    let setA = this;\n\n    for (let v of setA) {\n      if (!setB.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Superset of a set\n   *\n   * @param {Set<Item>} setB - SetB\n   * @returns {boolean} setA is superset of setB\n   */\n  isSuperset(setB: Set<Item>): boolean {\n    let setA = this;\n\n    for (let v of setB) {\n      if (!setA.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Union of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - union between setA and setB\n   */\n  union(setB: Set<Item>): Set<Item> {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Intersection of setA and setB\n   *\n   * @param {Set<Item>} setB - SetB\n   * @returns {Set<Item>} setC - intersection between setA and setB\n   */\n  intersection(setB: Set<Item>): Set<Item> {\n    let setA = this;\n    let setC = new Set();\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Difference of setA and setB\n   *\n   * @param {Set<Item>} setB - SetB\n   * @returns {Set<Item>} setC - difference between setA and setB\n   */\n  difference(setB: Set<Item>): Set<Item> {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.delete(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Symmetric difference of setA and setB\n   *\n   * @param {Set<Item>} setB - SetB\n   * @returns {Set<Item>} setC - difference difference between setA and setB\n   */\n  symmetricDifference(setB: Set<Item>): Set<Item> {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.delete(v);\n      else setC.add(v);\n    }\n\n    return setC;\n  }\n}\n\nexport { _Set as Set };\n",
@@ -3866,7 +3976,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 155,
+    "__docId__": 159,
     "kind": "typedef",
     "name": "Callback",
     "memberof": "packages/Set/src/lib/Set.js",
@@ -3884,7 +3994,7 @@
     }
   },
   {
-    "__docId__": 156,
+    "__docId__": 160,
     "kind": "file",
     "name": "packages/String/src/lib/String.js",
     "content": "/**\n * @flow\n * @module super/string\n */\n\n/**\n *\n * String with superpowers! 💪\n *\n * @public\n *\n */\nclass _String extends String {\n  /**\n   * @public\n   *\n   * @desc Construct a String\n   *\n   * @param {string} string\n   */\n  constructor(string: string) {\n    super(string);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Transposes the ordering of all characters in the string\n   *\n   * @returns {string} String reversed\n   */\n  reverse(): string {\n    return this.split(\"\")\n      .filter(s => s)\n      .reverse()\n      .join(\"\");\n  }\n\n  /**\n   * @public\n   *\n   * @desc Transposes the ordering of the words in the string\n   *\n   * @returns {string} String with words reversed\n   */\n  reverseWords(): string {\n    return this.split(\" \")\n      .filter(s => s)\n      .reverse()\n      .join(\" \");\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert a string to title case\n   *\n   * @returns {string} Title cased string representation\n   */\n  toTitleCase(): string {\n    return this.split(\" \")\n      .map(v => v && v.charAt(0).toUpperCase() + v.substr(1).toLowerCase())\n      .join(\" \");\n  }\n}\n\nexport { _String as String };\n",
@@ -3895,7 +4005,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 157,
+    "__docId__": 161,
     "kind": "class",
     "name": "_String",
     "memberof": "packages/String/src/lib/String.js",
@@ -3913,7 +4023,7 @@
     ]
   },
   {
-    "__docId__": 158,
+    "__docId__": 162,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -3938,7 +4048,7 @@
     ]
   },
   {
-    "__docId__": 159,
+    "__docId__": 163,
     "kind": "method",
     "name": "reverse",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -3966,7 +4076,7 @@
     "params": []
   },
   {
-    "__docId__": 160,
+    "__docId__": 164,
     "kind": "method",
     "name": "reverseWords",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -3994,7 +4104,7 @@
     "params": []
   },
   {
-    "__docId__": 161,
+    "__docId__": 165,
     "kind": "method",
     "name": "toTitleCase",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -4022,7 +4132,7 @@
     "params": []
   },
   {
-    "__docId__": 162,
+    "__docId__": 166,
     "kind": "file",
     "name": "packages/Trie/src/lib/Trie.js",
     "content": "/**\n * @flow\n * @module super/trie\n */\n\nimport { TrieNode } from \"./TrieNode\";\nimport { PrimitiveType } from \"../../../shared/src/constants\";\nimport type { character } from \"../../../shared/src/types\";\n\ntype Match = {\n  query: string,\n  matchedChars: number,\n  isMatch: boolean,\n  isCompleteWord: boolean,\n  node: ?TrieNode\n};\n\n/**\n *\n * Trie with superpowers! 💪\n *\n * @public\n *\n */\nclass Trie {\n  /** @private */\n  _root: TrieNode;\n\n  /**\n   * @public\n   *\n   * @desc Construct a Trie\n   *\n   * @param {Array<string>} iterable\n   */\n  constructor(iterable: Array<string> = []) {\n    this._root = new TrieNode();\n\n    for (let word of iterable) {\n      this.insert(word);\n    }\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the root of the trie\n   *\n   * @returns {TrieNode} root node\n   */\n  get root(): TrieNode {\n    return this._root;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Insert a string into the trie\n   *\n   * @param {string} word - string to insert\n   */\n  insert(word: string) {\n    if (typeof word !== PrimitiveType.STRING) {\n      throw new Error(`Unable to insert non-string value: ${word}`);\n    }\n\n    let curr: TrieNode = this.root;\n\n    for (const char: character of word) {\n      if (curr.has(char)) {\n        // $FlowFixMe\n        curr = curr.get(char);\n      } else {\n        let node = new TrieNode(char);\n        curr.set(char, node);\n        curr = node;\n      }\n    }\n\n    curr._isCompleteWord = true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove a string from the trie\n   *\n   * @param {string} word - string to remove\n   */\n  remove(word: string) {\n    if (typeof word !== PrimitiveType.STRING) {\n      throw new Error(`Unable to remove non-string value: ${word}`);\n    }\n\n    /**\n     * @public\n     *\n     * @desc Remove helper\n     *\n     * @param {TrieNode} curr - trie node\n     * @param {number} level - level in trie (0 -> height)\n     * @return {boolean} true if node is a leaf node and should be deleted; otherwise false\n     */\n    // $FlowFixMe\n    function _remove(curr: ?TrieNode, level: number = 0): boolean {\n      if (!curr) return false;\n\n      if (level === word.length) {\n        curr._isCompleteWord = false;\n        return curr.isLeafNode;\n      }\n\n      let char = word[level];\n\n      if (_remove(curr.get(char), level + 1)) {\n        curr.delete(char);\n        return curr.isLeafNode;\n      }\n    }\n\n    return _remove(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Search for a node in the trie matching the query\n   *\n   * @param {string} query - string query to search for\n   * @returns {Match} match object\n   */\n  search(query: string): Match {\n    let node = this.root;\n    let index = 0;\n\n    while (index < query.length) {\n      node = node.get(query[index]);\n      if (!node) break;\n      index++;\n    }\n\n    return {\n      query,\n      matchedChars: index,\n      isMatch: query.length === index,\n      // $FlowFixMe\n      isCompleteWord: query.length === index && node.isCompleteWord,\n      node\n    };\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if the trie includes a word\n   *\n   * @param {string} word - full word to search for\n   * @returns {boolean} contains the word\n   */\n  includes(word: string): boolean {\n    let { isCompleteWord } = this.search(word);\n    return isCompleteWord;\n  }\n\n  /**\n   * @public\n   *\n   * @alias includes(word)\n   *\n   * @desc Check if the trie contains a word\n   *\n   * @param {string} word - full word to search for\n   * @returns {boolean} contains the word\n   */\n  contains(word: string): boolean {\n    return this.includes(word);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if the trie contains a prefix\n   *\n   * @param {string} prefix - prefix (i.e. partial word) to search for\n   * @returns {boolean} contains the prefix\n   */\n  startsWith(prefix: string): boolean {\n    let { isMatch } = this.search(prefix);\n    return isMatch;\n  }\n}\n\nexport { Trie };\n",
@@ -4033,7 +4143,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 163,
+    "__docId__": 167,
     "kind": "class",
     "name": "Trie",
     "memberof": "packages/Trie/src/lib/Trie.js",
@@ -4048,7 +4158,7 @@
     "interface": false
   },
   {
-    "__docId__": 164,
+    "__docId__": 168,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4073,7 +4183,7 @@
     ]
   },
   {
-    "__docId__": 165,
+    "__docId__": 169,
     "kind": "member",
     "name": "_root",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4090,7 +4200,7 @@
     }
   },
   {
-    "__docId__": 166,
+    "__docId__": 170,
     "kind": "get",
     "name": "root",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4108,7 +4218,7 @@
     }
   },
   {
-    "__docId__": 167,
+    "__docId__": 171,
     "kind": "method",
     "name": "insert",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4134,7 +4244,7 @@
     "return": null
   },
   {
-    "__docId__": 168,
+    "__docId__": 172,
     "kind": "method",
     "name": "remove",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4164,7 +4274,7 @@
     }
   },
   {
-    "__docId__": 169,
+    "__docId__": 173,
     "kind": "method",
     "name": "search",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4203,7 +4313,7 @@
     }
   },
   {
-    "__docId__": 170,
+    "__docId__": 174,
     "kind": "method",
     "name": "includes",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4242,7 +4352,7 @@
     }
   },
   {
-    "__docId__": 171,
+    "__docId__": 175,
     "kind": "method",
     "name": "contains",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4285,7 +4395,7 @@
     }
   },
   {
-    "__docId__": 172,
+    "__docId__": 176,
     "kind": "method",
     "name": "startsWith",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4324,7 +4434,7 @@
     }
   },
   {
-    "__docId__": 173,
+    "__docId__": 177,
     "kind": "file",
     "name": "packages/Trie/src/lib/TrieNode.js",
     "content": "/**\n * @flow\n * @module super/trie\n */\n\nimport type { character } from \"../../../shared/src/types\";\n\nconst SpecialChar = {\n  ROOT: \"√\"\n};\n\n/**\n *\n * TrieNode\n *\n * @public\n *\n */\nclass TrieNode {\n  /** @private */\n  _char: character;\n\n  /** @private */\n  _isCompleteWord: boolean;\n\n  /** @private */\n  _children: Map<character, TrieNode>;\n\n  /**\n   * @public\n   *\n   * @desc Construct a TrieNode\n   *\n   * @param {character} char - node character value\n   */\n  constructor(char: character = SpecialChar.ROOT) {\n    this._char = char;\n    this._isCompleteWord = false;\n    this._children = new Map();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get children count of the node\n   *\n   * @returns {number} child count\n   */\n  // INFO: count or size?\n  get count(): number {\n    return this._children.size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get character value of node\n   *\n   * @returns {character} character\n   */\n  // INFO: char or value?\n  get char(): character {\n    return this._char;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Checks if node is a complete word\n   *\n   * @returns {boolean} is complete word\n   */\n  get isCompleteWord(): boolean {\n    return this._isCompleteWord;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Checks if node is a leaf node\n   *\n   * @returns {boolean} is leaf node\n   */\n  get isLeafNode(): boolean {\n    return this.count === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if node has a specific character as a child\n   *\n   * @param {character} char - character to check\n   * @returns {boolean} node has child\n   */\n  has(char: character): boolean {\n    return this._children.has(char);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get child node with specific character value\n   *\n   * @param {character} char - character to get\n   * @returns {TrieNode} node with character value\n   */\n  get(char: character): ?TrieNode {\n    return this._children.get(char);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set child node with specific character value\n   *\n   * @param {character} char - character to set\n   * @param {TrieNode} node - node to assign to character\n   */\n  set(char: character, node: TrieNode) {\n    this._children.set(char, node);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Delete child node with specific character value\n   *\n   * @param {character} char - character to delete\n   */\n  delete(char: character) {\n    this._children.delete(char);\n  }\n}\n\nexport { TrieNode };\n",
@@ -4335,7 +4445,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 174,
+    "__docId__": 178,
     "kind": "variable",
     "name": "SpecialChar",
     "memberof": "packages/Trie/src/lib/TrieNode.js",
@@ -4355,7 +4465,7 @@
     }
   },
   {
-    "__docId__": 175,
+    "__docId__": 179,
     "kind": "class",
     "name": "TrieNode",
     "memberof": "packages/Trie/src/lib/TrieNode.js",
@@ -4376,7 +4486,7 @@
     "interface": false
   },
   {
-    "__docId__": 176,
+    "__docId__": 180,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4389,7 +4499,7 @@
     "lineNumber": 31
   },
   {
-    "__docId__": 177,
+    "__docId__": 181,
     "kind": "member",
     "name": "_char",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4406,7 +4516,7 @@
     }
   },
   {
-    "__docId__": 178,
+    "__docId__": 182,
     "kind": "member",
     "name": "_isCompleteWord",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4423,7 +4533,7 @@
     }
   },
   {
-    "__docId__": 179,
+    "__docId__": 183,
     "kind": "member",
     "name": "_children",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4440,7 +4550,7 @@
     }
   },
   {
-    "__docId__": 180,
+    "__docId__": 184,
     "kind": "get",
     "name": "count",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4458,7 +4568,7 @@
     }
   },
   {
-    "__docId__": 181,
+    "__docId__": 185,
     "kind": "get",
     "name": "char",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4490,7 +4600,7 @@
     }
   },
   {
-    "__docId__": 182,
+    "__docId__": 186,
     "kind": "get",
     "name": "isCompleteWord",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4522,7 +4632,7 @@
     }
   },
   {
-    "__docId__": 183,
+    "__docId__": 187,
     "kind": "get",
     "name": "isLeafNode",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4554,7 +4664,7 @@
     }
   },
   {
-    "__docId__": 184,
+    "__docId__": 188,
     "kind": "method",
     "name": "has",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4593,7 +4703,7 @@
     }
   },
   {
-    "__docId__": 185,
+    "__docId__": 189,
     "kind": "method",
     "name": "get",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4632,7 +4742,7 @@
     }
   },
   {
-    "__docId__": 186,
+    "__docId__": 190,
     "kind": "method",
     "name": "set",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4668,7 +4778,7 @@
     "return": null
   },
   {
-    "__docId__": 187,
+    "__docId__": 191,
     "kind": "method",
     "name": "delete",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",

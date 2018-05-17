@@ -138,6 +138,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@clarketm/super/packages/insertionsort/src/lib/insertionsort.js~insertionsort",
+    "function/index.html#static-function-insertionSort",
+    "<span>insertionSort</span> <span class=\"search-result-import-path\">@clarketm/super/packages/InsertionSort/src/lib/InsertionSort.js</span>",
+    "function"
+  ],
+  [
     "@clarketm/super/packages/mergesort/src/lib/mergesort.js~merge",
     "function/index.html#static-function-merge",
     "<span>merge</span> <span class=\"search-result-import-path\">@clarketm/super/packages/MergeSort/src/lib/MergeSort.js</span>",
@@ -165,6 +171,12 @@ window.esdocSearchIndex = [
     "@clarketm/super/packages/quicksort/src/lib/quicksort.js~quicksort",
     "function/index.html#static-function-quickSort",
     "<span>quickSort</span> <span class=\"search-result-import-path\">@clarketm/super/packages/QuickSort/src/lib/QuickSort.js</span>",
+    "function"
+  ],
+  [
+    "@clarketm/super/packages/selectionsort/src/lib/selectionsort.js~selectionsort",
+    "function/index.html#static-function-selectionSort",
+    "<span>selectionSort</span> <span class=\"search-result-import-path\">@clarketm/super/packages/SelectionSort/src/lib/SelectionSort.js</span>",
     "function"
   ],
   [
@@ -343,25 +355,25 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-left",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
-    "member"
-  ],
-  [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
     "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-left",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
     "member"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-left",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
     "member"
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
     "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-right",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
     "member"
   ],
@@ -381,6 +393,12 @@ window.esdocSearchIndex = [
     "packages/bubblesort/src/lib/bubblesort.js",
     "file/packages/BubbleSort/src/lib/BubbleSort.js.html",
     "packages/BubbleSort/src/lib/BubbleSort.js",
+    "file"
+  ],
+  [
+    "packages/insertionsort/src/lib/insertionsort.js",
+    "file/packages/InsertionSort/src/lib/InsertionSort.js.html",
+    "packages/InsertionSort/src/lib/InsertionSort.js",
     "file"
   ],
   [
@@ -517,13 +535,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#next",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#next",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
@@ -541,13 +559,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#value",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#value",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "member"
   ],
@@ -885,6 +903,12 @@ window.esdocSearchIndex = [
     "packages/quicksort/src/lib/quicksort.js",
     "file/packages/QuickSort/src/lib/QuickSort.js.html",
     "packages/QuickSort/src/lib/QuickSort.js",
+    "file"
+  ],
+  [
+    "packages/selectionsort/src/lib/selectionsort.js",
+    "file/packages/SelectionSort/src/lib/SelectionSort.js.html",
+    "packages/SelectionSort/src/lib/SelectionSort.js",
     "file"
   ],
   [

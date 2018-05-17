@@ -1,7 +1,7 @@
 {
-  "coverage": "85.16%",
-  "expectCount": 155,
-  "actualCount": 132,
+  "coverage": "85.35%",
+  "expectCount": 157,
+  "actualCount": 134,
   "files": {
     "packages/Array/src/lib/Array.js": {
       "expectCount": 7,
@@ -26,6 +26,11 @@
       ]
     },
     "packages/BubbleSort/src/lib/BubbleSort.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "packages/InsertionSort/src/lib/InsertionSort.js": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []
@@ -104,6 +109,11 @@
       "undocumentLines": [
         12
       ]
+    },
+    "packages/SelectionSort/src/lib/SelectionSort.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "packages/String/src/lib/String.js": {
       "expectCount": 5,

@@ -626,6 +626,13 @@ Delete child node with specific character value
 | arr | * | nullable: undefined |
 | comparator | * | nullable: undefined, optional: true, default: _defaultComparator |
 
+## `insertionSort(arr: *, comparator: *): *`
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| arr | * | nullable: undefined |
+| comparator | * | nullable: undefined, optional: true, default: _defaultComparator |
+
 ## `factorial(num: number): number`
 
 Factorial
@@ -684,3 +691,10 @@ QuickSort with superpowers! 💪 time: O(nlogn) space: O(nlogn)
 | --- | --- | --- | --- |
 | arr | Array<Item> |  | array to sort |
 | comparator | Comparator |  |
+
+## `selectionSort(arr: *, comparator: *): *`
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| arr | * | nullable: undefined |
+| comparator | * | nullable: undefined, optional: true, default: _defaultComparator |
