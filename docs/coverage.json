@@ -1,11 +1,11 @@
 {
-  "coverage": "85.71%",
-  "expectCount": 154,
-  "actualCount": 132,
+  "coverage": "85.98%",
+  "expectCount": 157,
+  "actualCount": 135,
   "files": {
     "packages/Array/src/lib/Array.js": {
-      "expectCount": 4,
-      "actualCount": 4,
+      "expectCount": 5,
+      "actualCount": 5,
       "undocumentLines": []
     },
     "packages/BinaryTree/src/lib/BinaryTree.js": {
@@ -53,6 +53,11 @@
       "actualCount": 2,
       "undocumentLines": []
     },
+    "packages/MergeSort/src/lib/MergeSort.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
     "packages/Number/src/lib/Number.js": {
       "expectCount": 6,
       "actualCount": 5,
@@ -69,8 +74,8 @@
       "expectCount": 19,
       "actualCount": 17,
       "undocumentLines": [
-        36,
-        37
+        31,
+        32
       ]
     },
     "packages/PriorityQueue/src/lib/QueueNode.js": {

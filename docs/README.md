@@ -4,7 +4,7 @@
 
 Array with superpowers! 💪
 
-### `constructor(iterable: Iterable)`
+### `constructor(iterable: Iterable<Item>)`
 
 Construct an Array
 
@@ -23,6 +23,14 @@ Creates a new array with all sub-array elements concatted into it recursively up
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
 | depth | number |  | flatten depth |
+
+### `mergeSort(comparator: Comparator): Array<Item>`
+
+Sort using merge sort
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| comparator | Comparator |  | comparator function |
 
 ## `BinaryTree`
 
@@ -680,3 +688,21 @@ Factorial
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
 | num | number |  | integral number |
+
+## `merge(arr: Array<Item>, leftArr: Array<Item>, rightArr: Array<Item>, compare: Comparator): Array<Item>`
+
+Merge helper
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| arr | Array<Item> |  | – array merge target |
+| leftArr | Array<Item> |  | – left array to merge |
+| rightArr | Array<Item> |  | – right array to merge |
+| compare | Comparator |  |
+
+## `mergeSort(arr: *, comparator: *): *`
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| arr | * | nullable: undefined |
+| comparator | * | nullable: undefined, optional: true, default: _defaultComparator |

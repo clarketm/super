@@ -30,6 +30,7 @@
   <ul>
     
   <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#array-src-lib">Array/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Array/src/lib/Array.js~_Array.html">_Array</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#binarytree-src-lib">BinaryTree/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html">BinaryTree</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-TraversalType">TraversalType</a></span></span></li>
@@ -39,6 +40,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#math-src-lib">Math/src/lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-factorial">factorial</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-_Math">_Math</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#mergesort-src-lib">MergeSort/src/lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-merge">merge</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mergeSort">mergeSort</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#number-src-lib">Number/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Number/src/lib/Number.js~_Number.html">_Number</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-IntegerToRomanNumeralMap">IntegerToRomanNumeralMap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RomanNumeralToIntegerMap">RomanNumeralToIntegerMap</a></span></span></li>
@@ -46,7 +49,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Config">Config</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#priorityqueue-src-lib">PriorityQueue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html">PriorityQueue</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html">QueueNode</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Comparator">Comparator</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#queue-src-lib">Queue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html">Queue</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#set-src-lib">Set/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Set/src/lib/Set.js~_Set.html">_Set</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#string-src-lib">String/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/String/src/lib/String.js~_String.html">_String</a></span></span></li>
@@ -58,13 +60,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {PriorityQueue} from &apos;<span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber23">@clarketm/super/packages/PriorityQueue/src/lib/PriorityQueue.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {PriorityQueue} from &apos;<span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber18">@clarketm/super/packages/PriorityQueue/src/lib/PriorityQueue.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber23">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber18">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -669,7 +671,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber73">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber68">source</a></span></span>
     </span>
   </h3>
 
@@ -749,7 +751,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber61">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber56">source</a></span></span>
     </span>
   </h3>
 
@@ -823,7 +825,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber35">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber30">source</a></span></span>
     </span>
   </h3>
 
@@ -869,7 +871,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber108">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber103">source</a></span></span>
     </span>
   </h3>
 
@@ -926,7 +928,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber132">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber127">source</a></span></span>
     </span>
   </h3>
 
@@ -983,7 +985,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber95">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber90">source</a></span></span>
     </span>
   </h3>
 
@@ -1040,7 +1042,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber119">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber114">source</a></span></span>
     </span>
   </h3>
 
@@ -1097,7 +1099,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber84">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber79">source</a></span></span>
     </span>
   </h3>
 
@@ -1156,7 +1158,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber37">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber32">source</a></span></span>
     </span>
   </h3>
 
@@ -1199,7 +1201,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber36">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber31">source</a></span></span>
     </span>
   </h3>
 
@@ -1245,7 +1247,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber154">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber149">source</a></span></span>
     </span>
   </h3>
 
@@ -1301,7 +1303,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber199">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber194">source</a></span></span>
     </span>
   </h3>
 
@@ -1358,7 +1360,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber223">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber218">source</a></span></span>
     </span>
   </h3>
 
@@ -1415,7 +1417,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber186">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber181">source</a></span></span>
     </span>
   </h3>
 
@@ -1472,7 +1474,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber210">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber205">source</a></span></span>
     </span>
   </h3>
 
@@ -1529,7 +1531,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber167">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber162">source</a></span></span>
     </span>
   </h3>
 
@@ -1611,7 +1613,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber143">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber138">source</a></span></span>
     </span>
   </h3>
 
@@ -1668,7 +1670,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber234">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#lineNumber229">source</a></span></span>
     </span>
   </h3>
 

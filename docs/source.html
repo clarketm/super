@@ -30,6 +30,7 @@
   <ul>
     
   <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#array-src-lib">Array/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Array/src/lib/Array.js~_Array.html">_Array</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#binarytree-src-lib">BinaryTree/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html">BinaryTree</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-TraversalType">TraversalType</a></span></span></li>
@@ -39,6 +40,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#math-src-lib">Math/src/lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-factorial">factorial</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-_Math">_Math</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#mergesort-src-lib">MergeSort/src/lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-merge">merge</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mergeSort">mergeSort</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#number-src-lib">Number/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Number/src/lib/Number.js~_Number.html">_Number</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-IntegerToRomanNumeralMap">IntegerToRomanNumeralMap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RomanNumeralToIntegerMap">RomanNumeralToIntegerMap</a></span></span></li>
@@ -46,7 +49,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Config">Config</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#priorityqueue-src-lib">PriorityQueue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html">PriorityQueue</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html">QueueNode</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Comparator">Comparator</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#queue-src-lib">Queue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html">Queue</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#set-src-lib">Set/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Set/src/lib/Set.js~_Set.html">_Set</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#string-src-lib">String/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/String/src/lib/String.js~_String.html">_String</a></span></span></li>
@@ -57,7 +59,7 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1>Source <img data-ice="coverageBadge" src="./badge.svg"><span data-ice="totalCoverageCount" class="total-coverage-count">132/154</span></h1>
+<div class="content" data-ice="content"><h1>Source <img data-ice="coverageBadge" src="./badge.svg"><span data-ice="totalCoverageCount" class="total-coverage-count">135/157</span></h1>
 
 <table class="files-summary" data-ice="files" data-use-coverage="true">
   <thead>
@@ -75,10 +77,10 @@
   <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/packages/Array/src/lib/Array.js.html">packages/Array/src/lib/Array.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="class/packages/Array/src/lib/Array.js~_Array.html">_Array</a></span></td>
-      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">4/4</span></td>
-      <td style="display: none;" data-ice="size">1483 byte</td>
-      <td style="display: none;" data-ice="lines">62</td>
-      <td style="display: none;" data-ice="updated">2018-05-02 21:21:15 (UTC)</td>
+      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">5/5</span></td>
+      <td style="display: none;" data-ice="size">1866 byte</td>
+      <td style="display: none;" data-ice="lines">78</td>
+      <td style="display: none;" data-ice="updated">2018-05-05 08:48:57 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#errorLines=33,9">packages/BinaryTree/src/lib/BinaryTree.js</a></span></td>
@@ -131,6 +133,15 @@
       <td style="display: none;" data-ice="updated">2018-05-02 18:16:03 (UTC)</td>
     </tr>
 <tr data-ice="file">
+      <td data-ice="filePath"><span><a href="file/packages/MergeSort/src/lib/MergeSort.js.html">packages/MergeSort/src/lib/MergeSort.js</a></span></td>
+      <td data-ice="identifier" class="identifiers"><span><a href="function/index.html#static-function-merge">merge</a></span>
+<span><a href="function/index.html#static-function-mergeSort">mergeSort</a></span></td>
+      <td class="coverage"><span data-ice="coverage">100 %</span><span data-ice="coverageCount" class="coverage-count">2/2</span></td>
+      <td style="display: none;" data-ice="size">2058 byte</td>
+      <td style="display: none;" data-ice="lines">103</td>
+      <td style="display: none;" data-ice="updated">2018-05-05 08:55:16 (UTC)</td>
+    </tr>
+<tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/packages/Number/src/lib/Number.js.html#errorLines=8">packages/Number/src/lib/Number.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="variable/index.html#static-variable-IntegerToRomanNumeralMap">IntegerToRomanNumeralMap</a></span>
 <span><a href="variable/index.html#static-variable-RomanNumeralToIntegerMap">RomanNumeralToIntegerMap</a></span>
@@ -149,12 +160,12 @@
       <td style="display: none;" data-ice="updated">2018-05-02 18:16:24 (UTC)</td>
     </tr>
 <tr data-ice="file">
-      <td data-ice="filePath"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#errorLines=36,37">packages/PriorityQueue/src/lib/PriorityQueue.js</a></span></td>
+      <td data-ice="filePath"><span><a href="file/packages/PriorityQueue/src/lib/PriorityQueue.js.html#errorLines=31,32">packages/PriorityQueue/src/lib/PriorityQueue.js</a></span></td>
       <td data-ice="identifier" class="identifiers"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html">PriorityQueue</a></span></td>
       <td class="coverage"><span data-ice="coverage">89 %</span><span data-ice="coverageCount" class="coverage-count">17/19</span></td>
-      <td style="display: none;" data-ice="size">5015 byte</td>
-      <td style="display: none;" data-ice="lines">248</td>
-      <td style="display: none;" data-ice="updated">2018-05-05 01:00:08 (UTC)</td>
+      <td style="display: none;" data-ice="size">4938 byte</td>
+      <td style="display: none;" data-ice="lines">243</td>
+      <td style="display: none;" data-ice="updated">2018-05-05 08:44:39 (UTC)</td>
     </tr>
 <tr data-ice="file">
       <td data-ice="filePath"><span><a href="file/packages/PriorityQueue/src/lib/QueueNode.js.html#errorLines=20,21">packages/PriorityQueue/src/lib/QueueNode.js</a></span></td>
