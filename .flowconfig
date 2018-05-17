@@ -2,7 +2,7 @@
 .*/node_modules/.*
 
 [include]
-./packages
+./packages/.*/src/lib/.*\.js
 
 [libs]
 
