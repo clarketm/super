@@ -163,25 +163,24 @@
     }
   }
 
-  var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
-
-  /** Detect free variable `global` from Node.js. */
-  var freeGlobal = _typeof(commonjsGlobal) == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
-
-  var _freeGlobal = freeGlobal;
+  var freeGlobal = require('./_freeGlobal');
 
   /** Detect free variable `self`. */
   var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
 
   /** Used as a reference to the global object. */
-  var root = _freeGlobal || freeSelf || Function('return this')();
+  var root = freeGlobal || freeSelf || Function('return this')();
 
-  var _root = root;
+  module.exports = root;
+
+  var _root = /*#__PURE__*/Object.freeze({
+
+  });
 
   /** Built-in value references. */
-  var _Symbol2 = _root.Symbol;
+  var _Symbol = _root.Symbol;
 
-  var _Symbol = _Symbol2;
+  var _Symbol_1 = _Symbol;
 
   /** Used for built-in method references. */
   var objectProto = Object.prototype;
@@ -197,7 +196,7 @@
   var nativeObjectToString = objectProto.toString;
 
   /** Built-in value references. */
-  var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
+  var symToStringTag = _Symbol_1 ? _Symbol_1.toStringTag : undefined;
 
   /**
    * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
@@ -256,7 +255,7 @@
       undefinedTag = '[object Undefined]';
 
   /** Built-in value references. */
-  var symToStringTag$1 = _Symbol ? _Symbol.toStringTag : undefined;
+  var symToStringTag$1 = _Symbol_1 ? _Symbol_1.toStringTag : undefined;
 
   /**
    * The base implementation of `getTag` without fallbacks for buggy environments.
@@ -266,10 +265,10 @@
    * @returns {string} Returns the `toStringTag`.
    */
   function baseGetTag(value) {
-    if (value == null) {
-      return value === undefined ? undefinedTag : nullTag;
-    }
-    return symToStringTag$1 && symToStringTag$1 in Object(value) ? _getRawTag(value) : _objectToString(value);
+      if (value == null) {
+          return value === undefined ? undefinedTag : nullTag;
+      }
+      return symToStringTag$1 && symToStringTag$1 in Object(value) ? _getRawTag(value) : _objectToString(value);
   }
 
   var _baseGetTag = baseGetTag;
@@ -323,7 +322,11 @@
     return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
   }
 
-  var isObjectLike_1 = isObjectLike;
+  module.exports = isObjectLike;
+
+  var isObjectLike$1 = /*#__PURE__*/Object.freeze({
+
+  });
 
   /** `Object#toString` result references. */
   var objectTag = '[object Object]';
@@ -370,7 +373,7 @@
    * // => true
    */
   function isPlainObject(value) {
-    if (!isObjectLike_1(value) || _baseGetTag(value) != objectTag) {
+    if (!isObjectLike$1(value) || _baseGetTag(value) != objectTag) {
       return false;
     }
     var proto = _getPrototype(value);

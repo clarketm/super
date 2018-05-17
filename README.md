@@ -122,6 +122,62 @@ tree.remove(9);
 
 <br>
 
+### [Heap](https://github.com/clarketm/super/tree/master/packages/Heap#readme)
+
+```js
+import { Heap } from "@clarketm/super";
+
+// Max / Min (default) heap comparators
+let { MAX, MIN } = Heap.HeapType;
+
+let minHeap = new Heap([3, 7, 2, 5], MIN);
+
+//              2  -> min
+//            /   \
+//           5     3
+//          /
+//         7
+//
+
+minHeap.min; // 2
+
+minHeap.insert(8); // 5 : new size
+
+//              2  -> min
+//            /   \
+//           5     3
+//          /       \
+//         7         8  -> node inserted
+//
+
+let min = minHeap.deleteMin(); // 2
+
+//              3  -> min
+//            /   \
+//           5     8
+//          /
+//         7
+//
+
+let maxHeap = new Heap([3, 7, 2, 5], MAX);
+
+//              7  -> max
+//            /   \
+//           5     3
+//          /
+//         2
+//
+
+maxHeap.max; // 7
+
+maxHeap.isEmpty(); // false
+
+maxHeap.clear();
+maxHeap.size; // 0
+```
+
+<br>
+
 ### [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)
 
 ```js

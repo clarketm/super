@@ -8,6 +8,7 @@
 import { Array } from "./Array/src/lib/Array";
 import { BinaryTree } from "./BinaryTree/src/lib/BinaryTree";
 import { bubbleSort } from "./BubbleSort/src/lib/BubbleSort";
+import { Heap } from "./Heap/src/lib/Heap";
 import { insertionSort } from "./InsertionSort/src/lib/InsertionSort";
 import { LinkedList } from "./LinkedList/src/lib/LinkedList";
 import { Map } from "./Map/src/lib/Map";
@@ -29,6 +30,7 @@ export default {
   // Data Structures
   Array,
   BinaryTree,
+  Heap,
   LinkedList,
   Map,
   Object,
@@ -53,6 +55,7 @@ export {
   // Data Structures
   Array,
   BinaryTree,
+  Heap,
   LinkedList,
   Map,
   Object,
