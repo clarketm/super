@@ -404,34 +404,6 @@ Remove and return the item with the lowest priority
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
 
-### `getMax(): Item`
-
-Get the item with the highest priority
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-
-### `getHigh(): Item`
-
-Get the item with the highest priority
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-
-### `getMin(): Item`
-
-Get the item with the lowest priority
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-
-### `getLow(): Item`
-
-Get the item with the lowest priority
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-
 ### `toArray(): Array`
 
 Convert the queue to an array

@@ -277,20 +277,14 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-left",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
-    "member"
-  ],
-  [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
     "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-left",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
     "member"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-left",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
     "member"
   ],
   [
@@ -300,14 +294,20 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#value",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-value",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#value",
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
     "member"
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#value",
     "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-value",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#value",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#value",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-value",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#value",
     "member"
   ],
@@ -469,13 +469,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#value",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#value",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "member"
   ],
@@ -648,28 +648,10 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#gethigh",
-    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-getHigh",
-    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getHigh",
-    "method"
-  ],
-  [
-    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#getlow",
-    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-getLow",
-    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getLow",
-    "method"
-  ],
-  [
-    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#getmax",
-    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-getMax",
-    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getMax",
-    "method"
-  ],
-  [
-    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#getmin",
-    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-getMin",
-    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getMin",
-    "method"
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#high",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-get-high",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#high",
+    "member"
   ],
   [
     "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#insert",
@@ -682,6 +664,24 @@ window.esdocSearchIndex = [
     "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-method-isEmpty",
     "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#isEmpty",
     "method"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#low",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-get-low",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#low",
+    "member"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#max",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-get-max",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#max",
+    "member"
+  ],
+  [
+    "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#min",
+    "class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html#instance-get-min",
+    "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#min",
+    "member"
   ],
   [
     "packages/priorityqueue/src/lib/priorityqueue.js~priorityqueue#size",

@@ -13,6 +13,72 @@ describe("PriorityQueue", () => {
     });
   });
 
+  describe("#max", () => {
+    it("should return the item with the highest priority from the queue", () => {
+      expected = "high";
+      actual = new PriorityQueue([[100, "high"], [50, "medium"], [0, "low"]]).max.value;
+
+      assert.equal(actual, expected);
+    });
+  });
+
+  describe("#high", () => {
+    it("should return the item with the highest priority from the queue", () => {
+      expected = "super high";
+      actual = new PriorityQueue([
+        [-400, "super low"],
+        [100, "high"],
+        [0, "low"],
+        [3000, "super high"]
+      ]).high.value;
+
+      assert.equal(actual, expected);
+    });
+
+    it("should not delete the lowest priority item from the queue", () => {
+      queue = new PriorityQueue([[100, "high"], [50, "medium"], [0, "low"]]);
+      queue.high;
+
+      expected = 3;
+      actual = queue.size;
+
+      assert.equal(actual, expected);
+    });
+  });
+
+  describe("#min", () => {
+    it("should return the item with the lowest priority from the queue", () => {
+      expected = "low";
+      actual = new PriorityQueue([[100, "high"], [50, "medium"], [0, "low"]]).min.value;
+
+      assert.equal(actual, expected);
+    });
+  });
+
+  describe("#low", () => {
+    it("should return the item with the lowest priority from the queue", () => {
+      expected = "super low";
+      actual = new PriorityQueue([
+        [-400, "super low"],
+        [100, "high"],
+        [0, "low"],
+        [3000, "super high"]
+      ]).low.value;
+
+      assert.equal(actual, expected);
+    });
+
+    it("should not delete the highest priority item from the queue", () => {
+      queue = new PriorityQueue([[100, "high"], [50, "medium"], [0, "low"]]);
+      queue.low;
+
+      expected = 3;
+      actual = queue.size;
+
+      assert.equal(actual, expected);
+    });
+  });
+
   describe("#isEmpty", () => {
     it("should return true if empty", () => {
       expected = true;
@@ -157,72 +223,6 @@ describe("PriorityQueue", () => {
       queue.deleteLow();
 
       expected = 2;
-      actual = queue.size;
-
-      assert.equal(actual, expected);
-    });
-  });
-
-  describe("#getMax", () => {
-    it("should return the item with the highest priority from the queue", () => {
-      expected = "high";
-      actual = new PriorityQueue([[100, "high"], [50, "medium"], [0, "low"]]).getMax().value;
-
-      assert.equal(actual, expected);
-    });
-  });
-
-  describe("#getHigh", () => {
-    it("should return the item with the highest priority from the queue", () => {
-      expected = "super high";
-      actual = new PriorityQueue([
-        [-400, "super low"],
-        [100, "high"],
-        [0, "low"],
-        [3000, "super high"]
-      ]).getHigh().value;
-
-      assert.equal(actual, expected);
-    });
-
-    it("should not delete the lowest priority item from the queue", () => {
-      queue = new PriorityQueue([[100, "high"], [50, "medium"], [0, "low"]]);
-      queue.getHigh();
-
-      expected = 3;
-      actual = queue.size;
-
-      assert.equal(actual, expected);
-    });
-  });
-
-  describe("#getMin", () => {
-    it("should return the item with the lowest priority from the queue", () => {
-      expected = "low";
-      actual = new PriorityQueue([[100, "high"], [50, "medium"], [0, "low"]]).getMin().value;
-
-      assert.equal(actual, expected);
-    });
-  });
-
-  describe("#getLow", () => {
-    it("should return the item with the lowest priority from the queue", () => {
-      expected = "super low";
-      actual = new PriorityQueue([
-        [-400, "super low"],
-        [100, "high"],
-        [0, "low"],
-        [3000, "super high"]
-      ]).getLow().value;
-
-      assert.equal(actual, expected);
-    });
-
-    it("should not delete the highest priority item from the queue", () => {
-      queue = new PriorityQueue([[100, "high"], [50, "medium"], [0, "low"]]);
-      queue.getLow();
-
-      expected = 3;
       actual = queue.size;
 
       assert.equal(actual, expected);

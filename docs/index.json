@@ -2347,7 +2347,7 @@
     "__docId__": 102,
     "kind": "file",
     "name": "packages/PriorityQueue/src/lib/PriorityQueue.js",
-    "content": "/**\n * @flow\n * @module super/priorityqueue\n */\n\nimport type { Item } from \"../../../shared/src/types\";\nimport { PrimitiveType } from \"../../../shared/src/constants\";\nimport { QueueNode } from \"./QueueNode\";\nimport { isIterable } from \"../../../shared/src/helpers\";\nimport isPlainObject from \"lodash/isPlainObject\";\nimport { BinaryTreeNode } from \"../../../BinaryTree/src/lib/BinaryTreeNode\";\n\ntype PriorityQueueIterable =\n  | Map<number, Item>\n  | Array<[number, Item]>\n  | Array<[Item]>\n  | Array<{ priority: number, value: Item }>;\n\n/**\n * @typedef {Function} Comparator\n */\ntype Comparator = (a: any, b: any) => number;\n\n/**\n *\n * PriorityQueue with superpowers! 💪\n *\n * @public\n *\n */\nclass PriorityQueue {\n  /** @private */\n  _queue: Array<Item>;\n\n  /** @private */\n  _comparator: Comparator;\n\n  /**\n   * @public\n   *\n   * @desc Construct a PriorityQueue\n   *\n   * @param {PriorityQueueIterable} iterable\n   * @param {Comparator} comparator\n   */\n  constructor(iterable: PriorityQueueIterable = new Map(), comparator: Comparator) {\n    this._queue = [];\n    this._comparator = comparator\n      ? PriorityQueue._wrapComparator(comparator)\n      : PriorityQueue._defaultComparator;\n\n    if (!(iterable instanceof Map)) {\n      if (isIterable(iterable)) {\n        if (Array.isArray(iterable[0])) {\n          iterable = new Map(iterable);\n        } else if (isPlainObject(iterable[0])) {\n          iterable = new Map(iterable.map(({ value, priority }) => [priority, value]));\n        } else {\n          return iterable.forEach(v => this.insert(v));\n        }\n      } else {\n        throw new Error(\"Unable to construct from non-iterable\");\n      }\n    }\n\n    for (let [priority, value] of iterable.entries()) {\n      this.insert(value, priority);\n    }\n  }\n\n  static _wrapComparator(comparator: Comparator): Comparator {\n    return (a, b) => comparator(a.value, b.value);\n  }\n\n  /**\n   * @private\n   *\n   * @desc Default comparator function to sort from:\n   *       highest priority (max) -> lowest priority (min)\n   *\n   * @returns {number} size of the queue\n   */\n  static _defaultComparator(a: any, b: any): number | boolean {\n    return a.priority < b.priority;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the current size of the queue\n   *\n   * @returns {number} size of the queue\n   */\n  get size(): number {\n    return this._queue.length;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if queue is empty\n   *\n   * @returns {boolean} is queue empty\n   */\n  isEmpty(): boolean {\n    return this._queue.length === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Clear the items from the queue\n   *\n   * @returns {void}\n   */\n  clear() {\n    this._queue.length = 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Enqueue an item into the queue\n   *\n   * @param {Item} value - item to insert\n   * @param {number} [priority = 0] - priority of item (higher value === higher priority)\n   * @returns {number} size after insert\n   */\n  insert(value: Item, priority: number = 0): number {\n    if (typeof priority !== PrimitiveType.NUMBER) {\n      throw new Error(`Unable to insert non-number priority: ${priority}`);\n    }\n\n    // TODO: use a heap\n    this._queue.push(new QueueNode(value, priority));\n    this._queue.sort(this._comparator);\n\n    return this.size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove and return the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  deleteMax(): Item {\n    return this._queue.shift();\n  }\n\n  /**\n   * @public\n   *\n   * @alias deleteMax\n   *\n   * @desc Remove and return the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  deleteHigh(): Item {\n    return this.deleteMax();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove and return the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  deleteMin(): Item {\n    return this._queue.pop();\n  }\n\n  /**\n   * @public\n   *\n   * @alias deleteMin\n   *\n   * @desc Remove and return the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  deleteLow(): Item {\n    return this.deleteMin();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  getMax(): Item {\n    return this._queue[0];\n  }\n\n  /**\n   * @public\n   *\n   * @alias getMax\n   *\n   * @desc Get the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  getHigh(): Item {\n    return this.getMax();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  getMin(): Item {\n    return this._queue[this._queue.length - 1];\n  }\n\n  /**\n   * @public\n   *\n   * @alias getMin\n   *\n   * @desc Get the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  getLow(): Item {\n    return this.getMin();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the queue to an array\n   *\n   * @returns {Array} array representation of the queue\n   */\n  toArray(): Array {\n    return this._queue.slice(0);\n  }\n}\n\nexport { PriorityQueue };\n",
+    "content": "/**\n * @flow\n * @module super/priorityqueue\n */\n\nimport type { Item } from \"../../../shared/src/types\";\nimport { PrimitiveType } from \"../../../shared/src/constants\";\nimport { QueueNode } from \"./QueueNode\";\nimport { isIterable } from \"../../../shared/src/helpers\";\nimport isPlainObject from \"lodash/isPlainObject\";\n\ntype PriorityQueueIterable =\n  | Map<number, Item>\n  | Array<[number, Item]>\n  | Array<[Item]>\n  | Array<{ priority: number, value: Item }>;\n\n/**\n * @typedef {Function} Comparator\n */\ntype Comparator = (a: any, b: any) => number;\n\n/**\n *\n * PriorityQueue with superpowers! 💪\n *\n * @public\n *\n */\nclass PriorityQueue {\n  /** @private */\n  _queue: Array<Item>;\n\n  /** @private */\n  _comparator: Comparator;\n\n  /**\n   * @public\n   *\n   * @desc Construct a PriorityQueue\n   *\n   * @param {PriorityQueueIterable} iterable\n   * @param {Comparator} comparator\n   */\n  constructor(iterable: PriorityQueueIterable = new Map(), comparator: Comparator) {\n    this._queue = [];\n    this._comparator = comparator\n      ? PriorityQueue._wrapComparator(comparator)\n      : PriorityQueue._defaultComparator;\n\n    if (!(iterable instanceof Map)) {\n      if (isIterable(iterable)) {\n        if (Array.isArray(iterable[0])) {\n          iterable = new Map(iterable);\n        } else if (isPlainObject(iterable[0])) {\n          iterable = new Map(iterable.map(({ value, priority }) => [priority, value]));\n        } else {\n          return iterable.forEach(v => this.insert(v));\n        }\n      } else {\n        throw new Error(\"Unable to construct from non-iterable\");\n      }\n    }\n\n    for (let [priority, value] of iterable.entries()) {\n      this.insert(value, priority);\n    }\n  }\n\n  static _wrapComparator(comparator: Comparator): Comparator {\n    return (a, b) => comparator(a.value, b.value);\n  }\n\n  /**\n   * @private\n   *\n   * @desc Default comparator function to sort from:\n   *       highest priority (max) -> lowest priority (min)\n   *\n   * @returns {number} size of the queue\n   */\n  static _defaultComparator(a: any, b: any): number | boolean {\n    return a.priority < b.priority;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the current size of the queue\n   *\n   * @returns {number} size of the queue\n   */\n  get size(): number {\n    return this._queue.length;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  get max(): Item {\n    return this._queue[0];\n  }\n\n  /**\n   * @public\n   *\n   * @alias max\n   *\n   * @desc Get the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  get high(): Item {\n    return this.max;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  get min(): Item {\n    return this._queue[this._queue.length - 1];\n  }\n\n  /**\n   * @public\n   *\n   * @alias min\n   *\n   * @desc Get the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  get low(): Item {\n    return this.min;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if queue is empty\n   *\n   * @returns {boolean} is queue empty\n   */\n  isEmpty(): boolean {\n    return this._queue.length === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Clear the items from the queue\n   *\n   * @returns {void}\n   */\n  clear() {\n    this._queue.length = 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Enqueue an item into the queue\n   *\n   * @param {Item} value - item to insert\n   * @param {number} [priority = 0] - priority of item (higher value === higher priority)\n   * @returns {number} size after insert\n   */\n  insert(value: Item, priority: number = 0): number {\n    if (typeof priority !== PrimitiveType.NUMBER) {\n      throw new Error(`Unable to insert non-number priority: ${priority}`);\n    }\n\n    // TODO: use a heap\n    this._queue.push(new QueueNode(value, priority));\n    this._queue.sort(this._comparator);\n\n    return this.size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove and return the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  deleteMax(): Item {\n    return this._queue.shift();\n  }\n\n  /**\n   * @public\n   *\n   * @alias deleteMax\n   *\n   * @desc Remove and return the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  deleteHigh(): Item {\n    return this.deleteMax();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove and return the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  deleteMin(): Item {\n    return this._queue.pop();\n  }\n\n  /**\n   * @public\n   *\n   * @alias deleteMin\n   *\n   * @desc Remove and return the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  deleteLow(): Item {\n    return this.deleteMin();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the queue to an array\n   *\n   * @returns {Array} array representation of the queue\n   */\n  toArray(): Array {\n    return this._queue.slice(0);\n  }\n}\n\nexport { PriorityQueue };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/PriorityQueue/src/lib/PriorityQueue.js",
     "access": "public",
@@ -2383,7 +2383,7 @@
     "importPath": "@clarketm/super/packages/PriorityQueue/src/lib/PriorityQueue.js",
     "importStyle": "{PriorityQueue}",
     "description": "\nPriorityQueue with superpowers! 💪",
-    "lineNumber": 24,
+    "lineNumber": 23,
     "interface": false
   },
   {
@@ -2397,7 +2397,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#constructor",
     "access": "private",
     "description": null,
-    "lineNumber": 36
+    "lineNumber": 35
   },
   {
     "__docId__": 106,
@@ -2408,7 +2408,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#_queue",
     "access": "private",
     "description": null,
-    "lineNumber": 37,
+    "lineNumber": 36,
     "undocument": true,
     "type": {
       "types": [
@@ -2425,7 +2425,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#_comparator",
     "access": "private",
     "description": null,
-    "lineNumber": 38,
+    "lineNumber": 37,
     "undocument": true,
     "type": {
       "types": [
@@ -2444,7 +2444,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue._wrapComparator",
     "access": "private",
     "description": null,
-    "lineNumber": 62,
+    "lineNumber": 61,
     "params": [
       {
         "name": "comparator",
@@ -2470,7 +2470,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue._defaultComparator",
     "access": "private",
     "description": "Default comparator function to sort from:\n      highest priority (max) -> lowest priority (min)",
-    "lineNumber": 74,
+    "lineNumber": 73,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2511,7 +2511,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#size",
     "access": "public",
     "description": "Get the current size of the queue",
-    "lineNumber": 85,
+    "lineNumber": 84,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2534,6 +2534,142 @@
   },
   {
     "__docId__": 111,
+    "kind": "get",
+    "name": "max",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#max",
+    "access": "public",
+    "description": "Get the item with the highest priority",
+    "lineNumber": 95,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} highest priority item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "highest priority item"
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 112,
+    "kind": "get",
+    "name": "high",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#high",
+    "access": "public",
+    "description": "Get the item with the highest priority",
+    "lineNumber": 108,
+    "unknown": [
+      {
+        "tagName": "@alias",
+        "tagValue": "max"
+      },
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} highest priority item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "highest priority item"
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 113,
+    "kind": "get",
+    "name": "min",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#min",
+    "access": "public",
+    "description": "Get the item with the lowest priority",
+    "lineNumber": 119,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} lowest priority item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "lowest priority item"
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 114,
+    "kind": "get",
+    "name": "low",
+    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#low",
+    "access": "public",
+    "description": "Get the item with the lowest priority",
+    "lineNumber": 132,
+    "unknown": [
+      {
+        "tagName": "@alias",
+        "tagValue": "min"
+      },
+      {
+        "tagName": "@returns",
+        "tagValue": "{Item} lowest priority item"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Item"
+      ],
+      "spread": false,
+      "description": "lowest priority item"
+    },
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 115,
     "kind": "method",
     "name": "isEmpty",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2543,7 +2679,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#isEmpty",
     "access": "public",
     "description": "Check if queue is empty",
-    "lineNumber": 96,
+    "lineNumber": 143,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2561,7 +2697,7 @@
     "params": []
   },
   {
-    "__docId__": 112,
+    "__docId__": 116,
     "kind": "method",
     "name": "clear",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2571,7 +2707,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#clear",
     "access": "public",
     "description": "Clear the items from the queue",
-    "lineNumber": 107,
+    "lineNumber": 154,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2589,7 +2725,7 @@
     "params": []
   },
   {
-    "__docId__": 113,
+    "__docId__": 117,
     "kind": "method",
     "name": "insert",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2599,7 +2735,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#insert",
     "access": "public",
     "description": "Enqueue an item into the queue",
-    "lineNumber": 120,
+    "lineNumber": 167,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2640,7 +2776,7 @@
     }
   },
   {
-    "__docId__": 114,
+    "__docId__": 118,
     "kind": "method",
     "name": "deleteMax",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2650,7 +2786,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteMax",
     "access": "public",
     "description": "Remove and return the item with the highest priority",
-    "lineNumber": 139,
+    "lineNumber": 186,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2668,7 +2804,7 @@
     "params": []
   },
   {
-    "__docId__": 115,
+    "__docId__": 119,
     "kind": "method",
     "name": "deleteHigh",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2678,7 +2814,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteHigh",
     "access": "public",
     "description": "Remove and return the item with the highest priority",
-    "lineNumber": 152,
+    "lineNumber": 199,
     "unknown": [
       {
         "tagName": "@alias",
@@ -2700,7 +2836,7 @@
     "params": []
   },
   {
-    "__docId__": 116,
+    "__docId__": 120,
     "kind": "method",
     "name": "deleteMin",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -2710,127 +2846,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteMin",
     "access": "public",
     "description": "Remove and return the item with the lowest priority",
-    "lineNumber": 163,
-    "unknown": [
-      {
-        "tagName": "@returns",
-        "tagValue": "{Item} lowest priority item"
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "Item"
-      ],
-      "spread": false,
-      "description": "lowest priority item"
-    },
-    "params": []
-  },
-  {
-    "__docId__": 117,
-    "kind": "method",
-    "name": "deleteLow",
-    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteLow",
-    "access": "public",
-    "description": "Remove and return the item with the lowest priority",
-    "lineNumber": 176,
-    "unknown": [
-      {
-        "tagName": "@alias",
-        "tagValue": "deleteMin"
-      },
-      {
-        "tagName": "@returns",
-        "tagValue": "{Item} lowest priority item"
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "Item"
-      ],
-      "spread": false,
-      "description": "lowest priority item"
-    },
-    "params": []
-  },
-  {
-    "__docId__": 118,
-    "kind": "method",
-    "name": "getMax",
-    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getMax",
-    "access": "public",
-    "description": "Get the item with the highest priority",
-    "lineNumber": 187,
-    "unknown": [
-      {
-        "tagName": "@returns",
-        "tagValue": "{Item} highest priority item"
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "Item"
-      ],
-      "spread": false,
-      "description": "highest priority item"
-    },
-    "params": []
-  },
-  {
-    "__docId__": 119,
-    "kind": "method",
-    "name": "getHigh",
-    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getHigh",
-    "access": "public",
-    "description": "Get the item with the highest priority",
-    "lineNumber": 200,
-    "unknown": [
-      {
-        "tagName": "@alias",
-        "tagValue": "getMax"
-      },
-      {
-        "tagName": "@returns",
-        "tagValue": "{Item} highest priority item"
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "Item"
-      ],
-      "spread": false,
-      "description": "highest priority item"
-    },
-    "params": []
-  },
-  {
-    "__docId__": 120,
-    "kind": "method",
-    "name": "getMin",
-    "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getMin",
-    "access": "public",
-    "description": "Get the item with the lowest priority",
-    "lineNumber": 211,
+    "lineNumber": 210,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2850,19 +2866,19 @@
   {
     "__docId__": 121,
     "kind": "method",
-    "name": "getLow",
+    "name": "deleteLow",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
     "generator": false,
     "async": false,
     "static": false,
-    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getLow",
+    "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteLow",
     "access": "public",
-    "description": "Get the item with the lowest priority",
-    "lineNumber": 224,
+    "description": "Remove and return the item with the lowest priority",
+    "lineNumber": 223,
     "unknown": [
       {
         "tagName": "@alias",
-        "tagValue": "getMin"
+        "tagValue": "deleteMin"
       },
       {
         "tagName": "@returns",
@@ -2890,7 +2906,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#toArray",
     "access": "public",
     "description": "Convert the queue to an array",
-    "lineNumber": 235,
+    "lineNumber": 234,
     "unknown": [
       {
         "tagName": "@returns",

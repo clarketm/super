@@ -10,6 +10,26 @@ Construct a PriorityQueue
 
 Get the current size of the queue
 
+### `max(): Item`
+
+Get the item with the highest priority
+
+### `high(): Item`
+
+> Alias to `max`
+
+Get the item with the highest priority
+
+### `min(): Item`
+
+Get the item with the lowest priority
+
+### `low(): Item`
+
+> Alias to `min`
+
+Get the item with the lowest priority
+
 ### `isEmpty(): boolean`
 
 Check if queue is empty
@@ -46,26 +66,6 @@ Remove and return the item with the lowest priority
 > Alias to `deleteMin()`
 
 Remove and return the item with the lowest priority
-
-### `getMax(): Item`
-
-Get the item with the highest priority
-
-### `getHigh(): Item`
-
-> Alias to `getMax()`
-
-Get the item with the highest priority
-
-### `getMin(): Item`
-
-Get the item with the lowest priority
-
-### `getLow(): Item`
-
-> Alias to `getMin()`
-
-Get the item with the lowest priority
 
 ### `toArray(): Array`
 

@@ -28,6 +28,12 @@ type Comparator = (a: any, b: any) => number;
  *
  */
 class PriorityQueue {
+  /** @private */
+  _queue: Array<Item>;
+
+  /** @private */
+  _comparator: Comparator;
+
   /**
    * @public
    *
@@ -47,8 +53,6 @@ class PriorityQueue {
         if (Array.isArray(iterable[0])) {
           iterable = new Map(iterable);
         } else if (isPlainObject(iterable[0])) {
-          // } else if (typeof iterable[0] === PrimitiveType.OBJECT) {
-          // } else if (Object.getPrototypeOf(iterable[0]) === Object.prototype) {
           iterable = new Map(iterable.map(({ value, priority }) => [priority, value]));
         } else {
           return iterable.forEach(v => this.insert(v));
@@ -75,7 +79,7 @@ class PriorityQueue {
    *
    * @returns {number} size of the queue
    */
-  static _defaultComparator(a, b) {
+  static _defaultComparator(a: any, b: any): number | boolean {
     return a.priority < b.priority;
   }
 
@@ -88,6 +92,54 @@ class PriorityQueue {
    */
   get size(): number {
     return this._queue.length;
+  }
+
+  /**
+   * @public
+   *
+   * @desc Get the item with the highest priority
+   *
+   * @returns {Item} highest priority item
+   */
+  get max(): Item {
+    return this._queue[0];
+  }
+
+  /**
+   * @public
+   *
+   * @alias max
+   *
+   * @desc Get the item with the highest priority
+   *
+   * @returns {Item} highest priority item
+   */
+  get high(): Item {
+    return this.max;
+  }
+
+  /**
+   * @public
+   *
+   * @desc Get the item with the lowest priority
+   *
+   * @returns {Item} lowest priority item
+   */
+  get min(): Item {
+    return this._queue[this._queue.length - 1];
+  }
+
+  /**
+   * @public
+   *
+   * @alias min
+   *
+   * @desc Get the item with the lowest priority
+   *
+   * @returns {Item} lowest priority item
+   */
+  get low(): Item {
+    return this.min;
   }
 
   /**
@@ -179,54 +231,6 @@ class PriorityQueue {
    */
   deleteLow(): Item {
     return this.deleteMin();
-  }
-
-  /**
-   * @public
-   *
-   * @desc Get the item with the highest priority
-   *
-   * @returns {Item} highest priority item
-   */
-  getMax(): Item {
-    return this._queue[0];
-  }
-
-  /**
-   * @public
-   *
-   * @alias getMax
-   *
-   * @desc Get the item with the highest priority
-   *
-   * @returns {Item} highest priority item
-   */
-  getHigh(): Item {
-    return this.getMax();
-  }
-
-  /**
-   * @public
-   *
-   * @desc Get the item with the lowest priority
-   *
-   * @returns {Item} lowest priority item
-   */
-  getMin(): Item {
-    return this._queue[this._queue.length - 1];
-  }
-
-  /**
-   * @public
-   *
-   * @alias getMin
-   *
-   * @desc Get the item with the lowest priority
-   *
-   * @returns {Item} lowest priority item
-   */
-  getLow(): Item {
-    return this.getMin();
   }
 
   /**

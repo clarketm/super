@@ -395,6 +395,10 @@
    */
 
   var PriorityQueue = function () {
+    /** @private */
+
+    /** @private */
+
     /**
      * @public
      *
@@ -418,8 +422,6 @@
           if (Array.isArray(iterable[0])) {
             iterable = new Map(iterable);
           } else if (isPlainObject_1(iterable[0])) {
-            // } else if (typeof iterable[0] === PrimitiveType.OBJECT) {
-            // } else if (Object.getPrototypeOf(iterable[0]) === Object.prototype) {
             iterable = new Map(iterable.map(function (_ref) {
               var value = _ref.value,
                   priority = _ref.priority;
@@ -584,66 +586,6 @@
       /**
        * @public
        *
-       * @desc Get the item with the highest priority
-       *
-       * @returns {Item} highest priority item
-       */
-
-    }, {
-      key: "getMax",
-      value: function getMax() {
-        return this._queue[0];
-      }
-
-      /**
-       * @public
-       *
-       * @alias getMax
-       *
-       * @desc Get the item with the highest priority
-       *
-       * @returns {Item} highest priority item
-       */
-
-    }, {
-      key: "getHigh",
-      value: function getHigh() {
-        return this.getMax();
-      }
-
-      /**
-       * @public
-       *
-       * @desc Get the item with the lowest priority
-       *
-       * @returns {Item} lowest priority item
-       */
-
-    }, {
-      key: "getMin",
-      value: function getMin() {
-        return this._queue[this._queue.length - 1];
-      }
-
-      /**
-       * @public
-       *
-       * @alias getMin
-       *
-       * @desc Get the item with the lowest priority
-       *
-       * @returns {Item} lowest priority item
-       */
-
-    }, {
-      key: "getLow",
-      value: function getLow() {
-        return this.getMin();
-      }
-
-      /**
-       * @public
-       *
        * @desc Convert the queue to an array
        *
        * @returns {Array} array representation of the queue
@@ -667,6 +609,66 @@
        */
       get: function get$$1() {
         return this._queue.length;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the item with the highest priority
+       *
+       * @returns {Item} highest priority item
+       */
+
+    }, {
+      key: "max",
+      get: function get$$1() {
+        return this._queue[0];
+      }
+
+      /**
+       * @public
+       *
+       * @alias max
+       *
+       * @desc Get the item with the highest priority
+       *
+       * @returns {Item} highest priority item
+       */
+
+    }, {
+      key: "high",
+      get: function get$$1() {
+        return this.max;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Get the item with the lowest priority
+       *
+       * @returns {Item} lowest priority item
+       */
+
+    }, {
+      key: "min",
+      get: function get$$1() {
+        return this._queue[this._queue.length - 1];
+      }
+
+      /**
+       * @public
+       *
+       * @alias min
+       *
+       * @desc Get the item with the lowest priority
+       *
+       * @returns {Item} lowest priority item
+       */
+
+    }, {
+      key: "low",
+      get: function get$$1() {
+        return this.min;
       }
     }], [{
       key: "_wrapComparator",

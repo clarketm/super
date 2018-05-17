@@ -68,7 +68,6 @@ import { PrimitiveType } from &quot;../../../shared/src/constants&quot;;
 import { QueueNode } from &quot;./QueueNode&quot;;
 import { isIterable } from &quot;../../../shared/src/helpers&quot;;
 import isPlainObject from &quot;lodash/isPlainObject&quot;;
-import { BinaryTreeNode } from &quot;../../../BinaryTree/src/lib/BinaryTreeNode&quot;;
 
 type PriorityQueueIterable =
   | Map&lt;number, Item&gt;
@@ -153,6 +152,54 @@ class PriorityQueue {
    */
   get size(): number {
     return this._queue.length;
+  }
+
+  /**
+   * @public
+   *
+   * @desc Get the item with the highest priority
+   *
+   * @returns {Item} highest priority item
+   */
+  get max(): Item {
+    return this._queue[0];
+  }
+
+  /**
+   * @public
+   *
+   * @alias max
+   *
+   * @desc Get the item with the highest priority
+   *
+   * @returns {Item} highest priority item
+   */
+  get high(): Item {
+    return this.max;
+  }
+
+  /**
+   * @public
+   *
+   * @desc Get the item with the lowest priority
+   *
+   * @returns {Item} lowest priority item
+   */
+  get min(): Item {
+    return this._queue[this._queue.length - 1];
+  }
+
+  /**
+   * @public
+   *
+   * @alias min
+   *
+   * @desc Get the item with the lowest priority
+   *
+   * @returns {Item} lowest priority item
+   */
+  get low(): Item {
+    return this.min;
   }
 
   /**
@@ -244,54 +291,6 @@ class PriorityQueue {
    */
   deleteLow(): Item {
     return this.deleteMin();
-  }
-
-  /**
-   * @public
-   *
-   * @desc Get the item with the highest priority
-   *
-   * @returns {Item} highest priority item
-   */
-  getMax(): Item {
-    return this._queue[0];
-  }
-
-  /**
-   * @public
-   *
-   * @alias getMax
-   *
-   * @desc Get the item with the highest priority
-   *
-   * @returns {Item} highest priority item
-   */
-  getHigh(): Item {
-    return this.getMax();
-  }
-
-  /**
-   * @public
-   *
-   * @desc Get the item with the lowest priority
-   *
-   * @returns {Item} lowest priority item
-   */
-  getMin(): Item {
-    return this._queue[this._queue.length - 1];
-  }
-
-  /**
-   * @public
-   *
-   * @alias getMin
-   *
-   * @desc Get the item with the lowest priority
-   *
-   * @returns {Item} lowest priority item
-   */
-  getLow(): Item {
-    return this.getMin();
   }
 
   /**
