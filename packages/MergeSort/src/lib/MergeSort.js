@@ -15,9 +15,9 @@ import { _compare, _defaultComparator } from "../../../shared/src/helpers";
  *
  * @public
  *
- * @param {Array} arr – array to sort
+ * @param {Array<Item>} arr - array to sort
  * @param {Comparator} comparator
- * @returns {Array} sorted array
+ * @returns {Array<Item>} sorted array
  */
 function mergeSort(arr: Array<Item>, comparator: Comparator = _defaultComparator) {
   if (!(this instanceof Array) && !(arr instanceof Array)) {
@@ -33,7 +33,7 @@ function mergeSort(arr: Array<Item>, comparator: Comparator = _defaultComparator
    *
    * @private
    *
-   * @param {Array<Item>} arr – array target
+   * @param {Array<Item>} arr - array target
    * @returns {Array<Item>} merged array
    */
   function _mergeSort(arr: Array<Item>) {
@@ -58,9 +58,9 @@ function mergeSort(arr: Array<Item>, comparator: Comparator = _defaultComparator
  *
  * @private
  *
- * @param {Array<Item>} arr – array merge target
- * @param {Array<Item>} leftArr – left array to merge
- * @param {Array<Item>} rightArr – right array to merge
+ * @param {Array<Item>} arr - array merge target
+ * @param {Array<Item>} leftArr - left array to merge
+ * @param {Array<Item>} rightArr - right array to merge
  * @param {Comparator} compare
  * @returns {Array<Item>} merged array
  */

@@ -1,5 +1,5 @@
 const { assert } = require("chai");
-const { mergeSort } = require("../src/lib/MergeSort");
+const { mergeSort } = require("../lib/MergeSort");
 
 describe("MergeSort", () => {
   let array, expected, actual;

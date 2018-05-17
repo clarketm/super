@@ -61,10 +61,10 @@ let array = new Array([[[1]], [[2]], [[3]]]);
 array.flatten(2); // [1, 2, 3]
 
 // sorting
-array.mergeSort();  // [0, 1, 2, 3]
+array.mergeSort(); // [0, 1, 2, 3]
 
 // sorting (w/ comparator)
-array.mergeSort((a, b) => b - a);  // [3, 2, 1, 0]
+array.mergeSort((a, b) => b - a); // [3, 2, 1, 0]
 ```
 
 <br>

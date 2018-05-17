@@ -3,14 +3,14 @@
  * @module super/array
  */
 
-import { mergeSort } from "../../../MergeSort/src/lib/MergeSort";
 import type { Comparator, Item } from "../../../shared/src/types";
+import { mergeSort } from "../../../MergeSort/src/lib/MergeSort";
 
 /**
  * @typedef {Function} Callback
  */
 
-type Callback = (value: any, index: number, array: Array) => Array;
+type Callback = (value: any, index: number, array: Array<Item>) => Array<Item>;
 
 /**
  *

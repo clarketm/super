@@ -617,9 +617,9 @@ Merge helper
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| arr | Array<Item> |  | – array merge target |
-| leftArr | Array<Item> |  | – left array to merge |
-| rightArr | Array<Item> |  | – right array to merge |
+| arr | Array<Item> |  | array merge target |
+| leftArr | Array<Item> |  | left array to merge |
+| rightArr | Array<Item> |  | right array to merge |
 | compare | Comparator |  |
 
 ## `mergeSort(arr: *, comparator: *): *`

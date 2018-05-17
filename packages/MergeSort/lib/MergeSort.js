@@ -37,9 +37,9 @@
    *
    * @public
    *
-   * @param {Array} arr – array to sort
+   * @param {Array<Item>} arr - array to sort
    * @param {Comparator} comparator
-   * @returns {Array} sorted array
+   * @returns {Array<Item>} sorted array
    */
   function mergeSort(arr) {
     var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
@@ -57,7 +57,7 @@
      *
      * @private
      *
-     * @param {Array<Item>} arr – array target
+     * @param {Array<Item>} arr - array target
      * @returns {Array<Item>} merged array
      */
     function _mergeSort(arr) {
@@ -82,9 +82,9 @@
    *
    * @private
    *
-   * @param {Array<Item>} arr – array merge target
-   * @param {Array<Item>} leftArr – left array to merge
-   * @param {Array<Item>} rightArr – right array to merge
+   * @param {Array<Item>} arr - array merge target
+   * @param {Array<Item>} leftArr - left array to merge
+   * @param {Array<Item>} rightArr - right array to merge
    * @param {Comparator} compare
    * @returns {Array<Item>} merged array
    */

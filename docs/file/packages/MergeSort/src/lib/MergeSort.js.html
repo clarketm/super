@@ -8,7 +8,7 @@
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
   <script src="script/manual.js"></script>
-<meta name="description" content="Data Structures with superpowers! &#x1F4AA;"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@clarketm/super"><meta property="twitter:description" content="Data Structures with superpowers! &#x1F4AA;"></head>
+<meta name="description" content="Data structures, data types, and algorithms with superpowers! &#x1F4AA;"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@clarketm/super"><meta property="twitter:description" content="Data structures, data types, and algorithms with superpowers! &#x1F4AA;"></head>
 <body class="layout-container" data-ice="rootContainer">
 
 <header>
@@ -77,9 +77,9 @@ import { _compare, _defaultComparator } from &quot;../../../shared/src/helpers&q
  *
  * @public
  *
- * @param {Array} arr &#x2013; array to sort
+ * @param {Array&lt;Item&gt;} arr - array to sort
  * @param {Comparator} comparator
- * @returns {Array} sorted array
+ * @returns {Array&lt;Item&gt;} sorted array
  */
 function mergeSort(arr: Array&lt;Item&gt;, comparator: Comparator = _defaultComparator) {
   if (!(this instanceof Array) &amp;&amp; !(arr instanceof Array)) {
@@ -95,7 +95,7 @@ function mergeSort(arr: Array&lt;Item&gt;, comparator: Comparator = _defaultComp
    *
    * @private
    *
-   * @param {Array&lt;Item&gt;} arr &#x2013; array target
+   * @param {Array&lt;Item&gt;} arr - array target
    * @returns {Array&lt;Item&gt;} merged array
    */
   function _mergeSort(arr: Array&lt;Item&gt;) {
@@ -120,9 +120,9 @@ function mergeSort(arr: Array&lt;Item&gt;, comparator: Comparator = _defaultComp
  *
  * @private
  *
- * @param {Array&lt;Item&gt;} arr &#x2013; array merge target
- * @param {Array&lt;Item&gt;} leftArr &#x2013; left array to merge
- * @param {Array&lt;Item&gt;} rightArr &#x2013; right array to merge
+ * @param {Array&lt;Item&gt;} arr - array merge target
+ * @param {Array&lt;Item&gt;} leftArr - left array to merge
+ * @param {Array&lt;Item&gt;} rightArr - right array to merge
  * @param {Comparator} compare
  * @returns {Array&lt;Item&gt;} merged array
  */

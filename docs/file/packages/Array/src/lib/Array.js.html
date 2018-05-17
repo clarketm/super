@@ -8,7 +8,7 @@
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
   <script src="script/manual.js"></script>
-<meta name="description" content="Data Structures with superpowers! &#x1F4AA;"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@clarketm/super"><meta property="twitter:description" content="Data Structures with superpowers! &#x1F4AA;"></head>
+<meta name="description" content="Data structures, data types, and algorithms with superpowers! &#x1F4AA;"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@clarketm/super"><meta property="twitter:description" content="Data structures, data types, and algorithms with superpowers! &#x1F4AA;"></head>
 <body class="layout-container" data-ice="rootContainer">
 
 <header>
@@ -65,14 +65,14 @@
  * @module super/array
  */
 
-import { mergeSort } from &quot;../../../MergeSort/src/lib/MergeSort&quot;;
 import type { Comparator, Item } from &quot;../../../shared/src/types&quot;;
+import { mergeSort } from &quot;../../../MergeSort/src/lib/MergeSort&quot;;
 
 /**
  * @typedef {Function} Callback
  */
 
-type Callback = (value: any, index: number, array: Array) =&gt; Array;
+type Callback = (value: any, index: number, array: Array&lt;Item&gt;) =&gt; Array&lt;Item&gt;;
 
 /**
  *

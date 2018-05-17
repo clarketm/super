@@ -10,7 +10,7 @@ import { BinaryTree } from "./BinaryTree/src/lib/BinaryTree";
 import { LinkedList } from "./LinkedList/src/lib/LinkedList";
 import { Map } from "./Map/src/lib/Map";
 import { Math } from "./Math/src/lib/Math";
-import { mergeSort } from "./MergeSort/src/lib/MergeSort";
+import { mergeSort } from "./mergeSort/src/lib/MergeSort";
 import { Number } from "./Number/src/lib/Number";
 import { Object } from "./Object/src/lib/Object";
 import { PriorityQueue } from "./PriorityQueue/src/lib/PriorityQueue";

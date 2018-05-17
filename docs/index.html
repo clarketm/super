@@ -8,7 +8,7 @@
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
   <script src="script/manual.js"></script>
-<meta name="description" content="Data Structures with superpowers! &#x1F4AA;"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@clarketm/super"><meta property="twitter:description" content="Data Structures with superpowers! &#x1F4AA;"></head>
+<meta name="description" content="Data structures, data types, and algorithms with superpowers! &#x1F4AA;"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@clarketm/super"><meta property="twitter:description" content="Data structures, data types, and algorithms with superpowers! &#x1F4AA;"></head>
 <body class="layout-container" data-ice="rootContainer">
 
 <header>
@@ -97,7 +97,13 @@ array.push(4); // [0, 1, 2, 3, 4]
 
 // Use custom methods (e.g. `flatten`):
 let array = new Array([[[1]], [[2]], [[3]]]);
-array.flatten(2); // [1, 2, 3]</code>
+array.flatten(2); // [1, 2, 3]
+
+// sorting
+array.mergeSort(); // [0, 1, 2, 3]
+
+// sorting (w/ comparator)
+array.mergeSort((a, b) =&gt; b - a); // [3, 2, 1, 0]</code>
 </code></pre>
 <p><br></p>
 <h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-binarytree-readme--binarytree--a-"><a href="https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme">BinaryTree</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { BinaryTree } from &quot;@clarketm/super&quot;;

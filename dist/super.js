@@ -157,9 +157,9 @@
    *
    * @public
    *
-   * @param {Array} arr – array to sort
+   * @param {Array<Item>} arr - array to sort
    * @param {Comparator} comparator
-   * @returns {Array} sorted array
+   * @returns {Array<Item>} sorted array
    */
   function mergeSort(arr) {
     var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
@@ -177,7 +177,7 @@
      *
      * @private
      *
-     * @param {Array<Item>} arr – array target
+     * @param {Array<Item>} arr - array target
      * @returns {Array<Item>} merged array
      */
     function _mergeSort(arr) {
@@ -202,9 +202,9 @@
    *
    * @private
    *
-   * @param {Array<Item>} arr – array merge target
-   * @param {Array<Item>} leftArr – left array to merge
-   * @param {Array<Item>} rightArr – right array to merge
+   * @param {Array<Item>} arr - array merge target
+   * @param {Array<Item>} leftArr - left array to merge
+   * @param {Array<Item>} rightArr - right array to merge
    * @param {Comparator} compare
    * @returns {Array<Item>} merged array
    */
@@ -1710,6 +1710,97 @@
     if (num === 0) return 1;
     return num * _Math.factorial(num - 1);
   };
+
+  /**
+   *
+   * MergeSort with superpowers! 💪
+   *
+   * time:    O(nlogn)
+   * space:   O(n)
+   *
+   * @public
+   *
+   * @param {Array<Item>} arr - array to sort
+   * @param {Comparator} comparator
+   * @returns {Array<Item>} sorted array
+   */
+  function mergeSort$1(arr) {
+    var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
+
+    if (!(this instanceof Array) && !(arr instanceof Array)) {
+      throw new Error("Array type is required");
+    }
+
+    var target = this instanceof Array ? this : arr.slice(0);
+    var compare = _compare(comparator);
+
+    /**
+     *
+     * MergeSort helper
+     *
+     * @private
+     *
+     * @param {Array<Item>} arr - array target
+     * @returns {Array<Item>} merged array
+     */
+    function _mergeSort(arr) {
+      if (arr.length <= 1) return arr;
+
+      var mid = Math.trunc(arr.length / 2);
+      var leftArr = arr.slice(0, mid);
+      var rightArr = arr.slice(mid);
+
+      _mergeSort(leftArr);
+      _mergeSort(rightArr);
+
+      return merge$1(arr, leftArr, rightArr, compare);
+    }
+
+    return _mergeSort(target);
+  }
+
+  /**
+   *
+   * Merge helper
+   *
+   * @private
+   *
+   * @param {Array<Item>} arr - array merge target
+   * @param {Array<Item>} leftArr - left array to merge
+   * @param {Array<Item>} rightArr - right array to merge
+   * @param {Comparator} compare
+   * @returns {Array<Item>} merged array
+   */
+  function merge$1(arr, leftArr, rightArr, compare) {
+    var i = 0;
+    var j = 0;
+    var k = 0;
+
+    while (i < leftArr.length && j < rightArr.length) {
+      if (compare(leftArr[i], rightArr[j])) {
+        arr[k] = leftArr[i];
+        i++;
+      } else {
+        arr[k] = rightArr[j];
+        j++;
+      }
+      k++;
+    }
+
+    while (i < leftArr.length) {
+      arr[k] = leftArr[i];
+      i++;
+      k++;
+    }
+
+    while (j < rightArr.length) {
+      arr[k] = rightArr[j];
+      j++;
+      k++;
+    }
+
+    return arr;
+  }
 
   function _extendableBuiltin$2(cls) {
     function ExtendableBuiltin() {
@@ -3581,7 +3672,7 @@
     String: _String,
 
     // Sorting Algorithms
-    mergeSort: mergeSort
+    mergeSort: mergeSort$1
   };
 
   exports.default = Super;
@@ -3598,7 +3689,7 @@
   exports.Math = _Math;
   exports.Number = _Number;
   exports.String = _String;
-  exports.mergeSort = mergeSort;
+  exports.mergeSort = mergeSort$1;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
