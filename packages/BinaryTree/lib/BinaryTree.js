@@ -178,7 +178,7 @@
      *
      * @desc Construct a Queue
      *
-     * @param {Iterable<Item>} iterable
+     * @param {Array<Item>} iterable
      */
     function Queue() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -332,7 +332,7 @@
      *
      * @desc Construct a BinaryTree
      *
-     * @param {Iterable<number>} iterable
+     * @param {Array<number>} iterable
      */
     function BinaryTree() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -420,6 +420,7 @@
       value: function findMin() {
         var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
 
+        // $FlowFixMe
         if (!node.left) return node;else return this.findMin(node.left);
       }
 
@@ -437,6 +438,7 @@
       value: function findMax() {
         var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
 
+        // $FlowFixMe
         if (!node.right) return node;else return this.findMax(node.right);
       }
 
@@ -554,7 +556,9 @@
               return node.left;
             } else {
               var aux = _this.findMin(node.right);
+              // $FlowFixMe
               node.value = aux.value;
+              // $FlowFixMe
               node.right = _remove(node.right, aux.value);
               return node;
             }
@@ -567,6 +571,7 @@
           }
         };
 
+        // $FlowFixMe
         this._root = _remove(this.root, value);
       }
 

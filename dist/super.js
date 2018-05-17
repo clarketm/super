@@ -284,7 +284,7 @@
      *
      * @desc Construct an Array
      *
-     * @param {Iterable<Item>} iterable
+     * @param {Array<Item>} iterable
      */
     function _Array() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -308,6 +308,7 @@
     createClass(_Array, [{
       key: "flatMap",
       value: function flatMap(callback) {
+        // $FlowFixMe
         return this.map(callback).flatten();
       }
       /**
@@ -331,6 +332,8 @@
             if (Array.isArray(val)) return acc.concat(_flatten(depth - 1, val));else return acc.concat(val);
           }, []);
         }
+
+        // $FlowFixMe
         return _flatten(depth, this);
       }
 
@@ -346,6 +349,7 @@
     }, {
       key: "mergeSort",
       value: function mergeSort$$1(comparator) {
+        // $FlowFixMe
         return mergeSort.call(this, null, comparator);
       }
     }]);
@@ -475,7 +479,7 @@
      *
      * @desc Construct a Queue
      *
-     * @param {Iterable<Item>} iterable
+     * @param {Array<Item>} iterable
      */
     function Queue() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -624,7 +628,7 @@
      *
      * @desc Construct a BinaryTree
      *
-     * @param {Iterable<number>} iterable
+     * @param {Array<number>} iterable
      */
     function BinaryTree() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -712,6 +716,7 @@
       value: function findMin() {
         var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
 
+        // $FlowFixMe
         if (!node.left) return node;else return this.findMin(node.left);
       }
 
@@ -729,6 +734,7 @@
       value: function findMax() {
         var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
 
+        // $FlowFixMe
         if (!node.right) return node;else return this.findMax(node.right);
       }
 
@@ -846,7 +852,9 @@
               return node.left;
             } else {
               var aux = _this.findMin(node.right);
+              // $FlowFixMe
               node.value = aux.value;
+              // $FlowFixMe
               node.right = _remove(node.right, aux.value);
               return node;
             }
@@ -859,6 +867,7 @@
           }
         };
 
+        // $FlowFixMe
         this._root = _remove(this.root, value);
       }
 
@@ -1089,8 +1098,6 @@
       classCallCheck(this, ListNode);
 
       this._value = item;
-      this._prev = null;
-      this._next = null;
     }
 
     /**
@@ -1192,7 +1199,7 @@
      *
      * @desc Construct a LinkedList
      *
-     * @param {Iterable<Item>} iterable
+     * @param {Array<Item>} iterable
      */
     function LinkedList() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -1387,6 +1394,7 @@
 
         if (prev && curr && curr.next) {
           prev.next = curr.next;
+          // $FlowFixMe
           curr.next.prev = prev;
           this._size--;
         } else if (prev && curr) {
@@ -1451,7 +1459,7 @@
         var array = [];
         var node = this.head;
 
-        while (node !== null) {
+        while (node) {
           array.push(node.value);
           node = node.next;
         }
@@ -1540,7 +1548,7 @@
      *
      * @desc Construct a Map
      *
-     * @param {Iterable<Item>} iterable
+     * @param {Array<Item>} iterable
      */
     function _Map(iterable) {
       classCallCheck(this, _Map);
@@ -1910,6 +1918,7 @@
 
           return result;
         }
+        // $FlowFixMe
         return _integerToRoman(this);
       }
     }], [{
@@ -2009,6 +2018,8 @@
      */
     function _Object(object) {
       classCallCheck(this, _Object);
+
+      // $FlowFixMe
       return possibleConstructorReturn(this, (_Object.__proto__ || Object.getPrototypeOf(_Object)).call(this, object));
     }
 
@@ -2120,6 +2131,7 @@
        * // { key1: ["1", 1, true, (a, b) => a+b], Symbol("key2"): {s: "s"} }
        *
        */
+      // $FlowFixMe
 
     }, {
       key: "clone",
@@ -2159,6 +2171,7 @@
           if (item instanceof InstanceType.OBJECT) {
             var _copy = {};
 
+            // $FlowFixMe
             Object.getOwnPropertySymbols(item).forEach(function (s) {
               return _copy[s] = _clone(item[s]);
             });
@@ -2465,6 +2478,7 @@
       if (!(iterable instanceof Map)) {
         if (isIterable(iterable)) {
           if (Array.isArray(iterable[0])) {
+            // $FlowFixMe
             iterable = new Map(iterable);
           } else if (isPlainObject_1(iterable[0])) {
             iterable = new Map(iterable.map(function (_ref) {
@@ -2785,7 +2799,7 @@
      *
      * @desc Construct a Set
      *
-     * @param {Iterable<Item>} iterable
+     * @param {Array<Item>} iterable
      */
     function _Set(iterable) {
       classCallCheck(this, _Set);
@@ -3419,7 +3433,7 @@
      *
      * @desc Construct a Trie
      *
-     * @param {Iterable<string>} iterable
+     * @param {Array<string>} iterable
      */
     function Trie() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -3489,6 +3503,7 @@
             var char = _step2.value;
 
             if (curr.has(char)) {
+              // $FlowFixMe
               curr = curr.get(char);
             } else {
               var node = new TrieNode(char);
@@ -3538,6 +3553,7 @@
          * @param {number} level - level in trie (0 -> height)
          * @return {boolean} true if node is a leaf node and should be deleted; otherwise false
          */
+        // $FlowFixMe
         function _remove(curr) {
           var level = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
@@ -3584,6 +3600,7 @@
           query: query,
           matchedChars: index,
           isMatch: query.length === index,
+          // $FlowFixMe
           isCompleteWord: query.length === index && node.isCompleteWord,
           node: node
         };

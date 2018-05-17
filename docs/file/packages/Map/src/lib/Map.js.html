@@ -80,15 +80,15 @@ type Callback = (value: any, key: any, map: Map&lt;Item, Item&gt;) =&gt; boolean
  * @public
  *
  */
-class _Map extends Map {
+class _Map extends Map&lt;Item, Item&gt; {
   /**
    * @public
    *
    * @desc Construct a Map
    *
-   * @param {Iterable&lt;Item&gt;} iterable
+   * @param {Array&lt;Item&gt;} iterable
    */
-  constructor(iterable: Iterable&lt;Item&gt;) {
+  constructor(iterable: Array&lt;Item&gt;) {
     super(iterable);
   }
   /**

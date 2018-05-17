@@ -79,15 +79,15 @@ type Callback = (value1: any, value2: any, set: Set&lt;Item&gt;) =&gt; boolean;
  * @public
  *
  */
-class _Set extends Set {
+class _Set extends Set&lt;Item&gt; {
   /**
    * @public
    *
    * @desc Construct a Set
    *
-   * @param {Iterable&lt;Item&gt;} iterable
+   * @param {Array&lt;Item&gt;} iterable
    */
-  constructor(iterable: Iterable&lt;Item&gt;) {
+  constructor(iterable: Array&lt;Item&gt;) {
     super(iterable);
   }
 

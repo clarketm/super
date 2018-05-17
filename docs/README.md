@@ -4,7 +4,7 @@
 
 Array with superpowers! 💪
 
-### `constructor(iterable: Iterable<Item>)`
+### `constructor(iterable: Array<Item>)`
 
 Construct an Array
 
@@ -36,7 +36,7 @@ Sort using merge sort
 
 BinaryTree with superpowers! 💪
 
-### `constructor(iterable: Iterable<number>)`
+### `constructor(iterable: Array<number>)`
 
 Construct a BinaryTree
 
@@ -233,15 +233,15 @@ ListNode
 
 ### `_value: *`
 
-### `_prev: *`
-
 ### `_next: *`
+
+### `_prev: *`
 
 ## `_Map`
 
 Map with superpowers! 💪
 
-### `constructor(iterable: Iterable<Item>)`
+### `constructor(iterable: Array<Item>)`
 
 Construct a Map
 
@@ -429,7 +429,7 @@ QueueNode
 
 Queue with superpowers! 💪
 
-### `constructor(iterable: Iterable<Item>)`
+### `constructor(iterable: Array<Item>)`
 
 Construct a Queue
 
@@ -504,7 +504,7 @@ Convert a string to title case
 
 Trie with superpowers! 💪
 
-### `constructor(iterable: Iterable<string>)`
+### `constructor(iterable: Array<string>)`
 
 Construct a Trie
 

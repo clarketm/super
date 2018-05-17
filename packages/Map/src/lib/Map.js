@@ -18,15 +18,15 @@ type Callback = (value: any, key: any, map: Map<Item, Item>) => boolean;
  * @public
  *
  */
-class _Map extends Map {
+class _Map extends Map<Item, Item> {
   /**
    * @public
    *
    * @desc Construct a Map
    *
-   * @param {Iterable<Item>} iterable
+   * @param {Array<Item>} iterable
    */
-  constructor(iterable: Iterable<Item>) {
+  constructor(iterable: Array<Item>) {
     super(iterable);
   }
   /**

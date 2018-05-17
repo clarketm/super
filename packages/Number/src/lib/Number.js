@@ -88,6 +88,7 @@ class _Number extends Number {
       }
       return result;
     }
+    // $FlowFixMe
     return _integerToRoman(this);
   }
 }

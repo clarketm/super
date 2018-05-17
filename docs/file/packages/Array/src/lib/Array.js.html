@@ -81,15 +81,15 @@ type Callback = (value: any, index: number, array: Array&lt;Item&gt;) =&gt; Arra
  * @public
  *
  */
-class _Array extends Array {
+class _Array extends Array&lt;Item&gt; {
   /**
    * @public
    *
    * @desc Construct an Array
    *
-   * @param {Iterable&lt;Item&gt;} iterable
+   * @param {Array&lt;Item&gt;} iterable
    */
-  constructor(iterable: Iterable&lt;Item&gt; = []) {
+  constructor(iterable: Array&lt;Item&gt; = []) {
     super();
     this.push(...iterable);
   }
@@ -102,6 +102,7 @@ class _Array extends Array {
    * @returns {Array&lt;Item&gt;} A new array with each element being the result of the callback function and flattened to a depth of 1
    */
   flatMap(callback: Callback): Array&lt;Item&gt; {
+    // $FlowFixMe
     return this.map(callback).flatten();
   }
   /**
@@ -113,7 +114,7 @@ class _Array extends Array {
    * @returns {Array&lt;Item&gt;}  new array with the sub-array elements concatted into it.
    */
   flatten(depth: number = 1): Array&lt;Item&gt; {
-    function _flatten(depth, arr) {
+    function _flatten(depth: number, arr: Array&lt;Item&gt;) {
       if (depth &lt;= 0) return arr;
 
       return arr.reduce((acc, val) =&gt; {
@@ -121,6 +122,8 @@ class _Array extends Array {
         else return acc.concat(val);
       }, []);
     }
+
+    // $FlowFixMe
     return _flatten(depth, this);
   }
 
@@ -133,6 +136,7 @@ class _Array extends Array {
    * @returns {Array&lt;Item&gt;} sorted array
    */
   mergeSort(comparator: Comparator): Array&lt;Item&gt; {
+    // $FlowFixMe
     return mergeSort.call(this, null, comparator);
   }
 }

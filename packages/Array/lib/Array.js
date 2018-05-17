@@ -222,7 +222,7 @@
      *
      * @desc Construct an Array
      *
-     * @param {Iterable<Item>} iterable
+     * @param {Array<Item>} iterable
      */
     function _Array() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -246,6 +246,7 @@
     createClass(_Array, [{
       key: "flatMap",
       value: function flatMap(callback) {
+        // $FlowFixMe
         return this.map(callback).flatten();
       }
       /**
@@ -269,6 +270,8 @@
             if (Array.isArray(val)) return acc.concat(_flatten(depth - 1, val));else return acc.concat(val);
           }, []);
         }
+
+        // $FlowFixMe
         return _flatten(depth, this);
       }
 
@@ -284,6 +287,7 @@
     }, {
       key: "mergeSort",
       value: function mergeSort$$1(comparator) {
+        // $FlowFixMe
         return mergeSort.call(this, null, comparator);
       }
     }]);

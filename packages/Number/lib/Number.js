@@ -210,6 +210,7 @@
 
           return result;
         }
+        // $FlowFixMe
         return _integerToRoman(this);
       }
     }], [{

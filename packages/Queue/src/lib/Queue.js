@@ -21,9 +21,9 @@ class Queue {
    *
    * @desc Construct a Queue
    *
-   * @param {Iterable<Item>} iterable
+   * @param {Array<Item>} iterable
    */
-  constructor(iterable: Iterable<Item> = []) {
+  constructor(iterable: Array<Item> = []) {
     this._queue = [...iterable];
   }
 

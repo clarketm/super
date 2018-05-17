@@ -32,9 +32,9 @@ class BinaryTree {
    *
    * @desc Construct a BinaryTree
    *
-   * @param {Iterable<number>} iterable
+   * @param {Array<number>} iterable
    */
-  constructor(iterable: Iterable<number> = []) {
+  constructor(iterable: Array<number> = []) {
     this._root = null;
 
     for (let item of iterable) {
@@ -100,6 +100,7 @@ class BinaryTree {
    * @returns {BinaryTreeNode} node
    */
   findMin(node: ?BinaryTreeNode = this.root): ?BinaryTreeNode {
+    // $FlowFixMe
     if (!node.left) return node;
     else return this.findMin(node.left);
   }
@@ -113,6 +114,7 @@ class BinaryTree {
    * @returns {BinaryTreeNode} node
    */
   findMax(node: ?BinaryTreeNode = this.root): ?BinaryTreeNode {
+    // $FlowFixMe
     if (!node.right) return node;
     else return this.findMax(node.right);
   }
@@ -220,7 +222,9 @@ class BinaryTree {
           return node.left;
         } else {
           let aux = this.findMin(node.right);
+          // $FlowFixMe
           node.value = aux.value;
+          // $FlowFixMe
           node.right = _remove(node.right, aux.value);
           return node;
         }
@@ -233,6 +237,7 @@ class BinaryTree {
       }
     };
 
+    // $FlowFixMe
     this._root = _remove(this.root, value);
   }
 

@@ -73,7 +73,7 @@ class BinaryTreeNode {
    * @desc Set the left child node
    *
    */
-  set left(left: BinaryTreeNode) {
+  set left(left: ?BinaryTreeNode) {
     this._left = left;
   }
 
@@ -94,7 +94,7 @@ class BinaryTreeNode {
    * @desc Set the right child node
    *
    */
-  set right(right: BinaryTreeNode) {
+  set right(right: ?BinaryTreeNode) {
     this._right = right;
   }
 }

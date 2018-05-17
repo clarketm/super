@@ -132,6 +132,8 @@
      */
     function _Object(object) {
       classCallCheck(this, _Object);
+
+      // $FlowFixMe
       return possibleConstructorReturn(this, (_Object.__proto__ || Object.getPrototypeOf(_Object)).call(this, object));
     }
 
@@ -243,6 +245,7 @@
        * // { key1: ["1", 1, true, (a, b) => a+b], Symbol("key2"): {s: "s"} }
        *
        */
+      // $FlowFixMe
 
     }, {
       key: "clone",
@@ -282,6 +285,7 @@
           if (item instanceof InstanceType.OBJECT) {
             var _copy = {};
 
+            // $FlowFixMe
             Object.getOwnPropertySymbols(item).forEach(function (s) {
               return _copy[s] = _clone(item[s]);
             });

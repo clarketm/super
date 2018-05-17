@@ -422,6 +422,7 @@
       if (!(iterable instanceof Map)) {
         if (isIterable(iterable)) {
           if (Array.isArray(iterable[0])) {
+            // $FlowFixMe
             iterable = new Map(iterable);
           } else if (isPlainObject_1(iterable[0])) {
             iterable = new Map(iterable.map(function (_ref) {

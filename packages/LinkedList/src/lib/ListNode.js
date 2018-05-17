@@ -31,8 +31,6 @@ class ListNode {
    */
   constructor(item: Item) {
     this._value = item;
-    this._prev = null;
-    this._next = null;
   }
 
   /**

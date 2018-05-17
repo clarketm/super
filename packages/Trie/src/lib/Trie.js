@@ -5,6 +5,7 @@
 
 import { TrieNode } from "./TrieNode";
 import { PrimitiveType } from "../../../shared/src/constants";
+import type { character } from "../../../shared/src/types";
 
 type Match = {
   query: string,
@@ -30,9 +31,9 @@ class Trie {
    *
    * @desc Construct a Trie
    *
-   * @param {Iterable<string>} iterable
+   * @param {Array<string>} iterable
    */
-  constructor(iterable: Iterable<string> = []) {
+  constructor(iterable: Array<string> = []) {
     this._root = new TrieNode();
 
     for (let word of iterable) {
@@ -63,10 +64,11 @@ class Trie {
       throw new Error(`Unable to insert non-string value: ${word}`);
     }
 
-    let curr = this.root;
+    let curr: TrieNode = this.root;
 
-    for (const char of word) {
+    for (const char: character of word) {
       if (curr.has(char)) {
+        // $FlowFixMe
         curr = curr.get(char);
       } else {
         let node = new TrieNode(char);
@@ -99,7 +101,8 @@ class Trie {
      * @param {number} level - level in trie (0 -> height)
      * @return {boolean} true if node is a leaf node and should be deleted; otherwise false
      */
-    function _remove(curr: TrieNode, level: number = 0): boolean {
+    // $FlowFixMe
+    function _remove(curr: ?TrieNode, level: number = 0): boolean {
       if (!curr) return false;
 
       if (level === word.length) {
@@ -140,6 +143,7 @@ class Trie {
       query,
       matchedChars: index,
       isMatch: query.length === index,
+      // $FlowFixMe
       isCompleteWord: query.length === index && node.isCompleteWord,
       node
     };

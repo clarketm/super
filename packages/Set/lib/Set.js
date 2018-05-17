@@ -146,7 +146,7 @@
      *
      * @desc Construct a Set
      *
-     * @param {Iterable<Item>} iterable
+     * @param {Array<Item>} iterable
      */
     function _Set(iterable) {
       classCallCheck(this, _Set);

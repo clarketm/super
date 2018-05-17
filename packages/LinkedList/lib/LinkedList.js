@@ -65,8 +65,6 @@
       classCallCheck(this, ListNode);
 
       this._value = item;
-      this._prev = null;
-      this._next = null;
     }
 
     /**
@@ -173,7 +171,7 @@
      *
      * @desc Construct a LinkedList
      *
-     * @param {Iterable<Item>} iterable
+     * @param {Array<Item>} iterable
      */
     function LinkedList() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -368,6 +366,7 @@
 
         if (prev && curr && curr.next) {
           prev.next = curr.next;
+          // $FlowFixMe
           curr.next.prev = prev;
           this._size--;
         } else if (prev && curr) {
@@ -432,7 +431,7 @@
         var array = [];
         var node = this.head;
 
-        while (node !== null) {
+        while (node) {
           array.push(node.value);
           node = node.next;
         }

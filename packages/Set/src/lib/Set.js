@@ -17,15 +17,15 @@ type Callback = (value1: any, value2: any, set: Set<Item>) => boolean;
  * @public
  *
  */
-class _Set extends Set {
+class _Set extends Set<Item> {
   /**
    * @public
    *
    * @desc Construct a Set
    *
-   * @param {Iterable<Item>} iterable
+   * @param {Array<Item>} iterable
    */
-  constructor(iterable: Iterable<Item>) {
+  constructor(iterable: Array<Item>) {
     super(iterable);
   }
 

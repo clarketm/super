@@ -9,11 +9,15 @@ import { QueueNode } from "./QueueNode";
 import { isIterable } from "../../../shared/src/helpers";
 import isPlainObject from "lodash/isPlainObject";
 
+type PriorityQueueItem1 = [Item];
+type PriorityQueueItem2 = [[number, Item]];
+type PriorityQueueItem3 = [{ priority: number, value: Item }];
+
 type PriorityQueueIterable =
   | Map<number, Item>
-  | Array<[number, Item]>
-  | Array<[Item]>
-  | Array<{ priority: number, value: Item }>;
+  | PriorityQueueItem1
+  | PriorityQueueItem2
+  | PriorityQueueItem3;
 
 /**
  *
@@ -46,6 +50,7 @@ class PriorityQueue {
     if (!(iterable instanceof Map)) {
       if (isIterable(iterable)) {
         if (Array.isArray(iterable[0])) {
+          // $FlowFixMe
           iterable = new Map(iterable);
         } else if (isPlainObject(iterable[0])) {
           iterable = new Map(iterable.map(({ value, priority }) => [priority, value]));

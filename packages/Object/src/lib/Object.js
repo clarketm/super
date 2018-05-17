@@ -31,6 +31,7 @@ class _Object extends Object {
    * @param {Object} object
    */
   constructor(object: Object) {
+    // $FlowFixMe
     super(object);
   }
 
@@ -93,6 +94,7 @@ class _Object extends Object {
    * // { key1: ["1", 1, true, (a, b) => a+b], Symbol("key2"): {s: "s"} }
    *
    */
+  // $FlowFixMe
   clone(config: Config = {}): Object {
     const { includeNonEnumerable = false } = config;
 
@@ -124,6 +126,7 @@ class _Object extends Object {
       if (item instanceof InstanceType.OBJECT) {
         let copy = {};
 
+        // $FlowFixMe
         Object.getOwnPropertySymbols(item).forEach(s => (copy[s] = _clone(item[s])));
 
         if (includeNonEnumerable) {

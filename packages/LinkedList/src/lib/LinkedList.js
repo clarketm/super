@@ -28,9 +28,9 @@ class LinkedList {
    *
    * @desc Construct a LinkedList
    *
-   * @param {Iterable<Item>} iterable
+   * @param {Array<Item>} iterable
    */
-  constructor(iterable: Iterable<Item> = []) {
+  constructor(iterable: Array<Item> = []) {
     let head = new ListNode(0);
     let prev = null;
     let curr = head;
@@ -206,6 +206,7 @@ class LinkedList {
 
     if (prev && curr && curr.next) {
       prev.next = curr.next;
+      // $FlowFixMe
       curr.next.prev = prev;
       this._size--;
     } else if (prev && curr) {
@@ -261,7 +262,7 @@ class LinkedList {
     let array = [];
     let node = this.head;
 
-    while (node !== null) {
+    while (node) {
       array.push(node.value);
       node = node.next;
     }

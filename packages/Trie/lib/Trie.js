@@ -233,7 +233,7 @@
      *
      * @desc Construct a Trie
      *
-     * @param {Iterable<string>} iterable
+     * @param {Array<string>} iterable
      */
     function Trie() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -303,6 +303,7 @@
             var char = _step2.value;
 
             if (curr.has(char)) {
+              // $FlowFixMe
               curr = curr.get(char);
             } else {
               var node = new TrieNode(char);
@@ -352,6 +353,7 @@
          * @param {number} level - level in trie (0 -> height)
          * @return {boolean} true if node is a leaf node and should be deleted; otherwise false
          */
+        // $FlowFixMe
         function _remove(curr) {
           var level = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
 
@@ -398,6 +400,7 @@
           query: query,
           matchedChars: index,
           isMatch: query.length === index,
+          // $FlowFixMe
           isCompleteWord: query.length === index && node.isCompleteWord,
           node: node
         };
