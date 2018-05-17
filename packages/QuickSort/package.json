@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superquicksort",
-  "version": "0.0.0",
+  "version": "1.2.15",
   "description": "QuickSort with superpowers! 💪",
   "main": "./lib/QuickSort.js",
   "files": [
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@clarketm/babel-preset-super": "^1.2.1",
-    "@clarketm/eslint-config-super": "^1.2.3",
+    "@clarketm/eslint-config-super": "^1.2.15",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
     "chai": "^4.1.2",

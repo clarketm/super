@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superlinkedlist",
-  "version": "1.2.14",
+  "version": "1.2.15",
   "description": "LinkedList with superpowers! 💪",
   "main": "./lib/LinkedList.js",
   "files": [
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@clarketm/babel-preset-super": "^1.2.4",
-    "@clarketm/eslint-config-super": "^1.2.2",
+    "@clarketm/eslint-config-super": "^1.2.15",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
     "chai": "^4.1.2",
