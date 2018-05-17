@@ -1351,6 +1351,51 @@ var BinaryTree = function () {
 
 /**
  *
+ * InsertionSort with superpowers! 💪
+ *
+ * time:    O(n^2)
+ * space:   O(1)
+ *
+ * @public
+ *
+ * @param {Array<Item>} arr - array to sort
+ * @param {Comparator} comparator
+ * @returns {Array<Item>} sorted array
+ */
+function insertionSort(arr) {
+  var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
+
+  if (!(this instanceof Array) && !(arr instanceof Array)) {
+    throw new Error("Array type is required");
+  }
+
+  var target = this instanceof Array ? this : arr.slice(0);
+  var compare = _compare(comparator);
+
+  /**
+   *
+   * InsertionSort helper
+   *
+   * @private
+   *
+   * @param {Array<Item>} arr - array target
+   * @returns {Array<Item>} sorted array
+   */
+  function _insertionSort(arr) {
+    for (var i = 0; i < arr.length - 1; i++) {
+      for (var j = i; j >= 0 && compare(arr[j + 1], arr[j]); j--) {
+        swap(arr, j, j + 1);
+      }
+    }
+
+    return arr;
+  }
+
+  return _insertionSort(target);
+}
+
+/**
+ *
  * ListNode
  *
  * @public
@@ -2940,6 +2985,56 @@ var PriorityQueue = function () {
   return PriorityQueue;
 }();
 
+/**
+ *
+ * SelectionSort with superpowers! 💪
+ *
+ * time:    O(n^2)
+ * space:   O(1)
+ *
+ * @public
+ *
+ * @param {Array<Item>} arr - array to sort
+ * @param {Comparator} comparator
+ * @returns {Array<Item>} sorted array
+ */
+function selectionSort(arr) {
+  var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
+
+  if (!(this instanceof Array) && !(arr instanceof Array)) {
+    throw new Error("Array type is required");
+  }
+
+  var target = this instanceof Array ? this : arr.slice(0);
+  var compare = _compare(comparator);
+
+  /**
+   *
+   * SelectionSort helper
+   *
+   * @private
+   *
+   * @param {Array<Item>} arr - array target
+   * @returns {Array<Item>} sorted array
+   */
+  function _selectionSort(arr) {
+    for (var i = 0; i < arr.length - 1; i++) {
+      var min = i;
+
+      for (var j = i + 1; j < arr.length; j++) {
+        if (compare(arr[j], arr[min])) {
+          min = j;
+        }
+      }
+      swap(arr, i, min);
+    }
+
+    return arr;
+  }
+
+  return _selectionSort(target);
+}
+
 function _extendableBuiltin$4(cls) {
   function ExtendableBuiltin() {
     var instance = Reflect.construct(cls, Array.from(arguments));
@@ -3872,9 +3967,11 @@ var Super = {
   String: _String,
   // Sorting Algorithms
   bubbleSort: bubbleSort,
+  insertionSort: insertionSort,
   mergeSort: mergeSort,
-  quickSort: quickSort
+  quickSort: quickSort,
+  selectionSort: selectionSort
 };
 
 export default Super;
-export { version, _Array as Array, BinaryTree, LinkedList, _Map as Map, _Object as Object, PriorityQueue, Queue, _Set as Set, Trie, _Math as Math, _Number as Number, _String as String, bubbleSort, mergeSort, quickSort };
+export { version, _Array as Array, BinaryTree, LinkedList, _Map as Map, _Object as Object, PriorityQueue, Queue, _Set as Set, Trie, _Math as Math, _Number as Number, _String as String, bubbleSort, insertionSort, mergeSort, quickSort, selectionSort };
