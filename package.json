@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/super",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Data structures, data types, and algorithms with superpowers! 💪",
   "main": "dist/super.js",
   "module": "dist/super.es.js",
@@ -10,7 +10,6 @@
     "LICENSE.md"
   ],
   "scripts": {
-    "postinstall": "lerna bootstrap",
     "build": "lerna run build ; yarn build:dist",
     "build:dist": "shx rm -rf ./dist ; yarn bundle:dist ; yarn bundle:es ; yarn stats:dist",
     "stats:dist": "node ./resources/dist-stats.js",
