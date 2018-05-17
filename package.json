@@ -10,6 +10,7 @@
     "LICENSE.md"
   ],
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "build": "lerna run build ; yarn build:dist",
     "build:dist": "shx rm -rf ./dist ; yarn bundle:dist ; yarn bundle:es ; yarn stats:dist",
     "stats:dist": "node ./resources/dist-stats.js",

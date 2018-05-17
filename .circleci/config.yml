@@ -18,7 +18,7 @@ jobs:
           - dependencies-{{ checksum "yarn.lock" }}
 
       - run: yarn --frozen-lockfile
-      - run: lerna bootstrap
+      - run: yarn bootstrap
 
       - save_cache:
           paths:
