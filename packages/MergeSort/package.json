@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/supermergesort",
-  "version": "1.2.11",
+  "version": "1.2.12",
   "description": "MergeSort with superpowers! 💪",
   "main": "./lib/MergeSort.js",
   "files": [
