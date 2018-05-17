@@ -1,0 +1,20 @@
+
+declare export class Heap {
+  static getLeft(index: number): any;
+  static getParent(index: number): any;
+  static getRight(index: number): any;
+
+  _heap: Array<any>;
+  get max(): any;
+  get min(): any;
+  get size(): number;
+  _percolateDown(index: number): void;
+  _percolateUp(index: number): void;
+  clear(): void;
+  constructor(iterable?: Array<any>): void;
+  deleteMax(): any;
+  deleteMin(): any;
+  insert(value: any): number;
+  isEmpty(): boolean;
+  toArray(): Array<any>;
+}
