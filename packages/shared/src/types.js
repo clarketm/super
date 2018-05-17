@@ -17,3 +17,8 @@ export type Item =
  * @typedef {string} character
  */
 export type character = string;
+
+/**
+ * @typedef {Function} Comparator
+ */
+export type Comparator = (a: any, b: any) => number;
