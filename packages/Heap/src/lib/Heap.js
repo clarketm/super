@@ -14,10 +14,10 @@ import { _compare, swap } from "../../../shared/src/helpers";
  *
  */
 class Heap {
-  static HeapType = {
-    MIN: (a: Item, b: Item): number => a - b,
-    MAX: (a: Item, b: Item): number => b - a
-  };
+  // static HeapType = {
+  //   MIN: (a: Item, b: Item): number => a - b,
+  //   MAX: (a: Item, b: Item): number => b - a
+  // };
 
   /** @private */
   _heap: Array<Item>;

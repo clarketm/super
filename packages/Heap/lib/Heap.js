@@ -84,6 +84,10 @@
    */
 
   var Heap = function () {
+    // static HeapType = {
+    //   MIN: (a: Item, b: Item): number => a - b,
+    //   MAX: (a: Item, b: Item): number => b - a
+    // };
 
     /** @private */
 
@@ -358,15 +362,6 @@
     }]);
     return Heap;
   }();
-
-  Heap.HeapType = {
-    MIN: function MIN(a, b) {
-      return a - b;
-    },
-    MAX: function MAX(a, b) {
-      return b - a;
-    }
-  };
 
   exports.Heap = Heap;
 

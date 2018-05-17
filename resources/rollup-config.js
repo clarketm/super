@@ -26,6 +26,7 @@ export default {
   plugins: [
     flow({ pretty: true }),
     resolve(),
+    commonjs(),
     json(),
     stripBanner(),
     babel({
@@ -33,7 +34,6 @@ export default {
       plugins: ["external-helpers"],
       babelrc: false
     }),
-    commonjs(),
     {
       name: "uglify",
       transformBundle(code) {
