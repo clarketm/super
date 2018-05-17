@@ -11,7 +11,7 @@
   "scripts": {
     "build": "shx rm -rf ./bin ./lib ; rollup -c ../shared/rollup-config.js",
     "lint": "eslint --fix ./src ./test",
-    "prep": "yarn lint && yarn prettier && yarn build && yarn test",
+    "prep": "yarn lint && yarn prettier && yarn build && yarn types && yarn test",
     "prepublishOnly": "yarn prep",
     "prettier": "prettier --write './{src,test}/**/*.js' './*.{js,css,md}'",
     "types": "shx cp ./src/lib/*.flow ./lib",
