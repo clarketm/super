@@ -7,6 +7,7 @@
 
 import { Array } from "./Array/src/lib/Array";
 import { BinaryTree } from "./BinaryTree/src/lib/BinaryTree";
+import { bubbleSort } from "./BubbleSort/src/lib/BubbleSort";
 import { LinkedList } from "./LinkedList/src/lib/LinkedList";
 import { Map } from "./Map/src/lib/Map";
 import { Math } from "./Math/src/lib/Math";
@@ -38,6 +39,7 @@ export default {
   Number,
   String,
   // Sorting Algorithms
+  bubbleSort,
   mergeSort,
   quickSort
 };
@@ -59,6 +61,7 @@ export {
   Number,
   String,
   // Sorting Algorithms
+  bubbleSort,
   mergeSort,
   quickSort
 };

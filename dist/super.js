@@ -1291,6 +1291,56 @@
 
   /**
    *
+   * BubbleSort with superpowers! 💪
+   *
+   * time:    O(n^2)
+   * space:   O(1)
+   *
+   * @public
+   *
+   * @param {Array<Item>} arr - array to sort
+   * @param {Comparator} comparator
+   * @returns {Array<Item>} sorted array
+   */
+  function bubbleSort(arr) {
+    var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
+
+    if (!(this instanceof Array) && !(arr instanceof Array)) {
+      throw new Error("Array type is required");
+    }
+
+    var target = this instanceof Array ? this : arr.slice(0);
+    var compare = _compare(comparator);
+
+    /**
+     *
+     * BubbleSort helper
+     *
+     * @private
+     *
+     * @param {Array<Item>} arr - array target
+     * @returns {Array<Item>} sorted array
+     */
+    function _bubbleSort(arr) {
+      for (var i = 0; i < arr.length - 1; i++) {
+        var _swap = false;
+        for (var j = 0; j < arr.length - i - 1; j++) {
+          if (compare(arr[j + 1], arr[j])) {
+            _swap = true;
+            swap(arr, j + 1, j);
+          }
+        }
+        if (!_swap) break;
+      }
+
+      return arr;
+    }
+
+    return _bubbleSort(target);
+  }
+
+  /**
+   *
    * ListNode
    *
    * @public
@@ -3811,6 +3861,7 @@
     Number: _Number,
     String: _String,
     // Sorting Algorithms
+    bubbleSort: bubbleSort,
     mergeSort: mergeSort,
     quickSort: quickSort
   };
@@ -3829,6 +3880,7 @@
   exports.Math = _Math;
   exports.Number = _Number;
   exports.String = _String;
+  exports.bubbleSort = bubbleSort;
   exports.mergeSort = mergeSort;
   exports.quickSort = quickSort;
 

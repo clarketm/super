@@ -41,6 +41,8 @@ declare export class BinaryTreeNode {
   constructor(value: any): void;
 }
 
+declare export function bubbleSort(arr: Array<any>, comparator?: any): Array<any>;
+
 declare export class LinkedList {
 
   _head: ?ListNode;

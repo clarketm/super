@@ -58,6 +58,7 @@
     "object",
     "priorityqueue",
     "queue",
+    "quicksort",
     "set",
     "string",
     "trie"
