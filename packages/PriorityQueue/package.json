@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superpriorityqueue",
-  "version": "1.2.15",
+  "version": "1.2.16",
   "description": "PriorityQueue with superpowers! 💪",
   "main": "./lib/PriorityQueue.js",
   "files": [
