@@ -1,44 +1,44 @@
+
 declare export class Array extends Array<any> {
 
-  constructor (iterable?: Array<any>): void;
-  flatMap (callback: (value: any, index: number, array: Array<any>) => Array<any>): Array<any>;
-  flatten (depth?: number): Array<any>;
-  mergeSort (comparator: any): Array<any>;
+  constructor(iterable?: Array<any>): void;
+  flatMap(callback: (value: any, index: number, array: Array<any>) => Array<any>): Array<any>;
+  flatten(depth?: number): Array<any>;
+  mergeSort(comparator: any): Array<any>;
 }
 
 declare export class BinaryTree {
 
   _root: ?BinaryTreeNode;
-  get height (): number;
-  get root (): ?BinaryTreeNode;
-  constructor (iterable?: Array<number>): void;
-  findMax (node?: ?BinaryTreeNode): ?BinaryTreeNode;
-  findMin (node?: ?BinaryTreeNode): ?BinaryTreeNode;
-  getHeight (node?: ?BinaryTreeNode): number;
-  inOrder (node?: ?BinaryTreeNode): Array<BinaryTreeNode>;
-  insert (value: any): void;
-  levelOrder (node?: ?BinaryTreeNode): Array<BinaryTreeNode>;
-  postOrder (node?: ?BinaryTreeNode): Array<BinaryTreeNode>;
-  preOrder (node?: ?BinaryTreeNode): Array<BinaryTreeNode>;
-  remove (value: any): void;
-  search (value: any): ?BinaryTreeNode;
-  toArray (traversal: $Keys<{ IN_ORDER: string, LEVEL_ORDER: string, POST_ORDER: string, PRE_ORDER: string }>, flatten?: boolean): Array<BinaryTreeNode | any>;
+  get height(): number;
+  get root(): ?BinaryTreeNode;
+  constructor(iterable?: Array<number>): void;
+  findMax(node?: ?BinaryTreeNode): ?BinaryTreeNode;
+  findMin(node?: ?BinaryTreeNode): ?BinaryTreeNode;
+  getHeight(node?: ?BinaryTreeNode): number;
+  inOrder(node?: ?BinaryTreeNode): Array<BinaryTreeNode>;
+  insert(value: any): void;
+  levelOrder(node?: ?BinaryTreeNode): Array<BinaryTreeNode>;
+  postOrder(node?: ?BinaryTreeNode): Array<BinaryTreeNode>;
+  preOrder(node?: ?BinaryTreeNode): Array<BinaryTreeNode>;
+  remove(value: any): void;
+  search(value: any): ?BinaryTreeNode;
+  toArray(traversal: $Keys<{IN_ORDER: string, LEVEL_ORDER: string, POST_ORDER: string, PRE_ORDER: string}>, flatten?: boolean): Array<BinaryTreeNode | any>;
 }
-
-declare export var TraversalType: { IN_ORDER: string, LEVEL_ORDER: string, POST_ORDER: string, PRE_ORDER: string };
+declare export var TraversalType: {IN_ORDER: string, LEVEL_ORDER: string, POST_ORDER: string, PRE_ORDER: string};
 
 declare export class BinaryTreeNode {
 
   _left: ?BinaryTreeNode;
   _right: ?BinaryTreeNode;
   _value: any;
-  get left (): ?BinaryTreeNode
-  set left (value: ?BinaryTreeNode): void;
-  get right (): ?BinaryTreeNode
-  set right (value: ?BinaryTreeNode): void;
-  get value (): any
-  set value (value: any): void;
-  constructor (value: any): void;
+  get left(): ?BinaryTreeNode
+  set left(value: ?BinaryTreeNode): void;
+  get right(): ?BinaryTreeNode
+  set right(value: ?BinaryTreeNode): void;
+  get value(): any
+  set value(value: any): void;
+  constructor(value: any): void;
 }
 
 declare export class LinkedList {
@@ -46,19 +46,19 @@ declare export class LinkedList {
   _head: ?ListNode;
   _size: number;
   _tail: ?ListNode;
-  get head (): ?ListNode;
-  get size (): number;
-  get tail (): ?ListNode;
-  append (value: any): number;
-  constructor (iterable?: Array<any>): void;
-  insert (position: number, value: any): number;
-  pop (): any;
-  prepend (value: any): number;
-  push (value: any): number;
-  remove (position: number): any;
-  shift (): any;
-  toArray (): Array<any>;
-  unshift (value: any): number;
+  get head(): ?ListNode;
+  get size(): number;
+  get tail(): ?ListNode;
+  append(value: any): number;
+  constructor(iterable?: Array<any>): void;
+  insert(position: number, value: any): number;
+  pop(): any;
+  prepend(value: any): number;
+  push(value: any): number;
+  remove(position: number): any;
+  shift(): any;
+  toArray(): Array<any>;
+  unshift(value: any): number;
 }
 
 declare export class ListNode {
@@ -66,121 +66,121 @@ declare export class ListNode {
   _next: ?ListNode;
   _prev: ?ListNode;
   _value: any;
-  get next (): ?ListNode
-  set next (value: ?ListNode): void;
-  get prev (): ?ListNode
-  set prev (value: ?ListNode): void;
-  get value (): any
-  set value (value: any): void;
-  constructor (item: any): void;
+  get next(): ?ListNode
+  set next(value: ?ListNode): void;
+  get prev(): ?ListNode
+  set prev(value: ?ListNode): void;
+  get value(): any
+  set value(value: any): void;
+  constructor(item: any): void;
 }
 
 declare export class Map extends Map<any, any> {
 
-  constructor (iterable: Array<any>): any;
-  every (callback: (value: any, key: any, map: Map<any, any>) => boolean): boolean;
-  setDefault (key: any, defaultValue: any): any;
-  some (callback: (value: any, key: any, map: Map<any, any>) => boolean): boolean;
-  toObject (): any;
+  constructor(iterable: Array<any>): any;
+  every(callback: (value: any, key: any, map: Map<any, any>) => boolean): boolean;
+  setDefault(key: any, defaultValue: any): any;
+  some(callback: (value: any, key: any, map: Map<any, any>) => boolean): boolean;
+  toObject(): any;
 }
 
-declare export var Math: { factorial: (num: number) => number };
-declare export var _Math: { factorial: (num: number) => number };
+declare export var Math: {factorial: (num: number) => number};
+declare export var _Math: {factorial: (num: number) => number};
 
-declare export function mergeSort (arr: Array<any>, comparator?: any): Array<any | any>;
+declare export function mergeSort(arr: Array<any>, comparator?: any): Array<any | any>;
 
 declare export class Number extends Number {
-  static fromRomanNumeral (str: string): number;
+  static fromRomanNumeral(str: string): number;
 
-  constructor (number: number): void;
-  toRomanNumeral (): string;
+  constructor(number: number): void;
+  toRomanNumeral(): string;
 }
 
 declare export class Object extends Object {
 
-  clone (config?: { includeNonEnumerable: ?boolean }): Object;
-  constructor (object: Object): void;
-  getNested (path: string): any;
-  hasNested (path: string): boolean;
+  clone(config?: {includeNonEnumerable: ?boolean}): Object;
+  constructor(object: Object): void;
+  getNested(path: string): any;
+  hasNested(path: string): boolean;
 }
 
 declare export class PriorityQueue {
-  static _defaultComparator (a: any, b: any): number | boolean;
-  static _wrapComparator (comparator: any): any;
+  static _defaultComparator(a: any, b: any): number | boolean;
+  static _wrapComparator(comparator: any): any;
 
   _comparator: any;
   _queue: Array<any>;
-  get high (): any;
-  get low (): any;
-  get max (): any;
-  get min (): any;
-  get size (): number;
-  clear (): void;
-  constructor (iterable?: Map<number, any> | [any] | [[number, any]] | [{ priority: number, value: any }], comparator: any): void;
-  deleteHigh (): any;
-  deleteLow (): any;
-  deleteMax (): any;
-  deleteMin (): any;
-  insert (value: any, priority?: number): number;
-  isEmpty (): boolean;
-  toArray (): Array<any>;
+  get high(): any;
+  get low(): any;
+  get max(): any;
+  get min(): any;
+  get size(): number;
+  clear(): void;
+  constructor(iterable?: Map<number, any> | [any] | [[number, any]] | [{priority: number, value: any}], comparator: any): void;
+  deleteHigh(): any;
+  deleteLow(): any;
+  deleteMax(): any;
+  deleteMin(): any;
+  insert(value: any, priority?: number): number;
+  isEmpty(): boolean;
+  toArray(): Array<any>;
 }
 
 declare export class QueueNode {
 
   _priority: number;
   _value: any;
-  get priority (): number;
-  get value (): any;
-  constructor (value: any, priority: number): void;
+  get priority(): number;
+  get value(): any;
+  constructor(value: any, priority: number): void;
 }
 
 declare export class Queue {
 
   _queue: Array<any>;
-  get front (): any;
-  get rear (): any;
-  get size (): number;
-  clear (): void;
-  constructor (iterable?: Array<any>): void;
-  dequeue (): any;
-  enqueue (item: any): number;
-  isEmpty (): boolean;
-  toArray (): Array<any>;
+  get front(): any;
+  get rear(): any;
+  get size(): number;
+  clear(): void;
+  constructor(iterable?: Array<any>): void;
+  dequeue(): any;
+  enqueue(item: any): number;
+  isEmpty(): boolean;
+  toArray(): Array<any>;
 }
 
 declare export class Set extends Set<any> {
 
-  constructor (iterable: Array<any>): void;
-  difference (setB: Set<any>): Set<any>;
-  every (callback: (value1: any, value2: any, set: Set<any>) => boolean): boolean;
-  intersection (setB: Set<any>): Set<any>;
-  isSubset (setB: Set<any>): boolean;
-  isSuperset (setB: Set<any>): boolean;
-  some (callback: (value1: any, value2: any, set: Set<any>) => boolean): boolean;
-  symmetricDifference (setB: Set<any>): Set<any>;
-  union (setB: Set<any>): Set<any>;
+  constructor(iterable: Array<any>): void;
+  difference(setB: Set<any>): Set<any>;
+  every(callback: (value1: any, value2: any, set: Set<any>) => boolean): boolean;
+  intersection(setB: Set<any>): Set<any>;
+  isSubset(setB: Set<any>): boolean;
+  isSuperset(setB: Set<any>): boolean;
+  some(callback: (value1: any, value2: any, set: Set<any>) => boolean): boolean;
+  symmetricDifference(setB: Set<any>): Set<any>;
+  union(setB: Set<any>): Set<any>;
 }
 
 declare export class String extends String {
 
-  constructor (string: string): void;
-  reverse (): string;
-  reverseWords (): string;
-  toTitleCase (): string;
+  constructor(string: string): void;
+  reverse(): string;
+  reverseWords(): string;
+  toTitleCase(): string;
 }
 
 declare export class Trie {
 
   _root: TrieNode;
-  get root (): TrieNode;
-  constructor (iterable?: Array<string>): void;
-  contains (word: string): boolean;
-  includes (word: string): boolean;
-  insert (word: string): void;
-  remove (word: string): boolean;
-  search (query: string): { isCompleteWord: boolean, isMatch: boolean, matchedChars: number, node: ?TrieNode, query: string };
-  startsWith (prefix: string): boolean;
+  get root(): TrieNode;
+  constructor(iterable?: Array<string>): void;
+  contains(word: string): boolean;
+  includes(word: string): boolean;
+  insert(word: string): void;
+  remove(word: string): boolean;
+  search(query: string): {isCompleteWord: boolean, isMatch: boolean, matchedChars: number, node: ?TrieNode, query: string};
+  startsWith(prefix: string): boolean;
 }
 
 declare export class TrieNode {
@@ -188,13 +188,13 @@ declare export class TrieNode {
   _char: any;
   _children: Map<any, TrieNode>;
   _isCompleteWord: boolean;
-  get char (): any;
-  get count (): number;
-  get isCompleteWord (): boolean;
-  get isLeafNode (): boolean;
-  constructor (char?: any): void;
-  delete (char: any): void;
-  get (char: any): ?TrieNode;
-  has (char: any): boolean;
-  set (char: any, node: TrieNode): void;
+  get char(): any;
+  get count(): number;
+  get isCompleteWord(): boolean;
+  get isLeafNode(): boolean;
+  constructor(char?: any): void;
+  delete(char: any): void;
+  get(char: any): ?TrieNode;
+  has(char: any): boolean;
+  set(char: any, node: TrieNode): void;
 }

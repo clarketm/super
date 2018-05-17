@@ -1,7 +1,4 @@
-// @flow
 
-import type {Item} from "../../../shared/src/types";
-import {ListNode} from "./ListNode";
 declare export class LinkedList {
 
   _head: ?ListNode;

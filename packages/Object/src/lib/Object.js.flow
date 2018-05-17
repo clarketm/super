@@ -1,7 +1,4 @@
-// @flow
 
-import type {Item} from "../../../shared/src/types";
-import {InstanceType, PrimitiveType} from "../../../shared/src/constants";
 declare export class Object extends Object {
 
   clone(config?: {includeNonEnumerable: ?boolean}): Object;

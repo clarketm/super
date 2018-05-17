@@ -1,4 +1,3 @@
-// @flow
 
 declare export class String extends String {
 

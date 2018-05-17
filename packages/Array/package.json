@@ -14,6 +14,7 @@
     "prep": "yarn lint && yarn prettier && yarn build && yarn test",
     "prepublishOnly": "yarn prep",
     "prettier": "prettier --write './{src,test}/**/*.js' './*.{js,css,md}'",
+    "types": "shx cp ./src/lib/*.flow ./lib",
     "test": "mocha --require babel-core/register ./test/*"
   },
   "keywords": [

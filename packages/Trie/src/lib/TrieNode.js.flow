@@ -1,6 +1,4 @@
-// @flow
 
-import type {character} from "../../../shared/src/types";
 declare export class TrieNode {
 
   _char: any;

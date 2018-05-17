@@ -1,5 +1,2 @@
-// @flow
 
-import {_compare, _defaultComparator} from "../../../shared/src/helpers";
-import type {Comparator, Item} from "../../../shared/src/types";
 declare export function mergeSort(arr: Array<any>, comparator?: any): Array<any | any>;

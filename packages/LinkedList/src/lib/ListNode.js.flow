@@ -1,13 +1,14 @@
-// @flow
 
-import type {Item} from "../../../shared/src/types";
 declare export class ListNode {
 
   _next: ?ListNode;
   _prev: ?ListNode;
   _value: any;
-  get next(): ?ListNodeset next(value: ?ListNode): void;
-  get prev(): ?ListNodeset prev(value: ?ListNode): void;
-  get value(): anyset value(value: any): void;
+  get next(): ?ListNode
+  set next(value: ?ListNode): void;
+  get prev(): ?ListNode
+  set prev(value: ?ListNode): void;
+  get value(): any
+  set value(value: any): void;
   constructor(item: any): void;
 }

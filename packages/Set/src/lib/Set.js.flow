@@ -1,6 +1,4 @@
-// @flow
 
-import type {Item} from "../../../shared/src/types";
 declare export class Set extends Set<any> {
 
   constructor(iterable: Array<any>): void;

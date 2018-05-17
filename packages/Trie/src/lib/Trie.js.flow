@@ -1,8 +1,4 @@
-// @flow
 
-import type {character} from "../../../shared/src/types";
-import {PrimitiveType} from "../../../shared/src/constants";
-import {TrieNode} from "./TrieNode";
 declare export class Trie {
 
   _root: TrieNode;

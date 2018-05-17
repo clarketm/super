@@ -1,7 +1,4 @@
-// @flow
 
-import {mergeSort} from "../../../MergeSort/src/lib/MergeSort";
-import type {Comparator, Item} from "../../../shared/src/types";
 declare export class Array extends Array<any> {
 
   constructor(iterable?: Array<any>): void;

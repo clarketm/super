@@ -1,6 +1,4 @@
-// @flow
 
-import type {Item} from "../../../shared/src/types";
 declare export class Queue {
 
   _queue: Array<any>;

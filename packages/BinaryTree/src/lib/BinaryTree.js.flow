@@ -1,8 +1,4 @@
-// @flow
 
-import {Queue} from "../../../Queue/src/lib/Queue";
-import {BinaryTreeNode} from "./BinaryTreeNode";
-import type {Item} from "../../../shared/src/types";
 declare export class BinaryTree {
 
   _root: ?BinaryTreeNode;
