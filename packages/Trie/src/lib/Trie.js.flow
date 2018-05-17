@@ -1,0 +1,17 @@
+// @flow
+
+import type {character} from "../../../shared/src/types";
+import {PrimitiveType} from "../../../shared/src/constants";
+import {TrieNode} from "./TrieNode";
+declare export class Trie {
+
+  _root: TrieNode;
+  get root(): TrieNode;
+  constructor(iterable?: Array<string>): void;
+  contains(word: string): boolean;
+  includes(word: string): boolean;
+  insert(word: string): void;
+  remove(word: string): boolean;
+  search(query: string): {isCompleteWord: boolean, isMatch: boolean, matchedChars: number, node: ?TrieNode, query: string};
+  startsWith(prefix: string): boolean;
+}

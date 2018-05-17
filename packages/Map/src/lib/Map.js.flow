@@ -1,0 +1,12 @@
+// @flow
+
+import {PrimitiveType} from "../../../shared/src/constants";
+import type {Item} from "../../../shared/src/types";
+declare export class Map extends Map<any, any> {
+
+  constructor(iterable: Array<any>): any;
+  every(callback: (value: any, key: any, map: Map<any, any>) => boolean): boolean;
+  setDefault(key: any, defaultValue: any): any;
+  some(callback: (value: any, key: any, map: Map<any, any>) => boolean): boolean;
+  toObject(): any;
+}

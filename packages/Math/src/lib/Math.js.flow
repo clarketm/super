@@ -1,0 +1,4 @@
+// @flow
+
+declare export var Math: {factorial: (num: number) => number};
+declare export var _Math: {factorial: (num: number) => number};

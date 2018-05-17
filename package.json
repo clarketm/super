@@ -19,6 +19,7 @@
     "lint": "lerna run lint",
     "prettier": "prettier --write './*.{js,css,md}' ; lerna run prettier",
     "docs": "shx rm -rf ./docs ; esdoc",
+    "types": "flow gen-flow-files ./packages --out-dir packages",
     "test": "lerna run test",
     "prep": "yarn lint && yarn prettier && yarn docs && yarn build && yarn test",
     "prepublishOnly": "yarn prep && bash ./resources/publish.sh"

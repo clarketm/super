@@ -1,0 +1,7 @@
+// @flow
+
+import type {Comparator, Item} from "./types";
+import {PrimitiveType} from "./constants";
+declare export function _compare(comparator: any): any;
+declare export function _defaultComparator(a: any, b: any): number | boolean;
+declare export function isIterable(item: any): boolean;

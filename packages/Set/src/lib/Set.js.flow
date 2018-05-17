@@ -1,0 +1,15 @@
+// @flow
+
+import type {Item} from "../../../shared/src/types";
+declare export class Set extends Set<any> {
+
+  constructor(iterable: Array<any>): void;
+  difference(setB: Set<any>): Set<any>;
+  every(callback: (value1: any, value2: any, set: Set<any>) => boolean): boolean;
+  intersection(setB: Set<any>): Set<any>;
+  isSubset(setB: Set<any>): boolean;
+  isSuperset(setB: Set<any>): boolean;
+  some(callback: (value1: any, value2: any, set: Set<any>) => boolean): boolean;
+  symmetricDifference(setB: Set<any>): Set<any>;
+  union(setB: Set<any>): Set<any>;
+}

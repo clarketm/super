@@ -1,0 +1,13 @@
+// @flow
+
+import type {Item} from "../../../shared/src/types";
+declare export class BinaryTreeNode {
+
+  _left: ?BinaryTreeNode;
+  _right: ?BinaryTreeNode;
+  _value: any;
+  get left(): ?BinaryTreeNodeset left(value: ?BinaryTreeNode): void;
+  get right(): ?BinaryTreeNodeset right(value: ?BinaryTreeNode): void;
+  get value(): anyset value(value: any): void;
+  constructor(value: any): void;
+}

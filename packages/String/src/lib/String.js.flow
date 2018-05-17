@@ -1,0 +1,9 @@
+// @flow
+
+declare export class String extends String {
+
+  constructor(string: string): void;
+  reverse(): string;
+  reverseWords(): string;
+  toTitleCase(): string;
+}

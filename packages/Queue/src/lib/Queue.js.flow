@@ -1,0 +1,16 @@
+// @flow
+
+import type {Item} from "../../../shared/src/types";
+declare export class Queue {
+
+  _queue: Array<any>;
+  get front(): any;
+  get rear(): any;
+  get size(): number;
+  clear(): void;
+  constructor(iterable?: Array<any>): void;
+  dequeue(): any;
+  enqueue(item: any): number;
+  isEmpty(): boolean;
+  toArray(): Array<any>;
+}

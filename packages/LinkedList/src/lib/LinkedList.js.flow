@@ -1,0 +1,23 @@
+// @flow
+
+import type {Item} from "../../../shared/src/types";
+import {ListNode} from "./ListNode";
+declare export class LinkedList {
+
+  _head: ?ListNode;
+  _size: number;
+  _tail: ?ListNode;
+  get head(): ?ListNode;
+  get size(): number;
+  get tail(): ?ListNode;
+  append(value: any): number;
+  constructor(iterable?: Array<any>): void;
+  insert(position: number, value: any): number;
+  pop(): any;
+  prepend(value: any): number;
+  push(value: any): number;
+  remove(position: number): any;
+  shift(): any;
+  toArray(): Array<any>;
+  unshift(value: any): number;
+}

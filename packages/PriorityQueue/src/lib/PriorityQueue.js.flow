@@ -1,0 +1,28 @@
+// @flow
+
+import isPlainObject from "lodash/isPlainObject";
+import {isIterable} from "../../../shared/src/helpers";
+import {QueueNode} from "./QueueNode";
+import {PrimitiveType} from "../../../shared/src/constants";
+import type {Comparator, Item} from "../../../shared/src/types";
+declare export class PriorityQueue {
+  static _defaultComparator(a: any, b: any): number | boolean;
+  static _wrapComparator(comparator: any): any;
+
+  _comparator: any;
+  _queue: Array<any>;
+  get high(): any;
+  get low(): any;
+  get max(): any;
+  get min(): any;
+  get size(): number;
+  clear(): void;
+  constructor(iterable?: Map<number, any> | [any] | [[number, any]] | [{priority: number, value: any}], comparator: any): void;
+  deleteHigh(): any;
+  deleteLow(): any;
+  deleteMax(): any;
+  deleteMin(): any;
+  insert(value: any, priority?: number): number;
+  isEmpty(): boolean;
+  toArray(): Array<any>;
+}
