@@ -398,6 +398,8 @@ trie.remove("go");
 * [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)
 * [String](https://github.com/clarketm/super/tree/master/packages/String#readme)
 
+<br>
+
 ## Sorting Algorithms
 
 ### [MergeSort](https://github.com/clarketm/super/tree/master/packages/MergeSort#readme)
