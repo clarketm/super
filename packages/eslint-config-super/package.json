@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/eslint-config-super",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "ESLint config with superpowers! 💪",
   "main": "index.js",
   "scripts": {

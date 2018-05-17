@@ -21,6 +21,7 @@ module.exports = {
     "jsx-a11y/href-no-hash": "off",
     "no-cond-assign": "off",
     "no-case-declarations": "off",
+    "no-constant-condition": "off",
     "default-case": "off",
     "no-unused-vars": "warn",
     "no-console": "warn",
