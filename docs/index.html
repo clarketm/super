@@ -106,9 +106,11 @@ array.flatten(2); // [1, 2, 3]
 
 // sorting
 array.mergeSort(); // [0, 1, 2, 3]
+array.quickort(); // [0, 1, 2, 3]
 
 // sorting (w/ comparator)
-array.mergeSort((a, b) =&gt; b - a); // [3, 2, 1, 0]</code>
+array.mergeSort((a, b) =&gt; b - a); // [3, 2, 1, 0]
+array.quickSort((a, b) =&gt; b - a); // [3, 2, 1, 0]</code>
 </code></pre>
 <p><br></p>
 <h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-binarytree-readme--binarytree--a-"><a href="https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme">BinaryTree</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { BinaryTree } from &quot;@clarketm/super&quot;;
@@ -417,6 +419,24 @@ let sortedArray = mergeSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a
 
 // descending (string length)
 let sortedArray = mergeSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a, b) =&gt; b.length - a.length); // [&quot;111&quot;, &quot;11&quot;, &quot;1&quot;]</code>
+</code></pre>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-quicksort-readme--quicksort--a-"><a href="https://github.com/clarketm/super/tree/master/packages/QuickSort#readme">QuickSort</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { quickSort } from &quot;@clarketm/super&quot;;
+
+// General usage
+
+// ascending
+let sortedArray = quickSort([4, 3, 8, 1]); // [1, 3, 4, 8]
+
+// Custom comparator
+
+// descending
+let sortedArray = quickSort([4, 3, 8, 1], (a, b) =&gt; b - a); // [8, 4, 3, 1]
+
+// ascending (string length)
+let sortedArray = quickSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a, b) =&gt; a.length - b.length); // [&quot;1&quot;, &quot;11&quot;, &quot;111&quot;]
+
+// descending (string length)
+let sortedArray = quickSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a, b) =&gt; b.length - a.length); // [&quot;111&quot;, &quot;11&quot;, &quot;1&quot;]</code>
 </code></pre>
 <h2 id="credits">Credits</h2><ul>
 <li>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></li>

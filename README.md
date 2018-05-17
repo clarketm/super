@@ -62,9 +62,11 @@ array.flatten(2); // [1, 2, 3]
 
 // sorting
 array.mergeSort(); // [0, 1, 2, 3]
+array.quickort(); // [0, 1, 2, 3]
 
 // sorting (w/ comparator)
 array.mergeSort((a, b) => b - a); // [3, 2, 1, 0]
+array.quickSort((a, b) => b - a); // [3, 2, 1, 0]
 ```
 
 <br>
@@ -422,6 +424,28 @@ let sortedArray = mergeSort(["111", "1", "11"], (a, b) => a.length - b.length); 
 
 // descending (string length)
 let sortedArray = mergeSort(["111", "1", "11"], (a, b) => b.length - a.length); // ["111", "11", "1"]
+```
+
+### [QuickSort](https://github.com/clarketm/super/tree/master/packages/QuickSort#readme)
+
+```js
+import { quickSort } from "@clarketm/super";
+
+// General usage
+
+// ascending
+let sortedArray = quickSort([4, 3, 8, 1]); // [1, 3, 4, 8]
+
+// Custom comparator
+
+// descending
+let sortedArray = quickSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]
+
+// ascending (string length)
+let sortedArray = quickSort(["111", "1", "11"], (a, b) => a.length - b.length); // ["1", "11", "111"]
+
+// descending (string length)
+let sortedArray = quickSort(["111", "1", "11"], (a, b) => b.length - a.length); // ["111", "11", "1"]
 ```
 
 ## Credits
