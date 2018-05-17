@@ -3,7 +3,7 @@
  * @module super/priorityqueue
  */
 
-import type { Item } from "../../../shared/src/types";
+import type { Comparator, Item } from "../../../shared/src/types";
 import { PrimitiveType } from "../../../shared/src/constants";
 import { QueueNode } from "./QueueNode";
 import { isIterable } from "../../../shared/src/helpers";
@@ -14,11 +14,6 @@ type PriorityQueueIterable =
   | Array<[number, Item]>
   | Array<[Item]>
   | Array<{ priority: number, value: Item }>;
-
-/**
- * @typedef {Function} Comparator
- */
-type Comparator = (a: any, b: any) => number;
 
 /**
  *
