@@ -2,3 +2,5 @@
 declare export function _compare(comparator: any): any;
 declare export function _defaultComparator(a: any, b: any): number | boolean;
 declare export function isIterable(item: any): boolean;
+declare export function randInt(min: number, max: number): number;
+declare export function swap(arr: Array<any>, a: any, b: any): void;

@@ -1,1 +1,2 @@
+
 declare export function quickSort(arr: Array<any>, comparator?: any): Array<any>;
