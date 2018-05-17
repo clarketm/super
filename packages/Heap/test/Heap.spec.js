@@ -1,5 +1,5 @@
 const { assert } = require("chai");
-const { Heap, HeapType } = require("../src/lib/Heap");
+const { Heap } = require("../src/lib/Heap");
 
 describe("Heap", () => {
   let heap, expected, actual;
@@ -16,7 +16,7 @@ describe("Heap", () => {
   describe("#max", () => {
     it("should return the maximum item from the max heap", () => {
       expected = 34;
-      actual = new Heap([9, 1, 7, 7, 4, 5, 9, 10, 34], HeapType.MAX).max;
+      actual = new Heap([9, 1, 7, 7, 4, 5, 9, 10, 34], Heap.HeapType.MAX).max;
 
       assert.equal(actual, expected);
     });
@@ -25,7 +25,7 @@ describe("Heap", () => {
   describe("#min", () => {
     it("should return the minimum item from the min heap", () => {
       expected = 1;
-      actual = new Heap([9, 1, 7, 7, 4, 5, 9, 10, 34], HeapType.MIN).min;
+      actual = new Heap([9, 1, 7, 7, 4, 5, 9, 10, 34], Heap.HeapType.MIN).min;
 
       assert.equal(actual, expected);
     });
@@ -61,7 +61,7 @@ describe("Heap", () => {
 
   describe("#insert", () => {
     it("should insert the item into the max heap", () => {
-      heap = new Heap([], HeapType.MAX);
+      heap = new Heap([], Heap.HeapType.MAX);
       heap.insert(25);
       heap.insert(1);
       heap.insert(26);
@@ -73,7 +73,7 @@ describe("Heap", () => {
     });
 
     it("should insert the item into the min heap", () => {
-      heap = new Heap([], HeapType.MIN);
+      heap = new Heap([], Heap.HeapType.MIN);
       heap.insert(25);
       heap.insert(1);
       heap.insert(26);
@@ -85,7 +85,7 @@ describe("Heap", () => {
     });
 
     it("should insert the item into the heap and delete maximum", () => {
-      heap = new Heap([1, 45, 32, 0, 88], HeapType.MAX);
+      heap = new Heap([1, 45, 32, 0, 88], Heap.HeapType.MAX);
 
       expected = 88;
       actual = heap.deleteMax();
@@ -94,7 +94,7 @@ describe("Heap", () => {
     });
 
     it("should insert the item into the heap and delete minimum", () => {
-      heap = new Heap([1, 45, 32, 0, 88], HeapType.MIN);
+      heap = new Heap([1, 45, 32, 0, 88], Heap.HeapType.MIN);
 
       expected = 0;
       actual = heap.deleteMax();
@@ -106,13 +106,13 @@ describe("Heap", () => {
   describe("#deleteMax", () => {
     it("should remove and return the maximum item from the queuheap", () => {
       expected = 100;
-      actual = new Heap([99, 1, 45, 32, 100, 0, 88, -5, 22], HeapType.MAX).deleteMax();
+      actual = new Heap([99, 1, 45, 32, 100, 0, 88, -5, 22], Heap.HeapType.MAX).deleteMax();
 
       assert.equal(actual, expected);
     });
 
     it("should remove and return the maximum item after insertion", () => {
-      heap = new Heap([], HeapType.MAX);
+      heap = new Heap([], Heap.HeapType.MAX);
       heap.insert(2);
       heap.insert(11);
       heap.insert(-4);
@@ -128,13 +128,13 @@ describe("Heap", () => {
   describe("#deleteMin", () => {
     it("should remove and return the minimum item from the queuheap", () => {
       expected = -5;
-      actual = new Heap([99, 1, 45, 32, 100, 0, 88, -5, 22], HeapType.MIN).deleteMin();
+      actual = new Heap([99, 1, 45, 32, 100, 0, 88, -5, 22], Heap.HeapType.MIN).deleteMin();
 
       assert.equal(actual, expected);
     });
 
     it("should remove and return the minimum item after insertion", () => {
-      heap = new Heap([], HeapType.MIN);
+      heap = new Heap([], Heap.HeapType.MIN);
       heap.insert(2);
       heap.insert(11);
       heap.insert(-4);

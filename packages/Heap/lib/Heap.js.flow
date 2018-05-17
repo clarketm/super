@@ -1,9 +1,12 @@
 
 declare export class Heap {
-  static getLeft(index: number): any;
-  static getParent(index: number): any;
-  static getRight(index: number): any;
+  static HeapType: {MAX: (a: any, b: any) => number, MIN: (a: any, b: any) => number};
+  static _defaultComparator(a: any, b: any): number | boolean;
+  static _left(index: number): any;
+  static _parent(index: number): any;
+  static _right(index: number): any;
 
+  _compare: any;
   _heap: Array<any>;
   get max(): any;
   get min(): any;
@@ -11,7 +14,7 @@ declare export class Heap {
   _percolateDown(index: number): void;
   _percolateUp(index: number): void;
   clear(): void;
-  constructor(iterable?: Array<any>): void;
+  constructor(iterable?: Array<any>, comparator: any): void;
   deleteMax(): any;
   deleteMin(): any;
   insert(value: any): number;

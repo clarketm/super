@@ -75,15 +75,6 @@
    * @module super/heap
    */
 
-  var HeapType = {
-    MIN: function MIN(a, b) {
-      return a - b;
-    },
-    MAX: function MAX(a, b) {
-      return b - a;
-    }
-  };
-
   /**
    *
    * Heap with superpowers! 💪
@@ -93,6 +84,7 @@
    */
 
   var Heap = function () {
+
     /** @private */
 
     /** @private */
@@ -367,7 +359,15 @@
     return Heap;
   }();
 
-  exports.HeapType = HeapType;
+  Heap.HeapType = {
+    MIN: function MIN(a, b) {
+      return a - b;
+    },
+    MAX: function MAX(a, b) {
+      return b - a;
+    }
+  };
+
   exports.Heap = Heap;
 
   Object.defineProperty(exports, '__esModule', { value: true });

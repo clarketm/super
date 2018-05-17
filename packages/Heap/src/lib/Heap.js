@@ -6,11 +6,6 @@
 import type { Comparator, Item } from "../../../shared/src/types";
 import { _compare, swap } from "../../../shared/src/helpers";
 
-export const HeapType = {
-  MIN: (a: Item, b: Item): number => a - b,
-  MAX: (a: Item, b: Item): number => b - a
-};
-
 /**
  *
  * Heap with superpowers! 💪
@@ -19,6 +14,11 @@ export const HeapType = {
  *
  */
 class Heap {
+  static HeapType = {
+    MIN: (a: Item, b: Item): number => a - b,
+    MAX: (a: Item, b: Item): number => b - a
+  };
+
   /** @private */
   _heap: Array<Item>;
 
