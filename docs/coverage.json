@@ -1,7 +1,7 @@
 {
-  "coverage": "85.06%",
+  "coverage": "85.71%",
   "expectCount": 154,
-  "actualCount": 131,
+  "actualCount": 132,
   "files": {
     "packages/Array/src/lib/Array.js": {
       "expectCount": 4,
@@ -67,11 +67,10 @@
     },
     "packages/PriorityQueue/src/lib/PriorityQueue.js": {
       "expectCount": 19,
-      "actualCount": 16,
+      "actualCount": 17,
       "undocumentLines": [
-        33,
-        34,
-        57
+        37,
+        38
       ]
     },
     "packages/PriorityQueue/src/lib/QueueNode.js": {

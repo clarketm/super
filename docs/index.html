@@ -62,6 +62,9 @@
 <p>&lt;sub&gt;implemented in <strong>JavaScript</strong>.&lt;/sub&gt;</p>
 </blockquote>
 <p><a href="https://github.com/clarketm/super"><img src="https://github.com/clarketm/super/blob/master/resources/hero.png" alt="hero"></a></p>
+<blockquote>
+<p><em>&quot;The data structures in JavaScript that you wish you had!&quot;</em> - Mark Twain</p>
+</blockquote>
 <h2 id="installation">Installation</h2><h3 id="yarn">Yarn</h3><pre><code class="lang-bash"><code class="source-code prettyprint">$ yarn add @clarketm/super</code>
 </code></pre>
 <h3 id="npm">Npm</h3><pre><code class="lang-bash"><code class="source-code prettyprint">$ npm install @clarketm/super --save</code>
@@ -269,9 +272,9 @@ let trie = new Trie([&quot;me&quot;, &quot;men&quot;, &quot;go&quot;]);
 // $: denotes a complete word
 //
 
-tree.root; // TrieNode { _char: &#x221A;, ... }
+trie.root; // TrieNode { _char: &#x221A;, ... }
 
-tree.insert(&quot;met&quot;);
+trie.insert(&quot;met&quot;);
 
 //               root
 //              /   \
@@ -285,13 +288,13 @@ tree.insert(&quot;met&quot;);
 //
 
 // `word` search w/ `contains`
-tree.contains(&quot;me&quot;); // true
+trie.contains(&quot;me&quot;); // true
 
 // `prefix` search w/ `startsWith`
-tree.startsWith(&quot;m&quot;); // true
+trie.startsWith(&quot;m&quot;); // true
 
 // Return a full Match object w/ `search`
-tree.search(&quot;men&quot;);
+trie.search(&quot;men&quot;);
 
 // Match object
 // {
@@ -302,7 +305,7 @@ tree.search(&quot;men&quot;);
 //  node: TrieNode { ... }
 // }
 
-tree.remove(&quot;go&quot;);
+trie.remove(&quot;go&quot;);
 
 //               root
 //              /

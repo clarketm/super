@@ -332,9 +332,7 @@ Deep clone an Object
 
 PriorityQueue with superpowers! 💪
 
-### `constructor(iterable: PriorityQueueIterable, comparator: Comparator)`
-
-Construct a PriorityQueue
+### `constructor()`
 
 ### `_queue: *[]`
 

@@ -2347,7 +2347,7 @@
     "__docId__": 102,
     "kind": "file",
     "name": "packages/PriorityQueue/src/lib/PriorityQueue.js",
-    "content": "/**\n * @flow\n * @module super/priorityqueue\n */\n\nimport type { Item } from \"../../../shared/src/types\";\nimport { PrimitiveType } from \"../../../shared/src/constants\";\nimport { QueueNode } from \"./QueueNode\";\nimport { isIterable } from \"../../../shared/src/helpers\";\nimport isPlainObject from \"lodash/isPlainObject\";\n\ntype PriorityQueueIterable =\n  | Map<number, Item>\n  | Array<[number, Item]>\n  | Array<[Item]>\n  | Array<{ priority: number, value: Item }>;\n\n/**\n * @typedef {Function} Comparator\n */\ntype Comparator = (a: any, b: any) => number;\n\n/**\n *\n * PriorityQueue with superpowers! 💪\n *\n * @public\n *\n */\nclass PriorityQueue {\n  /**\n   * @public\n   *\n   * @desc Construct a PriorityQueue\n   *\n   * @param {PriorityQueueIterable} iterable\n   * @param {Comparator} comparator\n   */\n  constructor(iterable: PriorityQueueIterable = new Map(), comparator: Comparator) {\n    this._queue = [];\n    this._comparator = comparator\n      ? PriorityQueue._wrapComparator(comparator)\n      : PriorityQueue._defaultComparator;\n\n    if (!(iterable instanceof Map)) {\n      if (isIterable(iterable)) {\n        if (Array.isArray(iterable[0])) {\n          iterable = new Map(iterable);\n        } else if (isPlainObject(iterable[0])) {\n          // } else if (typeof iterable[0] === PrimitiveType.OBJECT) {\n          // } else if (Object.getPrototypeOf(iterable[0]) === Object.prototype) {\n          iterable = new Map(iterable.map(({ value, priority }) => [priority, value]));\n        } else {\n          return iterable.forEach(v => this.insert(v));\n        }\n      } else {\n        throw new Error(\"Unable to construct from non-iterable\");\n      }\n    }\n\n    for (let [priority, value] of iterable.entries()) {\n      this.insert(value, priority);\n    }\n  }\n\n  static _wrapComparator(comparator: Comparator): Comparator {\n    return (a, b) => comparator(a.value, b.value);\n  }\n\n  /**\n   * @private\n   *\n   * @desc Default comparator function to sort from:\n   *       highest priority (max) -> lowest priority (min)\n   *\n   * @returns {number} size of the queue\n   */\n  static _defaultComparator(a, b) {\n    return a.priority < b.priority;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the current size of the queue\n   *\n   * @returns {number} size of the queue\n   */\n  get size(): number {\n    return this._queue.length;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if queue is empty\n   *\n   * @returns {boolean} is queue empty\n   */\n  isEmpty(): boolean {\n    return this._queue.length === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Clear the items from the queue\n   *\n   * @returns {void}\n   */\n  clear() {\n    this._queue.length = 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Enqueue an item into the queue\n   *\n   * @param {Item} value - item to insert\n   * @param {number} [priority = 0] - priority of item (higher value === higher priority)\n   * @returns {number} size after insert\n   */\n  insert(value: Item, priority: number = 0): number {\n    if (typeof priority !== PrimitiveType.NUMBER) {\n      throw new Error(`Unable to insert non-number priority: ${priority}`);\n    }\n\n    // TODO: use a heap\n    this._queue.push(new QueueNode(value, priority));\n    this._queue.sort(this._comparator);\n\n    return this.size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove and return the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  deleteMax(): Item {\n    return this._queue.shift();\n  }\n\n  /**\n   * @public\n   *\n   * @alias deleteMax\n   *\n   * @desc Remove and return the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  deleteHigh(): Item {\n    return this.deleteMax();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove and return the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  deleteMin(): Item {\n    return this._queue.pop();\n  }\n\n  /**\n   * @public\n   *\n   * @alias deleteMin\n   *\n   * @desc Remove and return the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  deleteLow(): Item {\n    return this.deleteMin();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  getMax(): Item {\n    return this._queue[0];\n  }\n\n  /**\n   * @public\n   *\n   * @alias getMax\n   *\n   * @desc Get the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  getHigh(): Item {\n    return this.getMax();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  getMin(): Item {\n    return this._queue[this._queue.length - 1];\n  }\n\n  /**\n   * @public\n   *\n   * @alias getMin\n   *\n   * @desc Get the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  getLow(): Item {\n    return this.getMin();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the queue to an array\n   *\n   * @returns {Array} array representation of the queue\n   */\n  toArray(): Array {\n    return this._queue.slice(0);\n  }\n}\n\nexport { PriorityQueue };\n",
+    "content": "/**\n * @flow\n * @module super/priorityqueue\n */\n\nimport type { Item } from \"../../../shared/src/types\";\nimport { PrimitiveType } from \"../../../shared/src/constants\";\nimport { QueueNode } from \"./QueueNode\";\nimport { isIterable } from \"../../../shared/src/helpers\";\nimport isPlainObject from \"lodash/isPlainObject\";\nimport { BinaryTreeNode } from \"../../../BinaryTree/src/lib/BinaryTreeNode\";\n\ntype PriorityQueueIterable =\n  | Map<number, Item>\n  | Array<[number, Item]>\n  | Array<[Item]>\n  | Array<{ priority: number, value: Item }>;\n\n/**\n * @typedef {Function} Comparator\n */\ntype Comparator = (a: any, b: any) => number;\n\n/**\n *\n * PriorityQueue with superpowers! 💪\n *\n * @public\n *\n */\nclass PriorityQueue {\n  /** @private */\n  _queue: Array<Item>;\n\n  /** @private */\n  _comparator: Comparator;\n\n  /**\n   * @public\n   *\n   * @desc Construct a PriorityQueue\n   *\n   * @param {PriorityQueueIterable} iterable\n   * @param {Comparator} comparator\n   */\n  constructor(iterable: PriorityQueueIterable = new Map(), comparator: Comparator) {\n    this._queue = [];\n    this._comparator = comparator\n      ? PriorityQueue._wrapComparator(comparator)\n      : PriorityQueue._defaultComparator;\n\n    if (!(iterable instanceof Map)) {\n      if (isIterable(iterable)) {\n        if (Array.isArray(iterable[0])) {\n          iterable = new Map(iterable);\n        } else if (isPlainObject(iterable[0])) {\n          iterable = new Map(iterable.map(({ value, priority }) => [priority, value]));\n        } else {\n          return iterable.forEach(v => this.insert(v));\n        }\n      } else {\n        throw new Error(\"Unable to construct from non-iterable\");\n      }\n    }\n\n    for (let [priority, value] of iterable.entries()) {\n      this.insert(value, priority);\n    }\n  }\n\n  static _wrapComparator(comparator: Comparator): Comparator {\n    return (a, b) => comparator(a.value, b.value);\n  }\n\n  /**\n   * @private\n   *\n   * @desc Default comparator function to sort from:\n   *       highest priority (max) -> lowest priority (min)\n   *\n   * @returns {number} size of the queue\n   */\n  static _defaultComparator(a: any, b: any): number | boolean {\n    return a.priority < b.priority;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the current size of the queue\n   *\n   * @returns {number} size of the queue\n   */\n  get size(): number {\n    return this._queue.length;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if queue is empty\n   *\n   * @returns {boolean} is queue empty\n   */\n  isEmpty(): boolean {\n    return this._queue.length === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Clear the items from the queue\n   *\n   * @returns {void}\n   */\n  clear() {\n    this._queue.length = 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Enqueue an item into the queue\n   *\n   * @param {Item} value - item to insert\n   * @param {number} [priority = 0] - priority of item (higher value === higher priority)\n   * @returns {number} size after insert\n   */\n  insert(value: Item, priority: number = 0): number {\n    if (typeof priority !== PrimitiveType.NUMBER) {\n      throw new Error(`Unable to insert non-number priority: ${priority}`);\n    }\n\n    // TODO: use a heap\n    this._queue.push(new QueueNode(value, priority));\n    this._queue.sort(this._comparator);\n\n    return this.size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove and return the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  deleteMax(): Item {\n    return this._queue.shift();\n  }\n\n  /**\n   * @public\n   *\n   * @alias deleteMax\n   *\n   * @desc Remove and return the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  deleteHigh(): Item {\n    return this.deleteMax();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove and return the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  deleteMin(): Item {\n    return this._queue.pop();\n  }\n\n  /**\n   * @public\n   *\n   * @alias deleteMin\n   *\n   * @desc Remove and return the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  deleteLow(): Item {\n    return this.deleteMin();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  getMax(): Item {\n    return this._queue[0];\n  }\n\n  /**\n   * @public\n   *\n   * @alias getMax\n   *\n   * @desc Get the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  getHigh(): Item {\n    return this.getMax();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  getMin(): Item {\n    return this._queue[this._queue.length - 1];\n  }\n\n  /**\n   * @public\n   *\n   * @alias getMin\n   *\n   * @desc Get the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  getLow(): Item {\n    return this.getMin();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the queue to an array\n   *\n   * @returns {Array} array representation of the queue\n   */\n  toArray(): Array {\n    return this._queue.slice(0);\n  }\n}\n\nexport { PriorityQueue };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/PriorityQueue/src/lib/PriorityQueue.js",
     "access": "public",
@@ -2383,7 +2383,7 @@
     "importPath": "@clarketm/super/packages/PriorityQueue/src/lib/PriorityQueue.js",
     "importStyle": "{PriorityQueue}",
     "description": "\nPriorityQueue with superpowers! 💪",
-    "lineNumber": 23,
+    "lineNumber": 24,
     "interface": false
   },
   {
@@ -2395,31 +2395,9 @@
     "async": false,
     "static": false,
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#constructor",
-    "access": "public",
-    "description": "Construct a PriorityQueue",
-    "lineNumber": 32,
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "PriorityQueueIterable"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "iterable",
-        "description": ""
-      },
-      {
-        "nullable": null,
-        "types": [
-          "Comparator"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "comparator",
-        "description": ""
-      }
-    ]
+    "access": "private",
+    "description": null,
+    "lineNumber": 36
   },
   {
     "__docId__": 106,
@@ -2430,7 +2408,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#_queue",
     "access": "private",
     "description": null,
-    "lineNumber": 33,
+    "lineNumber": 37,
     "undocument": true,
     "type": {
       "types": [
@@ -2447,7 +2425,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#_comparator",
     "access": "private",
     "description": null,
-    "lineNumber": 34,
+    "lineNumber": 38,
     "undocument": true,
     "type": {
       "types": [
@@ -2466,8 +2444,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue._wrapComparator",
     "access": "private",
     "description": null,
-    "lineNumber": 57,
-    "undocument": true,
+    "lineNumber": 62,
     "params": [
       {
         "name": "comparator",
@@ -2493,7 +2470,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue._defaultComparator",
     "access": "private",
     "description": "Default comparator function to sort from:\n      highest priority (max) -> lowest priority (min)",
-    "lineNumber": 69,
+    "lineNumber": 74,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2534,7 +2511,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#size",
     "access": "public",
     "description": "Get the current size of the queue",
-    "lineNumber": 80,
+    "lineNumber": 85,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2566,7 +2543,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#isEmpty",
     "access": "public",
     "description": "Check if queue is empty",
-    "lineNumber": 91,
+    "lineNumber": 96,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2594,7 +2571,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#clear",
     "access": "public",
     "description": "Clear the items from the queue",
-    "lineNumber": 102,
+    "lineNumber": 107,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2622,7 +2599,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#insert",
     "access": "public",
     "description": "Enqueue an item into the queue",
-    "lineNumber": 115,
+    "lineNumber": 120,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2673,7 +2650,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteMax",
     "access": "public",
     "description": "Remove and return the item with the highest priority",
-    "lineNumber": 134,
+    "lineNumber": 139,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2701,7 +2678,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteHigh",
     "access": "public",
     "description": "Remove and return the item with the highest priority",
-    "lineNumber": 147,
+    "lineNumber": 152,
     "unknown": [
       {
         "tagName": "@alias",
@@ -2733,7 +2710,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteMin",
     "access": "public",
     "description": "Remove and return the item with the lowest priority",
-    "lineNumber": 158,
+    "lineNumber": 163,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2761,7 +2738,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#deleteLow",
     "access": "public",
     "description": "Remove and return the item with the lowest priority",
-    "lineNumber": 171,
+    "lineNumber": 176,
     "unknown": [
       {
         "tagName": "@alias",
@@ -2793,7 +2770,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getMax",
     "access": "public",
     "description": "Get the item with the highest priority",
-    "lineNumber": 182,
+    "lineNumber": 187,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2821,7 +2798,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getHigh",
     "access": "public",
     "description": "Get the item with the highest priority",
-    "lineNumber": 195,
+    "lineNumber": 200,
     "unknown": [
       {
         "tagName": "@alias",
@@ -2853,7 +2830,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getMin",
     "access": "public",
     "description": "Get the item with the lowest priority",
-    "lineNumber": 206,
+    "lineNumber": 211,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2881,7 +2858,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#getLow",
     "access": "public",
     "description": "Get the item with the lowest priority",
-    "lineNumber": 219,
+    "lineNumber": 224,
     "unknown": [
       {
         "tagName": "@alias",
@@ -2913,7 +2890,7 @@
     "longname": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue#toArray",
     "access": "public",
     "description": "Convert the queue to an array",
-    "lineNumber": 230,
+    "lineNumber": 235,
     "unknown": [
       {
         "tagName": "@returns",
@@ -4568,7 +4545,7 @@
   },
   {
     "kind": "index",
-    "content": "# [Super](https://www.npmjs.com/package/@clarketm/super)\n\n**Data Structures** with superpowers! 💪😎\n\n> <sub>implemented in **JavaScript**.</sub>\n\n[![hero](https://github.com/clarketm/super/blob/master/resources/hero.png)](https://github.com/clarketm/super)\n\n## Installation\n\n### Yarn\n\n```bash\n$ yarn add @clarketm/super\n```\n\n### Npm\n\n```bash\n$ npm install @clarketm/super --save\n```\n\n## Usage\n\n```js\n// 1. import `each` module `independently`\nimport { Array, Map, Queue, Trie, ... } from \"@clarketm/super\";\n\nlet array = new Array([1, 2]);\n...\n\n// 2. import `all` modules under a `namespace`\nimport Super from \"@clarketm/super\";\n\nlet array = new Super.Array([1, 2]);\n...\n```\n\n## Data Structures\n\n### [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)\n\n```js\nimport { Array } from \"@clarketm/super\";\n\nlet array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]\n\n// Use any built-in Array methods:\narray.push(4); // [0, 1, 2, 3, 4]\n\n// Use custom methods (e.g. `flatten`):\nlet array = new Array([[[1]], [[2]], [[3]]]);\narray.flatten(2); // [1, 2, 3]\n```\n\n<br>\n\n### [BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)\n\n```js\nimport { BinaryTree } from \"@clarketm/super\";\n\nlet tree = new BinaryTree([5, 3, 7, 2, 8, 4, 6, 1]);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /\n//      1\n\ntree.root; // BinaryTreeNode { _value: 5, ... }\ntree.height; // 1\n\ntree.insert(9);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /             \\\n//      1               9  -> node inserted\n//\n\ntree.search(3); // BinaryTreeNode { _value: 3, ... }\n\ntree.remove(9);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /\n//      1                -> node removed\n//\n```\n\n<br>\n\n### [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)\n\n```js\nimport { LinkedList } from \"@clarketm/super\";\n\nlet list = new LinkedList([1, 3, 5, 7]);\n\n//    1    <->    3    <->    5    <->    7\n\nlist.size; // 4\nlist.head; // ListNode { _value: 1, ... }\nlist.tail; // ListNode { _value: 7, ... }\n\nlist.insert(1, 100);\n\n//         node inserted at pos: 1\n//                 ^\n//    1    <->    100    <->    3    <->    5    <->    7\n\nlist.append(99);\n\n//                                                          node inserted at tail\n//                                                                   ^\n//    1    <->    100    <->    3    <->    5    <->    7    <->    99\n\nlist.remove(-1);\n\n//                                                          node removed from tail\n//                                                                   ^\n//    1    <->    100    <->    3    <->    5    <->    7\n\nlist.toArray(); // [ 1, 100, 3, 5, 7 ]\n```\n\n<br>\n\n### [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)\n\n```js\nimport { Map } from \"@clarketm/super\";\n\nlet map = new Map([[\"a\", 1], [\"b\", 2], [\"c\", 3]]); // Map { 'a' => 1, 'b' => 2, 'c' => 3 }\n\n// Use any built-in Map methods:\nmap.get(\"c\"); // 3\n\n// Use custom methods (e.g. `setDefault`):\n// note: `setDefault` is similar to get(), but will set key to a defaultValue if the key is not in Map.\n\nlet item = map.setDefault(\"c\", 3);\nitem; // 3\nmap; // Map { 'a' => 1, 'b' => 2, 'c' => 3 }\n\nlet item = map.setDefault(\"d\", 4);\nitem; // 4\nmap; // Map { 'a' => 1, 'b' => 2, 'c' => 3 'd' => 4 }\n```\n\n<br>\n\n### [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)\n\n```js\nimport { Object } from \"@clarketm/super\";\n\nlet object = new Object({ a: 1, b: true, c: 4 }); // Object { a: 1, b: true, c: 4 }\n\n// Use any built-in Object methods:\nObject.keys(object); // [ 'a', 'b', 'c' ]\n\n// Use custom methods (e.g. `clone`):\n// note: `clone` will create a deep copy of the object.\n\nlet clone = object.clone(); // Object { a: 1, b: true, c: 4 }\nObject.is(object, clone); // false\n```\n\n<br>\n\n### [PriorityQueue](https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme)\n\n**TODO**\n\n### [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)\n\n```js\nimport { Queue } from \"@clarketm/super\";\n\nlet queue = new Queue([2, 4, 6, 8]);\n\n//   front              rear\n//     ^                 ^\n//  |  2  |  4  |  6  |  8  |\n\nqueue.size; // 4\nqueue.front; // 2\nqueue.rear; // 8\n\nqueue.isEmpty(); // false\n\nqueue.enqueue(10); // 5 : new size\n\n//   front                   rear\n//     ^                      ^\n//  |  2  |  4  |  6  |  8  | 10 |\n\nqueue.dequeue(); // 2  : dequeued item\n\n//   front              rear\n//     ^                 ^\n//  |  4  |  6  |  8  | 10 |\n\nqueue.clear();\nqueue.size; // 0\n```\n\n<br>\n\n### [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)\n\n```js\nimport { Set } from \"@clarketm/super\";\n\nlet setA = new Set([1, 2, 3]); // Set { 1, 2, 3 }\nlet setB = new Set([2, 3, 4]); // Set { 2, 3, 4 }\n\n// Use any built-in Set methods:\nsetA.has(1); // true\n\n// Use custom methods:\n\n// `isSubset`\nsetA.isSubset(setB); // false\n\n// `isSuperset`\nsetA.isSuperset(setB); // false\n\n// `union`\nsetA.union(setB); // Set { 1, 2, 3, 4 }\n\n// `intersection`\nsetA.intersection(setB); // Set { 2, 3 }\n\n// `difference`\nsetA.difference(setB); // Set { 1 }\n\n// `symmetricDifference`\nsetA.symmetricDifference(setB); // Set { 1, 4 }\n```\n\n<br>\n\n### [Trie](https://github.com/clarketm/super/tree/master/packages/Trie#readme)\n\n```js\nimport { Trie } from \"@clarketm/super\";\n\nlet trie = new Trie([\"me\", \"men\", \"go\"]);\n\n//               root\n//              /   \\\n//            'm'    'g'\n//           /         \\\n//    $ <- 'e'         'o' -> $\n//         /\n//  $ <- 'n'\n//\n// $: denotes a complete word\n//\n\ntree.root; // TrieNode { _char: √, ... }\n\ntree.insert(\"met\");\n\n//               root\n//              /   \\\n//            'm'    'g'\n//           /         \\\n//    $ <- 'e'         'o' -> $\n//         /  \\\n//  $ <- 'n'   't' -> $\n//\n// $: denotes a complete word\n//\n\n// `word` search w/ `contains`\ntree.contains(\"me\"); // true\n\n// `prefix` search w/ `startsWith`\ntree.startsWith(\"m\"); // true\n\n// Return a full Match object w/ `search`\ntree.search(\"men\");\n\n// Match object\n// {\n//  query: 'men',\n//  matchedChars: 3,\n//  isMatch: true,\n//  isCompleteWord: true,\n//  node: TrieNode { ... }\n// }\n\ntree.remove(\"go\");\n\n//               root\n//              /\n//            'm'\n//           /\n//    $ <- 'e'\n//         /  \\\n//  $ <- 'n'   't' -> $\n//\n// $: denotes a complete word\n//\n```\n\n<br>\n\n## Data Types\n\n* [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)\n* [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)\n* [String](https://github.com/clarketm/super/tree/master/packages/String#readme)\n\n## Credits\n\n* Icons made by <a href=\"http://www.freepik.com\" title=\"Freepik\">Freepik</a> from <a href=\"https://www.flaticon.com/\" title=\"Flaticon\">www.flaticon.com</a> is licensed by <a href=\"http://creativecommons.org/licenses/by/3.0/\" title=\"Creative Commons BY 3.0\" target=\"_blank\">CC 3.0 BY</a></div>\n",
+    "content": "# [Super](https://www.npmjs.com/package/@clarketm/super)\n\n**Data Structures** with superpowers! 💪😎\n\n> <sub>implemented in **JavaScript**.</sub>\n\n[![hero](https://github.com/clarketm/super/blob/master/resources/hero.png)](https://github.com/clarketm/super)\n\n> _\"The data structures in JavaScript that you wish you had!\"_ - Mark Twain\n\n## Installation\n\n### Yarn\n\n```bash\n$ yarn add @clarketm/super\n```\n\n### Npm\n\n```bash\n$ npm install @clarketm/super --save\n```\n\n## Usage\n\n```js\n// 1. import `each` module `independently`\nimport { Array, Map, Queue, Trie, ... } from \"@clarketm/super\";\n\nlet array = new Array([1, 2]);\n...\n\n// 2. import `all` modules under a `namespace`\nimport Super from \"@clarketm/super\";\n\nlet array = new Super.Array([1, 2]);\n...\n```\n\n## Data Structures\n\n### [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)\n\n```js\nimport { Array } from \"@clarketm/super\";\n\nlet array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]\n\n// Use any built-in Array methods:\narray.push(4); // [0, 1, 2, 3, 4]\n\n// Use custom methods (e.g. `flatten`):\nlet array = new Array([[[1]], [[2]], [[3]]]);\narray.flatten(2); // [1, 2, 3]\n```\n\n<br>\n\n### [BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)\n\n```js\nimport { BinaryTree } from \"@clarketm/super\";\n\nlet tree = new BinaryTree([5, 3, 7, 2, 8, 4, 6, 1]);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /\n//      1\n\ntree.root; // BinaryTreeNode { _value: 5, ... }\ntree.height; // 1\n\ntree.insert(9);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /             \\\n//      1               9  -> node inserted\n//\n\ntree.search(3); // BinaryTreeNode { _value: 3, ... }\n\ntree.remove(9);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /\n//      1                -> node removed\n//\n```\n\n<br>\n\n### [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)\n\n```js\nimport { LinkedList } from \"@clarketm/super\";\n\nlet list = new LinkedList([1, 3, 5, 7]);\n\n//    1    <->    3    <->    5    <->    7\n\nlist.size; // 4\nlist.head; // ListNode { _value: 1, ... }\nlist.tail; // ListNode { _value: 7, ... }\n\nlist.insert(1, 100);\n\n//         node inserted at pos: 1\n//                 ^\n//    1    <->    100    <->    3    <->    5    <->    7\n\nlist.append(99);\n\n//                                                          node inserted at tail\n//                                                                   ^\n//    1    <->    100    <->    3    <->    5    <->    7    <->    99\n\nlist.remove(-1);\n\n//                                                          node removed from tail\n//                                                                   ^\n//    1    <->    100    <->    3    <->    5    <->    7\n\nlist.toArray(); // [ 1, 100, 3, 5, 7 ]\n```\n\n<br>\n\n### [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)\n\n```js\nimport { Map } from \"@clarketm/super\";\n\nlet map = new Map([[\"a\", 1], [\"b\", 2], [\"c\", 3]]); // Map { 'a' => 1, 'b' => 2, 'c' => 3 }\n\n// Use any built-in Map methods:\nmap.get(\"c\"); // 3\n\n// Use custom methods (e.g. `setDefault`):\n// note: `setDefault` is similar to get(), but will set key to a defaultValue if the key is not in Map.\n\nlet item = map.setDefault(\"c\", 3);\nitem; // 3\nmap; // Map { 'a' => 1, 'b' => 2, 'c' => 3 }\n\nlet item = map.setDefault(\"d\", 4);\nitem; // 4\nmap; // Map { 'a' => 1, 'b' => 2, 'c' => 3 'd' => 4 }\n```\n\n<br>\n\n### [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)\n\n```js\nimport { Object } from \"@clarketm/super\";\n\nlet object = new Object({ a: 1, b: true, c: 4 }); // Object { a: 1, b: true, c: 4 }\n\n// Use any built-in Object methods:\nObject.keys(object); // [ 'a', 'b', 'c' ]\n\n// Use custom methods (e.g. `clone`):\n// note: `clone` will create a deep copy of the object.\n\nlet clone = object.clone(); // Object { a: 1, b: true, c: 4 }\nObject.is(object, clone); // false\n```\n\n<br>\n\n### [PriorityQueue](https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme)\n\n**TODO**\n\n### [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)\n\n```js\nimport { Queue } from \"@clarketm/super\";\n\nlet queue = new Queue([2, 4, 6, 8]);\n\n//   front              rear\n//     ^                 ^\n//  |  2  |  4  |  6  |  8  |\n\nqueue.size; // 4\nqueue.front; // 2\nqueue.rear; // 8\n\nqueue.isEmpty(); // false\n\nqueue.enqueue(10); // 5 : new size\n\n//   front                   rear\n//     ^                      ^\n//  |  2  |  4  |  6  |  8  | 10 |\n\nqueue.dequeue(); // 2  : dequeued item\n\n//   front              rear\n//     ^                 ^\n//  |  4  |  6  |  8  | 10 |\n\nqueue.clear();\nqueue.size; // 0\n```\n\n<br>\n\n### [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)\n\n```js\nimport { Set } from \"@clarketm/super\";\n\nlet setA = new Set([1, 2, 3]); // Set { 1, 2, 3 }\nlet setB = new Set([2, 3, 4]); // Set { 2, 3, 4 }\n\n// Use any built-in Set methods:\nsetA.has(1); // true\n\n// Use custom methods:\n\n// `isSubset`\nsetA.isSubset(setB); // false\n\n// `isSuperset`\nsetA.isSuperset(setB); // false\n\n// `union`\nsetA.union(setB); // Set { 1, 2, 3, 4 }\n\n// `intersection`\nsetA.intersection(setB); // Set { 2, 3 }\n\n// `difference`\nsetA.difference(setB); // Set { 1 }\n\n// `symmetricDifference`\nsetA.symmetricDifference(setB); // Set { 1, 4 }\n```\n\n<br>\n\n### [Trie](https://github.com/clarketm/super/tree/master/packages/Trie#readme)\n\n```js\nimport { Trie } from \"@clarketm/super\";\n\nlet trie = new Trie([\"me\", \"men\", \"go\"]);\n\n//               root\n//              /   \\\n//            'm'    'g'\n//           /         \\\n//    $ <- 'e'         'o' -> $\n//         /\n//  $ <- 'n'\n//\n// $: denotes a complete word\n//\n\ntrie.root; // TrieNode { _char: √, ... }\n\ntrie.insert(\"met\");\n\n//               root\n//              /   \\\n//            'm'    'g'\n//           /         \\\n//    $ <- 'e'         'o' -> $\n//         /  \\\n//  $ <- 'n'   't' -> $\n//\n// $: denotes a complete word\n//\n\n// `word` search w/ `contains`\ntrie.contains(\"me\"); // true\n\n// `prefix` search w/ `startsWith`\ntrie.startsWith(\"m\"); // true\n\n// Return a full Match object w/ `search`\ntrie.search(\"men\");\n\n// Match object\n// {\n//  query: 'men',\n//  matchedChars: 3,\n//  isMatch: true,\n//  isCompleteWord: true,\n//  node: TrieNode { ... }\n// }\n\ntrie.remove(\"go\");\n\n//               root\n//              /\n//            'm'\n//           /\n//    $ <- 'e'\n//         /  \\\n//  $ <- 'n'   't' -> $\n//\n// $: denotes a complete word\n//\n```\n\n<br>\n\n## Data Types\n\n* [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)\n* [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)\n* [String](https://github.com/clarketm/super/tree/master/packages/String#readme)\n\n## Credits\n\n* Icons made by <a href=\"http://www.freepik.com\" title=\"Freepik\">Freepik</a> from <a href=\"https://www.flaticon.com/\" title=\"Flaticon\">www.flaticon.com</a> is licensed by <a href=\"http://creativecommons.org/licenses/by/3.0/\" title=\"Creative Commons BY 3.0\" target=\"_blank\">CC 3.0 BY</a></div>\n",
     "longname": "/Users/clarketm/js/super/README.md",
     "name": "./README.md",
     "static": true,

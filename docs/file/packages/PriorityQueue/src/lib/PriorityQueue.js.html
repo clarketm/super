@@ -68,6 +68,7 @@ import { PrimitiveType } from &quot;../../../shared/src/constants&quot;;
 import { QueueNode } from &quot;./QueueNode&quot;;
 import { isIterable } from &quot;../../../shared/src/helpers&quot;;
 import isPlainObject from &quot;lodash/isPlainObject&quot;;
+import { BinaryTreeNode } from &quot;../../../BinaryTree/src/lib/BinaryTreeNode&quot;;
 
 type PriorityQueueIterable =
   | Map&lt;number, Item&gt;
@@ -88,6 +89,12 @@ type Comparator = (a: any, b: any) =&gt; number;
  *
  */
 class PriorityQueue {
+  /** @private */
+  _queue: Array&lt;Item&gt;;
+
+  /** @private */
+  _comparator: Comparator;
+
   /**
    * @public
    *
@@ -107,8 +114,6 @@ class PriorityQueue {
         if (Array.isArray(iterable[0])) {
           iterable = new Map(iterable);
         } else if (isPlainObject(iterable[0])) {
-          // } else if (typeof iterable[0] === PrimitiveType.OBJECT) {
-          // } else if (Object.getPrototypeOf(iterable[0]) === Object.prototype) {
           iterable = new Map(iterable.map(({ value, priority }) =&gt; [priority, value]));
         } else {
           return iterable.forEach(v =&gt; this.insert(v));
@@ -135,7 +140,7 @@ class PriorityQueue {
    *
    * @returns {number} size of the queue
    */
-  static _defaultComparator(a, b) {
+  static _defaultComparator(a: any, b: any): number | boolean {
     return a.priority &lt; b.priority;
   }
 
