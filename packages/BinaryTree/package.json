@@ -11,10 +11,11 @@
   "scripts": {
     "build": "shx rm -rf ./lib/*.js ; rollup -c ../shared/rollup-config.js",
     "lint": "eslint --fix ./src ./test",
-    "prep": "yarn lint && yarn prettier && yarn build && yarn types && yarn test",
+    "prep": "yarn lint && yarn prettier && yarn build && yarn types:dist && yarn test",
     "prepublishOnly": "yarn prep",
     "prettier": "prettier --write './{src,test}/**/*.js' './*.{js,css,md}'",
-    "types": "shx cp ./src/lib/*.flow ./lib",
+    "types:gen": "flow gen-flow-files ./src/lib --out-dir ./src/lib ; sed -i '/flow/d; /import/d' ./src/lib/*.js.flow",
+    "types:dist": "shx cp ./src/lib/*.flow ./lib",
     "test": "mocha --require babel-core/register ./test/*"
   },
   "keywords": [

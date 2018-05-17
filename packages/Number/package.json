@@ -11,10 +11,11 @@
   "scripts": {
     "build": "shx rm -rf ./lib/*.js ; rollup -c ../shared/rollup-config.js",
     "lint": "eslint --fix ./src ./test",
-    "prep": "yarn lint && yarn prettier && yarn build && yarn types && yarn test",
+    "prep": "yarn lint && yarn prettier && yarn build && yarn types:dist && yarn test",
     "prepublishOnly": "yarn prep",
     "prettier": "prettier --write './{src,test}/**/*.js' './*.{js,css,md}'",
-    "types": "shx cp ./src/lib/*.flow ./lib",
+    "types:gen": "flow gen-flow-files ./src/lib --out-dir ./src/lib ; sed -i '/flow/d; /import/d' ./src/lib/*.js.flow",
+    "types:dist": "shx cp ./src/lib/*.flow ./lib",
     "test": "mocha --require babel-core/register ./test/*"
   },
   "keywords": [
@@ -42,6 +43,7 @@
     "chai": "^4.1.2",
     "eslint": "^4.19.1",
     "eslint-plugin-flowtype": "^2.46.3",
+    "flow-bin": "^0.72.0",
     "mocha": "^5.1.1",
     "prettier": "^1.12.1",
     "rollup": "^0.58.2",
