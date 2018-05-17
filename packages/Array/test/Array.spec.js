@@ -2,7 +2,7 @@ const { assert } = require("chai");
 const { Array } = require("../src/lib/Array");
 
 describe("Array", () => {
-  let expected, actual;
+  let array, expected, actual;
 
   describe("#flatMap", () => {
     it("should maps each element, then flattens the result into a new, simple array", () => {
@@ -33,6 +33,44 @@ describe("Array", () => {
       actual = new Array([[[1]], [[2]], [[3]]]).flatten(2);
 
       assert.deepEqual(actual, expected);
+    });
+  });
+
+  describe("#mergeSort", () => {
+    it("should sort array using merge sort", () => {
+      array = new Array([6, 4, 1, 9, 8, 7]);
+      array.mergeSort();
+
+      expected = [1, 4, 6, 7, 8, 9];
+
+      assert.deepEqual(array, expected);
+    });
+
+    it("should merge in descending order with a custom comparator", () => {
+      array = new Array([3, 7, 1, 9, 3, 7]);
+      array.mergeSort((a, b) => b - a);
+
+      expected = [9, 7, 7, 3, 3, 1];
+
+      assert.deepEqual(array, expected);
+    });
+
+    it("should merge in ascending string length order with a custom comparator", () => {
+      array = new Array(["1111", "11111", "1", "11", "111"]);
+      array.mergeSort((a, b) => a.length - b.length);
+
+      expected = ["1", "11", "111", "1111", "11111"];
+
+      assert.deepEqual(array, expected);
+    });
+
+    it("should merge in descending string length order with a custom comparator", () => {
+      array = new Array(["1111", "11111", "1", "11", "111"]);
+      array.mergeSort((a, b) => b.length - a.length);
+
+      expected = ["11111", "1111", "111", "11", "1"];
+
+      assert.deepEqual(array, expected);
     });
   });
 });

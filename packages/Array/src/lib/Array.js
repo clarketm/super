@@ -3,9 +3,13 @@
  * @module super/array
  */
 
+import { mergeSort } from "../../../MergeSort/src/lib/MergeSort";
+import type { Comparator } from "../../../shared/src/types";
+
 /**
  * @typedef {Function} Callback
  */
+
 type Callback = (value: any, index: number, array: Array) => Array;
 
 /**
@@ -56,6 +60,16 @@ class _Array extends Array {
       }, []);
     }
     return _flatten(depth, this);
+  }
+
+  /**
+   * @public
+   *
+   * @desc Sort inplace using merge sort
+   *
+   */
+  mergeSort(comparator: Comparator) {
+    return mergeSort.call(this, null, comparator);
   }
 }
 
