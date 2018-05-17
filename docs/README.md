@@ -8,7 +8,7 @@ Array with superpowers! 💪
 
 Construct an Array
 
-### `flatMap(callback: Callback): Array`
+### `flatMap(callback: Callback): Array<Item>`
 
 Maps each element using a mapping function, then flattens the result into a new array
 
@@ -16,7 +16,7 @@ Maps each element using a mapping function, then flattens the result into a new 
 | --- | --- | --- | --- |
 | callback | Callback |  | callback function |
 
-### `flatten(depth: number): Array`
+### `flatten(depth: number): Array<Item>`
 
 Creates a new array with all sub-array elements concatted into it recursively up to the specified depth
 
@@ -147,9 +147,7 @@ BinaryTreeNode
 
 LinkedList with superpowers! 💪
 
-### `constructor(iterable: Iterable)`
-
-Construct a LinkedList
+### `constructor()`
 
 ### `_size: *`
 
@@ -220,7 +218,7 @@ Pop a node from the rear of list
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
 
-### `toArray(): Array`
+### `toArray(): Array<Item>`
 
 Convert the node and next nodes (recursively) to an array
 
@@ -231,21 +229,19 @@ Convert the node and next nodes (recursively) to an array
 
 ListNode
 
-### `constructor(item: Item)`
-
-Construct a ListNode
+### `constructor()`
 
 ### `_value: *`
 
-### `_next: *`
-
 ### `_prev: *`
+
+### `_next: *`
 
 ## `_Map`
 
 Map with superpowers! 💪
 
-### `constructor(iterable: Iterable)`
+### `constructor(iterable: Iterable<Item>)`
 
 Construct a Map
 
@@ -412,7 +408,7 @@ Remove and return the item with the lowest priority
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
 
-### `toArray(): Array`
+### `toArray(): Array<Item>`
 
 Convert the queue to an array
 
@@ -423,9 +419,7 @@ Convert the queue to an array
 
 QueueNode
 
-### `constructor(value: Item, priority: number)`
-
-Construct a PriorityQueue
+### `constructor()`
 
 ### `_value: *`
 
@@ -435,7 +429,7 @@ Construct a PriorityQueue
 
 Queue with superpowers! 💪
 
-### `constructor(iterable: Iterable<any>)`
+### `constructor(iterable: Iterable<Item>)`
 
 Construct a Queue
 
@@ -470,84 +464,12 @@ Dequeue an item from the queue
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
 
-### `toArray(): Array`
+### `toArray(): Array<Item>`
 
 Convert the queue to an array
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-
-## `_Set`
-
-Set with superpowers! 💪
-
-### `constructor(iterable: Iterable)`
-
-Construct a Set
-
-### `some(callback: Callback): boolean`
-
-Tests whether at least one element in the set passes the test implemented by the provided function
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-| callback | Callback |  | callback function |
-
-### `every(callback: Callback): boolean`
-
-Test whether all elements in the set pass the test implemented by the provided function
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-| callback | Callback |  | callback function |
-
-### `isSubset(setB: Set): boolean`
-
-Subset of a set
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-| setB | Set |  | SetB |
-
-### `isSuperset(setB: Set): boolean`
-
-Superset of a set
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-| setB | Set |  | SetB |
-
-### `union(setB: Set): Set`
-
-Union of setA and setB
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-| setB | Set |  | SetB |
-
-### `intersection(setB: Set): Set`
-
-Intersection of setA and setB
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-| setB | Set |  | SetB |
-
-### `difference(setB: Set): Set`
-
-Difference of setA and setB
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-| setB | Set |  | SetB |
-
-### `symmetricDifference(setB: Set): Set`
-
-Symmetric difference of setA and setB
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-| setB | Set |  | SetB |
 
 ## `_String`
 

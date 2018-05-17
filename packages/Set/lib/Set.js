@@ -146,7 +146,7 @@
      *
      * @desc Construct a Set
      *
-     * @param {Iterable} iterable
+     * @param {Iterable<Item>} iterable
      */
     function _Set(iterable) {
       classCallCheck(this, _Set);
@@ -255,7 +255,7 @@
        *
        * @desc Subset of a set
        *
-       * @param {Set} setB - SetB
+       * @param {Set<Item>} setB - SetB
        * @returns {boolean} setA is subset of setB
        */
 
@@ -297,7 +297,7 @@
        *
        * @desc Superset of a set
        *
-       * @param {Set} setB - SetB
+       * @param {Set<Item>} setB - SetB
        * @returns {boolean} setA is superset of setB
        */
 
@@ -382,8 +382,8 @@
        *
        * @desc Intersection of setA and setB
        *
-       * @param {Set} setB - SetB
-       * @returns {Set} setC - intersection between setA and setB
+       * @param {Set<Item>} setB - SetB
+       * @returns {Set<Item>} setC - intersection between setA and setB
        */
 
     }, {
@@ -425,8 +425,8 @@
        *
        * @desc Difference of setA and setB
        *
-       * @param {Set} setB - SetB
-       * @returns {Set} setC - difference between setA and setB
+       * @param {Set<Item>} setB - SetB
+       * @returns {Set<Item>} setC - difference between setA and setB
        */
 
     }, {
@@ -468,8 +468,8 @@
        *
        * @desc Symmetric difference of setA and setB
        *
-       * @param {Set} setB - SetB
-       * @returns {Set} setC - difference difference between setA and setB
+       * @param {Set<Item>} setB - SetB
+       * @returns {Set<Item>} setC - difference difference between setA and setB
        */
 
     }, {

@@ -50,7 +50,7 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#priorityqueue-src-lib">PriorityQueue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html">PriorityQueue</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html">QueueNode</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#queue-src-lib">Queue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html">Queue</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#set-src-lib">Set/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Set/src/lib/Set.js~_Set.html">_Set</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#set-src-lib">Set/src/lib</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#string-src-lib">String/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/String/src/lib/String.js~_String.html">_String</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#trie-src-lib">Trie/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/Trie.js~Trie.html">Trie</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/TrieNode.js~TrieNode.html">TrieNode</a></span></span></li>
@@ -119,7 +119,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(iterable: <span>Iterable</span>&lt;<span>any</span>&gt;)</span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(iterable: <span>Iterable</span>&lt;<span>Item</span>&gt;)</span>
         </p>
       </div>
       <div>
@@ -398,7 +398,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html#instance-method-toArray">toArray</a></span></span><span class="code" data-ice="signature">(): <span>Array</span></span>
+          <span class="code" data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html#instance-method-toArray">toArray</a></span></span><span class="code" data-ice="signature">(): <span>Array</span>&lt;<span>Item</span>&gt;</span>
         </p>
       </div>
       <div>
@@ -431,7 +431,7 @@
     
     
     
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(iterable: <span>Iterable</span>&lt;<span>any</span>&gt;)</span>
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(iterable: <span>Iterable</span>&lt;<span>Item</span>&gt;)</span>
     <span class="right-info">
       
       
@@ -457,7 +457,7 @@
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">iterable</td>
-      <td data-ice="type" class="code"><span>Iterable</span>&lt;<span>any</span>&gt;</td>
+      <td data-ice="type" class="code"><span>Iterable</span>&lt;<span>Item</span>&gt;</td>
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
     </tr>
@@ -943,7 +943,7 @@
     
     
     
-    <span class="code" data-ice="name">toArray</span><span class="code" data-ice="signature">(): <span>Array</span></span>
+    <span class="code" data-ice="name">toArray</span><span class="code" data-ice="signature">(): <span>Array</span>&lt;<span>Item</span>&gt;</span>
     <span class="right-info">
       
       
@@ -967,7 +967,7 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Array</span></td>
+          <td class="return-type code" data-ice="returnType"><span>Array</span>&lt;<span>Item</span>&gt;</td>
           <td class="return-desc" data-ice="returnDescription"><p>array representation of the queue</p>
 </td>
         </tr>

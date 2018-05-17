@@ -6,7 +6,9 @@
 /**
  * @typedef {Function} Callback
  */
-type Callback = (value1: any, value2: any, set: Set) => boolean;
+import type { Item } from "../../../shared/src/types";
+
+type Callback = (value1: any, value2: any, set: Set<Item>) => boolean;
 
 /**
  *
@@ -21,9 +23,9 @@ class _Set extends Set {
    *
    * @desc Construct a Set
    *
-   * @param {Iterable} iterable
+   * @param {Iterable<Item>} iterable
    */
-  constructor(iterable: Iterable) {
+  constructor(iterable: Iterable<Item>) {
     super(iterable);
   }
 
@@ -35,7 +37,7 @@ class _Set extends Set {
    * @param {Callback} callback - callback function
    * @returns {boolean} true if the callback function returns a truthy value for any set element; otherwise, false
    */
-  some(callback: (value1: any, value2: any, set: Set) => boolean): boolean {
+  some(callback: (value1: any, value2: any, set: Set<Item>) => boolean): boolean {
     let result;
 
     for (let [value1, value2] of this.entries()) {
@@ -54,7 +56,7 @@ class _Set extends Set {
    * @param {Callback} callback - callback function
    * @returns {boolean} true if the callback function returns a truthy value for every set element; otherwise, false
    */
-  every(callback: (value1: any, value2: any, set: Set) => boolean): boolean {
+  every(callback: (value1: any, value2: any, set: Set<Item>) => boolean): boolean {
     let result;
 
     for (let [value1, value2] of this.entries()) {
@@ -70,10 +72,10 @@ class _Set extends Set {
    *
    * @desc Subset of a set
    *
-   * @param {Set} setB - SetB
+   * @param {Set<Item>} setB - SetB
    * @returns {boolean} setA is subset of setB
    */
-  isSubset(setB: Set): boolean {
+  isSubset(setB: Set<Item>): boolean {
     let setA = this;
 
     for (let v of setA) {
@@ -87,10 +89,10 @@ class _Set extends Set {
    *
    * @desc Superset of a set
    *
-   * @param {Set} setB - SetB
+   * @param {Set<Item>} setB - SetB
    * @returns {boolean} setA is superset of setB
    */
-  isSuperset(setB: Set): boolean {
+  isSuperset(setB: Set<Item>): boolean {
     let setA = this;
 
     for (let v of setB) {
@@ -107,7 +109,7 @@ class _Set extends Set {
    * @param {Set} setB - SetB
    * @returns {Set} setC - union between setA and setB
    */
-  union(setB: Set): Set {
+  union(setB: Set<Item>): Set<Item> {
     let setA = this;
     let setC = new Set(setA);
 
@@ -123,10 +125,10 @@ class _Set extends Set {
    *
    * @desc Intersection of setA and setB
    *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - intersection between setA and setB
+   * @param {Set<Item>} setB - SetB
+   * @returns {Set<Item>} setC - intersection between setA and setB
    */
-  intersection(setB: Set): Set {
+  intersection(setB: Set<Item>): Set<Item> {
     let setA = this;
     let setC = new Set();
 
@@ -142,10 +144,10 @@ class _Set extends Set {
    *
    * @desc Difference of setA and setB
    *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - difference between setA and setB
+   * @param {Set<Item>} setB - SetB
+   * @returns {Set<Item>} setC - difference between setA and setB
    */
-  difference(setB: Set): Set {
+  difference(setB: Set<Item>): Set<Item> {
     let setA = this;
     let setC = new Set(setA);
 
@@ -161,10 +163,10 @@ class _Set extends Set {
    *
    * @desc Symmetric difference of setA and setB
    *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - difference difference between setA and setB
+   * @param {Set<Item>} setB - SetB
+   * @returns {Set<Item>} setC - difference difference between setA and setB
    */
-  symmetricDifference(setB: Set): Set {
+  symmetricDifference(setB: Set<Item>): Set<Item> {
     let setA = this;
     let setC = new Set(setA);
 

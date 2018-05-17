@@ -1,6 +1,8 @@
 {
   "source": "./packages/",
-  "includes": ["\\w+/src/lib/\\w+\\.js$"],
+  "includes": [
+    "\\w+/src/lib/\\w+\\.js$"
+  ],
   "destination": "./docs",
   "plugins": [
     {
@@ -19,6 +21,12 @@
     },
     {
       "name": "esdoc-flow-plugin"
+    },
+    {
+      "name": "esdoc-ecmascript-proposal-plugin",
+      "option": {
+        "all": true
+      }
     }
   ]
 }

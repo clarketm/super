@@ -50,7 +50,7 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#priorityqueue-src-lib">PriorityQueue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html">PriorityQueue</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html">QueueNode</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#queue-src-lib">Queue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html">Queue</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#set-src-lib">Set/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Set/src/lib/Set.js~_Set.html">_Set</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#set-src-lib">Set/src/lib</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#string-src-lib">String/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/String/src/lib/String.js~_String.html">_String</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#trie-src-lib">Trie/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/Trie.js~Trie.html">Trie</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/TrieNode.js~TrieNode.html">TrieNode</a></span></span></li>
@@ -102,12 +102,12 @@
 
 
 <div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
+  <thead><tr><td data-ice="title" colspan="3">Private Constructor</td></tr></thead>
   <tbody>
   
   <tr data-ice="target">
     <td>
-      <span class="access" data-ice="access">public</span>
+      <span class="access" data-ice="access">private</span>
       
       
       
@@ -119,14 +119,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">(item: <span>Item</span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">()</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Construct a ListNode</p>
-</div>
+        
       </div>
     </td>
     <td>
@@ -261,35 +260,6 @@
     <td>
       <span class="access" data-ice="access">public</span>
       
-      <span class="kind" data-ice="kind">get</span>
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value">value</a></span></span><span class="code" data-ice="signature">: <span>Item</span>: <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Get the value of the node</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
       <span class="kind" data-ice="kind">set</span>
       
       <span class="override" data-ice="override"></span>
@@ -405,6 +375,34 @@
       
     </td>
   </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value">value</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
 </tbody>
 </table>
 </div>
@@ -414,50 +412,32 @@
 
 
 
-<div data-ice="constructorDetails"><h2 data-ice="title">Public Constructors</h2>
+<div data-ice="constructorDetails"><h2 data-ice="title">Private Constructors</h2>
 
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-constructor-constructor">
-    <span class="access" data-ice="access">public</span>
+    <span class="access" data-ice="access">private</span>
     
     
     
     
     
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">(item: <span>Item</span>)</span>
+    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">()</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber18">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber22">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Construct a ListNode</p>
-</div>
+  
 
   
 
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">item</td>
-      <td data-ice="type" class="code"><span>Item</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>node value</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
+  <div data-ice="properties">
 </div>
 
   
@@ -492,7 +472,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber52">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber61">source</a></span></span>
     </span>
   </h3>
 
@@ -549,7 +529,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber62">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber71">source</a></span></span>
     </span>
   </h3>
 
@@ -593,7 +573,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber73">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber82">source</a></span></span>
     </span>
   </h3>
 
@@ -650,7 +630,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber83">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber92">source</a></span></span>
     </span>
   </h3>
 
@@ -683,63 +663,6 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-get-value">
-    <span class="access" data-ice="access">public</span>
-    
-    <span class="kind" data-ice="kind">get</span>
-    
-    
-    
-    <span class="code" data-ice="name">value</span><span class="code" data-ice="signature">: <span>Item</span>: <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber31">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Get the value of the node</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>Item</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>node value</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-set-value">
     <span class="access" data-ice="access">public</span>
     
@@ -751,7 +674,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber41">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber50">source</a></span></span>
     </span>
   </h3>
 
@@ -797,7 +720,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber63">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber25">source</a></span></span>
     </span>
   </h3>
 
@@ -840,7 +763,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber84">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber24">source</a></span></span>
     </span>
   </h3>
 
@@ -883,7 +806,50 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber42">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber23">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-value">
+    <span class="access" data-ice="access">private</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    
+    <span class="code" data-ice="name">value</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/packages/LinkedList/src/lib/ListNode.js.html#lineNumber40">source</a></span></span>
     </span>
   </h3>
 

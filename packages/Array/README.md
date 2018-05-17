@@ -23,3 +23,11 @@ Creates a new array with all sub-array elements concatted into it recursively up
 | Name  | Type   | Attribute | Description   |
 | ----- | ------ | --------- | ------------- |
 | depth | number |           | flatten depth |
+
+### `mergeSort(comparator: Comparator): Array`
+
+Sort using merge sort
+
+| Name       | Type       | Attribute | Description         |
+| ---------- | ---------- | --------- | ------------------- |
+| comparator | Comparator |           | comparator function |

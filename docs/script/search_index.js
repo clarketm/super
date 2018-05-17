@@ -108,12 +108,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "@clarketm/super/packages/set/src/lib/set.js~_set",
-    "class/packages/Set/src/lib/Set.js~_Set.html",
-    "<span>_Set</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Set/src/lib/Set.js</span>",
-    "class"
-  ],
-  [
     "@clarketm/super/packages/string/src/lib/string.js~_string",
     "class/packages/String/src/lib/String.js~_String.html",
     "<span>_String</span> <span class=\"search-result-import-path\">@clarketm/super/packages/String/src/lib/String.js</span>",
@@ -301,25 +295,25 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-left",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
-    "member"
-  ],
-  [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
     "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-left",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
     "member"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-left",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
     "member"
   ],
   [
     "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
     "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-right",
+    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
+    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
     "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
     "member"
   ],
@@ -840,58 +834,10 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "packages/set/src/lib/set.js~_set#constructor",
-    "class/packages/Set/src/lib/Set.js~_Set.html#instance-constructor-constructor",
-    "packages/Set/src/lib/Set.js~_Set#constructor",
-    "method"
-  ],
-  [
-    "packages/set/src/lib/set.js~_set#difference",
-    "class/packages/Set/src/lib/Set.js~_Set.html#instance-method-difference",
-    "packages/Set/src/lib/Set.js~_Set#difference",
-    "method"
-  ],
-  [
-    "packages/set/src/lib/set.js~_set#every",
-    "class/packages/Set/src/lib/Set.js~_Set.html#instance-method-every",
-    "packages/Set/src/lib/Set.js~_Set#every",
-    "method"
-  ],
-  [
-    "packages/set/src/lib/set.js~_set#intersection",
-    "class/packages/Set/src/lib/Set.js~_Set.html#instance-method-intersection",
-    "packages/Set/src/lib/Set.js~_Set#intersection",
-    "method"
-  ],
-  [
-    "packages/set/src/lib/set.js~_set#issubset",
-    "class/packages/Set/src/lib/Set.js~_Set.html#instance-method-isSubset",
-    "packages/Set/src/lib/Set.js~_Set#isSubset",
-    "method"
-  ],
-  [
-    "packages/set/src/lib/set.js~_set#issuperset",
-    "class/packages/Set/src/lib/Set.js~_Set.html#instance-method-isSuperset",
-    "packages/Set/src/lib/Set.js~_Set#isSuperset",
-    "method"
-  ],
-  [
-    "packages/set/src/lib/set.js~_set#some",
-    "class/packages/Set/src/lib/Set.js~_Set.html#instance-method-some",
-    "packages/Set/src/lib/Set.js~_Set#some",
-    "method"
-  ],
-  [
-    "packages/set/src/lib/set.js~_set#symmetricdifference",
-    "class/packages/Set/src/lib/Set.js~_Set.html#instance-method-symmetricDifference",
-    "packages/Set/src/lib/Set.js~_Set#symmetricDifference",
-    "method"
-  ],
-  [
-    "packages/set/src/lib/set.js~_set#union",
-    "class/packages/Set/src/lib/Set.js~_Set.html#instance-method-union",
-    "packages/Set/src/lib/Set.js~_Set#union",
-    "method"
+    "packages/set/src/lib/set.js~callback",
+    "typedef/index.html#static-typedef-Callback",
+    "packages/Set/src/lib/Set.js~Callback",
+    "typedef"
   ],
   [
     "packages/string/src/lib/string.js",

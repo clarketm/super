@@ -169,7 +169,7 @@ var _Map = function (_extendableBuiltin2) {
    *
    * @desc Construct a Map
    *
-   * @param {Iterable} iterable
+   * @param {Iterable<Item>} iterable
    */
   function _Map(iterable) {
     classCallCheck(this, _Map);
@@ -316,6 +316,107 @@ var _Map = function (_extendableBuiltin2) {
   return _Map;
 }(_extendableBuiltin(Map));
 
+function _defaultComparator(a, b) {
+  return a - b;
+}
+
+function _compare(comparator) {
+  return function (a, b) {
+    return comparator(a, b) < 0;
+  };
+}
+
+/**
+ *
+ * MergeSort with superpowers! 💪
+ *
+ * time:    O(nlogn)
+ * space:   O(n)
+ *
+ * @public
+ *
+ * @param {Array} arr – array to sort
+ * @param {Comparator} comparator
+ * @returns {Array} sorted array
+ */
+function mergeSort(arr) {
+  var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
+
+  if (!(this instanceof Array) && !(arr instanceof Array)) {
+    throw new Error("Array type is required");
+  }
+
+  var target = this instanceof Array ? this : arr.slice(0);
+  var compare = _compare(comparator);
+
+  /**
+   *
+   * MergeSort helper
+   *
+   * @private
+   *
+   * @param {Array<Item>} arr – array target
+   * @returns {Array<Item>} merged array
+   */
+  function _mergeSort(arr) {
+    if (arr.length <= 1) return arr;
+
+    var mid = Math.trunc(arr.length / 2);
+    var leftArr = arr.slice(0, mid);
+    var rightArr = arr.slice(mid);
+
+    _mergeSort(leftArr);
+    _mergeSort(rightArr);
+
+    return merge(arr, leftArr, rightArr, compare);
+  }
+
+  return _mergeSort(target);
+}
+
+/**
+ *
+ * Merge helper
+ *
+ * @private
+ *
+ * @param {Array<Item>} arr – array merge target
+ * @param {Array<Item>} leftArr – left array to merge
+ * @param {Array<Item>} rightArr – right array to merge
+ * @param {Comparator} compare
+ * @returns {Array<Item>} merged array
+ */
+function merge(arr, leftArr, rightArr, compare) {
+  var i = 0;
+  var j = 0;
+  var k = 0;
+
+  while (i < leftArr.length && j < rightArr.length) {
+    if (compare(leftArr[i], rightArr[j])) {
+      arr[k] = leftArr[i];
+      i++;
+    } else {
+      arr[k] = rightArr[j];
+      j++;
+    }
+    k++;
+  }
+
+  while (i < leftArr.length) {
+    arr[k] = leftArr[i];
+    i++;
+    k++;
+  }
+
+  while (j < rightArr.length) {
+    arr[k] = rightArr[j];
+    j++;
+    k++;
+  }
+
+  return arr;
+}
+
 function _extendableBuiltin$1(cls) {
   function ExtendableBuiltin() {
     var instance = Reflect.construct(cls, Array.from(arguments));
@@ -352,6 +453,7 @@ function _extendableBuiltin$1(cls) {
  * @public
  *
  */
+
 var _Array = function (_extendableBuiltin2) {
   inherits(_Array, _extendableBuiltin2);
 
@@ -360,7 +462,7 @@ var _Array = function (_extendableBuiltin2) {
    *
    * @desc Construct an Array
    *
-   * @param {Iterable} iterable
+   * @param {Iterable<Item>} iterable
    */
   function _Array() {
     var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -377,7 +479,7 @@ var _Array = function (_extendableBuiltin2) {
    * @desc Maps each element using a mapping function, then flattens the result into a new array
    *
    * @param {Callback} callback - callback function
-   * @returns {Array} A new array with each element being the result of the callback function and flattened to a depth of 1
+   * @returns {Array<Item>} A new array with each element being the result of the callback function and flattened to a depth of 1
    */
 
 
@@ -392,7 +494,7 @@ var _Array = function (_extendableBuiltin2) {
      * @desc Creates a new array with all sub-array elements concatted into it recursively up to the specified depth
      *
      * @param {number} depth - flatten depth
-     * @returns {Array}  new array with the sub-array elements concatted into it.
+     * @returns {Array<Item>}  new array with the sub-array elements concatted into it.
      */
 
   }, {
@@ -408,6 +510,21 @@ var _Array = function (_extendableBuiltin2) {
         }, []);
       }
       return _flatten(depth, this);
+    }
+
+    /**
+     * @public
+     *
+     * @desc Sort using merge sort
+     *
+     * @param {Comparator} comparator - comparator function
+     * @returns {Array<Item>} sorted array
+     */
+
+  }, {
+    key: "mergeSort",
+    value: function mergeSort$$1(comparator) {
+      return mergeSort.call(this, null, comparator);
     }
   }]);
   return _Array;
@@ -814,7 +931,7 @@ var _Object = function (_extendableBuiltin2) {
         throw new Error("Unable to copy object: " + item);
       }
 
-      return _clone(this, config);
+      return _clone(this);
     }
   }]);
   return _Object;
@@ -835,7 +952,7 @@ var Queue = function () {
    *
    * @desc Construct a Queue
    *
-   * @param {Iterable<any>} iterable
+   * @param {Iterable<Item>} iterable
    */
   function Queue() {
     var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -916,7 +1033,7 @@ var Queue = function () {
      *
      * @desc Convert the queue to an array
      *
-     * @returns {Array} array representation of the queue
+     * @returns {Array<Item>} array representation of the queue
      */
 
   }, {
@@ -1005,7 +1122,7 @@ var _Set = function (_extendableBuiltin2) {
    *
    * @desc Construct a Set
    *
-   * @param {Iterable} iterable
+   * @param {Iterable<Item>} iterable
    */
   function _Set(iterable) {
     classCallCheck(this, _Set);
@@ -1114,7 +1231,7 @@ var _Set = function (_extendableBuiltin2) {
      *
      * @desc Subset of a set
      *
-     * @param {Set} setB - SetB
+     * @param {Set<Item>} setB - SetB
      * @returns {boolean} setA is subset of setB
      */
 
@@ -1156,7 +1273,7 @@ var _Set = function (_extendableBuiltin2) {
      *
      * @desc Superset of a set
      *
-     * @param {Set} setB - SetB
+     * @param {Set<Item>} setB - SetB
      * @returns {boolean} setA is superset of setB
      */
 
@@ -1241,8 +1358,8 @@ var _Set = function (_extendableBuiltin2) {
      *
      * @desc Intersection of setA and setB
      *
-     * @param {Set} setB - SetB
-     * @returns {Set} setC - intersection between setA and setB
+     * @param {Set<Item>} setB - SetB
+     * @returns {Set<Item>} setC - intersection between setA and setB
      */
 
   }, {
@@ -1284,8 +1401,8 @@ var _Set = function (_extendableBuiltin2) {
      *
      * @desc Difference of setA and setB
      *
-     * @param {Set} setB - SetB
-     * @returns {Set} setC - difference between setA and setB
+     * @param {Set<Item>} setB - SetB
+     * @returns {Set<Item>} setC - difference between setA and setB
      */
 
   }, {
@@ -1327,8 +1444,8 @@ var _Set = function (_extendableBuiltin2) {
      *
      * @desc Symmetric difference of setA and setB
      *
-     * @param {Set} setB - SetB
-     * @returns {Set} setC - difference difference between setA and setB
+     * @param {Set<Item>} setB - SetB
+     * @returns {Set<Item>} setC - difference difference between setA and setB
      */
 
   }, {

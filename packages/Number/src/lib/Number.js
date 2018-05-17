@@ -50,7 +50,7 @@ class _Number extends Number {
    *
    * @param {number} number
    */
-  constructor(number: Number) {
+  constructor(number: number) {
     super(number);
   }
   /**
@@ -61,8 +61,8 @@ class _Number extends Number {
    * @param {string} str - Roman numeral
    * @returns {number} Number representation of a roman numeral
    */
-  static fromRomanNumeral(str: string): Number {
-    function _romanToInteger(num, result = 0) {
+  static fromRomanNumeral(str: string): number {
+    function _romanToInteger(num: string, result: number = 0) {
       // TODO: reduce iterations
       for (let [roman, int] of RomanNumeralToIntegerMap) {
         if (num.slice(0, roman.length) === roman) {
@@ -80,8 +80,8 @@ class _Number extends Number {
    *
    * @returns {string} Roman numeral representation of number
    */
-  toRomanNumeral(): String {
-    function _integerToRoman(num, result = "") {
+  toRomanNumeral(): string {
+    function _integerToRoman(num: number, result: string = "") {
       // TODO: reduce iterations
       for (let [int, roman] of IntegerToRomanNumeralMap) {
         if (num >= int) return _integerToRoman(num - int, result + roman);

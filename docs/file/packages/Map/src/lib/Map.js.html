@@ -50,7 +50,7 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#priorityqueue-src-lib">PriorityQueue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html">PriorityQueue</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html">QueueNode</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#queue-src-lib">Queue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html">Queue</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#set-src-lib">Set/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Set/src/lib/Set.js~_Set.html">_Set</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#set-src-lib">Set/src/lib</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#string-src-lib">String/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/String/src/lib/String.js~_String.html">_String</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#trie-src-lib">Trie/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/Trie.js~Trie.html">Trie</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/TrieNode.js~TrieNode.html">TrieNode</a></span></span></li>
@@ -71,7 +71,7 @@ import { PrimitiveType } from &quot;../../../shared/src/constants&quot;;
 /**
  * @typedef {Function} Callback
  */
-type Callback = (value: any, key: any, map: Map) =&gt; boolean;
+type Callback = (value: any, key: any, map: Map&lt;Item, Item&gt;) =&gt; boolean;
 
 /**
  *
@@ -86,9 +86,9 @@ class _Map extends Map {
    *
    * @desc Construct a Map
    *
-   * @param {Iterable} iterable
+   * @param {Iterable&lt;Item&gt;} iterable
    */
-  constructor(iterable: Iterable) {
+  constructor(iterable: Iterable&lt;Item&gt;) {
     super(iterable);
   }
   /**
@@ -99,7 +99,7 @@ class _Map extends Map {
    * @param {Callback} callback - callback function
    * @returns {boolean} true if the callback function returns a truthy value for any map element; otherwise, false
    */
-  some(callback: (value: any, key: any, map: Map) =&gt; boolean): boolean {
+  some(callback: (value: any, key: any, map: Map&lt;Item, Item&gt;) =&gt; boolean): boolean {
     let result;
 
     for (let [key, value] of this.entries()) {
@@ -116,7 +116,7 @@ class _Map extends Map {
    * @param {Callback} callback - callback function
    * @returns {boolean} true if the callback function returns a truthy value for every map element; otherwise, false
    */
-  every(callback: (value: any, key: any, map: Map) =&gt; boolean): boolean {
+  every(callback: (value: any, key: any, map: Map&lt;Item, Item&gt;) =&gt; boolean): boolean {
     let result;
 
     for (let [key, value] of this.entries()) {

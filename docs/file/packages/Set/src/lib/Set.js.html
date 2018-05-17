@@ -50,7 +50,7 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#priorityqueue-src-lib">PriorityQueue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue.html">PriorityQueue</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/PriorityQueue/src/lib/QueueNode.js~QueueNode.html">QueueNode</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#queue-src-lib">Queue/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Queue/src/lib/Queue.js~Queue.html">Queue</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#set-src-lib">Set/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Set/src/lib/Set.js~_Set.html">_Set</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#set-src-lib">Set/src/lib</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#string-src-lib">String/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/String/src/lib/String.js~_String.html">_String</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#trie-src-lib">Trie/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/Trie.js~Trie.html">Trie</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Trie/src/lib/TrieNode.js~TrieNode.html">TrieNode</a></span></span></li>
@@ -68,7 +68,9 @@
 /**
  * @typedef {Function} Callback
  */
-type Callback = (value1: any, value2: any, set: Set) =&gt; boolean;
+import type { Item } from &quot;../../../shared/src/types&quot;;
+
+type Callback = (value1: any, value2: any, set: Set&lt;Item&gt;) =&gt; boolean;
 
 /**
  *
@@ -83,9 +85,9 @@ class _Set extends Set {
    *
    * @desc Construct a Set
    *
-   * @param {Iterable} iterable
+   * @param {Iterable&lt;Item&gt;} iterable
    */
-  constructor(iterable: Iterable) {
+  constructor(iterable: Iterable&lt;Item&gt;) {
     super(iterable);
   }
 
@@ -97,7 +99,7 @@ class _Set extends Set {
    * @param {Callback} callback - callback function
    * @returns {boolean} true if the callback function returns a truthy value for any set element; otherwise, false
    */
-  some(callback: (value1: any, value2: any, set: Set) =&gt; boolean): boolean {
+  some(callback: (value1: any, value2: any, set: Set&lt;Item&gt;) =&gt; boolean): boolean {
     let result;
 
     for (let [value1, value2] of this.entries()) {
@@ -116,7 +118,7 @@ class _Set extends Set {
    * @param {Callback} callback - callback function
    * @returns {boolean} true if the callback function returns a truthy value for every set element; otherwise, false
    */
-  every(callback: (value1: any, value2: any, set: Set) =&gt; boolean): boolean {
+  every(callback: (value1: any, value2: any, set: Set&lt;Item&gt;) =&gt; boolean): boolean {
     let result;
 
     for (let [value1, value2] of this.entries()) {
@@ -132,10 +134,10 @@ class _Set extends Set {
    *
    * @desc Subset of a set
    *
-   * @param {Set} setB - SetB
+   * @param {Set&lt;Item&gt;} setB - SetB
    * @returns {boolean} setA is subset of setB
    */
-  isSubset(setB: Set): boolean {
+  isSubset(setB: Set&lt;Item&gt;): boolean {
     let setA = this;
 
     for (let v of setA) {
@@ -149,10 +151,10 @@ class _Set extends Set {
    *
    * @desc Superset of a set
    *
-   * @param {Set} setB - SetB
+   * @param {Set&lt;Item&gt;} setB - SetB
    * @returns {boolean} setA is superset of setB
    */
-  isSuperset(setB: Set): boolean {
+  isSuperset(setB: Set&lt;Item&gt;): boolean {
     let setA = this;
 
     for (let v of setB) {
@@ -169,7 +171,7 @@ class _Set extends Set {
    * @param {Set} setB - SetB
    * @returns {Set} setC - union between setA and setB
    */
-  union(setB: Set): Set {
+  union(setB: Set&lt;Item&gt;): Set&lt;Item&gt; {
     let setA = this;
     let setC = new Set(setA);
 
@@ -185,10 +187,10 @@ class _Set extends Set {
    *
    * @desc Intersection of setA and setB
    *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - intersection between setA and setB
+   * @param {Set&lt;Item&gt;} setB - SetB
+   * @returns {Set&lt;Item&gt;} setC - intersection between setA and setB
    */
-  intersection(setB: Set): Set {
+  intersection(setB: Set&lt;Item&gt;): Set&lt;Item&gt; {
     let setA = this;
     let setC = new Set();
 
@@ -204,10 +206,10 @@ class _Set extends Set {
    *
    * @desc Difference of setA and setB
    *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - difference between setA and setB
+   * @param {Set&lt;Item&gt;} setB - SetB
+   * @returns {Set&lt;Item&gt;} setC - difference between setA and setB
    */
-  difference(setB: Set): Set {
+  difference(setB: Set&lt;Item&gt;): Set&lt;Item&gt; {
     let setA = this;
     let setC = new Set(setA);
 
@@ -223,10 +225,10 @@ class _Set extends Set {
    *
    * @desc Symmetric difference of setA and setB
    *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - difference difference between setA and setB
+   * @param {Set&lt;Item&gt;} setB - SetB
+   * @returns {Set&lt;Item&gt;} setC - difference difference between setA and setB
    */
-  symmetricDifference(setB: Set): Set {
+  symmetricDifference(setB: Set&lt;Item&gt;): Set&lt;Item&gt; {
     let setA = this;
     let setC = new Set(setA);
 

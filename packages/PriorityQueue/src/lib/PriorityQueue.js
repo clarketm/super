@@ -233,9 +233,9 @@ class PriorityQueue {
    *
    * @desc Convert the queue to an array
    *
-   * @returns {Array} array representation of the queue
+   * @returns {Array<Item>} array representation of the queue
    */
-  toArray(): Array {
+  toArray(): Array<Item> {
     return this._queue.slice(0);
   }
 }

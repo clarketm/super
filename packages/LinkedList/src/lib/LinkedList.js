@@ -14,20 +14,29 @@ import type { Item } from "../../../shared/src/types";
  *
  */
 class LinkedList {
+  /** @private */
+  _size: number;
+
+  /** @private */
+  _head: ?ListNode;
+
+  /** @private */
+  _tail: ?ListNode;
+
   /**
    * @public
    *
    * @desc Construct a LinkedList
    *
-   * @param {Iterable} iterable
+   * @param {Iterable<Item>} iterable
    */
-  constructor(iterable: Iterable = []) {
+  constructor(iterable: Iterable<Item> = []) {
     let head = new ListNode(0);
     let prev = null;
     let curr = head;
     let size = 0;
 
-    for (let item of iterable) {
+    for (let item: Item of iterable) {
       curr.next = new ListNode(item);
       curr = curr.next;
 
@@ -49,7 +58,7 @@ class LinkedList {
    *
    * @returns {ListNode} head node
    */
-  get head(): ListNode {
+  get head(): ?ListNode {
     return this._head;
   }
 
@@ -60,7 +69,7 @@ class LinkedList {
    *
    * @returns {ListNode} tail node
    */
-  get tail(): ListNode {
+  get tail(): ?ListNode {
     return this._tail;
   }
 
@@ -246,9 +255,9 @@ class LinkedList {
    *
    * @desc Convert the node and next nodes (recursively) to an array
    *
-   * @returns {Array} array representation of the list
+   * @returns {Array<Item>} array representation of the list
    */
-  toArray(): Array {
+  toArray(): Array<Item> {
     let array = [];
     let node = this.head;
 

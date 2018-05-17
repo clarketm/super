@@ -178,7 +178,7 @@
      *
      * @desc Construct a Queue
      *
-     * @param {Iterable<any>} iterable
+     * @param {Iterable<Item>} iterable
      */
     function Queue() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -259,7 +259,7 @@
        *
        * @desc Convert the queue to an array
        *
-       * @returns {Array} array representation of the queue
+       * @returns {Array<Item>} array representation of the queue
        */
 
     }, {

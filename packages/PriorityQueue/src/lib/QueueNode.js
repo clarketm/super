@@ -13,6 +13,12 @@ import type { Item } from "../../../shared/src/types";
  *
  */
 class QueueNode {
+  /** @private */
+  _value: Item;
+
+  /** @private */
+  _priority: number;
+
   /**
    * @public
    *

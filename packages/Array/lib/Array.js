@@ -95,9 +95,9 @@
    *
    * @public
    *
-   * @param {Array<Item>} arr – array to sort
+   * @param {Array} arr – array to sort
    * @param {Comparator} comparator
-   * @returns {Array<Item>} sorted array
+   * @returns {Array} sorted array
    */
   function mergeSort(arr) {
     var comparator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _defaultComparator;
@@ -222,7 +222,7 @@
      *
      * @desc Construct an Array
      *
-     * @param {Iterable} iterable
+     * @param {Iterable<Item>} iterable
      */
     function _Array() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -239,7 +239,7 @@
      * @desc Maps each element using a mapping function, then flattens the result into a new array
      *
      * @param {Callback} callback - callback function
-     * @returns {Array} A new array with each element being the result of the callback function and flattened to a depth of 1
+     * @returns {Array<Item>} A new array with each element being the result of the callback function and flattened to a depth of 1
      */
 
 
@@ -254,7 +254,7 @@
        * @desc Creates a new array with all sub-array elements concatted into it recursively up to the specified depth
        *
        * @param {number} depth - flatten depth
-       * @returns {Array}  new array with the sub-array elements concatted into it.
+       * @returns {Array<Item>}  new array with the sub-array elements concatted into it.
        */
 
     }, {
@@ -275,8 +275,10 @@
       /**
        * @public
        *
-       * @desc Sort inplace using merge sort
+       * @desc Sort using merge sort
        *
+       * @param {Comparator} comparator - comparator function
+       * @returns {Array<Item>} sorted array
        */
 
     }, {

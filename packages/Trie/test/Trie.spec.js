@@ -108,6 +108,33 @@ describe("Trie", () => {
   });
 
   describe("#search", () => {
+    it("should return a zero (0) matchedChars count for an unmatched query", () => {
+      trie = new Trie(["joe", "joke", "joel"]);
+
+      expected = 0;
+      actual = trie.search("poop").matchedChars;
+
+      assert.equal(actual, expected);
+    });
+
+    it("should return false for isCompleteWord for an unmatched query", () => {
+      trie = new Trie(["joe", "joke", "joel"]);
+
+      expected = false;
+      actual = trie.search("poop").isCompleteWord;
+
+      assert.equal(actual, expected);
+    });
+
+    it("should return undefined for node for an unmatched query", () => {
+      trie = new Trie(["joe", "joke", "joel"]);
+
+      expected = undefined;
+      actual = trie.search("poop").node;
+
+      assert.equal(actual, expected);
+    });
+
     it("should return query in match if trie matches query", () => {
       trie = new Trie(["joe", "joke", "joel"]);
 

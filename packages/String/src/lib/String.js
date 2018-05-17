@@ -18,7 +18,7 @@ class _String extends String {
    *
    * @param {string} string
    */
-  constructor(string: String) {
+  constructor(string: string) {
     super(string);
   }
 
@@ -29,7 +29,7 @@ class _String extends String {
    *
    * @returns {string} String reversed
    */
-  reverse(): String {
+  reverse(): string {
     return this.split("")
       .filter(s => s)
       .reverse()
@@ -43,7 +43,7 @@ class _String extends String {
    *
    * @returns {string} String with words reversed
    */
-  reverseWords(): String {
+  reverseWords(): string {
     return this.split(" ")
       .filter(s => s)
       .reverse()
@@ -57,7 +57,7 @@ class _String extends String {
    *
    * @returns {string} Title cased string representation
    */
-  toTitleCase(): String {
+  toTitleCase(): string {
     return this.split(" ")
       .map(v => v && v.charAt(0).toUpperCase() + v.substr(1).toLowerCase())
       .join(" ");

@@ -4,7 +4,7 @@
  */
 
 import { mergeSort } from "../../../MergeSort/src/lib/MergeSort";
-import type { Comparator } from "../../../shared/src/types";
+import type { Comparator, Item } from "../../../shared/src/types";
 
 /**
  * @typedef {Function} Callback
@@ -25,9 +25,9 @@ class _Array extends Array {
    *
    * @desc Construct an Array
    *
-   * @param {Iterable} iterable
+   * @param {Iterable<Item>} iterable
    */
-  constructor(iterable: Iterable = []) {
+  constructor(iterable: Iterable<Item> = []) {
     super();
     this.push(...iterable);
   }
@@ -37,9 +37,9 @@ class _Array extends Array {
    * @desc Maps each element using a mapping function, then flattens the result into a new array
    *
    * @param {Callback} callback - callback function
-   * @returns {Array} A new array with each element being the result of the callback function and flattened to a depth of 1
+   * @returns {Array<Item>} A new array with each element being the result of the callback function and flattened to a depth of 1
    */
-  flatMap(callback: (value: any, index: number, array: Array) => boolean): Array {
+  flatMap(callback: Callback): Array<Item> {
     return this.map(callback).flatten();
   }
   /**
@@ -48,9 +48,9 @@ class _Array extends Array {
    * @desc Creates a new array with all sub-array elements concatted into it recursively up to the specified depth
    *
    * @param {number} depth - flatten depth
-   * @returns {Array}  new array with the sub-array elements concatted into it.
+   * @returns {Array<Item>}  new array with the sub-array elements concatted into it.
    */
-  flatten(depth: number = 1): Array {
+  flatten(depth: number = 1): Array<Item> {
     function _flatten(depth, arr) {
       if (depth <= 0) return arr;
 
@@ -65,10 +65,12 @@ class _Array extends Array {
   /**
    * @public
    *
-   * @desc Sort inplace using merge sort
+   * @desc Sort using merge sort
    *
+   * @param {Comparator} comparator - comparator function
+   * @returns {Array<Item>} sorted array
    */
-  mergeSort(comparator: Comparator) {
+  mergeSort(comparator: Comparator): Array<Item> {
     return mergeSort.call(this, null, comparator);
   }
 }

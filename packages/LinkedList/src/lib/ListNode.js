@@ -13,6 +13,15 @@ import type { Item } from "../../../shared/src/types";
  *
  */
 class ListNode {
+  /** @private */
+  _value: Item;
+
+  /** @private */
+  _next: ?ListNode;
+
+  /** @private */
+  _prev: ?ListNode;
+
   /**
    * @public
    *
@@ -21,9 +30,9 @@ class ListNode {
    * @param {Item} item - node value
    */
   constructor(item: Item) {
-    this.value = item;
-    this.prev = null;
-    this.next = null;
+    this._value = item;
+    this._prev = null;
+    this._next = null;
   }
 
   /**
@@ -54,7 +63,7 @@ class ListNode {
    *
    * @returns {ListNode} next node
    */
-  get next(): ListNode {
+  get next(): ?ListNode {
     return this._next;
   }
 
@@ -64,7 +73,7 @@ class ListNode {
    * @desc Set the next node in list
    *
    */
-  set next(next: ListNode) {
+  set next(next: ?ListNode) {
     this._next = next;
   }
 
@@ -75,7 +84,7 @@ class ListNode {
    *
    * @returns {ListNode} previous node
    */
-  get prev(): ListNode {
+  get prev(): ?ListNode {
     return this._prev;
   }
 
@@ -85,7 +94,7 @@ class ListNode {
    * @desc Set the next node in list
    *
    */
-  set prev(prev: ListNode) {
+  set prev(prev: ?ListNode) {
     this._prev = prev;
   }
 }

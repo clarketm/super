@@ -21,7 +21,7 @@ export const _Math = Object.create(Math);
  * @param {number} num - integral number
  * @returns {number} factorial of num
  */
-_Math.factorial = function(num: number): Math {
+_Math.factorial = function(num: number): number {
   if (num < 0) throw new Error("Factorial not defined for negative values");
   if (num === 0) return 1;
   return num * _Math.factorial(num - 1);

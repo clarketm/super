@@ -11,7 +11,7 @@ type Match = {
   matchedChars: number,
   isMatch: boolean,
   isCompleteWord: boolean,
-  node: TrieNode
+  node: ?TrieNode
 };
 
 /**

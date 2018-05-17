@@ -9,7 +9,7 @@ import { PrimitiveType } from "../../../shared/src/constants";
 /**
  * @typedef {Function} Callback
  */
-type Callback = (value: any, key: any, map: Map) => boolean;
+type Callback = (value: any, key: any, map: Map<Item, Item>) => boolean;
 
 /**
  *
@@ -24,9 +24,9 @@ class _Map extends Map {
    *
    * @desc Construct a Map
    *
-   * @param {Iterable} iterable
+   * @param {Iterable<Item>} iterable
    */
-  constructor(iterable: Iterable) {
+  constructor(iterable: Iterable<Item>) {
     super(iterable);
   }
   /**
@@ -37,7 +37,7 @@ class _Map extends Map {
    * @param {Callback} callback - callback function
    * @returns {boolean} true if the callback function returns a truthy value for any map element; otherwise, false
    */
-  some(callback: (value: any, key: any, map: Map) => boolean): boolean {
+  some(callback: (value: any, key: any, map: Map<Item, Item>) => boolean): boolean {
     let result;
 
     for (let [key, value] of this.entries()) {
@@ -54,7 +54,7 @@ class _Map extends Map {
    * @param {Callback} callback - callback function
    * @returns {boolean} true if the callback function returns a truthy value for every map element; otherwise, false
    */
-  every(callback: (value: any, key: any, map: Map) => boolean): boolean {
+  every(callback: (value: any, key: any, map: Map<Item, Item>) => boolean): boolean {
     let result;
 
     for (let [key, value] of this.entries()) {

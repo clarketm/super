@@ -102,6 +102,10 @@
    *
    */
   var QueueNode = function () {
+    /** @private */
+
+    /** @private */
+
     /**
      * @public
      *
@@ -148,6 +152,8 @@
     }]);
     return QueueNode;
   }();
+
+  // 
 
   function isIterable(item) {
     try {
@@ -383,10 +389,6 @@
    */
 
   /**
-   * @typedef {Function} Comparator
-   */
-
-  /**
    *
    * PriorityQueue with superpowers! 💪
    *
@@ -588,7 +590,7 @@
        *
        * @desc Convert the queue to an array
        *
-       * @returns {Array} array representation of the queue
+       * @returns {Array<Item>} array representation of the queue
        */
 
     }, {
@@ -689,7 +691,7 @@
 
     }, {
       key: "_defaultComparator",
-      value: function _defaultComparator(a, b) {
+      value: function _defaultComparator$$1(a, b) {
         return a.priority < b.priority;
       }
     }]);

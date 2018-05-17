@@ -158,7 +158,7 @@
      *
      * @desc Construct a Map
      *
-     * @param {Iterable} iterable
+     * @param {Iterable<Item>} iterable
      */
     function _Map(iterable) {
       classCallCheck(this, _Map);

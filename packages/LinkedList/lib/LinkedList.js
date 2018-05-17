@@ -48,6 +48,12 @@
    *
    */
   var ListNode = function () {
+    /** @private */
+
+    /** @private */
+
+    /** @private */
+
     /**
      * @public
      *
@@ -58,9 +64,9 @@
     function ListNode(item) {
       classCallCheck(this, ListNode);
 
-      this.value = item;
-      this.prev = null;
-      this.next = null;
+      this._value = item;
+      this._prev = null;
+      this._next = null;
     }
 
     /**
@@ -156,12 +162,18 @@
    */
 
   var LinkedList = function () {
+    /** @private */
+
+    /** @private */
+
+    /** @private */
+
     /**
      * @public
      *
      * @desc Construct a LinkedList
      *
-     * @param {Iterable} iterable
+     * @param {Iterable<Item>} iterable
      */
     function LinkedList() {
       var iterable = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -411,7 +423,7 @@
        *
        * @desc Convert the node and next nodes (recursively) to an array
        *
-       * @returns {Array} array representation of the list
+       * @returns {Array<Item>} array representation of the list
        */
 
     }, {

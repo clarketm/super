@@ -138,7 +138,7 @@ class _Object extends Object {
       throw new Error(`Unable to copy object: ${item}`);
     }
 
-    return _clone(this, config);
+    return _clone(this);
   }
 }
 

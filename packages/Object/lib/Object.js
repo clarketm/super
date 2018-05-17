@@ -302,7 +302,7 @@
           throw new Error("Unable to copy object: " + item);
         }
 
-        return _clone(this, config);
+        return _clone(this);
       }
     }]);
     return _Object;
