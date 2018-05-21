@@ -106,7 +106,7 @@ describe("BubbleSort", () => {
   });
 
   describe("#Array.bubbleSort", () => {
-    before(() => {
+    beforeAll(() => {
       Array.prototype.bubbleSort = bubbleSort;
     });
 

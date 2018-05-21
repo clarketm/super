@@ -1,4 +1,5 @@
 .idea
 *.iml
 *.log
+coverage
 node_modules

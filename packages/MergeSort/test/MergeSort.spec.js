@@ -106,7 +106,7 @@ describe("MergeSort", () => {
   });
 
   describe("#Array.mergeSort", () => {
-    before(() => {
+    beforeAll(() => {
       Array.prototype.mergeSort = mergeSort;
     });
 

@@ -106,7 +106,7 @@ describe("QuickSort", () => {
   });
 
   describe("#Array.quickSort", () => {
-    before(() => {
+    beforeAll(() => {
       Array.prototype.quickSort = quickSort;
     });
 

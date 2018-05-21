@@ -106,7 +106,7 @@ describe("SelectionSort", () => {
   });
 
   describe("#Array.selectionSort", () => {
-    before(() => {
+    beforeAll(() => {
       Array.prototype.selectionSort = selectionSort;
     });
 

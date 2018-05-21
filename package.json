@@ -21,7 +21,9 @@
     "docs": "shx rm -rf ./docs ; esdoc",
     "types:gen": "flow gen-flow-files ./packages --out-dir packages ; sed -i '/flow/d; /import/d' ./packages/*/src/lib/*.js.flow ./packages/shared/src/*.flow",
     "types:dist": "shx cat ./packages/*/src/lib/*.flow ./packages/shared/src/*.flow > ./dist/super.js.flow",
-    "test": "lerna run test",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
     "prep": "yarn lint && yarn prettier && yarn docs && yarn build && yarn test",
     "prepublishOnly": "yarn prep && bash ./resources/publish.sh"
   },
@@ -113,5 +115,7 @@
     "uglify-js": "2.8.11",
     "uglify-save-license": "^0.4.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jest": "^22.4.4"
+  }
 }

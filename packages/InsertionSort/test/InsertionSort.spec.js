@@ -106,7 +106,7 @@ describe("InsertionSort", () => {
   });
 
   describe("#Array.insertionSort", () => {
-    before(() => {
+    beforeAll(() => {
       Array.prototype.insertionSort = insertionSort;
     });
 
