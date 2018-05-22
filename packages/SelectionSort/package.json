@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superselectionsort",
-  "version": "1.2.17",
+  "version": "1.2.18",
   "description": "SelectionSort with superpowers! 💪",
   "main": "./lib/SelectionSort.js",
   "files": [
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@clarketm/babel-preset-super": "^1.2.1",
-    "@clarketm/eslint-config-super": "^1.2.2",
+    "@clarketm/eslint-config-super": "^1.2.18",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
     "chai": "^4.1.2",
