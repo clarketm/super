@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">BinaryTree | @clarketm/super</title>
+  <title data-ice="title">AVLTree | @clarketm/super</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -69,24 +69,24 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {BinaryTree} from &apos;<span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber24">@clarketm/super/packages/BinaryTree/src/lib/BinaryTree.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {AVLTree} from &apos;<span><a href="file/packages/AVLTree/src/lib/AVLTree.js.html#lineNumber16">@clarketm/super/packages/AVLTree/src/lib/AVLTree.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber24">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/packages/AVLTree/src/lib/AVLTree.js.html#lineNumber16">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">BinaryTree</h1>
+  <h1 data-ice="name">AVLTree</h1>
 
   
 
   
   
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html">BinaryTree</a></span> &#x2192; AVLTree</div></div>
   
-  <div class="flat-list" data-ice="directSubclass"><h4>Direct Subclass:</h4><div><span><a href="class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html">AVLTree</a></span></div></div>
   
   
   
@@ -95,7 +95,7 @@
 
   
   
-  <div class="description" data-ice="description"><p>BinaryTree with superpowers! &#x1F4AA;</p>
+  <div class="description" data-ice="description"><p>AVLTree with superpowers! &#x1F4AA;</p>
 </div>
   
 
@@ -109,8 +109,239 @@
 </div>
 
 
-<div data-ice="staticMethodSummary"><h2>Static Method Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Static Private Methods</td></tr></thead>
+
+
+<div data-ice="memberSummary"><h2>Member Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Members</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-get-balanced">balanced</a></span></span><span class="code" data-ice="signature">: <span>boolean</span>: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Determine if the tree is balanced</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+<table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Private Members</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-member-_root">_root</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-method-getBalance">getBalance</a></span></span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>): <span>number</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Get the height of the tree at node</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-method-insert">insert</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Insert a value into the tree</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-method-remove">remove</a></span></span><span class="code" data-ice="signature">(value: <span>Item</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Remove a value from the tree</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+<table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Private Methods</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-method-_rotateLeft">_rotateLeft</a></span></span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>): <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Rotate left</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">private</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-method-_rotateRight">_rotateRight</a></span></span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>): <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Rotate right</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div class="inherited-summary" data-ice="inheritedSummary"><h2>Inherited Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3"><span class="toggle closed"></span> From class <span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html">BinaryTree</a></span></td></tr></thead>
   <tbody>
   
   <tr data-ice="target">
@@ -141,49 +372,7 @@
       
     </td>
   </tr>
-</tbody>
-</table>
-</div>
-<div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Private Constructor</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">private</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">()</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
-<div data-ice="memberSummary"><h2>Member Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Members</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
+<tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
       
@@ -241,13 +430,7 @@
       
     </td>
   </tr>
-</tbody>
-</table>
-<table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Private Members</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
+<tr data-ice="target">
     <td>
       <span class="access" data-ice="access">private</span>
       
@@ -359,14 +542,7 @@
       
     </td>
   </tr>
-</tbody>
-</table>
-</div>
-<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
+<tr data-ice="target">
     <td>
       <span class="access" data-ice="access">public</span>
       
@@ -692,154 +868,28 @@
 
 
 
-<div data-ice="staticMethodDetails"><h2 data-ice="title">Static Private Methods</h2>
-
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-method-_defaultComparator">
-    <span class="access" data-ice="access">private</span>
-    <span data-ice="static">static</span>
-    
-    
-    
-    
-    <span class="code" data-ice="name">_defaultComparator</span><span class="code" data-ice="signature">(a: <span>*</span>, b: <span>*</span>): <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber58">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">a</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">b</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-</div>
-<div data-ice="constructorDetails"><h2 data-ice="title">Private Constructors</h2>
-
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-constructor-constructor">
-    <span class="access" data-ice="access">private</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">constructor</span><span class="code" data-ice="signature">()</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber36">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-</div>
 <div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-get-height">
+  <h3 data-ice="anchor" id="instance-get-balanced">
     <span class="access" data-ice="access">public</span>
     
     <span class="kind" data-ice="kind">get</span>
     
     
     
-    <span class="code" data-ice="name">height</span><span class="code" data-ice="signature">: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>: <span>*</span></span>
+    <span class="code" data-ice="name">balanced</span><span class="code" data-ice="signature">: <span>boolean</span>: <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber82">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/AVLTree/src/lib/AVLTree.js.html#lineNumber24">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Get the height of the tree</p>
+  <div data-ice="description"><p>Determine if the tree is balanced</p>
 </div>
 
   
@@ -852,65 +902,8 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>root node</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-get-root">
-    <span class="access" data-ice="access">public</span>
-    
-    <span class="kind" data-ice="kind">get</span>
-    
-    
-    
-    <span class="code" data-ice="name">root</span><span class="code" data-ice="signature">: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>: <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber69">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Get the root of the tree</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>root node</p>
+          <td class="return-type code" data-ice="returnType"><span>boolean</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>balanced</p>
 </td>
         </tr>
       </tbody>
@@ -937,135 +930,6 @@
 <h2 data-ice="title">Private Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-_compareEqual">
-    <span class="access" data-ice="access">private</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">_compareEqual</span><span class="code" data-ice="signature">: <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber38">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-_compareGreaterThan">
-    <span class="access" data-ice="access">private</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">_compareGreaterThan</span><span class="code" data-ice="signature">: <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber40">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-_compareLessThan">
-    <span class="access" data-ice="access">private</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">_compareLessThan</span><span class="code" data-ice="signature">: <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber39">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-member-_root">
     <span class="access" data-ice="access">private</span>
     
@@ -1077,7 +941,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber37">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/AVLTree/src/lib/AVLTree.js.html#lineNumber97">source</a></span></span>
     </span>
   </h3>
 
@@ -1086,7 +950,7 @@
   
   
 
-  
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-member-_root">BinaryTree#_root</a></span></div>
 
   <div data-ice="properties">
 </div>
@@ -1112,166 +976,18 @@
 <div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-findMax">
+  <h3 data-ice="anchor" id="instance-method-getBalance">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">findMax</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>): <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></span>
+    <span class="code" data-ice="name">getBalance</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>): <span>number</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber132">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Find maximum value in tree</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">node</td>
-      <td data-ice="type" class="code"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>root node</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>node</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-findMin">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">findMin</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>): <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber119">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Find minimum value in tree</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">node</td>
-      <td data-ice="type" class="code"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>root node</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>node</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-getHeight">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">getHeight</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>): <span>number</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber94">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/AVLTree/src/lib/AVLTree.js.html#lineNumber36">source</a></span></span>
     </span>
   </h3>
 
@@ -1334,80 +1050,6 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-inOrder">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">inOrder</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>&gt;</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber289">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Traverse the tree in inOrder traversal ordering</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">node</td>
-      <td data-ice="type" class="code"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>root node</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>&gt;</td>
-          <td class="return-desc" data-ice="returnDescription"><p>array of nodes or values</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-method-insert">
     <span class="access" data-ice="access">public</span>
     
@@ -1419,7 +1061,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber144">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/AVLTree/src/lib/AVLTree.js.html#lineNumber48">source</a></span></span>
     </span>
   </h3>
 
@@ -1429,7 +1071,7 @@
   <div data-ice="description"><p>Insert a value into the tree</p>
 </div>
 
-  
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-insert">BinaryTree#insert</a></span></div>
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>
@@ -1469,228 +1111,6 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-levelOrder">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">levelOrder</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>&gt;</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber351">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Traverse the tree in levelOrder traversal ordering</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">node</td>
-      <td data-ice="type" class="code"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>root node</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>&gt;</td>
-          <td class="return-desc" data-ice="returnDescription"><p>array of nodes or values</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-postOrder">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">postOrder</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>&gt;</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber320">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Traverse the tree in postOrder traversal ordering</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">node</td>
-      <td data-ice="type" class="code"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>root node</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>&gt;</td>
-          <td class="return-desc" data-ice="returnDescription"><p>array of nodes or values</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-preOrder">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">preOrder</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>): <span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>&gt;</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber258">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Traverse the tree in preOrder traversal ordering</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">node</td>
-      <td data-ice="type" class="code"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>root node</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>Array</span>&lt;<span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>&gt;</td>
-          <td class="return-desc" data-ice="returnDescription"><p>array of nodes or values</p>
-</td>
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-method-remove">
     <span class="access" data-ice="access">public</span>
     
@@ -1702,7 +1122,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber210">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/AVLTree/src/lib/AVLTree.js.html#lineNumber107">source</a></span></span>
     </span>
   </h3>
 
@@ -1712,7 +1132,7 @@
   <div data-ice="description"><p>Remove a value from the tree</p>
 </div>
 
-  
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html#instance-method-remove">BinaryTree#remove</a></span></div>
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>
@@ -1751,26 +1171,28 @@
   
   
 </div>
+<h2 data-ice="title">Private Methods</h2>
+
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-search">
-    <span class="access" data-ice="access">public</span>
+  <h3 data-ice="anchor" id="instance-method-_rotateLeft">
+    <span class="access" data-ice="access">private</span>
     
     
     
     
     
-    <span class="code" data-ice="name">search</span><span class="code" data-ice="signature">(value: <span>Item</span>): <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></span>
+    <span class="code" data-ice="name">_rotateLeft</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>): <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber177">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/AVLTree/src/lib/AVLTree.js.html#lineNumber181">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Search and retrieve a value from the tree</p>
+  <div data-ice="description"><p>Rotate left</p>
 </div>
 
   
@@ -1784,11 +1206,10 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">value</td>
-      <td data-ice="type" class="code"><span>Item</span></td>
+      <td data-ice="name" class="code" data-depth="0">node</td>
+      <td data-ice="type" class="code"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>value to search</p>
-</td>
+      <td data-ice="description"></td>
     </tr>
 </tbody>
   </table>
@@ -1801,7 +1222,7 @@
       <tbody>
         <tr>
           <td class="return-type code" data-ice="returnType"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>match node, or null if not found</p>
+          <td class="return-desc" data-ice="returnDescription"><p>new root</p>
 </td>
         </tr>
       </tbody>
@@ -1826,25 +1247,25 @@
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-toArray">
-    <span class="access" data-ice="access">public</span>
+  <h3 data-ice="anchor" id="instance-method-_rotateRight">
+    <span class="access" data-ice="access">private</span>
     
     
     
     
     
-    <span class="code" data-ice="name">toArray</span><span class="code" data-ice="signature">(traversal: <span>Traversal</span>, flatten: <span>boolean</span>): <span>Array&lt;TreeNode | Item&gt; </span></span>
+    <span class="code" data-ice="name">_rotateRight</span><span class="code" data-ice="signature">(node: <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span>): <span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/packages/BinaryTree/src/lib/BinaryTree.js.html#lineNumber382">source</a></span></span>
+      <span data-ice="source"><span><a href="file/packages/AVLTree/src/lib/AVLTree.js.html#lineNumber197">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Convert the tree to an array</p>
+  <div data-ice="description"><p>Rotate right</p>
 </div>
 
   
@@ -1858,18 +1279,10 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">traversal</td>
-      <td data-ice="type" class="code"><span>Traversal</span></td>
+      <td data-ice="name" class="code" data-depth="0">node</td>
+      <td data-ice="type" class="code"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>method of traversal</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">flatten</td>
-      <td data-ice="type" class="code"><span>boolean</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>if false return nodes; if true return only values</p>
-</td>
+      <td data-ice="description"></td>
     </tr>
 </tbody>
   </table>
@@ -1881,8 +1294,8 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>Array&lt;TreeNode | Item&gt; </span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>array representation of the list</p>
+          <td class="return-type code" data-ice="returnType"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>new root</p>
 </td>
         </tr>
       </tbody>

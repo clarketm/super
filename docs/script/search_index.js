@@ -1,14 +1,14 @@
 window.esdocSearchIndex = [
   [
-    "@clarketm/super/packages/binarytree/src/lib/binarytree.js~binarytree",
-    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html",
-    "<span>BinaryTree</span> <span class=\"search-result-import-path\">@clarketm/super/packages/BinaryTree/src/lib/BinaryTree.js</span>",
+    "@clarketm/super/packages/avltree/src/lib/avltree.js~avltree",
+    "class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html",
+    "<span>AVLTree</span> <span class=\"search-result-import-path\">@clarketm/super/packages/AVLTree/src/lib/AVLTree.js</span>",
     "class"
   ],
   [
-    "@clarketm/super/packages/binarytree/src/lib/binarytreenode.js~binarytreenode",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html",
-    "<span>BinaryTreeNode</span> <span class=\"search-result-import-path\">@clarketm/super/packages/BinaryTree/src/lib/BinaryTreeNode.js</span>",
+    "@clarketm/super/packages/binarytree/src/lib/binarytree.js~binarytree",
+    "class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html",
+    "<span>BinaryTree</span> <span class=\"search-result-import-path\">@clarketm/super/packages/BinaryTree/src/lib/BinaryTree.js</span>",
     "class"
   ],
   [
@@ -76,6 +76,12 @@ window.esdocSearchIndex = [
     "variable/index.html#static-variable-TraversalType",
     "<span>TraversalType</span> <span class=\"search-result-import-path\">@clarketm/super/packages/BinaryTree/src/lib/BinaryTree.js</span>",
     "variable"
+  ],
+  [
+    "@clarketm/super/packages/binarytree/src/lib/treenode.js~treenode",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html",
+    "<span>TreeNode</span> <span class=\"search-result-import-path\">@clarketm/super/packages/BinaryTree/src/lib/TreeNode.js</span>",
+    "class"
   ],
   [
     "@clarketm/super/packages/trie/src/lib/trie.js~trie",
@@ -178,6 +184,54 @@ window.esdocSearchIndex = [
     "function/index.html#static-function-selectionSort",
     "<span>selectionSort</span> <span class=\"search-result-import-path\">@clarketm/super/packages/SelectionSort/src/lib/SelectionSort.js</span>",
     "function"
+  ],
+  [
+    "packages/avltree/src/lib/avltree.js",
+    "file/packages/AVLTree/src/lib/AVLTree.js.html",
+    "packages/AVLTree/src/lib/AVLTree.js",
+    "file"
+  ],
+  [
+    "packages/avltree/src/lib/avltree.js~avltree#_root",
+    "class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-member-_root",
+    "packages/AVLTree/src/lib/AVLTree.js~AVLTree#_root",
+    "member"
+  ],
+  [
+    "packages/avltree/src/lib/avltree.js~avltree#_rotateleft",
+    "class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-method-_rotateLeft",
+    "packages/AVLTree/src/lib/AVLTree.js~AVLTree#_rotateLeft",
+    "method"
+  ],
+  [
+    "packages/avltree/src/lib/avltree.js~avltree#_rotateright",
+    "class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-method-_rotateRight",
+    "packages/AVLTree/src/lib/AVLTree.js~AVLTree#_rotateRight",
+    "method"
+  ],
+  [
+    "packages/avltree/src/lib/avltree.js~avltree#balanced",
+    "class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-get-balanced",
+    "packages/AVLTree/src/lib/AVLTree.js~AVLTree#balanced",
+    "member"
+  ],
+  [
+    "packages/avltree/src/lib/avltree.js~avltree#getbalance",
+    "class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-method-getBalance",
+    "packages/AVLTree/src/lib/AVLTree.js~AVLTree#getBalance",
+    "method"
+  ],
+  [
+    "packages/avltree/src/lib/avltree.js~avltree#insert",
+    "class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-method-insert",
+    "packages/AVLTree/src/lib/AVLTree.js~AVLTree#insert",
+    "method"
+  ],
+  [
+    "packages/avltree/src/lib/avltree.js~avltree#remove",
+    "class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-method-remove",
+    "packages/AVLTree/src/lib/AVLTree.js~AVLTree#remove",
+    "method"
   ],
   [
     "packages/array/src/lib/array.js",
@@ -360,69 +414,69 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js",
-    "file/packages/BinaryTree/src/lib/BinaryTreeNode.js.html",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js",
+    "packages/binarytree/src/lib/treenode.js",
+    "file/packages/BinaryTree/src/lib/TreeNode.js.html",
+    "packages/BinaryTree/src/lib/TreeNode.js",
     "file"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#_left",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-member-_left",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#_left",
+    "packages/binarytree/src/lib/treenode.js~treenode#_left",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-member-_left",
+    "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#_left",
     "member"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#_right",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-member-_right",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#_right",
+    "packages/binarytree/src/lib/treenode.js~treenode#_right",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-member-_right",
+    "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#_right",
     "member"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#_value",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-member-_value",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#_value",
+    "packages/binarytree/src/lib/treenode.js~treenode#_value",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-member-_value",
+    "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#_value",
     "member"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#constructor",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-constructor-constructor",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#constructor",
+    "packages/binarytree/src/lib/treenode.js~treenode#constructor",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-constructor-constructor",
+    "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#constructor",
     "method"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-left",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
+    "packages/binarytree/src/lib/treenode.js~treenode#left",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-left",
+    "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#left",
     "member"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#left",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-left",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#left",
+    "packages/binarytree/src/lib/treenode.js~treenode#left",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-set-left",
+    "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#left",
     "member"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-right",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
+    "packages/binarytree/src/lib/treenode.js~treenode#right",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-right",
+    "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#right",
     "member"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#right",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-right",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#right",
+    "packages/binarytree/src/lib/treenode.js~treenode#right",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-set-right",
+    "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#right",
     "member"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#value",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-get-value",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#value",
+    "packages/binarytree/src/lib/treenode.js~treenode#value",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-value",
+    "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#value",
     "member"
   ],
   [
-    "packages/binarytree/src/lib/binarytreenode.js~binarytreenode#value",
-    "class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html#instance-set-value",
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode#value",
+    "packages/binarytree/src/lib/treenode.js~treenode#value",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-set-value",
+    "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#value",
     "member"
   ],
   [
@@ -583,25 +637,25 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#prev",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-prev",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
-    "member"
-  ],
-  [
-    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-prev",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
     "member"
   ],
   [
-    "packages/linkedlist/src/lib/listnode.js~listnode#value",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
+    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-prev",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#value",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "member"
   ],

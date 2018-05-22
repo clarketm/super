@@ -1,8 +1,15 @@
 {
-  "coverage": "84.04%",
-  "expectCount": 163,
-  "actualCount": 137,
+  "coverage": "84.21%",
+  "expectCount": 171,
+  "actualCount": 144,
   "files": {
+    "packages/AVLTree/src/lib/AVLTree.js": {
+      "expectCount": 8,
+      "actualCount": 7,
+      "undocumentLines": [
+        97
+      ]
+    },
     "packages/Array/src/lib/Array.js": {
       "expectCount": 9,
       "actualCount": 9,
@@ -19,7 +26,7 @@
         40
       ]
     },
-    "packages/BinaryTree/src/lib/BinaryTreeNode.js": {
+    "packages/BinaryTree/src/lib/TreeNode.js": {
       "expectCount": 11,
       "actualCount": 8,
       "undocumentLines": [

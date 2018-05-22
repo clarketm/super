@@ -1,5 +1,51 @@
 # Class
 
+## `AVLTree`
+
+AVLTree with superpowers! 💪
+
+### `_root: *`
+
+### `getBalance(node: TreeNode): number`
+
+Get the height of the tree at node
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| node | TreeNode |  | root node |
+
+### `insert(value: Item)`
+
+Insert a value into the tree
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| value | Item |  | value to insert into the tree |
+
+### `remove(value: Item)`
+
+Remove a value from the tree
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| value | Item |  | value to remove |
+
+### `_rotateLeft(node: TreeNode): TreeNode`
+
+Rotate left
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| node | TreeNode |  |
+
+### `_rotateRight(node: TreeNode): TreeNode`
+
+Rotate right
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| node | TreeNode |  |
+
 ## `_Array`
 
 Array with superpowers! 💪
@@ -85,29 +131,29 @@ BinaryTree with superpowers! 💪
 | a | * | nullable: undefined |
 | b | * | nullable: undefined |
 
-### `getHeight(node: BinaryTreeNode): number`
+### `getHeight(node: TreeNode): number`
 
 Get the height of the tree at node
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| node | BinaryTreeNode |  | root node |
+| node | TreeNode |  | root node |
 
-### `findMin(node: BinaryTreeNode): BinaryTreeNode`
+### `findMin(node: TreeNode): TreeNode`
 
 Find minimum value in tree
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| node | BinaryTreeNode |  | root node |
+| node | TreeNode |  | root node |
 
-### `findMax(node: BinaryTreeNode): BinaryTreeNode`
+### `findMax(node: TreeNode): TreeNode`
 
 Find maximum value in tree
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| node | BinaryTreeNode |  | root node |
+| node | TreeNode |  | root node |
 
 ### `insert(value: Item)`
 
@@ -117,7 +163,7 @@ Insert a value into the tree
 | --- | --- | --- | --- |
 | value | Item |  | value to insert into the tree |
 
-### `search(value: Item): BinaryTreeNode`
+### `search(value: Item): TreeNode`
 
 Search and retrieve a value from the tree
 
@@ -133,39 +179,39 @@ Remove a value from the tree
 | --- | --- | --- | --- |
 | value | Item |  | value to remove |
 
-### `preOrder(node: BinaryTreeNode): Array<BinaryTreeNode>`
+### `preOrder(node: TreeNode): Array<TreeNode>`
 
 Traverse the tree in preOrder traversal ordering
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| node | BinaryTreeNode |  | root node |
+| node | TreeNode |  | root node |
 
-### `inOrder(node: BinaryTreeNode): Array<BinaryTreeNode>`
+### `inOrder(node: TreeNode): Array<TreeNode>`
 
 Traverse the tree in inOrder traversal ordering
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| node | BinaryTreeNode |  | root node |
+| node | TreeNode |  | root node |
 
-### `postOrder(node: BinaryTreeNode): Array<BinaryTreeNode>`
+### `postOrder(node: TreeNode): Array<TreeNode>`
 
 Traverse the tree in postOrder traversal ordering
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| node | BinaryTreeNode |  | root node |
+| node | TreeNode |  | root node |
 
-### `levelOrder(node: BinaryTreeNode): Array<BinaryTreeNode>`
+### `levelOrder(node: TreeNode): Array<TreeNode>`
 
 Traverse the tree in levelOrder traversal ordering
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| node | BinaryTreeNode |  | root node |
+| node | TreeNode |  | root node |
 
-### `toArray(traversal: Traversal, flatten: boolean): Array<BinaryTreeNode | Item> `
+### `toArray(traversal: Traversal, flatten: boolean): Array<TreeNode | Item> `
 
 Convert the tree to an array
 
@@ -174,9 +220,9 @@ Convert the tree to an array
 | traversal | Traversal |  | method of traversal |
 | flatten | boolean |  | if false return nodes; if true return only values |
 
-## `BinaryTreeNode`
+## `TreeNode`
 
-BinaryTreeNode
+TreeNode
 
 ### `constructor()`
 

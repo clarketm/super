@@ -29,10 +29,11 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#array-src-lib">Array/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Array/src/lib/Array.js~_Array.html">_Array</a></span></span></li>
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#avltree-src-lib">AVLTree/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html">AVLTree</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#array-src-lib">Array/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Array/src/lib/Array.js~_Array.html">_Array</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#binarytree-src-lib">BinaryTree/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTree.js~BinaryTree.html">BinaryTree</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/BinaryTreeNode.js~BinaryTreeNode.html">BinaryTreeNode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html">TreeNode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-TraversalType">TraversalType</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#bubblesort-src-lib">BubbleSort/src/lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-bubbleSort">bubbleSort</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#insertionsort-src-lib">InsertionSort/src/lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-insertionSort">insertionSort</a></span></span></li>
@@ -74,7 +75,7 @@
  */
 
 import type { Comparator, Item } from &quot;../../../shared/src/types&quot;;
-import { BinaryTreeNode } from &quot;./BinaryTreeNode&quot;;
+import { TreeNode } from &quot;./TreeNode&quot;;
 import { Queue } from &quot;../../../Queue/src/lib/Queue&quot;;
 import {
   _compareEqual,
@@ -101,7 +102,7 @@ type Traversal = $Keys&lt;typeof TraversalType&gt;;
  */
 class BinaryTree {
   /** @private */
-  _root: ?BinaryTreeNode;
+  _root: ?TreeNode;
 
   /** @private */
   _compareEqual: Comparator;
@@ -144,9 +145,9 @@ class BinaryTree {
    *
    * @desc Get the root of the tree
    *
-   * @returns {BinaryTreeNode} root node
+   * @returns {TreeNode} root node
    */
-  get root(): ?BinaryTreeNode {
+  get root(): ?TreeNode {
     return this._root;
   }
 
@@ -157,7 +158,7 @@ class BinaryTree {
    *
    * @desc Get the height of the tree
    *
-   * @returns {BinaryTreeNode} root node
+   * @returns {TreeNode} root node
    */
   get height(): number {
     return this.getHeight(this.root);
@@ -168,19 +169,19 @@ class BinaryTree {
    *
    * @desc Get the height of the tree at node
    *
-   * @param {BinaryTreeNode} node - root node
+   * @param {TreeNode} node - root node
    * @returns {number} height of tree
    */
-  getHeight(node: ?BinaryTreeNode = this.root): number {
+  getHeight(node: ?TreeNode = this.root): number {
     /**
      * @private
      *
      * @desc Height helper
      *
-     * @param {BinaryTreeNode} node
+     * @param {TreeNode} node
      * @returns {number} height of tree
      */
-    const _height = (node: ?BinaryTreeNode) =&gt; {
+    const _height = (node: ?TreeNode) =&gt; {
       if (!node) return 0;
       return Math.max(_height(node.left), _height(node.right)) + 1;
     };
@@ -193,10 +194,10 @@ class BinaryTree {
    *
    * @desc Find minimum value in tree
    *
-   * @param {BinaryTreeNode} node - root node
-   * @returns {BinaryTreeNode} node
+   * @param {TreeNode} node - root node
+   * @returns {TreeNode} node
    */
-  findMin(node: ?BinaryTreeNode = this.root): ?BinaryTreeNode {
+  findMin(node: ?TreeNode = this.root): ?TreeNode {
     // $FlowFixMe
     if (!node.left) return node;
     else return this.findMin(node.left);
@@ -207,10 +208,10 @@ class BinaryTree {
    *
    * @desc Find maximum value in tree
    *
-   * @param {BinaryTreeNode} node - root node
-   * @returns {BinaryTreeNode} node
+   * @param {TreeNode} node - root node
+   * @returns {TreeNode} node
    */
-  findMax(node: ?BinaryTreeNode = this.root): ?BinaryTreeNode {
+  findMax(node: ?TreeNode = this.root): ?TreeNode {
     // $FlowFixMe
     if (!node.right) return node;
     else return this.findMax(node.right);
@@ -224,37 +225,28 @@ class BinaryTree {
    * @param {Item} value - value to insert into the tree
    */
   insert(value: Item) {
-    let node = new BinaryTreeNode(value);
-
-    if (!this.root) {
-      this._root = node;
-      return;
-    }
+    let node = new TreeNode(value);
 
     /**
      * @private
      *
      * @desc Insert helper
      *
-     * @param {BinaryTreeNode} root
+     * @param {TreeNode} root
      */
-    const _insert = (root: BinaryTreeNode) =&gt; {
+    const _insert = (root: ?TreeNode) =&gt; {
+      if (!root) return node;
+
       if (this._compareLessThan(node.value, root.value)) {
-        if (root.left) {
-          return _insert(root.left);
-        } else {
-          root.left = node;
-        }
+        root.left = _insert(root.left);
       } else {
-        if (root.right) {
-          return _insert(root.right);
-        } else {
-          root.right = node;
-        }
+        root.right = _insert(root.right);
       }
+
+      return root;
     };
 
-    _insert(this.root);
+    this._root = _insert(this.root);
   }
 
   /**
@@ -263,9 +255,9 @@ class BinaryTree {
    * @desc Search and retrieve a value from the tree
    *
    * @param {Item} value - value to search
-   * @return {BinaryTreeNode} match node, or null if not found
+   * @return {TreeNode} match node, or null if not found
    */
-  search(value: Item): ?BinaryTreeNode {
+  search(value: Item): ?TreeNode {
     if (!value) return null;
 
     /**
@@ -273,10 +265,10 @@ class BinaryTree {
      *
      * @desc Search helper
      *
-     * @param {BinaryTreeNode} node
-     * @return {BinaryTreeNode} match node
+     * @param {TreeNode} node
+     * @return {TreeNode} match node
      */
-    const _search = (node): ?BinaryTreeNode =&gt; {
+    const _search = (node): ?TreeNode =&gt; {
       if (!node) return null;
 
       if (this._compareEqual(value, node.value)) {
@@ -304,10 +296,10 @@ class BinaryTree {
      *
      * @desc Remove helper
      *
-     * @param {BinaryTreeNode} node
+     * @param {TreeNode} node
      * @param {Item} value
      */
-    const _remove = (node: ?BinaryTreeNode, value: Item) =&gt; {
+    const _remove = (node: ?TreeNode, value: Item) =&gt; {
       if (!node) return null;
 
       if (this._compareEqual(node.value, value)) {
@@ -343,19 +335,20 @@ class BinaryTree {
    *
    * @desc Traverse the tree in preOrder traversal ordering
    *
-   * @param {BinaryTreeNode} node - root node
-   * @returns {Array&lt;BinaryTreeNode&gt;} array of nodes or values
+   * @param {TreeNode} node - root node
+   * @returns {Array&lt;TreeNode&gt;} array of nodes or values
    */
-  preOrder(node: ?BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
+  preOrder(node: ?TreeNode = this.root): Array&lt;TreeNode&gt; {
     let nodes = [];
+
     /**
      * @private
      *
      * @desc PreOrder helper
      *
-     * @param {BinaryTreeNode} node
+     * @param {TreeNode} node
      */
-    function _preOrder(node: ?BinaryTreeNode) {
+    function _preOrder(node: ?TreeNode) {
       if (node) {
         nodes = [...nodes, node];
         _preOrder(node.left);
@@ -373,19 +366,20 @@ class BinaryTree {
    *
    * @desc Traverse the tree in inOrder traversal ordering
    *
-   * @param {BinaryTreeNode} node - root node
-   * @returns {Array&lt;BinaryTreeNode&gt;} array of nodes or values
+   * @param {TreeNode} node - root node
+   * @returns {Array&lt;TreeNode&gt;} array of nodes or values
    */
-  inOrder(node: ?BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
+  inOrder(node: ?TreeNode = this.root): Array&lt;TreeNode&gt; {
     let nodes = [];
+
     /**
      * @private
      *
      * @desc inOrder helper
      *
-     * @param {BinaryTreeNode} node
+     * @param {TreeNode} node
      */
-    function _inOrder(node: ?BinaryTreeNode) {
+    function _inOrder(node: ?TreeNode) {
       if (node) {
         _inOrder(node.left);
         nodes = [...nodes, node];
@@ -403,19 +397,20 @@ class BinaryTree {
    *
    * @desc Traverse the tree in postOrder traversal ordering
    *
-   * @param {BinaryTreeNode} node - root node
-   * @returns {Array&lt;BinaryTreeNode&gt;} array of nodes or values
+   * @param {TreeNode} node - root node
+   * @returns {Array&lt;TreeNode&gt;} array of nodes or values
    */
-  postOrder(node: ?BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
+  postOrder(node: ?TreeNode = this.root): Array&lt;TreeNode&gt; {
     let nodes = [];
+
     /**
      * @private
      *
      * @desc PreOrder helper
      *
-     * @param {BinaryTreeNode} node
+     * @param {TreeNode} node
      */
-    function _postOrder(node: ?BinaryTreeNode) {
+    function _postOrder(node: ?TreeNode) {
       if (node) {
         _postOrder(node.left);
         _postOrder(node.right);
@@ -433,10 +428,10 @@ class BinaryTree {
    *
    * @desc Traverse the tree in levelOrder traversal ordering
    *
-   * @param {BinaryTreeNode} node - root node
-   * @returns {Array&lt;BinaryTreeNode&gt;} array of nodes or values
+   * @param {TreeNode} node - root node
+   * @returns {Array&lt;TreeNode&gt;} array of nodes or values
    */
-  levelOrder(node: ?BinaryTreeNode = this.root): Array&lt;BinaryTreeNode&gt; {
+  levelOrder(node: ?TreeNode = this.root): Array&lt;TreeNode&gt; {
     let nodes = [];
 
     let q = new Queue();
@@ -465,9 +460,9 @@ class BinaryTree {
    *
    * @param {Traversal} traversal - method of traversal
    * @param {boolean} flatten - if false return nodes; if true return only values
-   * @returns {Array&lt;BinaryTreeNode | Item&gt; } array representation of the list
+   * @returns {Array&lt;TreeNode | Item&gt; } array representation of the list
    */
-  toArray(traversal: Traversal, flatten: boolean = false): Array&lt;BinaryTreeNode | Item&gt; {
+  toArray(traversal: Traversal, flatten: boolean = false): Array&lt;TreeNode | Item&gt; {
     let nodes;
 
     switch (traversal) {

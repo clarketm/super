@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../../">
-  <title data-ice="title">packages/String/src/lib/String.js | @clarketm/super</title>
+  <title data-ice="title">packages/AVLTree/src/lib/AVLTree.js | @clarketm/super</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -68,74 +68,214 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">packages/String/src/lib/String.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">packages/AVLTree/src/lib/AVLTree.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
  * @flow
- * @module super/string
+ * @module super/binarytree
  */
+
+import type { Item } from &quot;../../../shared/src/types&quot;;
+import { BinaryTree } from &quot;../../../BinaryTree/src/lib/BinaryTree&quot;;
+import { TreeNode } from &quot;../../../BinaryTree/src/lib/TreeNode&quot;;
 
 /**
  *
- * String with superpowers! &#x1F4AA;
+ * AVLTree with superpowers! &#x1F4AA;
  *
  * @public
  *
  */
-class _String extends String {
+class AVLTree extends BinaryTree {
   /**
    * @public
    *
-   * @desc Construct a String
+   * @desc Determine if the tree is balanced
    *
-   * @param {string} string
+   * @returns {boolean} balanced
    */
-  constructor(string: string) {
-    super(string);
+  get balanced(): boolean {
+    return Math.abs(this.getBalance(this.root)) &lt;= 1;
   }
 
   /**
    * @public
    *
-   * @desc Transposes the ordering of all characters in the string
+   * @desc Get the height of the tree at node
    *
-   * @returns {string} String reversed
+   * @param {TreeNode} node - root node
+   * @returns {number} height of tree
    */
-  reverse(): string {
-    return this.split(&quot;&quot;)
-      .filter(s =&gt; s)
-      .reverse()
-      .join(&quot;&quot;);
+  getBalance(node: ?TreeNode): number {
+    // $FlowFixMe
+    return this.getHeight(node.left) - this.getHeight(node.right);
   }
 
   /**
    * @public
    *
-   * @desc Transposes the ordering of the words in the string
+   * @desc Insert a value into the tree
    *
-   * @returns {string} String with words reversed
+   * @param {Item} value - value to insert into the tree
    */
-  reverseWords(): string {
-    return this.split(&quot; &quot;)
-      .filter(s =&gt; s)
-      .reverse()
-      .join(&quot; &quot;);
+  insert(value: Item) {
+    let node = new TreeNode(value);
+
+    /**
+     * @private
+     *
+     * @desc Insert helper
+     *
+     * @param {TreeNode} root
+     */
+    const _insert = (root: ?TreeNode) =&gt; {
+      if (!root) return node;
+
+      if (this._compareLessThan(node.value, root.value)) {
+        root.left = _insert(root.left);
+      } else {
+        root.right = _insert(root.right);
+      }
+
+      let balance = this.getBalance(root);
+
+      if (balance &gt; 1) {
+        // Left Rotate
+        if (root.left &amp;&amp; this._compareLessThan(node.value, root.left.value)) {
+          return this._rotateRight(root);
+        }
+        // Left Right Rotate
+        if (root.left &amp;&amp; this._compareGreaterThan(node.value, root.left.value)) {
+          root.left = this._rotateLeft(root.left);
+          return this._rotateRight(root);
+        }
+      }
+
+      if (balance &lt; -1) {
+        // Right Rotate
+        if (root.right &amp;&amp; this._compareGreaterThan(node.value, root.right.value)) {
+          return this._rotateLeft(root);
+        }
+
+        // Right Left Rotate
+        if (root.right &amp;&amp; this._compareLessThan(node.value, root.right.value)) {
+          root.right = this._rotateRight(root.right);
+          return this._rotateLeft(root);
+        }
+      }
+
+      return root;
+    };
+
+    this._root = _insert(this.root);
   }
 
   /**
    * @public
    *
-   * @desc Convert a string to title case
+   * @desc Remove a value from the tree
    *
-   * @returns {string} Title cased string representation
+   * @param {Item} value - value to remove
    */
-  toTitleCase(): string {
-    return this.split(&quot; &quot;)
-      .map(v =&gt; v &amp;&amp; v.charAt(0).toUpperCase() + v.substr(1).toLowerCase())
-      .join(&quot; &quot;);
+  remove(value: Item) {
+    /**
+     * @private
+     *
+     * @desc Remove helper
+     *
+     * @param {TreeNode} root
+     * @param {Item} value
+     */
+    const _remove = (root: ?TreeNode, value: Item) =&gt; {
+      if (!root) return null;
+
+      if (this._compareEqual(root.value, value)) {
+        if (!root.left &amp;&amp; !root.right) {
+          return null;
+        } else if (!root.left) {
+          return root.right;
+        } else if (!root.right) {
+          return root.left;
+        } else {
+          let aux = this.findMin(root.right);
+          // $FlowFixMe
+          root.value = aux.value;
+          // $FlowFixMe
+          root.right = _remove(root.right, aux.value);
+        }
+      } else if (this._compareLessThan(value, root.value)) {
+        root.left = _remove(root.left, value);
+      } else if (this._compareGreaterThan(value, root.value)) {
+        root.right = _remove(root.right, value);
+      }
+
+      let balance = this.getBalance(root);
+
+      if (balance &gt; 1) {
+        // Left Rotate
+        if (root.left &amp;&amp; this.getBalance(root.left) &gt;= 0) {
+          return this._rotateRight(root);
+        }
+        // Left Right Rotate
+        if (root.left &amp;&amp; this.getBalance(root.left) &lt; 0) {
+          root.left = this._rotateLeft(root.left);
+          return this._rotateRight(root);
+        }
+      }
+
+      if (balance &lt; -1) {
+        // Right Rotate
+        if (root.right &amp;&amp; this.getBalance(root.left) &lt;= 0) {
+          return this._rotateLeft(root);
+        }
+
+        // Right Left Rotate
+        if (root.right &amp;&amp; this.getBalance(root.left) &gt; 0) {
+          root.right = this._rotateRight(root.right);
+          return this._rotateLeft(root);
+        }
+      }
+
+      return root;
+    };
+
+    // $FlowFixMe
+    this._root = _remove(this.root, value);
+  }
+
+  /**
+   * @private
+   *
+   * @desc Rotate left
+   *
+   * @param {TreeNode} node
+   * @returns {TreeNode} new root
+   */
+  _rotateLeft(node: TreeNode): TreeNode {
+    // $FlowFixMe
+    let root: TreeNode = node.right;
+    node.right = root.left;
+    root.left = node;
+    return root;
+  }
+
+  /**
+   * @private
+   *
+   * @desc Rotate right
+   *
+   * @param {TreeNode} node
+   * @returns {TreeNode} new root
+   */
+  _rotateRight(node: TreeNode): TreeNode {
+    // $FlowFixMe
+    let root: TreeNode = node.left;
+    node.left = root.right;
+    root.right = node;
+    return root;
   }
 }
 
-export { _String as String };
+export { AVLTree };
 </code></pre>
 
 </div>
