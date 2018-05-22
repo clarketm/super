@@ -97,7 +97,61 @@ import Super from &quot;@clarketm/super&quot;;
 let array = new Super.Array([1, 2]);
 ...</code>
 </code></pre>
-<h2 id="data-structures">Data Structures</h2><h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-array-readme--array--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Array#readme">Array</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Array } from &quot;@clarketm/super&quot;;
+<h2 id="data-structures">Data Structures</h2><h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-avltree-readme--avltree--a-"><a href="https://github.com/clarketm/super/tree/master/packages/AVLTree#readme">AVLTree</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { AVLTree } from &quot;@clarketm/super&quot;;
+
+let tree = new AVLTree([1, 2, 3, 4, 5, 6, 7, 8]);
+
+//              5  -&gt; root
+//            /   \
+//           3     7
+//         /  \   /  \
+//        2   4  6    8
+//       /
+//      1
+
+tree.root; // AVLTreeNode { _value: 5, ... }
+tree.height; // 1
+
+tree.insert(9);
+
+//              5  -&gt; root
+//            /   \
+//           3     7
+//         /  \   /  \
+//        2   4  6    8
+//       /             \
+//      1               9  -&gt; node inserted
+//
+
+tree.balanced; // true
+
+tree.search(3); // AVLTreeNode { _value: 3, ... }
+
+tree.remove(9);
+
+//              5  -&gt; root
+//            /   \
+//           3     7
+//         /  \   /  \
+//        2   4  6    8
+//       /
+//      1                -&gt; node removed
+//
+
+// Use a custom comparator to determine tree hierarchy
+
+// string length (ascending) comparator
+let tree = new AVLTree([&quot;green&quot;, &quot;red&quot;, &quot;blue&quot;], (a, b) =&gt; a.length - b.length);
+
+//            &quot;blue&quot;  -&gt; root
+//           /     \
+//        &quot;red&quot;  &quot;green&quot;
+//
+
+tree.findMax().value; // &quot;green&quot;</code>
+</code></pre>
+<p><br></p>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-array-readme--array--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Array#readme">Array</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Array } from &quot;@clarketm/super&quot;;
 
 let array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]
 

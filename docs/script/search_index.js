@@ -192,6 +192,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "packages/avltree/src/lib/avltree.js~avltree#_getbalance",
+    "class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-method-_getBalance",
+    "packages/AVLTree/src/lib/AVLTree.js~AVLTree#_getBalance",
+    "method"
+  ],
+  [
     "packages/avltree/src/lib/avltree.js~avltree#_root",
     "class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-member-_root",
     "packages/AVLTree/src/lib/AVLTree.js~AVLTree#_root",
@@ -214,12 +220,6 @@ window.esdocSearchIndex = [
     "class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-get-balanced",
     "packages/AVLTree/src/lib/AVLTree.js~AVLTree#balanced",
     "member"
-  ],
-  [
-    "packages/avltree/src/lib/avltree.js~avltree#getbalance",
-    "class/packages/AVLTree/src/lib/AVLTree.js~AVLTree.html#instance-method-getBalance",
-    "packages/AVLTree/src/lib/AVLTree.js~AVLTree#getBalance",
-    "method"
   ],
   [
     "packages/avltree/src/lib/avltree.js~avltree#insert",
@@ -457,25 +457,25 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/treenode.js~treenode#right",
-    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-right",
-    "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#right",
-    "member"
-  ],
-  [
-    "packages/binarytree/src/lib/treenode.js~treenode#right",
     "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-set-right",
     "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#right",
     "member"
   ],
   [
-    "packages/binarytree/src/lib/treenode.js~treenode#value",
-    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-value",
-    "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#value",
+    "packages/binarytree/src/lib/treenode.js~treenode#right",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-right",
+    "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#right",
     "member"
   ],
   [
     "packages/binarytree/src/lib/treenode.js~treenode#value",
     "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-set-value",
+    "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#value",
+    "member"
+  ],
+  [
+    "packages/binarytree/src/lib/treenode.js~treenode#value",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-value",
     "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#value",
     "member"
   ],
@@ -649,13 +649,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#value",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#value",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "member"
   ],

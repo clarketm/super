@@ -71,7 +71,7 @@
 <div class="content" data-ice="content"><h1 data-ice="title">packages/AVLTree/src/lib/AVLTree.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
  * @flow
- * @module super/binarytree
+ * @module super/avltree
  */
 
 import type { Item } from &quot;../../../shared/src/types&quot;;
@@ -94,20 +94,52 @@ class AVLTree extends BinaryTree {
    * @returns {boolean} balanced
    */
   get balanced(): boolean {
-    return Math.abs(this.getBalance(this.root)) &lt;= 1;
+    return Math.abs(this._getBalance(this.root)) &lt;= 1;
   }
 
   /**
-   * @public
+   * @private
    *
-   * @desc Get the height of the tree at node
+   * @desc Get balance factor
    *
    * @param {TreeNode} node - root node
-   * @returns {number} height of tree
+   * @returns {number} balance factor
    */
-  getBalance(node: ?TreeNode): number {
+  _getBalance(node: ?TreeNode): number {
     // $FlowFixMe
     return this.getHeight(node.left) - this.getHeight(node.right);
+  }
+
+  /**
+   * @private
+   *
+   * @desc Rotate left
+   *
+   * @param {TreeNode} node
+   * @returns {TreeNode} new root
+   */
+  _rotateLeft(node: TreeNode): TreeNode {
+    // $FlowFixMe
+    let root: TreeNode = node.right;
+    node.right = root.left;
+    root.left = node;
+    return root;
+  }
+
+  /**
+   * @private
+   *
+   * @desc Rotate right
+   *
+   * @param {TreeNode} node
+   * @returns {TreeNode} new root
+   */
+  _rotateRight(node: TreeNode): TreeNode {
+    // $FlowFixMe
+    let root: TreeNode = node.left;
+    node.left = root.right;
+    root.right = node;
+    return root;
   }
 
   /**
@@ -136,7 +168,7 @@ class AVLTree extends BinaryTree {
         root.right = _insert(root.right);
       }
 
-      let balance = this.getBalance(root);
+      let balance = this._getBalance(root);
 
       if (balance &gt; 1) {
         // Left Rotate
@@ -208,15 +240,15 @@ class AVLTree extends BinaryTree {
         root.right = _remove(root.right, value);
       }
 
-      let balance = this.getBalance(root);
+      let balance = this._getBalance(root);
 
       if (balance &gt; 1) {
         // Left Rotate
-        if (root.left &amp;&amp; this.getBalance(root.left) &gt;= 0) {
+        if (root.left &amp;&amp; this._getBalance(root.left) &gt;= 0) {
           return this._rotateRight(root);
         }
         // Left Right Rotate
-        if (root.left &amp;&amp; this.getBalance(root.left) &lt; 0) {
+        if (root.left &amp;&amp; this._getBalance(root.left) &lt; 0) {
           root.left = this._rotateLeft(root.left);
           return this._rotateRight(root);
         }
@@ -224,12 +256,12 @@ class AVLTree extends BinaryTree {
 
       if (balance &lt; -1) {
         // Right Rotate
-        if (root.right &amp;&amp; this.getBalance(root.left) &lt;= 0) {
+        if (root.right &amp;&amp; this._getBalance(root.left) &lt;= 0) {
           return this._rotateLeft(root);
         }
 
         // Right Left Rotate
-        if (root.right &amp;&amp; this.getBalance(root.left) &gt; 0) {
+        if (root.right &amp;&amp; this._getBalance(root.left) &gt; 0) {
           root.right = this._rotateRight(root.right);
           return this._rotateLeft(root);
         }
@@ -240,38 +272,6 @@ class AVLTree extends BinaryTree {
 
     // $FlowFixMe
     this._root = _remove(this.root, value);
-  }
-
-  /**
-   * @private
-   *
-   * @desc Rotate left
-   *
-   * @param {TreeNode} node
-   * @returns {TreeNode} new root
-   */
-  _rotateLeft(node: TreeNode): TreeNode {
-    // $FlowFixMe
-    let root: TreeNode = node.right;
-    node.right = root.left;
-    root.left = node;
-    return root;
-  }
-
-  /**
-   * @private
-   *
-   * @desc Rotate right
-   *
-   * @param {TreeNode} node
-   * @returns {TreeNode} new root
-   */
-  _rotateRight(node: TreeNode): TreeNode {
-    // $FlowFixMe
-    let root: TreeNode = node.left;
-    node.left = root.right;
-    root.right = node;
-    return root;
   }
 }
 

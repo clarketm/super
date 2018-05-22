@@ -3,7 +3,7 @@
     "__docId__": 0,
     "kind": "file",
     "name": "packages/AVLTree/src/lib/AVLTree.js",
-    "content": "/**\n * @flow\n * @module super/binarytree\n */\n\nimport type { Item } from \"../../../shared/src/types\";\nimport { BinaryTree } from \"../../../BinaryTree/src/lib/BinaryTree\";\nimport { TreeNode } from \"../../../BinaryTree/src/lib/TreeNode\";\n\n/**\n *\n * AVLTree with superpowers! 💪\n *\n * @public\n *\n */\nclass AVLTree extends BinaryTree {\n  /**\n   * @public\n   *\n   * @desc Determine if the tree is balanced\n   *\n   * @returns {boolean} balanced\n   */\n  get balanced(): boolean {\n    return Math.abs(this.getBalance(this.root)) <= 1;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the height of the tree at node\n   *\n   * @param {TreeNode} node - root node\n   * @returns {number} height of tree\n   */\n  getBalance(node: ?TreeNode): number {\n    // $FlowFixMe\n    return this.getHeight(node.left) - this.getHeight(node.right);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Insert a value into the tree\n   *\n   * @param {Item} value - value to insert into the tree\n   */\n  insert(value: Item) {\n    let node = new TreeNode(value);\n\n    /**\n     * @private\n     *\n     * @desc Insert helper\n     *\n     * @param {TreeNode} root\n     */\n    const _insert = (root: ?TreeNode) => {\n      if (!root) return node;\n\n      if (this._compareLessThan(node.value, root.value)) {\n        root.left = _insert(root.left);\n      } else {\n        root.right = _insert(root.right);\n      }\n\n      let balance = this.getBalance(root);\n\n      if (balance > 1) {\n        // Left Rotate\n        if (root.left && this._compareLessThan(node.value, root.left.value)) {\n          return this._rotateRight(root);\n        }\n        // Left Right Rotate\n        if (root.left && this._compareGreaterThan(node.value, root.left.value)) {\n          root.left = this._rotateLeft(root.left);\n          return this._rotateRight(root);\n        }\n      }\n\n      if (balance < -1) {\n        // Right Rotate\n        if (root.right && this._compareGreaterThan(node.value, root.right.value)) {\n          return this._rotateLeft(root);\n        }\n\n        // Right Left Rotate\n        if (root.right && this._compareLessThan(node.value, root.right.value)) {\n          root.right = this._rotateRight(root.right);\n          return this._rotateLeft(root);\n        }\n      }\n\n      return root;\n    };\n\n    this._root = _insert(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove a value from the tree\n   *\n   * @param {Item} value - value to remove\n   */\n  remove(value: Item) {\n    /**\n     * @private\n     *\n     * @desc Remove helper\n     *\n     * @param {TreeNode} root\n     * @param {Item} value\n     */\n    const _remove = (root: ?TreeNode, value: Item) => {\n      if (!root) return null;\n\n      if (this._compareEqual(root.value, value)) {\n        if (!root.left && !root.right) {\n          return null;\n        } else if (!root.left) {\n          return root.right;\n        } else if (!root.right) {\n          return root.left;\n        } else {\n          let aux = this.findMin(root.right);\n          // $FlowFixMe\n          root.value = aux.value;\n          // $FlowFixMe\n          root.right = _remove(root.right, aux.value);\n        }\n      } else if (this._compareLessThan(value, root.value)) {\n        root.left = _remove(root.left, value);\n      } else if (this._compareGreaterThan(value, root.value)) {\n        root.right = _remove(root.right, value);\n      }\n\n      let balance = this.getBalance(root);\n\n      if (balance > 1) {\n        // Left Rotate\n        if (root.left && this.getBalance(root.left) >= 0) {\n          return this._rotateRight(root);\n        }\n        // Left Right Rotate\n        if (root.left && this.getBalance(root.left) < 0) {\n          root.left = this._rotateLeft(root.left);\n          return this._rotateRight(root);\n        }\n      }\n\n      if (balance < -1) {\n        // Right Rotate\n        if (root.right && this.getBalance(root.left) <= 0) {\n          return this._rotateLeft(root);\n        }\n\n        // Right Left Rotate\n        if (root.right && this.getBalance(root.left) > 0) {\n          root.right = this._rotateRight(root.right);\n          return this._rotateLeft(root);\n        }\n      }\n\n      return root;\n    };\n\n    // $FlowFixMe\n    this._root = _remove(this.root, value);\n  }\n\n  /**\n   * @private\n   *\n   * @desc Rotate left\n   *\n   * @param {TreeNode} node\n   * @returns {TreeNode} new root\n   */\n  _rotateLeft(node: TreeNode): TreeNode {\n    // $FlowFixMe\n    let root: TreeNode = node.right;\n    node.right = root.left;\n    root.left = node;\n    return root;\n  }\n\n  /**\n   * @private\n   *\n   * @desc Rotate right\n   *\n   * @param {TreeNode} node\n   * @returns {TreeNode} new root\n   */\n  _rotateRight(node: TreeNode): TreeNode {\n    // $FlowFixMe\n    let root: TreeNode = node.left;\n    node.left = root.right;\n    root.right = node;\n    return root;\n  }\n}\n\nexport { AVLTree };\n",
+    "content": "/**\n * @flow\n * @module super/avltree\n */\n\nimport type { Item } from \"../../../shared/src/types\";\nimport { BinaryTree } from \"../../../BinaryTree/src/lib/BinaryTree\";\nimport { TreeNode } from \"../../../BinaryTree/src/lib/TreeNode\";\n\n/**\n *\n * AVLTree with superpowers! 💪\n *\n * @public\n *\n */\nclass AVLTree extends BinaryTree {\n  /**\n   * @public\n   *\n   * @desc Determine if the tree is balanced\n   *\n   * @returns {boolean} balanced\n   */\n  get balanced(): boolean {\n    return Math.abs(this._getBalance(this.root)) <= 1;\n  }\n\n  /**\n   * @private\n   *\n   * @desc Get balance factor\n   *\n   * @param {TreeNode} node - root node\n   * @returns {number} balance factor\n   */\n  _getBalance(node: ?TreeNode): number {\n    // $FlowFixMe\n    return this.getHeight(node.left) - this.getHeight(node.right);\n  }\n\n  /**\n   * @private\n   *\n   * @desc Rotate left\n   *\n   * @param {TreeNode} node\n   * @returns {TreeNode} new root\n   */\n  _rotateLeft(node: TreeNode): TreeNode {\n    // $FlowFixMe\n    let root: TreeNode = node.right;\n    node.right = root.left;\n    root.left = node;\n    return root;\n  }\n\n  /**\n   * @private\n   *\n   * @desc Rotate right\n   *\n   * @param {TreeNode} node\n   * @returns {TreeNode} new root\n   */\n  _rotateRight(node: TreeNode): TreeNode {\n    // $FlowFixMe\n    let root: TreeNode = node.left;\n    node.left = root.right;\n    root.right = node;\n    return root;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Insert a value into the tree\n   *\n   * @param {Item} value - value to insert into the tree\n   */\n  insert(value: Item) {\n    let node = new TreeNode(value);\n\n    /**\n     * @private\n     *\n     * @desc Insert helper\n     *\n     * @param {TreeNode} root\n     */\n    const _insert = (root: ?TreeNode) => {\n      if (!root) return node;\n\n      if (this._compareLessThan(node.value, root.value)) {\n        root.left = _insert(root.left);\n      } else {\n        root.right = _insert(root.right);\n      }\n\n      let balance = this._getBalance(root);\n\n      if (balance > 1) {\n        // Left Rotate\n        if (root.left && this._compareLessThan(node.value, root.left.value)) {\n          return this._rotateRight(root);\n        }\n        // Left Right Rotate\n        if (root.left && this._compareGreaterThan(node.value, root.left.value)) {\n          root.left = this._rotateLeft(root.left);\n          return this._rotateRight(root);\n        }\n      }\n\n      if (balance < -1) {\n        // Right Rotate\n        if (root.right && this._compareGreaterThan(node.value, root.right.value)) {\n          return this._rotateLeft(root);\n        }\n\n        // Right Left Rotate\n        if (root.right && this._compareLessThan(node.value, root.right.value)) {\n          root.right = this._rotateRight(root.right);\n          return this._rotateLeft(root);\n        }\n      }\n\n      return root;\n    };\n\n    this._root = _insert(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove a value from the tree\n   *\n   * @param {Item} value - value to remove\n   */\n  remove(value: Item) {\n    /**\n     * @private\n     *\n     * @desc Remove helper\n     *\n     * @param {TreeNode} root\n     * @param {Item} value\n     */\n    const _remove = (root: ?TreeNode, value: Item) => {\n      if (!root) return null;\n\n      if (this._compareEqual(root.value, value)) {\n        if (!root.left && !root.right) {\n          return null;\n        } else if (!root.left) {\n          return root.right;\n        } else if (!root.right) {\n          return root.left;\n        } else {\n          let aux = this.findMin(root.right);\n          // $FlowFixMe\n          root.value = aux.value;\n          // $FlowFixMe\n          root.right = _remove(root.right, aux.value);\n        }\n      } else if (this._compareLessThan(value, root.value)) {\n        root.left = _remove(root.left, value);\n      } else if (this._compareGreaterThan(value, root.value)) {\n        root.right = _remove(root.right, value);\n      }\n\n      let balance = this._getBalance(root);\n\n      if (balance > 1) {\n        // Left Rotate\n        if (root.left && this._getBalance(root.left) >= 0) {\n          return this._rotateRight(root);\n        }\n        // Left Right Rotate\n        if (root.left && this._getBalance(root.left) < 0) {\n          root.left = this._rotateLeft(root.left);\n          return this._rotateRight(root);\n        }\n      }\n\n      if (balance < -1) {\n        // Right Rotate\n        if (root.right && this._getBalance(root.left) <= 0) {\n          return this._rotateLeft(root);\n        }\n\n        // Right Left Rotate\n        if (root.right && this._getBalance(root.left) > 0) {\n          root.right = this._rotateRight(root.right);\n          return this._rotateLeft(root);\n        }\n      }\n\n      return root;\n    };\n\n    // $FlowFixMe\n    this._root = _remove(this.root, value);\n  }\n}\n\nexport { AVLTree };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/AVLTree/src/lib/AVLTree.js",
     "access": "public",
@@ -63,19 +63,19 @@
   {
     "__docId__": 3,
     "kind": "method",
-    "name": "getBalance",
+    "name": "_getBalance",
     "memberof": "packages/AVLTree/src/lib/AVLTree.js~AVLTree",
     "generator": false,
     "async": false,
     "static": false,
-    "longname": "packages/AVLTree/src/lib/AVLTree.js~AVLTree#getBalance",
-    "access": "public",
-    "description": "Get the height of the tree at node",
+    "longname": "packages/AVLTree/src/lib/AVLTree.js~AVLTree#_getBalance",
+    "access": "private",
+    "description": "Get balance factor",
     "lineNumber": 36,
     "unknown": [
       {
         "tagName": "@returns",
-        "tagValue": "{number} height of tree"
+        "tagValue": "{number} balance factor"
       }
     ],
     "params": [
@@ -96,11 +96,89 @@
         "number"
       ],
       "spread": false,
-      "description": "height of tree"
+      "description": "balance factor"
     }
   },
   {
     "__docId__": 4,
+    "kind": "method",
+    "name": "_rotateLeft",
+    "memberof": "packages/AVLTree/src/lib/AVLTree.js~AVLTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/AVLTree/src/lib/AVLTree.js~AVLTree#_rotateLeft",
+    "access": "private",
+    "description": "Rotate left",
+    "lineNumber": 49,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{TreeNode} new root"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "TreeNode"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "node",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "TreeNode"
+      ],
+      "spread": false,
+      "description": "new root"
+    }
+  },
+  {
+    "__docId__": 5,
+    "kind": "method",
+    "name": "_rotateRight",
+    "memberof": "packages/AVLTree/src/lib/AVLTree.js~AVLTree",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "packages/AVLTree/src/lib/AVLTree.js~AVLTree#_rotateRight",
+    "access": "private",
+    "description": "Rotate right",
+    "lineNumber": 65,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{TreeNode} new root"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "TreeNode"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "node",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "TreeNode"
+      ],
+      "spread": false,
+      "description": "new root"
+    }
+  },
+  {
+    "__docId__": 6,
     "kind": "method",
     "name": "insert",
     "memberof": "packages/AVLTree/src/lib/AVLTree.js~AVLTree",
@@ -110,7 +188,7 @@
     "longname": "packages/AVLTree/src/lib/AVLTree.js~AVLTree#insert",
     "access": "public",
     "description": "Insert a value into the tree",
-    "lineNumber": 48,
+    "lineNumber": 80,
     "params": [
       {
         "nullable": null,
@@ -126,7 +204,7 @@
     "return": null
   },
   {
-    "__docId__": 5,
+    "__docId__": 7,
     "kind": "member",
     "name": "_root",
     "memberof": "packages/AVLTree/src/lib/AVLTree.js~AVLTree",
@@ -134,7 +212,7 @@
     "longname": "packages/AVLTree/src/lib/AVLTree.js~AVLTree#_root",
     "access": "private",
     "description": null,
-    "lineNumber": 97,
+    "lineNumber": 129,
     "undocument": true,
     "type": {
       "types": [
@@ -143,7 +221,7 @@
     }
   },
   {
-    "__docId__": 6,
+    "__docId__": 8,
     "kind": "method",
     "name": "remove",
     "memberof": "packages/AVLTree/src/lib/AVLTree.js~AVLTree",
@@ -153,7 +231,7 @@
     "longname": "packages/AVLTree/src/lib/AVLTree.js~AVLTree#remove",
     "access": "public",
     "description": "Remove a value from the tree",
-    "lineNumber": 107,
+    "lineNumber": 139,
     "params": [
       {
         "nullable": null,
@@ -167,84 +245,6 @@
       }
     ],
     "return": null
-  },
-  {
-    "__docId__": 8,
-    "kind": "method",
-    "name": "_rotateLeft",
-    "memberof": "packages/AVLTree/src/lib/AVLTree.js~AVLTree",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "packages/AVLTree/src/lib/AVLTree.js~AVLTree#_rotateLeft",
-    "access": "private",
-    "description": "Rotate left",
-    "lineNumber": 181,
-    "unknown": [
-      {
-        "tagName": "@returns",
-        "tagValue": "{TreeNode} new root"
-      }
-    ],
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "TreeNode"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "node",
-        "description": ""
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "TreeNode"
-      ],
-      "spread": false,
-      "description": "new root"
-    }
-  },
-  {
-    "__docId__": 9,
-    "kind": "method",
-    "name": "_rotateRight",
-    "memberof": "packages/AVLTree/src/lib/AVLTree.js~AVLTree",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "packages/AVLTree/src/lib/AVLTree.js~AVLTree#_rotateRight",
-    "access": "private",
-    "description": "Rotate right",
-    "lineNumber": 197,
-    "unknown": [
-      {
-        "tagName": "@returns",
-        "tagValue": "{TreeNode} new root"
-      }
-    ],
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "TreeNode"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "node",
-        "description": ""
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "TreeNode"
-      ],
-      "spread": false,
-      "description": "new root"
-    }
   },
   {
     "__docId__": 10,
@@ -5215,7 +5215,7 @@
   },
   {
     "kind": "index",
-    "content": "# [Super](https://www.npmjs.com/package/@clarketm/super)\n\n[![GitHub release](https://img.shields.io/github/release/clarketm/super.svg)]()\n![Build Status](https://circleci.com/gh/clarketm/super.svg?style=shield&circle-token=51853e44a4aff2fef83b0b89407ed15288bd641c)\n[![Downloads](https://img.shields.io/npm/dt/@clarketm/super.svg)]()\n[![Lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)\n[![License](https://img.shields.io/npm/l/@clarketm/super.svg)]()\n\n**Data structures**, **data types**, and **algorithms** with superpowers! 💪😎\n\n> <sub>implemented in **JavaScript**.</sub>\n\n[![hero](https://github.com/clarketm/super/blob/master/resources/hero.png)](https://github.com/clarketm/super)\n\n> _\"JavaScript's missing data structures, data types, and algorithms!\"_ - Mark Twain\n\n## Installation\n\n### Yarn\n\n```bash\n$ yarn add @clarketm/super\n```\n\n### Npm\n\n```bash\n$ npm install @clarketm/super --save\n```\n\n## Usage\n\n```js\n// 1. import `each` module `independently`\nimport { Array, Map, Queue, Trie, ... } from \"@clarketm/super\";\n\nlet array = new Array([1, 2]);\n...\n\n// 2. import `all` modules under a `namespace`\nimport Super from \"@clarketm/super\";\n\nlet array = new Super.Array([1, 2]);\n...\n```\n\n## Data Structures\n\n### [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)\n\n```js\nimport { Array } from \"@clarketm/super\";\n\nlet array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]\n\n// Use any built-in Array methods:\narray.push(4); // [0, 1, 2, 3, 4]\n\n// Use custom methods (e.g. `flatten`):\nlet array = new Array([[[1]], [[2]], [[3]]]);\narray.flatten(2); // [1, 2, 3]\n\n// sorting\narray.bubbleSort(); // [0, 1, 2, 3]\narray.insertionSort(); // [0, 1, 2, 3]\narray.mergeSort(); // [0, 1, 2, 3]\narray.quickort(); // [0, 1, 2, 3]\narray.selectionSort(); // [0, 1, 2, 3]\n\n// sorting (w/ comparator)\narray.bubbleSort((a, b) => b - a); // [3, 2, 1, 0]\narray.insertionSort((a, b) => b - a); // [3, 2, 1, 0]\narray.mergeSort((a, b) => b - a); // [3, 2, 1, 0]\narray.quickSort((a, b) => b - a); // [3, 2, 1, 0]\narray.selectionSort((a, b) => b - a); // [3, 2, 1, 0]\n```\n\n<br>\n\n### [BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)\n\n```js\nimport { BinaryTree } from \"@clarketm/super\";\n\nlet tree = new BinaryTree([5, 3, 7, 2, 8, 4, 6, 1]);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /\n//      1\n\ntree.root; // BinaryTreeNode { _value: 5, ... }\ntree.height; // 1\n\ntree.insert(9);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /             \\\n//      1               9  -> node inserted\n//\n\ntree.search(3); // BinaryTreeNode { _value: 3, ... }\n\ntree.remove(9);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /\n//      1                -> node removed\n//\n\n// Use a custom comparator to determine tree hierarchy\n\n// string length (ascending) comparator\nlet tree = new BinaryTree([\"green\", \"red\", \"blue\"], (a, b) => a.length - b.length);\n\n//            \"blue\"  -> root\n//           /     \\\n//        \"red\"  \"green\"\n//\n\ntree.findMax().value; // \"green\"\n```\n\n<br>\n\n### [Heap](https://github.com/clarketm/super/tree/master/packages/Heap#readme)\n\n```js\nimport { Heap } from \"@clarketm/super\";\n\n// Max / Min (default) heap comparators\nlet { MAX, MIN } = Heap.HeapType;\n\nlet minHeap = new Heap([3, 7, 2, 5], MIN);\n\n//              2  -> min\n//            /   \\\n//           5     3\n//          /\n//         7\n//\n\nminHeap.min; // 2\n\nminHeap.insert(8); // 5 : new size\n\n//              2  -> min\n//            /   \\\n//           5     3\n//          /       \\\n//         7         8  -> node inserted\n//\n\nlet min = minHeap.deleteMin(); // 2\n\n//              3  -> min\n//            /   \\\n//           5     8\n//          /\n//         7\n//\n\nlet maxHeap = new Heap([3, 7, 2, 5], MAX);\n\n//              7  -> max\n//            /   \\\n//           5     3\n//          /\n//         2\n//\n\nmaxHeap.max; // 7\n\nmaxHeap.isEmpty(); // false\n\nmaxHeap.clear();\nmaxHeap.size; // 0\n```\n\n<br>\n\n### [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)\n\n```js\nimport { LinkedList } from \"@clarketm/super\";\n\nlet list = new LinkedList([1, 3, 5, 7]);\n\n//    1    <->    3    <->    5    <->    7\n\nlist.size; // 4\nlist.head; // ListNode { _value: 1, ... }\nlist.tail; // ListNode { _value: 7, ... }\n\nlist.insert(1, 100);\n\n//         node inserted at pos: 1\n//                 ^\n//    1    <->    100    <->    3    <->    5    <->    7\n\nlist.append(99);\n\n//                                                          node inserted at tail\n//                                                                   ^\n//    1    <->    100    <->    3    <->    5    <->    7    <->    99\n\nlist.remove(-1);\n\n//                                                          node removed from tail\n//                                                                   ^\n//    1    <->    100    <->    3    <->    5    <->    7\n\nlist.toArray(); // [ 1, 100, 3, 5, 7 ]\n```\n\n<br>\n\n### [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)\n\n```js\nimport { Map } from \"@clarketm/super\";\n\nlet map = new Map([[\"a\", 1], [\"b\", 2], [\"c\", 3]]); // Map { 'a' => 1, 'b' => 2, 'c' => 3 }\n\n// Use any built-in Map methods:\nmap.get(\"c\"); // 3\n\n// Use custom methods (e.g. `setDefault`):\n// note: `setDefault` is similar to get(), but will set key to a defaultValue if the key is not in Map.\n\nlet item = map.setDefault(\"c\", 3);\nitem; // 3\nmap; // Map { 'a' => 1, 'b' => 2, 'c' => 3 }\n\nlet item = map.setDefault(\"d\", 4);\nitem; // 4\nmap; // Map { 'a' => 1, 'b' => 2, 'c' => 3 'd' => 4 }\n```\n\n<br>\n\n### [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)\n\n```js\nimport { Object } from \"@clarketm/super\";\n\nlet object = new Object({ a: 1, b: true, c: 4 }); // Object { a: 1, b: true, c: 4 }\n\n// Use any built-in Object methods:\nObject.keys(object); // [ 'a', 'b', 'c' ]\n\n// Use custom methods (e.g. `clone`):\n// note: `clone` will create a deep copy of the object.\n\nlet clone = object.clone(); // Object { a: 1, b: true, c: 4 }\nObject.is(object, clone); // false\n```\n\n<br>\n\n### [PriorityQueue](https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme)\n\n```js\nimport { PriorityQueue } from \"@clarketm/super\";\n\n// note: a PriorityQueue can be constructed from either a Map, Array of Arrays, Array of Objects, or Array w/ custom comparator.\n\n// Map\nlet pq = new PriorityQueue(new Map([[100, \"high\"], [0, \"low\"]]));\n\n// Array of Arrays\nlet pq = new PriorityQueue([[100, \"high\"], [0, \"low\"]]);\n\n// Array of Objects\nlet pq = new PriorityQueue([{ value: \"high\", priority: 100 }, { value: \"low\", priority: 0 }]);\n\n// Array w/ custom comparator\nlet pq = new PriorityQueue([\"high\", \"low\"], (a, b) => a.length > b.length);\n\nlet pq = new PriorityQueue([[100, \"high\"], [50, \"medium\"], [0, \"low\"]]);\n\n//    highest priority              lowest priority\n//          ^                             ^\n//   |    \"high\"    |   \"medium\"   |    \"low\"    |\n//   |    (100)     |     (50)     |     (0)     |\n//\n\npq.size; // 3\npq.high; // QueueNode { _value: 'super high', _priority: 1000, ... }\npq.low; // QueueNode { _value: 'low', _priority: 0, ... }\n\npq.isEmpty(); // false\n\npq.insert(\"super high\", 1000); // 4 : new size\n\n//       highest priority                                lowest priority\n//             ^                                               ^\n//   |    \"super high\"    |    \"high\"    |   \"medium\"   |    \"low\"    |\n//   |       (1000)       |    (100)     |     (50)     |     (0)     |\n//\n\npq.deleteHigh(); // QueueNode { _value: 'super high', _priority: 1000, ... }\n\n//   highest priority               lowest priority\n//          ^                             ^\n//   |    \"high\"    |   \"medium\"   |    \"low\"    |\n//   |    (100)     |     (50)     |     (0)     |\n//\n\npq.deleteLow(); // QueueNode { _value: 'low', _priority: 0, ... }\n\n//  highest priority   lowest priority\n//          ^               ^\n//   |    \"high\"    |   \"medium\"   |\n//   |    (100)     |     (50)     |\n//\n\npq.clear();\npq.size; // 0\n```\n\n<br>\n\n### [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)\n\n```js\nimport { Queue } from \"@clarketm/super\";\n\nlet queue = new Queue([2, 4, 6, 8]);\n\n//   front              rear\n//     ^                 ^\n//  |  2  |  4  |  6  |  8  |\n\nqueue.size; // 4\nqueue.front; // 2\nqueue.rear; // 8\n\nqueue.isEmpty(); // false\n\nqueue.enqueue(10); // 5 : new size\n\n//   front                   rear\n//     ^                      ^\n//  |  2  |  4  |  6  |  8  | 10 |\n\nqueue.dequeue(); // 2  : dequeued item\n\n//   front              rear\n//     ^                 ^\n//  |  4  |  6  |  8  | 10 |\n\nqueue.clear();\nqueue.size; // 0\n```\n\n<br>\n\n### [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)\n\n```js\nimport { Set } from \"@clarketm/super\";\n\nlet setA = new Set([1, 2, 3]); // Set { 1, 2, 3 }\nlet setB = new Set([2, 3, 4]); // Set { 2, 3, 4 }\n\n// Use any built-in Set methods:\nsetA.has(1); // true\n\n// Use custom methods:\n\n// `isSubset`\nsetA.isSubset(setB); // false\n\n// `isSuperset`\nsetA.isSuperset(setB); // false\n\n// `union`\nsetA.union(setB); // Set { 1, 2, 3, 4 }\n\n// `intersection`\nsetA.intersection(setB); // Set { 2, 3 }\n\n// `difference`\nsetA.difference(setB); // Set { 1 }\n\n// `symmetricDifference`\nsetA.symmetricDifference(setB); // Set { 1, 4 }\n```\n\n<br>\n\n### [Trie](https://github.com/clarketm/super/tree/master/packages/Trie#readme)\n\n```js\nimport { Trie } from \"@clarketm/super\";\n\nlet trie = new Trie([\"me\", \"men\", \"go\"]);\n\n//               root\n//              /   \\\n//            'm'    'g'\n//           /         \\\n//    $ <- 'e'         'o' -> $\n//         /\n//  $ <- 'n'\n//\n// $: denotes a complete word\n//\n\ntrie.root; // TrieNode { _char: √, ... }\n\ntrie.insert(\"met\");\n\n//               root\n//              /   \\\n//            'm'    'g'\n//           /         \\\n//    $ <- 'e'         'o' -> $\n//         /  \\\n//  $ <- 'n'   't' -> $\n//\n// $: denotes a complete word\n//\n\n// `word` search w/ `contains`\ntrie.contains(\"me\"); // true\n\n// `prefix` search w/ `startsWith`\ntrie.startsWith(\"m\"); // true\n\n// Return a full Match object w/ `search`\ntrie.search(\"men\");\n\n// Match object\n// {\n//  query: 'men',\n//  matchedChars: 3,\n//  isMatch: true,\n//  isCompleteWord: true,\n//  node: TrieNode { ... }\n// }\n\ntrie.remove(\"go\");\n\n//               root\n//              /\n//            'm'\n//           /\n//    $ <- 'e'\n//         /  \\\n//  $ <- 'n'   't' -> $\n//\n// $: denotes a complete word\n//\n```\n\n<br>\n\n## Data Types\n\n* [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)\n* [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)\n* [String](https://github.com/clarketm/super/tree/master/packages/String#readme)\n\n<br>\n\n## Sorting Algorithms\n\n### [BubbleSort](https://github.com/clarketm/super/tree/master/packages/BubbleSort#readme)\n\n```js\nimport { bubbleSort } from \"@clarketm/super\";\n\n// General usage\n\n// ascending\nlet sortedArray = bubbleSort([4, 3, 8, 1]); // [1, 3, 4, 8]\n\n// Custom comparator\n\n// descending\nlet sortedArray = bubbleSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]\n\n// ascending (string length)\nlet sortedArray = bubbleSort([\"111\", \"1\", \"11\"], (a, b) => a.length - b.length); // [\"1\", \"11\", \"111\"]\n\n// descending (string length)\nlet sortedArray = bubbleSort([\"111\", \"1\", \"11\"], (a, b) => b.length - a.length); // [\"111\", \"11\", \"1\"]\n```\n\n### [InsertionSort](https://github.com/clarketm/super/tree/master/packages/InsertionSort#readme)\n\n```js\nimport { insertionSort } from \"@clarketm/super\";\n\n// General usage\n\n// ascending\nlet sortedArray = insertionSort([4, 3, 8, 1]); // [1, 3, 4, 8]\n\n// Custom comparator\n\n// descending\nlet sortedArray = insertionSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]\n\n// ascending (string length)\nlet sortedArray = insertionSort([\"111\", \"1\", \"11\"], (a, b) => a.length - b.length); // [\"1\", \"11\", \"111\"]\n\n// descending (string length)\nlet sortedArray = insertionSort([\"111\", \"1\", \"11\"], (a, b) => b.length - a.length); // [\"111\", \"11\", \"1\"]\n```\n\n### [MergeSort](https://github.com/clarketm/super/tree/master/packages/MergeSort#readme)\n\n```js\nimport { mergeSort } from \"@clarketm/super\";\n\n// General usage\n\n// ascending\nlet sortedArray = mergeSort([4, 3, 8, 1]); // [1, 3, 4, 8]\n\n// Custom comparator\n\n// descending\nlet sortedArray = mergeSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]\n\n// ascending (string length)\nlet sortedArray = mergeSort([\"111\", \"1\", \"11\"], (a, b) => a.length - b.length); // [\"1\", \"11\", \"111\"]\n\n// descending (string length)\nlet sortedArray = mergeSort([\"111\", \"1\", \"11\"], (a, b) => b.length - a.length); // [\"111\", \"11\", \"1\"]\n```\n\n### [QuickSort](https://github.com/clarketm/super/tree/master/packages/QuickSort#readme)\n\n```js\nimport { quickSort } from \"@clarketm/super\";\n\n// General usage\n\n// ascending\nlet sortedArray = quickSort([4, 3, 8, 1]); // [1, 3, 4, 8]\n\n// Custom comparator\n\n// descending\nlet sortedArray = quickSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]\n\n// ascending (string length)\nlet sortedArray = quickSort([\"111\", \"1\", \"11\"], (a, b) => a.length - b.length); // [\"1\", \"11\", \"111\"]\n\n// descending (string length)\nlet sortedArray = quickSort([\"111\", \"1\", \"11\"], (a, b) => b.length - a.length); // [\"111\", \"11\", \"1\"]\n```\n\n### [SelectionSort](https://github.com/clarketm/super/tree/master/packages/SelectionSort#readme)\n\n```js\nimport { selectionSort } from \"@clarketm/super\";\n\n// General usage\n\n// ascending\nlet sortedArray = selectionSort([4, 3, 8, 1]); // [1, 3, 4, 8]\n\n// Custom comparator\n\n// descending\nlet sortedArray = selectionSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]\n\n// ascending (string length)\nlet sortedArray = selectionSort([\"111\", \"1\", \"11\"], (a, b) => a.length - b.length); // [\"1\", \"11\", \"111\"]\n\n// descending (string length)\nlet sortedArray = selectionSort([\"111\", \"1\", \"11\"], (a, b) => b.length - a.length); // [\"111\", \"11\", \"1\"]\n```\n\n## Credits\n\n* Icons made by <a href=\"http://www.freepik.com\" title=\"Freepik\">Freepik</a> from <a href=\"https://www.flaticon.com/\" title=\"Flaticon\">www.flaticon.com</a> is licensed by <a href=\"http://creativecommons.org/licenses/by/3.0/\" title=\"Creative Commons BY 3.0\" target=\"_blank\">CC 3.0 BY</a></div>\n",
+    "content": "# [Super](https://www.npmjs.com/package/@clarketm/super)\n\n[![GitHub release](https://img.shields.io/github/release/clarketm/super.svg)]()\n![Build Status](https://circleci.com/gh/clarketm/super.svg?style=shield&circle-token=51853e44a4aff2fef83b0b89407ed15288bd641c)\n[![Downloads](https://img.shields.io/npm/dt/@clarketm/super.svg)]()\n[![Lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)\n[![License](https://img.shields.io/npm/l/@clarketm/super.svg)]()\n\n**Data structures**, **data types**, and **algorithms** with superpowers! 💪😎\n\n> <sub>implemented in **JavaScript**.</sub>\n\n[![hero](https://github.com/clarketm/super/blob/master/resources/hero.png)](https://github.com/clarketm/super)\n\n> _\"JavaScript's missing data structures, data types, and algorithms!\"_ - Mark Twain\n\n## Installation\n\n### Yarn\n\n```bash\n$ yarn add @clarketm/super\n```\n\n### Npm\n\n```bash\n$ npm install @clarketm/super --save\n```\n\n## Usage\n\n```js\n// 1. import `each` module `independently`\nimport { Array, Map, Queue, Trie, ... } from \"@clarketm/super\";\n\nlet array = new Array([1, 2]);\n...\n\n// 2. import `all` modules under a `namespace`\nimport Super from \"@clarketm/super\";\n\nlet array = new Super.Array([1, 2]);\n...\n```\n\n## Data Structures\n\n### [AVLTree](https://github.com/clarketm/super/tree/master/packages/AVLTree#readme)\n\n```js\nimport { AVLTree } from \"@clarketm/super\";\n\nlet tree = new AVLTree([1, 2, 3, 4, 5, 6, 7, 8]);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /\n//      1\n\ntree.root; // AVLTreeNode { _value: 5, ... }\ntree.height; // 1\n\ntree.insert(9);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /             \\\n//      1               9  -> node inserted\n//\n\ntree.balanced; // true\n\ntree.search(3); // AVLTreeNode { _value: 3, ... }\n\ntree.remove(9);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /\n//      1                -> node removed\n//\n\n// Use a custom comparator to determine tree hierarchy\n\n// string length (ascending) comparator\nlet tree = new AVLTree([\"green\", \"red\", \"blue\"], (a, b) => a.length - b.length);\n\n//            \"blue\"  -> root\n//           /     \\\n//        \"red\"  \"green\"\n//\n\ntree.findMax().value; // \"green\"\n```\n\n<br>\n\n### [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)\n\n```js\nimport { Array } from \"@clarketm/super\";\n\nlet array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]\n\n// Use any built-in Array methods:\narray.push(4); // [0, 1, 2, 3, 4]\n\n// Use custom methods (e.g. `flatten`):\nlet array = new Array([[[1]], [[2]], [[3]]]);\narray.flatten(2); // [1, 2, 3]\n\n// sorting\narray.bubbleSort(); // [0, 1, 2, 3]\narray.insertionSort(); // [0, 1, 2, 3]\narray.mergeSort(); // [0, 1, 2, 3]\narray.quickort(); // [0, 1, 2, 3]\narray.selectionSort(); // [0, 1, 2, 3]\n\n// sorting (w/ comparator)\narray.bubbleSort((a, b) => b - a); // [3, 2, 1, 0]\narray.insertionSort((a, b) => b - a); // [3, 2, 1, 0]\narray.mergeSort((a, b) => b - a); // [3, 2, 1, 0]\narray.quickSort((a, b) => b - a); // [3, 2, 1, 0]\narray.selectionSort((a, b) => b - a); // [3, 2, 1, 0]\n```\n\n<br>\n\n### [BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)\n\n```js\nimport { BinaryTree } from \"@clarketm/super\";\n\nlet tree = new BinaryTree([5, 3, 7, 2, 8, 4, 6, 1]);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /\n//      1\n\ntree.root; // BinaryTreeNode { _value: 5, ... }\ntree.height; // 1\n\ntree.insert(9);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /             \\\n//      1               9  -> node inserted\n//\n\ntree.search(3); // BinaryTreeNode { _value: 3, ... }\n\ntree.remove(9);\n\n//              5  -> root\n//            /   \\\n//           3     7\n//         /  \\   /  \\\n//        2   4  6    8\n//       /\n//      1                -> node removed\n//\n\n// Use a custom comparator to determine tree hierarchy\n\n// string length (ascending) comparator\nlet tree = new BinaryTree([\"green\", \"red\", \"blue\"], (a, b) => a.length - b.length);\n\n//            \"blue\"  -> root\n//           /     \\\n//        \"red\"  \"green\"\n//\n\ntree.findMax().value; // \"green\"\n```\n\n<br>\n\n### [Heap](https://github.com/clarketm/super/tree/master/packages/Heap#readme)\n\n```js\nimport { Heap } from \"@clarketm/super\";\n\n// Max / Min (default) heap comparators\nlet { MAX, MIN } = Heap.HeapType;\n\nlet minHeap = new Heap([3, 7, 2, 5], MIN);\n\n//              2  -> min\n//            /   \\\n//           5     3\n//          /\n//         7\n//\n\nminHeap.min; // 2\n\nminHeap.insert(8); // 5 : new size\n\n//              2  -> min\n//            /   \\\n//           5     3\n//          /       \\\n//         7         8  -> node inserted\n//\n\nlet min = minHeap.deleteMin(); // 2\n\n//              3  -> min\n//            /   \\\n//           5     8\n//          /\n//         7\n//\n\nlet maxHeap = new Heap([3, 7, 2, 5], MAX);\n\n//              7  -> max\n//            /   \\\n//           5     3\n//          /\n//         2\n//\n\nmaxHeap.max; // 7\n\nmaxHeap.isEmpty(); // false\n\nmaxHeap.clear();\nmaxHeap.size; // 0\n```\n\n<br>\n\n### [LinkedList](https://github.com/clarketm/super/tree/master/packages/LinkedList#readme)\n\n```js\nimport { LinkedList } from \"@clarketm/super\";\n\nlet list = new LinkedList([1, 3, 5, 7]);\n\n//    1    <->    3    <->    5    <->    7\n\nlist.size; // 4\nlist.head; // ListNode { _value: 1, ... }\nlist.tail; // ListNode { _value: 7, ... }\n\nlist.insert(1, 100);\n\n//         node inserted at pos: 1\n//                 ^\n//    1    <->    100    <->    3    <->    5    <->    7\n\nlist.append(99);\n\n//                                                          node inserted at tail\n//                                                                   ^\n//    1    <->    100    <->    3    <->    5    <->    7    <->    99\n\nlist.remove(-1);\n\n//                                                          node removed from tail\n//                                                                   ^\n//    1    <->    100    <->    3    <->    5    <->    7\n\nlist.toArray(); // [ 1, 100, 3, 5, 7 ]\n```\n\n<br>\n\n### [Map](https://github.com/clarketm/super/tree/master/packages/Map#readme)\n\n```js\nimport { Map } from \"@clarketm/super\";\n\nlet map = new Map([[\"a\", 1], [\"b\", 2], [\"c\", 3]]); // Map { 'a' => 1, 'b' => 2, 'c' => 3 }\n\n// Use any built-in Map methods:\nmap.get(\"c\"); // 3\n\n// Use custom methods (e.g. `setDefault`):\n// note: `setDefault` is similar to get(), but will set key to a defaultValue if the key is not in Map.\n\nlet item = map.setDefault(\"c\", 3);\nitem; // 3\nmap; // Map { 'a' => 1, 'b' => 2, 'c' => 3 }\n\nlet item = map.setDefault(\"d\", 4);\nitem; // 4\nmap; // Map { 'a' => 1, 'b' => 2, 'c' => 3 'd' => 4 }\n```\n\n<br>\n\n### [Object](https://github.com/clarketm/super/tree/master/packages/Object#readme)\n\n```js\nimport { Object } from \"@clarketm/super\";\n\nlet object = new Object({ a: 1, b: true, c: 4 }); // Object { a: 1, b: true, c: 4 }\n\n// Use any built-in Object methods:\nObject.keys(object); // [ 'a', 'b', 'c' ]\n\n// Use custom methods (e.g. `clone`):\n// note: `clone` will create a deep copy of the object.\n\nlet clone = object.clone(); // Object { a: 1, b: true, c: 4 }\nObject.is(object, clone); // false\n```\n\n<br>\n\n### [PriorityQueue](https://github.com/clarketm/super/tree/master/packages/PriorityQueue#readme)\n\n```js\nimport { PriorityQueue } from \"@clarketm/super\";\n\n// note: a PriorityQueue can be constructed from either a Map, Array of Arrays, Array of Objects, or Array w/ custom comparator.\n\n// Map\nlet pq = new PriorityQueue(new Map([[100, \"high\"], [0, \"low\"]]));\n\n// Array of Arrays\nlet pq = new PriorityQueue([[100, \"high\"], [0, \"low\"]]);\n\n// Array of Objects\nlet pq = new PriorityQueue([{ value: \"high\", priority: 100 }, { value: \"low\", priority: 0 }]);\n\n// Array w/ custom comparator\nlet pq = new PriorityQueue([\"high\", \"low\"], (a, b) => a.length > b.length);\n\nlet pq = new PriorityQueue([[100, \"high\"], [50, \"medium\"], [0, \"low\"]]);\n\n//    highest priority              lowest priority\n//          ^                             ^\n//   |    \"high\"    |   \"medium\"   |    \"low\"    |\n//   |    (100)     |     (50)     |     (0)     |\n//\n\npq.size; // 3\npq.high; // QueueNode { _value: 'super high', _priority: 1000, ... }\npq.low; // QueueNode { _value: 'low', _priority: 0, ... }\n\npq.isEmpty(); // false\n\npq.insert(\"super high\", 1000); // 4 : new size\n\n//       highest priority                                lowest priority\n//             ^                                               ^\n//   |    \"super high\"    |    \"high\"    |   \"medium\"   |    \"low\"    |\n//   |       (1000)       |    (100)     |     (50)     |     (0)     |\n//\n\npq.deleteHigh(); // QueueNode { _value: 'super high', _priority: 1000, ... }\n\n//   highest priority               lowest priority\n//          ^                             ^\n//   |    \"high\"    |   \"medium\"   |    \"low\"    |\n//   |    (100)     |     (50)     |     (0)     |\n//\n\npq.deleteLow(); // QueueNode { _value: 'low', _priority: 0, ... }\n\n//  highest priority   lowest priority\n//          ^               ^\n//   |    \"high\"    |   \"medium\"   |\n//   |    (100)     |     (50)     |\n//\n\npq.clear();\npq.size; // 0\n```\n\n<br>\n\n### [Queue](https://github.com/clarketm/super/tree/master/packages/Queue#readme)\n\n```js\nimport { Queue } from \"@clarketm/super\";\n\nlet queue = new Queue([2, 4, 6, 8]);\n\n//   front              rear\n//     ^                 ^\n//  |  2  |  4  |  6  |  8  |\n\nqueue.size; // 4\nqueue.front; // 2\nqueue.rear; // 8\n\nqueue.isEmpty(); // false\n\nqueue.enqueue(10); // 5 : new size\n\n//   front                   rear\n//     ^                      ^\n//  |  2  |  4  |  6  |  8  | 10 |\n\nqueue.dequeue(); // 2  : dequeued item\n\n//   front              rear\n//     ^                 ^\n//  |  4  |  6  |  8  | 10 |\n\nqueue.clear();\nqueue.size; // 0\n```\n\n<br>\n\n### [Set](https://github.com/clarketm/super/tree/master/packages/Set#readme)\n\n```js\nimport { Set } from \"@clarketm/super\";\n\nlet setA = new Set([1, 2, 3]); // Set { 1, 2, 3 }\nlet setB = new Set([2, 3, 4]); // Set { 2, 3, 4 }\n\n// Use any built-in Set methods:\nsetA.has(1); // true\n\n// Use custom methods:\n\n// `isSubset`\nsetA.isSubset(setB); // false\n\n// `isSuperset`\nsetA.isSuperset(setB); // false\n\n// `union`\nsetA.union(setB); // Set { 1, 2, 3, 4 }\n\n// `intersection`\nsetA.intersection(setB); // Set { 2, 3 }\n\n// `difference`\nsetA.difference(setB); // Set { 1 }\n\n// `symmetricDifference`\nsetA.symmetricDifference(setB); // Set { 1, 4 }\n```\n\n<br>\n\n### [Trie](https://github.com/clarketm/super/tree/master/packages/Trie#readme)\n\n```js\nimport { Trie } from \"@clarketm/super\";\n\nlet trie = new Trie([\"me\", \"men\", \"go\"]);\n\n//               root\n//              /   \\\n//            'm'    'g'\n//           /         \\\n//    $ <- 'e'         'o' -> $\n//         /\n//  $ <- 'n'\n//\n// $: denotes a complete word\n//\n\ntrie.root; // TrieNode { _char: √, ... }\n\ntrie.insert(\"met\");\n\n//               root\n//              /   \\\n//            'm'    'g'\n//           /         \\\n//    $ <- 'e'         'o' -> $\n//         /  \\\n//  $ <- 'n'   't' -> $\n//\n// $: denotes a complete word\n//\n\n// `word` search w/ `contains`\ntrie.contains(\"me\"); // true\n\n// `prefix` search w/ `startsWith`\ntrie.startsWith(\"m\"); // true\n\n// Return a full Match object w/ `search`\ntrie.search(\"men\");\n\n// Match object\n// {\n//  query: 'men',\n//  matchedChars: 3,\n//  isMatch: true,\n//  isCompleteWord: true,\n//  node: TrieNode { ... }\n// }\n\ntrie.remove(\"go\");\n\n//               root\n//              /\n//            'm'\n//           /\n//    $ <- 'e'\n//         /  \\\n//  $ <- 'n'   't' -> $\n//\n// $: denotes a complete word\n//\n```\n\n<br>\n\n## Data Types\n\n* [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)\n* [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)\n* [String](https://github.com/clarketm/super/tree/master/packages/String#readme)\n\n<br>\n\n## Sorting Algorithms\n\n### [BubbleSort](https://github.com/clarketm/super/tree/master/packages/BubbleSort#readme)\n\n```js\nimport { bubbleSort } from \"@clarketm/super\";\n\n// General usage\n\n// ascending\nlet sortedArray = bubbleSort([4, 3, 8, 1]); // [1, 3, 4, 8]\n\n// Custom comparator\n\n// descending\nlet sortedArray = bubbleSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]\n\n// ascending (string length)\nlet sortedArray = bubbleSort([\"111\", \"1\", \"11\"], (a, b) => a.length - b.length); // [\"1\", \"11\", \"111\"]\n\n// descending (string length)\nlet sortedArray = bubbleSort([\"111\", \"1\", \"11\"], (a, b) => b.length - a.length); // [\"111\", \"11\", \"1\"]\n```\n\n### [InsertionSort](https://github.com/clarketm/super/tree/master/packages/InsertionSort#readme)\n\n```js\nimport { insertionSort } from \"@clarketm/super\";\n\n// General usage\n\n// ascending\nlet sortedArray = insertionSort([4, 3, 8, 1]); // [1, 3, 4, 8]\n\n// Custom comparator\n\n// descending\nlet sortedArray = insertionSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]\n\n// ascending (string length)\nlet sortedArray = insertionSort([\"111\", \"1\", \"11\"], (a, b) => a.length - b.length); // [\"1\", \"11\", \"111\"]\n\n// descending (string length)\nlet sortedArray = insertionSort([\"111\", \"1\", \"11\"], (a, b) => b.length - a.length); // [\"111\", \"11\", \"1\"]\n```\n\n### [MergeSort](https://github.com/clarketm/super/tree/master/packages/MergeSort#readme)\n\n```js\nimport { mergeSort } from \"@clarketm/super\";\n\n// General usage\n\n// ascending\nlet sortedArray = mergeSort([4, 3, 8, 1]); // [1, 3, 4, 8]\n\n// Custom comparator\n\n// descending\nlet sortedArray = mergeSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]\n\n// ascending (string length)\nlet sortedArray = mergeSort([\"111\", \"1\", \"11\"], (a, b) => a.length - b.length); // [\"1\", \"11\", \"111\"]\n\n// descending (string length)\nlet sortedArray = mergeSort([\"111\", \"1\", \"11\"], (a, b) => b.length - a.length); // [\"111\", \"11\", \"1\"]\n```\n\n### [QuickSort](https://github.com/clarketm/super/tree/master/packages/QuickSort#readme)\n\n```js\nimport { quickSort } from \"@clarketm/super\";\n\n// General usage\n\n// ascending\nlet sortedArray = quickSort([4, 3, 8, 1]); // [1, 3, 4, 8]\n\n// Custom comparator\n\n// descending\nlet sortedArray = quickSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]\n\n// ascending (string length)\nlet sortedArray = quickSort([\"111\", \"1\", \"11\"], (a, b) => a.length - b.length); // [\"1\", \"11\", \"111\"]\n\n// descending (string length)\nlet sortedArray = quickSort([\"111\", \"1\", \"11\"], (a, b) => b.length - a.length); // [\"111\", \"11\", \"1\"]\n```\n\n### [SelectionSort](https://github.com/clarketm/super/tree/master/packages/SelectionSort#readme)\n\n```js\nimport { selectionSort } from \"@clarketm/super\";\n\n// General usage\n\n// ascending\nlet sortedArray = selectionSort([4, 3, 8, 1]); // [1, 3, 4, 8]\n\n// Custom comparator\n\n// descending\nlet sortedArray = selectionSort([4, 3, 8, 1], (a, b) => b - a); // [8, 4, 3, 1]\n\n// ascending (string length)\nlet sortedArray = selectionSort([\"111\", \"1\", \"11\"], (a, b) => a.length - b.length); // [\"1\", \"11\", \"111\"]\n\n// descending (string length)\nlet sortedArray = selectionSort([\"111\", \"1\", \"11\"], (a, b) => b.length - a.length); // [\"111\", \"11\", \"1\"]\n```\n\n## Credits\n\n* Icons made by <a href=\"http://www.freepik.com\" title=\"Freepik\">Freepik</a> from <a href=\"https://www.flaticon.com/\" title=\"Flaticon\">www.flaticon.com</a> is licensed by <a href=\"http://creativecommons.org/licenses/by/3.0/\" title=\"Creative Commons BY 3.0\" target=\"_blank\">CC 3.0 BY</a></div>\n",
     "longname": "/Users/clarketm/js/super/README.md",
     "name": "./README.md",
     "static": true,

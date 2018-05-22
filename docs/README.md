@@ -6,29 +6,13 @@ AVLTree with superpowers! 💪
 
 ### `_root: *`
 
-### `getBalance(node: TreeNode): number`
+### `_getBalance(node: TreeNode): number`
 
-Get the height of the tree at node
+Get balance factor
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
 | node | TreeNode |  | root node |
-
-### `insert(value: Item)`
-
-Insert a value into the tree
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-| value | Item |  | value to insert into the tree |
-
-### `remove(value: Item)`
-
-Remove a value from the tree
-
-| Name | Type | Attribute | Description |
-| --- | --- | --- | --- |
-| value | Item |  | value to remove |
 
 ### `_rotateLeft(node: TreeNode): TreeNode`
 
@@ -45,6 +29,22 @@ Rotate right
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
 | node | TreeNode |  |
+
+### `insert(value: Item)`
+
+Insert a value into the tree
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| value | Item |  | value to insert into the tree |
+
+### `remove(value: Item)`
+
+Remove a value from the tree
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| value | Item |  | value to remove |
 
 ## `_Array`
 
