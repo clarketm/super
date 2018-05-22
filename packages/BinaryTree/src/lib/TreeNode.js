@@ -7,25 +7,25 @@ import type { Item } from "../../../shared/src/types";
 
 /**
  *
- * BinaryTreeNode
+ * TreeNode
  *
  * @public
  *
  */
-class BinaryTreeNode {
+class TreeNode {
   /** @private */
   _value: Item;
 
   /** @private */
-  _left: ?BinaryTreeNode;
+  _left: ?TreeNode;
 
   /** @private */
-  _right: ?BinaryTreeNode;
+  _right: ?TreeNode;
 
   /**
    * @public
    *
-   * @desc Construct a BinaryTreeNode
+   * @desc Construct a TreeNode
    *
    * @param {Item} value - node value
    */
@@ -61,9 +61,9 @@ class BinaryTreeNode {
    *
    * @desc Get the left child node
    *
-   * @returns {BinaryTreeNode} left child node
+   * @returns {TreeNode} left child node
    */
-  get left(): ?BinaryTreeNode {
+  get left(): ?TreeNode {
     return this._left;
   }
 
@@ -73,7 +73,7 @@ class BinaryTreeNode {
    * @desc Set the left child node
    *
    */
-  set left(left: ?BinaryTreeNode) {
+  set left(left: ?TreeNode) {
     this._left = left;
   }
 
@@ -82,9 +82,9 @@ class BinaryTreeNode {
    *
    * @desc Get the right child node
    *
-   * @returns {BinaryTreeNode} right child node
+   * @returns {TreeNode} right child node
    */
-  get right(): ?BinaryTreeNode {
+  get right(): ?TreeNode {
     return this._right;
   }
 
@@ -94,9 +94,9 @@ class BinaryTreeNode {
    * @desc Set the right child node
    *
    */
-  set right(right: ?BinaryTreeNode) {
+  set right(right: ?TreeNode) {
     this._right = right;
   }
 }
 
-export { BinaryTreeNode };
+export { TreeNode };

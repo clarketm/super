@@ -4,7 +4,7 @@
  */
 
 import type { Comparator, Item } from "../../../shared/src/types";
-import { BinaryTreeNode } from "./BinaryTreeNode";
+import { TreeNode } from "./TreeNode";
 import { Queue } from "../../../Queue/src/lib/Queue";
 import {
   _compareEqual,
@@ -31,7 +31,7 @@ type Traversal = $Keys<typeof TraversalType>;
  */
 class BinaryTree {
   /** @private */
-  _root: ?BinaryTreeNode;
+  _root: ?TreeNode;
 
   /** @private */
   _compareEqual: Comparator;
@@ -74,9 +74,9 @@ class BinaryTree {
    *
    * @desc Get the root of the tree
    *
-   * @returns {BinaryTreeNode} root node
+   * @returns {TreeNode} root node
    */
-  get root(): ?BinaryTreeNode {
+  get root(): ?TreeNode {
     return this._root;
   }
 
@@ -87,7 +87,7 @@ class BinaryTree {
    *
    * @desc Get the height of the tree
    *
-   * @returns {BinaryTreeNode} root node
+   * @returns {TreeNode} root node
    */
   get height(): number {
     return this.getHeight(this.root);
@@ -98,19 +98,19 @@ class BinaryTree {
    *
    * @desc Get the height of the tree at node
    *
-   * @param {BinaryTreeNode} node - root node
+   * @param {TreeNode} node - root node
    * @returns {number} height of tree
    */
-  getHeight(node: ?BinaryTreeNode = this.root): number {
+  getHeight(node: ?TreeNode = this.root): number {
     /**
      * @private
      *
      * @desc Height helper
      *
-     * @param {BinaryTreeNode} node
+     * @param {TreeNode} node
      * @returns {number} height of tree
      */
-    const _height = (node: ?BinaryTreeNode) => {
+    const _height = (node: ?TreeNode) => {
       if (!node) return 0;
       return Math.max(_height(node.left), _height(node.right)) + 1;
     };
@@ -123,10 +123,10 @@ class BinaryTree {
    *
    * @desc Find minimum value in tree
    *
-   * @param {BinaryTreeNode} node - root node
-   * @returns {BinaryTreeNode} node
+   * @param {TreeNode} node - root node
+   * @returns {TreeNode} node
    */
-  findMin(node: ?BinaryTreeNode = this.root): ?BinaryTreeNode {
+  findMin(node: ?TreeNode = this.root): ?TreeNode {
     // $FlowFixMe
     if (!node.left) return node;
     else return this.findMin(node.left);
@@ -137,10 +137,10 @@ class BinaryTree {
    *
    * @desc Find maximum value in tree
    *
-   * @param {BinaryTreeNode} node - root node
-   * @returns {BinaryTreeNode} node
+   * @param {TreeNode} node - root node
+   * @returns {TreeNode} node
    */
-  findMax(node: ?BinaryTreeNode = this.root): ?BinaryTreeNode {
+  findMax(node: ?TreeNode = this.root): ?TreeNode {
     // $FlowFixMe
     if (!node.right) return node;
     else return this.findMax(node.right);
@@ -154,37 +154,28 @@ class BinaryTree {
    * @param {Item} value - value to insert into the tree
    */
   insert(value: Item) {
-    let node = new BinaryTreeNode(value);
-
-    if (!this.root) {
-      this._root = node;
-      return;
-    }
+    let node = new TreeNode(value);
 
     /**
      * @private
      *
      * @desc Insert helper
      *
-     * @param {BinaryTreeNode} root
+     * @param {TreeNode} root
      */
-    const _insert = (root: BinaryTreeNode) => {
+    const _insert = (root: ?TreeNode) => {
+      if (!root) return node;
+
       if (this._compareLessThan(node.value, root.value)) {
-        if (root.left) {
-          return _insert(root.left);
-        } else {
-          root.left = node;
-        }
+        root.left = _insert(root.left);
       } else {
-        if (root.right) {
-          return _insert(root.right);
-        } else {
-          root.right = node;
-        }
+        root.right = _insert(root.right);
       }
+
+      return root;
     };
 
-    _insert(this.root);
+    this._root = _insert(this.root);
   }
 
   /**
@@ -193,9 +184,9 @@ class BinaryTree {
    * @desc Search and retrieve a value from the tree
    *
    * @param {Item} value - value to search
-   * @return {BinaryTreeNode} match node, or null if not found
+   * @return {TreeNode} match node, or null if not found
    */
-  search(value: Item): ?BinaryTreeNode {
+  search(value: Item): ?TreeNode {
     if (!value) return null;
 
     /**
@@ -203,10 +194,10 @@ class BinaryTree {
      *
      * @desc Search helper
      *
-     * @param {BinaryTreeNode} node
-     * @return {BinaryTreeNode} match node
+     * @param {TreeNode} node
+     * @return {TreeNode} match node
      */
-    const _search = (node): ?BinaryTreeNode => {
+    const _search = (node): ?TreeNode => {
       if (!node) return null;
 
       if (this._compareEqual(value, node.value)) {
@@ -234,10 +225,10 @@ class BinaryTree {
      *
      * @desc Remove helper
      *
-     * @param {BinaryTreeNode} node
+     * @param {TreeNode} node
      * @param {Item} value
      */
-    const _remove = (node: ?BinaryTreeNode, value: Item) => {
+    const _remove = (node: ?TreeNode, value: Item) => {
       if (!node) return null;
 
       if (this._compareEqual(node.value, value)) {
@@ -273,19 +264,20 @@ class BinaryTree {
    *
    * @desc Traverse the tree in preOrder traversal ordering
    *
-   * @param {BinaryTreeNode} node - root node
-   * @returns {Array<BinaryTreeNode>} array of nodes or values
+   * @param {TreeNode} node - root node
+   * @returns {Array<TreeNode>} array of nodes or values
    */
-  preOrder(node: ?BinaryTreeNode = this.root): Array<BinaryTreeNode> {
+  preOrder(node: ?TreeNode = this.root): Array<TreeNode> {
     let nodes = [];
+
     /**
      * @private
      *
      * @desc PreOrder helper
      *
-     * @param {BinaryTreeNode} node
+     * @param {TreeNode} node
      */
-    function _preOrder(node: ?BinaryTreeNode) {
+    function _preOrder(node: ?TreeNode) {
       if (node) {
         nodes = [...nodes, node];
         _preOrder(node.left);
@@ -303,19 +295,20 @@ class BinaryTree {
    *
    * @desc Traverse the tree in inOrder traversal ordering
    *
-   * @param {BinaryTreeNode} node - root node
-   * @returns {Array<BinaryTreeNode>} array of nodes or values
+   * @param {TreeNode} node - root node
+   * @returns {Array<TreeNode>} array of nodes or values
    */
-  inOrder(node: ?BinaryTreeNode = this.root): Array<BinaryTreeNode> {
+  inOrder(node: ?TreeNode = this.root): Array<TreeNode> {
     let nodes = [];
+
     /**
      * @private
      *
      * @desc inOrder helper
      *
-     * @param {BinaryTreeNode} node
+     * @param {TreeNode} node
      */
-    function _inOrder(node: ?BinaryTreeNode) {
+    function _inOrder(node: ?TreeNode) {
       if (node) {
         _inOrder(node.left);
         nodes = [...nodes, node];
@@ -333,19 +326,20 @@ class BinaryTree {
    *
    * @desc Traverse the tree in postOrder traversal ordering
    *
-   * @param {BinaryTreeNode} node - root node
-   * @returns {Array<BinaryTreeNode>} array of nodes or values
+   * @param {TreeNode} node - root node
+   * @returns {Array<TreeNode>} array of nodes or values
    */
-  postOrder(node: ?BinaryTreeNode = this.root): Array<BinaryTreeNode> {
+  postOrder(node: ?TreeNode = this.root): Array<TreeNode> {
     let nodes = [];
+
     /**
      * @private
      *
      * @desc PreOrder helper
      *
-     * @param {BinaryTreeNode} node
+     * @param {TreeNode} node
      */
-    function _postOrder(node: ?BinaryTreeNode) {
+    function _postOrder(node: ?TreeNode) {
       if (node) {
         _postOrder(node.left);
         _postOrder(node.right);
@@ -363,10 +357,10 @@ class BinaryTree {
    *
    * @desc Traverse the tree in levelOrder traversal ordering
    *
-   * @param {BinaryTreeNode} node - root node
-   * @returns {Array<BinaryTreeNode>} array of nodes or values
+   * @param {TreeNode} node - root node
+   * @returns {Array<TreeNode>} array of nodes or values
    */
-  levelOrder(node: ?BinaryTreeNode = this.root): Array<BinaryTreeNode> {
+  levelOrder(node: ?TreeNode = this.root): Array<TreeNode> {
     let nodes = [];
 
     let q = new Queue();
@@ -395,9 +389,9 @@ class BinaryTree {
    *
    * @param {Traversal} traversal - method of traversal
    * @param {boolean} flatten - if false return nodes; if true return only values
-   * @returns {Array<BinaryTreeNode | Item> } array representation of the list
+   * @returns {Array<TreeNode | Item> } array representation of the list
    */
-  toArray(traversal: Traversal, flatten: boolean = false): Array<BinaryTreeNode | Item> {
+  toArray(traversal: Traversal, flatten: boolean = false): Array<TreeNode | Item> {
     let nodes;
 
     switch (traversal) {

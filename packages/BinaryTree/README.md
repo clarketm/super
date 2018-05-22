@@ -6,7 +6,7 @@ BinaryTree with superpowers! 💪
 
 Construct a BinaryTree
 
-### `root: BinaryTreeNode`
+### `root: TreeNode`
 
 Get the root of the tree
 
@@ -14,7 +14,7 @@ Get the root of the tree
 
 Get the height of the tree
 
-### `getHeight(node: BinaryTreeNode): number`
+### `getHeight(node: TreeNode): number`
 
 Get the height of the tree at node
 
@@ -22,7 +22,7 @@ Get the height of the tree at node
 | ---- | -------------- | --------- | ----------- |
 | node | BinaryTreeNode |           | root node   |
 
-### `findMin(node: BinaryTreeNode): BinaryTreeNode`
+### `findMin(node: TreeNode): TreeNode`
 
 Find minimum value in tree
 
@@ -30,7 +30,7 @@ Find minimum value in tree
 | ---- | -------------- | --------- | ----------- |
 | node | BinaryTreeNode |           | root node   |
 
-### `findMax(node: BinaryTreeNode): BinaryTreeNode`
+### `findMax(node: TreeNode): TreeNode`
 
 Find maximum value in tree
 
@@ -46,7 +46,7 @@ Insert a value into the tree
 | ----- | ---- | --------- | ----------------------------- |
 | value | Item |           | value to insert into the tree |
 
-### `search(value: Item): BinaryTreeNode`
+### `search(value: Item): TreeNode`
 
 Search and retrieve a value from the tree
 
@@ -62,7 +62,7 @@ Remove a value from the tree
 | ----- | ---- | --------- | --------------- |
 | value | Item |           | value to remove |
 
-### `preOrder(node: BinaryTreeNode): Array<BinaryTreeNode>`
+### `preOrder(node: TreeNode): Array<TreeNode>`
 
 Traverse the tree in preOrder traversal ordering
 
@@ -70,7 +70,7 @@ Traverse the tree in preOrder traversal ordering
 | ---- | -------------- | --------- | ----------- |
 | node | BinaryTreeNode |           | root node   |
 
-### `inOrder(node: BinaryTreeNode): Array<BinaryTreeNode>`
+### `inOrder(node: TreeNode): Array<TreeNode>`
 
 Traverse the tree in inOrder traversal ordering
 
@@ -78,7 +78,7 @@ Traverse the tree in inOrder traversal ordering
 | ---- | -------------- | --------- | ----------- |
 | node | BinaryTreeNode |           | root node   |
 
-### `postOrder(node: BinaryTreeNode): Array<BinaryTreeNode>`
+### `postOrder(node: TreeNode): Array<TreeNode>`
 
 Traverse the tree in postOrder traversal ordering
 
@@ -86,7 +86,7 @@ Traverse the tree in postOrder traversal ordering
 | ---- | -------------- | --------- | ----------- |
 | node | BinaryTreeNode |           | root node   |
 
-### `levelOrder(node: BinaryTreeNode): Array<BinaryTreeNode>`
+### `levelOrder(node: TreeNode): Array<TreeNode>`
 
 Traverse the tree in levelOrder traversal ordering
 
@@ -94,7 +94,7 @@ Traverse the tree in levelOrder traversal ordering
 | ---- | -------------- | --------- | ----------- |
 | node | BinaryTreeNode |           | root node   |
 
-### `toArray(traversal: Traversal, flatten: boolean): Array<BinaryTreeNode|Item>`
+### `toArray(traversal: Traversal, flatten: boolean): Array<TreeNode|Item>`
 
 Convert the tree to an array
 
@@ -103,22 +103,22 @@ Convert the tree to an array
 | traversal | Traversal |           | method of traversal                               |
 | flatten   | boolean   |           | if false return nodes; if true return only values |
 
-## `BinaryTreeNode`
+## `TreeNode`
 
-BinaryTreeNode
+TreeNode
 
 ### `constructor(value: Item)`
 
-Construct a BinaryTreeNode
+Construct a TreeNode
 
 ### `value: Item`
 
 Get the value of node
 
-### `left: BinaryTreeNode`
+### `left: TreeNode`
 
 Get the right child node
 
-### `right: BinaryTreeNode`
+### `right: TreeNode`
 
 Get the right child node

@@ -52,12 +52,12 @@
 
   /**
    *
-   * BinaryTreeNode
+   * TreeNode
    *
    * @public
    *
    */
-  var BinaryTreeNode = function () {
+  var TreeNode = function () {
     /** @private */
 
     /** @private */
@@ -67,12 +67,12 @@
     /**
      * @public
      *
-     * @desc Construct a BinaryTreeNode
+     * @desc Construct a TreeNode
      *
      * @param {Item} value - node value
      */
-    function BinaryTreeNode(value) {
-      classCallCheck(this, BinaryTreeNode);
+    function TreeNode(value) {
+      classCallCheck(this, TreeNode);
 
       this._value = value;
       this._left = null;
@@ -88,7 +88,7 @@
      */
 
 
-    createClass(BinaryTreeNode, [{
+    createClass(TreeNode, [{
       key: "value",
       get: function get$$1() {
         return this._value;
@@ -110,7 +110,7 @@
        *
        * @desc Get the left child node
        *
-       * @returns {BinaryTreeNode} left child node
+       * @returns {TreeNode} left child node
        */
 
     }, {
@@ -135,7 +135,7 @@
        *
        * @desc Get the right child node
        *
-       * @returns {BinaryTreeNode} right child node
+       * @returns {TreeNode} right child node
        */
 
     }, {
@@ -155,7 +155,7 @@
         this._right = right;
       }
     }]);
-    return BinaryTreeNode;
+    return TreeNode;
   }();
 
   /**
@@ -425,7 +425,7 @@
        *
        * @desc Get the height of the tree at node
        *
-       * @param {BinaryTreeNode} node - root node
+       * @param {TreeNode} node - root node
        * @returns {number} height of tree
        */
       value: function getHeight() {
@@ -436,7 +436,7 @@
          *
          * @desc Height helper
          *
-         * @param {BinaryTreeNode} node
+         * @param {TreeNode} node
          * @returns {number} height of tree
          */
         var _height = function _height(node) {
@@ -452,8 +452,8 @@
        *
        * @desc Find minimum value in tree
        *
-       * @param {BinaryTreeNode} node - root node
-       * @returns {BinaryTreeNode} node
+       * @param {TreeNode} node - root node
+       * @returns {TreeNode} node
        */
 
     }, {
@@ -470,8 +470,8 @@
        *
        * @desc Find maximum value in tree
        *
-       * @param {BinaryTreeNode} node - root node
-       * @returns {BinaryTreeNode} node
+       * @param {TreeNode} node - root node
+       * @returns {TreeNode} node
        */
 
     }, {
@@ -496,37 +496,28 @@
       value: function insert(value) {
         var _this = this;
 
-        var node = new BinaryTreeNode(value);
-
-        if (!this.root) {
-          this._root = node;
-          return;
-        }
+        var node = new TreeNode(value);
 
         /**
          * @private
          *
          * @desc Insert helper
          *
-         * @param {BinaryTreeNode} root
+         * @param {TreeNode} root
          */
         var _insert = function _insert(root) {
+          if (!root) return node;
+
           if (_this._compareLessThan(node.value, root.value)) {
-            if (root.left) {
-              return _insert(root.left);
-            } else {
-              root.left = node;
-            }
+            root.left = _insert(root.left);
           } else {
-            if (root.right) {
-              return _insert(root.right);
-            } else {
-              root.right = node;
-            }
+            root.right = _insert(root.right);
           }
+
+          return root;
         };
 
-        _insert(this.root);
+        this._root = _insert(this.root);
       }
 
       /**
@@ -535,7 +526,7 @@
        * @desc Search and retrieve a value from the tree
        *
        * @param {Item} value - value to search
-       * @return {BinaryTreeNode} match node, or null if not found
+       * @return {TreeNode} match node, or null if not found
        */
 
     }, {
@@ -550,8 +541,8 @@
          *
          * @desc Search helper
          *
-         * @param {BinaryTreeNode} node
-         * @return {BinaryTreeNode} match node
+         * @param {TreeNode} node
+         * @return {TreeNode} match node
          */
         var _search = function _search(node) {
           if (!node) return null;
@@ -586,7 +577,7 @@
          *
          * @desc Remove helper
          *
-         * @param {BinaryTreeNode} node
+         * @param {TreeNode} node
          * @param {Item} value
          */
         var _remove = function _remove(node, value) {
@@ -625,8 +616,8 @@
        *
        * @desc Traverse the tree in preOrder traversal ordering
        *
-       * @param {BinaryTreeNode} node - root node
-       * @returns {Array<BinaryTreeNode>} array of nodes or values
+       * @param {TreeNode} node - root node
+       * @returns {Array<TreeNode>} array of nodes or values
        */
 
     }, {
@@ -635,12 +626,13 @@
         var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
 
         var nodes = [];
+
         /**
          * @private
          *
          * @desc PreOrder helper
          *
-         * @param {BinaryTreeNode} node
+         * @param {TreeNode} node
          */
         function _preOrder(node) {
           if (node) {
@@ -660,8 +652,8 @@
        *
        * @desc Traverse the tree in inOrder traversal ordering
        *
-       * @param {BinaryTreeNode} node - root node
-       * @returns {Array<BinaryTreeNode>} array of nodes or values
+       * @param {TreeNode} node - root node
+       * @returns {Array<TreeNode>} array of nodes or values
        */
 
     }, {
@@ -670,12 +662,13 @@
         var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
 
         var nodes = [];
+
         /**
          * @private
          *
          * @desc inOrder helper
          *
-         * @param {BinaryTreeNode} node
+         * @param {TreeNode} node
          */
         function _inOrder(node) {
           if (node) {
@@ -695,8 +688,8 @@
        *
        * @desc Traverse the tree in postOrder traversal ordering
        *
-       * @param {BinaryTreeNode} node - root node
-       * @returns {Array<BinaryTreeNode>} array of nodes or values
+       * @param {TreeNode} node - root node
+       * @returns {Array<TreeNode>} array of nodes or values
        */
 
     }, {
@@ -705,12 +698,13 @@
         var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
 
         var nodes = [];
+
         /**
          * @private
          *
          * @desc PreOrder helper
          *
-         * @param {BinaryTreeNode} node
+         * @param {TreeNode} node
          */
         function _postOrder(node) {
           if (node) {
@@ -730,8 +724,8 @@
        *
        * @desc Traverse the tree in levelOrder traversal ordering
        *
-       * @param {BinaryTreeNode} node - root node
-       * @returns {Array<BinaryTreeNode>} array of nodes or values
+       * @param {TreeNode} node - root node
+       * @returns {Array<TreeNode>} array of nodes or values
        */
 
     }, {
@@ -767,7 +761,7 @@
        *
        * @param {Traversal} traversal - method of traversal
        * @param {boolean} flatten - if false return nodes; if true return only values
-       * @returns {Array<BinaryTreeNode | Item> } array representation of the list
+       * @returns {Array<TreeNode | Item> } array representation of the list
        */
 
     }, {
@@ -806,7 +800,7 @@
        *
        * @desc Get the root of the tree
        *
-       * @returns {BinaryTreeNode} root node
+       * @returns {TreeNode} root node
        */
       get: function get$$1() {
         return this._root;
@@ -819,7 +813,7 @@
        *
        * @desc Get the height of the tree
        *
-       * @returns {BinaryTreeNode} root node
+       * @returns {TreeNode} root node
        */
 
     }, {

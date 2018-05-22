@@ -1,9 +1,7 @@
-import { TraversalType } from "../src/lib/BinaryTree";
-import { inOrderArray, levelOrderArray, postOrderArray, preOrderArray } from "./mocks";
-
 const { assert } = require("chai");
-const { BinaryTree } = require("../src/lib/BinaryTree");
-const { BinaryTreeNode } = require("../src/lib/BinaryTreeNode");
+const { inOrderArray, levelOrderArray, postOrderArray, preOrderArray } = require("./mocks");
+const { BinaryTree, TraversalType } = require("../src/lib/BinaryTree");
+const { TreeNode } = require("../src/lib/TreeNode");
 
 describe("BinaryTree", () => {
   let tree, expected, actual;
@@ -16,7 +14,7 @@ describe("BinaryTree", () => {
     });
   });
 
-  describe("#root", () => {
+  describe("#height", () => {
     it("should return the tree height (ordered)", () => {
       expected = 3;
       actual = new BinaryTree([1, 2, 3]).height;
@@ -127,7 +125,7 @@ describe("BinaryTree", () => {
       tree = new BinaryTree([1]);
       tree.insert(3);
 
-      expected = new BinaryTreeNode(3);
+      expected = new TreeNode(3);
       actual = tree.search(3);
 
       assert.deepEqual(actual, expected);
@@ -241,103 +239,4 @@ describe("BinaryTree", () => {
       });
     });
   });
-
-  // describe("BinaryTreeNode", () => {
-  //   describe("#count", () => {
-  //     it("should return children character count for node", () => {
-  //       tree = new BinaryTree(["a", "b", "c"]);
-  //
-  //       expected = 3;
-  //       actual = tree.root.count;
-  //
-  //       assert.equal(actual, expected);
-  //     });
-  //   });
-  //
-  //   describe("#char", () => {
-  //     it("should return character value for node", () => {
-  //       tree = new BinaryTree(["alpha"]);
-  //
-  //       expected = "a";
-  //       actual = tree.root.get("a").char;
-  //
-  //       assert.equal(actual, expected);
-  //     });
-  //   });
-  //
-  //   describe("#isCompleteWord", () => {
-  //     it("should return true if node is a complete word", () => {
-  //       tree = new BinaryTree(["a"]);
-  //
-  //       expected = true;
-  //       actual = tree.root.get("a").isCompleteWord;
-  //
-  //       assert.equal(actual, expected);
-  //     });
-  //
-  //     it("should return false if node is not a complete word", () => {
-  //       tree = new BinaryTree(["alpha"]);
-  //
-  //       expected = false;
-  //       actual = tree.root.get("a").isCompleteWord;
-  //
-  //       assert.equal(actual, expected);
-  //     });
-  //   });
-  //
-  //   describe("#has", () => {
-  //     it("should return true if node has a character", () => {
-  //       tree = new BinaryTree(["alpha", "beta"]);
-  //
-  //       expected = true;
-  //       actual = tree.root.has("a");
-  //
-  //       assert.equal(actual, expected);
-  //     });
-  //
-  //     it("should return false if node does not have a character", () => {
-  //       tree = new BinaryTree(["alpha", "beta"]);
-  //
-  //       expected = false;
-  //       actual = tree.root.has("c");
-  //
-  //       assert.equal(actual, expected);
-  //     });
-  //   });
-  //
-  //   describe("#get", () => {
-  //     it("should get child node for character", () => {
-  //       tree = new BinaryTree(["alpha", "beta"]);
-  //
-  //       actual = tree.root.get("b");
-  //
-  //       assert.isDefined(actual);
-  //     });
-  //   });
-  //
-  //   describe("#set", () => {
-  //     it("should set child node for character", () => {
-  //       tree = new BinaryTree();
-  //       node = new BinaryTreeNode("a");
-  //       tree.root.set("a", node);
-  //
-  //       expected = node;
-  //       actual = tree.root.get("a");
-  //
-  //       assert.equal(actual, expected);
-  //     });
-  //   });
-  //
-  //   describe("#delete", () => {
-  //     it("should delete child node for character", () => {
-  //       tree = new BinaryTree(["a"]);
-  //       tree.root.delete("a");
-  //
-  //       expected = false;
-  //       actual = tree.root.has("a");
-  //
-  //       assert.equal(actual, expected);
-  //     });
-  //   });
-  // });
 });

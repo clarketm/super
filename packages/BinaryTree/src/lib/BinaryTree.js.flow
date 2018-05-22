@@ -1,20 +1,24 @@
 
 declare export class BinaryTree {
+  static _defaultComparator(a: any, b: any): number | boolean;
 
-  _root: ?BinaryTreeNode;
+  _compareEqual: any;
+  _compareGreaterThan: any;
+  _compareLessThan: any;
+  _root: ?TreeNode;
   get height(): number;
-  get root(): ?BinaryTreeNode;
-  constructor(iterable?: Array<number>): void;
-  findMax(node?: ?BinaryTreeNode): ?BinaryTreeNode;
-  findMin(node?: ?BinaryTreeNode): ?BinaryTreeNode;
-  getHeight(node?: ?BinaryTreeNode): number;
-  inOrder(node?: ?BinaryTreeNode): Array<BinaryTreeNode>;
+  get root(): ?TreeNode;
+  constructor(iterable?: Array<number>, comparator: any): void;
+  findMax(node?: ?TreeNode): ?TreeNode;
+  findMin(node?: ?TreeNode): ?TreeNode;
+  getHeight(node?: ?TreeNode): number;
+  inOrder(node?: ?TreeNode): Array<TreeNode>;
   insert(value: any): void;
-  levelOrder(node?: ?BinaryTreeNode): Array<BinaryTreeNode>;
-  postOrder(node?: ?BinaryTreeNode): Array<BinaryTreeNode>;
-  preOrder(node?: ?BinaryTreeNode): Array<BinaryTreeNode>;
+  levelOrder(node?: ?TreeNode): Array<TreeNode>;
+  postOrder(node?: ?TreeNode): Array<TreeNode>;
+  preOrder(node?: ?TreeNode): Array<TreeNode>;
   remove(value: any): void;
-  search(value: any): ?BinaryTreeNode;
-  toArray(traversal: $Keys<{IN_ORDER: string, LEVEL_ORDER: string, POST_ORDER: string, PRE_ORDER: string}>, flatten?: boolean): Array<BinaryTreeNode | any>;
+  search(value: any): ?TreeNode;
+  toArray(traversal: $Keys<{IN_ORDER: string, LEVEL_ORDER: string, POST_ORDER: string, PRE_ORDER: string}>, flatten?: boolean): Array<TreeNode | any>;
 }
 declare export var TraversalType: {IN_ORDER: string, LEVEL_ORDER: string, POST_ORDER: string, PRE_ORDER: string};

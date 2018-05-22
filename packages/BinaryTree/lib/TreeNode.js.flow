@@ -1,0 +1,14 @@
+
+declare export class TreeNode {
+
+  _left: ?TreeNode;
+  _right: ?TreeNode;
+  _value: any;
+  get left(): ?TreeNode
+  set left(value: ?TreeNode): void;
+  get right(): ?TreeNode
+  set right(value: ?TreeNode): void;
+  get value(): any
+  set value(value: any): void;
+  constructor(value: any): void;
+}
