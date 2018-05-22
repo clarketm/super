@@ -6,6 +6,7 @@
  */
 
 import { Array } from "./Array/src/lib/Array";
+import { AVLTree } from "./AVLTree/src/lib/AVLTree";
 import { BinaryTree } from "./BinaryTree/src/lib/BinaryTree";
 import { bubbleSort } from "./BubbleSort/src/lib/BubbleSort";
 import { Heap } from "./Heap/src/lib/Heap";
@@ -29,6 +30,7 @@ export default {
   version,
   // Data Structures
   Array,
+  AVLTree,
   BinaryTree,
   Heap,
   LinkedList,
@@ -54,6 +56,7 @@ export {
   version,
   // Data Structures
   Array,
+  AVLTree,
   BinaryTree,
   Heap,
   LinkedList,

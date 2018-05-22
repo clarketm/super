@@ -97,7 +97,33 @@ import Super from &quot;@clarketm/super&quot;;
 let array = new Super.Array([1, 2]);
 ...</code>
 </code></pre>
-<h2 id="data-structures">Data Structures</h2><h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-avltree-readme--avltree--a-"><a href="https://github.com/clarketm/super/tree/master/packages/AVLTree#readme">AVLTree</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { AVLTree } from &quot;@clarketm/super&quot;;
+<h2 id="data-structures">Data Structures</h2><h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-array-readme--array--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Array#readme">Array</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Array } from &quot;@clarketm/super&quot;;
+
+let array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]
+
+// Use any built-in Array methods:
+array.push(4); // [0, 1, 2, 3, 4]
+
+// Use custom methods (e.g. `flatten`):
+let array = new Array([[[1]], [[2]], [[3]]]);
+array.flatten(2); // [1, 2, 3]
+
+// sorting
+array.bubbleSort(); // [0, 1, 2, 3]
+array.insertionSort(); // [0, 1, 2, 3]
+array.mergeSort(); // [0, 1, 2, 3]
+array.quickort(); // [0, 1, 2, 3]
+array.selectionSort(); // [0, 1, 2, 3]
+
+// sorting (w/ comparator)
+array.bubbleSort((a, b) =&gt; b - a); // [3, 2, 1, 0]
+array.insertionSort((a, b) =&gt; b - a); // [3, 2, 1, 0]
+array.mergeSort((a, b) =&gt; b - a); // [3, 2, 1, 0]
+array.quickSort((a, b) =&gt; b - a); // [3, 2, 1, 0]
+array.selectionSort((a, b) =&gt; b - a); // [3, 2, 1, 0]</code>
+</code></pre>
+<p><br></p>
+<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-avltree-readme--avltree--a-"><a href="https://github.com/clarketm/super/tree/master/packages/AVLTree#readme">AVLTree</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { AVLTree } from &quot;@clarketm/super&quot;;
 
 let tree = new AVLTree([1, 2, 3, 4, 5, 6, 7, 8]);
 
@@ -149,32 +175,6 @@ let tree = new AVLTree([&quot;green&quot;, &quot;red&quot;, &quot;blue&quot;], (
 //
 
 tree.findMax().value; // &quot;green&quot;</code>
-</code></pre>
-<p><br></p>
-<h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-array-readme--array--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Array#readme">Array</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Array } from &quot;@clarketm/super&quot;;
-
-let array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]
-
-// Use any built-in Array methods:
-array.push(4); // [0, 1, 2, 3, 4]
-
-// Use custom methods (e.g. `flatten`):
-let array = new Array([[[1]], [[2]], [[3]]]);
-array.flatten(2); // [1, 2, 3]
-
-// sorting
-array.bubbleSort(); // [0, 1, 2, 3]
-array.insertionSort(); // [0, 1, 2, 3]
-array.mergeSort(); // [0, 1, 2, 3]
-array.quickort(); // [0, 1, 2, 3]
-array.selectionSort(); // [0, 1, 2, 3]
-
-// sorting (w/ comparator)
-array.bubbleSort((a, b) =&gt; b - a); // [3, 2, 1, 0]
-array.insertionSort((a, b) =&gt; b - a); // [3, 2, 1, 0]
-array.mergeSort((a, b) =&gt; b - a); // [3, 2, 1, 0]
-array.quickSort((a, b) =&gt; b - a); // [3, 2, 1, 0]
-array.selectionSort((a, b) =&gt; b - a); // [3, 2, 1, 0]</code>
 </code></pre>
 <p><br></p>
 <h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-binarytree-readme--binarytree--a-"><a href="https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme">BinaryTree</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { BinaryTree } from &quot;@clarketm/super&quot;;

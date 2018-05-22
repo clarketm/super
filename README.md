@@ -77,6 +77,66 @@ array.selectionSort((a, b) => b - a); // [3, 2, 1, 0]
 
 <br>
 
+### [AVLTree](https://github.com/clarketm/super/tree/master/packages/AVLTree#readme)
+
+```js
+import { AVLTree } from "@clarketm/super";
+
+let tree = new AVLTree([1, 2, 3, 4, 5, 6, 7, 8]);
+
+//              4  -> root
+//            /   \
+//           2     6
+//         /  \   /  \
+//        1   3  5    7
+//                     \
+//                      8
+//
+
+tree.root; // AVLTreeNode { _value: 5, ... }
+tree.height; // 1
+
+tree.insert(9);
+
+//              4  -> root
+//            /   \
+//           2     6
+//         /  \   /  \
+//        1   3  5    8
+//                   / \
+//                  7   9
+//
+
+tree.balanced; // true
+
+tree.search(3); // AVLTreeNode { _value: 3, ... }
+
+tree.remove(9);
+
+//              4  -> root
+//            /   \
+//           2     6
+//         /  \   /  \
+//        1   3  5    8
+//                   /
+//                  7
+//
+
+// Use a custom comparator to determine tree hierarchy
+
+// string length (ascending) comparator
+let tree = new AVLTree(["green", "red", "blue"], (a, b) => a.length - b.length);
+
+//            "blue"  -> root
+//           /     \
+//        "red"  "green"
+//
+
+tree.findMax().value; // "green"
+```
+
+<br>
+
 ### [BinaryTree](https://github.com/clarketm/super/tree/master/packages/BinaryTree#readme)
 
 ```js

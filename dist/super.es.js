@@ -775,12 +775,12 @@ var _Array = function (_extendableBuiltin2) {
 
 /**
  *
- * BinaryTreeNode
+ * TreeNode
  *
  * @public
  *
  */
-var BinaryTreeNode = function () {
+var TreeNode = function () {
   /** @private */
 
   /** @private */
@@ -790,12 +790,12 @@ var BinaryTreeNode = function () {
   /**
    * @public
    *
-   * @desc Construct a BinaryTreeNode
+   * @desc Construct a TreeNode
    *
    * @param {Item} value - node value
    */
-  function BinaryTreeNode(value) {
-    classCallCheck(this, BinaryTreeNode);
+  function TreeNode(value) {
+    classCallCheck(this, TreeNode);
 
     this._value = value;
     this._left = null;
@@ -811,7 +811,7 @@ var BinaryTreeNode = function () {
    */
 
 
-  createClass(BinaryTreeNode, [{
+  createClass(TreeNode, [{
     key: "value",
     get: function get$$1() {
       return this._value;
@@ -833,7 +833,7 @@ var BinaryTreeNode = function () {
      *
      * @desc Get the left child node
      *
-     * @returns {BinaryTreeNode} left child node
+     * @returns {TreeNode} left child node
      */
 
   }, {
@@ -858,7 +858,7 @@ var BinaryTreeNode = function () {
      *
      * @desc Get the right child node
      *
-     * @returns {BinaryTreeNode} right child node
+     * @returns {TreeNode} right child node
      */
 
   }, {
@@ -878,7 +878,7 @@ var BinaryTreeNode = function () {
       this._right = right;
     }
   }]);
-  return BinaryTreeNode;
+  return TreeNode;
 }();
 
 /**
@@ -1105,7 +1105,7 @@ var BinaryTree = function () {
      *
      * @desc Get the height of the tree at node
      *
-     * @param {BinaryTreeNode} node - root node
+     * @param {TreeNode} node - root node
      * @returns {number} height of tree
      */
     value: function getHeight() {
@@ -1116,7 +1116,7 @@ var BinaryTree = function () {
        *
        * @desc Height helper
        *
-       * @param {BinaryTreeNode} node
+       * @param {TreeNode} node
        * @returns {number} height of tree
        */
       var _height = function _height(node) {
@@ -1132,8 +1132,8 @@ var BinaryTree = function () {
      *
      * @desc Find minimum value in tree
      *
-     * @param {BinaryTreeNode} node - root node
-     * @returns {BinaryTreeNode} node
+     * @param {TreeNode} node - root node
+     * @returns {TreeNode} node
      */
 
   }, {
@@ -1150,8 +1150,8 @@ var BinaryTree = function () {
      *
      * @desc Find maximum value in tree
      *
-     * @param {BinaryTreeNode} node - root node
-     * @returns {BinaryTreeNode} node
+     * @param {TreeNode} node - root node
+     * @returns {TreeNode} node
      */
 
   }, {
@@ -1176,37 +1176,28 @@ var BinaryTree = function () {
     value: function insert(value) {
       var _this = this;
 
-      var node = new BinaryTreeNode(value);
-
-      if (!this.root) {
-        this._root = node;
-        return;
-      }
+      var node = new TreeNode(value);
 
       /**
        * @private
        *
        * @desc Insert helper
        *
-       * @param {BinaryTreeNode} root
+       * @param {TreeNode} root
        */
       var _insert = function _insert(root) {
+        if (!root) return node;
+
         if (_this._compareLessThan(node.value, root.value)) {
-          if (root.left) {
-            return _insert(root.left);
-          } else {
-            root.left = node;
-          }
+          root.left = _insert(root.left);
         } else {
-          if (root.right) {
-            return _insert(root.right);
-          } else {
-            root.right = node;
-          }
+          root.right = _insert(root.right);
         }
+
+        return root;
       };
 
-      _insert(this.root);
+      this._root = _insert(this.root);
     }
 
     /**
@@ -1215,7 +1206,7 @@ var BinaryTree = function () {
      * @desc Search and retrieve a value from the tree
      *
      * @param {Item} value - value to search
-     * @return {BinaryTreeNode} match node, or null if not found
+     * @return {TreeNode} match node, or null if not found
      */
 
   }, {
@@ -1230,8 +1221,8 @@ var BinaryTree = function () {
        *
        * @desc Search helper
        *
-       * @param {BinaryTreeNode} node
-       * @return {BinaryTreeNode} match node
+       * @param {TreeNode} node
+       * @return {TreeNode} match node
        */
       var _search = function _search(node) {
         if (!node) return null;
@@ -1266,7 +1257,7 @@ var BinaryTree = function () {
        *
        * @desc Remove helper
        *
-       * @param {BinaryTreeNode} node
+       * @param {TreeNode} node
        * @param {Item} value
        */
       var _remove = function _remove(node, value) {
@@ -1305,8 +1296,8 @@ var BinaryTree = function () {
      *
      * @desc Traverse the tree in preOrder traversal ordering
      *
-     * @param {BinaryTreeNode} node - root node
-     * @returns {Array<BinaryTreeNode>} array of nodes or values
+     * @param {TreeNode} node - root node
+     * @returns {Array<TreeNode>} array of nodes or values
      */
 
   }, {
@@ -1315,12 +1306,13 @@ var BinaryTree = function () {
       var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
 
       var nodes = [];
+
       /**
        * @private
        *
        * @desc PreOrder helper
        *
-       * @param {BinaryTreeNode} node
+       * @param {TreeNode} node
        */
       function _preOrder(node) {
         if (node) {
@@ -1340,8 +1332,8 @@ var BinaryTree = function () {
      *
      * @desc Traverse the tree in inOrder traversal ordering
      *
-     * @param {BinaryTreeNode} node - root node
-     * @returns {Array<BinaryTreeNode>} array of nodes or values
+     * @param {TreeNode} node - root node
+     * @returns {Array<TreeNode>} array of nodes or values
      */
 
   }, {
@@ -1350,12 +1342,13 @@ var BinaryTree = function () {
       var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
 
       var nodes = [];
+
       /**
        * @private
        *
        * @desc inOrder helper
        *
-       * @param {BinaryTreeNode} node
+       * @param {TreeNode} node
        */
       function _inOrder(node) {
         if (node) {
@@ -1375,8 +1368,8 @@ var BinaryTree = function () {
      *
      * @desc Traverse the tree in postOrder traversal ordering
      *
-     * @param {BinaryTreeNode} node - root node
-     * @returns {Array<BinaryTreeNode>} array of nodes or values
+     * @param {TreeNode} node - root node
+     * @returns {Array<TreeNode>} array of nodes or values
      */
 
   }, {
@@ -1385,12 +1378,13 @@ var BinaryTree = function () {
       var node = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.root;
 
       var nodes = [];
+
       /**
        * @private
        *
        * @desc PreOrder helper
        *
-       * @param {BinaryTreeNode} node
+       * @param {TreeNode} node
        */
       function _postOrder(node) {
         if (node) {
@@ -1410,8 +1404,8 @@ var BinaryTree = function () {
      *
      * @desc Traverse the tree in levelOrder traversal ordering
      *
-     * @param {BinaryTreeNode} node - root node
-     * @returns {Array<BinaryTreeNode>} array of nodes or values
+     * @param {TreeNode} node - root node
+     * @returns {Array<TreeNode>} array of nodes or values
      */
 
   }, {
@@ -1447,7 +1441,7 @@ var BinaryTree = function () {
      *
      * @param {Traversal} traversal - method of traversal
      * @param {boolean} flatten - if false return nodes; if true return only values
-     * @returns {Array<BinaryTreeNode | Item> } array representation of the list
+     * @returns {Array<TreeNode | Item> } array representation of the list
      */
 
   }, {
@@ -1486,7 +1480,7 @@ var BinaryTree = function () {
      *
      * @desc Get the root of the tree
      *
-     * @returns {BinaryTreeNode} root node
+     * @returns {TreeNode} root node
      */
     get: function get$$1() {
       return this._root;
@@ -1499,7 +1493,7 @@ var BinaryTree = function () {
      *
      * @desc Get the height of the tree
      *
-     * @returns {BinaryTreeNode} root node
+     * @returns {TreeNode} root node
      */
 
   }, {
@@ -1515,6 +1509,235 @@ var BinaryTree = function () {
   }]);
   return BinaryTree;
 }();
+
+/**
+ *
+ * AVLTree with superpowers! 💪
+ *
+ * @public
+ *
+ */
+
+var AVLTree = function (_BinaryTree) {
+  inherits(AVLTree, _BinaryTree);
+
+  function AVLTree() {
+    classCallCheck(this, AVLTree);
+    return possibleConstructorReturn(this, (AVLTree.__proto__ || Object.getPrototypeOf(AVLTree)).apply(this, arguments));
+  }
+
+  createClass(AVLTree, [{
+    key: "_getBalance",
+
+
+    /**
+     * @private
+     *
+     * @desc Get balance factor
+     *
+     * @param {TreeNode} node - root node
+     * @returns {number} balance factor
+     */
+    value: function _getBalance(node) {
+      // $FlowFixMe
+      return this.getHeight(node.left) - this.getHeight(node.right);
+    }
+
+    /**
+     * @private
+     *
+     * @desc Rotate left
+     *
+     * @param {TreeNode} node
+     * @returns {TreeNode} new root
+     */
+
+  }, {
+    key: "_rotateLeft",
+    value: function _rotateLeft(node) {
+      // $FlowFixMe
+      var root = node.right;
+      node.right = root.left;
+      root.left = node;
+      return root;
+    }
+
+    /**
+     * @private
+     *
+     * @desc Rotate right
+     *
+     * @param {TreeNode} node
+     * @returns {TreeNode} new root
+     */
+
+  }, {
+    key: "_rotateRight",
+    value: function _rotateRight(node) {
+      // $FlowFixMe
+      var root = node.left;
+      node.left = root.right;
+      root.right = node;
+      return root;
+    }
+
+    /**
+     * @public
+     *
+     * @desc Insert a value into the tree
+     *
+     * @param {Item} value - value to insert into the tree
+     */
+
+  }, {
+    key: "insert",
+    value: function insert(value) {
+      var _this2 = this;
+
+      var node = new TreeNode(value);
+
+      /**
+       * @private
+       *
+       * @desc Insert helper
+       *
+       * @param {TreeNode} root
+       */
+      var _insert = function _insert(root) {
+        if (!root) return node;
+
+        if (_this2._compareLessThan(node.value, root.value)) {
+          root.left = _insert(root.left);
+        } else {
+          root.right = _insert(root.right);
+        }
+
+        var balance = _this2._getBalance(root);
+
+        if (balance > 1) {
+          // Left Rotate
+          if (root.left && _this2._compareLessThan(node.value, root.left.value)) {
+            return _this2._rotateRight(root);
+          }
+          // Left Right Rotate
+          if (root.left && _this2._compareGreaterThan(node.value, root.left.value)) {
+            root.left = _this2._rotateLeft(root.left);
+            return _this2._rotateRight(root);
+          }
+        }
+
+        if (balance < -1) {
+          // Right Rotate
+          if (root.right && _this2._compareGreaterThan(node.value, root.right.value)) {
+            return _this2._rotateLeft(root);
+          }
+
+          // Right Left Rotate
+          if (root.right && _this2._compareLessThan(node.value, root.right.value)) {
+            root.right = _this2._rotateRight(root.right);
+            return _this2._rotateLeft(root);
+          }
+        }
+
+        return root;
+      };
+
+      this._root = _insert(this.root);
+    }
+
+    /**
+     * @public
+     *
+     * @desc Remove a value from the tree
+     *
+     * @param {Item} value - value to remove
+     */
+
+  }, {
+    key: "remove",
+    value: function remove(value) {
+      var _this3 = this;
+
+      /**
+       * @private
+       *
+       * @desc Remove helper
+       *
+       * @param {TreeNode} root
+       * @param {Item} value
+       */
+      var _remove = function _remove(root, value) {
+        if (!root) return null;
+
+        if (_this3._compareEqual(root.value, value)) {
+          if (!root.left && !root.right) {
+            return null;
+          } else if (!root.left) {
+            return root.right;
+          } else if (!root.right) {
+            return root.left;
+          } else {
+            var aux = _this3.findMin(root.right);
+            // $FlowFixMe
+            root.value = aux.value;
+            // $FlowFixMe
+            root.right = _remove(root.right, aux.value);
+          }
+        } else if (_this3._compareLessThan(value, root.value)) {
+          root.left = _remove(root.left, value);
+        } else if (_this3._compareGreaterThan(value, root.value)) {
+          root.right = _remove(root.right, value);
+        }
+
+        var balance = _this3._getBalance(root);
+
+        if (balance > 1) {
+          // Left Rotate
+          if (root.left && _this3._getBalance(root.left) >= 0) {
+            return _this3._rotateRight(root);
+          }
+          // Left Right Rotate
+          if (root.left && _this3._getBalance(root.left) < 0) {
+            root.left = _this3._rotateLeft(root.left);
+            return _this3._rotateRight(root);
+          }
+        }
+
+        if (balance < -1) {
+          // Right Rotate
+          if (root.right && _this3._getBalance(root.left) <= 0) {
+            return _this3._rotateLeft(root);
+          }
+
+          // Right Left Rotate
+          if (root.right && _this3._getBalance(root.left) > 0) {
+            root.right = _this3._rotateRight(root.right);
+            return _this3._rotateLeft(root);
+          }
+        }
+
+        return root;
+      };
+
+      // $FlowFixMe
+      this._root = _remove(this.root, value);
+    }
+  }, {
+    key: "balanced",
+
+    /**
+     * @public
+     *
+     * @desc Determine if the tree is balanced
+     *
+     * @returns {boolean} balanced
+     */
+    get: function get$$1() {
+      return Math.abs(this._getBalance(this.root)) <= 1;
+    }
+  }]);
+  return AVLTree;
+}(BinaryTree);
 
 /**
  *
@@ -4305,6 +4528,7 @@ var Super = {
   version: version,
   // Data Structures
   Array: _Array,
+  AVLTree: AVLTree,
   BinaryTree: BinaryTree,
   Heap: Heap,
   LinkedList: LinkedList,
@@ -4327,4 +4551,4 @@ var Super = {
 };
 
 export default Super;
-export { version, _Array as Array, BinaryTree, Heap, LinkedList, _Map as Map, _Object as Object, PriorityQueue, Queue, _Set as Set, Trie, _Math as Math, _Number as Number, _String as String, bubbleSort, insertionSort, mergeSort, quickSort, selectionSort };
+export { version, _Array as Array, AVLTree, BinaryTree, Heap, LinkedList, _Map as Map, _Object as Object, PriorityQueue, Queue, _Set as Set, Trie, _Math as Math, _Number as Number, _String as String, bubbleSort, insertionSort, mergeSort, quickSort, selectionSort };

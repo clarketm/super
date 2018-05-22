@@ -1,6 +1,8 @@
 /**
  * @typedef {null|undefined|boolean|number|string|Symbol|Function|Array|Date|Object} Item
  */
+import { AVLTreeNode } from "../../AVLTree/src/lib/AVLTreeNode";
+
 export type Item =
   | null
   | undefined
