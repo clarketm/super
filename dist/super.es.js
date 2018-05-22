@@ -4522,7 +4522,7 @@ var Trie = function () {
   return Trie;
 }();
 
-var version = "0.0.9";
+var version = "0.0.10";
 
 var Super = {
   version: version,
