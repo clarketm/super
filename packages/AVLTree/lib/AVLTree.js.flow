@@ -1,0 +1,10 @@
+
+declare export class AVLTree extends BinaryTree {
+
+  get balanced(): boolean;
+  _rotateLeft(node: TreeNode): TreeNode;
+  _rotateRight(node: TreeNode): TreeNode;
+  getBalance(node: ?TreeNode): number;
+  insert(value: any): void;
+  remove(value: any): void;
+}
