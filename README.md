@@ -10,8 +10,8 @@
 
 > <sub>implemented in **JavaScript**.</sub>
 
- <a href="https://github.com/clarketm/super"><p align="center"><img src="https://github.com/clarketm/super/blob/master/resources/super-logo.svg" /></div></a>
- <br>
+<a href="https://github.com/clarketm/super"><p align="center"><img src="https://github.com/clarketm/super/blob/master/resources/super-logo.svg" /></div></a>
+<br>
 
 > _"JavaScript's missing data structures, data types, and algorithms!"_ - Mark Twain
 
@@ -648,3 +648,7 @@ let sortedArray = selectionSort(["111", "1", "11"], (a, b) => a.length - b.lengt
 // descending (string length)
 let sortedArray = selectionSort(["111", "1", "11"], (a, b) => b.length - a.length); // ["111", "11", "1"]
 ```
+
+## License
+
+MIT &copy; [**Travis Clarke**](https://blog.travismclarke.com/)
