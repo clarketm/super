@@ -45,6 +45,8 @@ let array = new Super.Array([1, 2]);
 ...
 ```
 
+---
+
 ## Table of Contents
 
 #### Data Structures
@@ -74,8 +76,6 @@ let array = new Super.Array([1, 2]);
 * [MergeSort](#mergesort)
 * [QuickSort](#quicksort)
 * [SelectionSort](#selectionsort)
-
----
 
 ## Data Structures
 
