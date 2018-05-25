@@ -45,6 +45,35 @@ let array = new Super.Array([1, 2]);
 ...
 ```
 
+## Table of Contents
+
+#### Data Structures
+* [Array](#array)
+* [AVLTree](#avltree)
+* [BinaryTree](#binarytree)
+* [Heap](#heap)
+* [LinkedList](#linkedlist)
+* [Map](#map)
+* [Object](#object)
+* [PriorityQueue](#priorityqueue)
+* [Queue](#queue)
+* [Set](#set)
+* [Trie](#trie)
+
+#### Data Types
+* [Number](#number)
+* [Math](#math)
+* [String](#string)
+
+#### Sorting Algorithms
+* [BubbleSort](#bubblesort)
+* [InsertionSort](#insertionsort)
+* [MergeSort](#mergesort)
+* [QuickSort](#quicksort)
+* [SelectionSort](#selectionsort)
+
+---
+
 ## Data Structures
 
 ### [Array](https://github.com/clarketm/super/tree/master/packages/Array#readme)
@@ -531,9 +560,9 @@ trie.remove("go");
 
 ## Data Types
 
-* [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)
-* [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)
-* [String](https://github.com/clarketm/super/tree/master/packages/String#readme)
+### [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)
+### [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)
+### [String](https://github.com/clarketm/super/tree/master/packages/String#readme)
 
 <br>
 
