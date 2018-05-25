@@ -15,6 +15,8 @@
 
 > _"JavaScript's missing data structures, data types, and algorithms!"_ - Mark Twain
 
+<br>
+
 ## Installation
 
 ### Yarn
@@ -28,6 +30,8 @@ $ yarn add @clarketm/super
 ```bash
 $ npm install @clarketm/super --save
 ```
+
+<br>
 
 ## Usage
 
@@ -45,7 +49,7 @@ let array = new Super.Array([1, 2]);
 ...
 ```
 
----
+<br>
 
 ## Table of Contents
 
@@ -76,6 +80,8 @@ let array = new Super.Array([1, 2]);
 * [MergeSort](#mergesort)
 * [QuickSort](#quicksort)
 * [SelectionSort](#selectionsort)
+
+<br>
 
 ## Data Structures
 
