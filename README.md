@@ -10,7 +10,7 @@
 
 > <sub>implemented in **JavaScript**.</sub>
 
-[![hero](https://github.com/clarketm/super/blob/master/resources/hero.png)](https://github.com/clarketm/super)
+[![hero](https://github.com/clarketm/super/blob/master/resources/super-logo.svg)](https://github.com/clarketm/super)
 
 > _"JavaScript's missing data structures, data types, and algorithms!"_ - Mark Twain
 
