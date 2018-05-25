@@ -48,6 +48,7 @@ let array = new Super.Array([1, 2]);
 ## Table of Contents
 
 #### Data Structures
+
 * [Array](#array)
 * [AVLTree](#avltree)
 * [BinaryTree](#binarytree)
@@ -61,11 +62,13 @@ let array = new Super.Array([1, 2]);
 * [Trie](#trie)
 
 #### Data Types
+
 * [Number](#number)
 * [Math](#math)
 * [String](#string)
 
 #### Sorting Algorithms
+
 * [BubbleSort](#bubblesort)
 * [InsertionSort](#insertionsort)
 * [MergeSort](#mergesort)
@@ -94,7 +97,7 @@ array.flatten(2); // [1, 2, 3]
 array.bubbleSort(); // [0, 1, 2, 3]
 array.insertionSort(); // [0, 1, 2, 3]
 array.mergeSort(); // [0, 1, 2, 3]
-array.quickort(); // [0, 1, 2, 3]
+array.quickSort(); // [0, 1, 2, 3]
 array.selectionSort(); // [0, 1, 2, 3]
 
 // sorting (w/ comparator)
@@ -561,7 +564,9 @@ trie.remove("go");
 ## Data Types
 
 ### [Number](https://github.com/clarketm/super/tree/master/packages/Number#readme)
+
 ### [Math](https://github.com/clarketm/super/tree/master/packages/Math#readme)
+
 ### [String](https://github.com/clarketm/super/tree/master/packages/String#readme)
 
 <br>
