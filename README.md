@@ -1,10 +1,10 @@
 # [Super](https://www.npmjs.com/package/@clarketm/super)
 
-[![GitHub release](https://img.shields.io/github/release/clarketm/super.svg)]()
-[![Build Status](https://circleci.com/gh/clarketm/super.svg?style=shield&circle-token=51853e44a4aff2fef83b0b89407ed15288bd641c)](https://circleci.com/gh/clarketm/super)
-[![Downloads](https://img.shields.io/npm/dt/@clarketm/super.svg)]()
+[![NPM release](https://img.shields.io/npm/v/@clarketm/super.svg)](https://www.npmjs.com/package/@clarketm/super)
+[![Build Status](https://circleci.com/gh/clarketm/super.svg?style=shield)](https://circleci.com/gh/clarketm/super)
+[![Downloads](https://img.shields.io/npm/dt/@clarketm/super.svg)](https://www.npmjs.com/package/@clarketm/super)
 [![Lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
-[![License](https://img.shields.io/npm/l/@clarketm/super.svg)]()
+[![License](https://img.shields.io/npm/l/@clarketm/super.svg)](LICENSE.md)
 
 **Data structures**, **data types**, and **algorithms** with superpowers! 💪😎
 
