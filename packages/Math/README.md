@@ -11,3 +11,12 @@ Factorial
 | Name | Type   | Attribute | Description     |
 | ---- | ------ | --------- | --------------- |
 | num  | number |           | integral number |
+
+## `gcd(numA: number, numB: number): number`
+
+Greatest common divisor
+
+| Name | Type   | Attribute | Description     |
+| ---- | ------ | --------- | --------------- |
+| numA | number |           | integral number |
+| numB | number |           | integral number |
