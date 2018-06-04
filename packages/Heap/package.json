@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superheap",
-  "version": "1.2.18",
+  "version": "1.2.20",
   "description": "Heap with superpowers! 💪",
   "main": "./lib/Heap.js",
   "files": [

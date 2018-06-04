@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superqueue",
-  "version": "1.2.18",
+  "version": "1.2.20",
   "description": "Queue with superpowers! 💪",
   "main": "./lib/Queue.js",
   "files": [
