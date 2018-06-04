@@ -41,4 +41,18 @@ _Math.gcd = function(numA: number, numB: number): number {
   return _Math.gcd(numB, numA % numB);
 };
 
+/**
+ * @public
+ *
+ * @desc Least common multiple
+ *
+ * @param {number} numA - integral number
+ * @param {number} numB - integral number
+ * @returns {number} least common multiple of numA and numB
+ */
+_Math.lcm = function(numA: number, numB: number): number {
+  if (numA === 0 && numB === 0) return 0;
+  return numA * numB / _Math.gcd(numA, numB);
+};
+
 export { _Math as Math };

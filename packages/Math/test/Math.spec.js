@@ -42,15 +42,38 @@ describe("Math", () => {
     });
 
     it("should return 6 for gcd of 12 and 6", () => {
-      expected = 2;
-      actual = Math.gcd(4, 6);
+      expected = 6;
+      actual = Math.gcd(12, 6);
 
       assert.equal(actual, expected);
     });
 
     it("should return 1 for gcd of 7 and 3", () => {
-      expected = 2;
-      actual = Math.gcd(4, 6);
+      expected = 1;
+      actual = Math.gcd(7, 3);
+
+      assert.equal(actual, expected);
+    });
+  });
+
+  describe("#lcm", () => {
+    it("should return 12 for lcm of 4 and 6", () => {
+      expected = 12;
+      actual = Math.lcm(4, 6);
+
+      assert.equal(actual, expected);
+    });
+
+    it("should return 6 for lcm of 12 and 6", () => {
+      expected = 12;
+      actual = Math.lcm(12, 6);
+
+      assert.equal(actual, expected);
+    });
+
+    it("should return 21 for lcm of 7 and 3", () => {
+      expected = 21;
+      actual = Math.lcm(7, 3);
 
       assert.equal(actual, expected);
     });

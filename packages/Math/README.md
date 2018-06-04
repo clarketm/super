@@ -20,3 +20,12 @@ Greatest common divisor
 | ---- | ------ | --------- | --------------- |
 | numA | number |           | integral number |
 | numB | number |           | integral number |
+
+## `lcm(numA: number, numB: number): number`
+
+Least common multiple
+
+| Name | Type   | Attribute | Description     |
+| ---- | ------ | --------- | --------------- |
+| numA | number |           | integral number |
+| numB | number |           | integral number |
