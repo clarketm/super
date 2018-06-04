@@ -723,6 +723,15 @@ Greatest common divisor
 | numA | number |  | integral number |
 | numB | number |  | integral number |
 
+## `lcm(numA: number, numB: number): number`
+
+Least common multiple
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| numA | number |  | integral number |
+| numB | number |  | integral number |
+
 ## `merge(arr: Array<Item>, leftArr: Array<Item>, rightArr: Array<Item>, compare: Comparator): Array<Item>`
 
 Merge helper

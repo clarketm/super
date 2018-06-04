@@ -43,6 +43,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#math-src-lib">Math/src/lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-factorial">factorial</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-gcd">gcd</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-lcm">lcm</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-_Math">_Math</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#mergesort-src-lib">MergeSort/src/lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-merge">merge</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mergeSort">mergeSort</a></span></span></li>
@@ -111,6 +112,20 @@ _Math.factorial = function(num: number): number {
 _Math.gcd = function(numA: number, numB: number): number {
   if (numB === 0) return numA;
   return _Math.gcd(numB, numA % numB);
+};
+
+/**
+ * @public
+ *
+ * @desc Least common multiple
+ *
+ * @param {number} numA - integral number
+ * @param {number} numB - integral number
+ * @returns {number} least common multiple of numA and numB
+ */
+_Math.lcm = function(numA: number, numB: number): number {
+  if (numA === 0 &amp;&amp; numB === 0) return 0;
+  return numA * numB / _Math.gcd(numA, numB);
 };
 
 export { _Math as Math };

@@ -156,6 +156,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@clarketm/super/packages/math/src/lib/math.js~lcm",
+    "function/index.html#static-function-lcm",
+    "<span>lcm</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Math/src/lib/Math.js</span>",
+    "function"
+  ],
+  [
     "@clarketm/super/packages/mergesort/src/lib/mergesort.js~merge",
     "function/index.html#static-function-merge",
     "<span>merge</span> <span class=\"search-result-import-path\">@clarketm/super/packages/MergeSort/src/lib/MergeSort.js</span>",
@@ -451,13 +457,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/treenode.js~treenode#left",
-    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-left",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-set-left",
     "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#left",
     "member"
   ],
   [
     "packages/binarytree/src/lib/treenode.js~treenode#left",
-    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-set-left",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-left",
     "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#left",
     "member"
   ],
@@ -631,25 +637,25 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#next",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
-    "member"
-  ],
-  [
-    "packages/linkedlist/src/lib/listnode.js~listnode#next",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
-    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-prev",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
+    "packages/linkedlist/src/lib/listnode.js~listnode#next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#prev",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-prev",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-prev",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
     "member"
   ],

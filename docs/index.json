@@ -2510,7 +2510,7 @@
     "__docId__": 107,
     "kind": "file",
     "name": "packages/Math/src/lib/Math.js",
-    "content": "/**\n * @flow\n * @module super/math\n */\n\n/**\n *\n * Math with superpowers! 💪\n *\n * @public\n *\n * @alias Math\n */\nexport const _Math = Object.create(Math);\n\n/**\n * @public\n *\n * @desc Factorial\n *\n * @param {number} num - integral number\n * @returns {number} factorial of num\n */\n_Math.factorial = function(num: number): number {\n  if (num < 0) throw new Error(\"Factorial not defined for negative values\");\n  if (num === 0) return 1;\n  return num * _Math.factorial(num - 1);\n};\n\n/**\n * @public\n *\n * @desc Greatest common divisor\n *\n * @param {number} numA - integral number\n * @param {number} numB - integral number\n * @returns {number} greatest common divisor of numA and numB\n */\n_Math.gcd = function(numA: number, numB: number): number {\n  if (numB === 0) return numA;\n  return _Math.gcd(numB, numA % numB);\n};\n\nexport { _Math as Math };\n",
+    "content": "/**\n * @flow\n * @module super/math\n */\n\n/**\n *\n * Math with superpowers! 💪\n *\n * @public\n *\n * @alias Math\n */\nexport const _Math = Object.create(Math);\n\n/**\n * @public\n *\n * @desc Factorial\n *\n * @param {number} num - integral number\n * @returns {number} factorial of num\n */\n_Math.factorial = function(num: number): number {\n  if (num < 0) throw new Error(\"Factorial not defined for negative values\");\n  if (num === 0) return 1;\n  return num * _Math.factorial(num - 1);\n};\n\n/**\n * @public\n *\n * @desc Greatest common divisor\n *\n * @param {number} numA - integral number\n * @param {number} numB - integral number\n * @returns {number} greatest common divisor of numA and numB\n */\n_Math.gcd = function(numA: number, numB: number): number {\n  if (numB === 0) return numA;\n  return _Math.gcd(numB, numA % numB);\n};\n\n/**\n * @public\n *\n * @desc Least common multiple\n *\n * @param {number} numA - integral number\n * @param {number} numB - integral number\n * @returns {number} least common multiple of numA and numB\n */\n_Math.lcm = function(numA: number, numB: number): number {\n  if (numA === 0 && numB === 0) return 0;\n  return numA * numB / _Math.gcd(numA, numB);\n};\n\nexport { _Math as Math };\n",
     "static": true,
     "longname": "/Users/clarketm/js/super/packages/Math/src/lib/Math.js",
     "access": "public",
@@ -2638,6 +2638,58 @@
   },
   {
     "__docId__": 111,
+    "kind": "function",
+    "name": "lcm",
+    "memberof": "packages/Math/src/lib/Math.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "packages/Math/src/lib/Math.js~lcm",
+    "access": "public",
+    "export": false,
+    "importPath": "@clarketm/super/packages/Math/src/lib/Math.js",
+    "importStyle": null,
+    "description": "Least common multiple",
+    "lineNumber": 53,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{number} least common multiple of numA and numB"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "numA",
+        "description": "integral number"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "numB",
+        "description": "integral number"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "least common multiple of numA and numB"
+    }
+  },
+  {
+    "__docId__": 112,
     "kind": "file",
     "name": "packages/MergeSort/src/lib/MergeSort.js",
     "content": "/**\n * @flow\n * @module super/mergesort\n */\n\nimport type { Comparator, Item } from \"../../../shared/src/types\";\nimport { _compareLessThan, _defaultComparator } from \"../../../shared/src/helpers\";\n\n/**\n *\n * MergeSort with superpowers! 💪\n *\n * time:    O(nlogn)\n * space:   O(n)\n *\n * @public\n *\n * @param {Array<Item>} arr - array to sort\n * @param {Comparator} comparator\n * @returns {Array<Item>} sorted array\n */\nfunction mergeSort(arr: Array<Item>, comparator: Comparator = _defaultComparator) {\n  if (!(this instanceof Array) && !(arr instanceof Array)) {\n    throw new Error(\"Array type is required\");\n  }\n\n  let target = this instanceof Array ? this : arr.slice(0);\n  let compare = _compareLessThan(comparator);\n\n  /**\n   *\n   * MergeSort helper\n   *\n   * @private\n   *\n   * @param {Array<Item>} arr - array target\n   * @returns {Array<Item>} merged array\n   */\n  function _mergeSort(arr: Array<Item>) {\n    if (arr.length <= 1) return arr;\n\n    let mid = Math.trunc(arr.length / 2);\n    let leftArr = arr.slice(0, mid);\n    let rightArr = arr.slice(mid);\n\n    _mergeSort(leftArr);\n    _mergeSort(rightArr);\n\n    return merge(arr, leftArr, rightArr, compare);\n  }\n\n  return _mergeSort(target);\n}\n\n/**\n *\n * Merge helper\n *\n * @private\n *\n * @param {Array<Item>} arr - array merge target\n * @param {Array<Item>} leftArr - left array to merge\n * @param {Array<Item>} rightArr - right array to merge\n * @param {Comparator} compare\n * @returns {Array<Item>} merged array\n */\nfunction merge(\n  arr: Array<Item>,\n  leftArr: Array<Item>,\n  rightArr: Array<Item>,\n  compare: Comparator\n): Array<Item> {\n  let i: number = 0;\n  let j: number = 0;\n  let k: number = 0;\n\n  while (i < leftArr.length && j < rightArr.length) {\n    if (compare(leftArr[i], rightArr[j])) {\n      arr[k] = leftArr[i];\n      i++;\n    } else {\n      arr[k] = rightArr[j];\n      j++;\n    }\n    k++;\n  }\n\n  while (i < leftArr.length) {\n    arr[k] = leftArr[i];\n    i++;\n    k++;\n  }\n\n  while (j < rightArr.length) {\n    arr[k] = rightArr[j];\n    j++;\n    k++;\n  }\n\n  return arr;\n}\n\nexport { mergeSort };\n",
@@ -2648,7 +2700,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 112,
+    "__docId__": 113,
     "kind": "function",
     "name": "merge",
     "memberof": "packages/MergeSort/src/lib/MergeSort.js",
@@ -2720,7 +2772,7 @@
     }
   },
   {
-    "__docId__": 113,
+    "__docId__": 114,
     "kind": "function",
     "name": "mergeSort",
     "memberof": "packages/MergeSort/src/lib/MergeSort.js",
@@ -2764,7 +2816,7 @@
     }
   },
   {
-    "__docId__": 114,
+    "__docId__": 115,
     "kind": "file",
     "name": "packages/Number/src/lib/Number.js",
     "content": "/**\n * @flow\n * @module super/number\n */\n\nconst RomanNumeralToIntegerMap = new Map([\n  [\"M\", 1000],\n  [\"CM\", 900],\n  [\"D\", 500],\n  [\"CD\", 400],\n  [\"C\", 100],\n  [\"XC\", 90],\n  [\"L\", 50],\n  [\"XL\", 40],\n  [\"X\", 10],\n  [\"IX\", 9],\n  [\"V\", 5],\n  [\"IV\", 4],\n  [\"I\", 1]\n]);\n\nconst IntegerToRomanNumeralMap = new Map([\n  [1000, \"M\"],\n  [900, \"CM\"],\n  [500, \"D\"],\n  [400, \"CD\"],\n  [100, \"C\"],\n  [90, \"XC\"],\n  [50, \"L\"],\n  [40, \"XL\"],\n  [10, \"X\"],\n  [9, \"IX\"],\n  [5, \"V\"],\n  [4, \"IV\"],\n  [1, \"I\"]\n]);\n\n/**\n *\n * Number with superpowers! 💪\n *\n * @public\n *\n */\nclass _Number extends Number {\n  /**\n   * @public\n   *\n   * @desc Construct a Number\n   *\n   * @param {number} number\n   */\n  constructor(number: number) {\n    super(number);\n  }\n  /**\n   * @public\n   *\n   * @desc Convert a roman numeral to number\n   *\n   * @param {string} str - Roman numeral\n   * @returns {number} Number representation of a roman numeral\n   */\n  static fromRomanNumeral(str: string): number {\n    function _romanToInteger(num: string, result: number = 0) {\n      // TODO: reduce iterations\n      for (let [roman, int] of RomanNumeralToIntegerMap) {\n        if (num.slice(0, roman.length) === roman) {\n          return _romanToInteger(num.slice(roman.length), result + int);\n        }\n      }\n      return result;\n    }\n    return _romanToInteger(str);\n  }\n  /**\n   * @public\n   *\n   * @desc Convert a number to roman numeral\n   *\n   * @returns {string} Roman numeral representation of number\n   */\n  toRomanNumeral(): string {\n    function _integerToRoman(num: number, result: string = \"\") {\n      // TODO: reduce iterations\n      for (let [int, roman] of IntegerToRomanNumeralMap) {\n        if (num >= int) return _integerToRoman(num - int, result + roman);\n      }\n      return result;\n    }\n    // $FlowFixMe\n    return _integerToRoman(this);\n  }\n}\nexport { _Number as Number };\n",
@@ -2775,7 +2827,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 115,
+    "__docId__": 116,
     "kind": "variable",
     "name": "RomanNumeralToIntegerMap",
     "memberof": "packages/Number/src/lib/Number.js",
@@ -2800,7 +2852,7 @@
     }
   },
   {
-    "__docId__": 116,
+    "__docId__": 117,
     "kind": "variable",
     "name": "IntegerToRomanNumeralMap",
     "memberof": "packages/Number/src/lib/Number.js",
@@ -2820,7 +2872,7 @@
     }
   },
   {
-    "__docId__": 117,
+    "__docId__": 118,
     "kind": "class",
     "name": "_Number",
     "memberof": "packages/Number/src/lib/Number.js",
@@ -2838,7 +2890,7 @@
     ]
   },
   {
-    "__docId__": 118,
+    "__docId__": 119,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Number/src/lib/Number.js~_Number",
@@ -2863,7 +2915,7 @@
     ]
   },
   {
-    "__docId__": 119,
+    "__docId__": 120,
     "kind": "method",
     "name": "fromRomanNumeral",
     "memberof": "packages/Number/src/lib/Number.js~_Number",
@@ -2902,7 +2954,7 @@
     }
   },
   {
-    "__docId__": 120,
+    "__docId__": 121,
     "kind": "method",
     "name": "toRomanNumeral",
     "memberof": "packages/Number/src/lib/Number.js~_Number",
@@ -2930,7 +2982,7 @@
     "params": []
   },
   {
-    "__docId__": 121,
+    "__docId__": 122,
     "kind": "file",
     "name": "packages/Object/src/lib/Object.js",
     "content": "/**\n * @flow\n * @module super/object\n */\n\nimport { InstanceType, PrimitiveType } from \"../../../shared/src/constants\";\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n * @typedef {object} Config\n * @property {boolean} [includeNonEnumerable=false]\n */\n\ntype Config = {\n  includeNonEnumerable: ?boolean\n};\n\n/**\n *\n * Object with superpowers! 💪\n *\n * @public\n *\n */\nclass _Object extends Object {\n  /**\n   * @public\n   *\n   * @desc Construct an Object\n   *\n   * @param {Object} object\n   */\n  constructor(object: Object) {\n    // $FlowFixMe\n    super(object);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check for nested value from string key\n   *\n   * @param {string} path\n   * @return {boolean} property value exists\n   */\n  hasNested(path: string): boolean {\n    let item = this;\n    // TODO: throw error on invalid path\n    path = path.replace(/\\[(\\w+)\\]/, \".$1\").replace(/^\\./, \"\");\n\n    const keys = path.split(\".\");\n    for (let key of keys) {\n      if (typeof item === PrimitiveType.OBJECT && key in item) item = item[key];\n      else return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc  Get nested JavaScript object value from string key\n   *\n   * @param {string} path\n   * @return {Item} property value\n   */\n  getNested(path: string): Item {\n    let item = this;\n    // TODO: throw error on invalid path\n    path = path.replace(/\\[(\\w+)\\]/, \".$1\").replace(/^\\./, \"\");\n\n    const keys = path.split(\".\");\n    for (let key of keys) {\n      if (typeof item === PrimitiveType.OBJECT && key in item) item = item[key];\n      else return;\n    }\n    return item;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Deep clone an Object\n   *\n   * @param {Config} [config={}] Configuration object\n   * @returns {object} Deep cloned Object\n   *\n   * @example\n   *\n   * const obj = new SuperObject({ key1: [\"1\", 1, true, (a, b) => a+b], [Symbol(\"key2\")]: {s: \"s\"} });\n   * const clone = obj.clone();\n   *\n   * console.log(clone);\n   * // { key1: [\"1\", 1, true, (a, b) => a+b], Symbol(\"key2\"): {s: \"s\"} }\n   *\n   */\n  // $FlowFixMe\n  clone(config: Config = {}): Object {\n    const { includeNonEnumerable = false } = config;\n\n    /**\n     * @private\n     *\n     * @desc Deep clone helper\n     *\n     * @param {Item} item\n     * @returns {any} cloned item\n     */\n    function _clone(item: Item): Item {\n      if (item === null || typeof item !== PrimitiveType.OBJECT) {\n        return item;\n      }\n\n      if (item instanceof InstanceType.DATE) {\n        return new Date(item.valueOf());\n      }\n\n      if (item instanceof InstanceType.ARRAY) {\n        let copy = [];\n\n        item.forEach((_, i) => (copy[i] = _clone(item[i])));\n\n        return copy;\n      }\n\n      if (item instanceof InstanceType.OBJECT) {\n        let copy = {};\n\n        // $FlowFixMe\n        Object.getOwnPropertySymbols(item).forEach(s => (copy[s] = _clone(item[s])));\n\n        if (includeNonEnumerable) {\n          Object.getOwnPropertyNames(item).forEach(k => (copy[k] = _clone(item[k])));\n        } else {\n          Object.keys(item).forEach(k => (copy[k] = _clone(item[k])));\n        }\n\n        return copy;\n      }\n\n      throw new Error(`Unable to copy object: ${item}`);\n    }\n\n    return _clone(this);\n  }\n}\n\nexport { _Object as Object };\n",
@@ -2941,7 +2993,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 122,
+    "__docId__": 123,
     "kind": "typedef",
     "name": "Config",
     "memberof": "packages/Object/src/lib/Object.js",
@@ -2972,7 +3024,7 @@
     }
   },
   {
-    "__docId__": 123,
+    "__docId__": 124,
     "kind": "class",
     "name": "_Object",
     "memberof": "packages/Object/src/lib/Object.js",
@@ -2990,7 +3042,7 @@
     ]
   },
   {
-    "__docId__": 124,
+    "__docId__": 125,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Object/src/lib/Object.js~_Object",
@@ -3015,7 +3067,7 @@
     ]
   },
   {
-    "__docId__": 125,
+    "__docId__": 126,
     "kind": "method",
     "name": "hasNested",
     "memberof": "packages/Object/src/lib/Object.js~_Object",
@@ -3048,7 +3100,7 @@
     }
   },
   {
-    "__docId__": 126,
+    "__docId__": 127,
     "kind": "method",
     "name": "getNested",
     "memberof": "packages/Object/src/lib/Object.js~_Object",
@@ -3081,7 +3133,7 @@
     }
   },
   {
-    "__docId__": 127,
+    "__docId__": 128,
     "kind": "method",
     "name": "clone",
     "memberof": "packages/Object/src/lib/Object.js~_Object",
@@ -3125,7 +3177,7 @@
     }
   },
   {
-    "__docId__": 128,
+    "__docId__": 129,
     "kind": "file",
     "name": "packages/PriorityQueue/src/lib/PriorityQueue.js",
     "content": "/**\n * @flow\n * @module super/priorityqueue\n */\n\nimport type { Comparator, Item } from \"../../../shared/src/types\";\nimport { PrimitiveType } from \"../../../shared/src/constants\";\nimport { QueueNode } from \"./QueueNode\";\nimport { isIterable } from \"../../../shared/src/helpers\";\n// $FlowFixMe\nimport isPlainObject from \"lodash/isPlainObject\";\n\ntype PriorityQueueItem1 = [Item];\ntype PriorityQueueItem2 = [[number, Item]];\ntype PriorityQueueItem3 = [{ priority: number, value: Item }];\n\ntype PriorityQueueIterable =\n  | Map<number, Item>\n  | PriorityQueueItem1\n  | PriorityQueueItem2\n  | PriorityQueueItem3;\n\n/**\n *\n * PriorityQueue with superpowers! 💪\n *\n * @public\n *\n */\nclass PriorityQueue {\n  /** @private */\n  _queue: Array<Item>;\n\n  /** @private */\n  _comparator: Comparator;\n\n  /**\n   * @public\n   *\n   * @desc Construct a PriorityQueue\n   *\n   * @param {PriorityQueueIterable} iterable\n   * @param {Comparator} comparator\n   */\n  constructor(iterable: PriorityQueueIterable = new Map(), comparator: Comparator) {\n    this._queue = [];\n    this._comparator = comparator\n      ? PriorityQueue._wrapComparator(comparator)\n      : PriorityQueue._defaultComparator;\n\n    if (!(iterable instanceof Map)) {\n      if (isIterable(iterable)) {\n        if (Array.isArray(iterable[0])) {\n          // $FlowFixMe\n          iterable = new Map(iterable);\n        } else if (isPlainObject(iterable[0])) {\n          iterable = new Map(iterable.map(({ value, priority }) => [priority, value]));\n        } else {\n          return iterable.forEach(v => this.insert(v));\n        }\n      } else {\n        throw new Error(\"Unable to construct from non-iterable\");\n      }\n    }\n\n    for (let [priority, value] of iterable.entries()) {\n      this.insert(value, priority);\n    }\n  }\n\n  static _wrapComparator(comparator: Comparator): Comparator {\n    return (a, b) => comparator(a.value, b.value);\n  }\n\n  /**\n   * @private\n   *\n   * @desc Default comparator function to sort from:\n   *       highest priority (max) -> lowest priority (min)\n   *\n   * @returns {number} comparison\n   */\n  static _defaultComparator(a: any, b: any): number | boolean {\n    return a.priority < b.priority;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the current size of the queue\n   *\n   * @returns {number} size of the queue\n   */\n  get size(): number {\n    return this._queue.length;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  get max(): Item {\n    return this._queue[0];\n  }\n\n  /**\n   * @public\n   *\n   * @alias max\n   *\n   * @desc Get the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  get high(): Item {\n    return this.max;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  get min(): Item {\n    return this._queue[this._queue.length - 1];\n  }\n\n  /**\n   * @public\n   *\n   * @alias min\n   *\n   * @desc Get the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  get low(): Item {\n    return this.min;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if queue is empty\n   *\n   * @returns {boolean} is queue empty\n   */\n  isEmpty(): boolean {\n    return this._queue.length === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Clear the items from the queue\n   *\n   * @returns {void}\n   */\n  clear() {\n    this._queue.length = 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Enqueue an item into the queue\n   *\n   * @param {Item} value - item to insert\n   * @param {number} [priority = 0] - priority of item (higher value === higher priority)\n   * @returns {number} size after insert\n   */\n  insert(value: Item, priority: number = 0): number {\n    if (typeof priority !== PrimitiveType.NUMBER) {\n      throw new Error(`Unable to insert non-number priority: ${priority}`);\n    }\n\n    // TODO: use a heap\n    this._queue.push(new QueueNode(value, priority));\n    this._queue.sort(this._comparator);\n\n    return this.size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove and return the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  deleteMax(): Item {\n    return this._queue.shift();\n  }\n\n  /**\n   * @public\n   *\n   * @alias deleteMax\n   *\n   * @desc Remove and return the item with the highest priority\n   *\n   * @returns {Item} highest priority item\n   */\n  deleteHigh(): Item {\n    return this.deleteMax();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove and return the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  deleteMin(): Item {\n    return this._queue.pop();\n  }\n\n  /**\n   * @public\n   *\n   * @alias deleteMin\n   *\n   * @desc Remove and return the item with the lowest priority\n   *\n   * @returns {Item} lowest priority item\n   */\n  deleteLow(): Item {\n    return this.deleteMin();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the queue to an array\n   *\n   * @returns {Array<Item>} array representation of the queue\n   */\n  toArray(): Array<Item> {\n    return this._queue.slice(0);\n  }\n}\n\nexport { PriorityQueue };\n",
@@ -3136,7 +3188,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 129,
+    "__docId__": 130,
     "kind": "class",
     "name": "PriorityQueue",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js",
@@ -3151,7 +3203,7 @@
     "interface": false
   },
   {
-    "__docId__": 130,
+    "__docId__": 131,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3164,7 +3216,7 @@
     "lineNumber": 31
   },
   {
-    "__docId__": 131,
+    "__docId__": 132,
     "kind": "member",
     "name": "_queue",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3181,7 +3233,7 @@
     }
   },
   {
-    "__docId__": 132,
+    "__docId__": 133,
     "kind": "member",
     "name": "_comparator",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3198,7 +3250,7 @@
     }
   },
   {
-    "__docId__": 133,
+    "__docId__": 134,
     "kind": "method",
     "name": "_wrapComparator",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3224,7 +3276,7 @@
     }
   },
   {
-    "__docId__": 134,
+    "__docId__": 135,
     "kind": "method",
     "name": "_defaultComparator",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3265,7 +3317,7 @@
     ]
   },
   {
-    "__docId__": 135,
+    "__docId__": 136,
     "kind": "get",
     "name": "size",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3297,7 +3349,7 @@
     }
   },
   {
-    "__docId__": 136,
+    "__docId__": 137,
     "kind": "get",
     "name": "max",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3329,7 +3381,7 @@
     }
   },
   {
-    "__docId__": 137,
+    "__docId__": 138,
     "kind": "get",
     "name": "high",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3365,7 +3417,7 @@
     }
   },
   {
-    "__docId__": 138,
+    "__docId__": 139,
     "kind": "get",
     "name": "min",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3397,7 +3449,7 @@
     }
   },
   {
-    "__docId__": 139,
+    "__docId__": 140,
     "kind": "get",
     "name": "low",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3433,7 +3485,7 @@
     }
   },
   {
-    "__docId__": 140,
+    "__docId__": 141,
     "kind": "method",
     "name": "isEmpty",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3461,7 +3513,7 @@
     "params": []
   },
   {
-    "__docId__": 141,
+    "__docId__": 142,
     "kind": "method",
     "name": "clear",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3489,7 +3541,7 @@
     "params": []
   },
   {
-    "__docId__": 142,
+    "__docId__": 143,
     "kind": "method",
     "name": "insert",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3540,7 +3592,7 @@
     }
   },
   {
-    "__docId__": 143,
+    "__docId__": 144,
     "kind": "method",
     "name": "deleteMax",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3568,7 +3620,7 @@
     "params": []
   },
   {
-    "__docId__": 144,
+    "__docId__": 145,
     "kind": "method",
     "name": "deleteHigh",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3600,7 +3652,7 @@
     "params": []
   },
   {
-    "__docId__": 145,
+    "__docId__": 146,
     "kind": "method",
     "name": "deleteMin",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3628,7 +3680,7 @@
     "params": []
   },
   {
-    "__docId__": 146,
+    "__docId__": 147,
     "kind": "method",
     "name": "deleteLow",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3660,7 +3712,7 @@
     "params": []
   },
   {
-    "__docId__": 147,
+    "__docId__": 148,
     "kind": "method",
     "name": "toArray",
     "memberof": "packages/PriorityQueue/src/lib/PriorityQueue.js~PriorityQueue",
@@ -3688,7 +3740,7 @@
     "params": []
   },
   {
-    "__docId__": 148,
+    "__docId__": 149,
     "kind": "file",
     "name": "packages/PriorityQueue/src/lib/QueueNode.js",
     "content": "/**\n * @flow\n * @module super/priorityqueue\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * QueueNode\n *\n * @public\n *\n */\nclass QueueNode {\n  /** @private */\n  _value: Item;\n\n  /** @private */\n  _priority: number;\n\n  /**\n   * @public\n   *\n   * @desc Construct a PriorityQueue\n   *\n   * @param {Item} value - item value\n   * @param {number} priority - priority of item\n   */\n  constructor(value: Item, priority: number) {\n    this._value = value;\n    this._priority = priority;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the value of the node\n   *\n   * @returns {Item} node value\n   */\n  get value(): Item {\n    return this._value;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the priority of the node\n   *\n   * @returns {number} priority of item\n   */\n  get priority(): number {\n    return this._priority;\n  }\n}\n\nexport { QueueNode };\n",
@@ -3699,7 +3751,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 149,
+    "__docId__": 150,
     "kind": "class",
     "name": "QueueNode",
     "memberof": "packages/PriorityQueue/src/lib/QueueNode.js",
@@ -3714,7 +3766,7 @@
     "interface": false
   },
   {
-    "__docId__": 150,
+    "__docId__": 151,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
@@ -3727,7 +3779,7 @@
     "lineNumber": 22
   },
   {
-    "__docId__": 151,
+    "__docId__": 152,
     "kind": "member",
     "name": "_value",
     "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
@@ -3744,7 +3796,7 @@
     }
   },
   {
-    "__docId__": 152,
+    "__docId__": 153,
     "kind": "member",
     "name": "_priority",
     "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
@@ -3761,7 +3813,7 @@
     }
   },
   {
-    "__docId__": 153,
+    "__docId__": 154,
     "kind": "get",
     "name": "value",
     "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
@@ -3779,7 +3831,7 @@
     }
   },
   {
-    "__docId__": 154,
+    "__docId__": 155,
     "kind": "get",
     "name": "priority",
     "memberof": "packages/PriorityQueue/src/lib/QueueNode.js~QueueNode",
@@ -3811,7 +3863,7 @@
     }
   },
   {
-    "__docId__": 155,
+    "__docId__": 156,
     "kind": "file",
     "name": "packages/Queue/src/lib/Queue.js",
     "content": "/**\n * @flow\n * @module super/queue\n */\n\nimport type { Item } from \"../../../shared/src/types\";\n\n/**\n *\n * Queue with superpowers! 💪\n *\n * @public\n *\n */\nclass Queue {\n  /** @private */\n  _queue: Array<Item>;\n\n  /**\n   * @public\n   *\n   * @desc Construct a Queue\n   *\n   * @param {Array<Item>} iterable\n   */\n  constructor(iterable: Array<Item> = []) {\n    this._queue = [...iterable];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the current size of the queue\n   *\n   * @returns {number} size of the queue\n   */\n  get size(): number {\n    return this._queue.length;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the front item in the queue\n   *\n   * @returns {Item} front item\n   */\n  get front(): Item {\n    return this._queue[0];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the rear item in the queue\n   *\n   * @returns {Item} rear item\n   */\n  get rear(): Item {\n    return this._queue[this._queue.length - 1];\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if queue is empty\n   *\n   * @returns {boolean} is queue empty\n   */\n  isEmpty(): boolean {\n    return this._queue.length === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Clear the items from the queue\n   *\n   * @returns {void}\n   */\n  clear() {\n    this._queue.length = 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Enqueue an item into the queue\n   *\n   * @param {Item} item - item to enqueue\n   * @returns {number} size after enqueue\n   */\n  enqueue(item: Item): number {\n    return this._queue.push(item);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Dequeue an item from the queue\n   *\n   * @returns {Item} dequeued item\n   */\n  dequeue(): Item {\n    return this._queue.shift();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert the queue to an array\n   *\n   * @returns {Array<Item>} array representation of the queue\n   */\n  toArray(): Array<Item> {\n    return this._queue.slice(0);\n  }\n}\n\nexport { Queue };\n",
@@ -3822,7 +3874,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 156,
+    "__docId__": 157,
     "kind": "class",
     "name": "Queue",
     "memberof": "packages/Queue/src/lib/Queue.js",
@@ -3837,7 +3889,7 @@
     "interface": false
   },
   {
-    "__docId__": 157,
+    "__docId__": 158,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3862,7 +3914,7 @@
     ]
   },
   {
-    "__docId__": 158,
+    "__docId__": 159,
     "kind": "member",
     "name": "_queue",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3879,7 +3931,7 @@
     }
   },
   {
-    "__docId__": 159,
+    "__docId__": 160,
     "kind": "get",
     "name": "size",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3897,7 +3949,7 @@
     }
   },
   {
-    "__docId__": 160,
+    "__docId__": 161,
     "kind": "get",
     "name": "front",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3929,7 +3981,7 @@
     }
   },
   {
-    "__docId__": 161,
+    "__docId__": 162,
     "kind": "get",
     "name": "rear",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3961,7 +4013,7 @@
     }
   },
   {
-    "__docId__": 162,
+    "__docId__": 163,
     "kind": "method",
     "name": "isEmpty",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -3989,7 +4041,7 @@
     "params": []
   },
   {
-    "__docId__": 163,
+    "__docId__": 164,
     "kind": "method",
     "name": "clear",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -4017,7 +4069,7 @@
     "params": []
   },
   {
-    "__docId__": 164,
+    "__docId__": 165,
     "kind": "method",
     "name": "enqueue",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -4056,7 +4108,7 @@
     }
   },
   {
-    "__docId__": 165,
+    "__docId__": 166,
     "kind": "method",
     "name": "dequeue",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -4084,7 +4136,7 @@
     "params": []
   },
   {
-    "__docId__": 166,
+    "__docId__": 167,
     "kind": "method",
     "name": "toArray",
     "memberof": "packages/Queue/src/lib/Queue.js~Queue",
@@ -4112,7 +4164,7 @@
     "params": []
   },
   {
-    "__docId__": 167,
+    "__docId__": 168,
     "kind": "file",
     "name": "packages/QuickSort/src/lib/QuickSort.js",
     "content": "/**\n * @flow\n * @module super/quicksort\n */\n\nimport type { Comparator, Item } from \"../../../shared/src/types\";\nimport { _compareLessThan, _defaultComparator, swap, randInt } from \"../../../shared/src/helpers\";\n\nconst PartitionType = {\n  LOMUTO: \"lomuto\",\n  HOARE: \"hoare\"\n};\n\nconst PivotType = {\n  LOW: \"low\",\n  HIGH: \"high\",\n  MID: \"mid\",\n  RANDOM: \"rand\"\n};\n\ntype Partition = $Values<typeof PartitionType>;\n\ntype Pivot = $Values<typeof PivotType>;\n\n/**\n *\n * QuickSort with superpowers! 💪\n *\n * time:    O(nlogn)\n * space:   O(nlogn)\n *\n * @public\n *\n * @param {Array<Item>} arr - array to sort\n * @param {Comparator} comparator\n * @returns {Array<Item>} sorted array\n */\nfunction quickSort(arr: Array<Item>, comparator: Comparator = _defaultComparator) {\n  if (!(this instanceof Array) && !(arr instanceof Array)) {\n    throw new Error(\"Array type is required\");\n  }\n\n  let target = this instanceof Array ? this : arr.slice(0);\n  let compare = _compareLessThan(comparator);\n\n  // TODO: make customizable?\n  let partitionType: Partition = PartitionType.HOARE;\n  let pivotType: Pivot = PivotType.RANDOM;\n\n  /**\n   *\n   * QuickSort helper\n   *\n   * @private\n   *\n   * @param {Array<Item>} arr - array target\n   * @param {number} low\n   * @param {number} high\n   * @returns {Array<Item>} sorted partition\n   */\n  function _quickSort(\n    arr: Array<Item>,\n    low: number = 0,\n    high: number = arr.length - 1\n  ): Array<Item> {\n    if (low < high) {\n      let pivot;\n\n      switch (partitionType) {\n        case PartitionType.LOMUTO:\n          pivot = partitionLomuto(arr, low, high, pivotType, compare);\n          _quickSort(arr, low, pivot - 1);\n          break;\n        case PartitionType.HOARE:\n        default:\n          pivot = partitionHoare(arr, low, high, pivotType, compare);\n          _quickSort(arr, low, pivot);\n          break;\n      }\n\n      _quickSort(arr, pivot + 1, high);\n    }\n    return arr;\n  }\n\n  return _quickSort(target);\n}\n\n/**\n *\n * Partition (Lomuto)\n *\n * @param {Array<number>} arr\n * @param {number} low\n * @param {number} high\n * @param {PivotType} pivotType\n * @param {Comparator} compare\n * @return {number} pivot\n */\n\nfunction partitionLomuto(\n  arr: Array<Item>,\n  low: number,\n  high: number,\n  pivotType: Pivot,\n  compare: Comparator\n): Item {\n  function _partitionLomutoLow(arr: Array<Item>, low: number, high: number): Item {\n    let pivot = low;\n    let i = low + 1;\n\n    for (let j = low + 1; j <= high; j++) {\n      if (compare(arr[j], arr[pivot])) {\n        swap(arr, i, j);\n        i++;\n      }\n    }\n    swap(arr, i - 1, low);\n    return i - 1;\n  }\n  function _partitionLomutoHigh(arr: Array<Item>, low: number, high: number): Item {\n    let pivot = high;\n    let i = low - 1;\n\n    for (let j = low; j < high; j++) {\n      if (compare(arr[j], arr[pivot])) {\n        i++;\n        swap(arr, i, j);\n      }\n    }\n    swap(arr, i + 1, high);\n    return i + 1;\n  }\n\n  switch (pivotType) {\n    case PivotType.LOW:\n      return _partitionLomutoLow(arr, low, high);\n\n    case PivotType.HIGH:\n    default:\n      return _partitionLomutoHigh(arr, low, high);\n  }\n}\n\n/**\n *\n * Partition (Hoare)\n * it is more efficient than the Lomuto partition scheme\n * because it does three times fewer swaps on average\n *\n * @param {Array<number>} arr\n * @param {number} low\n * @param {number} high\n * @param {string} pivotType\n * @param {Comparator} compare\n * @return {number} pivot\n */\nfunction partitionHoare(\n  arr: Array<Item>,\n  low: number,\n  high: number,\n  pivotType: Pivot,\n  compare: Comparator\n): Item {\n  let pivot;\n\n  switch (pivotType) {\n    case PivotType.LOW:\n      pivot = low;\n      break;\n\n    case PivotType.RANDOM:\n      let random = randInt(low, high);\n      swap(arr, random, low);\n      pivot = low;\n      break;\n\n    case PivotType.MID:\n    default:\n      pivot = Math.trunc((low + high) / 2);\n      break;\n  }\n\n  let i = low - 1;\n  let j = high + 1;\n\n  while (true) {\n    do {\n      i++;\n    } while (compare(arr[i], arr[pivot]));\n    do {\n      j--;\n    } while (compare(arr[pivot], arr[j]));\n    if (i >= j) {\n      return j;\n    }\n    swap(arr, i, j);\n  }\n}\n\nexport { quickSort };\n",
@@ -4123,7 +4175,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 168,
+    "__docId__": 169,
     "kind": "variable",
     "name": "PartitionType",
     "memberof": "packages/QuickSort/src/lib/QuickSort.js",
@@ -4148,7 +4200,7 @@
     }
   },
   {
-    "__docId__": 169,
+    "__docId__": 170,
     "kind": "variable",
     "name": "PivotType",
     "memberof": "packages/QuickSort/src/lib/QuickSort.js",
@@ -4168,7 +4220,7 @@
     }
   },
   {
-    "__docId__": 170,
+    "__docId__": 171,
     "kind": "function",
     "name": "partitionLomuto",
     "memberof": "packages/QuickSort/src/lib/QuickSort.js",
@@ -4244,7 +4296,7 @@
     }
   },
   {
-    "__docId__": 171,
+    "__docId__": 172,
     "kind": "function",
     "name": "partitionHoare",
     "memberof": "packages/QuickSort/src/lib/QuickSort.js",
@@ -4320,7 +4372,7 @@
     }
   },
   {
-    "__docId__": 172,
+    "__docId__": 173,
     "kind": "function",
     "name": "quickSort",
     "memberof": "packages/QuickSort/src/lib/QuickSort.js",
@@ -4372,7 +4424,7 @@
     }
   },
   {
-    "__docId__": 173,
+    "__docId__": 174,
     "kind": "file",
     "name": "packages/SelectionSort/src/lib/SelectionSort.js",
     "content": "/**\n * @flow\n * @module super/selectionsort\n */\n\nimport type { Comparator, Item } from \"../../../shared/src/types\";\nimport { _compareLessThan, _defaultComparator, swap } from \"../../../shared/src/helpers\";\n\n/**\n *\n * SelectionSort with superpowers! 💪\n *\n * time:    O(n^2)\n * space:   O(1)\n *\n * @public\n *\n * @param {Array<Item>} arr - array to sort\n * @param {Comparator} comparator\n * @returns {Array<Item>} sorted array\n */\nfunction selectionSort(arr: Array<Item>, comparator: Comparator = _defaultComparator) {\n  if (!(this instanceof Array) && !(arr instanceof Array)) {\n    throw new Error(\"Array type is required\");\n  }\n\n  let target = this instanceof Array ? this : arr.slice(0);\n  let compare = _compareLessThan(comparator);\n\n  /**\n   *\n   * SelectionSort helper\n   *\n   * @private\n   *\n   * @param {Array<Item>} arr - array target\n   * @returns {Array<Item>} sorted array\n   */\n  function _selectionSort(arr: Array<Item>): Array<Item> {\n    for (let i = 0; i < arr.length - 1; i++) {\n      let min = i;\n\n      for (let j = i + 1; j < arr.length; j++) {\n        if (compare(arr[j], arr[min])) {\n          min = j;\n        }\n      }\n      swap(arr, i, min);\n    }\n\n    return arr;\n  }\n\n  return _selectionSort(target);\n}\n\nexport { selectionSort };\n",
@@ -4383,7 +4435,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 174,
+    "__docId__": 175,
     "kind": "function",
     "name": "selectionSort",
     "memberof": "packages/SelectionSort/src/lib/SelectionSort.js",
@@ -4427,7 +4479,7 @@
     }
   },
   {
-    "__docId__": 175,
+    "__docId__": 176,
     "kind": "file",
     "name": "packages/Set/src/lib/Set.js",
     "content": "/**\n * @flow\n * @module super/set\n */\n\n/**\n * @typedef {Function} Callback\n */\nimport type { Item } from \"../../../shared/src/types\";\n\ntype Callback = (value1: any, value2: any, set: Set<Item>) => boolean;\n\n/**\n *\n * Set with superpowers! 💪\n *\n * @public\n *\n */\nclass _Set extends Set<Item> {\n  /**\n   * @public\n   *\n   * @desc Construct a Set\n   *\n   * @param {Array<Item>} iterable\n   */\n  constructor(iterable: Array<Item>) {\n    super(iterable);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Tests whether at least one element in the set passes the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for any set element; otherwise, false\n   */\n  some(callback: (value1: any, value2: any, set: Set<Item>) => boolean): boolean {\n    let result;\n\n    for (let [value1, value2] of this.entries()) {\n      result = callback(value1, value2, this);\n      if (result) return true;\n    }\n\n    return false;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Test whether all elements in the set pass the test implemented by the provided function\n   *\n   * @param {Callback} callback - callback function\n   * @returns {boolean} true if the callback function returns a truthy value for every set element; otherwise, false\n   */\n  every(callback: (value1: any, value2: any, set: Set<Item>) => boolean): boolean {\n    let result;\n\n    for (let [value1, value2] of this.entries()) {\n      result = callback(value1, value2, this);\n      if (!result) return false;\n    }\n\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Subset of a set\n   *\n   * @param {Set<Item>} setB - SetB\n   * @returns {boolean} setA is subset of setB\n   */\n  isSubset(setB: Set<Item>): boolean {\n    let setA = this;\n\n    for (let v of setA) {\n      if (!setB.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Superset of a set\n   *\n   * @param {Set<Item>} setB - SetB\n   * @returns {boolean} setA is superset of setB\n   */\n  isSuperset(setB: Set<Item>): boolean {\n    let setA = this;\n\n    for (let v of setB) {\n      if (!setA.has(v)) return false;\n    }\n    return true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Union of setA and setB\n   *\n   * @param {Set} setB - SetB\n   * @returns {Set} setC - union between setA and setB\n   */\n  union(setB: Set<Item>): Set<Item> {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Intersection of setA and setB\n   *\n   * @param {Set<Item>} setB - SetB\n   * @returns {Set<Item>} setC - intersection between setA and setB\n   */\n  intersection(setB: Set<Item>): Set<Item> {\n    let setA = this;\n    let setC = new Set();\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.add(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Difference of setA and setB\n   *\n   * @param {Set<Item>} setB - SetB\n   * @returns {Set<Item>} setC - difference between setA and setB\n   */\n  difference(setB: Set<Item>): Set<Item> {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      setC.delete(v);\n    }\n\n    return setC;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Symmetric difference of setA and setB\n   *\n   * @param {Set<Item>} setB - SetB\n   * @returns {Set<Item>} setC - difference difference between setA and setB\n   */\n  symmetricDifference(setB: Set<Item>): Set<Item> {\n    let setA = this;\n    let setC = new Set(setA);\n\n    for (let v of setB) {\n      if (setA.has(v)) setC.delete(v);\n      else setC.add(v);\n    }\n\n    return setC;\n  }\n}\n\nexport { _Set as Set };\n",
@@ -4438,7 +4490,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 176,
+    "__docId__": 177,
     "kind": "typedef",
     "name": "Callback",
     "memberof": "packages/Set/src/lib/Set.js",
@@ -4456,7 +4508,7 @@
     }
   },
   {
-    "__docId__": 177,
+    "__docId__": 178,
     "kind": "file",
     "name": "packages/String/src/lib/String.js",
     "content": "/**\n * @flow\n * @module super/string\n */\n\n/**\n *\n * String with superpowers! 💪\n *\n * @public\n *\n */\nclass _String extends String {\n  /**\n   * @public\n   *\n   * @desc Construct a String\n   *\n   * @param {string} string\n   */\n  constructor(string: string) {\n    super(string);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Transposes the ordering of all characters in the string\n   *\n   * @returns {string} String reversed\n   */\n  reverse(): string {\n    return this.split(\"\")\n      .filter(s => s)\n      .reverse()\n      .join(\"\");\n  }\n\n  /**\n   * @public\n   *\n   * @desc Transposes the ordering of the words in the string\n   *\n   * @returns {string} String with words reversed\n   */\n  reverseWords(): string {\n    return this.split(\" \")\n      .filter(s => s)\n      .reverse()\n      .join(\" \");\n  }\n\n  /**\n   * @public\n   *\n   * @desc Convert a string to title case\n   *\n   * @returns {string} Title cased string representation\n   */\n  toTitleCase(): string {\n    return this.split(\" \")\n      .map(v => v && v.charAt(0).toUpperCase() + v.substr(1).toLowerCase())\n      .join(\" \");\n  }\n}\n\nexport { _String as String };\n",
@@ -4467,7 +4519,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 178,
+    "__docId__": 179,
     "kind": "class",
     "name": "_String",
     "memberof": "packages/String/src/lib/String.js",
@@ -4485,7 +4537,7 @@
     ]
   },
   {
-    "__docId__": 179,
+    "__docId__": 180,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -4510,7 +4562,7 @@
     ]
   },
   {
-    "__docId__": 180,
+    "__docId__": 181,
     "kind": "method",
     "name": "reverse",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -4538,7 +4590,7 @@
     "params": []
   },
   {
-    "__docId__": 181,
+    "__docId__": 182,
     "kind": "method",
     "name": "reverseWords",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -4566,7 +4618,7 @@
     "params": []
   },
   {
-    "__docId__": 182,
+    "__docId__": 183,
     "kind": "method",
     "name": "toTitleCase",
     "memberof": "packages/String/src/lib/String.js~_String",
@@ -4594,7 +4646,7 @@
     "params": []
   },
   {
-    "__docId__": 183,
+    "__docId__": 184,
     "kind": "file",
     "name": "packages/Trie/src/lib/Trie.js",
     "content": "/**\n * @flow\n * @module super/trie\n */\n\nimport { TrieNode } from \"./TrieNode\";\nimport { PrimitiveType } from \"../../../shared/src/constants\";\nimport type { character } from \"../../../shared/src/types\";\n\ntype Match = {\n  query: string,\n  matchedChars: number,\n  isMatch: boolean,\n  isCompleteWord: boolean,\n  node: ?TrieNode\n};\n\n/**\n *\n * Trie with superpowers! 💪\n *\n * @public\n *\n */\nclass Trie {\n  /** @private */\n  _root: TrieNode;\n\n  /**\n   * @public\n   *\n   * @desc Construct a Trie\n   *\n   * @param {Array<string>} iterable\n   */\n  constructor(iterable: Array<string> = []) {\n    this._root = new TrieNode();\n\n    for (let word of iterable) {\n      this.insert(word);\n    }\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get the root of the trie\n   *\n   * @returns {TrieNode} root node\n   */\n  get root(): TrieNode {\n    return this._root;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Insert a string into the trie\n   *\n   * @param {string} word - string to insert\n   */\n  insert(word: string) {\n    if (typeof word !== PrimitiveType.STRING) {\n      throw new Error(`Unable to insert non-string value: ${word}`);\n    }\n\n    let curr: TrieNode = this.root;\n\n    for (const char: character of word) {\n      if (curr.has(char)) {\n        // $FlowFixMe\n        curr = curr.get(char);\n      } else {\n        let node = new TrieNode(char);\n        curr.set(char, node);\n        curr = node;\n      }\n    }\n\n    curr._isCompleteWord = true;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Remove a string from the trie\n   *\n   * @param {string} word - string to remove\n   */\n  remove(word: string) {\n    if (typeof word !== PrimitiveType.STRING) {\n      throw new Error(`Unable to remove non-string value: ${word}`);\n    }\n\n    /**\n     * @public\n     *\n     * @desc Remove helper\n     *\n     * @param {TrieNode} curr - trie node\n     * @param {number} level - level in trie (0 -> height)\n     * @return {boolean} true if node is a leaf node and should be deleted; otherwise false\n     */\n    // $FlowFixMe\n    function _remove(curr: ?TrieNode, level: number = 0): boolean {\n      if (!curr) return false;\n\n      if (level === word.length) {\n        curr._isCompleteWord = false;\n        return curr.isLeafNode;\n      }\n\n      let char = word[level];\n\n      if (_remove(curr.get(char), level + 1)) {\n        curr.delete(char);\n        return curr.isLeafNode;\n      }\n    }\n\n    return _remove(this.root);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Search for a node in the trie matching the query\n   *\n   * @param {string} query - string query to search for\n   * @returns {Match} match object\n   */\n  search(query: string): Match {\n    let node = this.root;\n    let index = 0;\n\n    while (index < query.length) {\n      node = node.get(query[index]);\n      if (!node) break;\n      index++;\n    }\n\n    return {\n      query,\n      matchedChars: index,\n      isMatch: query.length === index,\n      // $FlowFixMe\n      isCompleteWord: query.length === index && node.isCompleteWord,\n      node\n    };\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if the trie includes a word\n   *\n   * @param {string} word - full word to search for\n   * @returns {boolean} contains the word\n   */\n  includes(word: string): boolean {\n    let { isCompleteWord } = this.search(word);\n    return isCompleteWord;\n  }\n\n  /**\n   * @public\n   *\n   * @alias includes(word)\n   *\n   * @desc Check if the trie contains a word\n   *\n   * @param {string} word - full word to search for\n   * @returns {boolean} contains the word\n   */\n  contains(word: string): boolean {\n    return this.includes(word);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if the trie contains a prefix\n   *\n   * @param {string} prefix - prefix (i.e. partial word) to search for\n   * @returns {boolean} contains the prefix\n   */\n  startsWith(prefix: string): boolean {\n    let { isMatch } = this.search(prefix);\n    return isMatch;\n  }\n}\n\nexport { Trie };\n",
@@ -4605,7 +4657,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 184,
+    "__docId__": 185,
     "kind": "class",
     "name": "Trie",
     "memberof": "packages/Trie/src/lib/Trie.js",
@@ -4620,7 +4672,7 @@
     "interface": false
   },
   {
-    "__docId__": 185,
+    "__docId__": 186,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4645,7 +4697,7 @@
     ]
   },
   {
-    "__docId__": 186,
+    "__docId__": 187,
     "kind": "member",
     "name": "_root",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4662,7 +4714,7 @@
     }
   },
   {
-    "__docId__": 187,
+    "__docId__": 188,
     "kind": "get",
     "name": "root",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4680,7 +4732,7 @@
     }
   },
   {
-    "__docId__": 188,
+    "__docId__": 189,
     "kind": "method",
     "name": "insert",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4706,7 +4758,7 @@
     "return": null
   },
   {
-    "__docId__": 189,
+    "__docId__": 190,
     "kind": "method",
     "name": "remove",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4736,7 +4788,7 @@
     }
   },
   {
-    "__docId__": 190,
+    "__docId__": 191,
     "kind": "method",
     "name": "search",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4775,7 +4827,7 @@
     }
   },
   {
-    "__docId__": 191,
+    "__docId__": 192,
     "kind": "method",
     "name": "includes",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4814,7 +4866,7 @@
     }
   },
   {
-    "__docId__": 192,
+    "__docId__": 193,
     "kind": "method",
     "name": "contains",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4857,7 +4909,7 @@
     }
   },
   {
-    "__docId__": 193,
+    "__docId__": 194,
     "kind": "method",
     "name": "startsWith",
     "memberof": "packages/Trie/src/lib/Trie.js~Trie",
@@ -4896,7 +4948,7 @@
     }
   },
   {
-    "__docId__": 194,
+    "__docId__": 195,
     "kind": "file",
     "name": "packages/Trie/src/lib/TrieNode.js",
     "content": "/**\n * @flow\n * @module super/trie\n */\n\nimport type { character } from \"../../../shared/src/types\";\n\nconst SpecialChar = {\n  ROOT: \"√\"\n};\n\n/**\n *\n * TrieNode\n *\n * @public\n *\n */\nclass TrieNode {\n  /** @private */\n  _char: character;\n\n  /** @private */\n  _isCompleteWord: boolean;\n\n  /** @private */\n  _children: Map<character, TrieNode>;\n\n  /**\n   * @public\n   *\n   * @desc Construct a TrieNode\n   *\n   * @param {character} char - node character value\n   */\n  constructor(char: character = SpecialChar.ROOT) {\n    this._char = char;\n    this._isCompleteWord = false;\n    this._children = new Map();\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get children count of the node\n   *\n   * @returns {number} child count\n   */\n  // INFO: count or size?\n  get count(): number {\n    return this._children.size;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get character value of node\n   *\n   * @returns {character} character\n   */\n  // INFO: char or value?\n  get char(): character {\n    return this._char;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Checks if node is a complete word\n   *\n   * @returns {boolean} is complete word\n   */\n  get isCompleteWord(): boolean {\n    return this._isCompleteWord;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Checks if node is a leaf node\n   *\n   * @returns {boolean} is leaf node\n   */\n  get isLeafNode(): boolean {\n    return this.count === 0;\n  }\n\n  /**\n   * @public\n   *\n   * @desc Check if node has a specific character as a child\n   *\n   * @param {character} char - character to check\n   * @returns {boolean} node has child\n   */\n  has(char: character): boolean {\n    return this._children.has(char);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Get child node with specific character value\n   *\n   * @param {character} char - character to get\n   * @returns {TrieNode} node with character value\n   */\n  get(char: character): ?TrieNode {\n    return this._children.get(char);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Set child node with specific character value\n   *\n   * @param {character} char - character to set\n   * @param {TrieNode} node - node to assign to character\n   */\n  set(char: character, node: TrieNode) {\n    this._children.set(char, node);\n  }\n\n  /**\n   * @public\n   *\n   * @desc Delete child node with specific character value\n   *\n   * @param {character} char - character to delete\n   */\n  delete(char: character) {\n    this._children.delete(char);\n  }\n}\n\nexport { TrieNode };\n",
@@ -4907,7 +4959,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 195,
+    "__docId__": 196,
     "kind": "variable",
     "name": "SpecialChar",
     "memberof": "packages/Trie/src/lib/TrieNode.js",
@@ -4927,7 +4979,7 @@
     }
   },
   {
-    "__docId__": 196,
+    "__docId__": 197,
     "kind": "class",
     "name": "TrieNode",
     "memberof": "packages/Trie/src/lib/TrieNode.js",
@@ -4948,7 +5000,7 @@
     "interface": false
   },
   {
-    "__docId__": 197,
+    "__docId__": 198,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4961,7 +5013,7 @@
     "lineNumber": 31
   },
   {
-    "__docId__": 198,
+    "__docId__": 199,
     "kind": "member",
     "name": "_char",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4978,7 +5030,7 @@
     }
   },
   {
-    "__docId__": 199,
+    "__docId__": 200,
     "kind": "member",
     "name": "_isCompleteWord",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -4995,7 +5047,7 @@
     }
   },
   {
-    "__docId__": 200,
+    "__docId__": 201,
     "kind": "member",
     "name": "_children",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -5012,7 +5064,7 @@
     }
   },
   {
-    "__docId__": 201,
+    "__docId__": 202,
     "kind": "get",
     "name": "count",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -5030,7 +5082,7 @@
     }
   },
   {
-    "__docId__": 202,
+    "__docId__": 203,
     "kind": "get",
     "name": "char",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -5062,7 +5114,7 @@
     }
   },
   {
-    "__docId__": 203,
+    "__docId__": 204,
     "kind": "get",
     "name": "isCompleteWord",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -5094,7 +5146,7 @@
     }
   },
   {
-    "__docId__": 204,
+    "__docId__": 205,
     "kind": "get",
     "name": "isLeafNode",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -5126,7 +5178,7 @@
     }
   },
   {
-    "__docId__": 205,
+    "__docId__": 206,
     "kind": "method",
     "name": "has",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -5165,7 +5217,7 @@
     }
   },
   {
-    "__docId__": 206,
+    "__docId__": 207,
     "kind": "method",
     "name": "get",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -5204,7 +5256,7 @@
     }
   },
   {
-    "__docId__": 207,
+    "__docId__": 208,
     "kind": "method",
     "name": "set",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",
@@ -5240,7 +5292,7 @@
     "return": null
   },
   {
-    "__docId__": 208,
+    "__docId__": 209,
     "kind": "method",
     "name": "delete",
     "memberof": "packages/Trie/src/lib/TrieNode.js~TrieNode",

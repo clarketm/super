@@ -2683,6 +2683,20 @@
     return _Math.gcd(numB, numA % numB);
   };
 
+  /**
+   * @public
+   *
+   * @desc Least common multiple
+   *
+   * @param {number} numA - integral number
+   * @param {number} numB - integral number
+   * @returns {number} least common multiple of numA and numB
+   */
+  _Math.lcm = function (numA, numB) {
+    if (numA === 0 && numB === 0) return 0;
+    return numA * numB / _Math.gcd(numA, numB);
+  };
+
   function _extendableBuiltin$2(cls) {
     function ExtendableBuiltin() {
       var instance = Reflect.construct(cls, Array.from(arguments));
