@@ -42,6 +42,7 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#map-src-lib">Map/src/lib</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/packages/Map/src/lib/Map.js~_Map.html">_Map</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Callback">Callback</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#math-src-lib">Math/src/lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-factorial">factorial</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-gcd">gcd</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-_Math">_Math</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#mergesort-src-lib">MergeSort/src/lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-merge">merge</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-mergeSort">mergeSort</a></span></span></li>
@@ -68,23 +69,26 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="-a-href--https---www-npmjs-com-package--clarketm-super--super--a-"><a href="https://www.npmjs.com/package/@clarketm/super">Super</a></h1><p><a href=""><img src="https://img.shields.io/github/release/clarketm/super.svg" alt="GitHub release"></a>
-<img src="https://circleci.com/gh/clarketm/super.svg?style=shield&amp;circle-token=51853e44a4aff2fef83b0b89407ed15288bd641c" alt="Build Status">
-<a href=""><img src="https://img.shields.io/npm/dt/@clarketm/super.svg" alt="Downloads"></a>
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="-a-href--https---www-npmjs-com-package--clarketm-super--super--a-"><a href="https://www.npmjs.com/package/@clarketm/super">Super</a></h1><p><a href="https://www.npmjs.com/package/@clarketm/super"><img src="https://img.shields.io/npm/v/@clarketm/super.svg" alt="NPM release"></a>
+<a href="https://circleci.com/gh/clarketm/super"><img src="https://circleci.com/gh/clarketm/super.svg?style=shield" alt="Build Status"></a>
+<a href="https://www.npmjs.com/package/@clarketm/super"><img src="https://img.shields.io/npm/dt/@clarketm/super.svg" alt="Downloads"></a>
 <a href="https://lernajs.io/"><img src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" alt="Lerna"></a>
-<a href=""><img src="https://img.shields.io/npm/l/@clarketm/super.svg" alt="License"></a></p>
+<a href="LICENSE.md"><img src="https://img.shields.io/npm/l/@clarketm/super.svg" alt="License"></a></p>
 <p><strong>Data structures</strong>, <strong>data types</strong>, and <strong>algorithms</strong> with superpowers! &#x1F4AA;&#x1F60E;</p>
 <blockquote>
 <p>&lt;sub&gt;implemented in <strong>JavaScript</strong>.&lt;/sub&gt;</p>
 </blockquote>
-<p><a href="https://github.com/clarketm/super"><img src="https://github.com/clarketm/super/blob/master/resources/hero.png" alt="hero"></a></p>
+<p><a href="https://github.com/clarketm/super"><p><img src="https://github.com/clarketm/super/blob/master/resources/super-logo.svg"></p></a>
+<br></p>
 <blockquote>
 <p><em>&quot;JavaScript&apos;s missing data structures, data types, and algorithms!&quot;</em> - Mark Twain</p>
 </blockquote>
+<p><br></p>
 <h2 id="installation">Installation</h2><h3 id="yarn">Yarn</h3><pre><code class="lang-bash"><code class="source-code prettyprint">$ yarn add @clarketm/super</code>
 </code></pre>
 <h3 id="npm">Npm</h3><pre><code class="lang-bash"><code class="source-code prettyprint">$ npm install @clarketm/super --save</code>
 </code></pre>
+<p><br></p>
 <h2 id="usage">Usage</h2><pre><code class="lang-js"><code class="source-code prettyprint">// 1. import `each` module `independently`
 import { Array, Map, Queue, Trie, ... } from &quot;@clarketm/super&quot;;
 
@@ -97,6 +101,33 @@ import Super from &quot;@clarketm/super&quot;;
 let array = new Super.Array([1, 2]);
 ...</code>
 </code></pre>
+<p><br></p>
+<h2 id="table-of-contents">Table of Contents</h2><h4 id="data-structures">Data Structures</h4><ul>
+<li><a href="#array">Array</a></li>
+<li><a href="#avltree">AVLTree</a></li>
+<li><a href="#binarytree">BinaryTree</a></li>
+<li><a href="#heap">Heap</a></li>
+<li><a href="#linkedlist">LinkedList</a></li>
+<li><a href="#map">Map</a></li>
+<li><a href="#object">Object</a></li>
+<li><a href="#priorityqueue">PriorityQueue</a></li>
+<li><a href="#queue">Queue</a></li>
+<li><a href="#set">Set</a></li>
+<li><a href="#trie">Trie</a></li>
+</ul>
+<h4 id="data-types">Data Types</h4><ul>
+<li><a href="#number">Number</a></li>
+<li><a href="#math">Math</a></li>
+<li><a href="#string">String</a></li>
+</ul>
+<h4 id="sorting-algorithms">Sorting Algorithms</h4><ul>
+<li><a href="#bubblesort">BubbleSort</a></li>
+<li><a href="#insertionsort">InsertionSort</a></li>
+<li><a href="#mergesort">MergeSort</a></li>
+<li><a href="#quicksort">QuickSort</a></li>
+<li><a href="#selectionsort">SelectionSort</a></li>
+</ul>
+<p><br></p>
 <h2 id="data-structures">Data Structures</h2><h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-array-readme--array--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Array#readme">Array</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Array } from &quot;@clarketm/super&quot;;
 
 let array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]
@@ -112,7 +143,7 @@ array.flatten(2); // [1, 2, 3]
 array.bubbleSort(); // [0, 1, 2, 3]
 array.insertionSort(); // [0, 1, 2, 3]
 array.mergeSort(); // [0, 1, 2, 3]
-array.quickort(); // [0, 1, 2, 3]
+array.quickSort(); // [0, 1, 2, 3]
 array.selectionSort(); // [0, 1, 2, 3]
 
 // sorting (w/ comparator)
@@ -524,12 +555,7 @@ trie.remove(&quot;go&quot;);
 //</code>
 </code></pre>
 <p><br></p>
-<h2 id="data-types">Data Types</h2><ul>
-<li><a href="https://github.com/clarketm/super/tree/master/packages/Number#readme">Number</a></li>
-<li><a href="https://github.com/clarketm/super/tree/master/packages/Math#readme">Math</a></li>
-<li><a href="https://github.com/clarketm/super/tree/master/packages/String#readme">String</a></li>
-</ul>
-<p><br></p>
+<h2 id="data-types">Data Types</h2><h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-number-readme--number--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Number#readme">Number</a></h3><h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-math-readme--math--a-"><a href="https://github.com/clarketm/super/tree/master/packages/Math#readme">Math</a></h3><h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-string-readme--string--a-"><a href="https://github.com/clarketm/super/tree/master/packages/String#readme">String</a></h3><p><br></p>
 <h2 id="sorting-algorithms">Sorting Algorithms</h2><h3 id="-a-href--https---github-com-clarketm-super-tree-master-packages-bubblesort-readme--bubblesort--a-"><a href="https://github.com/clarketm/super/tree/master/packages/BubbleSort#readme">BubbleSort</a></h3><pre><code class="lang-js"><code class="source-code prettyprint">import { bubbleSort } from &quot;@clarketm/super&quot;;
 
 // General usage
@@ -620,9 +646,7 @@ let sortedArray = selectionSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;]
 // descending (string length)
 let sortedArray = selectionSort([&quot;111&quot;, &quot;1&quot;, &quot;11&quot;], (a, b) =&gt; b.length - a.length); // [&quot;111&quot;, &quot;11&quot;, &quot;1&quot;]</code>
 </code></pre>
-<h2 id="credits">Credits</h2><ul>
-<li>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></li>
-</ul>
+<h2 id="license">License</h2><p>MIT &#xA9; <a href="https://blog.travismclarke.com/"><strong>Travis Clarke</strong></a></p>
 </div>
 </div>
 

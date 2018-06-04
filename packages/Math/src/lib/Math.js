@@ -27,4 +27,18 @@ _Math.factorial = function(num: number): number {
   return num * _Math.factorial(num - 1);
 };
 
+/**
+ * @public
+ *
+ * @desc Greatest common divisor
+ *
+ * @param {number} numA - integral number
+ * @param {number} numB - integral number
+ * @returns {number} greatest common divisor of numA and numB
+ */
+_Math.gcd = function(numA: number, numB: number): number {
+  if (numB === 0) return numA;
+  return _Math.gcd(numB, numA % numB);
+};
+
 export { _Math as Math };

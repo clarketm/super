@@ -714,6 +714,15 @@ Factorial
 | --- | --- | --- | --- |
 | num | number |  | integral number |
 
+## `gcd(numA: number, numB: number): number`
+
+Greatest common divisor
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| numA | number |  | integral number |
+| numB | number |  | integral number |
+
 ## `merge(arr: Array<Item>, leftArr: Array<Item>, rightArr: Array<Item>, compare: Comparator): Array<Item>`
 
 Merge helper

@@ -144,6 +144,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@clarketm/super/packages/math/src/lib/math.js~gcd",
+    "function/index.html#static-function-gcd",
+    "<span>gcd</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Math/src/lib/Math.js</span>",
+    "function"
+  ],
+  [
     "@clarketm/super/packages/insertionsort/src/lib/insertionsort.js~insertionsort",
     "function/index.html#static-function-insertionSort",
     "<span>insertionSort</span> <span class=\"search-result-import-path\">@clarketm/super/packages/InsertionSort/src/lib/InsertionSort.js</span>",
@@ -625,20 +631,14 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#next",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
-    "member"
-  ],
-  [
-    "packages/linkedlist/src/lib/listnode.js~listnode#next",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
-    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-prev",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
+    "packages/linkedlist/src/lib/listnode.js~listnode#next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
@@ -648,14 +648,20 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "packages/linkedlist/src/lib/listnode.js~listnode#value",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
+    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-prev",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#value",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "member"
   ],

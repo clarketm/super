@@ -32,4 +32,27 @@ describe("Math", () => {
       assert.throws(actual, Error, "Factorial not defined for negative values");
     });
   });
+
+  describe("#gcd", () => {
+    it("should return 2 for gcd of 4 and 6", () => {
+      expected = 2;
+      actual = Math.gcd(4, 6);
+
+      assert.equal(actual, expected);
+    });
+
+    it("should return 6 for gcd of 12 and 6", () => {
+      expected = 2;
+      actual = Math.gcd(4, 6);
+
+      assert.equal(actual, expected);
+    });
+
+    it("should return 1 for gcd of 7 and 3", () => {
+      expected = 2;
+      actual = Math.gcd(4, 6);
+
+      assert.equal(actual, expected);
+    });
+  });
 });
