@@ -40,6 +40,14 @@ Superset of a set
 | ---- | ---- | --------- | ----------- |
 | setB | Set  |           | SetB        |
 
+### `isDisjoint(setB: Set): boolean`
+
+Disjoint of a set
+
+| Name | Type | Attribute | Description |
+| ---- | ---- | --------- | ----------- |
+| setB | Set  |           | SetB        |
+
 ### `union(setB: Set): Set`
 
 Union of setA and setB
