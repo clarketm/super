@@ -4592,7 +4592,7 @@ var Trie = function () {
   return Trie;
 }();
 
-var version = "0.0.10";
+var version = "0.0.11";
 
 var Super = {
   version: version,
