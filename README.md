@@ -485,6 +485,9 @@ setA.isSubset(setB); // false
 // `isSuperset`
 setA.isSuperset(setB); // false
 
+// `isDisjoint`
+setA.isDisjoint(setB); // false
+
 // `union`
 setA.union(setB); // Set { 1, 2, 3, 4 }
 
