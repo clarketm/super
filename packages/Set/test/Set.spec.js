@@ -80,6 +80,28 @@ describe("Set", () => {
         assert.equal(actual, expected);
       });
     });
+
+    describe("#isDisjoint", () => {
+      it("should be disjoint of setB", () => {
+        setA = new Set([1, 2, 3]);
+        setB = new Set([4, 5]);
+
+        expected = true;
+        actual = setA.isDisjoint(setB);
+
+        assert.equal(actual, expected);
+      });
+
+      it("should not be disjoint of setB", () => {
+        setA = new Set([1, 2, 3]);
+        setB = new Set([1, 5]);
+
+        expected = false;
+        actual = setA.isDisjoint(setB);
+
+        assert.equal(actual, expected);
+      });
+    });
   });
 
   describe("operations", () => {

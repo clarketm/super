@@ -5,6 +5,7 @@ declare export class Set extends Set<any> {
   difference(setB: Set<any>): Set<any>;
   every(callback: (value1: any, value2: any, set: Set<any>) => boolean): boolean;
   intersection(setB: Set<any>): Set<any>;
+  isDisjoint(setB: Set<any>): boolean;
   isSubset(setB: Set<any>): boolean;
   isSuperset(setB: Set<any>): boolean;
   some(callback: (value1: any, value2: any, set: Set<any>) => boolean): boolean;

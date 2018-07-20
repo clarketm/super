@@ -337,27 +337,26 @@
       /**
        * @public
        *
-       * @desc Union of setA and setB
+       * @desc Disjoint of a set
        *
-       * @param {Set} setB - SetB
-       * @returns {Set} setC - union between setA and setB
+       * @param {Set<Item>} setB - SetB
+       * @returns {boolean} setA is disjoint of setB
        */
 
     }, {
-      key: "union",
-      value: function union(setB) {
+      key: "isDisjoint",
+      value: function isDisjoint(setB) {
         var setA = this;
-        var setC = new Set(setA);
 
         var _iteratorNormalCompletion5 = true;
         var _didIteratorError5 = false;
         var _iteratorError5 = undefined;
 
         try {
-          for (var _iterator5 = setB[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+          for (var _iterator5 = setA[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
             var v = _step5.value;
 
-            setC.add(v);
+            if (setB.has(v)) return false;
           }
         } catch (err) {
           _didIteratorError5 = true;
@@ -374,23 +373,23 @@
           }
         }
 
-        return setC;
+        return true;
       }
 
       /**
        * @public
        *
-       * @desc Intersection of setA and setB
+       * @desc Union of setA and setB
        *
-       * @param {Set<Item>} setB - SetB
-       * @returns {Set<Item>} setC - intersection between setA and setB
+       * @param {Set} setB - SetB
+       * @returns {Set} setC - union between setA and setB
        */
 
     }, {
-      key: "intersection",
-      value: function intersection(setB) {
+      key: "union",
+      value: function union(setB) {
         var setA = this;
-        var setC = new Set();
+        var setC = new Set(setA);
 
         var _iteratorNormalCompletion6 = true;
         var _didIteratorError6 = false;
@@ -400,7 +399,7 @@
           for (var _iterator6 = setB[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
             var v = _step6.value;
 
-            if (setA.has(v)) setC.add(v);
+            setC.add(v);
           }
         } catch (err) {
           _didIteratorError6 = true;
@@ -423,17 +422,17 @@
       /**
        * @public
        *
-       * @desc Difference of setA and setB
+       * @desc Intersection of setA and setB
        *
        * @param {Set<Item>} setB - SetB
-       * @returns {Set<Item>} setC - difference between setA and setB
+       * @returns {Set<Item>} setC - intersection between setA and setB
        */
 
     }, {
-      key: "difference",
-      value: function difference(setB) {
+      key: "intersection",
+      value: function intersection(setB) {
         var setA = this;
-        var setC = new Set(setA);
+        var setC = new Set();
 
         var _iteratorNormalCompletion7 = true;
         var _didIteratorError7 = false;
@@ -443,7 +442,7 @@
           for (var _iterator7 = setB[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
             var v = _step7.value;
 
-            setC.delete(v);
+            if (setA.has(v)) setC.add(v);
           }
         } catch (err) {
           _didIteratorError7 = true;
@@ -466,15 +465,15 @@
       /**
        * @public
        *
-       * @desc Symmetric difference of setA and setB
+       * @desc Difference of setA and setB
        *
        * @param {Set<Item>} setB - SetB
-       * @returns {Set<Item>} setC - difference difference between setA and setB
+       * @returns {Set<Item>} setC - difference between setA and setB
        */
 
     }, {
-      key: "symmetricDifference",
-      value: function symmetricDifference(setB) {
+      key: "difference",
+      value: function difference(setB) {
         var setA = this;
         var setC = new Set(setA);
 
@@ -486,7 +485,7 @@
           for (var _iterator8 = setB[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
             var v = _step8.value;
 
-            if (setA.has(v)) setC.delete(v);else setC.add(v);
+            setC.delete(v);
           }
         } catch (err) {
           _didIteratorError8 = true;
@@ -499,6 +498,49 @@
           } finally {
             if (_didIteratorError8) {
               throw _iteratorError8;
+            }
+          }
+        }
+
+        return setC;
+      }
+
+      /**
+       * @public
+       *
+       * @desc Symmetric difference of setA and setB
+       *
+       * @param {Set<Item>} setB - SetB
+       * @returns {Set<Item>} setC - difference difference between setA and setB
+       */
+
+    }, {
+      key: "symmetricDifference",
+      value: function symmetricDifference(setB) {
+        var setA = this;
+        var setC = new Set(setA);
+
+        var _iteratorNormalCompletion9 = true;
+        var _didIteratorError9 = false;
+        var _iteratorError9 = undefined;
+
+        try {
+          for (var _iterator9 = setB[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+            var v = _step9.value;
+
+            if (setA.has(v)) setC.delete(v);else setC.add(v);
+          }
+        } catch (err) {
+          _didIteratorError9 = true;
+          _iteratorError9 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion9 && _iterator9.return) {
+              _iterator9.return();
+            }
+          } finally {
+            if (_didIteratorError9) {
+              throw _iteratorError9;
             }
           }
         }

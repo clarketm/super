@@ -104,6 +104,23 @@ class _Set extends Set<Item> {
   /**
    * @public
    *
+   * @desc Disjoint of a set
+   *
+   * @param {Set<Item>} setB - SetB
+   * @returns {boolean} setA is disjoint of setB
+   */
+  isDisjoint(setB: Set<Item>): boolean {
+    let setA = this;
+
+    for (let v of setA) {
+      if (setB.has(v)) return false;
+    }
+    return true;
+  }
+
+  /**
+   * @public
+   *
    * @desc Union of setA and setB
    *
    * @param {Set} setB - SetB
