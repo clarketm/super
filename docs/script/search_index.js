@@ -192,6 +192,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@clarketm/super/packages/math/src/lib/math.js~randrange",
+    "function/index.html#static-function-randrange",
+    "<span>randrange</span> <span class=\"search-result-import-path\">@clarketm/super/packages/Math/src/lib/Math.js</span>",
+    "function"
+  ],
+  [
     "@clarketm/super/packages/selectionsort/src/lib/selectionsort.js~selectionsort",
     "function/index.html#static-function-selectionSort",
     "<span>selectionSort</span> <span class=\"search-result-import-path\">@clarketm/super/packages/SelectionSort/src/lib/SelectionSort.js</span>",
@@ -457,13 +463,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/treenode.js~treenode#left",
-    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-set-left",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-left",
     "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#left",
     "member"
   ],
   [
     "packages/binarytree/src/lib/treenode.js~treenode#left",
-    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-left",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-set-left",
     "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#left",
     "member"
   ],
@@ -481,13 +487,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/treenode.js~treenode#value",
-    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-set-value",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-value",
     "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#value",
     "member"
   ],
   [
     "packages/binarytree/src/lib/treenode.js~treenode#value",
-    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-value",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-set-value",
     "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#value",
     "member"
   ],
@@ -637,20 +643,14 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#next",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
-    "member"
-  ],
-  [
-    "packages/linkedlist/src/lib/listnode.js~listnode#next",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-next",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
-    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-prev",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
+    "packages/linkedlist/src/lib/listnode.js~listnode#next",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-next",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#next",
     "member"
   ],
   [
@@ -660,14 +660,20 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "packages/linkedlist/src/lib/listnode.js~listnode#value",
-    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
-    "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
+    "packages/linkedlist/src/lib/listnode.js~listnode#prev",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-prev",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#prev",
     "member"
   ],
   [
     "packages/linkedlist/src/lib/listnode.js~listnode#value",
     "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-get-value",
+    "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
+    "member"
+  ],
+  [
+    "packages/linkedlist/src/lib/listnode.js~listnode#value",
+    "class/packages/LinkedList/src/lib/ListNode.js~ListNode.html#instance-set-value",
     "packages/LinkedList/src/lib/ListNode.js~ListNode#value",
     "member"
   ],

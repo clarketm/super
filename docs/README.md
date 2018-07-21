@@ -732,6 +732,15 @@ Least common multiple
 | numA | number |  | integral number |
 | numB | number |  | integral number |
 
+## `randrange(start: number, stop: number): number`
+
+Random number
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| start | number |  | starting number (inclusive) |
+| stop | number |  | stopping number (exclusive) |
+
 ## `merge(arr: Array<Item>, leftArr: Array<Item>, rightArr: Array<Item>, compare: Comparator): Array<Item>`
 
 Merge helper

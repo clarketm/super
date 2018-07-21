@@ -2697,6 +2697,21 @@
     return numA * numB / _Math.gcd(numA, numB);
   };
 
+  /**
+   * @public
+   *
+   * @desc Random number
+   *
+   * @param {number} start - starting number (inclusive)
+   * @param {number} stop - stopping number (exclusive)
+   * @returns {number} random number between [start, stop)
+   */
+  _Math.randrange = function (start, stop) {
+    if ((typeof start === "undefined" ? "undefined" : _typeof(start)) === PrimitiveType.UNDEFINED) throw new Error("Missing required argument start");
+    if ((typeof stop === "undefined" ? "undefined" : _typeof(stop)) === PrimitiveType.UNDEFINED) start = 0, stop = start;
+    return Math.floor(Math.random() * (stop - start)) + start;
+  };
+
   function _extendableBuiltin$2(cls) {
     function ExtendableBuiltin() {
       var instance = Reflect.construct(cls, Array.from(arguments));
