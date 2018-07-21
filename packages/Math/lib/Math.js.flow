@@ -1,3 +1,3 @@
 
-declare export var Math: {factorial: (num: number) => number};
-declare export var _Math: {factorial: (num: number) => number};
+declare export var Math: {factorial: (num: number) => number, gcd: (numA: number, numB: number) => number, lcm: (numA: number, numB: number) => number, randrange: (start: number, stop: number) => number};
+declare export var _Math: {factorial: (num: number) => number, gcd: (numA: number, numB: number) => number, lcm: (numA: number, numB: number) => number, randrange: (start: number, stop: number) => number};

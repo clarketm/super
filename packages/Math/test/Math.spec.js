@@ -78,4 +78,27 @@ describe("Math", () => {
       assert.equal(actual, expected);
     });
   });
+
+  describe("#randrange", () => {
+    it("should return random number between [0, 3)", () => {
+      actual = Math.randrange(3);
+
+      assert.isAtLeast(actual, 0);
+      assert.isBelow(actual, 3);
+    });
+
+    it("should return random number between [2, 6)", () => {
+      actual = Math.randrange(2, 6);
+
+      assert.isAtLeast(actual, 2);
+      assert.isBelow(actual, 6);
+    });
+
+    it("should return random number between [-2, 6)", () => {
+      actual = Math.randrange(-2, 6);
+
+      assert.isAtLeast(actual, -2);
+      assert.isBelow(actual, 6);
+    });
+  });
 });
