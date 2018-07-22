@@ -19,3 +19,11 @@ Convert a roman numeral to number
 ### `toRomanNumeral(): string`
 
 Convert a number to roman numeral
+
+### `isNumber(str: string): boolean`
+
+Test if a string is a valid number
+
+| Name | Type   | Attribute | Description                         |
+| ---- | ------ | --------- | ----------------------------------- |
+| str  | string |           | – string representation of a number |

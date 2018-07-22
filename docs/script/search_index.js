@@ -463,13 +463,13 @@ window.esdocSearchIndex = [
   ],
   [
     "packages/binarytree/src/lib/treenode.js~treenode#left",
-    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-left",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-set-left",
     "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#left",
     "member"
   ],
   [
     "packages/binarytree/src/lib/treenode.js~treenode#left",
-    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-set-left",
+    "class/packages/BinaryTree/src/lib/TreeNode.js~TreeNode.html#instance-get-left",
     "packages/BinaryTree/src/lib/TreeNode.js~TreeNode#left",
     "member"
   ],
@@ -753,6 +753,12 @@ window.esdocSearchIndex = [
     "packages/number/src/lib/number.js~_number.fromromannumeral",
     "class/packages/Number/src/lib/Number.js~_Number.html#static-method-fromRomanNumeral",
     "packages/Number/src/lib/Number.js~_Number.fromRomanNumeral",
+    "method"
+  ],
+  [
+    "packages/number/src/lib/number.js~_number.isnumber",
+    "class/packages/Number/src/lib/Number.js~_Number.html#static-method-isNumber",
+    "packages/Number/src/lib/Number.js~_Number.isNumber",
     "method"
   ],
   [

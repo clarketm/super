@@ -1,7 +1,7 @@
 {
-  "coverage": "84.48%",
-  "expectCount": 174,
-  "actualCount": 147,
+  "coverage": "84.57%",
+  "expectCount": 175,
+  "actualCount": 148,
   "files": {
     "packages/AVLTree/src/lib/AVLTree.js": {
       "expectCount": 8,
@@ -79,8 +79,8 @@
       "undocumentLines": []
     },
     "packages/Number/src/lib/Number.js": {
-      "expectCount": 6,
-      "actualCount": 5,
+      "expectCount": 7,
+      "actualCount": 6,
       "undocumentLines": [
         8
       ]

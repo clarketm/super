@@ -389,6 +389,14 @@ Convert a number to roman numeral
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
 
+### `isNumber(str: string): boolean`
+
+Test if a string is a valid number
+
+| Name | Type | Attribute | Description |
+| --- | --- | --- | --- |
+| str | string |  | – string representation of a number |
+
 ## `_Object`
 
 Object with superpowers! 💪
