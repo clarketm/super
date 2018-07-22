@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superarray",
-  "version": "1.2.20",
+  "version": "1.2.25",
   "description": "JavaScript Array with superpowers! 💪",
   "main": "./lib/Array.js",
   "files": [

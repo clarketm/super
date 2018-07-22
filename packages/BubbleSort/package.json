@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superbubblesort",
-  "version": "1.2.20",
+  "version": "1.2.25",
   "description": "BubbleSort with superpowers! 💪",
   "main": "./lib/BubbleSort.js",
   "files": [
