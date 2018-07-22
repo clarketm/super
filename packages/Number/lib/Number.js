@@ -153,6 +153,7 @@
       classCallCheck(this, _Number);
       return possibleConstructorReturn(this, (_Number.__proto__ || Object.getPrototypeOf(_Number)).call(this, number));
     }
+
     /**
      * @public
      *
@@ -165,6 +166,7 @@
 
     createClass(_Number, [{
       key: "toRomanNumeral",
+
 
       /**
        * @public
@@ -210,9 +212,20 @@
 
           return result;
         }
+
         // $FlowFixMe
         return _integerToRoman(this);
       }
+
+      /**
+       * @public
+       *
+       * @desc Test if a string is a valid number
+       *
+       * @param {string} str – string representation of a number
+       * @returns {boolean} is number
+       */
+
     }], [{
       key: "fromRomanNumeral",
       value: function fromRomanNumeral(str) {
@@ -254,7 +267,13 @@
 
           return result;
         }
+
         return _romanToInteger(str);
+      }
+    }, {
+      key: "isNumber",
+      value: function isNumber(str) {
+        return Boolean(str.trim()) && !Number.isNaN(Number(str));
       }
     }]);
     return _Number;

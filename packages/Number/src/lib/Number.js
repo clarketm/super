@@ -53,6 +53,7 @@ class _Number extends Number {
   constructor(number: number) {
     super(number);
   }
+
   /**
    * @public
    *
@@ -71,8 +72,10 @@ class _Number extends Number {
       }
       return result;
     }
+
     return _romanToInteger(str);
   }
+
   /**
    * @public
    *
@@ -88,8 +91,22 @@ class _Number extends Number {
       }
       return result;
     }
+
     // $FlowFixMe
     return _integerToRoman(this);
   }
+
+  /**
+   * @public
+   *
+   * @desc Test if a string is a valid number
+   *
+   * @param {string} str – string representation of a number
+   * @returns {boolean} is number
+   */
+  static isNumber(str: string): boolean {
+    return Boolean(str.trim()) && !Number.isNaN(Number(str));
+  }
 }
+
 export { _Number as Number };
