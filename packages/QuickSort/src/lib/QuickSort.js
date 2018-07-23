@@ -45,7 +45,7 @@ function quickSort(arr: Array<Item>, comparator: Comparator = _defaultComparator
 
   // TODO: make customizable?
   let partitionType: Partition = PartitionType.HOARE;
-  let pivotType: Pivot = PivotType.RANDOM;
+  let pivotType: Pivot = PivotType.MID;
 
   /**
    *
@@ -177,7 +177,9 @@ function partitionHoare(
 
     case PivotType.MID:
     default:
-      pivot = Math.trunc((low + high) / 2);
+      let mid = Math.trunc((low + high) / 2);
+      swap(arr, mid, low);
+      pivot = low;
       break;
   }
 

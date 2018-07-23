@@ -14,6 +14,15 @@ describe("QuickSort", () => {
       assert.deepEqual(actual, expected);
     });
 
+    it("should sort a six (7) items array", () => {
+      array = [4, 6, 3, 1, 8, 2, 9];
+
+      expected = [1, 2, 3, 4, 6, 8, 9];
+      actual = quickSort(array);
+
+      assert.deepEqual(actual, expected);
+    });
+
     it("should return a new copy of the original array (six (6) items)", () => {
       array = [3, 7, 1, 9, 3, 7];
       quickSort(array);

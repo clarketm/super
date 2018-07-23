@@ -84,7 +84,7 @@
 
     // TODO: make customizable?
     var partitionType = PartitionType.HOARE;
-    var pivotType = PivotType.RANDOM;
+    var pivotType = PivotType.MID;
 
     /**
      *
@@ -203,7 +203,9 @@
 
       case PivotType.MID:
       default:
-        pivot = Math.trunc((low + high) / 2);
+        var mid = Math.trunc((low + high) / 2);
+        swap(arr, mid, low);
+        pivot = low;
         break;
     }
 
