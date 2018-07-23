@@ -84,7 +84,7 @@
 
     // TODO: make customizable?
     var partitionType = PartitionType.HOARE;
-    var pivotType = PivotType.MID;
+    var pivotType = PivotType.RANDOM;
 
     /**
      *
