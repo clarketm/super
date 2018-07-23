@@ -527,7 +527,9 @@
 
       case PivotType.MID:
       default:
-        pivot = Math.trunc((low + high) / 2);
+        var mid = Math.trunc((low + high) / 2);
+        swap(arr, mid, low);
+        pivot = low;
         break;
     }
 
@@ -4632,7 +4634,7 @@
     return Trie;
   }();
 
-  var version = "0.0.13";
+  var version = "0.0.14";
 
   var Super = {
     version: version,
