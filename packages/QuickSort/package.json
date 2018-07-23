@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superquicksort",
-  "version": "1.2.26",
+  "version": "1.2.27",
   "description": "QuickSort with superpowers! 💪",
   "main": "./lib/QuickSort.js",
   "files": [
