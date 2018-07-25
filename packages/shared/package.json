@@ -1,6 +1,6 @@
 {
   "name": "shared",
-  "version": "1.2.18",
+  "version": "1.2.29",
   "description": "Shared utilities",
   "private": true,
   "scripts": {
