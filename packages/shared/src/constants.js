@@ -11,6 +11,8 @@ export const PrimitiveType = {
 export const InstanceType = {
   OBJECT: Object,
   ARRAY: Array,
+  SET: Set,
+  MAP: Map,
   REGEXP: RegExp,
   DATE: Date
 };

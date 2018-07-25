@@ -123,6 +123,22 @@ class _Object extends Object {
         return copy;
       }
 
+      if (item instanceof InstanceType.SET) {
+        let copy = new Set();
+
+        item.forEach(v => copy.add(_clone(v)));
+
+        return copy;
+      }
+
+      if (item instanceof InstanceType.MAP) {
+        let copy = new Map();
+
+        item.forEach((v, k) => copy.set(k, _clone(v)));
+
+        return copy;
+      }
+
       if (item instanceof InstanceType.OBJECT) {
         let copy = {};
 
