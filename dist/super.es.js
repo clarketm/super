@@ -18,6 +18,8 @@ var PrimitiveType = {
 var InstanceType = {
   OBJECT: Object,
   ARRAY: Array,
+  SET: Set,
+  MAP: Map,
   REGEXP: RegExp,
   DATE: Date
 };
@@ -3085,25 +3087,45 @@ var _Object = function (_extendableBuiltin2) {
           return copy;
         }
 
+        if (item instanceof InstanceType.SET) {
+          var _copy = new Set();
+
+          item.forEach(function (v) {
+            return _copy.add(_clone(v));
+          });
+
+          return _copy;
+        }
+
+        if (item instanceof InstanceType.MAP) {
+          var _copy2 = new Map();
+
+          item.forEach(function (v, k) {
+            return _copy2.set(k, _clone(v));
+          });
+
+          return _copy2;
+        }
+
         if (item instanceof InstanceType.OBJECT) {
-          var _copy = {};
+          var _copy3 = {};
 
           // $FlowFixMe
           Object.getOwnPropertySymbols(item).forEach(function (s) {
-            return _copy[s] = _clone(item[s]);
+            return _copy3[s] = _clone(item[s]);
           });
 
           if (includeNonEnumerable) {
             Object.getOwnPropertyNames(item).forEach(function (k) {
-              return _copy[k] = _clone(item[k]);
+              return _copy3[k] = _clone(item[k]);
             });
           } else {
             Object.keys(item).forEach(function (k) {
-              return _copy[k] = _clone(item[k]);
+              return _copy3[k] = _clone(item[k]);
             });
           }
 
-          return _copy;
+          return _copy3;
         }
 
         throw new Error("Unable to copy object: " + item);
