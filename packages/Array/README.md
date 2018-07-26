@@ -20,6 +20,8 @@ $ yarn add @clarketm/superarray
 $ npm install @clarketm/superarray --save
 ```
 
+## API
+
 ### `constructor(iterable: Iterable)`
 
 Construct a Array

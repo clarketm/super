@@ -18,6 +18,8 @@ $ yarn add @clarketm/superselectionsort
 $ npm install @clarketm/superselectionsort --save
 ```
 
+## API
+
 ## `selectionSort(arr: Array<Item>, comparator: Comparator): Array<Item>`
 
 | Name       | Type        | Attribute                                                         | Description   |

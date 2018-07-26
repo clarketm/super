@@ -18,6 +18,8 @@ $ yarn add @clarketm/superbinarytree
 $ npm install @clarketm/superbinarytree --save
 ```
 
+## API
+
 ### `constructor(iterable: Iterable<number>, comparator: Comparator)`
 
 Construct a BinaryTree

@@ -20,6 +20,8 @@ $ yarn add @clarketm/supermath
 $ npm install @clarketm/supermath --save
 ```
 
+## API
+
 ## `factorial(num: number): number`
 
 Factorial

@@ -18,6 +18,8 @@ $ yarn add @clarketm/supertrie
 $ npm install @clarketm/supertrie --save
 ```
 
+## API
+
 ### `constructor(iterable: Iterable<string>)`
 
 Construct a Trie

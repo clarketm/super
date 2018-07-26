@@ -18,6 +18,8 @@ $ yarn add @clarketm/superlinkedlist
 $ npm install @clarketm/superlinkedlist --save
 ```
 
+## API
+
 ### `constructor(iterable: Iterable)`
 
 Construct a LinkedList

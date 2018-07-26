@@ -18,6 +18,8 @@ $ yarn add @clarketm/superquicksort
 $ npm install @clarketm/superquicksort --save
 ```
 
+## API
+
 ## `quickSort(arr: Array<Item>, comparator: Comparator): Array<Item>`
 
 | Name       | Type        | Attribute                                                         | Description   |

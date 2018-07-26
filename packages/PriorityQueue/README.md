@@ -18,6 +18,8 @@ $ yarn add @clarketm/superpriorityqueue
 $ npm install @clarketm/superpriorityqueue --save
 ```
 
+## API
+
 ### `constructor(iterable: PriorityQueueIterable, comparator: Comparator)`
 
 Construct a PriorityQueue

@@ -18,6 +18,8 @@ $ yarn add @clarketm/superbubblesort
 $ npm install @clarketm/superbubblesort --save
 ```
 
+## API
+
 ## `bubbleSort(arr: Array<Item>, comparator: Comparator): Array<Item>`
 
 | Name       | Type        | Attribute                                                         | Description   |

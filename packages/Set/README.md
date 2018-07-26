@@ -20,6 +20,8 @@ $ yarn add @clarketm/superset
 $ npm install @clarketm/superset --save
 ```
 
+## API
+
 ### `constructor(iterable: Iterable)`
 
 Construct a Set

@@ -18,6 +18,8 @@ $ yarn add @clarketm/superheap
 $ npm install @clarketm/superheap --save
 ```
 
+## API
+
 ### `constructor(iterable: Array<Item>, comparator: Comparator)`
 
 Construct a Heap

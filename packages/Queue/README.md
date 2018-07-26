@@ -18,6 +18,8 @@ $ yarn add @clarketm/superqueue
 $ npm install @clarketm/superqueue --save
 ```
 
+## API
+
 ### `constructor(iterable: Iterable)`
 
 Construct a Queue

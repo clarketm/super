@@ -18,6 +18,8 @@ $ yarn add @clarketm/supermergesort
 $ npm install @clarketm/supermergesort --save
 ```
 
+## API
+
 ## `mergeSort(arr: Array<Item>, comparator: Comparator): Array<Item>`
 
 | Name       | Type        | Attribute                                                         | Description   |

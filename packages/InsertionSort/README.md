@@ -18,6 +18,8 @@ $ yarn add @clarketm/superinsertionsort
 $ npm install @clarketm/superinsertionsort --save
 ```
 
+## API
+
 ## `insertionSort(arr: Array<Item>, comparator: Comparator): Array<Item>`
 
 | Name       | Type        | Attribute                                                         | Description   |

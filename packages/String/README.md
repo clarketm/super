@@ -20,6 +20,8 @@ $ yarn add @clarketm/superstring
 $ npm install @clarketm/superstring --save
 ```
 
+## API
+
 ### `constructor(string: string)`
 
 Construct a String

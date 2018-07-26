@@ -20,6 +20,8 @@ $ yarn add @clarketm/supermap
 $ npm install @clarketm/supermap --save
 ```
 
+## API
+
 ### `constructor(iterable: Iterable)`
 
 Construct a Map

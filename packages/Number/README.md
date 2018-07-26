@@ -20,6 +20,8 @@ $ yarn add @clarketm/supernumber
 $ npm install @clarketm/supernumber --save
 ```
 
+## API
+
 ### `constructor(number: number)`
 
 Construct a Number

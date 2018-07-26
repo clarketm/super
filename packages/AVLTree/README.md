@@ -20,6 +20,8 @@ $ yarn add @clarketm/superavltree
 $ npm install @clarketm/superavltree --save
 ```
 
+## API
+
 ### `balanced: boolean`
 
 Determine if the tree is balanced

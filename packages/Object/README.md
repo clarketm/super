@@ -20,6 +20,8 @@ $ yarn add @clarketm/superobject
 $ npm install @clarketm/superobject --save
 ```
 
+## API
+
 ### `constructor(object: Object)`
 
 Construct an Object
