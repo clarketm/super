@@ -45,17 +45,17 @@ class _Array extends Array<Item> {
    */
   flatMap(callback: Callback): Array<Item> {
     // $FlowFixMe
-    return this.map(callback).flatten();
+    return this.map(callback).flat();
   }
   /**
    * @public
    *
-   * @desc Creates a new array with all sub-array elements concatted into it recursively up to the specified depth
+   * @desc Creates a new array with all sub-array elements concatenated into it recursively up to the specified depth
    *
-   * @param {number} depth - flatten depth
-   * @returns {Array<Item>}  new array with the sub-array elements concatted into it.
+   * @param {number} depth - flat depth
+   * @returns {Array<Item>}  new array with the sub-array elements concatenated into it.
    */
-  flatten(depth: number = 1): Array<Item> {
+  flat(depth: number = 1): Array<Item> {
     function _flatten(depth: number, arr: Array<Item>) {
       if (depth <= 0) return arr;
 

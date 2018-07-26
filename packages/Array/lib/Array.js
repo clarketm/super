@@ -610,20 +610,20 @@
       key: "flatMap",
       value: function flatMap(callback) {
         // $FlowFixMe
-        return this.map(callback).flatten();
+        return this.map(callback).flat();
       }
       /**
        * @public
        *
-       * @desc Creates a new array with all sub-array elements concatted into it recursively up to the specified depth
+       * @desc Creates a new array with all sub-array elements concatenated into it recursively up to the specified depth
        *
-       * @param {number} depth - flatten depth
-       * @returns {Array<Item>}  new array with the sub-array elements concatted into it.
+       * @param {number} depth - flat depth
+       * @returns {Array<Item>}  new array with the sub-array elements concatenated into it.
        */
 
     }, {
-      key: "flatten",
-      value: function flatten() {
+      key: "flat",
+      value: function flat() {
         var depth = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 
         function _flatten(depth, arr) {

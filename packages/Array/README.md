@@ -16,9 +16,9 @@ Maps each element using a mapping function, then flattens the result into a new 
 | -------- | -------- | --------- | ----------------- |
 | callback | Callback |           | callback function |
 
-### `flatten(depth: number): Array`
+### `flat(depth: number): Array`
 
-Creates a new array with all sub-array elements concatted into it recursively up to the specified depth
+Creates a new array with all sub-array elements concatenated into it recursively up to the specified depth
 
 | Name  | Type   | Attribute | Description   |
 | ----- | ------ | --------- | ------------- |

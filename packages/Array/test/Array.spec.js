@@ -20,17 +20,17 @@ describe("Array", () => {
     });
   });
 
-  describe("#flatten", () => {
+  describe("#flat", () => {
     it("should flatten array to the default depth of 1", () => {
       expected = [1, 2, 3];
-      actual = new Array([[1], [2], [3]]).flatten();
+      actual = new Array([[1], [2], [3]]).flat();
 
       assert.deepEqual(actual, expected);
     });
 
     it("should flatten array to the specified depth", () => {
       expected = [1, 2, 3];
-      actual = new Array([[[1]], [[2]], [[3]]]).flatten(2);
+      actual = new Array([[[1]], [[2]], [[3]]]).flat(2);
 
       assert.deepEqual(actual, expected);
     });
