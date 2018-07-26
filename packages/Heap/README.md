@@ -1,6 +1,22 @@
-# Heap
+# [Heap](https://www.npmjs.com/package/@clarketm/superheap)
+
+[![NPM release](https://img.shields.io/npm/v/@clarketm/superheap.svg)](https://www.npmjs.com/package/@clarketm/superheap)
 
 Heap with superpowers! 💪
+
+## Individual Module Installation
+
+### Yarn
+
+```bash
+$ yarn add @clarketm/superheap
+```
+
+### Npm
+
+```bash
+$ npm install @clarketm/superheap --save
+```
 
 ### `constructor(iterable: Array<Item>, comparator: Comparator)`
 

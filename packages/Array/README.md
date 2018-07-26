@@ -1,8 +1,24 @@
-# Array
+# [Array](https://www.npmjs.com/package/@clarketm/superarray)
+
+[![NPM release](https://img.shields.io/npm/v/@clarketm/superarray.svg)](https://www.npmjs.com/package/@clarketm/superarray)
 
 Array with superpowers! 💪
 
 > This data structure inherit **all** methods and properties from the [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) built-in.
+
+## Individual Module Installation
+
+### Yarn
+
+```bash
+$ yarn add @clarketm/superarray
+```
+
+### Npm
+
+```bash
+$ npm install @clarketm/superarray --save
+```
 
 ### `constructor(iterable: Iterable)`
 

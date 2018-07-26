@@ -1,8 +1,24 @@
-# Set
+# [Set](https://www.npmjs.com/package/@clarketm/superset)
+
+[![NPM release](https://img.shields.io/npm/v/@clarketm/superset.svg)](https://www.npmjs.com/package/@clarketm/superset)
 
 Set with superpowers! 💪
 
 > This data structure inherit **all** methods and properties from the [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) built-in.
+
+## Individual Module Installation
+
+### Yarn
+
+```bash
+$ yarn add @clarketm/superset
+```
+
+### Npm
+
+```bash
+$ npm install @clarketm/superset --save
+```
 
 ### `constructor(iterable: Iterable)`
 

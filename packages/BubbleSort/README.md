@@ -1,6 +1,22 @@
-# BubbleSort
+# [BubbleSort](https://www.npmjs.com/package/@clarketm/superbubblesort)
+
+[![NPM release](https://img.shields.io/npm/v/@clarketm/superbubblesort.svg)](https://www.npmjs.com/package/@clarketm/superbubblesort)
 
 BubbleSort with superpowers! 💪
+
+## Individual Module Installation
+
+### Yarn
+
+```bash
+$ yarn add @clarketm/superbubblesort
+```
+
+### Npm
+
+```bash
+$ npm install @clarketm/superbubblesort --save
+```
 
 ## `bubbleSort(arr: Array<Item>, comparator: Comparator): Array<Item>`
 

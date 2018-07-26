@@ -1,6 +1,22 @@
-# LinkedList
+# [LinkedList](https://www.npmjs.com/package/@clarketm/superlinkedlist)
+
+[![NPM release](https://img.shields.io/npm/v/@clarketm/superlinkedlist.svg)](https://www.npmjs.com/package/@clarketm/superlinkedlist)
 
 LinkedList with superpowers! 💪
+
+## Individual Module Installation
+
+### Yarn
+
+```bash
+$ yarn add @clarketm/superlinkedlist
+```
+
+### Npm
+
+```bash
+$ npm install @clarketm/superlinkedlist --save
+```
 
 ### `constructor(iterable: Iterable)`
 

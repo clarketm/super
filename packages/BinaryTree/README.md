@@ -1,6 +1,22 @@
-# BinaryTree
+# [BinaryTree](https://www.npmjs.com/package/@clarketm/superbinarytree)
+
+[![NPM release](https://img.shields.io/npm/v/@clarketm/superbinarytree.svg)](https://www.npmjs.com/package/@clarketm/superbinarytree)
 
 BinaryTree with superpowers! 💪
+
+## Individual Module Installation
+
+### Yarn
+
+```bash
+$ yarn add @clarketm/superbinarytree
+```
+
+### Npm
+
+```bash
+$ npm install @clarketm/superbinarytree --save
+```
 
 ### `constructor(iterable: Iterable<number>, comparator: Comparator)`
 

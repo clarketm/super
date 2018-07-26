@@ -1,8 +1,24 @@
-# Object
+# [Object](https://www.npmjs.com/package/@clarketm/superobject)
+
+[![NPM release](https://img.shields.io/npm/v/@clarketm/superobject.svg)](https://www.npmjs.com/package/@clarketm/superobject)
 
 Object with superpowers! 💪
 
 > This data structure inherit **all** methods and properties from the [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) built-in.
+
+## Individual Module Installation
+
+### Yarn
+
+```bash
+$ yarn add @clarketm/superobject
+```
+
+### Npm
+
+```bash
+$ npm install @clarketm/superobject --save
+```
 
 ### `constructor(object: Object)`
 

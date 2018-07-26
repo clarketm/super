@@ -1,6 +1,22 @@
-# Trie
+# [Trie](https://www.npmjs.com/package/@clarketm/supertrie)
+
+[![NPM release](https://img.shields.io/npm/v/@clarketm/supertrie.svg)](https://www.npmjs.com/package/@clarketm/supertrie)
 
 Trie with superpowers! 💪
+
+## Individual Module Installation
+
+### Yarn
+
+```bash
+$ yarn add @clarketm/supertrie
+```
+
+### Npm
+
+```bash
+$ npm install @clarketm/supertrie --save
+```
 
 ### `constructor(iterable: Iterable<string>)`
 

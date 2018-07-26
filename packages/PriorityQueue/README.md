@@ -1,6 +1,22 @@
-# PriorityQueue
+# [PriorityQueue](https://www.npmjs.com/package/@clarketm/superpriorityqueue)
+
+[![NPM release](https://img.shields.io/npm/v/@clarketm/superpriorityqueue.svg)](https://www.npmjs.com/package/@clarketm/superpriorityqueue)
 
 PriorityQueue with superpowers! 💪
+
+## Individual Module Installation
+
+### Yarn
+
+```bash
+$ yarn add @clarketm/superpriorityqueue
+```
+
+### Npm
+
+```bash
+$ npm install @clarketm/superpriorityqueue --save
+```
 
 ### `constructor(iterable: PriorityQueueIterable, comparator: Comparator)`
 

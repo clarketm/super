@@ -1,8 +1,24 @@
-# Number
+# [Number](https://www.npmjs.com/package/@clarketm/supernumber)
+
+[![NPM release](https://img.shields.io/npm/v/@clarketm/supernumber.svg)](https://www.npmjs.com/package/@clarketm/supernumber)
 
 Number with superpowers! 💪
 
 > This data structure inherit **all** methods and properties from the [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) built-in.
+
+## Individual Module Installation
+
+### Yarn
+
+```bash
+$ yarn add @clarketm/supernumber
+```
+
+### Npm
+
+```bash
+$ npm install @clarketm/supernumber --save
+```
 
 ### `constructor(number: number)`
 

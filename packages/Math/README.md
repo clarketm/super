@@ -1,8 +1,24 @@
-# Math
+# [Math](https://www.npmjs.com/package/@clarketm/supermath)
+
+[![NPM release](https://img.shields.io/npm/v/@clarketm/supermath.svg)](https://www.npmjs.com/package/@clarketm/supermath)
 
 Math with superpowers! 💪
 
 > This data structure inherit **all** methods and properties from the [`Math`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math) built-in.
+
+## Individual Module Installation
+
+### Yarn
+
+```bash
+$ yarn add @clarketm/supermath
+```
+
+### Npm
+
+```bash
+$ npm install @clarketm/supermath --save
+```
 
 ## `factorial(num: number): number`
 

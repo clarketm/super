@@ -1,6 +1,22 @@
-# Queue
+# [Queue](https://www.npmjs.com/package/@clarketm/superqueue)
+
+[![NPM release](https://img.shields.io/npm/v/@clarketm/superqueue.svg)](https://www.npmjs.com/package/@clarketm/superqueue)
 
 Queue with superpowers! 💪
+
+## Individual Module Installation
+
+### Yarn
+
+```bash
+$ yarn add @clarketm/superqueue
+```
+
+### Npm
+
+```bash
+$ npm install @clarketm/superqueue --save
+```
 
 ### `constructor(iterable: Iterable)`
 
