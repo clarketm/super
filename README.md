@@ -95,9 +95,9 @@ let array = new Array([0, 1, 2, 3]); // [0, 1, 2, 3]
 // Use any built-in Array methods:
 array.push(4); // [0, 1, 2, 3, 4]
 
-// Use custom methods (e.g. `flatten`):
+// Use custom methods (e.g. `flat`):
 let array = new Array([[[1]], [[2]], [[3]]]);
-array.flatten(2); // [1, 2, 3]
+array.flat(2); // [1, 2, 3]
 
 // sorting
 array.bubbleSort(); // [0, 1, 2, 3]

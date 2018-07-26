@@ -62,13 +62,13 @@ Maps each element using a mapping function, then flattens the result into a new 
 | --- | --- | --- | --- |
 | callback | Callback |  | callback function |
 
-### `flatten(depth: number): Array<Item>`
+### `flat(depth: number): Array<Item>`
 
-Creates a new array with all sub-array elements concatted into it recursively up to the specified depth
+Creates a new array with all sub-array elements concatenated into it recursively up to the specified depth
 
 | Name | Type | Attribute | Description |
 | --- | --- | --- | --- |
-| depth | number |  | flatten depth |
+| depth | number |  | flat depth |
 
 ### `bubbleSort(comparator: Comparator): Array<Item>`
 

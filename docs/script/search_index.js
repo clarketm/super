@@ -276,15 +276,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "packages/array/src/lib/array.js~_array#flatmap",
-    "class/packages/Array/src/lib/Array.js~_Array.html#instance-method-flatMap",
-    "packages/Array/src/lib/Array.js~_Array#flatMap",
+    "packages/array/src/lib/array.js~_array#flat",
+    "class/packages/Array/src/lib/Array.js~_Array.html#instance-method-flat",
+    "packages/Array/src/lib/Array.js~_Array#flat",
     "method"
   ],
   [
-    "packages/array/src/lib/array.js~_array#flatten",
-    "class/packages/Array/src/lib/Array.js~_Array.html#instance-method-flatten",
-    "packages/Array/src/lib/Array.js~_Array#flatten",
+    "packages/array/src/lib/array.js~_array#flatmap",
+    "class/packages/Array/src/lib/Array.js~_Array.html#instance-method-flatMap",
+    "packages/Array/src/lib/Array.js~_Array#flatMap",
     "method"
   ],
   [

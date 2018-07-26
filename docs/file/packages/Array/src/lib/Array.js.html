@@ -119,17 +119,17 @@ class _Array extends Array&lt;Item&gt; {
    */
   flatMap(callback: Callback): Array&lt;Item&gt; {
     // $FlowFixMe
-    return this.map(callback).flatten();
+    return this.map(callback).flat();
   }
   /**
    * @public
    *
-   * @desc Creates a new array with all sub-array elements concatted into it recursively up to the specified depth
+   * @desc Creates a new array with all sub-array elements concatenated into it recursively up to the specified depth
    *
-   * @param {number} depth - flatten depth
-   * @returns {Array&lt;Item&gt;}  new array with the sub-array elements concatted into it.
+   * @param {number} depth - flat depth
+   * @returns {Array&lt;Item&gt;}  new array with the sub-array elements concatenated into it.
    */
-  flatten(depth: number = 1): Array&lt;Item&gt; {
+  flat(depth: number = 1): Array&lt;Item&gt; {
     function _flatten(depth: number, arr: Array&lt;Item&gt;) {
       if (depth &lt;= 0) return arr;
 
