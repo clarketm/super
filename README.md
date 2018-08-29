@@ -11,7 +11,7 @@
 <sub>implemented in **JavaScript**.</sub>
 
 <a href="https://github.com/clarketm/super">
-  <p align="center"><img src="https://blog.travismclarke.com/assets/img/Hero-Super.svg" /></p>
+  <p align="center"><img src="https://blog.travismclarke.com/assets/img/Hero-Super.png" /></p>
 </a>
 <br>
 
