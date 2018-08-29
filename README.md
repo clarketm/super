@@ -8,9 +8,11 @@
 
 **Data structures**, **data types**, and **algorithms** with superpowers! 💪😎
 
-> <sub>implemented in **JavaScript**.</sub>
+<sub>implemented in **JavaScript**.</sub>
 
-<a href="https://github.com/clarketm/super"><p align="center"><img src="https://github.com/clarketm/super/blob/master/resources/super-logo.svg" /></div></a>
+<a href="https://github.com/clarketm/super">
+  <p align="center"><img src="https://blog.travismclarke.com/assets/img/Hero-Super.svg" /></p>
+</a>
 <br>
 
 > _"JavaScript's missing data structures, data types, and algorithms!"_ - Mark Twain
