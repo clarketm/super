@@ -181,7 +181,7 @@ class _Set extends Set<Item> {
    * @desc Symmetric difference of setA and setB
    *
    * @param {Set<Item>} setB - SetB
-   * @returns {Set<Item>} setC - difference difference between setA and setB
+   * @returns {Set<Item>} setC - symmetric difference between setA and setB
    */
   symmetricDifference(setB: Set<Item>): Set<Item> {
     let setA = this;
