@@ -381,8 +381,8 @@
        *
        * @desc Union of setA and setB
        *
-       * @param {Set} setB - SetB
-       * @returns {Set} setC - union between setA and setB
+       * @param {Set<Item>} setB - SetB
+       * @returns {Set<Item>} setC - union between setA and setB
        */
 
     }, {
@@ -511,7 +511,7 @@
        * @desc Symmetric difference of setA and setB
        *
        * @param {Set<Item>} setB - SetB
-       * @returns {Set<Item>} setC - difference difference between setA and setB
+       * @returns {Set<Item>} setC - symmetric difference between setA and setB
        */
 
     }, {
