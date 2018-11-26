@@ -197,8 +197,8 @@ class _Set extends Set&lt;Item&gt; {
    *
    * @desc Union of setA and setB
    *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - union between setA and setB
+   * @param {Set&lt;Item&gt;} setB - SetB
+   * @returns {Set&lt;Item&gt;} setC - union between setA and setB
    */
   union(setB: Set&lt;Item&gt;): Set&lt;Item&gt; {
     let setA = this;
@@ -255,7 +255,7 @@ class _Set extends Set&lt;Item&gt; {
    * @desc Symmetric difference of setA and setB
    *
    * @param {Set&lt;Item&gt;} setB - SetB
-   * @returns {Set&lt;Item&gt;} setC - difference difference between setA and setB
+   * @returns {Set&lt;Item&gt;} setC - symmetric difference between setA and setB
    */
   symmetricDifference(setB: Set&lt;Item&gt;): Set&lt;Item&gt; {
     let setA = this;
