@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superinsertionsort",
-  "version": "1.2.31",
+  "version": "1.2.32",
   "description": "InsertionSort with superpowers! 💪",
   "main": "./lib/InsertionSort.js",
   "files": [

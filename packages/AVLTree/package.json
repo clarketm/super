@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superavltree",
-  "version": "1.2.31",
+  "version": "1.2.32",
   "description": "AVLTree with superpowers! 💪",
   "main": "./lib/AVLTree.js",
   "files": [
