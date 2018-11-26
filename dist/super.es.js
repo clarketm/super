@@ -3975,8 +3975,8 @@ var _Set = function (_extendableBuiltin2) {
      *
      * @desc Union of setA and setB
      *
-     * @param {Set} setB - SetB
-     * @returns {Set} setC - union between setA and setB
+     * @param {Set<Item>} setB - SetB
+     * @returns {Set<Item>} setC - union between setA and setB
      */
 
   }, {
@@ -4105,7 +4105,7 @@ var _Set = function (_extendableBuiltin2) {
      * @desc Symmetric difference of setA and setB
      *
      * @param {Set<Item>} setB - SetB
-     * @returns {Set<Item>} setC - difference difference between setA and setB
+     * @returns {Set<Item>} setC - symmetric difference between setA and setB
      */
 
   }, {
@@ -4650,7 +4650,7 @@ var Trie = function () {
   return Trie;
 }();
 
-var version = "0.0.16";
+var version = "1.2.32";
 
 var Super = {
   version: version,

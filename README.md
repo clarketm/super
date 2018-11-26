@@ -57,31 +57,31 @@ let array = new Super.Array([1, 2]);
 
 #### Data Structures
 
-* [Array](#array)
-* [AVLTree](#avltree)
-* [BinaryTree](#binarytree)
-* [Heap](#heap)
-* [LinkedList](#linkedlist)
-* [Map](#map)
-* [Object](#object)
-* [PriorityQueue](#priorityqueue)
-* [Queue](#queue)
-* [Set](#set)
-* [Trie](#trie)
+- [Array](#array)
+- [AVLTree](#avltree)
+- [BinaryTree](#binarytree)
+- [Heap](#heap)
+- [LinkedList](#linkedlist)
+- [Map](#map)
+- [Object](#object)
+- [PriorityQueue](#priorityqueue)
+- [Queue](#queue)
+- [Set](#set)
+- [Trie](#trie)
 
 #### Data Types
 
-* [Number](#number)
-* [Math](#math)
-* [String](#string)
+- [Number](#number)
+- [Math](#math)
+- [String](#string)
 
 #### Sorting Algorithms
 
-* [BubbleSort](#bubblesort)
-* [InsertionSort](#insertionsort)
-* [MergeSort](#mergesort)
-* [QuickSort](#quicksort)
-* [SelectionSort](#selectionsort)
+- [BubbleSort](#bubblesort)
+- [InsertionSort](#insertionsort)
+- [MergeSort](#mergesort)
+- [QuickSort](#quicksort)
+- [SelectionSort](#selectionsort)
 
 <br>
 
