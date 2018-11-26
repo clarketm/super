@@ -123,8 +123,8 @@ class _Set extends Set<Item> {
    *
    * @desc Union of setA and setB
    *
-   * @param {Set} setB - SetB
-   * @returns {Set} setC - union between setA and setB
+   * @param {Set<Item>} setB - SetB
+   * @returns {Set<Item>} setC - union between setA and setB
    */
   union(setB: Set<Item>): Set<Item> {
     let setA = this;
