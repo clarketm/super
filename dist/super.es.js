@@ -2191,7 +2191,7 @@ var LinkedList = function () {
 
     this._size = size;
     this._head = head.next;
-    this._tail = curr;
+    this._tail = prev;
   }
 
   /**
@@ -4650,7 +4650,7 @@ var Trie = function () {
   return Trie;
 }();
 
-var version = "1.2.33";
+var version = "1.2.34";
 
 var Super = {
   version: version,

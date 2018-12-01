@@ -1,6 +1,6 @@
 {
   "name": "@clarketm/superlinkedlist",
-  "version": "1.2.32",
+  "version": "1.2.34",
   "description": "LinkedList with superpowers! 💪",
   "main": "./lib/LinkedList.js",
   "files": [

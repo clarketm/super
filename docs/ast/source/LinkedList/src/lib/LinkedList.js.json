@@ -1468,9 +1468,9 @@
                             "line": 46,
                             "column": 21
                           },
-                          "identifierName": "curr"
+                          "identifierName": "prev"
                         },
-                        "name": "curr"
+                        "name": "prev"
                       }
                     }
                   }
@@ -10011,9 +10011,9 @@
                               "line": 46,
                               "column": 21
                             },
-                            "identifierName": "curr"
+                            "identifierName": "prev"
                           },
-                          "name": "curr"
+                          "name": "prev"
                         }
                       }
                     }
@@ -20204,7 +20204,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "curr",
+      "value": "prev",
       "start": 642,
       "end": 646,
       "loc": {
