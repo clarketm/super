@@ -5,6 +5,13 @@ describe("LinkedList", () => {
   let list, node, expected, actual;
 
   describe("#head", () => {
+    it("should have a head node set to null for empty iterable", () => {
+      expected = null;
+      actual = new LinkedList().head;
+
+      assert.equal(actual, expected);
+    });
+
     it("should have a head node defined", () => {
       actual = new LinkedList([1, 2, 3]).head;
 
@@ -20,6 +27,13 @@ describe("LinkedList", () => {
   });
 
   describe("#tail", () => {
+    it("should have a tail node set to null for empty iterable", () => {
+      expected = null;
+      actual = new LinkedList().tail;
+
+      assert.equal(actual, expected);
+    });
+
     it("should have a tail node defined", () => {
       actual = new LinkedList([1, 2, 3]).tail;
 

@@ -215,7 +215,7 @@
 
       this._size = size;
       this._head = head.next;
-      this._tail = curr;
+      this._tail = prev;
     }
 
     /**
