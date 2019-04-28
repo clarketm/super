@@ -84,7 +84,47 @@ describe("Heap", () => {
       assert.equal(actual, expected);
     });
 
-    it("should insert the item into the heap and delete maximum", () => {
+    it("should insert item into the heap (w/ 5 items) and delete maximum", () => {
+      heap = new Heap([1, 45, 32, 0, 88], Heap.HeapType.MAX);
+
+      expected = 99;
+      heap.insert(99);
+      actual = heap.deleteMax();
+
+      assert.equal(actual, expected);
+    });
+
+    it("should insert item into the heap (w/ 1 item) and delete maximum", () => {
+      heap = new Heap([1], Heap.HeapType.MAX);
+
+      expected = 99;
+      heap.insert(99);
+      actual = heap.deleteMax();
+
+      assert.equal(actual, expected);
+    });
+
+    it("should insert item into the heap (w/ 5 items) and delete minimum", () => {
+      heap = new Heap([1, 45, 32, 0, 88], Heap.HeapType.MIN);
+
+      expected = -5;
+      heap.insert(-5);
+      actual = heap.deleteMin();
+
+      assert.equal(actual, expected);
+    });
+
+    it("should insert item into the heap (w/ 1 item) and delete minimum", () => {
+      heap = new Heap([1], Heap.HeapType.MIN);
+
+      expected = -5;
+      heap.insert(-5);
+      actual = heap.deleteMin();
+
+      assert.equal(actual, expected);
+    });
+
+    it("should insert items into the heap and delete maximum", () => {
       heap = new Heap([1, 45, 32, 0, 88], Heap.HeapType.MAX);
 
       expected = 88;
@@ -93,7 +133,7 @@ describe("Heap", () => {
       assert.equal(actual, expected);
     });
 
-    it("should insert the item into the heap and delete minimum", () => {
+    it("should insert items into the heap and delete minimum", () => {
       heap = new Heap([1, 45, 32, 0, 88], Heap.HeapType.MIN);
 
       expected = 0;
@@ -123,6 +163,17 @@ describe("Heap", () => {
 
       assert.equal(actual, expected);
     });
+
+    it("should remove last maximum item and result in empty heap", () => {
+      heap = new Heap([], Heap.HeapType.MAX);
+      heap.insert(2);
+      heap.deleteMax();
+
+      expected = 0;
+      actual = heap.size;
+
+      assert.equal(actual, expected);
+    });
   });
 
   describe("#deleteMin", () => {
@@ -142,6 +193,17 @@ describe("Heap", () => {
 
       expected = -4;
       actual = heap.deleteMin();
+
+      assert.equal(actual, expected);
+    });
+
+    it("should remove last minimum item and result in empty heap", () => {
+      heap = new Heap([], Heap.HeapType.MIN);
+      heap.insert(2);
+      heap.deleteMin();
+
+      expected = 0;
+      actual = heap.size;
 
       assert.equal(actual, expected);
     });

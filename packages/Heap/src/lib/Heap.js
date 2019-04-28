@@ -158,7 +158,8 @@ class Heap {
    */
   deleteMax() {
     let _return = this._heap[0];
-    this._heap[0] = this._heap.pop();
+    let _min = this._heap.pop();
+    if (this._heap.length > 1) this._heap[0] = _min;
     this._percolateDown(0);
     return _return;
   }

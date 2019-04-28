@@ -1846,7 +1846,8 @@ var Heap = function () {
     key: "deleteMax",
     value: function deleteMax() {
       var _return = this._heap[0];
-      this._heap[0] = this._heap.pop();
+      var _min = this._heap.pop();
+      if (this._heap.length > 1) this._heap[0] = _min;
       this._percolateDown(0);
       return _return;
     }
@@ -4650,7 +4651,7 @@ var Trie = function () {
   return Trie;
 }();
 
-var version = "1.2.34";
+var version = "1.2.35";
 
 var Super = {
   version: version,
