@@ -4662,7 +4662,7 @@
     return Trie;
   }();
 
-  var version = "1.2.35";
+  var version = "1.2.36";
 
   var Super = {
     version: version,
